@@ -7,6 +7,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 		<title>Derek Misler | Developer of Web Things & Designer of Graphic Things</title>
 		<meta name="description" content="Developer of Web Things & Designer of Graphic Things">
+		<meta name="google-site-verification" content="oM1NjzxvtvPp4JL2t2qo13zUhGnrpGF0Fbgyb6S8vDk" />
 
 		<!-- Schema.org markup for Google+ -->
 		<meta itemprop="name" content="Derek Misler by Derek Misler">

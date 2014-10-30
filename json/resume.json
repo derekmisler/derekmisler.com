@@ -1,0 +1,185 @@
+{
+	"profile": {
+			"first_name": "Derek",
+			"middle_names": "Alan",
+			"last_name": "Misler",
+			"date_of_birth": "1986-04-08",
+			"place_of_birth": "Miami, Florida",
+			"biography": "I’m a developer, from the front-end all the way to the back. I have a well-rounded education of many different languages, though I have an advanced proficiency of front-end techniques. Some of my favorite aspects of programming are optimizing code, fixing details, and finding bugs. I’m an independent person, but I enjoy the learning opportunities afforded by working on a team. Did I mention I have a fine arts degree? I’d love the chance to explain why I think all programmers can benefit from an arts curriculum.",
+			"current_location": {
+					"housenumber": "2",
+					"street": "Cullowhee Street",
+					"zipcode": "28801",
+					"city": "Asheville",
+					"state": "North Carolina",
+					"country": "United States"
+			}
+	},
+	"contact_details": {
+			"email": "derekmisler@gmail.com",
+			"phone": "1-828-273-6943",
+			"phonedisplay": "(828) 273-6943",
+			"twitter": "http://twitter.com/derekmisler",
+			"linkedin": "http://www.linkedin.com/in/derekmisler/",
+			"github": "http://github.com/derekmisler",
+			"flickr": "http://www.flickr.com/photos/derekmisler/"
+	},
+	"educations": [
+			{
+					"title": "Appalachian State University",
+					"specification": "BFA - Graphic Design",
+					"location": "Boone, North Carolina",
+					"description": "I chose to study graphic design in the Fine Arts department of Appalachian State. I already had a grasp on programming and continued to teach myself during this time, but studying design in an art department allowed me to learn other aspects of development that are equally as important as the tools and languages themselves. The curriculum I chose focused on web development while also teaching color theory, typography, and layout design in a group setting. I think all programmers and developers should develop an eye for design, and I believe having this well-rounded education makes me a unique candidate for a position at any company. Outside of web design, we also had the opportunity to learn Flash game development. It was here that I learned the importance of architecture, specifically the model-view-controller pattern.",
+					"start_date": "2005",
+					"end_date": "2009",
+					"completed": true
+			},
+			{
+					"title": "A.C. Reynolds High School",
+					"specification": null,
+					"location": "Asheville, North Carolina",
+					"description": "Why would I add high school to this list? Because this is when I started my programming career, 15 years ago. I built my first website with PHP, HTML, CSS, and JavaScript in 2000 and started with C++ shortly thereafter. It was here that I learned the conventions behind object-oriented programming.",
+					"start_date": "2000",
+					"end_date": "2004",
+					"completed": true
+			}
+	],
+	"careers": [
+			{
+					"title": "Asheville Area Chamber of Commerce, Convention & Visitors Bureau",
+					"specification": "Web Manager",
+					"location": "Asheville, North Carolina",
+					"level": "Full-time",
+					"description": "As the only designer/developer/analyst on staff, my job is to maintain our entire web presence. We started with an ASP.NET-backed website, but one of my first projects was to oversee the first redesign of ExploreAsheville.com using Coldfustion, and I’ve since updated and maintained it as the web evolves, as well as creating the matching mobile site and Blogger theme. The site will receive over 4 million visits this year, which is more traffic than North Carolina’s state tourism office. I’ve been in charge of creating all print- and web-related assets for our various marketing campaigns, all of the digital analytics, and two long-form, media-rich, interactive stories that continue to win awards. Finally, we’re in the process of a second redesign utilizing Node.js and MongoDB. One feature of our new site utilizes web-scraping technology written in Python that we’ll be using to partner with area online events calendars to create a single, unified events calendar for the entire county.",
+					"start_date": "2010",
+					"end_date": null,
+					"link": "http://www.exploreasheville.com"
+			},
+			{
+					"title": "Houser Shoes",
+					"specification": "Web Designer/Photographer",
+					"location": "Fletcher, North Carolina",
+					"level": "Full-time",
+					"description": "During my time at Houser Shoes, I was part of a 3-person team that redesigned their ecommerce website. We created a custom CMS based on Magento, which utilized primarily PHP and MySQL. I also have photography experience, which made me the de-facto product photographer.",
+					"start_date": "2010",
+					"end_date": "late 2010",
+					"link": "http://www.housershoes.com"
+			},
+			{
+					"title": "DAM Design",
+					"specification": "Developer",
+					"location": "Asheville, North Carolina",
+					"level": "Freelance",
+					"description": "Immediately after graduation, I began freelancing. It was mostly branding and identity at first, but I eventually had enough clients needing new websites that I was putting in more hours than most full-time web developers. I still enjoy creating websites for friends from time-to-time.",
+					"start_date": "2009",
+					"end_date": null,
+					"link": null
+			},
+			{
+					"title": "Precision Printing",
+					"specification": "Designer/Printer",
+					"location": "Boone, North Carolina",
+					"level": "Part-time",
+					"description": "Though this isn’t programming- or web-related, I still think my experience working in a print shop can be seen in my work as a developer. On the web, mistakes can be fixed and I think, unfortunately, that mentality is common among developers and leads to sloppy code. Printing, however, requires an extremely detail-oriented approach as there is no room for error. As an example, Appalachian State University was one of our clients, so projects like the designing and printing of 20,000-30,000 graduation programs required efficiency and communication among all members of our team to ensure we weren’t making mistakes that would cost us hundreds of thousands of dollars to fix.",
+					"start_date": "2007",
+					"end_date": "2009",
+					"link": null
+			},
+			{
+					"title": "The Appalachian Newspaper",
+					"specification": "Lead Designer/Developer",
+					"location": "Boone, North Carolina",
+					"level": "Part-time",
+					"description": "During my time, I worked with an intern to create the online presence for The Appalachian newspaper, while still maintaining my role as the lead graphic designer.",
+					"start_date": "2006",
+					"end_date": "2008",
+					"link": "http://theappalachianonline.com"
+			}
+	],
+	"skills": [
+			{
+					"title": "OOP",
+					"level": 5
+			},
+			{
+					"title": "MVC Pattern",
+					"level": 5
+			},
+			{
+					"title": "HTML",
+					"level": 5
+			},
+			{
+					"title": "CSS",
+					"level": 5
+			},
+			{
+					"title": "JavaScript",
+					"level": 5
+			},
+			{
+					"title": "jQuery",
+					"level": 5
+			},
+			{
+					"title": "PHP",
+					"level": 4
+			},
+			{
+					"title": "ASP.NET",
+					"level": 3
+			},
+			{
+					"title": "ColdFusion",
+					"level": 3
+			},
+			{
+					"title": "Python",
+					"level": 4
+			},
+			{
+					"title": "Ruby on Rails",
+					"level": 2
+			},
+			{
+					"title": "Node.js",
+					"level": 4
+			},
+			{
+					"title": "C++",
+					"level": 3
+			},
+			{
+					"title": "Java",
+					"level": 3
+			},
+			{
+					"title": "Actionscript",
+					"level": 4
+			},
+			{
+					"title": "LESS/SASS",
+					"level": 5
+			},
+			{
+					"title": "JSON",
+					"level": 5
+			},
+			{
+					"title": "XML",
+					"level": 5
+			},
+			{
+					"title": "SQL",
+					"level": 4
+			},
+			{
+					"title": "MongoDB",
+					"level": 3
+			},
+			{
+					"title": "Git",
+					"level": 3
+			}
+	]
+}

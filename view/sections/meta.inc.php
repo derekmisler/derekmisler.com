@@ -1,36 +1,35 @@
+<!doctype html>
+<html lang="en-us" itemscope itemtype="http://schema.org/Article">
 	<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# product: http://ogp.me/ns/product#">
 
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-		<title>Derek Misler | Developer of Web Things & Designer of Graphic Things</title>
-		<meta name="description" content="Developer of Web Things & Designer of Graphic Things">
+		<title><?= $profile->full_name; ?> | <?= $profile->description; ?></title>
+		<meta name="description" content="<?= $profile->description; ?>">
 		<meta name="google-site-verification" content="oM1NjzxvtvPp4JL2t2qo13zUhGnrpGF0Fbgyb6S8vDk" />
 
 		<!-- Schema.org markup for Google+ -->
-		<meta itemprop="name" content="Derek Misler by Derek Misler">
-		<meta itemprop="description" content="Developer of Web Things & Designer of Graphic Things">
-		<meta itemprop="image" content="http://derekmisler.com/images/google-plus.jpg">
+		<meta itemprop="name" content="<?= $profile->full_name; ?>">
+		<meta itemprop="description" content="<?= $profile->description; ?>">
+		<meta itemprop="image" content="http://www.derekmisler.com/view/images/google-plus.jpg">
 		<link rel="publisher" href="http://plus.google.com/+DerekMisler/">
 
 		<!-- Twitter Card data -->
 		<meta name="twitter:card" content="summary_large_image ">
 		<meta name="twitter:site" content="@derekmisler">
-		<meta name="twitter:title" content="Derek Misler">
-		<meta name="twitter:description" content="Developer of Web Things & Designer of Graphic Things">
+		<meta name="twitter:title" content="<?= $profile->full_name; ?>">
+		<meta name="twitter:description" content="<?= $profile->description; ?>">
 		<meta name="twitter:creator" content="@derekmisler">
-		<meta name="twitter:image" content="http://derekmisler.com/images/twitter-card.jpg">
+		<meta name="twitter:image" content="http://www.derekmisler.com/view/images/twitter-card.jpg">
 
 		<!-- Open Graph data -->
-		<meta property="og:title" content="Derek Misler">
-		<meta property="og:type" content="article" />
-		<meta property="og:url" content="http://derekmisler.com/">
-		<meta property="og:image" content="http://derekmisler.com/images/facebook.jpg">
-		<meta property="og:description" content="Developer of Web Things & Designer of Graphic Things">
-		<meta property="og:site_name" content="Derek Misler">
-		<meta property="article:published_time" content="2014-10-01T05:59:00+05:00" />
-		<meta property="article:modified_time" content="2014-10-26T19:08:47+05:00" />
-		<meta property="article:section" content="Resume" />
+		<meta property="og:title" content="<?= $profile->full_name; ?>">
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="http://www.derekmisler.com/">
+		<meta property="og:image" content="http://www.derekmisler.com/view/images/facebook.jpg">
+		<meta property="og:description" content="<?= $profile->description; ?>">
+		<meta property="og:site_name" content="<?= $profile->full_name; ?>">
 		<meta property="fb:admins" content="812785510">
 		
 		<!-- core CSS -->

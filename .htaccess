@@ -62,15 +62,8 @@ php_value zlib.output_compression 16386
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
-
-RewriteEngine on
-# Options +FollowSymlinks
-RewriteCond %{HTTP_REFERER} http://54.238.131.230 [NC]
-RewriteRule .* - [F]
-
 RewriteCond %{HTTP_HOST} ^derekmisler.com$
 RewriteRule (.*) http://www.derekmisler.com/$1 [R=301,L]
-
 RewriteBase /
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f

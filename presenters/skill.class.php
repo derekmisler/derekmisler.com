@@ -11,6 +11,6 @@
 		
 		public function __construct($poSkill)
 		{
-			$this->extend($poSkill);	
+			$this->extend($poSkill);
 		}
 	}

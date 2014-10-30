@@ -125,8 +125,10 @@
 	position: absolute;
 	top: 0px;
 	right: 0px;
-	width: 48px;
-	height: 48px;
+	width: @navbar-height;;
+	height: @navbar-height;;
+	line-height: @navbar-height;
+	.text-center;
 }
 #projects figure .icon span {
 	font-size: 18px;
@@ -213,6 +215,7 @@
 figure.effect {
 	background: @brand-primary;
 	color: #FFF;
+	border: 1px solid @brand-primary;
 }
 
 figure.effect img {

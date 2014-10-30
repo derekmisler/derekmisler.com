@@ -20,7 +20,7 @@
 				<span class="icon">
 					<span class="icon-new-window"></span>
 				</span>
-			</figcaption> 
+			</figcaption>
 		</figure>
 	</div>
 

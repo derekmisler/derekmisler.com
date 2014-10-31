@@ -33,7 +33,10 @@
     Header set Cache-Control "max-age=604800, public"
   </filesMatch>
   <filesMatch "\.(js)$">
-    Header set Cache-Control "max-age=604800, private"
+    Header set Cache-Control "max-age=604800, public"
+  </filesMatch>
+  <filesMatch "\.(woff)$">
+    Header set Cache-Control "max-age=604800, public"
   </filesMatch>
   <filesMatch "\.(x?html?|php)$">
     Header set Cache-Control "max-age=600, private, must-revalidate"

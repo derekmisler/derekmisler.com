@@ -50,7 +50,14 @@ h3, .h3 { font-size: @font-size-h3; }
 h4, .h4 { font-size: @font-size-h4; }
 h5, .h5 { font-size: @font-size-h5; font-family: @font-family-base; }
 h6, .h6 { font-size: @font-size-h6; font-family: @font-family-base; }
-
+@media (max-width: @screen-sm-max) {
+    h1, .h1 { font-size: floor(@font-size-h1/2); }
+    h2, .h2 { font-size: floor(@font-size-h2/2); }
+    h3, .h3 { font-size: floor(@font-size-h3/1.75); }
+    h4, .h4 { font-size: floor(@font-size-h4/2); }
+    h5, .h5 { font-size: floor(@font-size-h5/1.5); font-family: @font-family-base; }
+    h6, .h6 { font-size: @font-size-h6; font-family: @font-family-base; }    
+}
 
 // Body text
 // -------------------------

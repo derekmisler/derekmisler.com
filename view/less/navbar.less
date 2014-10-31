@@ -9,16 +9,22 @@
 // other navbar variations.
 
 .navbar {
-  position: relative;
+  position: absolute;
   min-height: @navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
   margin-bottom: @navbar-margin-bottom;
-  border: 1px solid transparent;
+  border: 0px solid transparent;
+	background-color: fadeout(@body-bg, 50%);
+	top: 100%;
+	right: 0;
+	left: 0;
+	width: 100%;
+	z-index: 999;
 
   // Prevent floats from breaking the navbar
   &:extend(.clearfix all);
 
   @media (min-width: @grid-float-breakpoint) {
-    border-radius: @navbar-border-radius;
+    border-radius: 0;
   }
 }
 
@@ -49,10 +55,11 @@
 
 .navbar-collapse {
   overflow-x: visible;
+	padding: 0px;
+	max-height: none;
   padding-right: @navbar-padding-horizontal;
   padding-left:  @navbar-padding-horizontal;
-  border-top: 1px solid transparent;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+  border-top: 0px solid transparent;
   &:extend(.clearfix all);
   -webkit-overflow-scrolling: touch;
 
@@ -388,8 +395,6 @@
 
 // Default navbar
 .navbar-default {
-  background-color: @navbar-default-bg;
-  border-color: @navbar-default-border;
 
   .navbar-brand {
     color: @navbar-default-brand-color;

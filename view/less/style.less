@@ -7,7 +7,6 @@
 	margin: 0px;
 	padding: 0px;
 	height: 100%;
-
 	.overlay {
 		background-color: fadeout(@blue, 25%);
 		position: absolute;
@@ -17,13 +16,11 @@
 		right: 0px;
 		z-index: 2;
 	}
-	
 	.container {
 		position: relative;
 		top: 50%;
 		.translate(0; -50%);
-		z-index: 4;
-		
+		z-index: 4;		
 		h1 {
 			text-align: left;
 			color: @body-bg;
@@ -38,30 +35,40 @@
 	}
 }
 .navbar  {
-	border: 0px;
-	background-color: fadeout(@body-bg, 50%);
-	position: absolute;
-	top: 100%;
-	right: 0;
-	left: 0;
-	width: 100%;
-	z-index: 999;
+    .navbar-nav {
+        float: none;
+        margin: 0;
+    }
+    .nav > li {
+        display: block;
+        padding: 0;
+        a {
+            display: block;
+            height: @navbar-height;
+            text-align: center;
+            line-height: @navbar-height;
+            color: @gray-dark;
+            padding: 0;
+            &:hover,
+            &:focus {
+                color: @blue;
+            }
+        }
+    }
 }
-.navbar .navbar-collapse { padding: 0px; max-height: none; }
-.navbar .navbar-nav { float: none; }
-.navbar-nav { margin: 0px; }
-.navbar .nav > li { display: block; padding: 0; }
-.navbar .nav > li a { display: block;  height: @navbar-height; text-align: center; line-height: @navbar-height; color: @gray-dark; padding: 0; }
-.navbar .nav > li a:hover, .navbar .nav > li a:focus { color: #999999; }
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus { background: @brand-primary; color: @body-bg; }
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    background: @brand-primary;
+    color: @body-bg;
+}
 
 .navbar-default .navbar-toggle {
 	border: 0px;
 	color: @gray-dark;
 	padding: 5px;
 	font-size: @font-size-h3;
-	margin: 0;
-	
+	margin: 0;	
 	&:hover,
 	&:focus {
 		color: @orange;
@@ -70,14 +77,19 @@
 
 .fixed .navbar  { position: fixed; top: 0px; }
 
-.background-yellow { background: fadeout(@yellow, 50%); }
+.background-yellow {
+    background: fadeout(@yellow, 50%);
+}
 .background-gray {
     background: fadeout(@blue, 25%);
     hr{
         border-top: 1px solid fadeout(@body-bg, 35%);
     }
 }
-.container { max-width: 1280px; padding: @navbar-height floor(@navbar-height * 2); }
+.container {
+    max-width: 1280px;
+    padding: @navbar-height floor(@navbar-height * 2);
+}
 
 #profile .row > div { margin-bottom: 20px; }
 #profile .row > div img { width: 100%; max-width: 250px; height: auto; border-radius: 50%; border: .5rem solid rgba(0,0,0,.1); }
@@ -136,19 +148,24 @@
 	line-height: @navbar-height;
 	.text-center;
 }
-#more { padding-bottom: 200px; }
-#more h2, #more .row * { color: @body-bg; }
-#more a {
-	display: block;
-	margin-bottom: @font-size-base;
-	font-size: @font-size-h3;
-    .opacity(.6);
-    &:hover {
-    	.opacity(1);
-    	text-decoration: none;
+#more {
+    padding-bottom: 200px;
+    .row *,
+    h2 {
+        color: @body-bg;
+    }
+    a {
+    	display: block;
+    	margin-bottom: @font-size-base;
+    	font-size: @font-size-h3;
+        .opacity(.6);
+        &:hover {
+        	.opacity(1);
+        	text-decoration: none;
+        }
     }
 }
-@media (max-width: 767px) {
+@media (max-width: @screen-xs-max) {
 	.jumbotron{
 	    &:before {
     		bottom: 100px;
@@ -176,23 +193,21 @@
     		}
     	}
 	}
-	.jumbotron .container { top: 20%; padding-top: 0px; }
-	.jumbotron .scroll-down { width: 100%; right: 0px; }
 	
 	.navbar  {
 	    left: 0px;
 	    width: 100%;
 	    background-color: fadeout(@body-bg, 10%);
+    	.nav > li {
+    	    height: ceil(@navbar-height * 2);
+    	    width: 100%;
+            a {
+        	    height: ceil(@navbar-height * 2);
+        	    text-align: center;
+        	    line-height: ceil(@navbar-height * 2);
+        	}
+    	}
 	}
-	.navbar .nav > li {
-	    height: ceil(@navbar-height * 2);
-	    width: 100%;
-	}
-	.navbar .nav > li a {
-	    height: ceil(@navbar-height * 2);
-	    text-align: center;
-	    line-height: ceil(@navbar-height * 2);
-	   }
 	
 	.fixed .navbar { top: 0px; }
 	
@@ -207,44 +222,23 @@
 	#more a .icon { float: left; margin-right: 10px; }
 }
 
-@media only screen and (orientation: portrait) and (max-width: 767px)  {
+@media only screen and (orientation: portrait) and (max-width: @screen-xs-max)  {
     .jumbotron {
       -webkit-background-size: auto 150%;
       background-attachment: scroll;
     }
 }
-@media only screen and (orientation: landscape) and (max-width: 767px)  {
-
+@media only screen and (orientation: landscape) and (max-width: @screen-xs-max)  {
     .jumbotron {
       -webkit-background-size: 150% auto;
       background-attachment: scroll;
     }
-	
-	.jumbotron .lead { display: none; }
 }
 
-@keyframes wiggle {
-	0% {
-		padding-top: 20px;
-	}
-
-	50% {
-		padding-top: 28px;
-	}
-
-	100% {
-		padding-top: 20px;
-	}
-}
-
-
-/*---------------*/
-/***** EFFECT *****/
-/*---------------*/
 
 figure.effect {
 	background: @brand-primary;
-	color: #FFF;
+	color: @body-bg;
 	border: 1px solid @brand-primary;
 }
 

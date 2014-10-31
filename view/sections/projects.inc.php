@@ -8,7 +8,7 @@
 
 	<?php foreach($projects as $index => $project) { ?>
 	
-	<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+	<div class="col-md-6 col-sm-12 col-xs-12">
 		<figure class="effect">
 			<img src="<?= VIEW_PATH.'images/'.$project->image; ?>" alt="<?= $project->title; ?>" />
 			

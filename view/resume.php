@@ -18,7 +18,7 @@
 				<ul class="nav navbar-nav medium-block-grid-5">
 					<li class="active"><a href="#profile">About <?= $profile->first_name; ?></a></li>
 					<li><a href="#experiences">Experience</a></li>
-					<li><a href="#skills">Skills</a></li>
+					<li><a href="#qualifications">Qualifications</a></li>
 					<li><a href="#projects">Projects</a></li>
 					<li><a href="#more">More Info</a></li>
 				</ul>
@@ -36,7 +36,7 @@
 		</div>
 		
 		<div class="background-yellow">
-			<div id="skills" class="container">
+			<div id="qualifications" class="container">
 				<?php include(VIEW_INCLUDE_PATH.'sections/skills.inc.php'); ?>
 			</div>
 		</div>

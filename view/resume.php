@@ -16,22 +16,22 @@
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav medium-block-grid-5">
-					<li class="active"><a href="#profile">About <?= $profile->first_name; ?></a></li>
-					<li><a href="#experiences">Experience</a></li>
+					<li class="active"><a href="#about-derek">About <?= $profile->first_name; ?></a></li>
+					<li><a href="#experience">Experience</a></li>
 					<li><a href="#qualifications">Qualifications</a></li>
 					<li><a href="#projects">Projects</a></li>
-					<li><a href="#more">More Info</a></li>
+					<li><a href="#more-info">More Info</a></li>
 				</ul>
 			</div>
 		</nav>
 		
 		<div class="background-yellow">
-			<div id="profile" class="container">
+			<div id="about-derek" class="container">
 				<?php include(VIEW_INCLUDE_PATH.'sections/profile.inc.php'); ?>
 			</div>
 		</div>
 		
-		<div id="experiences" class="container">
+		<div id="experience" class="container">
 			<?php include(VIEW_INCLUDE_PATH.'sections/experiences.inc.php'); ?>
 		</div>
 		
@@ -46,7 +46,7 @@
 		</div>
 		
 		<div class="background-gray">
-			<div id="more" class="container">
+			<div id="more-info" class="container">
 				<?php include(VIEW_INCLUDE_PATH.'sections/more.inc.php'); ?>
 			</div>
 		</div>

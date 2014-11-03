@@ -4561,33 +4561,33 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   max-width: 1280px;
   padding: 40px 80px;
 }
-#profile .row > div {
+#about-derek .row > div {
   margin-bottom: 20px;
 }
-#profile .row > div img {
+#about-derek .row > div img {
   width: 100%;
   max-width: 250px;
   height: auto;
   border-radius: 50%;
   border: 0.5rem solid rgba(0, 0, 0, 0.1);
 }
-#experiences .experience {
+#experience .experience {
   margin-bottom: 20px;
 }
-#experiences .experience p > strong {
+#experience .experience p > strong {
   display: block;
   padding-top: 8px;
   margin-bottom: 10px;
 }
-#experiences .experience .experience-details {
+#experience .experience .experience-details {
   display: block;
   margin-top: 6px;
 }
-#experiences .experience .experience-details * {
+#experience .experience .experience-details * {
   color: #dc3522;
   font-size: 17px;
 }
-#experiences .experience .experience-details .seperator {
+#experience .experience .experience-details .seperator {
   color: #BCBCBC;
 }
 #qualifications ul > li {
@@ -4664,21 +4664,21 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   line-height: 40px;
   text-align: center;
 }
-#more {
+#more-info {
   padding-bottom: 200px;
 }
-#more .row *,
-#more h2 {
+#more-info .row *,
+#more-info h2 {
   color: #f0f0f0;
 }
-#more a {
+#more-info a {
   display: block;
   margin-bottom: 20px;
   font-size: 44px;
   opacity: 0.6;
   filter: alpha(opacity=60);
 }
-#more a:hover {
+#more-info a:hover {
   opacity: 1;
   filter: alpha(opacity=100);
   text-decoration: none;
@@ -4735,17 +4735,17 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   .hidden-phone {
     display: none;
   }
-  #experiences .experience .experience-details > span {
+  #experience .experience .experience-details > span {
     display: block;
     margin-bottom: 6px;
   }
-  #experiences .experience .experience-details .seperator {
+  #experience .experience .experience-details .seperator {
     display: none;
   }
-  #more {
+  #more-info {
     padding-bottom: 60px;
   }
-  #more a .icon {
+  #more-info a .icon {
     float: left;
     margin-right: 10px;
   }

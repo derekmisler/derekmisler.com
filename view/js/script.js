@@ -21,7 +21,7 @@ function applyHeader()
 
 function lazyLoad(poContainer)
 {
-	/*var lstrSource   = poContainer.attr('data-src');
+	var lstrSource   = poContainer.attr('data-src');
 	var lstrPosition = poContainer.attr('data-position');
 
 	$('<img>').attr('src', lstrSource).load(function()
@@ -30,9 +30,64 @@ function lazyLoad(poContainer)
 		poContainer.css('background-position', lstrPosition);
 		poContainer.css('-ms-filter', '"progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'' + lstrSource + '\', sizingMethod=\'scale\')"');
 		poContainer.css('filter', 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'' + lstrSource + '\', sizingMethod=\'scale\'');
-	});*/
+	});
 }
+/**
+* jQuery Unveil
+* A very lightweight jQuery plugin to lazy load images
+* http://luis-almeida.github.com/unveil
+*
+* Licensed under the MIT license.
+* Copyright 2013 Luís Almeida
+* https://github.com/luis-almeida
+*/
 
+;(function($) {
+
+	$.fn.unveil = function(threshold, callback) {
+
+		var $w = $(window),
+				th = threshold || 0,
+				retina = window.devicePixelRatio > 1,
+				attrib = retina? "data-src-retina" : "data-src",
+				images = this,
+				loaded;
+
+		this.one("unveil", function() {
+			var source = this.getAttribute(attrib);
+			source = source || this.getAttribute("data-src");
+			if (source) {
+				this.setAttribute("src", source);
+				if (typeof callback === "function") callback.call(this);
+			}
+		});
+
+		function unveil() {
+			var inview = images.filter(function() {
+				var $e = $(this);
+				if ($e.is(":hidden")) return;
+
+				var wt = $w.scrollTop(),
+						wb = wt + $w.height(),
+						et = $e.offset().top,
+						eb = et + $e.height();
+
+				return eb >= wt - th && et <= wb + th;
+			});
+
+			loaded = inview.trigger("unveil");
+			images = images.not(loaded);
+		}
+
+		$w.on("scroll.unveil resize.unveil lookup.unveil", unveil);
+
+		unveil();
+
+		return this;
+
+	};
+
+})(window.jQuery || window.Zepto);
 /* NAVIGATION FUNCTIONS */
 
 function applyNavigation()
@@ -70,7 +125,7 @@ function applyNavigationFixForPhone()
 
 function applyScrollSpy()
 {
-	$('#navbar-example').on('activate.bs.scrollspy', function() 
+	$('.scroll-down').on('activate.bs.scrollspy', function() 
 	{
 		window.location.hash = $('.nav .active a').attr('href').replace('#', '#/');
 	});
@@ -78,7 +133,7 @@ function applyScrollSpy()
 
 function applyStickyNavigation()
 {
-	lnStickyNavigation = $('.scroll-down').offset().top + 20;
+	lnStickyNavigation = $('.scroll-down').offset().top + 0;
 	
 	$(window).on('scroll', function() 
 	{  
@@ -100,27 +155,13 @@ function stickyNavigation()
 	}  
 }
 
-/* MAILTO FUNCTION */
-
-function applyMailTo()
-{
-	$('a[href*=mailto]').on('click', function(e)
-	{
-		var lstrEmail = $(this).attr('href').replace('mailto:', '');
-		
-		lstrEmail = lstrEmail.split('').reverse().join('')
-		
-		$(this).attr('href', 'mailto:' + lstrEmail);
-	});
-}
-
 /* RESIZE FUNCTION */
 
 function applyResize()
 {
 	$(window).on('resize', function() 
 	{  
-		lnStickyNavigation = $('.scroll-down').offset().top + 20;
+		lnStickyNavigation = $('.scroll-down').offset().top + 0;
 	
 		$('.jumbotron').css({ height: ($(window).height()) +'px' });
 	}); 
@@ -137,68 +178,3 @@ function checkHash()
 		$('a[href='+ lstrHash +']').trigger('click');
 	}
 }
-
-/* IE7- FALLBACK FUNCTIONS */
-
-function checkBrowser()
-{
-	var loBrowserVersion = getBrowserAndVersion();
-	
-	if(loBrowserVersion.browser == 'Explorer' && loBrowserVersion.version < 8)
-	{ 
-		$('#upgrade-dialog').modal({
-			backdrop: 'static',
-			keyboard: false
-		});
-	}
-}
-
-function getBrowserAndVersion() 
-{
-	var laBrowserData = [{
-		string: 		navigator.userAgent,
-		subString: 		'MSIE',
-		identity: 		'Explorer',
-		versionSearch: 	'MSIE'
-	}];
-	
-	return {
-		browser: searchString(laBrowserData) || 'Modern Browser',
-		version: searchVersion(navigator.userAgent) || searchVersion(navigator.appVersion) || '0.0'
-	};
-}
-
-function searchString(paData) 
-{
-	for(var i = 0; i < paData.length; i++)	
-	{
-		var lstrDataString 	= paData[i].string;
-		var lstrDataProp 	= paData[i].prop;
-		
-		this.versionSearchString = paData[i].versionSearch || paData[i].identity;
-		
-		if(lstrDataString) 
-		{
-			if(lstrDataString.indexOf(paData[i].subString) != -1)
-			{
-				return paData[i].identity;
-			}
-		}
-		else if(lstrDataProp)
-		{
-			return paData[i].identity;
-		}
-	}
-}
-	
-function searchVersion(pstrDataString) 
-{
-	var lnIndex = pstrDataString.indexOf(this.versionSearchString);
-	
-	if(lnIndex == -1) 
-	{
-		return;
-	}
-	
-	return parseFloat(pstrDataString.substring(lnIndex + this.versionSearchString.length + 1));
-}	

@@ -10,6 +10,6 @@
 		/* CONSTRUCTOR */
 		public function __construct($poTool)
 		{
-			$this->extend($poTool);	
+			$this->extend($poTool);
 		}
 	}

@@ -24,7 +24,7 @@
 		/* PUBLIC METHODS */
 		
 		public function all()
-		{			
+		{
 			return $this->iaProjects;
 		}
 		

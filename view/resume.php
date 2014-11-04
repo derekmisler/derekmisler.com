@@ -52,7 +52,7 @@
 		</div>
 
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script type="text/javascript" src="<?= VIEW_PATH; ?>js/script.js"></script>
+		<script type="text/javascript" src="<?= VIEW_PATH; ?>js/script.js?v=4"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 		
 	</body>

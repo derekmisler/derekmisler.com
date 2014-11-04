@@ -14,7 +14,7 @@
 		
 		public function __construct($poProject)
 		{
-			$this->extend($poProject);	
+			$this->extend($poProject);
 		}
 		
 		/* PUBLIC METHODS */

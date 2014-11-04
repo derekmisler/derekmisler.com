@@ -4774,6 +4774,7 @@ figure.effect img {
   -webkit-transform: translate3d(-10px, 0, 0);
   transform: translate3d(-10px, 0, 0);
   -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 figure.effect:hover img {
@@ -4790,12 +4791,9 @@ figure.effect h3 {
   overflow: hidden;
   padding-bottom: 20px;
   opacity: 0;
+  filter: alpha(opacity=0);
   -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
   transition: opacity 0.35s, transform 0.35s;
-}
-figure.effect:hover h3 {
-  opacity: 1;
-  filter: alpha(opacity=100);
 }
 figure.effect h3:after {
   position: absolute;
@@ -4809,6 +4807,10 @@ figure.effect h3:after {
   transition: transform 0.35s;
   -webkit-transform: translate3d(-100%, 0, 0);
   transform: translate3d(-100%, 0, 0);
+}
+figure.effect:hover h3 {
+  opacity: 1;
+  filter: alpha(opacity=100);
 }
 figure.effect:hover h3:after {
   -webkit-transform: translate3d(0, 0, 0);

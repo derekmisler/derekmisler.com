@@ -40,7 +40,7 @@
 		
 		private function collect()
 		{
-			$laProjects = ORM::factory('projects');	
+			$laProjects = ORM::factory('projects');
 			
 			foreach($laProjects as $loProject)
 			{

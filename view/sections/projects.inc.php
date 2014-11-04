@@ -10,7 +10,7 @@
 	
 	<div class="col-md-6 col-sm-12 col-xs-12">
 		<figure class="effect">
-			<img src="<?= VIEW_PATH; ?>images/loader.gif" data-src="<?= VIEW_PATH.'images/'.$project->image; ?>" data-src-retina="<?= VIEW_PATH.'images/'.$project->retina-image; ?>" alt="<?= $project->title; ?>" />
+			<img src="<?= VIEW_PATH; ?>images/loader.gif" data-src="<?= VIEW_PATH.'images/'.$project->image; ?>" alt="<?= $project->title; ?>" />
 			
 			<figcaption>
 				<h3><?= $project->title; ?></h3>

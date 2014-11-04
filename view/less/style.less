@@ -104,18 +104,18 @@
 #qualifications ul > li:hover { background: @body-bg; }
 #qualifications ul > li .ability-title {  }
 #qualifications ul > li .ability-score { float: right; }
-#qualifications ul > li .ability-score .icon-star {
+#qualifications ul > li .ability-score .icon-heart {
 	color: @body-bg;
 	.transition(all 0.3s);
 }
 #qualifications ul > li .ability-score .filled { color: @brand-primary; }
 
-#qualifications ul > li:hover .ability-score .icon-star.filled { color: darken(@brand-primary, 15%); }
+#qualifications ul > li:hover .ability-score .filled { color: darken(@brand-primary, 15%); }
 
 /* #projects .row { margin: 0px; } // bootstrap 3.1- hack */
 #projects .row > div { margin-bottom: 30px; }
 #projects figure { position: relative; overflow: hidden; }
-#projects figure h3 { color: #FFF; font-weight: 600; margin-bottom: 5px; }
+#projects figure h3 { color: @body-bg; margin-bottom: 5px; }
 #projects figure p > strong { width: 60px; display: inline-block; margin: 0px; }
 #projects figure img { width: 110%; }
 #projects figure figcaption {
@@ -247,16 +247,14 @@ figure.effect img {
 	width: calc(100% + 20px);
 	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
 	transition: opacity 0.35s, transform 0.35s;
-	-webkit-transform: translate3d(-10px,0,0);
-	transform: translate3d(-10px,0,0);
+	.translate3d(-10px; 0; 0);
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
 
 figure.effect:hover img {
-	opacity: 0.2;
-	-webkit-transform: translate3d(0,0,0);
-	transform: translate3d(0,0,0);
+	.opacity(.2);
+	.translate3d(0; 0; 0)
 }
 
 figure.effect figcaption {
@@ -273,39 +271,39 @@ figure.effect h3 {
 }
 
 figure.effect:hover h3 {
-	opacity: 1;
+	.opacity(1);
 }
 
-figure.effect h3::after {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 2px;
-	background: #fff;
-	content: '';
-	-webkit-transition: -webkit-transform 0.35s;
-	transition: transform 0.35s;
-	-webkit-transform: translate3d(-100%,0,0);
-	transform: translate3d(-100%,0,0);
+figure.effect h3{
+    &:after {
+    	position: absolute;
+    	bottom: 0;
+    	left: 0;
+    	width: 100%;
+    	height: 2px;
+    	background: @body-bg;
+    	content: '';
+    	-webkit-transition: -webkit-transform 0.35s;
+    	transition: transform 0.35s;
+    	.translate3d(-100%; 0; 0);
+    }
 }
 
-figure.effect:hover h3::after {
-	-webkit-transform: translate3d(0,0,0);
-	transform: translate3d(0,0,0);
+figure.effect:hover h3{
+    &:after {
+    	.translate3d(0; 0; 0);
+    }
 }
 
 figure.effect p {
 	padding-top: 10px;
-	opacity: 0;
+	.opacity(0);
 	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
 	transition: opacity 0.35s, transform 0.35s;
-	-webkit-transform: translate3d(100%,0,0);
-	transform: translate3d(100%,0,0);
+	.translate3d(100%; 0; 0);
 }
 
 figure.effect:hover p {
-	opacity: 1;
-	-webkit-transform: translate3d(0,0,0);
-	transform: translate3d(0,0,0);
+	.opacity(1);
+	.translate3d(0; 0; 0);
 }

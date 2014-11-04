@@ -4600,7 +4600,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 #qualifications ul > li .ability-score {
   float: right;
 }
-#qualifications ul > li .ability-score .icon-star {
+#qualifications ul > li .ability-score .icon-heart {
   color: #f0f0f0;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
@@ -4609,7 +4609,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 #qualifications ul > li .ability-score .filled {
   color: #dc3522;
 }
-#qualifications ul > li:hover .ability-score .icon-star.filled {
+#qualifications ul > li:hover .ability-score .filled {
   color: #9a2518;
 }
 /* #projects .row { margin: 0px; } // bootstrap 3.1- hack */
@@ -4621,8 +4621,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   overflow: hidden;
 }
 #projects figure h3 {
-  color: #FFF;
-  font-weight: 600;
+  color: #f0f0f0;
   margin-bottom: 5px;
 }
 #projects figure p > strong {
@@ -4779,6 +4778,7 @@ figure.effect img {
 }
 figure.effect:hover img {
   opacity: 0.2;
+  filter: alpha(opacity=20);
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
@@ -4795,27 +4795,29 @@ figure.effect h3 {
 }
 figure.effect:hover h3 {
   opacity: 1;
+  filter: alpha(opacity=100);
 }
-figure.effect h3::after {
+figure.effect h3:after {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 2px;
-  background: #fff;
+  background: #f0f0f0;
   content: '';
   -webkit-transition: -webkit-transform 0.35s;
   transition: transform 0.35s;
   -webkit-transform: translate3d(-100%, 0, 0);
   transform: translate3d(-100%, 0, 0);
 }
-figure.effect:hover h3::after {
+figure.effect:hover h3:after {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
 figure.effect p {
   padding-top: 10px;
   opacity: 0;
+  filter: alpha(opacity=0);
   -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
   transition: opacity 0.35s, transform 0.35s;
   -webkit-transform: translate3d(100%, 0, 0);
@@ -4823,6 +4825,7 @@ figure.effect p {
 }
 figure.effect:hover p {
   opacity: 1;
+  filter: alpha(opacity=100);
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }

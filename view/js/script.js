@@ -2,6 +2,7 @@ var lnStickyNavigation;
 
 $(document).ready(function()
 {	
+	$('img').unveil();
 	applyHeader();
 	applyNavigation(); 
 	applyMailTo();
@@ -14,24 +15,9 @@ $(document).ready(function()
 
 function applyHeader()
 {
-	$('.jumbotron').css({ height: ($(window).height()) +'px' });
-	
-	lazyLoad($('.jumbotron'));
+	$('.jumbotron').css({ height: ($(window).height()) +'px' }).unveil();
 }	
 
-function lazyLoad(poContainer)
-{
-	var lstrSource   = poContainer.attr('data-src');
-	var lstrPosition = poContainer.attr('data-position');
-
-	$('<img>').attr('src', lstrSource).load(function()
-	{
-		poContainer.css('background-image', 'url("'+ lstrSource +'")');
-		poContainer.css('background-position', lstrPosition);
-		poContainer.css('-ms-filter', '"progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'' + lstrSource + '\', sizingMethod=\'scale\')"');
-		poContainer.css('filter', 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'' + lstrSource + '\', sizingMethod=\'scale\'');
-	});
-}
 /**
 * jQuery Unveil
 * A very lightweight jQuery plugin to lazy load images
@@ -127,7 +113,7 @@ function applyScrollSpy()
 {
 	$('.scroll-down').on('activate.bs.scrollspy', function() 
 	{
-		window.location.hash = $('.nav .active a').attr('href').replace('#', '#/');
+		window.location.hash = $('.nav .active a').attr('href').replace('#', '/');
 	});
 }
 
@@ -146,13 +132,13 @@ function applyStickyNavigation()
 function stickyNavigation()
 {         
 	if($(window).scrollTop() > lnStickyNavigation) 
-	{   
-		$('body').addClass('fixed');  
+	{
+		$('body').addClass('fixed');
 	} 
-	else 
-	{  
-		$('body').removeClass('fixed');   
-	}  
+	else
+	{
+		$('body').removeClass('fixed');
+	}
 }
 
 /* RESIZE FUNCTION */
@@ -171,7 +157,7 @@ function applyResize()
 
 function checkHash()
 {
-	lstrHash = window.location.hash.replace('#/', '#');
+	lstrHash = window.location.hash.replace('/', '#');
 	
 	if($('a[href='+ lstrHash +']').length > 0)
 	{

@@ -19,7 +19,7 @@
 				
 				<?php for($stars = 1; $stars <= 5; $stars++) { ?>
 				
-					<span class="icon-star <?= ($skill->level >= $stars) ? 'filled' : ''; ?>"></span>
+					<span class="icon-heart <?= ($skill->level >= $stars) ? 'filled' : ''; ?>"></span>
 					
 				<?php } ?>
 					
@@ -61,7 +61,7 @@
 				
 				<?php for($stars = 1; $stars <= 5; $stars++) { ?>
 				
-					<span class="icon-star <?= ($tool->level >= $stars) ? 'filled' : ''; ?>"></span>
+					<span class="icon-heart <?= ($tool->level >= $stars) ? 'filled' : ''; ?>"></span>
 					
 				<?php } ?>
 					

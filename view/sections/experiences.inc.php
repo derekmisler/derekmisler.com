@@ -25,7 +25,8 @@
 				</span>
 				<span class="experience-details">
 					<span class="location">
-						<span class="icon-location-dot"></span>&nbsp;<?= $education->location; ?></span>
+						<span class="icon-location-dot"></span>&nbsp;<?= $education->location; ?>
+					</span>
 				</span>
 			</p>
 		</div>
@@ -53,9 +54,7 @@
 	<div class="experience row">
 		<div class="col-md-5 col-lg-4">
 			<h4><?= $career->title; ?></h4>
-			<p class="experience-period">
-				<?= $career->start_date; ?>-<?= (@isset($career->end_date)) ? $career->end_date : 'current'; ?>
-			</p>
+			<p class="experience-period"><?= $career->start_date; ?>-<?= (@isset($career->end_date)) ? $career->end_date : 'current'; ?></p>
 		</div>
 		<div class="col-md-7 col-lg-8">
 			<h5><?= $career->specification; ?></h5>
@@ -68,9 +67,9 @@
 					
 					<?php if(@isset($career->link)) { ?>
 					
-					<span class="seperator"><br /></span>
+					<br />
 					<span class="link">
-						<span class="icon-new-window"></span>&nbsp;<a href="<?= $career->link; ?>" target="_blank"><?= $career->link; ?></a></span>
+						<a href="<?= $career->link; ?>" target="_blank"><span class="icon-new-window"></span>&nbsp;<?= $career->link; ?></a></span>
 					
 					<?php } ?>
 					

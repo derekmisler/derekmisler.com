@@ -16,6 +16,22 @@
 		right: 0px;
 		z-index: 2;
 	}
+	.down-arrow{
+	    position: absolute;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	    height: @navbar-height;
+	    line-height: @navbar-height;
+	    color: @body-bg;
+	    background-color: fadeout(@body-bg, 90%);
+	    z-index: 3;
+	    text-align: center;
+	    .transition(all 0.3s);
+	    &:hover{
+	        padding-top: 5px;
+	    }
+	}
 	.container {
 		position: relative;
 		top: 50%;
@@ -51,7 +67,7 @@
             padding: 0;
             &:hover,
             &:focus {
-                color: @blue;
+                color: @red;
             }
         }
     }
@@ -65,13 +81,13 @@
 
 .navbar-default .navbar-toggle {
 	border: 0px;
-	color: @gray-dark;
+	color: @link-color;
 	padding: 5px;
 	font-size: @font-size-h3;
 	margin: 0;	
 	&:hover,
 	&:focus {
-		color: @orange;
+		color: @link-hover-color;
 	}
 }
 
@@ -91,14 +107,27 @@
     padding: @navbar-height floor(@navbar-height * 2);
 }
 
-#about-derek .row > div { margin-bottom: 20px; }
+#about-derek .row > div { margin-bottom: 1rem; }
 #about-derek .row > div img { width: 100%; max-width: 250px; height: auto; border-radius: 50%; border: .5rem solid rgba(0,0,0,.1); }
 	
-#experience .experience { margin-bottom: 20px; }
-#experience .experience p > strong { display: block; padding-top: 8px; margin-bottom: 10px; }
-#experience .experience .experience-details { display: block; margin-top: 6px; }
-#experience .experience .experience-details * { color: @brand-primary; font-size: @font-size-small; }
-#experience .experience .experience-details .seperator { color: #BCBCBC; }
+#experience .experience {
+    margin-bottom: 1rem;
+    p > strong {
+        display: block;
+        padding-top: 1rem;
+        margin-bottom: .5rem;
+    }
+    .experience-details {
+        display: block;
+        margin-top: .5rem;
+        color: @brand-primary;
+        font-size: @font-size-small;
+        a:hover,
+        a:focus{
+            color: @link-hover-color;
+        }
+    }
+}
 
 #qualifications ul > li { height: @navbar-height; line-height: @navbar-height; }
 #qualifications ul > li:hover { background: @body-bg; }
@@ -108,9 +137,9 @@
 	color: @body-bg;
 	.transition(all 0.3s);
 }
-#qualifications ul > li .ability-score .filled { color: @brand-primary; }
+#qualifications ul > li .ability-score .filled { color: @link-color; }
 
-#qualifications ul > li:hover .ability-score .filled { color: darken(@brand-primary, 15%); }
+#qualifications ul > li:hover .ability-score .filled { color: @link-hover-color; }
 
 /* #projects .row { margin: 0px; } // bootstrap 3.1- hack */
 #projects .row > div { margin-bottom: 30px; }

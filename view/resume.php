@@ -6,6 +6,7 @@
 				<h1><?= $profile->full_name; ?><small><?= $profile->description; ?></small></h1>
 			</div>
 			<div class="overlay"></div>
+			<a class="down-arrow" href="#about-derek"><span class="icon-arrow-down"></span></a>
 		</div>
 
 		<nav class="navbar navbar-default scroll-down" role="navigation">
@@ -16,7 +17,7 @@
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav medium-block-grid-5">
-					<li class="active"><a href="#about-derek">About <?= $profile->first_name; ?></a></li>
+					<li><a href="#about-derek">About <?= $profile->first_name; ?></a></li>
 					<li><a href="#experience">Experience</a></li>
 					<li><a href="#qualifications">Qualifications</a></li>
 					<li><a href="#projects">Projects</a></li>

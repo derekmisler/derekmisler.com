@@ -6,7 +6,7 @@
 				<h1><?= $profile->full_name; ?><small><?= $profile->description; ?></small></h1>
 			</div>
 			<div class="overlay"></div>
-			<a class="down-arrow" href="#about-derek"><span class="icon-arrow-down"></span></a>
+			<a class="down-arrow hidden-phone" href="#about-derek"><span class="icon-arrow-down"></span></a>
 		</div>
 
 		<nav class="navbar navbar-default scroll-down" role="navigation">

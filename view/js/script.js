@@ -2,13 +2,10 @@ var lnStickyNavigation;
 
 $(document).ready(function()
 {
-	$('img').unveil();
-	applyHeader();
+	$('img').unveil(200);
 	applyNavigation();
-	applyMailTo();
 	applyResize();
 	checkHash();
-	checkBrowser();
 });
 
 /* HEADER FUNCTIONS */

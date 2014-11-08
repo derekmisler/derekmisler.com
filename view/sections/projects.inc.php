@@ -17,7 +17,7 @@
 			<figcaption>
 				<h3><?= $project->title; ?></h3>
 				<p><?= $project->description; ?></p>
-				<p><strong>Tags:</strong> <br /><?= $project->tags; ?></p>
+				<p><strong>Skills Utilized:</strong> <br /><?= $project->tags; ?></p>
 				<a href="<?= $project->link; ?>" target="_blank" title="View Project">View more</a>
 				<span class="icon">
 					<span class="icon-new-window"></span>

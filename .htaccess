@@ -57,13 +57,12 @@ FileETag None
 </ifModule>
 # END Remove Last-Modified Header
 
-# php compression – use with caution
+# php compression
 <ifmodule mod_php4.c>
 php_value zlib.output_compression 16386
 </ifmodule>
 
-
-<IfModule mod_rewrite.c>
+<ifmodule mod_rewrite.c>
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^derekmisler.com$
 RewriteRule (.*) http://www.derekmisler.com/$1 [R=301,L]
@@ -72,6 +71,4 @@ RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
-</IfModule>
-
-ErrorDocument 404 http://www.derekmisler.com/404.php
+</ifmodule>

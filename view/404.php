@@ -28,7 +28,7 @@
 
 		<div id="top" class="jumbotron" data-src="<?= $current_header['source']; ?>" data-position="<?= $current_header['position']; ?>">
 			<div class="container">
-				<h1>404: Page Not Found<small><a href="<?= BASE; ?>">Return Home</a></small></h1>
+				<h1>Page Not Found<br><small><a href="<?= BASE; ?>">Return Home</a></small></h1>
 			</div>
 			<div class="overlay"></div>
 		</div>

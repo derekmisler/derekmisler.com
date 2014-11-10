@@ -4855,11 +4855,29 @@ figure.effect:focus h3:after {
   #projects figure figcaption {
     padding: 10px;
   }
+  figure.effect img {
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
   figure.effect figcaption {
     padding: 10px;
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
   }
   figure.effect h3 {
     padding-bottom: 20px;
+  }
+  figure.effect h3:after {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
   figure.effect p {
     font-size: 17px;

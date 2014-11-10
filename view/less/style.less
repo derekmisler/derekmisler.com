@@ -325,15 +325,22 @@ figure.effect {
     }
     figure.effect {
         img {
+        	.opacity(.2);
+        	.scale(1);
         }
         &:hover img,
         &:focus img{
         }
         figcaption {
             padding: floor(@navbar-height /4);
+            .opacity(1);
+            .scale(1);
         }
         h3 {
         	padding-bottom: floor(@navbar-height / 2);
+        	&:after{
+        	    .translate3d(0, 0, 0);
+        	}
         }
         p{
             font-size: @font-size-small;

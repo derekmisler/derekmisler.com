@@ -11,9 +11,7 @@
 
 		<nav class="navbar navbar-default scroll-down" role="navigation">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle icon-arrow-down" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="sr-only">Toggle navigation</span>
-				</button>
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">Menu</button>
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav medium-block-grid-5">

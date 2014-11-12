@@ -30,8 +30,8 @@
 				</a>
 			</li>
 			<li>
-				<a href="<?= $contact->flickr; ?>" target="_blank">
-					<span class="icon-flickr"></span>
+				<a href="<?= $contact->fivehundred; ?>" target="_blank">
+					<span class="icon-500px"></span>
 				</a>
 			</li>
 		</ul>

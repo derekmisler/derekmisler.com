@@ -2502,8 +2502,8 @@ input[type="button"].btn-block {
 }
 @font-face {
   font-family: 'icomoon';
-  src: url('fonts/icomoon.eot?-jgyoss');
-  src: url('fonts/icomoon.eot?#iefix-jgyoss') format('embedded-opentype'), url('fonts/icomoon.woff?-jgyoss') format('woff'), url('fonts/icomoon.ttf?-jgyoss') format('truetype'), url('fonts/icomoon.svg?-jgyoss#icomoon') format('svg');
+  src: url('fonts/icomoon.eot?ss6bjs');
+  src: url('fonts/icomoon.eot?#iefixss6bjs') format('embedded-opentype'), url('fonts/icomoon.woff?ss6bjs') format('woff'), url('fonts/icomoon.ttf?ss6bjs') format('truetype'), url('fonts/icomoon.svg?ss6bjs#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -2519,6 +2519,9 @@ input[type="button"].btn-block {
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.icon-500px:before {
+  content: "\e60e";
 }
 .icon-codepen:before {
   content: "\e600";

@@ -31,7 +31,7 @@
 			</li>
 			<li>
 				<a href="<?= $contact->fivehundred; ?>" target="_blank">
-					<span class="icon-500px"></span>
+					<span class="icon-fivehundred"></span>
 				</a>
 			</li>
 		</ul>

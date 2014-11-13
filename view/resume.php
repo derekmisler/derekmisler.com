@@ -1,7 +1,7 @@
 	<?php include(VIEW_INCLUDE_PATH.'sections/meta.inc.php'); ?>
 	<body data-spy="scroll" data-target=".navbar-collapse">
 
-		<div id="top" class="jumbotron" data-src="<?= $current_header['source']; ?>" data-position="<?= $current_header['position']; ?>">
+		<div id="top" class="jumbotron">
 			<div class="container">
 				<h1><?= $profile->full_name; ?><small><?= $profile->description; ?></small></h1>
 			</div>
@@ -9,12 +9,10 @@
 			<a class="down-arrow hidden-phone" href="#about-derek"><span class="icon-arrow-down"></span></a>
 		</div>
 
-		<nav class="navbar navbar-default scroll-down" role="navigation">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">Menu</button>
-			</div>
+		<nav class="navbar scroll-down" role="navigation">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">Menu</button>
 			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav medium-block-grid-5">
+				<ul class="nav medium-block-grid-5">
 					<li><a href="#about-derek">About <?= $profile->first_name; ?></a></li>
 					<li><a href="#experience">Experience</a></li>
 					<li><a href="#qualifications">Qualifications</a></li>

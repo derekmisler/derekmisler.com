@@ -2,7 +2,7 @@
 
 
 .jumbotron {
-	background: no-repeat center right fixed url(images/background.jpg);
+	background: no-repeat center center fixed url(images/background.jpg);
 	background-size: cover;
 	margin: 0px;
 	padding: 0px;
@@ -17,26 +17,26 @@
 		z-index: 2;
 	}
 	.down-arrow{
-	    position: absolute;
-	    left: 0;
-	    right: 0;
-	    bottom: 0;
-	    height: @navbar-height;
-	    line-height: @navbar-height;
-	    color: @body-bg;
-	    background-color: fadeout(@body-bg, 90%);
-	    z-index: 3;
-	    text-align: center;
-	    .transition(all 0.3s);
-	    &:hover{
-	        padding-top: 5px;
-	    }
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			height: @navbar-height;
+			line-height: @navbar-height;
+			color: @body-bg;
+			background-color: fadeout(@body-bg, 90%);
+			z-index: 3;
+			text-align: center;
+			.transition(all 0.3s);
+			&:hover{
+					padding-top: 5px;
+			}
 	}
 	.container {
 		position: relative;
 		top: 50%;
 		.translate(0; -50%);
-		z-index: 4;		
+		z-index: 4;
 		h1 {
 			text-align: left;
 			color: @body-bg;
@@ -50,82 +50,43 @@
 		}
 	}
 }
-.navbar  {
-    .navbar-nav {
-        float: none;
-        margin: 0;
-    }
-    .nav > li {
-        display: block;
-        padding: 0;
-        a {
-            display: block;
-            height: @navbar-height;
-            text-align: center;
-            line-height: @navbar-height;
-            color: @gray-dark;
-            padding: 0;
-            &:hover,
-            &:focus {
-                color: @red;
-            }
-        }
-    }
-}
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
-    background: @brand-primary;
-    color: @body-bg;
-}
-
-.navbar-default .navbar-toggle {
-	border: 0px;
-	color: @link-color;
-	padding: 5px;
-	margin: 0;	
-	&:hover,
-	&:focus {
-		color: @link-hover-color;
-	}
-}
 
 .fixed .navbar  { position: fixed; top: 0px; }
 
 .background-yellow {
-    background: fadeout(@yellow, 50%);
+		background: fadeout(@yellow, 50%);
 }
 .background-gray {
-    background: fadeout(@blue, 25%);
-    hr{
-        border-top: 1px solid fadeout(@body-bg, 35%);
-    }
+		background: fadeout(@blue, 25%);
+		hr{
+				border-top: 1px solid fadeout(@body-bg, 35%);
+		}
 }
 .container {
-    max-width: 1280px;
-    padding: @navbar-height floor(@navbar-height * 2);
+		max-width: 1280px;
+		padding: @navbar-height floor(@navbar-height * 2);
 }
 
 #about-derek .row > div { margin-bottom: 1rem; }
 #about-derek .row > div img { width: 100%; max-width: 250px; height: auto; border-radius: 50%; border: .5rem solid rgba(0,0,0,.1); }
-	
+
 #experience .experience {
-    margin-bottom: 1rem;
-    p > strong {
-        display: block;
-        padding-top: 1rem;
-        margin-bottom: .5rem;
-    }
-    .experience-details {
-        display: block;
-        margin-top: .5rem;
-        color: @brand-primary;
-        font-size: @font-size-small;
-        a:hover,
-        a:focus{
-            color: @link-hover-color;
-        }
-    }
+		margin-bottom: 1rem;
+		p > strong {
+				display: block;
+				padding-top: 1rem;
+				margin-bottom: .5rem;
+		}
+		.experience-details {
+				display: block;
+				margin-top: .5rem;
+				color: @brand-primary;
+				font-size: @font-size-small;
+				a:hover,
+				a:focus{
+						color: @link-hover-color;
+				}
+		}
 }
 
 #qualifications ul > li { height: @navbar-height; line-height: @navbar-height; }
@@ -146,12 +107,12 @@
 #projects figure h3 { color: @body-bg; margin-bottom: 5px; }
 #projects figure img { width: 110%; }
 #projects figure figcaption {
-    padding: floor(@navbar-height /2);
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    height: 100%;
-    width: 100%;
+		padding: floor(@navbar-height /2);
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		height: 100%;
+		width: 100%;
 }
 #projects figure a {
 	z-index: 1000;
@@ -159,11 +120,11 @@
 	white-space: nowrap;
 	font-size: 0;
 	.opacity(0);
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    height: 100%;
-    width: 100%;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		height: 100%;
+		width: 100%;
 }
 #projects figure .icon {
 	background: @red;
@@ -176,175 +137,158 @@
 	.text-center;
 }
 #more-info {
-    padding-bottom: 200px;
-    .row *,
-    h2 {
-        color: @body-bg;
-    }
-    a {
-    	display: block;
-    	margin-bottom: @font-size-base;
-    	font-size: @font-size-h3;
-        .opacity(.6);
-        &:hover {
-        	.opacity(1);
-        	text-decoration: none;
-        }
-    }
+		padding-bottom: 200px;
+		.row *,
+		h2 {
+				color: @body-bg;
+		}
+		a {
+			display: block;
+			margin-bottom: @font-size-base;
+			font-size: @font-size-h3;
+				.opacity(.6);
+				&:hover {
+					.opacity(1);
+					text-decoration: none;
+				}
+		}
 }
 @media (max-width: @screen-xs-max) {
 	.jumbotron{
-	    &:before {
-    		bottom: 100px;
-    		left: 20px;
-    		right: 20px;
-    		top: 20px;
-	    }
-    	.container {
-    		position: relative;
-    		top: 0;
-    		.translate(0;0);
-    		z-index: 4;
-    		
-    		h1 {
-    			text-align: left;
-    			color: @body-bg;
-    			line-height: 1;
-    			margin: 0;
-    			small{
-    				margin-top: @navbar-height;
-    				padding-top: @navbar-height;
-    				border-top: 1px solid fadeout(@body-bg, 35%);
-    				display: inline-block;
-    			}
-    		}
-    	}
+			&:before {
+				bottom: 100px;
+				left: 20px;
+				right: 20px;
+				top: 20px;
+			}
+			.container {
+				position: relative;
+				top: 0;
+				.translate(0;0);
+				z-index: 4;
+
+				h1 {
+					text-align: left;
+					color: @body-bg;
+					line-height: 1;
+					margin: 0;
+					small{
+						margin-top: @navbar-height;
+						padding-top: @navbar-height;
+						border-top: 1px solid fadeout(@body-bg, 35%);
+						display: inline-block;
+					}
+				}
+			}
 	}
-	
-	.navbar  {
-	    left: 0px;
-	    width: 100%;
-	    background-color: fadeout(@body-bg, 10%);
-    	.nav > li {
-    	    height: ceil(@navbar-height * 2);
-    	    width: 100%;
-            a {
-        	    height: ceil(@navbar-height * 2);
-        	    text-align: center;
-        	    line-height: ceil(@navbar-height * 2);
-        	}
-    	}
-	}
-	
-	.fixed .navbar { top: 0px; }
-	
+
 	.container { padding: 60px 20px; min-width: 280px; }
 	.hidden-phone { display: none; }
-	
-	
+
+
 	#experience .experience .experience-details > span { display: block; margin-bottom: 6px; }
 	#experience .experience .experience-details .seperator { display: none; }
-	
+
 	#more-info { padding-bottom: 60px; }
 	#more-info a .icon { float: left; margin-right: 10px; }
 }
 
 @media only screen and (orientation: portrait) and (max-width: @screen-xs-max)  {
-    .jumbotron {
-      -webkit-background-size: auto 150%;
-      background-attachment: scroll;
-    }
+		.jumbotron {
+			-webkit-background-size: auto 100%;
+			background-attachment: scroll;
+		}
 }
 @media only screen and (orientation: landscape) and (max-width: @screen-xs-max)  {
-    .jumbotron {
-      -webkit-background-size: 150% auto;
-      background-attachment: scroll;
-        .container {
-            padding: floor(@navbar-height / 2); 		
-    		h1 {
-    			small{
-    				margin-top: floor(@navbar-height / 2);
-    				padding-top: floor(@navbar-height / 2);
-    			}
-    		}
-        }
-    }
+		.jumbotron {
+			-webkit-background-size: 150% auto;
+			background-attachment: scroll;
+				.container {
+						padding: floor(@navbar-height / 2);
+				h1 {
+					small{
+						margin-top: floor(@navbar-height / 2);
+						padding-top: floor(@navbar-height / 2);
+					}
+				}
+				}
+		}
 }
 figure.effect {
 	background: @brand-primary;
 	color: @body-bg;
 	border: 1px solid @brand-primary;
-    img {
-    	.scale(1);
-    	.transition(all .35s);
-    	.backface-visibility(hidden);
-    }
-    &:hover img,
-    &:focus img{
-    	.opacity(.2);
-    	.scale(1.1);
-    }
-    figcaption {
-    	text-align: left;
-    	.opacity(0);
-    	.scale(1.1);
-    	.transition(all .35s);
-    	&:hover,
-    	&:focus{
-        	.opacity(1);
-        	.scale(1);    	    
-    	}
-    }
-    h3 {
-    	position: relative;
-    	overflow: hidden;
-    	padding-bottom: floor(@navbar-height / 2);
-        &:after {
-        	position: absolute;
-        	bottom: 0;
-        	left: 0;
-        	width: 100%;
-        	height: 2px;
-        	background: @body-bg;
-        	content: '';
-        	.translate3d(-100%, 0, 0);
-        	.transition(all .5s ease-out);
-        }
-    }
-    &:hover h3,
-    &:focus h3{
-        &:after {
-        	.translate3d(0, 0, 0);
-        }
-    }   
+		img {
+			.scale(1);
+			.transition(all .35s);
+			.backface-visibility(hidden);
+		}
+		&:hover img,
+		&:focus img{
+			.opacity(.2);
+			.scale(1.1);
+		}
+		figcaption {
+			text-align: left;
+			.opacity(0);
+			.scale(1.1);
+			.transition(all .35s);
+			&:hover,
+			&:focus{
+					.opacity(1);
+					.scale(1);    	    
+			}
+		}
+		h3 {
+			position: relative;
+			overflow: hidden;
+			padding-bottom: floor(@navbar-height / 2);
+				&:after {
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 100%;
+					height: 2px;
+					background: @body-bg;
+					content: '';
+					.translate3d(-100%, 0, 0);
+					.transition(all .5s ease-out);
+				}
+		}
+		&:hover h3,
+		&:focus h3{
+				&:after {
+					.translate3d(0, 0, 0);
+				}
+		}
 }
 @media (max-width: @screen-sm-max) {
-    #projects figure figcaption {
-        padding: floor(@navbar-height / 4);
-    }
-    figure.effect {
-        img {
-        	.opacity(.2);
-        	.scale(1);
-        }
-        &:hover img,
-        &:focus img{
-        }
-        figcaption {
-            padding: floor(@navbar-height /4);
-            .opacity(1);
-            .scale(1);
-        }
-        h3 {
-        	padding-bottom: floor(@navbar-height / 2);
-        	&:after{
-        	    .translate3d(0, 0, 0);
-        	}
-        }
-        p{
-            font-size: @font-size-small;
-            font-weight: 700;
-        }
-    }
+		#projects figure figcaption {
+				padding: floor(@navbar-height / 4);
+		}
+		figure.effect {
+				img {
+					.opacity(.2);
+					.scale(1);
+				}
+				&:hover img,
+				&:focus img{
+				}
+				figcaption {
+						padding: floor(@navbar-height /4);
+						.opacity(1);
+						.scale(1);
+				}
+				h3 {
+					padding-bottom: floor(@navbar-height / 2);
+					&:after{
+							.translate3d(0, 0, 0);
+					}
+				}
+				p{
+						font-size: @font-size-small;
+						font-weight: 700;
+				}
+		}
 
 }

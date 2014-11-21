@@ -11,9 +11,8 @@
 		<img src="<?= VIEW_PATH; ?>images/loader.gif" data-src="<?= VIEW_PATH; ?>images/derek-misler.jpg" data-src-retina="<?= VIEW_PATH; ?>images/retina/derek-misler.jpg" alt="Derek Misler" width="250" height="250" />
 		<p>
 			<a href="mailto:<?= $contact->email; ?>" target="_blank"><span class="icon-mail"></span>&nbsp;<?= $contact->email; ?></a><br />
-			<a href="tel:<?= $contact->phone; ?>"><span class="icon-phone"></span>&nbsp;<?= $contact->phonedisplay; ?></a><br />
 			<a href="<?= VIEW_PATH; ?>images/Derek-Misler-resume.pdf" target="_blank"><span class="icon-new-window"></span>&nbsp;Resume</a>
 		</p>
-		
+
 	</div>
 </div>

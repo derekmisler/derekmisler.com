@@ -5,7 +5,7 @@
 <div class="row">
 	<div class="col-md-6">
 		<p><?= $profile->biography; ?></p>
-		<p><a href="https://github.com/derekmisler/derekmisler.com" target="_blank">View this portfolio on GitHub.</a></p>
+		<p><a href="https://github.com/derekmisler/derekmisler.com" target="_blank"><span class="icon-new-window"></span>&nbsp;View this project on GitHub.</a></p>
 	</div>
 	<div class="col-md-6 text-center">
 		<img src="<?= VIEW_PATH; ?>images/loader.gif" data-src="<?= VIEW_PATH; ?>images/derek-misler.jpg" data-src-retina="<?= VIEW_PATH; ?>images/retina/derek-misler.jpg" alt="Derek Misler" width="250" height="250" />

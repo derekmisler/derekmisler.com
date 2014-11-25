@@ -16,7 +16,7 @@
 		<meta itemprop="name" content="<?= $profile->full_name; ?>">
 		<meta itemprop="description" content="<?= $profile->description; ?>">
 		<meta itemprop="image" content="http://www.derekmisler.com/view/images/google-plus.jpg">
-		<link rel="publisher" href="http://plus.google.com/+DerekMisler/">
+		<link rel="publisher" href="https://plus.google.com/110617470325528028773/">
 
 		<!-- Twitter Card data -->
 		<meta name="twitter:card" content="summary_large_image ">
@@ -34,11 +34,11 @@
 		<meta property="og:description" content="<?= $profile->description; ?>">
 		<meta property="og:site_name" content="<?= $profile->full_name; ?>">
 		<meta property="fb:admins" content="812785510">
-		
+
 		<!-- core CSS -->
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,300italic,700,700italic|Playfair+Display:700" rel="stylesheet" type="text/css">
 		<link href="<?= VIEW_PATH; ?>style.css" rel="stylesheet" />
-		
+
 		<link rel="shortcut icon" href="<?= BASE; ?>favicon.ico" type="image/x-icon" />
 		<link rel="icon" href="<?= BASE; ?>favicon.ico" type="image/x-icon" />
 

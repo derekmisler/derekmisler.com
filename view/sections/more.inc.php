@@ -3,7 +3,7 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<ul class="small-block-grid-2 medium-block-grid-4 text-center">
+		<ul class="small-block-grid-2 medium-block-grid-5 text-center">
 			<li>
 				<a href="mailto:<?= $contact->email; ?>" target="_blank">
 					<span class="icon-mail"></span>
@@ -22,6 +22,16 @@
 			<li>
 				<a href="<?= $contact->fivehundred; ?>" target="_blank">
 					<span class="icon-fivehundred"></span>
+				</a>
+			</li>
+			<li>
+				<a href="<?= $contact->stackoverflow; ?>" target="_blank">
+					<span class="icon-stackoverflow"></span>
+				</a>
+			</li>
+			<li class="visible-xs">
+				<a href="tel:<?= $contact->phone; ?>">
+					<span class="icon-phone"></span>
 				</a>
 			</li>
 		</ul>

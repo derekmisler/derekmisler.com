@@ -98,6 +98,40 @@
 					"link": "http://theappalachianonline.com"
 			}
 	],
+	"coursework": [
+			{
+					"title": "Codecademy",
+					"specification": "Python"
+			},
+			{
+					"title": "Codecademy",
+					"specification": "APIs"
+			},
+			{
+					"title": "Code School",
+					"specification": "Ruby"
+			},
+			{
+					"title": "Code School",
+					"specification": "Git"
+			},
+			{
+					"title": "Code School",
+					"specification": "jQuery"
+			},
+			{
+					"title": "Code School",
+					"specification": "Javascript"
+			},
+			{
+					"title": "Harvard",
+					"specification": "CS50x3 Introduction to Computer Science"
+			},
+			{
+					"title": "Microsoft",
+					"specification": "DEV204x Programming with C#"
+			}
+	],
 	"skills": [
 			{
 					"title": "OOP",
@@ -168,7 +202,7 @@
 					"level": 5
 			},
 			{
-					"title": "Git",
+					"title": "Git/Github",
 					"level": 3
 			}
 	],

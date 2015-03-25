@@ -5,6 +5,7 @@
 	/* LOAD DEPENDENCIES */
 	require_once('models/profile.class.php');
 	require_once('presenters/collections/educations.class.php');
+	require_once('presenters/collections/coursework.class.php');
 	require_once('presenters/collections/careers.class.php');
 	require_once('presenters/collections/skills.class.php');
 	require_once('presenters/collections/languages.class.php');
@@ -52,6 +53,7 @@
 		private function loadExperiences()
 		{
 			$this->loadEducations();
+			$this->loadCoursework();
 			$this->loadCareers();
 		}	
 		
@@ -69,6 +71,13 @@
 			$loEducationsCollection->sortByDate();
 			
 			$this->ioViewController->assign('educations', $loEducationsCollection->all());
+		}
+		
+		private function loadCoursework()
+		{
+			$loCourseworkCollection = new \Presenters\Collections\Coursework();
+			
+			$this->ioViewController->assign('coursework', $loCourseworkCollection->all());
 		}
 		
 		private function loadCareers()

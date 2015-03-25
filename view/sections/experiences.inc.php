@@ -39,6 +39,40 @@
 <?php } else { ?>
 	
 <?php } ?>
+<hr />
+
+<h3>Independent Coursework</h3>
+
+<?php if(count($coursework) > 0) { ?>
+
+<div class="coursework">
+
+				
+	<div class="coursework row">
+
+		<div class="col-md-12">
+			<ul class="small-block-grid-1 medium-block-grid-2">
+
+			<?php foreach($coursework as $index => $courses) { ?>
+
+				<li>
+					<span class="course-title"><?= $courses->title; ?></span>
+					<h4 class="course-specification"><?= $courses->specification; ?></h4>
+				</li>
+
+			<?php } ?>
+
+			</ul>
+		</div>
+	</div>
+
+
+</div>
+	
+<?php } else { ?>
+	
+	
+<?php } ?>
 	
 
 <hr />
@@ -86,3 +120,4 @@
 	
 	
 <?php } ?>
+

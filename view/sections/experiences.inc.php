@@ -2,81 +2,6 @@
 
 <hr />
 
-<h3>Education</h3>
-
-<?php if(count($educations) > 0) { ?>
-
-<div class="experiences">
-
-	<?php foreach($educations as $index => $education) { ?>
-				
-	<div class="experience row">
-		<div class="col-md-5 col-lg-4">
-			<h4><?= $education->title; ?></h4>
-			<p class="experience-period">
-				<?= $education->start_date; ?>-<?= (@isset($education->end_date)) ? $education->end_date : 'current'; ?>
-			</p>
-		</div>
-		<div class="col-md-7 col-lg-8">
-			<h5><?= $education->specification; ?></h5>
-			<p>
-				<span class="hidden-phone">
-					<?= $education->description; ?>
-				</span>
-				<span class="experience-details">
-					<span class="location">
-						<span class="icon-location-dot"></span>&nbsp;<?= $education->location; ?>
-					</span>
-				</span>
-			</p>
-		</div>
-	</div>
-	
-	<?php } ?>
-
-</div>
-	
-<?php } else { ?>
-	
-<?php } ?>
-<hr />
-
-<h3>Independent Coursework</h3>
-
-<?php if(count($coursework) > 0) { ?>
-
-<div class="coursework">
-
-				
-	<div class="coursework row">
-
-		<div class="col-md-12">
-			<ul class="small-block-grid-1 medium-block-grid-2">
-
-			<?php foreach($coursework as $index => $courses) { ?>
-
-				<li>
-					<span class="course-title"><?= $courses->title; ?></span>
-					<h4 class="course-specification"><?= $courses->specification; ?></h4>
-				</li>
-
-			<?php } ?>
-
-			</ul>
-		</div>
-	</div>
-
-
-</div>
-	
-<?php } else { ?>
-	
-	
-<?php } ?>
-	
-
-<hr />
-
 <h3>Career</h3>
 
 <?php if(count($careers) > 0) { ?>
@@ -121,3 +46,42 @@
 	
 <?php } ?>
 
+<hr />
+
+<h3>Education</h3>
+
+<?php if(count($educations) > 0) { ?>
+
+<div class="experiences">
+
+	<?php foreach($educations as $index => $education) { ?>
+				
+	<div class="experience row">
+		<div class="col-md-5 col-lg-4">
+			<h4><?= $education->title; ?></h4>
+			<p class="experience-period">
+				<?= $education->start_date; ?>-<?= (@isset($education->end_date)) ? $education->end_date : 'current'; ?>
+			</p>
+		</div>
+		<div class="col-md-7 col-lg-8">
+			<h5><?= $education->specification; ?></h5>
+			<p>
+				<span class="hidden-phone">
+					<?= $education->description; ?>
+				</span>
+				<span class="experience-details">
+					<span class="location">
+						<span class="icon-location-dot"></span>&nbsp;<?= $education->location; ?>
+					</span>
+				</span>
+			</p>
+		</div>
+	</div>
+	
+	<?php } ?>
+
+</div>
+	
+<?php } else { ?>
+	
+<?php } ?>

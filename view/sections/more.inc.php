@@ -3,12 +3,7 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<ul class="small-block-grid-2 medium-block-grid-5 text-center">
-			<li>
-				<a href="mailto:<?= $contact->email; ?>" target="_blank">
-					<span class="icon-mail"></span>
-				</a>
-			</li>
+		<ul class="small-block-grid-2 medium-block-grid-6 large-block-grid-5 text-center">
 			<li>
 				<a href="<?= $contact->linkedin; ?>" target="_blank">
 					<span class="icon-linkedin"></span>
@@ -20,13 +15,18 @@
 				</a>
 			</li>
 			<li>
-				<a href="<?= $contact->fivehundred; ?>" target="_blank">
-					<span class="icon-fivehundred"></span>
+				<a href="<?= $contact->stackoverflow; ?>" target="_blank">
+					<span class="icon-stackoverflow"></span>
 				</a>
 			</li>
 			<li>
-				<a href="<?= $contact->stackoverflow; ?>" target="_blank">
-					<span class="icon-stackoverflow"></span>
+				<a href="mailto:<?= $contact->email; ?>" target="_blank">
+					<span class="icon-mail"></span>
+				</a>
+			</li>
+			<li>
+				<a href="<?= $contact->fivehundred; ?>" target="_blank">
+					<span class="icon-fivehundred"></span>
 				</a>
 			</li>
 			<li class="visible-xs">

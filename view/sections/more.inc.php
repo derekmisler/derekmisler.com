@@ -29,7 +29,7 @@
 					<span class="icon-fivehundred"></span>
 				</a>
 			</li>
-			<li class="visible-xs">
+			<li class="visible-xs visible-sm">
 				<a href="tel:<?= $contact->phone; ?>">
 					<span class="icon-phone"></span>
 				</a>

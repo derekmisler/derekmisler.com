@@ -3,6 +3,10 @@
 <hr />
 
 <div class="row">
+	<div class="col-md-6 text-center visible-xs visible-sm">
+		<img src="<?= VIEW_PATH; ?>images/loader.gif" data-src="<?= VIEW_PATH; ?>images/derek-misler.jpg" data-src-retina="<?= VIEW_PATH; ?>images/retina/derek-misler.jpg" alt="Derek Misler" width="200" height="200" />
+		<p><a href="https://github.com/derekmisler/derekmisler.com" target="_blank"><span class="icon-new-window"></span>&nbsp;View this project on GitHub.</a></p>
+	</div>
 	<div class="col-md-6">
 		<p><?= $profile->biography; ?></p>
 		<div class="row social-links">
@@ -33,7 +37,7 @@
 							<span class="icon-fivehundred"></span>
 						</a>
 					</li>
-					<li class="visible-xs">
+					<li class="visible-xs visible-sm">
 						<a href="tel:<?= $contact->phone; ?>">
 							<span class="icon-phone"></span>
 						</a>
@@ -42,8 +46,8 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-md-6 text-center">
-		<img src="<?= VIEW_PATH; ?>images/loader.gif" data-src="<?= VIEW_PATH; ?>images/derek-misler.jpg" data-src-retina="<?= VIEW_PATH; ?>images/retina/derek-misler.jpg" alt="Derek Misler" width="250" height="250" />
+	<div class="col-md-6 text-center visible-md visible-lg">
+		<img src="<?= VIEW_PATH; ?>images/loader.gif" data-src="<?= VIEW_PATH; ?>images/derek-misler.jpg" data-src-retina="<?= VIEW_PATH; ?>images/retina/derek-misler.jpg" alt="Derek Misler" width="200" height="200" />
 		<p><a href="https://github.com/derekmisler/derekmisler.com" target="_blank"><span class="icon-new-window"></span>&nbsp;View this project on GitHub.</a></p>
 
 	</div>

@@ -106,11 +106,15 @@
 			},
 			{
 					"title": "Codecademy",
-					"specification": "APIs"
+					"specification": "Javascript APIs"
 			},
 			{
 					"title": "Code School",
 					"specification": "Ruby"
+			},
+			{
+					"title": "Codecademy",
+					"specification": "Ruby on Rails: Make a Rails App"
 			},
 			{
 					"title": "Code School",
@@ -121,23 +125,19 @@
 					"specification": "jQuery"
 			},
 			{
-					"title": "Code School",
+					"title": "Code School/Codecademy",
 					"specification": "Javascript"
 			},
 			{
-					"title": "Harvard",
-					"specification": "CS50x3 Introduction to Computer Science"
+					"title": "Harvardx",
+					"specification": "CS50x3: Introduction to Computer Science"
 			},
 			{
 					"title": "Microsoft",
-					"specification": "DEV204x Programming with C#"
+					"specification": "DEV204x: Programming with C#"
 			}
 	],
 	"skills": [
-			{
-					"title": "OOP",
-					"level": 5
-			},
 			{
 					"title": "HTML",
 					"level": 5
@@ -171,12 +171,12 @@
 					"level": 4
 			},
 			{
-					"title": "Ruby on Rails",
+					"title": "Ruby",
 					"level": 3
 			},
 			{
 					"title": "Node.js",
-					"level": 4
+					"level": 3
 			},
 			{
 					"title": "C/C++",

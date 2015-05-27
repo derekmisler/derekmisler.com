@@ -1,6 +1,3 @@
-Repository for [personal website](http://www.derekmisler.com/ "View site")
-===============
-
 #Derek Misler
 - Asheville, NC, United States
 - derekmisler@gmail.com

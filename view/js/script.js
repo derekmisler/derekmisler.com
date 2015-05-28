@@ -5,27 +5,21 @@ $(document).ready(function()
 	$('img').unveil(200);
 	applyNavigation();
 	applyResize();
-	checkHash();
 });
 
 /* HEADER FUNCTIONS */
-
 function applyHeader()
 {
 	$('.jumbotron').css({ height: ($(window).height()) +'px' });
 }
-
 ;(function($) {
-
 	$.fn.unveil = function(threshold, callback) {
-
 		var $w = $(window),
 				th = threshold || 0,
 				retina = window.devicePixelRatio > 1,
 				attrib = retina? "data-src-retina" : "data-src",
 				images = this,
 				loaded;
-
 		this.one("unveil", function() {
 			var source = this.getAttribute(attrib);
 			source = source || this.getAttribute("data-src");
@@ -34,7 +28,6 @@ function applyHeader()
 				if (typeof callback === "function") callback.call(this);
 			}
 		});
-
 		function unveil() {
 			var inview = images.filter(function() {
 				var $e = $(this);
@@ -44,20 +37,14 @@ function applyHeader()
 						wb = wt + $w.height(),
 						et = $e.offset().top,
 						eb = et + $e.height();
-
 				return eb >= wt - th && et <= wb + th;
 			});
-
 			loaded = inview.trigger("unveil");
 			images = images.not(loaded);
 		}
-
 		$w.on("scroll.unveil resize.unveil lookup.unveil", unveil);
-
 		unveil();
-
 		return this;
-
 	};
 
 })(window.jQuery || window.Zepto);
@@ -67,7 +54,6 @@ function applyNavigation()
 {
 	applyClickEvent();
 	applyNavigationFixForPhone();
-	applyScrollSpy();
 	applyStickyNavigation();
 }
 
@@ -95,15 +81,6 @@ function applyNavigationFixForPhone()
 		$('.navbar-collapse').removeClass('in').addClass('collapse');
 	});
 }
-
-function applyScrollSpy()
-{
-	/*$('.scroll-down').on('activate.bs.scrollspy', function()
-	{
-		window.location.hash = $('.nav .active a').attr('href').replace('#', '/');
-	});*/
-}
-
 function applyStickyNavigation()
 {
 	lnStickyNavigation = $('.scroll-down').offset().top + 0;
@@ -115,7 +92,6 @@ function applyStickyNavigation()
 	
 	stickyNavigation();
 }
-
 function stickyNavigation()
 {
 	if($(window).scrollTop() > lnStickyNavigation) 
@@ -129,7 +105,6 @@ function stickyNavigation()
 }
 
 /* RESIZE FUNCTION */
-
 function applyResize()
 {
 	$(window).on('resize', function()
@@ -138,16 +113,4 @@ function applyResize()
 	
 		$('.jumbotron').css({ height: ($(window).height()) +'px' });
 	});
-}
-
-/* HASH FUNCTION */
-
-function checkHash()
-{
-	/*lstrHash = window.location.hash.replace('/', '#');
-	
-	if($('a[href='+ lstrHash +']').length > 0)
-	{
-		$('a[href='+ lstrHash +']').trigger('click');
-	}*/
 }

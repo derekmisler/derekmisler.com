@@ -53,7 +53,7 @@
 					"specification": "Web Manager",
 					"location": "Asheville, North Carolina",
 					"level": "Full-time",
-					"description": "As the only designer/developer/analyst on staff, my job is to maintain our entire web presence. We started with an ASP.NET-backed website, but one of my first projects was to oversee the redesign of ExploreAsheville.com with a new company that worked primarily in Coldfusion, and I’ve since updated and maintained it as the web evolves, as well as creating the matching mobile site and Blogger theme. The site will receive over 4 million visits this year. I’ve been in charge of creating all print- and web-related assets for our various marketing campaigns, all of the digital analytics, and two long-form, media-rich, interactive stories that continue to win awards. Finally, we’re in the process of a second redesign utilizing Node.js and MongoDB. One feature of our new site utilizes web-scraping technology written in Python that we’ll be using to partner with area online events calendars to create a single, unified events calendar for the entire county.",
+					"description": "As the only designer/developer/analyst on staff, my job is to maintain our entire web presence. We started with an .NET-backed website, but one of my first projects was to oversee the redesign of ExploreAsheville.com with a new company that worked primarily in Coldfusion, and I’ve since updated and maintained it as the web evolves, as well as creating the matching mobile site and Blogger theme. The site will receive over 4 million visits this year. I’ve been in charge of creating all print- and web-related assets for our various marketing campaigns, all of the digital analytics, and two long-form, media-rich, interactive stories that continue to win awards. Finally, we’re in the process of a second redesign utilizing Node.js and MongoDB. One feature of our new site utilizes web-scraping technology written in Python that we’ll be using to partner with area online events calendars to create a single, unified events calendar for the entire county.",
 					"start_date": "2010",
 					"end_date": null,
 					"link": "http://www.exploreasheville.com"
@@ -159,7 +159,7 @@
 					"level": 4
 			},
 			{
-					"title": "ASP.NET",
+					"title": ".NET",
 					"level": 3
 			},
 			{

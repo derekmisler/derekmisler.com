@@ -117,6 +117,10 @@
 					"specification": "Ruby on Rails: Make a Rails App"
 			},
 			{
+					"title": "Codecademy",
+					"specification": "AngularJS"
+			},
+			{
 					"title": "Code School",
 					"specification": "Git"
 			},
@@ -129,12 +133,32 @@
 					"specification": "Javascript"
 			},
 			{
-					"title": "Harvardx",
-					"specification": "CS50x3: Introduction to Computer Science"
+					"title": "Codecademy",
+					"specification": "Javascript APIs"
+			},
+			{
+					"title": "Harvard",
+					"specification": "CS50x3: Computer Science"
 			},
 			{
 					"title": "Microsoft",
 					"specification": "DEV204x: Programming with C#"
+			},
+			{
+					"title": "Udemy",
+					"specification": "Beginner Python & Django Programming"
+			},
+			{
+					"title": "Udemy",
+					"specification": "Python, The Next Level"
+			},
+			{
+					"title": "Udemy",
+					"specification": "Ruby Programming for Beginners"
+			},
+			{
+					"title": "Udemy",
+					"specification": "Advanced Ruby Programming: 10 Steps to Mastery Course"
 			}
 	],
 	"skills": [
@@ -160,7 +184,11 @@
 			},
 			{
 					"title": ".NET",
+<<<<<<< HEAD
 					"level": 3
+=======
+					"level": 4
+>>>>>>> origin/master
 			},
 			{
 					"title": "ColdFusion",
@@ -172,11 +200,11 @@
 			},
 			{
 					"title": "Ruby",
-					"level": 3
+					"level": 4
 			},
 			{
 					"title": "Node.js",
-					"level": 3
+					"level": 4
 			},
 			{
 					"title": "C/C++",
@@ -188,14 +216,14 @@
 			},
 			{
 					"title": "Java",
-					"level": 3
+					"level": 2
 			},
 			{
 					"title": "Actionscript",
 					"level": 4
 			},
 			{
-					"title": "LESS/SASS",
+					"title": "CSS Preprocessors",
 					"level": 5
 			},
 			{
@@ -204,7 +232,7 @@
 			},
 			{
 					"title": "Git/Github",
-					"level": 3
+					"level": 5
 			}
 	],
 	"tools": [

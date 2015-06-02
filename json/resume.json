@@ -6,7 +6,7 @@
 			"description": "Developer of Web Things &amp; Designer of Graphic Things",
 			"date_of_birth": "1986-04-08",
 			"place_of_birth": "Miami, Florida",
-			"biography": "I’m a developer, from the front-end all the way to the back. I have a well-rounded education of many different languages, though I have an advanced proficiency of front-end techniques. Some of my favorite aspects of development are optimizing code, fixing details, and finding bugs. I’m an independent person, but I enjoy the learning opportunities afforded by working on a team. Did I mention I have a fine arts degree? I’d love the chance to explain why I think all developers can benefit from an arts curriculum.",
+			"biography": "I’m a developer, from the front-end to the back. I have a well-rounded education of many different web and software languages, though I have an advanced proficiency of front-end techniques. Some of my favorite aspects of development are optimizing code, fixing details, and finding bugs. I’m an independent person, but I enjoy the learning opportunities afforded by working on a team. Did I mention I have a fine arts degree? I’d love the chance to explain why I think all developers can benefit from an arts curriculum.",
 			"current_location": {
 					"housenumber": "2",
 					"street": "Cullowhee Street",
@@ -175,6 +175,10 @@
 					"level": 5
 			},
 			{
+					"title": "AngularJS",
+					"level": 5
+			},
+			{
 					"title": "jQuery",
 					"level": 5
 			},
@@ -184,7 +188,7 @@
 			},
 			{
 					"title": ".NET",
-					"level": 4
+					"level": 3
 			},
 			{
 					"title": "ColdFusion",
@@ -208,7 +212,7 @@
 			},
 			{
 					"title": "C#",
-					"level": 3
+					"level": 4
 			},
 			{
 					"title": "Java",
@@ -247,18 +251,25 @@
 	],
 	"projects": [
 			{
-					"title": "Explore Asheville",
+					"title": "New ExploreAsheville.com",
+					"description": "A redesign of ExploreAsheville.com.",
+					"link": "http://www.exploreasheville.com/",
+					"image": "new-exploreasheville.jpg",
+					"tags": "HTML5, CSS3, Node.js, MongoDB, Goatee (custom templating language), Responsive"
+			},
+			{
+					"title": "ExploreAsheville.com",
 					"description": "Destination marketing website. Over 4 million visitors annually.",
 					"link": "http://www.exploreasheville.com/",
 					"image": "explore-asheville.jpg",
-					"tags": "ColdFusion, jQuery, APIs, MVC"
+					"tags": "ColdFusion, jQuery, Responsive, JavaScript APIs"
 			},
 			{
 					"title": "Explorers of the Blue Ridge Parkway",
 					"description": "An incredibly large project for just one developer/designer.",
 					"link": "http://www.exploreasheville.com/blue-ridge-parkway/",
 					"image": "explorers-of-the-blue-ridge-parkway.jpg",
-					"tags": "HTML5, CSS3, jQuery, Responsive, Custom Framework"
+					"tags": "HTML5, CSS3, jQuery, Responsive, Custom CSS Framework"
 			},
 			{
 					"title": "The Science Behind Fall Color",
@@ -272,7 +283,7 @@
 					"description": "A custom content management system built upon Magento by a 3-person team.",
 					"link": "http://www.housershoes.com",
 					"image": "houser-shoes.jpg",
-					"tags": "PHP, MySQL, OOP, MVC, Magento, Custom CMS"
+					"tags": "PHP, MySQL, Magento, Custom CMS"
 			}
 	]
 }

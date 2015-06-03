@@ -159,6 +159,10 @@
 			{
 					"title": "Udemy",
 					"specification": "Advanced Ruby Programming: 10 Steps to Mastery Course"
+			},
+			{
+					"title": "Code School",
+					"specification": "Shaping Up with Angular.js"
 			}
 	],
 	"skills": [

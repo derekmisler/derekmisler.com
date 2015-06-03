@@ -101,16 +101,16 @@
 	],
 	"coursework": [
 			{
+					"title": "Harvard",
+					"specification": "CS50x3: Computer Science"
+			},
+			{
+					"title": "Microsoft",
+					"specification": "DEV204x: Programming with C#"
+			},
+			{
 					"title": "Codecademy",
 					"specification": "Python"
-			},
-			{
-					"title": "Codecademy",
-					"specification": "Javascript APIs"
-			},
-			{
-					"title": "Code School",
-					"specification": "Ruby"
 			},
 			{
 					"title": "Codecademy",
@@ -121,28 +121,28 @@
 					"specification": "AngularJS"
 			},
 			{
+					"title": "Codecademy",
+					"specification": "Javascript APIs"
+			},
+			{
+					"title": "Codecademy/Code School",
+					"specification": "Javascript"
+			},
+			{
+					"title": "Code School",
+					"specification": "Ruby"
+			},
+			{
+					"title": "Code School",
+					"specification": "Shaping Up with Angular.js"
+			},
+			{
 					"title": "Code School",
 					"specification": "Git"
 			},
 			{
 					"title": "Code School",
 					"specification": "jQuery"
-			},
-			{
-					"title": "Code School/Codecademy",
-					"specification": "Javascript"
-			},
-			{
-					"title": "Codecademy",
-					"specification": "Javascript APIs"
-			},
-			{
-					"title": "Harvard",
-					"specification": "CS50x3: Computer Science"
-			},
-			{
-					"title": "Microsoft",
-					"specification": "DEV204x: Programming with C#"
 			},
 			{
 					"title": "Udemy",
@@ -159,10 +159,6 @@
 			{
 					"title": "Udemy",
 					"specification": "Advanced Ruby Programming: 10 Steps to Mastery Course"
-			},
-			{
-					"title": "Code School",
-					"specification": "Shaping Up with Angular.js"
 			}
 	],
 	"skills": [

@@ -33,8 +33,8 @@
 						</a>
 					</li>
 					<li>
-						<a href="<?= $contact->fivehundred; ?>" target="_blank">
-							<span class="icon-fivehundred"></span>
+						<a href="<?= $contact->flickr; ?>" target="_blank">
+							<span class="icon-flickr"></span>
 						</a>
 					</li>
 					<li class="visible-xs visible-sm">

@@ -255,14 +255,14 @@
 					"description": "A redesign of ExploreAsheville.com.",
 					"link": "http://www.exploreasheville.com/",
 					"image": "new-exploreasheville.jpg",
-					"tags": "HTML5, CSS3, Node.js, MongoDB, Goatee (custom templating language), Responsive"
+					"tags": "HTML5, CSS3, Node.js, Goatee (Custom Javascript Framework)"
 			},
 			{
 					"title": "ExploreAsheville.com",
 					"description": "Destination marketing website. Over 4 million visitors annually.",
 					"link": "http://www.exploreasheville.com/",
 					"image": "explore-asheville.jpg",
-					"tags": "ColdFusion, jQuery, Responsive, JavaScript APIs"
+					"tags": "ColdFusion, jQuery, JavaScript APIs"
 			},
 			{
 					"title": "Explorers of the Blue Ridge Parkway",

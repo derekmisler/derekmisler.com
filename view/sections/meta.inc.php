@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-us" itemscope itemtype="http://schema.org/Article">
+<html lang="en-us" itemscope itemtype="http://schema.org/Person">
 	<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# product: http://ogp.me/ns/product#">
 
 		<meta charset="utf-8">
@@ -15,6 +15,9 @@
 		<!-- Schema.org markup for Google+ -->
 		<meta itemprop="name" content="<?= $profile->full_name; ?>">
 		<meta itemprop="description" content="<?= $profile->description; ?>">
+		<meta itemprop="url" content="http://www.derekmisler.com/">
+		<meta itemprop="email" content="<?= $contact->email; ?>">
+		<meta itemprop="telephone" content="<?= $contact->phone; ?>">
 		<meta itemprop="image" content="http://www.derekmisler.com/view/images/google-plus.jpg">
 		<link rel="publisher" href="https://plus.google.com/110617470325528028773/">
 

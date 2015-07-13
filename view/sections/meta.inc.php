@@ -9,12 +9,12 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 		<meta name="mobile-web-app-capable" content="yes">
 		<title><?= $profile->full_name; ?> | <?= $profile->description; ?></title>
-		<meta name="description" content="<?= $profile->description; ?>">
+		<meta name="description" content="<?= $profile->full_name; ?> is a <?= $profile->description; ?>">
 		<meta name="google-site-verification" content="oM1NjzxvtvPp4JL2t2qo13zUhGnrpGF0Fbgyb6S8vDk" />
 
 		<!-- Schema.org markup for Google+ -->
 		<meta itemprop="name" content="<?= $profile->full_name; ?>">
-		<meta itemprop="description" content="<?= $profile->description; ?>">
+		<meta itemprop="description" content="<?= $profile->full_name; ?> is a <?= $profile->description; ?>">
 		<meta itemprop="url" content="http://www.derekmisler.com/">
 		<meta itemprop="email" content="<?= $contact->email; ?>">
 		<meta itemprop="telephone" content="<?= $contact->phone; ?>">
@@ -25,7 +25,7 @@
 		<meta name="twitter:card" content="summary_large_image ">
 		<meta name="twitter:site" content="@derekmisler">
 		<meta name="twitter:title" content="<?= $profile->full_name; ?>">
-		<meta name="twitter:description" content="<?= $profile->description; ?>">
+		<meta name="twitter:description" content="<?= $profile->full_name; ?> is a <?= $profile->description; ?>">
 		<meta name="twitter:creator" content="@derekmisler">
 		<meta name="twitter:image" content="http://www.derekmisler.com/view/images/twitter-card.jpg">
 
@@ -34,8 +34,8 @@
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="http://www.derekmisler.com/">
 		<meta property="og:image" content="http://www.derekmisler.com/view/images/facebook.jpg">
-		<meta property="og:description" content="<?= $profile->description; ?>">
-		<meta property="og:site_name" content="<?= $profile->full_name; ?>">
+		<meta property="og:description" content="<?= $profile->full_name; ?> is a <?= $profile->description; ?>">
+		<meta property="og:site_name" content="<?= $profile->full_name; ?> | <?= $profile->description; ?>">
 		<meta property="fb:admins" content="812785510">
 
 		<!-- core CSS -->

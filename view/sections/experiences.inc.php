@@ -1,4 +1,4 @@
-<h2>Experience</h2>
+<h2><?= $profile->full_name; ?>'s Experience</h2>
 
 <hr />
 

@@ -1,4 +1,4 @@
-<h2>Projects</h2>
+<h2><?= $profile->full_name; ?>'s Favorite Projects</h2>
 
 <hr />
 

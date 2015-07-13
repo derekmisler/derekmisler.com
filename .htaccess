@@ -1,3 +1,6 @@
+ErrorDocument 404 /404.php
+
+
 # BEGIN Compress text files
 <ifModule mod_deflate.c>
   <filesMatch "\.(css|js|x?html?|php)$">

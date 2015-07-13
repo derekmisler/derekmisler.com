@@ -1,36 +1,36 @@
-<h2>Learn More About <?= $profile->first_name; ?></h2>
+<h2>Learn More About <?= $profile->full_name; ?></h2>
 <hr />
 
 <div class="row">
 	<div class="col-md-12">
 		<ul class="small-block-grid-2 medium-block-grid-6 large-block-grid-5 text-center">
 			<li>
-				<a href="<?= $contact->linkedin; ?>" target="_blank">
+				<a title="View <?= $profile->full_name; ?>'s LinkedIn profile" href="<?= $contact->linkedin; ?>" target="_blank">
 					<span class="icon-linkedin"></span>
 				</a>
 			</li>
 			<li>
-				<a href="<?= $contact->github; ?>" target="_blank">
+				<a title="View <?= $profile->full_name; ?>'s GitHub profile" href="<?= $contact->github; ?>" target="_blank">
 					<span class="icon-github"></span>
 				</a>
 			</li>
 			<li>
-				<a href="<?= $contact->stackoverflow; ?>" target="_blank">
+				<a title="View <?= $profile->full_name; ?>'s StackOverflow profile" href="<?= $contact->stackoverflow; ?>" target="_blank">
 					<span class="icon-stackoverflow"></span>
 				</a>
 			</li>
 			<li>
-				<a href="mailto:<?= $contact->email; ?>" target="_blank">
+				<a title="Email <?= $profile->full_name; ?>" href="mailto:<?= $contact->email; ?>" target="_blank">
 					<span class="icon-mail"></span>
 				</a>
 			</li>
 			<li>
-				<a href="<?= $contact->flickr; ?>" target="_blank">
+				<a title="View <?= $profile->full_name; ?>'s Flickr profile" href="<?= $contact->flickr; ?>" target="_blank">
 					<span class="icon-flickr"></span>
 				</a>
 			</li>
 			<li class="visible-xs visible-sm">
-				<a href="tel:<?= $contact->phone; ?>">
+				<a title="Call <?= $profile->full_name; ?>." href="tel:<?= $contact->phone; ?>">
 					<span class="icon-phone"></span>
 				</a>
 			</li>

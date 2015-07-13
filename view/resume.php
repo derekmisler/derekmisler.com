@@ -15,14 +15,14 @@
 				<h1><?= $profile->full_name; ?><small><?= $profile->description; ?></small></h1>
 			</div>
 			<div class="overlay"></div>
-			<a class="down-arrow hidden-phone" href="#about-derek"><span class="icon-arrow-down"></span></a>
+			<a class="down-arrow hidden-phone" href="#about-derek-misler"><span class="icon-arrow-down"></span></a>
 		</div>
 
 		<nav class="navbar scroll-down" role="navigation">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">Menu</button>
 			<div class="collapse navbar-collapse">
 				<ul class="nav medium-block-grid-5">
-					<li><a href="#about-derek">About <?= $profile->first_name; ?></a></li>
+					<li><a href="#about-derek-misler">About <?= $profile->full_name; ?></a></li>
 					<li><a href="#experience">Experience</a></li>
 					<li><a href="#qualifications">Qualifications</a></li>
 					<li><a href="#projects">Projects</a></li>
@@ -32,7 +32,7 @@
 		</nav>
 		
 		<div class="background-yellow">
-			<div id="about-derek" class="container">
+			<div id="about-derek-misler" class="container">
 				<?php include(VIEW_INCLUDE_PATH.'sections/profile.inc.php'); ?>
 			</div>
 		</div>

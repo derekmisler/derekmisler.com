@@ -1,2 +1,3 @@
 User-agent: *
 Disallow: /view/resume/
+Disallow: /post/

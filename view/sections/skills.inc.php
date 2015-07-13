@@ -1,4 +1,4 @@
-<h2>Qualifications</h2>
+<h2><?= $profile->full_name; ?>'s Qualifications</h2>
 
 <hr />
 

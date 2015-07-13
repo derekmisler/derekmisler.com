@@ -3,7 +3,7 @@
 - http://www.derekmisler.com
 
 
-Derek Misler is a full-stack web and software develooper. He has a well-rounded education of many different web and software languages, and an advanced proficiency of front-end techniques. Some of his favorite aspects of web development and software engineering are optimizing code, fixing details, and finding bugs. He is an independent person, but enjoys the learning opportunities afforded by working on a team.
+Derek Misler is a full-stack web and software developer. He has a well-rounded education of many different web and software languages, and an advanced proficiency of front-end techniques. Some of his favorite aspects of web development and software engineering are optimizing code, fixing details, and finding bugs. He is an independent person, but enjoys the learning opportunities afforded by working on a team.
 
 ---
 ## Technical Skills

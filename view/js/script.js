@@ -1,17 +1,16 @@
 var lnStickyNavigation;
 
-$(document).ready(function()
-{
+$(document).ready(function() {
 	$('img').unveil(200);
 	applyNavigation();
 	applyResize();
 });
 
 /* HEADER FUNCTIONS */
-function applyHeader()
-{
+function applyHeader() {
 	$('.jumbotron').css({ height: ($(window).height()) +'px' });
 }
+
 ;(function($) {
 	$.fn.unveil = function(threshold, callback) {
 		var $w = $(window),
@@ -50,23 +49,17 @@ function applyHeader()
 })(window.jQuery || window.Zepto);
 /* NAVIGATION FUNCTIONS */
 
-function applyNavigation()
-{
+function applyNavigation() {
 	applyClickEvent();
 	applyNavigationFixForPhone();
 	applyStickyNavigation();
 }
 
-function applyClickEvent()
-{
-	$('a[href*=#]').on('click', function(e)
-	{
+function applyClickEvent() {
+	$('a[href*=#]').on('click', function(e) {
 		e.preventDefault();
-		
-		if( $( $.attr(this, 'href') ).length > 0 )
-		{
-			$('html, body').animate(
-			{
+		if( $( $.attr(this, 'href') ).length > 0 ) {
+			$('html, body').animate({
 				scrollTop: $( $.attr(this, 'href') ).offset().top
 			}, 400);
 		}
@@ -74,43 +67,31 @@ function applyClickEvent()
 	});
 }
 
-function applyNavigationFixForPhone()
-{
-	$('.navbar li a').click(function(event)
-	{
+function applyNavigationFixForPhone() {
+	$('.navbar li a').click(function(event) {
 		$('.navbar-collapse').removeClass('in').addClass('collapse');
 	});
 }
-function applyStickyNavigation()
-{
+function applyStickyNavigation() {
 	lnStickyNavigation = $('.scroll-down').offset().top + 0;
-	
-	$(window).on('scroll', function()
-	{
+	$(window).on('scroll', function() {
 		stickyNavigation();
 	});
-	
 	stickyNavigation();
 }
-function stickyNavigation()
-{
-	if($(window).scrollTop() > lnStickyNavigation) 
-	{
+function stickyNavigation() {
+	if($(window).scrollTop() > lnStickyNavigation) {
 		$('body').addClass('fixed');
 	}
-	else
-	{
+	else {
 		$('body').removeClass('fixed');
 	}
 }
 
 /* RESIZE FUNCTION */
-function applyResize()
-{
-	$(window).on('resize', function()
-	{
+function applyResize() {
+	$(window).on('resize', function() {
 		lnStickyNavigation = $('.scroll-down').offset().top + 0;
-	
 		$('.jumbotron').css({ height: ($(window).height()) +'px' });
 	});
 }

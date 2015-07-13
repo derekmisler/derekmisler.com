@@ -1,4 +1,4 @@
-ErrorDocument 404 /404.php
+ErrorDocument 404 /view/404.php
 
 
 # BEGIN Compress text files
@@ -97,4 +97,6 @@ RewriteCond %{HTTP_REFERER} ^http://.*best\-seo\-solution\.com/ [NC,OR]
 RewriteCond %{HTTP_REFERER} ^http://.*event\-tracking\.com/ [NC,OR]
 RewriteCond %{HTTP_REFERER} ^http://.*saveyoutubevideo\.com/ [NC,OR]
 RewriteCond %{HTTP_REFERER} ^http://.*netzcheck\.com/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*webmonetizer\.net/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*success\-seo\.com/ [NC,OR]
 RewriteRule ^(.*)$ – [F,L]

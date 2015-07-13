@@ -1,10 +1,9 @@
 #Derek Misler
-- Asheville, NC, United States
 - derekmisler@gmail.com
 - http://www.derekmisler.com
 
 
-I’m a developer, from the front-end all the way to the back. I have a well-rounded education of many different languages, though I have an advanced proficiency of front-end techniques. Some of my favorite aspects of development are optimizing code, fixing details, and finding bugs. I’m an independent person, but I enjoy the learning opportunities afforded by working on a team. Did I mention I have a fine arts degree? I’d love the chance to explain why I think all developers can benefit from an arts curriculum.
+Derek Misler is a full-stack web and software develooper. He has a well-rounded education of many different web and software languages, and an advanced proficiency of front-end techniques. Some of his favorite aspects of web development and software engineering are optimizing code, fixing details, and finding bugs. He is an independent person, but enjoys the learning opportunities afforded by working on a team.
 
 ---
 ## Technical Skills

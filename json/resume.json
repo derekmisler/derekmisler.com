@@ -255,7 +255,14 @@
 					"description": "A redesign of ExploreAsheville.com.",
 					"link": "http://www.exploreasheville.com/",
 					"image": "new-exploreasheville.jpg",
-					"tags": "HTML5, CSS3, Node.js, MongoDB, Goatee (custom templating language), Responsive"
+					"tags": "HTML5, CSS3, Node.js, MongoDB, Goatee (Custom JavaScript Framework), Responsive"
+			},
+			{
+					"title": "Asheville Area Music Scene",
+					"description": "An Angular app for promoting the music scene in Asheville and the surrounding areas. Python was used to scrape partners' event calendars in order to consolidate them into one, unified calendar.",
+					"link": "http://www.exploreasheville.com/music-scene",
+					"image": "music-scene.jpg",
+					"tags": "Angular.js, Python, SoundCloud API"
 			},
 			{
 					"title": "ExploreAsheville.com",
@@ -283,7 +290,7 @@
 					"description": "A custom content management system built upon Magento by a 3-person team.",
 					"link": "http://www.housershoes.com",
 					"image": "houser-shoes.jpg",
-					"tags": "PHP, MySQL, Magento, Custom CMS"
+					"tags": "PHP, MySQL, Magento, Custom CMS, Responsive"
 			}
 	]
 }

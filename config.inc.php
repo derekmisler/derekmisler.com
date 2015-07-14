@@ -1,7 +1,7 @@
 <?php
 	
 	define('ROOT', dirname(__FILE__). '/');
-	define('BASE', str_replace('//', '/', dirname($_SERVER['PHP_SELF']). '/'));
+	define('BASE', 'http://www.derekmisler.com/');
 	
 	define('CONTROLLERS_INCLUDE_PATH', ROOT.'controllers/');
 	define('MODELS_INCLUDE_PATH', ROOT.'models/');

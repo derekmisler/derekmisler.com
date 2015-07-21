@@ -296,7 +296,7 @@
 					"description": "A fun project for Harvard's CS50x3 course.",
 					"link": "https://github.com/derekmisler/CS-Courses/blob/master/C/pset3/breakout/breakout.c",
 					"image": "breakout.jpg",
-					"tags": "C"
+					"tags": "C, OOP"
 			},
 			{
 					"title": "Explorers of the Blue Ridge Parkway",

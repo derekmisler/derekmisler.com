@@ -7,20 +7,19 @@
 //
 //## Gray and brand colors for use across Bootstrap.
 
-@gray-darker:            lighten(#000, 13.5%); // #222
-@gray-dark:              #2A2C2B;
-@gray:                   lighten(#000, 33.5%); // #555
-@gray-light:             lighten(#000, 46.7%); // #777
-@gray-lighter:           lighten(#000, 93.5%); // #eee
+@red:                   #BB1F28;
+@yellow:                #FFCF9A;
+@orange:                #D94700;
+@blue:                  #122C42;
 
-@orange:                #DC3522;
-@yellow:                #D9CB9E;
-@red:                   #6A2C2B;
-@green:                 #378B58;
-@blue:                  #2D3D4F;
+@gray-darker:            fadeout(#000, 13.5%); // #222
+@gray-dark:              darken(@blue, 50%);
+@gray:                   #16171C;
+@gray-light:             fadeout(#000, 46.7%); // #777
+@gray-lighter:           fadeout(#000, 93.5%); // #eee
 
 @brand-primary:         @orange;
-@brand-success:         @green;
+@brand-success:         @blue;
 @brand-info:            @blue;
 @brand-warning:         @yellow;
 @brand-danger:          @red;
@@ -31,13 +30,13 @@
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-@body-bg:               #f0f0f0;
+@body-bg:               #ECF0F1;
 //** Global text color on `<body>`.
 @text-color:            @gray-dark;
 
 //** Global textual link color.
 @link-color:            @brand-primary;
-@link-hover-color:      @red;
+@link-hover-color:      @brand-danger;
 
 
 //== Typography

@@ -24,38 +24,6 @@
 </div>
 <?php } else { ?>
 <?php } ?>
-<?php
-#
-# build the Flickr API URL to call
-#
-$params = array(
-	'api_key'	=> '910bf81d37f10472b9efc377fee384a3',
-	'method'	=> 'flickr.photos.getInfo',
-	'photo_id'	=> '18892668955',
-	'format'	=> 'php_serial',
-);
-$encoded_params = array();
-foreach ($params as $k => $v){
-	$encoded_params[] = urlencode($k).'='.urlencode($v);
-}
-
-#
-# call the API and decode the response
-#
-$url = "https://api.flickr.com/services/rest/?".implode('&', $encoded_params);
-$rsp = file_get_contents($url);
-$rsp_obj = unserialize($rsp);
-
-#
-# display the photo title (or an error if it failed)
-#
-if ($rsp_obj['stat'] == 'ok'){
-	$photo_title = $rsp_obj['photo']['title']['_content'];
-	#echo "Title is $photo_title!";
-}else{
-	#echo "Call failed!";
-}
-?>
 <!-- <hr />
 <h3>Flickr Photostream</h3>
 <div class="row">

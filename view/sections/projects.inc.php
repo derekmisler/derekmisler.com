@@ -24,18 +24,3 @@
 </div>
 <?php } else { ?>
 <?php } ?>
-<!-- <hr />
-<h3>Flickr Photostream</h3>
-<div class="row">
-	<div class="col-sm-6 col-xs-12">
-		<figure class="effect">
-			<img src="images/loader.gif" />
-			<figcaption>
-				<h3></h3>
-				<span class="icon">
-					<span class="icon-new-window"></span>
-				</span>
-			</figcaption>
-		</figure>
-	</div>
-</div> -->

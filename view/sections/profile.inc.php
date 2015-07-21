@@ -4,7 +4,7 @@
 
 <div class="row">
 	<div class="col-md-6 text-center visible-xs visible-sm">
-		<img src="<?= VIEW_PATH; ?>images/loader.gif" data-src="<?= VIEW_PATH; ?>images/derek-misler.jpg" data-src-retina="<?= VIEW_PATH; ?>images/retina/derek-misler.jpg" alt="<?= $profile->full_name; ?>" width="200" height="200" />
+		<a href="https://github.com/derekmisler/derekmisler.com" target="_blank"><img src="<?= VIEW_PATH; ?>images/loader.gif" data-src="<?= VIEW_PATH; ?>images/derek-misler.jpg" data-src-retina="<?= VIEW_PATH; ?>images/retina/derek-misler.jpg" alt="<?= $profile->full_name; ?>" width="200" height="200" /></a>
 		<p><a href="https://github.com/derekmisler/derekmisler.com" target="_blank"><span class="icon-new-window"></span>&nbsp;View DerekMisler.com on GitHub.</a></p>
 	</div>
 	<div class="col-md-6">
@@ -47,7 +47,7 @@
 		</div>
 	</div>
 	<div class="col-md-6 text-center visible-md visible-lg">
-		<img src="<?= VIEW_PATH; ?>images/loader.gif" data-src="<?= VIEW_PATH; ?>images/derek-misler.jpg" data-src-retina="<?= VIEW_PATH; ?>images/retina/derek-misler.jpg" alt="<?= $profile->full_name; ?>" width="200" height="200" />
+		<a href="https://github.com/derekmisler/derekmisler.com" target="_blank"><img src="<?= VIEW_PATH; ?>images/loader.gif" data-src="<?= VIEW_PATH; ?>images/derek-misler.jpg" data-src-retina="<?= VIEW_PATH; ?>images/retina/derek-misler.jpg" alt="<?= $profile->full_name; ?>" width="200" height="200" /></a>
 		<p><a href="https://github.com/derekmisler/derekmisler.com" target="_blank"><span class="icon-new-window"></span>&nbsp;View DerekMisler.com on GitHub.</a></p>
 
 	</div>

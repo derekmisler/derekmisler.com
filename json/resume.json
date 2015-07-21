@@ -145,6 +145,10 @@
 					"specification": "jQuery"
 			},
 			{
+					"title": "Free Code Camp",
+					"specification": "Full Stack Web Development, Computer Software Engineering"
+			},
+			{
 					"title": "Udemy",
 					"specification": "Beginner Python & Django Programming"
 			},
@@ -163,11 +167,11 @@
 	],
 	"skills": [
 			{
-					"title": "HTML",
+					"title": "HTML5",
 					"level": 5
 			},
 			{
-					"title": "CSS",
+					"title": "CSS3",
 					"level": 5
 			},
 			{
@@ -223,20 +227,36 @@
 					"level": 4
 			},
 			{
-					"title": "CSS Preprocessors",
-					"level": 5
-			},
-			{
 					"title": "JSON",
 					"level": 5
 			},
 			{
 					"title": "Git/Github",
 					"level": 5
+			},
+			{
+					"title": "Adobe Creative Suite",
+					"level": 5
+			},
+			{
+					"title": "CLI",
+					"level": 4
+			},
+			{
+					"title": "Linux",
+					"level": 4
+			},
+			{
+					"title": "UNIX",
+					"level": 4
+			},
+			{
+					"title": "CSS Preprocessors",
+					"level": 5
 			}
 	],
 	"tools": [
-	],
+],
 	"interests": [
 			{
 					"title": null,

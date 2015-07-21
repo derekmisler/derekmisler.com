@@ -259,7 +259,7 @@
 			},
 			{
 					"title": "Asheville Area Music Scene",
-					"description": "An Angular app for promoting the music scene in Asheville and the surrounding areas. Python was used to scrape partners' event calendars in order to consolidate them into one, unified calendar.",
+					"description": "An Angular app for promoting the music scene in Asheville. Python was used to consolidate multiple event calendars into one.",
 					"link": "http://www.exploreasheville.com/music-scene",
 					"image": "music-scene.jpg",
 					"tags": "Angular.js, Python, SoundCloud API"
@@ -270,6 +270,13 @@
 					"link": "http://www.exploreasheville.com/",
 					"image": "explore-asheville.jpg",
 					"tags": "ColdFusion, jQuery, Responsive, JavaScript APIs"
+			},
+			{
+					"title": "Breakout!",
+					"description": "A fun project for Harvard's CS50x3 course.",
+					"link": "https://github.com/derekmisler/CS-Courses/blob/master/C/pset3/breakout/breakout.c",
+					"image": "breakout.jpg",
+					"tags": "C"
 			},
 			{
 					"title": "Explorers of the Blue Ridge Parkway",

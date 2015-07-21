@@ -8,7 +8,9 @@
 	padding: 0px;
 	height: 100%;
 	.overlay {
-		background-color: fadeout(@blue, 25%);
+		background-color: fadeout(@blue, 100%);
+		background-image: linear-gradient(45deg, @blue, @red);
+		opacity: .75;
 		position: absolute;
 		top: 0px;
 		bottom: 0px;
@@ -54,10 +56,12 @@
 .fixed .navbar  { position: fixed; top: 0px; }
 
 .background-yellow {
-		background: fadeout(@yellow, 50%);
+		background: fadeout(@yellow, 100%);
+		background-image: linear-gradient(45deg, fadeout(@yellow, 50%), fadeout(@yellow, 90%));
 }
 .background-gray {
-		background: fadeout(@blue, 25%);
+		background: fadeout(@blue, 100%);
+		background-image: linear-gradient(45deg, fadeout(@blue, 25%), fadeout(@blue, 50%));
 		hr{
 				border-top: 1px solid fadeout(@body-bg, 35%);
 		}
@@ -71,22 +75,22 @@
 #about-derek-misler .row > div img { width: 100%; max-width: 250px; height: auto; border-radius: 50%; border: .5rem solid rgba(0,0,0,.1); }
 
 #experience .experience {
-		margin-bottom: 1rem;
-		p > strong {
-				display: block;
-				padding-top: 1rem;
-				margin-bottom: .5rem;
+	margin-bottom: 1rem;
+	p > strong {
+		display: block;
+		padding-top: 1rem;
+		margin-bottom: .5rem;
+	}
+	.experience-details {
+		display: block;
+		margin-top: .5rem;
+		color: @brand-primary;
+		font-size: @font-size-small;
+		a:hover,
+		a:focus{
+			color: @link-hover-color;
 		}
-		.experience-details {
-				display: block;
-				margin-top: .5rem;
-				color: @brand-primary;
-				font-size: @font-size-small;
-				a:hover,
-				a:focus{
-						color: @link-hover-color;
-				}
-		}
+	}
 }
 
 #qualifications{
@@ -120,12 +124,12 @@
 #projects figure h3 { color: @body-bg; margin-bottom: 5px; }
 #projects figure img { width: 100%; }
 #projects figure figcaption {
-		padding: floor(@navbar-height /2);
-		position: absolute;
-		top: 0px;
-		left: 0px;
-		height: 100%;
-		width: 100%;
+	padding: floor(@navbar-height /2);
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
 }
 #projects figure a {
 	z-index: 1000;
@@ -133,19 +137,19 @@
 	white-space: nowrap;
 	font-size: 0;
 	.opacity(0);
-		position: absolute;
-		top: 0px;
-		left: 0px;
-		height: 100%;
-		width: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
 }
 #projects figure .icon {
 	background: @red;
 	position: absolute;
 	top: 0px;
 	right: 0px;
-	width: @navbar-height;;
-	height: @navbar-height;;
+	width: @navbar-height;
+	height: @navbar-height;
 	line-height: @navbar-height;
 	.text-center;
 }
@@ -239,7 +243,7 @@
 		}
 }
 figure.effect {
-	background: @brand-primary;
+	background: linear-gradient(45deg, @brand-primary, fadeout(@brand-primary, 20%));
 	color: @body-bg;
 	border: 1px solid @brand-primary;
 		img {

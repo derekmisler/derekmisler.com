@@ -4063,7 +4063,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   height: 100%;
 }
 .jumbotron .overlay {
-  background-color: rgba(45, 61, 79, 0.75);
+  background-color: rgba(45, 61, 79, 0);
+  background-image: linear-gradient(45deg, #2d3d4f, #6a2c2b);
+  opacity: .75;
   position: absolute;
   top: 0px;
   bottom: 0px;
@@ -4114,10 +4116,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   top: 0px;
 }
 .background-yellow {
-  background: rgba(217, 203, 158, 0.5);
+  background: rgba(217, 203, 158, 0);
+  background-image: linear-gradient(45deg, rgba(217, 203, 158, 0.5), rgba(217, 203, 158, 0.1));
 }
 .background-gray {
-  background: rgba(45, 61, 79, 0.75);
+  background: rgba(45, 61, 79, 0);
+  background-image: linear-gradient(45deg, rgba(45, 61, 79, 0.75), rgba(45, 61, 79, 0.5));
 }
 .background-gray hr {
   border-top: 1px solid rgba(240, 240, 240, 0.65);
@@ -4315,7 +4319,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 figure.effect {
-  background: #dc3522;
+  background: linear-gradient(45deg, #dc3522, rgba(220, 53, 34, 0.8));
   color: #f0f0f0;
   border: 1px solid #dc3522;
 }

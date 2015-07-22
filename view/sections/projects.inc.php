@@ -1,5 +1,5 @@
 <?php if(count($projects) > 0) { ?>
-<h2><?= $profile->full_name; ?>'s Favorite Projects</h2>
+<h2><?= $profile->full_name; ?>'s Portfolio</h2>
 <hr />
 <div class="row">
 	<?php foreach($projects as $index => $project) { ?>

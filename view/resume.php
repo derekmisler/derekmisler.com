@@ -9,13 +9,13 @@
 		'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 		})(window,document,'script','dataLayer','GTM-N2C864');</script>
 		<!-- End Google Tag Manager -->
-		
+
 		<div id="top" class="jumbotron">
 			<div class="container">
 				<h1><?= $profile->full_name; ?><small><?= $profile->description; ?></small></h1>
 			</div>
 			<div class="overlay"></div>
-			<a class="down-arrow hidden-phone" href="#about-derek-misler"><span class="icon-arrow-down"></span></a>
+			<a class="down-arrow" href="#about-derek-misler"><span class="icon-arrow-down"></span></a>
 		</div>
 
 		<nav class="navbar scroll-down" role="navigation">
@@ -25,32 +25,32 @@
 					<li><a href="#about-derek-misler">About <?= $profile->full_name; ?></a></li>
 					<li><a href="#experience">Experience</a></li>
 					<li><a href="#qualifications">Qualifications</a></li>
-					<li><a href="#projects">Projects</a></li>
+					<li><a href="#portfolio">Portfolio</a></li>
 					<li><a href="#more-info">More Info</a></li>
 				</ul>
 			</div>
 		</nav>
-		
+
 		<div class="background-yellow">
 			<div id="about-derek-misler" class="container">
 				<?php include(VIEW_INCLUDE_PATH.'sections/profile.inc.php'); ?>
 			</div>
 		</div>
-		
+
 		<div id="experience" class="container">
 			<?php include(VIEW_INCLUDE_PATH.'sections/experiences.inc.php'); ?>
 		</div>
-		
+
 		<div class="background-yellow">
 			<div id="qualifications" class="container">
 				<?php include(VIEW_INCLUDE_PATH.'sections/skills.inc.php'); ?>
 			</div>
 		</div>
-		
-		<div id="projects" class="container">
+
+		<div id="portfolio" class="container">
 			<?php include(VIEW_INCLUDE_PATH.'sections/projects.inc.php'); ?>
 		</div>
-		
+
 		<div class="background-gray">
 			<div id="more-info" class="container">
 				<?php include(VIEW_INCLUDE_PATH.'sections/more.inc.php'); ?>
@@ -60,6 +60,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script type="text/javascript" src="<?= VIEW_PATH; ?>js/script.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-		
+
 	</body>
 </html>

@@ -278,6 +278,20 @@
 					"tags": "HTML5, CSS3, Node.js, MongoDB, Goatee (Custom JavaScript Framework), Responsive"
 			},
 			{
+					"title": "Explorers of the Blue Ridge Parkway",
+					"description": "An incredibly large project for just one developer/designer.",
+					"link": "http://www.exploreasheville.com/blue-ridge-parkway/",
+					"image": "explorers-of-the-blue-ridge-parkway.jpg",
+					"tags": "HTML5, CSS3, jQuery, Responsive, Custom CSS Framework"
+			},
+			{
+					"title": "The Science Behind Fall Color",
+					"description": "An award-winning project.",
+					"link": "http://www.exploreasheville.com/science-behind-fall-color/",
+					"image": "science-behind-fall-color.jpg",
+					"tags": "HTML5, CSS3, jQuery, Responsive, Bootstrap"
+			},
+			{
 					"title": "Asheville Area Music Scene",
 					"description": "An Angular app for promoting the music scene in Asheville. Python was used to consolidate multiple event calendars into one.",
 					"link": "https://github.com/derekmisler/Music-Scene",
@@ -297,20 +311,6 @@
 					"link": "https://github.com/derekmisler/CS-Courses/blob/master/C/pset3/breakout/breakout.c",
 					"image": "breakout.jpg",
 					"tags": "C, OOP"
-			},
-			{
-					"title": "Explorers of the Blue Ridge Parkway",
-					"description": "An incredibly large project for just one developer/designer.",
-					"link": "http://www.exploreasheville.com/blue-ridge-parkway/",
-					"image": "explorers-of-the-blue-ridge-parkway.jpg",
-					"tags": "HTML5, CSS3, jQuery, Responsive, Custom CSS Framework"
-			},
-			{
-					"title": "The Science Behind Fall Color",
-					"description": "An award-winning project.",
-					"link": "http://www.exploreasheville.com/science-behind-fall-color/",
-					"image": "science-behind-fall-color.jpg",
-					"tags": "HTML5, CSS3, jQuery, Responsive, Bootstrap"
 			},
 			{
 					"title": "Houser Shoes",

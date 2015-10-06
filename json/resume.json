@@ -204,7 +204,7 @@
 			},
 			{
 					"title": "Ruby",
-					"level": 4
+					"level": 3
 			},
 			{
 					"title": "Node.js",
@@ -280,7 +280,7 @@
 			{
 					"title": "Asheville Area Music Scene",
 					"description": "An Angular app for promoting the music scene in Asheville. Python was used to consolidate multiple event calendars into one.",
-					"link": "http://www.exploreasheville.com/music-scene",
+					"link": "https://github.com/derekmisler/Music-Scene",
 					"image": "music-scene.jpg",
 					"tags": "Angular.js, Python, SoundCloud API"
 			},

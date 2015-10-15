@@ -6,7 +6,7 @@
 			"description": "Web & Software Developer",
 			"date_of_birth": "1986-04-08",
 			"place_of_birth": "Miami, Florida",
-			"biography": "Derek Misler is a full-stack web and software developer. He has a well-rounded education of many different web and software programming languages for both desktop and mobile, including Python, Ruby, C/C++, C#/.NET, PHP, and an advanced proficiency of front-end techniques involving HTML5, CSS3, Javascript/jQuery/Angular/React. Some of his favorite aspects of web development and software engineering are solving complex data-related problems, optimization and analysis of large data sets, and finding bugs through a test-driven development approach. He is an independent person, but enjoys the learning opportunities afforded by working on a team.",
+			"biography": "Derek Misler is a full-stack web and software developer. He has a well-rounded education of many different web and software programming languages for both desktop and mobile, including Python, Ruby, C/C++, C#/.NET, PHP, and an advanced proficiency of front-end techniques involving HTML5, CSS3, Javascript/jQuery, Angular/React. Some of his favorite aspects of web development and software engineering are solving complex data-related problems, optimization and analysis of large data sets, and finding bugs through a test-driven development approach. He is an independent person, but enjoys the learning opportunities afforded by working on a team.",
 			"current_location": {
 					"housenumber": "700",
 					"street": "W End Ave. 12A",
@@ -54,8 +54,8 @@
 					"location": "Asheville, North Carolina",
 					"level": "Full-time",
 					"description": "As the only designer/developer/analyst on staff, my job is to maintain our entire web presence. We started with an .NET-backed website, but one of my first projects was to oversee the redesign of ExploreAsheville.com with a new company that worked primarily in Coldfusion, and I’ve since updated and maintained it as the web evolves, as well as creating the matching mobile site and Blogger theme. The site will receive over 4 million visits this year. I’ve been in charge of creating all print- and web-related assets for our various marketing campaigns, all of the digital analytics, and two long-form, media-rich, interactive stories that continue to win awards. Finally, we’re in the process of a second redesign utilizing Node.js and MongoDB. One feature of our new site utilizes web-scraping technology written in Python that we’ll be using to partner with area online events calendars to create a single, unified events calendar for the entire county.",
-					"start_date": "2010",
-					"end_date": null,
+					"start_date": "2011",
+					"end_date": "2016",
 					"link": "http://www.exploreasheville.com"
 			},
 			{
@@ -65,17 +65,17 @@
 					"level": "Full-time",
 					"description": "During my time at Houser Shoes, I was part of a 3-person team that redesigned their e-commerce website. We created a custom CMS based on Magento, which utilized primarily PHP and MySQL. I also have a photography education, which made me the de-facto product photographer.",
 					"start_date": "2010",
-					"end_date": "late 2010",
+					"end_date": "2011",
 					"link": "http://www.housershoes.com"
 			},
 			{
-					"title": "DAM Design",
+					"title": "Freelance",
 					"specification": "Developer",
 					"location": "Asheville, North Carolina",
 					"level": "Freelance",
 					"description": "Immediately after graduation, I began freelancing. It was mostly branding and identity at first, but I eventually had enough clients needing new websites that I was putting in more hours than most full-time web developers. I still enjoy creating websites for friends from time-to-time.",
 					"start_date": "2009",
-					"end_date": null,
+					"end_date": "2016",
 					"link": null
 			},
 			{

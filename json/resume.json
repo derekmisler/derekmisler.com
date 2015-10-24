@@ -6,7 +6,7 @@
 			"description": "Web & Software Developer",
 			"date_of_birth": "1986-04-08",
 			"place_of_birth": "Miami, Florida",
-			"biography": "Derek Misler is a full-stack web and software developer. He has a well-rounded education of many different web and software programming languages for both desktop and mobile, including Python, Ruby, C/C++, C#/.NET, PHP, and an advanced proficiency of front-end techniques involving HTML5, CSS3, Javascript/jQuery, Angular/React. Some of his favorite aspects of web development and software engineering are solving complex data-related problems, optimization and analysis of large data sets, and finding bugs through a test-driven development approach. He is an independent person, but enjoys the learning opportunities afforded by working on a team.",
+			"biography": "Derek Misler is a full-stack web and software developer. He has a well-rounded education of many different web and software programming languages for both desktop and mobile, including Python, Ruby, C/C++, C#/.NET, PHP, and an advanced proficiency of front-end techniques involving HTML5, CSS3, JavaScript/jQuery, Angular/React. Some of his favorite aspects of web development and software engineering are solving complex data-related problems, optimization and analysis of large data sets, and finding bugs through a test-driven development approach. He is an independent person, but enjoys the learning opportunities afforded by working on a team.",
 			"current_location": {
 					"housenumber": "700",
 					"street": "W End Ave. 12A",
@@ -41,7 +41,7 @@
 					"title": "A.C. Reynolds High School",
 					"specification": null,
 					"location": "Asheville, North Carolina",
-					"description": "Why would I add high school to this list? Because this is when I started my development career, 15 years ago. I built my first website with PHP, HTML, CSS, and JavaScript in 2000 and started with C++ shortly thereafter. It was here that I learned the conventions behind object-oriented programming.",
+					"description": "Why would I add high school to this list? Because this is when I started my development career, over 15 years ago. I built my first website with PHP, HTML, CSS, and JavaScript in 2000 and started with C++ shortly thereafter. It was here that I learned the conventions behind object-oriented programming.",
 					"start_date": "2000",
 					"end_date": "2004",
 					"completed": true
@@ -73,7 +73,7 @@
 					"specification": "Developer",
 					"location": "Asheville, North Carolina",
 					"level": "Freelance",
-					"description": "Immediately after graduation, I began freelancing. It was mostly branding and identity at first, but I eventually had enough clients needing new websites that I was putting in more hours than most full-time web developers. I still enjoy creating websites for friends from time-to-time.",
+					"description": "Mostly branding and corporate identity at first, but I eventually had enough clients needing new websites that I became a full-time developer. I still enjoy creating websites for friends from time-to-time.",
 					"start_date": "2009",
 					"end_date": "2016",
 					"link": null
@@ -93,7 +93,7 @@
 					"specification": "Lead Designer/Developer",
 					"location": "Boone, North Carolina",
 					"level": "Part-time",
-					"description": "During my time, I worked with an intern to establish an online presence for The Appalachian newspaper, while still maintaining my role as the lead graphic designer.",
+					"description": "I worked with an intern to establish an online presence for The Appalachian newspaper, while still maintaining my role as the lead graphic designer.",
 					"start_date": "2006",
 					"end_date": "2008",
 					"link": "http://theappalachianonline.com"
@@ -122,11 +122,11 @@
 			},
 			{
 					"title": "Codecademy",
-					"specification": "Javascript APIs"
+					"specification": "JavaScript APIs"
 			},
 			{
 					"title": "Codecademy/Code School",
-					"specification": "Javascript"
+					"specification": "JavaScript"
 			},
 			{
 					"title": "Code School",
@@ -146,7 +146,7 @@
 			},
 			{
 					"title": "Free Code Camp",
-					"specification": "Full Stack Web Development, Computer Software Engineering"
+					"specification": "Full Stack Web Development"
 			},
 			{
 					"title": "Udemy",
@@ -162,7 +162,7 @@
 			},
 			{
 					"title": "Udemy",
-					"specification": "Advanced Ruby Programming: 10 Steps to Mastery Course"
+					"specification": "Advanced Ruby: 10 Steps to Mastery"
 			}
 	],
 	"skills": [
@@ -179,7 +179,7 @@
 					"level": 5
 			},
 			{
-					"title": "AngularJS",
+					"title": "Angular/React",
 					"level": 5
 			},
 			{

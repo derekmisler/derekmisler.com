@@ -6,6 +6,7 @@
 	<div class="col-md-6 text-center visible-xs visible-sm">
 		<a href="https://github.com/derekmisler/derekmisler.com" target="_blank"><img src="<?= VIEW_PATH; ?>images/loader.gif" data-src="<?= VIEW_PATH; ?>images/derek-misler.jpg" data-src-retina="<?= VIEW_PATH; ?>images/retina/derek-misler.jpg" alt="<?= $profile->full_name; ?>" width="200" height="200" /></a>
 		<p><a href="https://github.com/derekmisler/derekmisler.com" target="_blank"><span class="icon-new-window"></span>&nbsp;View DerekMisler.com on GitHub.</a></p>
+		<p><a href="<?= VIEW_PATH; ?>resume/Derek-Misler-resume.pdf" target="_blank"><span class="icon-mouse"></span>&nbsp;Download PDF Resume.</a></p>
 	</div>
 	<div class="col-md-6">
 		<p><?= $profile->biography; ?></p>
@@ -49,6 +50,7 @@
 	<div class="col-md-6 text-center visible-md visible-lg">
 		<a href="https://github.com/derekmisler/derekmisler.com" target="_blank"><img src="<?= VIEW_PATH; ?>images/loader.gif" data-src="<?= VIEW_PATH; ?>images/derek-misler.jpg" data-src-retina="<?= VIEW_PATH; ?>images/retina/derek-misler.jpg" alt="<?= $profile->full_name; ?>" width="200" height="200" /></a>
 		<p><a href="https://github.com/derekmisler/derekmisler.com" target="_blank"><span class="icon-new-window"></span>&nbsp;View DerekMisler.com on GitHub.</a></p>
+		<p><a href="<?= VIEW_PATH; ?>resume/Derek-Misler-resume.pdf" target="_blank"><span class="icon-mouse"></span>&nbsp;Download PDF Resume.</a></p>
 
 	</div>
 </div>

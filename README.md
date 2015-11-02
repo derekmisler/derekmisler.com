@@ -1,28 +1,31 @@
+
 #Derek Misler
+- New York, NY, United States
+- 828-273-6943
 - derekmisler@gmail.com
 - http://www.derekmisler.com
 
 
-Derek Misler is a full-stack web and software developer. He has a well-rounded education of many different web and software languages, and an advanced proficiency of front-end techniques. Some of his favorite aspects of web development and software engineering are optimizing code, fixing details, and finding bugs. He is an independent person, but enjoys the learning opportunities afforded by working on a team.
+I am a full-stack web and software developer with 10+ years experience. I have a well-rounded education, both traditional and self-driven, of many different web and software programming languages for both desktop and mobile, including Python, Ruby, C/C++, C#/.NET, PHP, and an advanced proficiency of front-end techniques involving HTML5, CSS3, and JavaScript, including frameworks such as jQuery, Angular, and React. Some of my favorite aspects of web development and software engineering are solving complex data-related problems, optimization and analysis of data sets such as A/B testing, and finding bugs through a test-driven development approach. I am an independent person, but I enjoy the learning opportunities afforded by working on a team.
 
 ---
 ## Technical Skills
-**Like:** html, css, javascript, c, c++, c#, ruby-on-rails, python, jquery, asp.net, photography, photoshop, indesign, illustrator
+**Like:** html, css, javascript, c#, angularjs, python, jquery, asp.net, photography, photoshop, indesign, illustrator, html5, css3, node.js
 
 **Dislike:** powerpoint
 
 ---
 ##Experience
 
-**Web Manager**, Asheville Convention and Visitors Bureau/Asheville Area Chamber of Commerce, *December 2010 - Current*
+**Web Manager**, Asheville Convention and Visitors Bureau, *December 2010 – Current*
 
-html, css, jquery, javascript, php, asp.net, coldfusion, node.js, mongodb, actionscript, python, photography
+html5, css3, asp.net, javascript, jquery, angularjs, node.js, api, facebook-javascript-sdk, youtube-api, twitter-bootstrap
 
-As the only designer/developer/analyst on staff, my job is to maintain our entire web presence. We started with an ASP.NET-backed website, but one of my first projects was to oversee the first redesign of ExploreAsheville.com using Coldfusion, and I’ve since updated and maintained it as the web evolves, as well as creating the matching mobile site and Blogger theme. The site will receive over 4 million visits this year, which is more traffic than North Carolina’s state tourism office. I’ve been in charge of creating all print- and web-related assets for our various marketing campaigns, all of the digital analytics, and two long-form, media-rich, interactive stories that continue to win awards. Finally, we’re in the process of a second redesign utilizing Node.js and MongoDB. One feature of our new site utilizes web-scraping technology written in Python that we’ll be using to partner with area online events calendars to create a single, unified events calendar for the entire county.
+As the only designer/developer/analyst on staff, my job is to maintain our entire web presence. We started with an ASP.NET-backed website, but one of my first projects was to oversee the first redesign of ExploreAsheville.com using Coldfusion, and I’ve since updated and maintained it as the web evolves, as well as creating the matching mobile site and Blogger theme. The site will receive over 4 million visits this year, which is more traffic than North Carolina’s state tourism office. I’ve been in charge of creating all print- and web-related assets for our various marketing campaigns, all of the digital analytics, and two long-form, media-rich, interactive stories that continue to win awards. Finally, we’re in the process of a second redesign utilizing Node.js and MongoDB. One feature of our new site utilizes web-scraping technology written in Node.js that we’ll be using to partner with area online events calendars to create a single, unified events calendar for the entire county.
 
 ---
 
-**Web Designer/Photographer**, Houser Shoes, Inc, *January 2010 - December 2010*
+**Web Designer/Photographer**, Houser Shoes, Inc, *January 2010 – December 2010*
 
 html, css, javascript, magento, php, mysql, photography
 
@@ -30,7 +33,7 @@ During my time at Houser Shoes, I was part of a 3-person team that redesigned th
 
 ---
 
-**Freelance Developer**, Derek Misler, *January 2009 - Current*
+**Freelance Developer**, Derek Misler, *January 2009 – October 2015*
 
 html, css, javascript, jquery, actionscript, php, mysql, photography, flash, adobe
 
@@ -38,7 +41,7 @@ Immediately after graduation, I began freelancing. It was mostly branding and id
 
 ---
 
-**Designer/Printer**, Precision Printing, *August 2007 - January 2009*
+**Designer/Printer**, Precision Printing, *August 2007 – January 2009*
 
 photoshop, illustrator, indesign, photography, heidelberg
 
@@ -46,7 +49,15 @@ Though this isn’t programming- or web-related, I still think my experience wor
 
 ---
 
-**Lead Designer/Developer**, The Appalachian, *August 2006 - January 2008*
+**Lead Designer/Developer**, Appalachian State University, *August 2006 – January 2008*
+
+wordpress, adobe, indesign, html, css
+
+I worked with an intern to establish an online presence for The Appalachian newspaper, while still maintaining my role as the lead graphic designer.
+
+---
+
+**Lead Designer/Developer**, The Appalachian, *August 2006 – January 2008*
 
 html, css, javascript, php, indesign, photoshop
 
@@ -54,20 +65,29 @@ During my time, I worked with an intern to create the online presence for The Ap
 
 ---
 
-**Design Intern**, Image Arts Etc., *January 2004 - June 2004*
+##Education
 
-photography, photoshop, illustrator, indesign
+**B.F.A. Graphic Design**, Appalachian State University, *2005 – 2009*
 
-Fine art photography (digital), custom framing, graphic design.
+html, css, javascript, photoshop, indesign, illustrator, flash, actionscript, branding, animation, video, photography
+
+Specialized in web design and typography. Graphic Designer/Web Developer, The Appalachian Newspaper, 2006–2008
 
 ---
 
-##Education
+**Full Stack Web Development**, Free Code Camp, *2015 – 2016*
 
-**B.F.A. Graphic Design**, Appalachian State University, *2005 - 2009*
+html5, css, twitter-bootstrap, jquery, javascript, json
 
 
-Specialized in web design and typography.
+
+---
+
+**BFA**, Appalachian State University, *2005 – 2009*
+
+html, css, javascript, actionscript-3, flash, typography, graphics
+
+Graphic Designer/Web Developer, The Appalachian Newspaper, 2006–2008
 
 ---
 
@@ -80,21 +100,21 @@ Specialized in web design and typography.
 
 ---
 
-**edX Verified Certificate for Programming with C#**, *2015 - 2015*
+**edX Verified Certificate for Programming with C#**, *2015 – 2015*
 
 
 
 
 ---
 
-**Skill Completed: Learn AngularJS**, *2015 - 2015*
+**Skill Completed: Learn AngularJS**, *2015 – 2015*
 
 
 
 
 ---
 
-**Advanced Topics in Python**, *2015 - 2015*
+**Advanced Topics in Python**, *2015 – 2015*
 
 
 
@@ -103,18 +123,37 @@ Specialized in web design and typography.
 
 ##Projects &amp; Interests
 
-**GitHub - Storylines**, [https://github.com/derekmisler/Storylines](https://github.com/derekmisler/Storylines), *October 2013 - March 2015*
+**Blue Ridge Parkway | Explore Asheville, NC's Official Tourism Site**, [http://www.exploreasheville.com/blue-ridge-parkway/](http://www.exploreasheville.com/blue-ridge-parkway/)
+
+html5, javascript, css3, less, jquery
+
+The Blue Ridge Parkway, America&#39;s Favorite Drive, goes interactive. Wild animals on webcam, hiking how to&#39;s, adventure itineraries, histories, mysteries and panoramic peaks!
+  
+All the design and development.
+
+---
+
+**The Science Behind Fall Color | Explore Asheville, NC's Official Tourism Site**, [http://www.exploreasheville.com/science-behind-fall-color/](http://www.exploreasheville.com/science-behind-fall-color/)
+
+html5, css3, jquery, javascript, api, seo, twitter-bootstrap-3
+
+Trees aren&#39;t just artistic - they&#39;re also smarter than you think.
+  
+All the design and development.
+
+---
+
+**GitHub - Storylines**, [https://github.com/derekmisler/Storylines](https://github.com/derekmisler/Storylines), *October 2013 - October 2015*
 
 css, html, bootstrap, jquery, responsive
 
-http://www.exploreasheville.com/science-behind-fall-color/ and
-http://www.exploreasheville.com/blue-ridge-parkway/
+http://www.exploreasheville.com/science-behind-fall-color/ and 
   
 
 
 ---
 
-**GitHub - derekmisler.com**, [https://github.com/derekmisler/derekmisler.com](https://github.com/derekmisler/derekmisler.com), *October 2014 - April 2015*
+**GitHub - derekmisler.com**, [https://github.com/derekmisler/derekmisler.com](https://github.com/derekmisler/derekmisler.com), *October 2014 - November 2015*
 
 css, html, php, ooc, json
 
@@ -124,21 +163,75 @@ This is my website!
 
 ---
 
-**The Science Behind Fall Color | Explore Asheville, NC's Official Tourism Site**, [http://www.exploreasheville.com/science-behind-fall-color/](http://www.exploreasheville.com/science-behind-fall-color/)
+**GitHub - CS-Courses**, [https://github.com/derekmisler/CS-Courses](https://github.com/derekmisler/CS-Courses), *February 2015 - October 2015*
 
 
-Trees aren&#39;t just artistic - they&#39;re also smarter than you think.
+School!
   
-All the design and development
+
 
 ---
 
-**Blue Ridge Parkway | Explore Asheville, NC's Official Tourism Site**, [http://www.exploreasheville.com/blue-ridge-parkway/](http://www.exploreasheville.com/blue-ridge-parkway/)
+**GitHub - Pages**, [https://github.com/derekmisler/Pages](https://github.com/derekmisler/Pages), *January 2014 - October 2015*
 
 
-The Blue Ridge Parkway, America&#39;s Favorite Drive, goes interactive. Wild animals on webcam, hiking how to&#39;s, adventure itineraries, histories, mysteries and panoramic peaks!
+Content for ExploreaAsheville.com (CMS needed)
   
-All the design and development.
+
+
+---
+
+**GitHub - Tumblestone-Tours**, [https://github.com/derekmisler/Tumblestone-Tours](https://github.com/derekmisler/Tumblestone-Tours), *June 2014 - June 2015*
+
+
+Website for a friend for their business.
+  
+
+
+---
+
+**GitHub - Projects**, [https://github.com/derekmisler/Projects](https://github.com/derekmisler/Projects), *May 2015*
+
+
+Programming with C# class
+  
+
+
+---
+
+**GitHub - SVG-Examples**, [https://github.com/derekmisler/SVG-Examples](https://github.com/derekmisler/SVG-Examples), *June 2015 - November 2015*
+
+
+Examples of our sketchy buttons and arrows for Simpleview
+  
+
+
+---
+
+**GitHub - ExploreAsheville.com**, [https://github.com/derekmisler/ExploreAsheville.com](https://github.com/derekmisler/ExploreAsheville.com), *June 2015 - November 2015*
+
+
+Asheville Tourism website
+  
+
+
+---
+
+**GitHub - Music-Scene**, [https://github.com/derekmisler/Music-Scene](https://github.com/derekmisler/Music-Scene), *October 2015*
+
+
+Angular app for the Asheville music scene
+  
+
+
+---
+
+**GitHub - facebook.exploreasheville.com**, [https://github.com/derekmisler/facebook.exploreasheville.com](https://github.com/derekmisler/facebook.exploreasheville.com), *November 2015*
+
+
+Facebook Apps for ExploreAsheville.com
+  
+
 
 ---
 

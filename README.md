@@ -6,7 +6,7 @@
 - http://www.derekmisler.com
 
 
-I am a full-stack web and software developer with 10+ years experience. I have a well-rounded education, both traditional and self-driven, of many different web and software programming languages for both desktop and mobile, including Python, Ruby, C/C++, C#/.NET, PHP, and an advanced proficiency of front-end techniques involving HTML5, CSS3, and JavaScript, including frameworks such as jQuery, Angular, and React. Some of my favorite aspects of web development and software engineering are solving complex data-related problems, optimization and analysis of data sets such as A/B testing, and finding bugs through a test-driven development approach. I am an independent person, but I enjoy the learning opportunities afforded by working on a team.
+I am a front-end developer with 10+ years experience. I have a well-rounded education, both traditional and self-driven, of many different web and application development languages for both desktop and mobile, including Python, Ruby, C/C++, C#/.NET, PHP. I have an advanced proficiency of front-end techniques involving HTML5, CSS3, and JavaScript, including frameworks such as jQuery, Angular, and React. I also have a design background with a special focus on color theory and typography. I think all developers should have an eye for design, and I believe having this well-rounded education makes me a unique candidate for a position at any company. Some of my favorite aspects of web and UX/UI development are solving complex data-related problems to build beautiful products, analysis and optimization, and finding and fixing bugs through a test-driven development approach. I am an independent person, but I enjoy the learning opportunities afforded by working on a team.
 
 ---
 ## Technical Skills
@@ -51,17 +51,9 @@ Though this isn’t programming- or web-related, I still think my experience wor
 
 **Lead Designer/Developer**, Appalachian State University, *August 2006 – January 2008*
 
-wordpress, adobe, indesign, html, css
+joomla, adobe, indesign, html, css, javascript, php
 
 I worked with an intern to establish an online presence for The Appalachian newspaper, while still maintaining my role as the lead graphic designer.
-
----
-
-**Lead Designer/Developer**, The Appalachian, *August 2006 – January 2008*
-
-html, css, javascript, php, indesign, photoshop
-
-During my time, I worked with an intern to create the online presence for The Appalachian newspaper, while still maintaining my role as the lead graphic designer.
 
 ---
 
@@ -71,7 +63,7 @@ During my time, I worked with an intern to create the online presence for The Ap
 
 html, css, javascript, photoshop, indesign, illustrator, flash, actionscript, branding, animation, video, photography
 
-Specialized in web design and typography. Graphic Designer/Web Developer, The Appalachian Newspaper, 2006–2008
+I chose to study graphic design in the Arts department of Appalachian State. I already had a grasp on front-end web development techniques and continued to teach myself during this time, but studying design in an art department allowed me to learn other aspects of development that are equally as important as the tools and languages themselves. The curriculum path I chose focused on web design while also teaching color theory, typography, and layout design in a group setting. Outside of designing for the web, we also had the opportunity to learn Actionscript game development. It was here that I learned the importance of the architecture-aspect of programming, specifically the model-view-controller pattern.
 
 ---
 
@@ -83,11 +75,11 @@ html5, css, twitter-bootstrap, jquery, javascript, json
 
 ---
 
-**BFA**, Appalachian State University, *2005 – 2009*
+**High School**, A.C. Reynolds High School, *2000 – 2005*
 
-html, css, javascript, actionscript-3, flash, typography, graphics
+html, css, javascript, php, c++, discrete-mathematics
 
-Graphic Designer/Web Developer, The Appalachian Newspaper, 2006–2008
+Why would I add high school to this list? Because this is when I started my development career, over 15 years ago. I built my first website with PHP, HTML, CSS, and JavaScript in 2000 and started with Discrete Math and C++ shortly thereafter. It was here that I learned the conventions behind object-oriented programming that I still use when building web applications today.
 
 ---
 
@@ -172,7 +164,7 @@ School!
 
 ---
 
-**GitHub - Pages**, [https://github.com/derekmisler/Pages](https://github.com/derekmisler/Pages), *January 2014 - October 2015*
+**GitHub - Pages**, [https://github.com/derekmisler/Pages](https://github.com/derekmisler/Pages), *January 2014 - November 2015*
 
 
 Content for ExploreaAsheville.com (CMS needed)
@@ -230,6 +222,15 @@ Angular app for the Asheville music scene
 
 
 Facebook Apps for ExploreAsheville.com
+  
+
+
+---
+
+**GitHub - New-ExploreAsheville.com**, [https://github.com/derekmisler/New-ExploreAsheville.com](https://github.com/derekmisler/New-ExploreAsheville.com), *November 2015*
+
+
+Mostly widgets used on the most recent redesign of ExploreAsheville.com.
   
 
 

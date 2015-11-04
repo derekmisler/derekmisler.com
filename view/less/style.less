@@ -55,19 +55,22 @@
 }
 
 .fixed .navbar  { position: fixed; top: 0px; }
-
-.background-yellow {
-	background-image: linear-gradient(45deg, fadeout(@yellow, 50%), fadeout(@yellow, 90%));
-}
-.background-gray {
-	background-image: linear-gradient(45deg, fadeout(@blue, 25%), fadeout(@blue, 50%));
-	hr{
-		border-top: 1px solid fadeout(@body-bg, 25%);
-	}
-}
 .container {
 	max-width: 1280px;
 	padding: @navbar-height floor(@navbar-height * 2);
+}
+
+.background-yellow {
+	background-color: @body-bg;
+	border-top: 1px solid @orange;
+	border-bottom: 1px solid @orange;
+}
+.background-gray {
+	background-color: @blue;
+	border-top: 1px solid @blue;
+	hr{
+		border-top: 1px solid @body-bg;
+	}
 }
 
 #about-derek-misler .row > div { margin-bottom: 1rem; }
@@ -162,9 +165,9 @@
         	.text-center;
         }
         &.effect {
-        	background: linear-gradient(45deg, @brand-primary, fadeout(@brand-primary, 30%));
+        	background: @orange;
         	color: @body-bg;
-        	border: 1px solid @brand-primary;
+        	border: 1px solid @orange;
     		img {
     			.scale(1);
     			.transition(all .35s);

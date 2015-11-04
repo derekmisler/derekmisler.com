@@ -293,7 +293,7 @@
 			},
 			{
 					"title": "Asheville Area Music Scene",
-					"description": "An Angular app for promoting the music scene in Asheville. Python was used to consolidate multiple event calendars into one.",
+					"description": "An Angular app for promoting the music scene in Asheville, though the design led to the new ExploreAsheville.com. Node is being used to consolidate multiple event calendars into one.",
 					"link": "https://github.com/derekmisler/Music-Scene",
 					"image": "music-scene.jpg",
 					"tags": "Angular.js, Python, SoundCloud API"

@@ -3,7 +3,7 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<ul class="small-block-grid-2 medium-block-grid-6 large-block-grid-5 text-center">
+		<ul class="small-block-grid-2 medium-block-grid-6 text-center">
 			<li>
 				<a title="View <?= $profile->full_name; ?>'s LinkedIn profile" href="<?= $contact->linkedin; ?>" target="_blank">
 					<span class="icon-linkedin"></span>
@@ -29,8 +29,8 @@
 					<span class="icon-flickr"></span>
 				</a>
 			</li>
-			<li class="visible-xs visible-sm">
-				<a title="Call <?= $profile->full_name; ?>." href="tel:<?= $contact->phone; ?>">
+			<li>
+				<a title="Click to call <?= $contact->phonedisplay; ?>." href="tel:<?= $contact->phone; ?>">
 					<span class="icon-phone"></span>
 				</a>
 			</li>

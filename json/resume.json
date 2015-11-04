@@ -3,10 +3,10 @@
 			"first_name": "Derek",
 			"middle_names": "Alan",
 			"last_name": "Misler",
-			"description": "Web & Software Developer",
+			"description": "Front-End Web Developer & Designer",
 			"date_of_birth": "1986-04-08",
 			"place_of_birth": "Miami, Florida",
-			"biography": "I am a full-stack web and software developer with 10+ years experience. I have a well-rounded education, both traditional and self-driven, of many different web and software programming languages for both desktop and mobile, including Python, Ruby, C/C++, C#/.NET, PHP, and an advanced proficiency of front-end techniques involving HTML5, CSS3, and JavaScript, including frameworks such as jQuery, Angular, and React. Some of my favorite aspects of web development and software engineering are solving complex data-related problems, optimization and analysis of data sets such as A/B testing, and finding bugs through a test-driven development approach. I am an independent person, but I enjoy the learning opportunities afforded by working on a team.",
+			"biography": "I am a front-end developer with 10+ years experience. I have a well-rounded education, both traditional and self-driven, of many different web and application development languages for both desktop and mobile, including Python, Ruby, C/C++, C#/.NET, PHP, and an advanced proficiency of front-end techniques involving HTML5, CSS3, and JavaScript, including frameworks such as jQuery, Angular, and React. Some of my favorite aspects of web and UX/UI development are solving complex data-related problems to build beautiful products, analysis and optimization, and finding and fixing bugs through a test-driven development approach. I am an independent person, but I enjoy the learning opportunities afforded by working on a team.",
 			"current_location": {
 					"housenumber": "700",
 					"street": "W End Ave. 12A",
@@ -32,7 +32,7 @@
 					"title": "Appalachian State University",
 					"specification": "BFA - Graphic Design",
 					"location": "Boone, North Carolina",
-					"description": "I chose to study graphic design in the Fine Arts department of Appalachian State. I already had a grasp on web and software development and continued to teach myself during this time, but studying design in an art department allowed me to learn other aspects of development that are equally as important as the tools and languages themselves. The curriculum path I chose focused on web development while also teaching color theory, typography, and layout design in a group setting. I think all developers should have an eye for design, and I believe having this well-rounded education makes me a unique candidate for a position at any company. Outside of web design, we also had the opportunity to learn Actionscript game development. It was here that I learned the importance of architecture, specifically the model-view-controller pattern.",
+					"description": "I chose to study graphic design in the Arts department of Appalachian State. I already had a grasp on front-end web development techniques and continued to teach myself during this time, but studying design in an art department allowed me to learn other aspects of development that are equally as important as the tools and languages themselves. The curriculum path I chose focused on web design while also teaching color theory, typography, and layout design in a group setting. I think all developers should have an eye for design, and I believe having this well-rounded education makes me a unique candidate for a position at any company. Outside of web design, we also had the opportunity to learn Actionscript game development. It was here that I learned the importance of the architecture-aspect of programming, specifically the model-view-controller pattern.",
 					"start_date": "2005",
 					"end_date": "2009",
 					"completed": true
@@ -41,7 +41,7 @@
 					"title": "A.C. Reynolds High School",
 					"specification": null,
 					"location": "Asheville, North Carolina",
-					"description": "Why would I add high school to this list? Because this is when I started my development career, over 15 years ago. I built my first website with PHP, HTML, CSS, and JavaScript in 2000 and started with C++ shortly thereafter. It was here that I learned the conventions behind object-oriented programming.",
+					"description": "Why would I add high school to this list? Because this is when I started my development career, over 15 years ago. I built my first website with PHP, HTML, CSS, and JavaScript in 2000 and started with Discrete Math and C++ shortly thereafter. It was here that I learned the conventions behind object-oriented programming that I still use when building web applications today.",
 					"start_date": "2000",
 					"end_date": "2004",
 					"completed": true
@@ -53,7 +53,7 @@
 					"specification": "Web Manager",
 					"location": "Asheville, North Carolina",
 					"level": "Full-time",
-					"description": "As the only designer/developer/analyst on staff, my job is to maintain our entire web presence. We started with a .NET-backed website, but one of my first projects was to oversee the redesign of ExploreAsheville.com with a new company that worked primarily in Coldfusion, and I’ve since updated and maintained it as the web evolves, as well as creating the matching mobile site and Blogger theme. The site will receive over 4 million visits this year. I’ve been in charge of creating all print- and web-related assets for our various marketing campaigns, all of the digital analytics, and two long-form, media-rich, interactive stories that continue to win awards. Finally, we’re in the process of a second redesign utilizing Node.js and MongoDB. One feature of our new site utilizes web-scraping technology written in Node.js that we’ll be using to partner with area online events calendars to create a single, unified events calendar for the entire county.",
+					"description": "As the only designer/developer/data analyst on staff, my job is to maintain our entire web presence. We started with a .NET-backed website, but one of my first projects was to oversee the redesign of ExploreAsheville.com with a new company that worked primarily in Coldfusion, and I’ve since updated and maintained it as the web evolves, as well as creating the matching mobile site and Blogger theme. The site will receive almost 5 million visits this year. I’ve been in charge of creating all print- and web-related assets for our various marketing campaigns, all of the data analysis of those campaigns, and two long-form, media-rich, interactive web applications that continue to win awards. Finally, just finished a second redesign utilizing Node.js and MongoDB. One feature of our new site utilizes web-scraping technology written in Node.js that we’ll be using to partner with area online events calendars to create a single, unified events calendar for the entire county.",
 					"start_date": "2011",
 					"end_date": "2016",
 					"link": "http://www.exploreasheville.com"
@@ -73,7 +73,7 @@
 					"specification": "Developer",
 					"location": "Asheville, North Carolina",
 					"level": "Freelance",
-					"description": "Mostly branding and corporate identity at first, but I eventually had enough clients needing new websites that I became a full-time developer. I still enjoy creating websites for friends from time-to-time.",
+					"description": "Mostly branding and corporate identity at first, but I eventually had enough clients needing new websites that I became a full-time developer. I still enjoy creating websites for friends from time-to-time. They're mostly built with PHP and Wordpress, but sometimes I get an opportunity to develop a standalone app.",
 					"start_date": "2009",
 					"end_date": "2016",
 					"link": null
@@ -83,7 +83,7 @@
 					"specification": "Designer/Printer",
 					"location": "Boone, North Carolina",
 					"level": "Part-time",
-					"description": "Though this isn’t programming- or web-related, I still think my experience working in a print shop can be seen in my work as a developer. On the web, mistakes can be fixed and I think, unfortunately, that mentality is common among developers and leads to sloppy code. Printing, however, requires an extremely detail-oriented approach as there is no room for error. As an example, Appalachian State University was one of our clients, so projects like the designing and printing of 20,000-30,000 graduation programs required efficiency and communication among all members of our team to ensure we weren’t making mistakes that would cost us hundreds of thousands of dollars.",
+					"description": "Though this isn’t programming- or web-related, I still think my experience working in a print shop can be seen in my work as a developer. On the web, mistakes can be fixed and I think that mentality leads to sloppy code. Printing, however, requires an extremely detail-oriented approach as there is no room for error. As an example, Appalachian State University was one of our clients, so projects like the designing and printing of 20,000-30,000 graduation programs required efficiency and communication among all members of our team to ensure we weren’t making mistakes that would cost us hundreds of thousands of dollars.",
 					"start_date": "2007",
 					"end_date": "2009",
 					"link": null

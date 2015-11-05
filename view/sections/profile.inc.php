@@ -24,22 +24,22 @@
 		<p><?= $profile->biography; ?></p>
 		<ul class="small-block-grid-1 medium-block-grid-2">
 			<li>
-				<a title="View <?= $profile->full_name; ?>'s StackOverflow profile" href="<?= $contact->stackoverflow; ?>" target="_blank"><span class="icon-stackoverflow"></span>&nbsp;StackOverflow</a>
+				<a title="View <?= $profile->full_name; ?>'s LinkedIn profile" href="<?= $contact->linkedin; ?>" target="_blank"><span class="icon-linkedin"></span>&nbsp;LinkedIn</a>
 			</li>
 			<li>
-				<a title="View <?= $profile->full_name; ?>'s LinkedIn profile" href="<?= $contact->linkedin; ?>" target="_blank"><span class="icon-linkedin"></span>&nbsp;LinkedIn</a>
+				<a href="https://github.com/derekmisler/derekmisler.com" target="_blank"><span class="icon-new-window"></span>&nbsp;View this site on GitHub.</a>
 			</li>
 			<li>
 				<a title="View <?= $profile->full_name; ?>'s GitHub profile" href="<?= $contact->github; ?>" target="_blank"><span class="icon-github"></span>&nbsp;GitHub</a>
 			</li>
 			<li>
-				<a title="View <?= $profile->full_name; ?>'s Flickr profile" href="<?= $contact->flickr; ?>" target="_blank"><span class="icon-flickr"></span>&nbsp;Flickr</a>
+				<a title="View <?= $profile->full_name; ?>'s StackOverflow profile" href="<?= $contact->stackoverflow; ?>" target="_blank"><span class="icon-stackoverflow"></span>&nbsp;StackOverflow</a>
 			</li>
 			<li>
 				<a title="View <?= $profile->full_name; ?>'s Twitter" href="<?= $contact->twitter; ?>" target="_blank"><span class="icon-twitter"></span>&nbsp;Twitter</a>
 			</li>
 			<li>
-				<a href="https://github.com/derekmisler/derekmisler.com" target="_blank"><span class="icon-new-window"></span>&nbsp;View this site on GitHub.</a>
+				<a title="View <?= $profile->full_name; ?>'s Flickr profile" href="<?= $contact->flickr; ?>" target="_blank"><span class="icon-flickr"></span>&nbsp;Flickr</a>
 			</li>
 		</ul>
 	</div>

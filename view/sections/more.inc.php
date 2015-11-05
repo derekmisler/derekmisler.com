@@ -21,13 +21,13 @@
 				<a title="View <?= $profile->full_name; ?>'s GitHub profile" href="<?= $contact->github; ?>" target="_blank"><span class="icon-github"></span></a>
 			</li>
 			<li>
-				<a title="View <?= $profile->full_name; ?>'s StackOverflow profile" href="<?= $contact->stackoverflow; ?>" target="_blank"><span class="icon-stackoverflow"></span></a>
-			</li>
-			<li>
 				<a title="View <?= $profile->full_name; ?>'s Flickr profile" href="<?= $contact->flickr; ?>" target="_blank"><span class="icon-flickr"></span></a>
 			</li>
 			<li>
 				<a title="View <?= $profile->full_name; ?>'s Twitter" href="<?= $contact->twitter; ?>" target="_blank"><span class="icon-twitter"></span></a>
+			</li>
+			<li>
+				<a title="View <?= $profile->full_name; ?>'s StackOverflow profile" href="<?= $contact->stackoverflow; ?>" target="_blank"><span class="icon-stackoverflow"></span></a>
 			</li>
 		</ul>
 	</div>

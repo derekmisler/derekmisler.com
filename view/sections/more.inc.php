@@ -11,7 +11,8 @@
 				<a title="Click to call <?= $contact->phonedisplay; ?>." href="tel:<?= $contact->phone; ?>"><span class="icon-phone"></span></a>
 			</li>
 			<li>
-				<a title="PDF Resume opens in a new window" href="<?= VIEW_PATH; ?>resume/Derek-Misler-resume.pdf" target="_blank"><span class="icon-mouse"></span></a>
+				<a class="hidden-xs hidden-sm" href="<?= VIEW_PATH; ?>resume/Derek-Misler-resume.pdf" download="Derek-Misler-resume.pdf"><span class="icon-mouse"></span></a>
+				<a class="visible-xs visible-sm" title="PDF Resume opens in a new window" href="<?= VIEW_PATH; ?>resume/Derek-Misler-resume.pdf" target="_blank"><span class="icon-new-window"></span></a>
 			</li>
 			<li>
 				<a title="View <?= $profile->full_name; ?>'s LinkedIn profile" href="<?= $contact->linkedin; ?>" target="_blank"><span class="icon-linkedin"></span></a>

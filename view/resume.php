@@ -22,7 +22,7 @@
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">Menu</button>
 			<div class="collapse navbar-collapse">
 				<ul class="nav medium-block-grid-5">
-					<li><a href="#about-derek-misler">About<span class="visible-lg"> <?= $profile->full_name; ?></span></a></li>
+					<li><a href="#about-derek-misler">About</a></li>
 					<li><a href="#experience">Experience</a></li>
 					<li><a href="#qualifications">Qualifications</a></li>
 					<li><a href="#portfolio">Portfolio</a></li>

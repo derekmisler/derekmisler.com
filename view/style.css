@@ -488,7 +488,35 @@ h6,
   font-size: 20px;
   font-family: "Lato", "Helvetica Neue", Helvetica, Sans-Serif;
 }
-@media (max-width: 991px) {
+@media (min-width: 767px) and (max-width: 992px) {
+  h1,
+  .h1 {
+    font-size: 66px;
+  }
+  h2,
+  .h2 {
+    font-size: 40px;
+  }
+  h3,
+  .h3 {
+    font-size: 29px;
+  }
+  h4,
+  .h4 {
+    font-size: 28px;
+  }
+  h5,
+  .h5 {
+    font-size: 24px;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Sans-Serif;
+  }
+  h6,
+  .h6 {
+    font-size: 20px;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Sans-Serif;
+  }
+}
+@media (max-width: 767px) {
   h1,
   .h1 {
     font-size: 50px;
@@ -3937,10 +3965,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .jumbotron .container {
   top: 50%;
-  -webkit-transform: translate(0, -50%);
-  -ms-transform: translate(0, -50%);
-  -o-transform: translate(0, -50%);
-  transform: translate(0, -50%);
+  -webkit-transform: translate(0, -60%);
+  -ms-transform: translate(0, -60%);
+  -o-transform: translate(0, -60%);
+  transform: translate(0, -60%);
   z-index: 4;
   position: absolute;
 }
@@ -4031,7 +4059,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 #experience .experience .experience-details a:hover,
 #experience .experience .experience-details a:focus {
-  color: #bb1f28;
+  color: #122c42;
 }
 #qualifications ul > li .ability-score {
   float: right;
@@ -4204,11 +4232,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
   .jumbotron .container {
     position: relative;
-    top: 0;
-    -webkit-transform: translate(0, 0);
-    -ms-transform: translate(0, 0);
-    -o-transform: translate(0, 0);
-    transform: translate(0, 0);
     z-index: 4;
   }
   .jumbotron .container h1 {

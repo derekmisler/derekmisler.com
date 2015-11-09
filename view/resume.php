@@ -25,8 +25,8 @@
 					<li><a href="#about-derek-misler">About</a></li>
 					<li><a href="#experience">Experience</a></li>
 					<li><a href="#qualifications">Qualifications</a></li>
-					<li><a href="#portfolio">Portfolio</a></li>
-					<li><a href="#more-info">More Info</a></li>
+					<li><a href="#projects">Projects</a></li>
+					<li><a href="#contact">Contact</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -47,12 +47,12 @@
 			</div>
 		</div>
 
-		<div id="portfolio" class="container">
+		<div id="projects" class="container">
 			<?php include(VIEW_INCLUDE_PATH.'sections/projects.inc.php'); ?>
 		</div>
 
 		<div class="background-gray">
-			<div id="more-info" class="container">
+			<div id="contact" class="container">
 				<?php include(VIEW_INCLUDE_PATH.'sections/more.inc.php'); ?>
 			</div>
 		</div>

@@ -179,7 +179,7 @@
 					"level": 5
 			},
 			{
-					"title": "Angular/React",
+					"title": "Angular/React/Jekyll",
 					"level": 5
 			},
 			{
@@ -251,7 +251,7 @@
 					"level": 3
 			},
 			{
-					"title": "CSS Preprocessors",
+					"title": "LESS/SASS",
 					"level": 5
 			}
 	],
@@ -271,8 +271,8 @@
 	],
 	"projects": [
 			{
-					"title": "New ExploreAsheville.com",
-					"description": "A redesign of ExploreAsheville.com.",
+					"title": "ExploreAsheville.com",
+					"description": "The second redesign of ExploreAsheville.com.",
 					"link": "http://www.exploreasheville.com/",
 					"image": "new-exploreasheville.jpg",
 					"tags": "HTML5, CSS3, Node.js, MongoDB, Goatee (Custom JavaScript Framework), Responsive"
@@ -292,39 +292,11 @@
 					"tags": "HTML5, CSS3, jQuery, Responsive, Bootstrap"
 			},
 			{
-					"title": "Asheville Area Music Scene",
-					"description": "An Angular app for promoting the music scene in Asheville, though the design led to the new ExploreAsheville.com. Node is being used to consolidate multiple event calendars into one.",
-					"link": "https://github.com/derekmisler/Music-Scene",
-					"image": "music-scene.jpg",
-					"tags": "Angular.js, Python, SoundCloud API"
-			},
-			{
-					"title": "ExploreAsheville.com",
-					"description": "Destination marketing website. Over 4 million visitors annually.",
-					"link": "http://www.exploreasheville.com/",
-					"image": "explore-asheville.jpg",
-					"tags": "ColdFusion, jQuery, Responsive, JavaScript APIs"
-			},
-			{
-					"title": "Breakout!",
-					"description": "A fun project for Harvard's CS50x3 course.",
-					"link": "https://github.com/derekmisler/CS-Courses/blob/master/C/pset3/breakout/breakout.c",
-					"image": "breakout.jpg",
-					"tags": "C, OOP"
-			},
-			{
 					"title": "Houser Shoes",
 					"description": "A custom content management system built upon Magento by a 3-person team.",
 					"link": "http://www.housershoes.com",
 					"image": "houser-shoes.jpg",
 					"tags": "PHP, MySQL, Magento, Custom CMS, Responsive"
-			},
-			{
-					"title": "View more projects on Github",
-					"description": "Repositories for projects not included here.",
-					"link": "https://github.com/derekmisler?tab=repositories",
-					"image": "github.png",
-					"tags": "HTML5, CSS3, PHP, Python, C/C++, C#, .NET, JavaScript, jQuery, ColdFusion, etc."
 			}
 	]
 }

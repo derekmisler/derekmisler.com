@@ -102,7 +102,7 @@
             .ability-score {
                 float: right;
                 .icon {
-                	color: @body-bg;
+                	color: @gray-lighter;
                 	.transition(all 0.3s);
                 }
                 .filled {
@@ -112,7 +112,7 @@
             &:hover {
                 .ability-score {
                     .filled {
-                        color: @link-hover-color;
+                        color: @blue;
                     }
                 }
             }
@@ -120,7 +120,7 @@
     }
 }
 
-#portfolio {
+#projects {
     .row > div {
         margin-bottom: 30px;
     }
@@ -181,12 +181,10 @@
     		figcaption {
     			text-align: left;
     			.opacity(0);
-    			.scale(1.1);
     			.transition(all .35s);
     			&:hover,
     			&:focus{
     				.opacity(1);
-    				.scale(1);    	    
     			}
     		}
     		h3 {
@@ -216,7 +214,7 @@
     }
 }
 
-#more-info {
+#contact {
 	padding-bottom: 200px;
 	.row *,
 	h2 {
@@ -225,7 +223,7 @@
 	a {
 		display: block;
 		margin-bottom: @font-size-base;
-		font-size: @font-size-h3;
+		font-size: @font-size-h5;
 		.opacity(.9);
 		&:hover {
 			.opacity(1);
@@ -282,11 +280,14 @@
 	    }
 	}
 
-	#more-info {
+	#contact {
 	    padding-bottom: 60px;
-	    a .icon {
-	        float: left;
-	        margin-right: 1rem;
+	    a {
+    		font-size: @font-size-h6;
+    	    .icon {
+    	        float: left;
+    	        margin-right: 1rem;
+    	    }
 	    }
 	}
 }
@@ -314,7 +315,7 @@
 
 
 @media (max-width: @screen-sm-max) {
-	#portfolio {
+	#projects {
 	    figure {
 	        figcaption {
     	        padding: floor(@navbar-height / 4);

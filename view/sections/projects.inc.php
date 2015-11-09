@@ -1,9 +1,10 @@
 <?php if(count($projects) > 0) { ?>
-<h2><?= $profile->full_name; ?>'s Portfolio</h2>
+<h2>Live Projects</h2>
+<h6 class="text-center">Repositories for these projects and others not included here can be found on <a href="<?= $contact->github; ?>" target="_blank">GitHub.&nbsp;<small class="icon-new-window"></small></a></h6>
 <hr />
 <div class="row">
 	<?php foreach($projects as $index => $project) { ?>
-	<div class="col-sm-6 col-xs-12">
+	<div class="col-xs-12 col-sm-6">
 		<figure class="effect">
 			<img src="<?= VIEW_PATH; ?>images/loader.gif" data-src="<?= VIEW_PATH.'images/'.$project->image; ?>" data-src-retina="<?= VIEW_PATH.'images/retina/'.$project->image; ?>" alt="<?= $project->title; ?> by <?= $profile->full_name; ?>" />
 			<noscript>

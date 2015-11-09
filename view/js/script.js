@@ -1,7 +1,7 @@
 var lnStickyNavigation;
 
 $(document).ready(function() {
-	$('img').unveil(200);
+	$('img').unveil(400);
 	applyNavigation();
 	applyResize();
 });

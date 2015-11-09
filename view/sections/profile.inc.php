@@ -7,14 +7,14 @@
 		<a title="Email <?= $profile->full_name; ?>" href="mailto:<?= $contact->email; ?>" target="_blank"><img src="<?= VIEW_PATH; ?>images/loader.gif" data-src="<?= VIEW_PATH; ?>images/derek-misler.jpg" data-src-retina="<?= VIEW_PATH; ?>images/retina/derek-misler.jpg" alt="<?= $profile->full_name; ?>" width="200" height="200" /></a>
 		<ul class="small-block-grid-1">
 			<li>
-				<a title="Email <?= $profile->full_name; ?>" href="mailto:<?= $contact->email; ?>" target="_blank"><span class="icon-mail"></span>&nbsp;Email Me</a>
-			</li>
-			<li>
 				<a title="Click to call <?= $contact->phonedisplay; ?>." href="tel:<?= $contact->phone; ?>"><span class="icon-phone"></span>&nbsp;(828) 273-6943</a>
 			</li>
 			<li>
 				<a class="hidden-xs hidden-sm" href="<?= VIEW_PATH; ?>resume/Derek-Misler-resume.pdf" download="Derek-Misler-resume.pdf"><span class="icon-mouse"></span>&nbsp;Download Resume</a>
 				<a class="visible-xs visible-sm" title="PDF Resume opens in a new window" href="<?= VIEW_PATH; ?>resume/Derek-Misler-resume.pdf" target="_blank"><span class="icon-new-window"></span>&nbsp; View Resume</a>
+			</li>
+			<li>
+				<a title="Email <?= $profile->full_name; ?>" href="mailto:<?= $contact->email; ?>" target="_blank"><span class="icon-mail"></span>&nbsp;derekmisler@gmail.com</a>
 			</li>
 		</ul>
 	</div>

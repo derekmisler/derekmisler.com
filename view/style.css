@@ -4065,7 +4065,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   float: right;
 }
 #qualifications ul > li .ability-score .icon {
-  color: #ffffff;
+  color: #eeeeee;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
@@ -4074,23 +4074,23 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #d94700;
 }
 #qualifications ul > li:hover .ability-score .filled {
-  color: #bb1f28;
+  color: #122c42;
 }
-#portfolio .row > div {
+#projects .row > div {
   margin-bottom: 30px;
 }
-#portfolio figure {
+#projects figure {
   position: relative;
   overflow: hidden;
 }
-#portfolio figure h3 {
+#projects figure h3 {
   color: #ffffff;
   margin-bottom: .5rem;
 }
-#portfolio figure img {
+#projects figure img {
   width: 100%;
 }
-#portfolio figure figcaption {
+#projects figure figcaption {
   padding: 20px;
   position: absolute;
   top: 0px;
@@ -4098,7 +4098,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   height: 100%;
   width: 100%;
 }
-#portfolio figure a {
+#projects figure a {
   z-index: 1000;
   text-indent: 200%;
   white-space: nowrap;
@@ -4111,7 +4111,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   height: 100%;
   width: 100%;
 }
-#portfolio figure .icon {
+#projects figure .icon {
   background: #122c42;
   position: absolute;
   top: 0px;
@@ -4121,12 +4121,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   line-height: 40px;
   text-align: center;
 }
-#portfolio figure.effect {
+#projects figure.effect {
   background: #d94700;
   color: #ffffff;
   border: 1px solid #d94700;
 }
-#portfolio figure.effect img {
+#projects figure.effect img {
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   -o-transform: scale(1);
@@ -4138,8 +4138,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-#portfolio figure.effect:hover img,
-#portfolio figure.effect:focus img {
+#projects figure.effect:hover img,
+#projects figure.effect:focus img {
   opacity: 0.2;
   filter: alpha(opacity=20);
   -webkit-transform: scale(1.1);
@@ -4147,34 +4147,26 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   -o-transform: scale(1.1);
   transform: scale(1.1);
 }
-#portfolio figure.effect figcaption {
+#projects figure.effect figcaption {
   text-align: left;
   opacity: 0;
   filter: alpha(opacity=0);
-  -webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  -o-transform: scale(1.1);
-  transform: scale(1.1);
   -webkit-transition: all 0.35s;
   -o-transition: all 0.35s;
   transition: all 0.35s;
 }
-#portfolio figure.effect figcaption:hover,
-#portfolio figure.effect figcaption:focus {
+#projects figure.effect figcaption:hover,
+#projects figure.effect figcaption:focus {
   opacity: 1;
   filter: alpha(opacity=100);
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  -o-transform: scale(1);
-  transform: scale(1);
 }
-#portfolio figure.effect h3 {
+#projects figure.effect h3 {
   position: relative;
   overflow: hidden;
   padding-bottom: 20px;
   font-size: 3rem;
 }
-#portfolio figure.effect h3:after {
+#projects figure.effect h3:after {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -4188,26 +4180,26 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   -o-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
 }
-#portfolio figure.effect:hover h3:after,
-#portfolio figure.effect:focus h3:after {
+#projects figure.effect:hover h3:after,
+#projects figure.effect:focus h3:after {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
-#more-info {
+#contact {
   padding-bottom: 200px;
 }
-#more-info .row *,
-#more-info h2 {
+#contact .row *,
+#contact h2 {
   color: #ffffff;
 }
-#more-info a {
+#contact a {
   display: block;
   margin-bottom: 20px;
-  font-size: 44px;
+  font-size: 30px;
   opacity: 0.9;
   filter: alpha(opacity=90);
 }
-#more-info a:hover {
+#contact a:hover {
   opacity: 1;
   filter: alpha(opacity=100);
   text-decoration: none;
@@ -4260,10 +4252,13 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   #experience .experience .experience-details .seperator {
     display: none;
   }
-  #more-info {
+  #contact {
     padding-bottom: 60px;
   }
-  #more-info a .icon {
+  #contact a {
+    font-size: 20px;
+  }
+  #contact a .icon {
     float: left;
     margin-right: 1rem;
   }
@@ -4288,10 +4283,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 @media (max-width: 991px) {
-  #portfolio figure figcaption {
+  #projects figure figcaption {
     padding: 10px;
   }
-  #portfolio figure.effect img {
+  #projects figure.effect img {
     opacity: 0.2;
     filter: alpha(opacity=20);
     -webkit-transform: scale(1);
@@ -4299,7 +4294,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     -o-transform: scale(1);
     transform: scale(1);
   }
-  #portfolio figure.effect figcaption {
+  #projects figure.effect figcaption {
     padding: 10px;
     opacity: 1;
     filter: alpha(opacity=100);
@@ -4308,15 +4303,15 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     -o-transform: scale(1);
     transform: scale(1);
   }
-  #portfolio figure.effect h3 {
+  #projects figure.effect h3 {
     padding-bottom: 20px;
     font-size: 2rem;
   }
-  #portfolio figure.effect h3:after {
+  #projects figure.effect h3:after {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
-  #portfolio figure.effect p {
+  #projects figure.effect p {
     font-size: 17px;
     font-weight: 700;
   }

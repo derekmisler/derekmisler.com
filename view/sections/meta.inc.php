@@ -9,7 +9,7 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 		<meta name="mobile-web-app-capable" content="yes">
 		<title><?= $profile->full_name; ?> | <?= $profile->description; ?></title>
-		<meta name="description" content="For more information, send an email to <?= $contact->email; ?>.">
+		<meta name="description" content="A resume for <?= $profile->full_name; ?>, a front-end developer with a design background and over 10 years of experience. He is also available for hire. If you'd like to learn more, send an email to <?= $contact->email; ?>.">
 		<link rel="canonical" href="http://www.derekmisler.com/" />
 		<meta name="google-site-verification" content="oM1NjzxvtvPp4JL2t2qo13zUhGnrpGF0Fbgyb6S8vDk" />
 

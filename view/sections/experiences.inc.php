@@ -1,4 +1,4 @@
-<h2><?= $profile->full_name; ?>'s Experience</h2>
+<h2>Experience &amp; Education</h2>
 <?php if(count($careers) > 0) { ?>
 <hr />
 <h3>Career</h3>

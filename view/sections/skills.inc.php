@@ -1,4 +1,5 @@
-<h2><?= $profile->full_name; ?>'s Qualifications</h2>
+<h2>Qualifications</h2>
+<h6 class="text-center">Examples of the courses and skills listed below can be found on <a href="<?= $contact->github; ?>" target="_blank">GitHub.&nbsp;<small class="icon-new-window"></small></a></h6>
 <hr />
 <h3>Independent Learning</h3>
 <?php if(count($coursework) > 0) { ?>
@@ -20,7 +21,7 @@
 <?php } ?>
 <?php if(count($skills) > 0) { ?>
 <hr />
-<h3>Proficiencies</h3>
+<h3>Skills</h3>
 <div class="row">
 	<div class="col-md-12">
 		<ul class="small-block-grid-1 medium-block-grid-2">

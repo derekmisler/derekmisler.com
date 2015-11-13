@@ -23,10 +23,10 @@
 			<div class="collapse navbar-collapse">
 				<ul class="nav medium-block-grid-5" vocab="http://schema.org/" typeof="BreadcrumbList">
           <li property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" href="#about-derek-misler"><span property="name">About</span></a><meta property="position" content="1"></li>
-					<li property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" href="#experience"><span property="name">Experience</span></a><meta property="position" content="1"></li>
-					<li property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" href="#qualifications"><span property="name">Qualifications</span></a><meta property="position" content="1"></li>
-					<li property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" href="#projects"><span property="name">Projects</span></a><meta property="position" content="1"></li>
-					<li property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" href="#contact"><span property="name">Contact</span></a><meta property="position" content="1"></li>
+					<li property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" href="#experience"><span property="name">Experience</span></a><meta property="position" content="2"></li>
+					<li property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" href="#qualifications"><span property="name">Qualifications</span></a><meta property="position" content="3"></li>
+					<li property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" href="#projects"><span property="name">Projects</span></a><meta property="position" content="4"></li>
+					<li property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" href="#contact"><span property="name">Contact</span></a><meta property="position" content="5"></li>
 				</ul>
 			</div>
 		</nav>

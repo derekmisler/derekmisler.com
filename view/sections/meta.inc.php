@@ -9,8 +9,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="mobile-web-app-capable" content="yes">
     <title><?= $profile->full_name; ?> | <?= $profile->description; ?></title>
-    <meta name="description" content="A resume for <?= $profile->full_name; ?>, a front-end developer with a design background and over 10 years of experience. He is also available for hire. If you'd like to learn more, send an email to <?= $contact->email; ?>.">
-    <link rel="canonical" href="http://www.derekmisler.com/" />
+    <meta name="description" content="<?= $profile->meta_description; ?>">
+    <link rel="canonical" href="<?= $contact->website; ?>" />
     <meta name="google-site-verification" content="oM1NjzxvtvPp4JL2t2qo13zUhGnrpGF0Fbgyb6S8vDk" />
     <link rel="publisher" href="https://plus.google.com/110617470325528028773/">
 
@@ -18,16 +18,16 @@
     <meta name="twitter:card" content="summary_large_image ">
     <meta name="twitter:site" content="@derekmisler">
     <meta name="twitter:title" content="<?= $profile->full_name; ?> | <?= $profile->description; ?>">
-    <meta name="twitter:description" content="A resume for <?= $profile->full_name; ?>, a front-end developer with a design background and over 10 years of experience. He is also available for hire. If you'd like to learn more, send an email to <?= $contact->email; ?>.">
+    <meta name="twitter:description" content="<?= $profile->meta_description; ?>">
     <meta name="twitter:creator" content="@derekmisler">
     <meta name="twitter:image" content="<?= VIEW_PATH; ?>images/twitter-card.jpg">
 
     <!-- Open Graph data -->
     <meta property="og:title" content="<?= $profile->full_name; ?> | <?= $profile->description; ?>">
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://www.derekmisler.com/">
+    <meta property="og:url" content="<?= $contact->website; ?>">
     <meta property="og:image" content="<?= VIEW_PATH; ?>images/facebook.jpg">
-    <meta property="og:description" content="A resume for <?= $profile->full_name; ?>, a front-end developer with a design background and over 10 years of experience. He is also available for hire. If you'd like to learn more, send an email to <?= $contact->email; ?>.">
+    <meta property="og:description" content="<?= $profile->meta_description; ?>">
     <meta property="og:site_name" content="<?= $profile->full_name; ?> | <?= $profile->description; ?>">
     <meta property="fb:admins" content="812785510">
 
@@ -37,10 +37,10 @@
       "@context" : "http://schema.org",
       "@type" : "Person",
       "name" : "<?= $profile->full_name; ?>",
-      "description" : "A resume for <?= $profile->full_name; ?>, a front-end developer with a design background and over 10 years of experience. He is also available for hire. If you'd like to learn more, send an email to <?= $contact->email; ?>.",
+      "description" : "<?= $profile->meta_description; ?>",
       "image" : "<?= VIEW_PATH; ?>images/google-plus.jpg",
       "jobTitle" : "<?= $profile->description; ?>",
-      "url" : "http://www.derekmisler.com/",
+      "url" : "<?= $contact->website; ?>",
       "email" : "<?= $contact->email; ?>",
       "telephone" : "<?= $contact->phonedisplay; ?>",
       "address": {
@@ -65,16 +65,16 @@
     {
       "@context" : "http://schema.org",
       "@type" : "WebSite",
-      "name" : "<?= $profile->full_name; ?> | <?= $profile->description; ?>",
-      "alternateName" : "<?= $profile->full_name; ?>",
-      "url" : "http://www.derekmisler.com/"
+      "name" : "<?= $profile->full_name; ?>",
+      "alternateName" : "<?= $profile->first_name; ?>",
+      "url" : "<?= $contact->website; ?>"
     }
     </script>
     <script type="application/ld+json">
     {
       "@context": "http://schema.org",
       "@type": "Organization",
-      "url": "http://www.derekmisler.com/",
+      "url": "<?= $contact->website; ?>",
       "logo": "<?= VIEW_PATH; ?>images/google-plus.jpg",
       "contactPoint" : [{
         "@type" : "ContactPoint",

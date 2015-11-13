@@ -4,6 +4,7 @@
 			"middle_names": "Alan",
 			"last_name": "Misler",
 			"description": "Front-End UX/UI & Web Developer",
+			"meta_description": "Derek is a front-end developer with a design background and 10+ years of experience. He is also available for hire. Send an email to derekmisler@gmail.com if you'd like to learn more.",
 			"date_of_birth": "1986-04-08",
 			"place_of_birth": "Miami, Florida",
 			"biography": "I am a front-end developer in New York with 10+ years experience. I have a diverse education, both traditional and self-driven, of many different web and application development languages for both desktop and mobile. I am basically fluent when it comes to HTML5, CSS3, including Less and Sass, along with JavaScript/jQuery, including frameworks like Angular, and React. I have experience with back-end and software languages, too, like C# and .NET, Node.js, Python, Ruby, and a long history with PHP. I also have a design background a surprisingly large knowledge of typography (seriously, let's talk about it). I think all developers should study design, and I believe having this well-rounded education makes me a stronger developer.",
@@ -17,6 +18,7 @@
 			}
 	},
 	"contact_details": {
+			"website": "http://www.derekmisler.com",
 			"email": "derekmisler@gmail.com",
 			"phone": "+18282736943",
 			"phonedisplay": "(828) 273-6943",

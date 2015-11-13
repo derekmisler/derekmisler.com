@@ -482,6 +482,8 @@ h5,
 .h5 {
   font-size: 30px;
   font-family: "Lato", "Helvetica Neue", Helvetica, Sans-Serif;
+  margin-top: 19px;
+  margin-bottom: 9px;
 }
 h6,
 .h6 {

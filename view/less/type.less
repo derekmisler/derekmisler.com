@@ -48,7 +48,12 @@ h1, .h1 { font-size: @font-size-h1; }
 h2, .h2 { font-size: @font-size-h2; .text-center; }
 h3, .h3 { font-size: @font-size-h3; }
 h4, .h4 { font-size: @font-size-h4; }
-h5, .h5 { font-size: @font-size-h5; font-family: @font-family-base; }
+h5, .h5 {
+    font-size: @font-size-h5;
+    font-family: @font-family-base;
+    margin-top: (@line-height-computed / 2) + 5;
+    margin-bottom: (@line-height-computed / 2) - 5;
+    }
 h6, .h6 { font-size: @font-size-h6; font-family: @font-family-base; }
 @media (min-width: @screen-xs-max) and (max-width: @screen-md-min) {
     h1, .h1 { font-size: floor(@font-size-h1/1.5); }

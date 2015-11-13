@@ -10,7 +10,7 @@
 			<p class="experience-period"><?= $career->start_date; ?>-<?= (@isset($career->end_date)) ? $career->end_date : 'current'; ?></p>
 		</div>
 		<div class="col-md-7 col-lg-8">
-			<h5><?= $career->specification; ?></h5>
+			<h5><em><?= $career->specification; ?></em></h5>
 			<p>
 				<span class="hidden-phone">
 					<?= $career->description; ?>
@@ -45,7 +45,7 @@
 			</p>
 		</div>
 		<div class="col-md-7 col-lg-8">
-			<h5><?= $education->specification; ?></h5>
+			<h5><em><?= $education->specification; ?></em></h5>
 			<p>
 				<span class="hidden-phone">
 					<?= $education->description; ?>

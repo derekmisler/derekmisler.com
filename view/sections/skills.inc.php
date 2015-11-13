@@ -1,26 +1,7 @@
 <h2>Qualifications</h2>
 <h6 class="text-center">Examples of the courses and skills listed below can be found on <a href="<?= $contact->github; ?>" target="_blank">GitHub.&nbsp;<small class="icon-new-window"></small></a></h6>
 <hr />
-<h3>Independent Learning</h3>
-<?php if(count($coursework) > 0) { ?>
-<div class="coursework">
-	<div class="coursework row">
-		<div class="col-md-12">
-			<ul class="small-block-grid-1 medium-block-grid-2">
-				<?php foreach($coursework as $index => $courses) { ?>
-				<li>
-					<span class="course-title"><?= $courses->title; ?></span>
-					<h4 class="course-specification"><?= $courses->specification; ?></h4>
-				</li>
-				<?php } ?>
-			</ul>
-		</div>
-	</div>
-</div>
-<?php } else { ?>
-<?php } ?>
 <?php if(count($skills) > 0) { ?>
-<hr />
 <h3>Skills</h3>
 <div class="row">
 	<div class="col-md-12">
@@ -38,6 +19,25 @@
 			<?php } ?>
 		<?php } ?>
 		</ul>
+	</div>
+</div>
+<?php } else { ?>
+<?php } ?>
+<hr />
+<h3>Independent Learning</h3>
+<?php if(count($coursework) > 0) { ?>
+<div class="coursework">
+	<div class="coursework row">
+		<div class="col-md-12">
+			<ul class="small-block-grid-1 medium-block-grid-2">
+				<?php foreach($coursework as $index => $courses) { ?>
+				<li>
+					<span class="course-title"><?= $courses->title; ?></span>
+					<h5 class="course-specification"><?= $courses->specification; ?></h5>
+				</li>
+				<?php } ?>
+			</ul>
+		</div>
 	</div>
 </div>
 <?php } else { ?>

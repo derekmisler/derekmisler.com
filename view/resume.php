@@ -21,12 +21,12 @@
 		<nav class="navbar scroll-down" role="navigation">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">Menu</button>
 			<div class="collapse navbar-collapse">
-				<ul class="nav medium-block-grid-5">
-					<li><a href="#about-derek-misler">About</a></li>
-					<li><a href="#experience">Experience</a></li>
-					<li><a href="#qualifications">Qualifications</a></li>
-					<li><a href="#projects">Projects</a></li>
-					<li><a href="#contact">Contact</a></li>
+				<ul class="nav medium-block-grid-5" vocab="http://schema.org/" typeof="BreadcrumbList">
+          <li property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" href="#about-derek-misler"><span property="name">About</span></a><meta property="position" content="1"></li>
+					<li property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" href="#experience"><span property="name">Experience</span></a><meta property="position" content="1"></li>
+					<li property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" href="#qualifications"><span property="name">Qualifications</span></a><meta property="position" content="1"></li>
+					<li property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" href="#projects"><span property="name">Projects</span></a><meta property="position" content="1"></li>
+					<li property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" href="#contact"><span property="name">Contact</span></a><meta property="position" content="1"></li>
 				</ul>
 			</div>
 		</nav>

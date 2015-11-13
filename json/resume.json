@@ -6,13 +6,13 @@
 			"description": "Front-End UX/UI & Web Developer",
 			"date_of_birth": "1986-04-08",
 			"place_of_birth": "Miami, Florida",
-			"biography": "I am a front-end developer with 10+ years experience. I have a diverse education, both traditional and self-driven, of many different web and application development languages for both desktop and mobile. I am basically fluent when it comes to HTML5, CSS3, including Less and Sass, along with JavaScript/jQuery, including frameworks like Angular, and React. I have experience with back-end and software languages, too, like C# and .NET, Node.js, Python, Ruby, and a long history with PHP. I also have a design background a surprisingly large knowledge of typography. I think all developers should study design, and I believe having this well-rounded education makes me a stronger developer.",
+			"biography": "I am a front-end developer in New York with 10+ years experience. I have a diverse education, both traditional and self-driven, of many different web and application development languages for both desktop and mobile. I am basically fluent when it comes to HTML5, CSS3, including Less and Sass, along with JavaScript/jQuery, including frameworks like Angular, and React. I have experience with back-end and software languages, too, like C# and .NET, Node.js, Python, Ruby, and a long history with PHP. I also have a design background a surprisingly large knowledge of typography (seriously, let's talk about it). I think all developers should study design, and I believe having this well-rounded education makes me a stronger developer.",
 			"current_location": {
 					"housenumber": "700",
 					"street": "W End Ave. 12A",
 					"zipcode": "10025",
 					"city": "New York",
-					"state": "New York",
+					"state": "NY",
 					"country": "United States"
 			}
 	},
@@ -25,7 +25,9 @@
 			"github": "http://derekmisler.github.io",
 			"flickr": "http://www.flickr.com/photos/derekmisler/",
 			"fivehundred": "https://prime.500px.com/derekmisler",
-			"stackoverflow": "http://careers.stackoverflow.com/derekmisler"
+			"stackoverflow": "http://careers.stackoverflow.com/derekmisler",
+			"instagram": "https://www.instagram.com/derekmisler/",
+			"pinterest": "https://www.pinterest.com/derekmisler/"
 	},
 	"educations": [
 			{
@@ -200,10 +202,6 @@
 			{
 					"title": "Java",
 					"level": 2
-			},
-			{
-					"title": "Actionscript",
-					"level": 3
 			},
 			{
 					"title": "Git/Github",

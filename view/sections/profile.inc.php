@@ -7,6 +7,9 @@
 		<a title="Email <?= $profile->full_name; ?>" href="mailto:<?= $contact->email; ?>" target="_blank"><img src="<?= VIEW_PATH; ?>images/loader.gif" data-src="<?= VIEW_PATH; ?>images/derek-misler.jpg" data-src-retina="<?= VIEW_PATH; ?>images/retina/derek-misler.jpg" alt="<?= $profile->full_name; ?>" width="200" height="200" /></a>
 		<ul class="small-block-grid-1">
 			<li>
+				<a title="This is where I live."><span class="icon-location-dot"></span>&nbsp;<?= $profile->current_location->city; ?>, <?= $profile->current_location->state; ?></a>
+			</li>
+			<li>
 				<a title="Click to call <?= $contact->phonedisplay; ?>." href="tel:<?= $contact->phone; ?>"><span class="icon-phone"></span>&nbsp;(828) 273-6943</a>
 			</li>
 			<li>

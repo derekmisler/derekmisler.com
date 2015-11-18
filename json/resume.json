@@ -3,11 +3,11 @@
 			"first_name": "Derek",
 			"middle_names": "Alan",
 			"last_name": "Misler",
-			"description": "Front-End UX/UI & Web Developer",
+			"description": "Front-End Developer & UI/UX Designer",
 			"meta_description": "Derek is a front-end developer with a design background and 10+ years of experience. He is also available for hire. Send an email to derekmisler@gmail.com if you'd like to learn more.",
 			"date_of_birth": "1986-04-08",
 			"place_of_birth": "Miami, Florida",
-			"biography": "I am a front-end developer in New York with 10+ years experience. I have a diverse education, both traditional and self-driven, of many different web and application development languages for both desktop and mobile. I am basically fluent when it comes to HTML5, CSS3, including Less and Sass, along with JavaScript/jQuery, including frameworks like Angular, and React. I have experience with back-end and software languages, too, like C# and .NET, Node.js, Python, Ruby, and a long history with PHP. I also have a design background a surprisingly large knowledge of typography (seriously, let's talk about it). I think all developers should study design, and I believe having this well-rounded education makes me a stronger developer.",
+			"biography": "I am a front-end developer and UI/UX designer living in New York with 10+ years experience. I have a diverse education, both traditional and self-driven, of many different web and application development languages for both desktop and mobile. I am basically fluent when it comes to HTML5, CSS3 (including CSS preprocessors like LESS and Sass) along with JavaScript/jQuery (including frameworks like Angular and React). I have experience with back-end and software languages, too, like C# and .NET, Node, Python, Ruby, and a long history with PHP. I also have a design background a surprisingly large knowledge of typography (seriously, let's talk about it). I think all developers should study design, and I believe having this well-rounded education makes me a stronger developer.",
 			"current_location": {
 					"housenumber": "700",
 					"street": "W End Ave. 12A",
@@ -48,17 +48,17 @@
 					"specification": "Web Manager",
 					"location": "Asheville, North Carolina",
 					"level": "Full-time",
-					"description": "As the only developer on staff, my job was to maintain our entire web presence. We started with a .NET-backed site, and one of my first tasks was to create a matching mobile site and responsive blog theme. While I was on board, I oversaw two redesigns, first with Coldfusion and more recently with a responsive site that was built with Node.js on the back-end and a custom JS framework, Goatee, on the front-end. I’ve been in charge of creating all print- and web-related assets for our various marketing campaigns, all of the data analysis of those campaigns, and two long-form, media-rich, highly interactive, award-winning web applications.",
+					"description": "As the only developer on staff, my job was to maintain our entire web presence. We started with a .NET-backed site, and one of my first tasks was to create a matching mobile site and responsive blog theme. While I was on board, I oversaw two redesigns, first with Coldfusion and more recently with a responsive site that was built with Node on the back-end and a custom JS templating language, Goatee, on the front-end. I've been in charge of creating all print- and web-related assets for our various marketing campaigns, all of the data analysis of those campaigns, and two long-form, media-rich, highly interactive, award-winning web applications. I also oversaw the email marketing program, which included designing and creating the email templates, capturing and segmenting demographic data, and the analysis of the data we received after each campaign.",
 					"start_date": "2011",
 					"end_date": "2016",
 					"link": "http://www.exploreasheville.com"
 			},
 			{
-					"title": "Houser Shoes",
+					"title": "Houser Shoes, Inc.",
 					"specification": "Designer/Developer/Photographer",
 					"location": "Fletcher, North Carolina",
 					"level": "Full-time",
-					"description": "During my time at Houser Shoes, I was part of a 3 person team that redesigned their e-commerce website. We also created a custom CMS based on Magento, which utilized primarily PHP and MySQL and was tied to their inventory and accounting systems. Photography is a part of my design background, so I was also the product photographer. Many hours were spent taking and editing and uploading photos of shoes. Just so many shoes.",
+					"description": "During my time at Houser Shoes, I was part of a 3 person team that redesigned their e-commerce website. We also created a custom CMS based on Magento, which utilized primarily PHP and MySQL and was tied to their inventory and accounting systems. Photography is a part of my design background, so I was also the product photographer. Many hours were spent taking and editing and uploading photos of shoes. Just so many shoes. I was also in charge of the email marketing program, including all of the design and implementation of each campaign, as well as the analysis of the results after each campaign.",
 					"start_date": "2010",
 					"end_date": "2011",
 					"link": "http://www.housershoes.com"
@@ -78,7 +78,7 @@
 					"specification": "Designer/Printer",
 					"location": "Boone, North Carolina",
 					"level": "Part-time",
-					"description": "Though this isn't web-related, I still think my experience working in a print shop can be seen in my work as a developer. When a job consists of tens of thousands of prints, the whole process requires an extremely detail-oriented approach, efficiency, and communication among all members of the team to ensure we weren’t making mistakes that would cost us a lot of time/paper/ink/money to fix.",
+					"description": "Though this isn't web-related, I still think my experience working in a print shop can be seen in my work as a developer. When a job consists of tens of thousands of prints, the whole process requires an extremely detail-oriented approach, efficiency, and communication among all members of the team to ensure we weren't making mistakes that would cost us a lot of time/paper/ink/money to fix.",
 					"start_date": "2007",
 					"end_date": "2009",
 					"link": null
@@ -169,9 +169,13 @@
 					"title": "JavaScript/jQuery",
 					"level": 5
 			},
-			{
-					"title": "Angular/React/Jekyll",
+      {
+					"title": "Angular/Jekyll",
 					"level": 5
+			},
+      {
+					"title": "React/JSX",
+					"level": 3
 			},
 			{
 					"title": "PHP",
@@ -190,8 +194,8 @@
 					"level": 3
 			},
 			{
-					"title": "Node.js",
-					"level": 4
+					"title": "Node",
+					"level": 3
 			},
 			{
 					"title": "C/C++",
@@ -255,7 +259,7 @@
 					"tags": "HTML5, CSS3, jQuery, Responsive, Bootstrap"
 			},
 			{
-					"title": "Houser Shoes",
+					"title": "HouserShoes.com",
 					"description": "A custom content management system built upon Magento by a 3-person team.",
 					"link": "http://www.housershoes.com",
 					"image": "houser-shoes.jpg",

@@ -1,4 +1,5 @@
 <h2>Experience &amp; Education</h2>
+<h6 class="text-center">Examples of the experience listed below can be found on <a href="<?= $contact->github; ?>" target="_blank">GitHub.&nbsp;<small class="icon-new-window"></small></a></h6>
 <?php if(count($careers) > 0) { ?>
 <hr />
 <h3>Career</h3>

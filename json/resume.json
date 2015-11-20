@@ -45,7 +45,7 @@
 	"careers": [
 			{
 					"title": "Asheville Convention & Visitors Bureau",
-					"specification": "Web Manager",
+					"specification": "Web Manager/Developer",
 					"location": "Asheville, North Carolina",
 					"level": "Full-time",
 					"description": "As the only developer on staff, my job was to maintain our entire web presence. We started with a .NET-backed site, and one of my first tasks was to create a matching mobile site and responsive blog theme. While I was on board, I oversaw two redesigns, first with Coldfusion and more recently with a responsive site that was built with Node on the back-end and a custom JS templating language, Goatee, on the front-end. I've been in charge of creating all print- and web-related assets for our various marketing campaigns, all of the data analysis of those campaigns, and two long-form, media-rich, highly interactive, award-winning web applications. I also oversaw the email marketing program, which included designing and creating the email templates, capturing and segmenting demographic data, and the analysis of the data we received after each campaign.",
@@ -55,7 +55,7 @@
 			},
 			{
 					"title": "Houser Shoes, Inc.",
-					"specification": "Designer/Developer/Photographer",
+					"specification": "Front-End Developer/Designer/Photographer",
 					"location": "Fletcher, North Carolina",
 					"level": "Full-time",
 					"description": "During my time at Houser Shoes, I was part of a 3 person team that redesigned their e-commerce website. We also created a custom CMS based on Magento, which utilized primarily PHP and MySQL and was tied to their inventory and accounting systems. Photography is a part of my design background, so I was also the product photographer. Many hours were spent taking and editing and uploading photos of shoes. Just so many shoes. I was also in charge of the email marketing program, including all of the design and implementation of each campaign, as well as the analysis of the results after each campaign.",
@@ -65,7 +65,7 @@
 			},
 			{
 					"title": "Freelance",
-					"specification": "Designer/Developer",
+					"specification": "Developer/Designer",
 					"location": "Asheville, North Carolina",
 					"level": "Freelance",
 					"description": "A lot of branding, especially at first, but I eventually had enough clients needing new websites that I became a full-time web developer. A lot of HTML/CSS/JavaScript and PHP (usually Wordpress).",

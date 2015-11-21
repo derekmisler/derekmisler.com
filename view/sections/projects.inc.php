@@ -1,6 +1,6 @@
 <?php if(count($projects) > 0) { ?>
 <h2>Live Projects</h2>
-<h6 class="text-center">Repositories for these projects and others not included here can be found on <a href="<?= $contact->github; ?>" target="_blank">GitHub.&nbsp;<small class="icon-new-window"></small></a></h6>
+<p>Here are just a few projects that are currently live. For a full portfolio and to view the repositories for these projects and others not included here, I recommend visiting my <a href="<?= $contact->github; ?>" target="_blank">GitHub profile.&nbsp;<small class="icon-new-window"></small></a></p>
 <hr />
 <div class="row">
 	<?php foreach($projects as $index => $project) { ?>

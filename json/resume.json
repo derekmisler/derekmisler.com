@@ -264,6 +264,13 @@
 					"link": "http://www.housershoes.com",
 					"image": "houser-shoes.jpg",
 					"tags": "PHP, Magento, Custom CMS, Responsive Design"
+			},
+			{
+					"title": "Strunk Home Solutions",
+					"description": "Branding project: Logo, business cards, letterhead.",
+					"link": "http://www.derekmisler.com/view/images/strunk-home-solutions-letterhead.jpg",
+					"image": "strunk-home-solutions-logo.jpg",
+					"tags": "InDesign, Illustrator"
 			}
 	]
 }

@@ -14,7 +14,7 @@
 				<h3><?= $project->title; ?></h3>
 				<p><?= $project->description; ?></p>
 				<p><strong>Skills Utilized:</strong> <br /><?= $project->tags; ?></p>
-				<a href="<?= $project->link; ?>" target="_blank" title="View <?= $project->title; ?> by <?= $profile->full_name; ?>">View more</a>
+				<a href="<?= $project->link; ?>" <?php if(strpos($project->link,'.jpg') !== false) { ?>  data-featherlight="image" <?php } else { ?>target="_blank" <?php } ?> title="View <?= $project->title; ?> by <?= $profile->full_name; ?>">View more</a>
 				<span class="icon">
 					<span class="icon-new-window"></span>
 				</span>

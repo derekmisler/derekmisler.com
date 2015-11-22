@@ -2924,7 +2924,7 @@ tbody.collapse.in {
   }
   /* support for nested featherlights. Does not work in IE8 (use JS to fix) */
   .featherlight:last-of-type {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(255, 255, 255, 0.8);
   }
   .featherlight:before {
     /* position: trick to center content vertically */
@@ -2943,15 +2943,15 @@ tbody.collapse.in {
     display: inline-block;
     /* dimensions: cut off images */
     overflow: auto;
-    padding: 25px 25px 0;
-    border-bottom: 25px solid transparent;
+    padding: 25px;
+    border: 0px solid #d94700;
     /* dimensions: handling large content */
     margin-left: 5%;
     margin-right: 5%;
     max-height: 95%;
     margin: 0 auto;
     /* styling */
-    background: #fff;
+    background: transparent;
     cursor: auto;
     /* reset white-space wrapping */
     white-space: normal;
@@ -2976,11 +2976,12 @@ tbody.collapse.in {
     background: #fff;
     /* Set the background in case it overlaps the content */
     background: rgba(255, 255, 255, 0.3);
-    color: #000;
+    color: #d94700;
   }
   .featherlight .featherlight-image {
     /* styling */
     max-width: 100%;
+    border: 1px solid #d94700;
   }
   .featherlight-iframe .featherlight-content {
     /* removed the border for image croping since iframe is edge to edge */

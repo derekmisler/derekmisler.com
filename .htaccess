@@ -78,6 +78,9 @@ RewriteRule . /index.php [L]
 
 # Block Russian Referrer Spam
 RewriteEngine on
+RewriteCond %{HTTP_REFERER} ^http://.*traffic2cash\.net/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*best\-seo\-software\.xyz/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*ranksonic\.net/ [NC,OR]
 RewriteCond %{HTTP_REFERER} ^http://.*ilovevitaly\.com/ [NC,OR]
 RewriteCond %{HTTP_REFERER} ^http://.*ilovevitaly.\.ru/ [NC,OR]
 RewriteCond %{HTTP_REFERER} ^http://.*ilovevitaly\.org/ [NC,OR]

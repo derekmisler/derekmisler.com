@@ -1,7 +1,6 @@
 <?php if(count($projects) > 0) { ?>
 <h2>Live Projects</h2>
-<h6 class="text-center">These are just a few examples of live projects. For a full portfolio and to view the repositories for these projects and others not included here, check out <a href="<?= $contact->github; ?>" target="_blank">GitHub.&nbsp;<small class="icon-new-window"></small></a></h6>
-<p class="text-center">Recent posts: 
+<h6>These are just a few examples of projects that are currently live. For a full portfolio and to view the repositories for these projects and others not included here, check out <a href="<?= $contact->github; ?>" target="_blank">GitHub</a> for projects like: 
 <?php
 	$rss = new DOMDocument();
 	$rss->load('http://derekmisler.github.io/feed.xml');
@@ -19,9 +18,9 @@
 		$link = $feed[$x]['link'];
 		echo '<em><a href="'.$link.'" title="'.$title.'" target="_blank">'.$title.'</a></em>, ';
 	}
-	echo '<em><a href="'.$feed[$limit]['link'].'" title="'.$feed[$limit]['title'].'" target="_blank">'.$feed[$limit]['title'].'</a></em>.';
+	echo '<em><a href="'.$feed[$limit]['link'].'" title="'.$feed[$limit]['title'].'" target="_blank">'.$feed[$limit]['title'].'&nbsp;<small class="icon-new-window"></small></a></em>.';
 ?>
-</p>
+</h6>
 <hr />
 <div class="row">
 	<?php foreach($projects as $index => $project) { ?>

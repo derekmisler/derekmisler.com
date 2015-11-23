@@ -1,6 +1,27 @@
 <?php if(count($projects) > 0) { ?>
 <h2>Live Projects</h2>
 <h6 class="text-center">These are just a few examples of live projects. For a full portfolio and to view the repositories for these projects and others not included here, check out <a href="<?= $contact->github; ?>" target="_blank">GitHub.&nbsp;<small class="icon-new-window"></small></a></h6>
+<p class="text-center">Recent posts: 
+<?php
+	$rss = new DOMDocument();
+	$rss->load('http://derekmisler.github.io/feed.xml');
+	$feed = array();
+	foreach ($rss->getElementsByTagName('item') as $node) {
+		$item = array ( 
+			'title' => $node->getElementsByTagName('title')->item(0)->nodeValue,
+			'link' => $node->getElementsByTagName('link')->item(0)->nodeValue
+			);
+		array_push($feed, $item);
+	}
+	$limit = 3;
+	for($x=0; $x < $limit; $x++) {
+		$title = str_replace(' & ', ' &amp; ', $feed[$x]['title']);
+		$link = $feed[$x]['link'];
+		echo '<em><a href="'.$link.'" title="'.$title.'" target="_blank">'.$title.'</a></em>, ';
+	}
+	echo '<em><a href="'.$feed[$limit]['link'].'" title="'.$feed[$limit]['title'].'" target="_blank">'.$feed[$limit]['title'].'</a></em>.';
+?>
+</p>
 <hr />
 <div class="row">
 	<?php foreach($projects as $index => $project) { ?>
@@ -25,26 +46,3 @@
 </div>
 <?php } else { ?>
 <?php } ?>
-<h2>Flickr Photo Feed</h2>
-<hr />
-
-<div class="row">
-	<div class="col-md-12">
-		<ul class="small-block-grid-2 medium-block-grid-3">
-			<?php
-			require_once("phpFlickr.php");
-			$f = new phpFlickr("3515e34c67f88bc0a310b130878af94d");
-			$recent = $f->photos_getRecent();
-			foreach ($recent['photo'] as $photo) {
-			    $owner = $f->people_getInfo($photo['owner']);
-			    echo "<a href='http://www.flickr.com/photos/" . $photo['owner'] . "/" . $photo['id'] . "/'>";
-			    echo $photo['title'];
-			    echo "</a> Owner: ";
-			    echo "<a href='http://www.flickr.com/people/" . $photo['owner'] . "/'>";
-			    echo $owner['username'];
-			    echo "</a><br>";
-			}
-			?>
-		</ul>
-	</div>
-</div>

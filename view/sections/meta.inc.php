@@ -20,13 +20,13 @@
     <meta name="twitter:title" content="<?= $profile->full_name; ?> | <?= $profile->description; ?>">
     <meta name="twitter:description" content="<?= $profile->meta_description; ?>">
     <meta name="twitter:creator" content="@derekmisler">
-    <meta name="twitter:image" content="<?= VIEW_PATH; ?>images/twitter-card.jpg">
+    <meta name="twitter:image" content="<?= IMAGES_PATH; ?>twitter-card.jpg">
 
     <!-- Open Graph data -->
     <meta property="og:title" content="<?= $profile->full_name; ?> | <?= $profile->description; ?>">
     <meta property="og:type" content="website" />
     <meta property="og:url" content="<?= $contact->website; ?>">
-    <meta property="og:image" content="<?= VIEW_PATH; ?>images/facebook.jpg">
+    <meta property="og:image" content="<?= IMAGES_PATH; ?>facebook.jpg">
     <meta property="og:description" content="<?= $profile->meta_description; ?>">
     <meta property="og:site_name" content="<?= $profile->full_name; ?> | <?= $profile->description; ?>">
     <meta property="fb:admins" content="812785510">
@@ -38,7 +38,7 @@
       "@type" : "Person",
       "name" : "<?= $profile->full_name; ?>",
       "description" : "<?= $profile->meta_description; ?>",
-      "image" : "<?= VIEW_PATH; ?>images/google-plus.jpg",
+      "image" : "<?= IMAGES_PATH; ?>google-plus.jpg",
       "jobTitle" : "<?= $profile->description; ?>",
       "url" : "<?= $contact->website; ?>",
       "email" : "<?= $contact->email; ?>",
@@ -75,7 +75,7 @@
       "@context": "http://schema.org",
       "@type": "Organization",
       "url": "<?= $contact->website; ?>",
-      "logo": "<?= VIEW_PATH; ?>images/google-plus.jpg",
+      "logo": "<?= IMAGES_PATH; ?>google-plus.jpg",
       "contactPoint" : [{
         "@type" : "ContactPoint",
         "telephone" : "<?= $contact->phone; ?>",
@@ -85,26 +85,25 @@
     </script>
 
     <!-- icons -->
-    <link rel="apple-touch-icon" sizes="57x57" href="<?= VIEW_PATH; ?>images/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="<?= VIEW_PATH; ?>images/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="<?= VIEW_PATH; ?>images/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="<?= VIEW_PATH; ?>images/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="<?= VIEW_PATH; ?>images/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="<?= VIEW_PATH; ?>images/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="<?= VIEW_PATH; ?>images/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="<?= VIEW_PATH; ?>images/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="<?= VIEW_PATH; ?>images/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="<?= VIEW_PATH; ?>images/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?= VIEW_PATH; ?>images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="<?= VIEW_PATH; ?>images/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= VIEW_PATH; ?>images/favicon-16x16.png">
-    <link rel="manifest" href="<?= VIEW_PATH; ?>images/manifest.json">
+    <link rel="apple-touch-icon" sizes="57x57" href="<?= IMAGES_PATH; ?>apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="<?= IMAGES_PATH; ?>apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?= IMAGES_PATH; ?>apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?= IMAGES_PATH; ?>apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="<?= IMAGES_PATH; ?>apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?= IMAGES_PATH; ?>apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="<?= IMAGES_PATH; ?>apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?= IMAGES_PATH; ?>apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= IMAGES_PATH; ?>apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="<?= IMAGES_PATH; ?>android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= IMAGES_PATH; ?>favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="<?= IMAGES_PATH; ?>favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= IMAGES_PATH; ?>favicon-16x16.png">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="<?= VIEW_PATH; ?>images/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="<?= IMAGES_PATH; ?>ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
     <!-- core CSS -->
     <link href="http://fonts.googleapis.com/css?family=Lato:300,300italic,700,700italic|Playfair+Display:700" rel="stylesheet" type="text/css">
-    <link href="<?= VIEW_PATH; ?>style.css" rel="stylesheet" />
+    <link href="<?= STYLE_PATH; ?>style.css" rel="stylesheet" />
 
   </head>

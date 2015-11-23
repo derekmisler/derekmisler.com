@@ -6,9 +6,9 @@
 	<?php foreach($projects as $index => $project) { ?>
 	<div class="col-xs-12 col-sm-6">
 		<figure class="effect">
-			<img src="<?= VIEW_PATH; ?>images/loader.gif" data-src="<?= VIEW_PATH.'images/'.$project->image; ?>" data-src-retina="<?= VIEW_PATH.'images/retina/'.$project->image; ?>" alt="<?= $project->title; ?> by <?= $profile->full_name; ?>" />
+			<img src="<?= IMAGES_PATH; ?>loader.gif" data-src="<?= IMAGES_PATH.$project->image; ?>" data-src-retina="<?= IMAGES_PATH.'retina/'.$project->image; ?>" alt="<?= $project->title; ?> by <?= $profile->full_name; ?>" />
 			<noscript>
-				<img src="<?= VIEW_PATH.'images/'.$project->image; ?>" alt="<?= $project->title; ?> by <?= $profile->full_name; ?>" />
+				<img src="<?= IMAGES_PATH.$project->image; ?>" alt="<?= $project->title; ?> by <?= $profile->full_name; ?>" />
 			</noscript>
 			<figcaption>
 				<h3><?= $project->title; ?></h3>
@@ -25,3 +25,26 @@
 </div>
 <?php } else { ?>
 <?php } ?>
+<h2>Flickr Photo Feed</h2>
+<hr />
+
+<div class="row">
+	<div class="col-md-12">
+		<ul class="small-block-grid-2 medium-block-grid-3">
+			<?php
+			require_once("phpFlickr.php");
+			$f = new phpFlickr("3515e34c67f88bc0a310b130878af94d");
+			$recent = $f->photos_getRecent();
+			foreach ($recent['photo'] as $photo) {
+			    $owner = $f->people_getInfo($photo['owner']);
+			    echo "<a href='http://www.flickr.com/photos/" . $photo['owner'] . "/" . $photo['id'] . "/'>";
+			    echo $photo['title'];
+			    echo "</a> Owner: ";
+			    echo "<a href='http://www.flickr.com/people/" . $photo['owner'] . "/'>";
+			    echo $owner['username'];
+			    echo "</a><br>";
+			}
+			?>
+		</ul>
+	</div>
+</div>

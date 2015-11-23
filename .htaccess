@@ -54,6 +54,13 @@ ErrorDocument 404 /view/404.php
 FileETag None
 # END Turn ETags Off
 
+# BEGIN Access-Control-Allow-Origin
+<ifModule mod_headers.c>
+  Header set Access-Control-Allow-Origin "*"
+</ifModule>
+FileETag None
+# END Access-Control-Allow-Origin
+
 # BEGIN Remove Last-Modified Header
 <ifModule mod_headers.c>
   Header unset Last-Modified

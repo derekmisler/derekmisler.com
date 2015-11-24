@@ -281,10 +281,10 @@
 			},
 			{
 					"title": "Periscope Magazine",
-					"description": "This was a magazine a couple of friends and I put together a few years ago. My job was all of the branding and the layout of the first issue, as well as the web development for the other three. The first issue is the only PDF, and it's better if you view it offline instead of in the browser, but the code for the others can be viewed on Github (although the magazine doesn't actually exist anymore, I'll put them back up in the future).",
+					"description": "This was a magazine a couple of friends and I put together a few years ago. My job was all of the branding and the layout of the first issue, as well as the web development for the others. The first issue is the only PDF and the code for the others can be viewed on Github.",
 					"link": "http://www.derekmisler.com/view/images/The-First-Issue.pdf",
 					"image": "periscope.jpg",
-					"tags": "InDesign, Illustrator, Photoshop, PHP, HTML5, CSS3"
+					"tags": "InDesign, Illustrator, Photography, PHP, HTML5, CSS3"
 			}
 	]
 }

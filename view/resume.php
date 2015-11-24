@@ -18,7 +18,7 @@
 			<a class="down-arrow" href="#about-derek-misler"><span class="icon-arrow-down"></span></a>
 		</div>
 
-		<nav class="navbar scroll-down" role="navigation">
+		<nav class="navbar scroll-down hidden-xs hidden-sm" role="navigation">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">Menu</button>
 			<div class="collapse navbar-collapse">
 				<ul class="nav medium-block-grid-5" vocab="http://schema.org/" typeof="BreadcrumbList">

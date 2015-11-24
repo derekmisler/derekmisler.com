@@ -1,8 +1,8 @@
 <h2>Qualifications</h2>
-<h6 class="text-center">Examples of the courses and skills listed below can be found on <a href="<?= $contact->github; ?>" target="_blank">GitHub.&nbsp;<small class="icon-new-window"></small></a></h6>
+<h6 class="text-center">Examples of the skills listed below can be found on <a href="<?= $contact->github; ?>" target="_blank">GitHub.&nbsp;<small class="icon-new-window"></small></a></h6>
 <hr />
 <?php if(count($skills) > 0) { ?>
-<h3>Skills</h3>
+<h3 class="hidden-xs hidden-sm">Skills</h3>
 <div class="row">
 	<div class="col-md-12">
 		<ul class="small-block-grid-1 medium-block-grid-2">
@@ -23,10 +23,10 @@
 </div>
 <?php } else { ?>
 <?php } ?>
-<hr />
-<h3>Independent Learning</h3>
+<hr class="hidden-xs hidden-sm" />
+<h3 class="hidden-xs hidden-sm">Independent Learning</h3>
 <?php if(count($coursework) > 0) { ?>
-<div class="coursework">
+<div class="coursework hidden-xs hidden-sm">
 	<div class="coursework row">
 		<div class="col-md-12">
 			<ul class="small-block-grid-1 medium-block-grid-2">

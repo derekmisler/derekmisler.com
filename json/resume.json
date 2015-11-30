@@ -285,6 +285,13 @@
 					"link": "http://www.derekmisler.com/view/images/The-First-Issue.pdf",
 					"image": "periscope.jpg",
 					"tags": "InDesign, Illustrator, Photography, PHP, HTML5, CSS3"
+			},
+			{
+					"title": "Houser Shoes Email Marketing",
+					"description": "I was in charge of the email marketing at Houser Shoes. These are just a few examples of the fun ones.",
+					"link": "http://www.derekmisler.com/view/images/houser-shoes-email-big.jpg",
+					"image": "houser-shoes-email.jpg",
+					"tags": "HTML, CSS, Photoshop, Illustrator"
 			}
 	]
 }

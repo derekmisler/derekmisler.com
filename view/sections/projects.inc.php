@@ -12,7 +12,7 @@
 			);
 		array_push($feed, $item);
 	}
-	$limit = 3;
+	$limit = 4;
 	for($x=0; $x < $limit; $x++) {
 		$title = str_replace(' & ', ' &amp; ', $feed[$x]['title']);
 		$link = $feed[$x]['link'];

@@ -10,9 +10,6 @@
 				<a title="This is where I live."><span class="icon-location-dot"></span>&nbsp;<?= $profile->current_location->city; ?>, <?= $profile->current_location->state; ?></a>
 			</li>
 			<li>
-				<a title="Click to call <?= $contact->phonedisplay; ?>." href="tel:<?= $contact->phone; ?>"><span class="icon-phone"></span>&nbsp;(828) 273-6943</a>
-			</li>
-			<li>
 				<a class="hidden-xs hidden-sm" href="<?= STYLE_PATH; ?>resume/Derek-Misler-resume.pdf" download="Derek-Misler-resume.pdf"><span class="icon-mouse"></span>&nbsp;Download Resume</a>
 				<a class="visible-xs visible-sm" title="PDF Resume opens in a new window" href="<?= STYLE_PATH; ?>resume/Derek-Misler-resume.pdf" target="_blank"><span class="icon-new-window"></span>&nbsp; View Resume</a>
 			</li>

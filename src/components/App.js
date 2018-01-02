@@ -1,26 +1,17 @@
 import React from 'react'
 import Nav from './Nav'
-import base from '../base'
+import Header from './Header'
+import resume from '../constants/resume'
 
 class App extends React.Component {
-  state = {}
-
-  static propTypes = {}
-
-  componentWillMount() {
-    this.ref = base.syncState('portfolio-derek-misler', {
-      context: this,
-      state: 'contact_details'
-    })
-  }
-
-  componentWillUnmount() {
-    base.removeBinding(this.ref)
-  }
+  state = resume
 
   render() {
     return (
-      <Nav />
+      <section>
+        <Header profile={this.state.profile} />
+        <Nav />
+      </section>
     )
   }
 }

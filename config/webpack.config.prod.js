@@ -1,4 +1,3 @@
-var path = require('path');
 var autoprefixer = require('autoprefixer');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -6,7 +5,6 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var url = require('url');
 var paths = require('./paths');
-var getClientEnvironment = require('./env');
 var project = require('./project');
 
 function ensureSlash(path, needsSlash) {
@@ -33,9 +31,8 @@ var publicPath = ensureSlash(homepagePathname, true);
 // as %PUBLIC_URL% in `index.html` and `process.env.PUBLIC_URL` in JavaScript.
 // Omit trailing shlash as %PUBLIC_PATH%/xyz looks better than %PUBLIC_PATH%xyz.
 var publicUrl = ensureSlash(homepagePathname, false);
-var imagePath = `${homepagePath}/assets/images`;
 // Get enrivonment variables to inject into our app.
-var env = getClientEnvironment(publicUrl);
+var env = JSON.stringify(process.env.NODE_ENV || 'development');
 
 // Assert this just to be safe.
 // Development builds of React are slow and not intended for production.
@@ -53,10 +50,7 @@ module.exports = {
   // You can exclude the *.map files from the build during deployment.
   devtool: 'source-map',
   // In production, we only want to load the polyfills and the app code.
-  entry: [
-    require.resolve('./polyfills'),
-    paths.appIndexJs
-  ],
+  entry: [ paths.appIndexJs ],
   output: {
     // The build folder.
     path: paths.appBuild,
@@ -178,7 +172,8 @@ module.exports = {
     // in `package.json`, in which case it will be the pathname of that URL.
     new InterpolateHtmlPlugin({
       PUBLIC_URL: publicUrl,
-      IMAGE_PATH: imagePath
+      IMAGE_PATH: `${publicUrl}/assets/images`,
+      META_IMG_PATH: `${publicUrl}/assets/images/meta`
     }),
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({

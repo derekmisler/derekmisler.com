@@ -29,11 +29,10 @@ module.exports = {
   appBuild: resolveApp('build'),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.ejs'),
-  appIndexJs: resolveApp('src/index.js'),
+  appIndexJs: resolveApp('src/index.jsx'),
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
   appImages: resolveApp('public/images'),
-  testsSetup: resolveApp('src/setupTests.js'),
   appNodeModules: resolveApp('node_modules'),
   ownNodeModules: resolveApp('node_modules'),
   nodePaths: nodePaths

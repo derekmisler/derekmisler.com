@@ -251,7 +251,7 @@ header.top h1 {
 header.top h3 {
   margin: 0;
   font-size: 2rem;
-  color: #f5a623;
+  color: #ffa500;
   position: relative;
   display: inline-block;
 }
@@ -384,7 +384,7 @@ ul.order li.total {
 }
 ul.order li.unavailable {
   text-decoration: line-through;
-  background: #f8d0d2;
+  background: #fcc;
 }
 ul.order li .price {
   font-size: 1.2rem;
@@ -430,7 +430,7 @@ ul.order li span.count span {
 .fish-edit textarea:focus,
 .fish-edit select:focus {
   outline: 0;
-  background: #fef2de;
+  background: #fff2d9;
 }
 .fish-edit textarea {
   width: 100%;
@@ -500,15 +500,15 @@ input[type=submit] {
 }
 button[disabled],
 input[type=submit][disabled] {
-  color: #d12028;
+  color: #f00;
   background: #fff;
-  border-color: #d12028;
+  border-color: #f00;
   -webkit-transform: rotate(-10deg) scale(2) translateX(50%) translateY(-50%);
           transform: rotate(-10deg) scale(2) translateX(50%) translateY(-50%);
 }
 button[disabled]:hover,
 input[type=submit][disabled]:hover {
-  color: #d12028;
+  color: #f00;
   cursor: not-allowed;
 }
 button[disabled]:after,
@@ -543,11 +543,11 @@ input[type=submit]:focus:after {
 }
 button.warning:after,
 input[type=submit].warning:after {
-  background: #d12028;
+  background: #f00;
 }
 button.success:after,
 input[type=submit].success:after {
-  background: #2dc22d;
+  background: #008000;
 }
 button.github,
 input[type=submit].github,

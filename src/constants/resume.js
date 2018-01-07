@@ -174,16 +174,16 @@ const resume = {
       level: 5
     },
     {
-      title: 'JavaScript/jQuery',
+      title: 'ES6/7',
       level: 5
     },
     {
-      title: 'Angular/Jekyll',
+      title: 'Aurelia/Web Components',
       level: 5
     },
     {
-      title: 'React/JSX',
-      level: 3
+      title: 'React/Redux',
+      level: 5
     },
     {
       title: 'PHP',
@@ -195,23 +195,23 @@ const resume = {
     },
     {
       title: 'Python',
-      level: 4
+      level: 3
     },
     {
-      title: 'Ruby',
-      level: 3
+      title: 'Ruby/Rails',
+      level: 4
     },
     {
       title: 'Node',
-      level: 3
+      level: 5
     },
     {
       title: 'C/C++',
-      level: 3
+      level: 2
     },
     {
       title: 'C#/.NET',
-      level: 4
+      level: 2
     },
     {
       title: 'Java',
@@ -226,7 +226,7 @@ const resume = {
       level: 5
     },
     {
-      title: 'LESS/Sass',
+      title: 'LESS/Sass/Stylus',
       level: 5
     }
   ],
@@ -290,4 +290,4 @@ const resume = {
   ]
 }
 
-module.exports = resume
+export default { resume }

@@ -1,12 +1,9 @@
-var path = require('path');
 var autoprefixer = require('autoprefixer');
 var webpack = require('webpack');
 var findCacheDir = require('find-cache-dir');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
-var getClientEnvironment = require('./env');
 var paths = require('./paths');
 var project = require('./project');
 
@@ -17,10 +14,7 @@ var publicPath = '/';
 // as %PUBLIC_URL% in `index.html` and `process.env.PUBLIC_URL` in JavaScript.
 // Omit trailing shlash as %PUBLIC_PATH%/xyz looks better than %PUBLIC_PATH%xyz.
 var publicUrl = '';
-var imagePath = `${publicUrl}/assets/images`;
-// Get enrivonment variables to inject into our app.
-var env = getClientEnvironment(publicUrl);
-
+var env = JSON.stringify(process.env.NODE_ENV || 'development');
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
 // The production configuration is different and lives in a separate file.
@@ -45,8 +39,6 @@ module.exports = {
     // require.resolve('webpack-dev-server/client') + '?/',
     // require.resolve('webpack/hot/dev-server'),
     require.resolve('react-dev-utils/webpackHotDevClient'),
-    // We ship a few polyfills by default:
-    require.resolve('./polyfills'),
     // Finally, this is your app's code:
     paths.appIndexJs
     // We include the app code last so that if there is a runtime error during
@@ -92,6 +84,7 @@ module.exports = {
         test: /\.(js|jsx)$/,
         loader: 'eslint',
         include: paths.appSrc,
+        exclude: paths.appNodeModules
       }
     ],
     loaders: [
@@ -168,7 +161,8 @@ module.exports = {
     // In development, this will be an empty string.
     new InterpolateHtmlPlugin({
       PUBLIC_URL: publicUrl,
-      IMAGE_PATH: imagePath
+      IMAGE_PATH: `${publicUrl}/assets/images`,
+      META_IMG_PATH: `${publicUrl}/assets/images/meta`
     }),
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
@@ -183,10 +177,6 @@ module.exports = {
     new webpack.DefinePlugin(env),
     // This is necessary to emit hot updates (currently CSS only):
     new webpack.HotModuleReplacementPlugin(),
-    // Watcher doesn't work well if you mistype casing in a path so we use
-    // a plugin that prints an error when you attempt to do this.
-    // See https://github.com/facebookincubator/create-react-app/issues/240
-    new CaseSensitivePathsPlugin(),
     // If you require a missing module and then `npm install` it, you still have
     // to restart the development server for Webpack to discover it. This plugin
     // makes the discovery automatic so you don't have to restart.

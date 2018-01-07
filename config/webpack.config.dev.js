@@ -1,20 +1,20 @@
-var autoprefixer = require('autoprefixer');
-var webpack = require('webpack');
-var findCacheDir = require('find-cache-dir');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
-var WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
-var paths = require('./paths');
-var project = require('./project');
+const autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
+const findCacheDir = require('find-cache-dir');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
+const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
+const paths = require('./paths');
+const project = require('./project');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
-var publicPath = '/';
+const publicPath = '/';
 // `publicUrl` is just like `publicPath`, but we will provide it to our app
 // as %PUBLIC_URL% in `index.html` and `process.env.PUBLIC_URL` in JavaScript.
 // Omit trailing shlash as %PUBLIC_PATH%/xyz looks better than %PUBLIC_PATH%xyz.
-var publicUrl = '';
-var env = JSON.stringify(process.env.NODE_ENV || 'development');
+const publicUrl = '';
+const env = JSON.stringify(process.env.NODE_ENV || 'development');
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
 // The production configuration is different and lives in a separate file.
@@ -75,7 +75,6 @@ module.exports = {
       'react-native': 'react-native-web'
     }
   },
-  
   module: {
     // First, run the linter.
     // It's important to do this before Babel processes the JS.
@@ -92,9 +91,12 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         include: paths.appSrc,
-        loader: 'babel',
+        exclude: paths.appNodeModules,
+        use: {
+          loader: 'babel',
+          options: project.compilerOptions
+        },
         query: {
-          
           // This is a feature of `babel-loader` for webpack (not Babel itself).
           // It enables caching results in ./node_modules/.cache/react-scripts/
           // directory for faster rebuilds. We use findCacheDir() because of:
@@ -141,20 +143,19 @@ module.exports = {
       }
     ]
   },
-  
   // We use PostCSS for autoprefixing only.
-  postcss: function() {
-    return [
+  postcss: () => (
+    [
       autoprefixer({
         browsers: [
           '>1%',
           'last 4 versions',
           'Firefox ESR',
-          'not ie < 9', // React doesn't support IE8 anyway
+          'not ie < 9' // React doesn't support IE8 anyway
         ]
-      }),
+      })
     ];
-  },
+  ),
   plugins: [
     // Makes the public URL available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">

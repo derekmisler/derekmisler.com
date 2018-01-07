@@ -1,4 +1,4 @@
-var resume = require('../src/constants/resume')
+const resume = require('../src/constants/resume')
 
 const config = {
   env: process.env.NODE_ENV || 'development',
@@ -9,7 +9,7 @@ const config = {
 
 config.compilerOptions = {
   presets: [
-    'react',
+    'airbnb',
     [
       'env',
       {
@@ -20,16 +20,16 @@ config.compilerOptions = {
       }
     ]
   ],
-  plugins: [ 'transform-object-rest-spread' ]
+  plugins: ['transform-object-rest-spread']
 }
 
 config.globals = {
-  'process.env'  : {
-    'NODE_ENV' : JSON.stringify(config.env)
+  'process.env': {
+    NODE_ENV: JSON.stringify(config.env)
   },
-  'NODE_ENV'     : config.env,
-  '__DEV__'      : config.env === 'development',
-  '__PROD__'     : config.env === 'production'
+  NODE_ENV: config.env,
+  __DEV__: config.env === 'development',
+  __PROD__: config.env === 'production'
 }
 
 module.exports = config

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import Nav from './Nav'
 import Header from './Header'
 import { resume } from '../constants/resume'
@@ -9,10 +9,10 @@ class App extends Component {
   render() {
     const { profile } = this.state
     return (
-      <section>
-        <Header profile={profile} />
+      <Fragment>
         <Nav />
-      </section>
+        <Header profile={profile} />
+      </Fragment>
     )
   }
 }

@@ -157,14 +157,17 @@ module.exports = {
           // In production, we use a plugin to extract that CSS to a file, but
           // in development "style" loader enables hot editing of CSS.
           {
-            test: /\.css$/,
+            test:  /\.styl$/,
+            include: paths.Css,
             use: [
-              require.resolve('style-loader'),
+              {
+                loader: require.resolve('style-loader')
+              },
               {
                 loader: require.resolve('css-loader'),
                 options: {
                   importLoaders: 1,
-                },
+                }
               },
               {
                 loader: require.resolve('postcss-loader'),
@@ -172,6 +175,7 @@ module.exports = {
                   // Necessary for external CSS imports to work
                   // https://github.com/facebookincubator/create-react-app/issues/2677
                   ident: 'postcss',
+                  sourceMap: true,
                   plugins: () => [
                     require('postcss-flexbugs-fixes'),
                     autoprefixer({
@@ -184,9 +188,12 @@ module.exports = {
                       flexbox: 'no-2009',
                     }),
                   ],
-                },
+                }
               },
-            ],
+              {
+                loader: require.resolve('stylus-relative-loader')
+              },
+            ]
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.

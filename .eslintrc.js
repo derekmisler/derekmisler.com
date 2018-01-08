@@ -14,11 +14,9 @@ module.exports = {
     }
   },
   "rules": {
-    "object-curly-spacing": 0,
+    "arrow-parens": ["error", "as-needed"],
     "no-underscore-dangle": 0,
-    "class-methods-use-this": 0,
     "comma-dangle": ["error", "never"],
-    "import/prefer-default-export": 0,
     "import/no-unresolved": 0,
     "import/extensions": 0,
     "import/no-extraneous-dependencies": 0,
@@ -27,6 +25,7 @@ module.exports = {
     "no-console": "error",
     "camelcase": "error",
     "no-confusing-arrow": ["error", {"allowParens": true}],
-    "semi": ["error", "never"]
+    "semi": ["error", "never"],
+    "react/no-unknown-property": [2, { "ignore": ["charset", "http-equiv"] }]
   }
-};
+}

@@ -1,3 +1,13 @@
-build/*
-scripts/*
-config/*
+build/**
+config/**
+coverage/**
+docs/**
+jsdoc/**
+OLD/**
+scripts/**
+tests/bench/**
+tests/fixtures/**
+tests/performance/**
+tmp/**
+test.js
+!.eslintrc.js

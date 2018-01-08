@@ -5,7 +5,7 @@ const description = 'Front-End Engineer & UI/UX Designer'
 const email = 'derekmisler@gmail.com'
 const socialId = 'derekmisler'
 
-const resume = {
+export const resume = {
   profile: {
     firstName,
     middleName,

@@ -6,7 +6,7 @@ const Header = (props) => {
   return (
     <div id="top" className="jumbotron">
       <div className="container">
-        <h1>{profile.first_name} {profile.last_name}<small>{profile.description}</small></h1>
+        <h1>{profile.firstName} {profile.lastName}<small>{profile.description}</small></h1>
       </div>
       <div className="overlay" />
       <a className="down-arrow" href="#about-derek-misler"><span className="icon-arrow-down" /></a>
@@ -16,8 +16,8 @@ const Header = (props) => {
 
 Header.propTypes = {
   profile: PropTypes.shape({
-    first_name: PropTypes.string.isRequired,
-    last_name: PropTypes.string.isRequired,
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired
   }).isRequired
 }

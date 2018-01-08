@@ -19,6 +19,6 @@ export const sections = [
     label: 'Contact',
     location: '#contact'
   }
-];
+]
 
 export default { sections }

@@ -27,6 +27,6 @@ module.exports = {
     "no-console": "error",
     "camelcase": "error",
     "no-confusing-arrow": ["error", {"allowParens": true}],
-    "semi": 0
+    "semi": ["error", "never"]
   }
 };

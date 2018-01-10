@@ -1,0 +1,40 @@
+@import '1_settings/variables'
+
+header
+  height: 100vh
+  .container
+    height: 100vh
+    display: flex
+    align-items: center
+    z-index: 4
+    position: relative
+    padding: $navHeight floor($navHeight * 2)
+    max-width: 75vw
+    .heading
+      color: $bodyBg
+      margin: 0
+      line-height: 2
+      display: inline-block
+      padding-bottom: $navHeight
+      .subheading
+        border-top: 1px solid transparentize($bodyBg, .35)
+        line-height: 1
+        display: inline-block
+        padding-top: $navHeight
+  .overlay
+    background-image: linear-gradient(45deg, $blue, $orange)
+    opacity: .75;
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 2
+  .downArrow
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
+    text-align: center
+    background-color: transparentize($bodyBg, .35)
+    z-index: 3

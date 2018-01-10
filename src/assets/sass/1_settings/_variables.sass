@@ -5,22 +5,28 @@ $green: #2DC22D
 $yellow: #FFCF9A
 $blue: #253a57
 
-$gray-darker: lighten(#000, 13.5%) // #222
-$gray-dark: #2A2C2B
+$grayDarker: lighten(#000, 13.5%) // #222
+$grayDark: #2A2C2B
 $gray: lighten(#000, 33.5%) // #555
-$gray-light: lighten(#000, 46.7%) // #777
-$gray-lighter: lighten(#000, 93.5%) // #eee
-$gray-lightest: #ffffff
+$grayLight: lighten(#000, 46.7%) // #777
+$grayLighter: lighten(#000, 93.5%) // #eee
+$grayLightest: #ffffff
 
-$body-bg: white
-$text-color: gray-dark
+$bodyBg: white
+$textColor: $grayDark
 
-$link-color: orange
-$link-color-hover: red
+$linkColor: $orange
+$linkColorHover: $red
 
-$font-family-sans: 'Lato', 'Helvetica Neue', Helvetica, sans-serif
-$font-family-serif: 'Playfair Display', Georgia, serif
+$sans: 'Lato', 'Helvetica Neue', Helvetica, sans-serif
+$serif: 'Playfair Display', Georgia, serif
 
-$font-size-base: 20px
-$font-size-large: ceil($font-size-base * 2)
-$font-size-small: ceil($font-size-base * .85)
+$fontSizebase: 22
+$fontSizeLarge: ceil($fontSizebase * 2)
+$fontSizeSmall: ceil($fontSizebase * .85)
+
+$lineHeightBase: 1.5
+$leading: $lineHeightBase * 1rem
+$scale: 1.414
+
+$navHeight: 40px

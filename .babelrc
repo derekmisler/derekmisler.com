@@ -1,0 +1,10 @@
+{
+  "presets": [
+    "next/babel"
+  ],
+  "plugins": [
+    "transform-object-rest-spread",
+    "transform-class-properties",
+    "transform-async-to-generator"
+  ]
+}

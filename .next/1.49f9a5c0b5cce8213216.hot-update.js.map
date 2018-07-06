@@ -1,0 +1,1 @@
+{"version":3,"file":"1.49f9a5c0b5cce8213216.hot-update.js","sources":["webpack:///pages/utils/helpers/env.js"],"sourcesContent":["\nexport const env = {\n  __PROD__: process.env.NODE_ENV === 'production'\n}\n\nexport default env\n\n\n\n// WEBPACK FOOTER //\n// pages/utils/helpers/env.js"],"mappings":";;;;;;AACA;AAAA;AACA;AADA;AAIA;;;;;;;;;;;;;;;;;;;;;;;A","sourceRoot":""}

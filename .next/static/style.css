@@ -55,7 +55,7 @@ canvas {
 template, [hidden] {
   display: none; }
 
-.clearfix___20kS0:after {
+.clearfix___3_ooA:after {
   visibility: hidden;
   display: block;
   font-size: 0;
@@ -142,15 +142,15 @@ code {
   vertical-align: bottom; }
 
 /* Leading paragraph text */
-.lead___3W6sV {
+.lead___3f-d2 {
   font-size: 1.414rem; }
 
 /* Hug the block above you */
-.hug___3_wZX {
+.hug___2j4h- {
   margin-top: 0; }
 header {
   height: 100vh; }
-  header .container___W1G-R {
+  header .container___27y69 {
     height: 100vh;
     display: flex;
     align-items: center;
@@ -158,18 +158,18 @@ header {
     position: relative;
     padding: 40px 80px;
     max-width: 75vw; }
-    header .container___W1G-R .heading___2Fnqh {
+    header .container___27y69 .heading___3X_KM {
       color: white;
       margin: 0;
       line-height: 2;
       display: inline-block;
       padding-bottom: 40px; }
-      header .container___W1G-R .heading___2Fnqh .subheading___v52wY {
+      header .container___27y69 .heading___3X_KM .subheading___1Cjcy {
         border-top: 1px solid rgba(255, 255, 255, 0.65);
         line-height: 1;
         display: inline-block;
         padding-top: 40px; }
-  header .overlay___39pTV {
+  header .overlay___36JM3 {
     background-image: linear-gradient(45deg, #253a57, #D94700);
     opacity: 0.75;
     position: fixed;
@@ -178,7 +178,7 @@ header {
     right: 0;
     bottom: 0;
     z-index: 2; }
-  header .downArrow___sogPN {
+  header .downArrow___hWbrl {
     position: absolute;
     bottom: 0;
     left: 0;

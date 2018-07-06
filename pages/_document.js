@@ -1,11 +1,18 @@
 import Document, { Head, Main, NextScript } from 'next/document'
-import LdJson from './components/LdJson'
-import env from './utils/helpers/env'
+import JsonLd from './components/JsonLd'
 import resume from './utils/constants/resume'
+import routes from './utils/constants/routes'
 
 export default class CustomDocument extends Document {
+  static async getInitialProps(ctx) {
+    const initialProps = await Document.getInitialProps(ctx)
+    return { ...initialProps }
+  }
   render() {
+    const { __NEXT_DATA__: { pathname } } = this.props
     const { profile, contact, location } = resume
+    const { label } = routes.find(r => r.location === pathname) || {}
+    const pageTitle = label ? `${label} | ${profile.title}` : profile.title
     return (
       <html lang='en'>
         <Head>
@@ -15,29 +22,29 @@ export default class CustomDocument extends Document {
           <meta name='apple-mobile-web-app-capable' content='yes' />
           <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
           <meta name='mobile-web-app-capable' content='yes' />
-          <title>{profile.title}</title>
+          <title>{pageTitle}</title>
           <meta name='description' content={profile.metaDescription} />
+          <link rel='canonical' href={`${contact.website}${pathname}`} />
           <link rel='manifest' href='/static/meta/manifest.json' />
           <link rel='shortcut icon' href='/static/meta/favicon.ico' />
           <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:300,300italic,700,700italic|Playfair+Display:700' />
           <link rel='stylesheet' href='/_next/static/style.css' />
-          { env.__PROD__ && <base href={contact.website} /> }
           <meta name='google-site-verification' content='oM1NjzxvtvPp4JL2t2qo13zUhGnrpGF0Fbgyb6S8vDk' />
           <link rel='publisher' href='https://plus.google.com/110617470325528028773/' />
           <meta name='twitter:card' content='summary_large_image' />
           <meta name='twitter:site' content={contact.twitterHandle} />
-          <meta name='twitter:title' content={profile.title} />
+          <meta name='twitter:title' content={pageTitle} />
           <meta name='twitter:description' content={profile.metaDescription} />
           <meta name='twitter:creator' content={contact.twitterHandle} />
           <meta name='twitter:image' content='/static/meta/twitter-card.jpg' />
-          <meta property='og:title' content={profile.title} />
+          <meta property='og:title' content={pageTitle} />
           <meta property='og:type' content='website' />
           <meta property='og:url' content={contact.website} />
           <meta property='og:image' content='/static/meta/facebook.jpg' />
           <meta property='og:description' content={profile.metaDescription} />
-          <meta property='og:site_name' content={profile.title} />
+          <meta property='og:site_name' content={pageTitle} />
           <meta property='fb:admins' content='812785510' />
-          <LdJson data={
+          <JsonLd data={
             {
               '@context': 'http://schema.org',
               '@type': 'Person',
@@ -67,7 +74,7 @@ export default class CustomDocument extends Document {
               ]
             }
           } />
-          <LdJson data={
+          <JsonLd data={
             {
               '@context': 'http://schema.org',
               '@type': 'WebSite',
@@ -76,7 +83,7 @@ export default class CustomDocument extends Document {
               'url': `${contact.website}`
             }
           } />
-          <LdJson data={
+          <JsonLd data={
             {
               '@context': 'http://schema.org',
               '@type': 'Organization',

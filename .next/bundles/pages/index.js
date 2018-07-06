@@ -1,7 +1,7 @@
 module.exports =
 __NEXT_REGISTER_PAGE('/', function() {
           var comp =
-      webpackJsonp([5],{
+      webpackJsonp([7],{
 
 /***/ "./node_modules/@babel/runtime/core-js/json/stringify.js":
 /***/ (function(module, exports, __webpack_require__) {
@@ -1999,190 +1999,6 @@ module.exports = function(originalModule) {
 
 /***/ }),
 
-/***/ "./pages/components/About.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = "/Users/derekmisler/Sites/derekmisler.com/pages/components/About.js";
-
-
-var About = function About() {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("section", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 2
-    }
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h2", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 3
-    }
-  }, "About"));
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (About);
-    (function (Component, route) {
-      if(!Component) return
-      if (false) return
-      module.hot.accept()
-      Component.__route = route
-
-      if (module.hot.status() === 'idle') return
-
-      var components = next.router.components
-      for (var r in components) {
-        if (!components.hasOwnProperty(r)) continue
-
-        if (components[r].Component.__route === route) {
-          next.router.update(r, Component)
-        }
-      }
-    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/components/About")
-  
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
-
-/***/ }),
-
-/***/ "./pages/components/Analytics.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__("./node_modules/next/node_modules/prop-types/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_helpers_analytics__ = __webpack_require__("./pages/utils/helpers/analytics.js");
-var _jsxFileName = "/Users/derekmisler/Sites/derekmisler.com/pages/components/Analytics.js";
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-var Analytics =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Analytics, _React$Component);
-
-  function Analytics() {
-    _classCallCheck(this, Analytics);
-
-    return _possibleConstructorReturn(this, (Analytics.__proto__ || Object.getPrototypeOf(Analytics)).apply(this, arguments));
-  }
-
-  _createClass(Analytics, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      if (!window.GA_INITIALIZED) {
-        Object(__WEBPACK_IMPORTED_MODULE_2__utils_helpers_analytics__["a" /* initGA */])();
-        window.GA_INITIALIZED = true;
-      }
-
-      Object(__WEBPACK_IMPORTED_MODULE_2__utils_helpers_analytics__["b" /* logPageView */])();
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var children = this.props.children;
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("main", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 17
-        }
-      }, children);
-    }
-  }]);
-
-  return Analytics;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-Analytics.propTypes = {
-  children: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.arrayOf(__WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.element).isRequired
-};
-/* harmony default export */ __webpack_exports__["a"] = (Analytics);
-    (function (Component, route) {
-      if(!Component) return
-      if (false) return
-      module.hot.accept()
-      Component.__route = route
-
-      if (module.hot.status() === 'idle') return
-
-      var components = next.router.components
-      for (var r in components) {
-        if (!components.hasOwnProperty(r)) continue
-
-        if (components[r].Component.__route === route) {
-          next.router.update(r, Component)
-        }
-      }
-    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/components/Analytics")
-  
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
-
-/***/ }),
-
-/***/ "./pages/components/Experience.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = "/Users/derekmisler/Sites/derekmisler.com/pages/components/Experience.js";
-
-
-var Experience = function Experience() {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("section", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 2
-    }
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h2", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 3
-    }
-  }, "Experience"));
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (Experience);
-    (function (Component, route) {
-      if(!Component) return
-      if (false) return
-      module.hot.accept()
-      Component.__route = route
-
-      if (module.hot.status() === 'idle') return
-
-      var components = next.router.components
-      for (var r in components) {
-        if (!components.hasOwnProperty(r)) continue
-
-        if (components[r].Component.__route === route) {
-          next.router.update(r, Component)
-        }
-      }
-    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/components/Experience")
-  
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
-
-/***/ }),
-
 /***/ "./pages/components/Footer.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2235,78 +2051,63 @@ var Footer = function Footer() {
 "use strict";
 /* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_link__ = __webpack_require__("./node_modules/next/link.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_next_link__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__("./node_modules/next/node_modules/prop-types/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__static_styles_components_header_scss__ = __webpack_require__("./static/styles/components/header.scss");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__static_styles_components_header_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__static_styles_components_header_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_helpers_stringFormat__ = __webpack_require__("./pages/utils/helpers/stringFormat.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__("./node_modules/next/node_modules/prop-types/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__static_styles_components_header_scss__ = __webpack_require__("./static/styles/components/header.scss");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__static_styles_components_header_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__static_styles_components_header_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_helpers_stringFormat__ = __webpack_require__("./pages/utils/helpers/stringFormat.js");
 var _jsxFileName = "/Users/derekmisler/Sites/derekmisler.com/pages/components/Header.js";
 
 
 
 
 
-
 var Header = function Header(props) {
-  var profile = props.profile;
+  var heading = props.heading,
+      subheading = props.subheading;
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("header", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_2__static_styles_components_header_scss___default.a.container,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 9
     }
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_3__static_styles_components_header_scss___default.a.container,
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h1", {
+    className: __WEBPACK_IMPORTED_MODULE_2__static_styles_components_header_scss___default.a.heading,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10
     }
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h1", {
-    className: __WEBPACK_IMPORTED_MODULE_3__static_styles_components_header_scss___default.a.heading,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 11
-    }
-  }, profile.firstName, ' ', profile.lastName, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
+  }, heading, subheading && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Fragment, null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 15
     }
   }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("small", {
-    className: __WEBPACK_IMPORTED_MODULE_3__static_styles_components_header_scss___default.a.subheading,
+    className: __WEBPACK_IMPORTED_MODULE_2__static_styles_components_header_scss___default.a.subheading,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 16
     }
-  }, Object(__WEBPACK_IMPORTED_MODULE_4__utils_helpers_stringFormat__["a" /* fixWidow */])(profile.description)))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: __WEBPACK_IMPORTED_MODULE_3__static_styles_components_header_scss___default.a.overlay,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 21
-    }
-  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_link___default.a, {
-    href: "#about-derek-misler",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 22
-    }
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
-    type: "button",
-    className: __WEBPACK_IMPORTED_MODULE_3__static_styles_components_header_scss___default.a.downArrow,
+  }, Object(__WEBPACK_IMPORTED_MODULE_3__utils_helpers_stringFormat__["a" /* fixWidow */])(subheading))))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: __WEBPACK_IMPORTED_MODULE_2__static_styles_components_header_scss___default.a.overlay,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 23
     }
-  }, "Down")));
+  }));
 };
 
 Header.propTypes = {
-  profile: __WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.shape({
-    firstName: __WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.string.isRequired,
-    lastName: __WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.string.isRequired,
-    description: __WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.string.isRequired
-  }).isRequired
+  heading: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string.isRequired,
+  subheading: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string
+};
+Header.defaultProps = {
+  subheading: null
 };
 /* harmony default export */ __webpack_exports__["a"] = (Header);
     (function (Component, route) {
@@ -2331,6 +2132,133 @@ Header.propTypes = {
 
 /***/ }),
 
+/***/ "./pages/components/Layout.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__static_styles_style_scss__ = __webpack_require__("./static/styles/style.scss");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__static_styles_style_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__static_styles_style_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__("./node_modules/next/node_modules/prop-types/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Header__ = __webpack_require__("./pages/components/Header.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Nav__ = __webpack_require__("./pages/components/Nav.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Footer__ = __webpack_require__("./pages/components/Footer.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__utils_helpers_analytics__ = __webpack_require__("./pages/utils/helpers/analytics.js");
+var _jsxFileName = "/Users/derekmisler/Sites/derekmisler.com/pages/components/Layout.js";
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+
+
+var Layout =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Layout, _React$Component);
+
+  function Layout() {
+    _classCallCheck(this, Layout);
+
+    return _possibleConstructorReturn(this, (Layout.__proto__ || Object.getPrototypeOf(Layout)).apply(this, arguments));
+  }
+
+  _createClass(Layout, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      if (!window.GA_INITIALIZED) {
+        Object(__WEBPACK_IMPORTED_MODULE_6__utils_helpers_analytics__["a" /* initGA */])();
+        window.GA_INITIALIZED = true;
+      }
+
+      Object(__WEBPACK_IMPORTED_MODULE_6__utils_helpers_analytics__["b" /* logPageView */])();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _props = this.props,
+          children = _props.children,
+          heading = _props.heading,
+          subheading = _props.subheading;
+      return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react___default.a.Fragment, null, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Header__["a" /* default */], {
+        heading: heading,
+        subheading: subheading,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 22
+        }
+      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Nav__["a" /* default */], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 23
+        }
+      }), children && __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("main", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 26
+        }
+      }, children), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__Footer__["a" /* default */], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 30
+        }
+      }));
+    }
+  }]);
+
+  return Layout;
+}(__WEBPACK_IMPORTED_MODULE_1_react___default.a.Component);
+
+Layout.propTypes = {
+  children: __WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.oneOfType([__WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.arrayOf(__WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.element), __WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.element]),
+  heading: __WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.string.isRequired,
+  subheading: __WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.string
+};
+Layout.defaultProps = {
+  children: null,
+  subheading: null
+};
+/* harmony default export */ __webpack_exports__["a"] = (Layout);
+    (function (Component, route) {
+      if(!Component) return
+      if (false) return
+      module.hot.accept()
+      Component.__route = route
+
+      if (module.hot.status() === 'idle') return
+
+      var components = next.router.components
+      for (var r in components) {
+        if (!components.hasOwnProperty(r)) continue
+
+        if (components[r].Component.__route === route) {
+          next.router.update(r, Component)
+        }
+      }
+    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/components/Layout")
+  
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
+
+/***/ }),
+
 /***/ "./pages/components/Nav.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2339,14 +2267,14 @@ Header.propTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_link__ = __webpack_require__("./node_modules/next/link.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_next_link__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_constants_sections__ = __webpack_require__("./pages/utils/constants/sections.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_constants_routes__ = __webpack_require__("./pages/utils/constants/routes.js");
 var _jsxFileName = "/Users/derekmisler/Sites/derekmisler.com/pages/components/Nav.js";
 
 
 
 
 var Nav = function Nav() {
-  var columns = __WEBPACK_IMPORTED_MODULE_2__utils_constants_sections__["a" /* sections */].length || 1;
+  var columns = __WEBPACK_IMPORTED_MODULE_2__utils_constants_routes__["b" /* routes */].length || 1;
   var navClass = "nav medium-block-grid-".concat(columns);
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("nav", {
     className: "navbar scroll-down hidden-xs hidden-sm",
@@ -2377,7 +2305,7 @@ var Nav = function Nav() {
       fileName: _jsxFileName,
       lineNumber: 12
     }
-  }, __WEBPACK_IMPORTED_MODULE_2__utils_constants_sections__["a" /* sections */].map(function (section, i) {
+  }, __WEBPACK_IMPORTED_MODULE_2__utils_constants_routes__["b" /* routes */].map(function (section, i) {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("li", {
       key: section.label,
       property: "itemListElement",
@@ -2388,7 +2316,7 @@ var Nav = function Nav() {
       }
     }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_link___default.a, {
       prefetch: true,
-      href: section.location,
+      href: "/".concat(section.location),
       __source: {
         fileName: _jsxFileName,
         lineNumber: 16
@@ -2440,98 +2368,6 @@ var Nav = function Nav() {
 
 /***/ }),
 
-/***/ "./pages/components/Projects.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = "/Users/derekmisler/Sites/derekmisler.com/pages/components/Projects.js";
-
-
-var Projects = function Projects() {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("section", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 2
-    }
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h2", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 3
-    }
-  }, "Projects"));
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (Projects);
-    (function (Component, route) {
-      if(!Component) return
-      if (false) return
-      module.hot.accept()
-      Component.__route = route
-
-      if (module.hot.status() === 'idle') return
-
-      var components = next.router.components
-      for (var r in components) {
-        if (!components.hasOwnProperty(r)) continue
-
-        if (components[r].Component.__route === route) {
-          next.router.update(r, Component)
-        }
-      }
-    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/components/Projects")
-  
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
-
-/***/ }),
-
-/***/ "./pages/components/Qualifications.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = "/Users/derekmisler/Sites/derekmisler.com/pages/components/Qualifications.js";
-
-
-var Qualifications = function Qualifications() {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("section", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 2
-    }
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h2", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 3
-    }
-  }, "Qualifications"));
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (Qualifications);
-    (function (Component, route) {
-      if(!Component) return
-      if (false) return
-      module.hot.accept()
-      Component.__route = route
-
-      if (module.hot.status() === 'idle') return
-
-      var components = next.router.components
-      for (var r in components) {
-        if (!components.hasOwnProperty(r)) continue
-
-        if (components[r].Component.__route === route) {
-          next.router.update(r, Component)
-        }
-      }
-    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/components/Qualifications")
-  
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
-
-/***/ }),
-
 /***/ "./pages/index.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2540,72 +2376,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(module) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "App", function() { return App; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__static_styles_style_scss__ = __webpack_require__("./static/styles/style.scss");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__static_styles_style_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__static_styles_style_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_constants_resume__ = __webpack_require__("./pages/utils/constants/resume.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Nav__ = __webpack_require__("./pages/components/Nav.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Header__ = __webpack_require__("./pages/components/Header.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_About__ = __webpack_require__("./pages/components/About.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Experience__ = __webpack_require__("./pages/components/Experience.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_Qualifications__ = __webpack_require__("./pages/components/Qualifications.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_Projects__ = __webpack_require__("./pages/components/Projects.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_Footer__ = __webpack_require__("./pages/components/Footer.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_Analytics__ = __webpack_require__("./pages/components/Analytics.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_constants_resume__ = __webpack_require__("./pages/utils/constants/resume.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Layout__ = __webpack_require__("./pages/components/Layout.js");
 var _jsxFileName = "/Users/derekmisler/Sites/derekmisler.com/pages/index.js";
 
 
 
-
-
-
-
-
-
-
-
 var App = function App() {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_10__components_Analytics__["a" /* default */], {
+  var profile = __WEBPACK_IMPORTED_MODULE_1__utils_constants_resume__["a" /* default */].profile;
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_Layout__["a" /* default */], {
+    heading: profile.fullName,
+    subheading: profile.description,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 7
     }
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_Header__["a" /* default */], {
-    profile: __WEBPACK_IMPORTED_MODULE_2__utils_constants_resume__["a" /* default */].profile,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 14
-    }
-  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_Nav__["a" /* default */], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 15
-    }
-  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_About__["a" /* default */], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 16
-    }
-  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__components_Experience__["a" /* default */], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 17
-    }
-  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__components_Qualifications__["a" /* default */], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 18
-    }
-  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__components_Projects__["a" /* default */], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 19
-    }
-  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__components_Footer__["a" /* default */], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 20
-    }
-  }));
+  });
 };
 /* harmony default export */ __webpack_exports__["default"] = (App);
     (function (Component, route) {
@@ -2637,11 +2423,11 @@ var App = function App() {
 /* WEBPACK VAR INJECTION */(function(module) {var firstName = 'Derek';
 var middleName = 'Alan';
 var lastName = 'Misler';
-var description = 'Front-End Engineer & UI/UX Designer';
+var description = 'Software Engineer';
 var email = 'derekmisler@gmail.com';
 var socialId = 'derekmisler';
-var metaDescription = "".concat(firstName, " is a front-end engineer with a design background and 10+ years of experience. He is also available for hire. Send an email to ").concat(email, " if you'd like to learn more.");
-var biography = 'I am a front-end engineer and UI/UX designer living in New York with 10+ years experience. I have a diverse education, both traditional and self-driven, of many different web and app development languages for desktop and mobile. I am basically fluent with HTML5, CSS3 (including CSS preprocessors like LESS and Sass) along with JavaScript (ES6/7, including frameworks like React and Aurelia), including templating languages like Jade/Pug. I have experience with back-end languages, too, like Node, Python, Ruby, and a long history with PHP. I also have a design background a surprisingly large knowledge of typography (seriously, let\'s talk about it). I think all developers should study design, and I believe having this well-rounded education makes me a stronger engineer.';
+var metaDescription = "".concat(firstName, " is a ").concat(description.toLowerCase(), " with a design background and 10+ years of experience. He is also available for hire. Send an email to ").concat(email, " if you'd like to learn more.");
+var biography = "I am a ".concat(description.toLowerCase(), " living in New York with 10+ years experience. I have a diverse education, both traditional and self-driven, of many different web and app development languages for desktop and mobile. I am fluent with HTML5, CSS3 (including CSS preprocessors like LESS and Sass) along with JavaScript (ES6/7, including frameworks like React, Aurelia). I have tons of experience with back-end languages, too, like Node, Ruby, and a long history with PHP. I also have a design background a surprisingly large knowledge of typography (seriously, let's talk about it). I think all developers should study design, and I believe having this well-rounded education makes me a stronger engineer.");
 var profile = {
   firstName: firstName,
   middleName: middleName,
@@ -2685,11 +2471,20 @@ var education = [{
   completed: true
 }];
 var careers = [{
+  title: 'Transfix',
+  specification: 'Staff Software Engineer',
+  location: 'New York, New York',
+  level: 'Full-time',
+  description: 'I started at Transfix as one of the very first hires, as the first front-end engineer. During that time, I lead multiple teams that were tasked with redesigns of both the public website, as well as the primary web app. We started with a Rails app, before moving over to Aurelia, a terrific JS framework, and finally landing on React/Redux.',
+  startDate: '2016',
+  endDate: 'Present',
+  link: 'https://www.transfix.io'
+}, {
   title: 'Asheville Convention & Visitors Bureau',
   specification: 'Web Manager/Developer',
   location: 'Asheville, North Carolina',
   level: 'Full-time',
-  description: 'As the only developer on staff, my job was to maintain our entire web presence. We started with a .NET-backed site, and one of my first tasks was to create a matching mobile site and responsive blog theme. While I was on board, I oversaw two redesigns, first with Coldfusion and more recently with a responsive site that was built with Node on the back-end and a custom JS templating language, Goatee, on the front-end. I\'ve been in charge of creating all print- and web-related assets for our various marketing campaigns, all of the data analysis of those campaigns, and two long-form, media-rich, highly interactive, award-winning web applications. I also oversaw the email marketing program, which included designing and creating the email templates, capturing and segmenting demographic data, and the analysis of the data we received after each campaign.',
+  description: 'As the only developer on staff, my job was to maintain our entire web presence. We started with a .NET-backed site, and one of my first tasks was to create a matching mobile site and responsive blog theme. While I was on board, I oversaw two redesigns, first with Coldfusion and more recently with a responsive site that was built with Node/MongoDB on the back-end and a custom JS templating language, Goatee, on the front-end. I\'ve been in charge of creating all print- and web-related assets for our various marketing campaigns, all of the data analysis of those campaigns, and two long-form, media-rich, highly interactive, award-winning web applications. I also oversaw the email marketing program, which included designing and creating the email templates, capturing and segmenting demographic data, and the analysis of the data we received after each campaign.',
   startDate: '2011',
   endDate: '2016',
   link: 'http://www.exploreasheville.com'
@@ -2906,28 +2701,28 @@ var projects = [{
 
 /***/ }),
 
-/***/ "./pages/utils/constants/sections.js":
+/***/ "./pages/utils/constants/routes.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return sections; });
-var sections = [{
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return routes; });
+var routes = [{
   label: 'About',
-  location: '#about-derek-misler'
+  location: '/about'
 }, {
   label: 'Experience',
-  location: '#experience'
+  location: '/experience'
 }, {
   label: 'Qualifications',
-  location: '#qualifications'
+  location: '/qualifications'
 }, {
   label: 'Projects',
-  location: '#projects'
+  location: '/projects'
 }, {
   label: 'Contact',
-  location: '#contact'
+  location: '/contact'
 }];
-/* unused harmony default export */ var _unused_webpack_default_export = (sections);
+/* harmony default export */ __webpack_exports__["a"] = (routes);
     (function (Component, route) {
       if(!Component) return
       if (false) return
@@ -2944,7 +2739,7 @@ var sections = [{
           next.router.update(r, Component)
         }
       }
-    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/utils/constants/sections")
+    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/utils/constants/routes")
   
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
 
@@ -3046,7 +2841,7 @@ var fixWidow = function fixWidow() {
 
 /***/ }),
 
-/***/ 4:
+/***/ 6:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/index.js");
@@ -3054,7 +2849,7 @@ module.exports = __webpack_require__("./pages/index.js");
 
 /***/ })
 
-},[4])
+},[6])
           return { page: comp.default }
         })
       ;

@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import { sections } from '../utils/constants/sections'
+import { routes } from '../utils/constants/routes'
 
 const Nav = () => {
-  const columns = sections.length || 1
+  const columns = routes.length || 1
   const navClass = `nav medium-block-grid-${columns}`
 
   return (
@@ -11,9 +11,9 @@ const Nav = () => {
       <div className='collapse navbar-collapse'>
         <ul className={navClass} vocab='http://schema.org/' typeof='BreadcrumbList'>
           {
-            sections.map((section, i) => (
+            routes.map((section, i) => (
               <li key={section.label} property='itemListElement' typeof='ListItem'>
-                <Link prefetch href={section.location}>
+                <Link prefetch href={`/${section.location}`}>
                   <a property='item' typeof='WebPage'>
                     <span property='name'>
                       {section.label}

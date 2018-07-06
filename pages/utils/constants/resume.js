@@ -1,11 +1,11 @@
 const firstName = 'Derek'
 const middleName = 'Alan'
 const lastName = 'Misler'
-const description = 'Front-End Engineer & UI/UX Designer'
+const description = 'Software Engineer'
 const email = 'derekmisler@gmail.com'
 const socialId = 'derekmisler'
-const metaDescription = `${firstName} is a front-end engineer with a design background and 10+ years of experience. He is also available for hire. Send an email to ${email} if you'd like to learn more.`
-const biography = 'I am a front-end engineer and UI/UX designer living in New York with 10+ years experience. I have a diverse education, both traditional and self-driven, of many different web and app development languages for desktop and mobile. I am basically fluent with HTML5, CSS3 (including CSS preprocessors like LESS and Sass) along with JavaScript (ES6/7, including frameworks like React and Aurelia), including templating languages like Jade/Pug. I have experience with back-end languages, too, like Node, Python, Ruby, and a long history with PHP. I also have a design background a surprisingly large knowledge of typography (seriously, let\'s talk about it). I think all developers should study design, and I believe having this well-rounded education makes me a stronger engineer.'
+const metaDescription = `${firstName} is a ${description.toLowerCase()} with a design background and 10+ years of experience. He is also available for hire. Send an email to ${email} if you'd like to learn more.`
+const biography = `I am a ${description.toLowerCase()} living in New York with 10+ years experience. I have a diverse education, both traditional and self-driven, of many different web and app development languages for desktop and mobile. I am fluent with HTML5, CSS3 (including CSS preprocessors like LESS and Sass) along with JavaScript (ES6/7, including frameworks like React, Aurelia). I have tons of experience with back-end languages, too, like Node, Ruby, and a long history with PHP. I also have a design background a surprisingly large knowledge of typography (seriously, let's talk about it). I think all developers should study design, and I believe having this well-rounded education makes me a stronger engineer.`
 
 const profile = {
   firstName,
@@ -53,11 +53,21 @@ const education = [
 ]
 const careers = [
   {
+    title: 'Transfix',
+    specification: 'Staff Software Engineer',
+    location: 'New York, New York',
+    level: 'Full-time',
+    description: 'I started at Transfix as one of the very first hires, as the first front-end engineer. During that time, I lead multiple teams that were tasked with redesigns of both the public website, as well as the primary web app. We started with a Rails app, before moving over to Aurelia, a terrific JS framework, and finally landing on React/Redux.',
+    startDate: '2016',
+    endDate: 'Present',
+    link: 'https://www.transfix.io'
+  },
+  {
     title: 'Asheville Convention & Visitors Bureau',
     specification: 'Web Manager/Developer',
     location: 'Asheville, North Carolina',
     level: 'Full-time',
-    description: 'As the only developer on staff, my job was to maintain our entire web presence. We started with a .NET-backed site, and one of my first tasks was to create a matching mobile site and responsive blog theme. While I was on board, I oversaw two redesigns, first with Coldfusion and more recently with a responsive site that was built with Node on the back-end and a custom JS templating language, Goatee, on the front-end. I\'ve been in charge of creating all print- and web-related assets for our various marketing campaigns, all of the data analysis of those campaigns, and two long-form, media-rich, highly interactive, award-winning web applications. I also oversaw the email marketing program, which included designing and creating the email templates, capturing and segmenting demographic data, and the analysis of the data we received after each campaign.',
+    description: 'As the only developer on staff, my job was to maintain our entire web presence. We started with a .NET-backed site, and one of my first tasks was to create a matching mobile site and responsive blog theme. While I was on board, I oversaw two redesigns, first with Coldfusion and more recently with a responsive site that was built with Node/MongoDB on the back-end and a custom JS templating language, Goatee, on the front-end. I\'ve been in charge of creating all print- and web-related assets for our various marketing campaigns, all of the data analysis of those campaigns, and two long-form, media-rich, highly interactive, award-winning web applications. I also oversaw the email marketing program, which included designing and creating the email templates, capturing and segmenting demographic data, and the analysis of the data we received after each campaign.',
     startDate: '2011',
     endDate: '2016',
     link: 'http://www.exploreasheville.com'

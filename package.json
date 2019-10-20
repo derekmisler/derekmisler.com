@@ -6,8 +6,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint 'pages/**/*.{ts,tsx}'",
-    "format": "prettier --check 'pages/**/*.{ts,tsx}'",
-    "deploy": "npm run build && firebase deploy",
+    "format": "prettier --write 'pages/**/*.{ts,tsx}'",
+    "predeploy": "npm run lint && npm run build",
+    "deploy": "firebase deploy",
     "clean:all": "rm -rf node_modules && rm -rf package-lock.json && npm cache clean --force && npm i --no-audit"
   },
   "dependencies": {
@@ -17,11 +18,17 @@
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-ga": "^2.7.0",
-    "styled-components": "^4.0.0"
+    "styled-components": "^4.0.0",
+    "styled-normalize": "^8.0.6"
   },
   "devDependencies": {
     "@types/react": "^16.9.9",
+    "@typescript-eslint/eslint-plugin": "^2.4.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^2.4.0",
+    "@typescript-eslint/parser": "^2.4.0",
+    "@typescript-eslint/typescript-estree": "^2.4.0",
     "babel-plugin-styled-components": "^1.8.0",
+    "eslint-plugin-react": "^7.16.0",
     "prettier": "1.18.2",
     "typescript": "^3.6.4"
   },

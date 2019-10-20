@@ -21,12 +21,7 @@ class Layout extends React.Component {
       <>
         <Header heading={heading} subheading={subheading} />
         <Nav />
-        {
-          children &&
-          <main>
-            {children}
-          </main>
-        }
+        {children && <main>{children}</main>}
         <Footer />
       </>
     )
@@ -36,14 +31,14 @@ class Layout extends React.Component {
 Layout.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.element),
-    PropTypes.element
+    PropTypes.element,
   ]),
   heading: PropTypes.string.isRequired,
-  subheading: PropTypes.string
+  subheading: PropTypes.string,
 }
 Layout.defaultProps = {
   children: null,
-  subheading: null
+  subheading: null,
 }
 
 export default Layout

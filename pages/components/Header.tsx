@@ -9,15 +9,12 @@ const Header = props => {
       <div className={css.container}>
         <h1 className={css.heading}>
           {heading}
-          {
-            subheading &&
+          {subheading && (
             <>
               <br />
-              <small className={css.subheading}>
-                {fixWidow(subheading)}
-              </small>
+              <small className={css.subheading}>{fixWidow(subheading)}</small>
             </>
-          }
+          )}
         </h1>
       </div>
       <div className={css.overlay} />
@@ -27,9 +24,9 @@ const Header = props => {
 
 Header.propTypes = {
   heading: PropTypes.string.isRequired,
-  subheading: PropTypes.string
+  subheading: PropTypes.string,
 }
 
-Header.defaultProps ={ subheading: null }
+Header.defaultProps = { subheading: null }
 
 export default Header

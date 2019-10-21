@@ -1,5 +1,5 @@
 import resume from './utils/constants/resume'
-import Layout from './components/Layout'
+import Layout from '../components/Layout'
 
 export const App = () => {
   const { profile } = resume

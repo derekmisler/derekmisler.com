@@ -1,8 +1,8 @@
-import Document, { Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-import JsonLd from './components/JsonLd'
-import resume from './utils/constants/resume'
-import routes from './utils/constants/routes'
+import JsonLd from '../components/JsonLd'
+import resume from '../constants/resume'
+import routes from '../constants/routes'
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -30,14 +30,12 @@ export default class MyDocument extends Document {
     }
   }
   render() {
-    const {
-      __NEXT_DATA__: { pathname },
-    } = this.props
+    const { pathname } = this.props
     const { profile, contact, location } = resume
     const { label } = routes.find(r => r.location === pathname) || {}
     const pageTitle = label ? `${label} | ${profile.title}` : profile.title
     return (
-      <html lang='en'>
+      <Html>
         <Head>
           <meta charSet='utf-8' />
           <meta httpEquiv='X-UA-Compatible' content='IE=Edge' />
@@ -141,7 +139,7 @@ export default class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     )
   }
 }

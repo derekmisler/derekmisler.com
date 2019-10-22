@@ -58,11 +58,11 @@ class MainApp extends App {
           <meta name='twitter:site' content={contact.twitterHandle} />
           <meta name='twitter:description' content={profile.metaDescription} />
           <meta name='twitter:creator' content={contact.twitterHandle} />
-          <meta name='twitter:image' content='/static/meta/twitter-card.jpg' />
+          <meta name='twitter:image' content='/static/images/meta/twitter-card.jpg' />
           <meta property='og:title' content={pageTitle} />
           <meta property='og:type' content='website' />
           <meta property='og:url' content={contact.website} />
-          <meta property='og:image' content='/static/meta/facebook.jpg' />
+          <meta property='og:image' content='/static/images/meta/facebook.jpg' />
           <meta property='og:description' content={profile.metaDescription} />
           <meta property='og:site_name' content={pageTitle} />
           <meta property='fb:admins' content='812785510' />
@@ -72,7 +72,7 @@ class MainApp extends App {
               '@type': 'Person',
               name: `${profile.fullName}`,
               description: `${profile.description}`,
-              image: '/static/meta/google-plus.jpg',
+              image: '/static/images/meta/google-plus.jpg',
               jobTitle: `${profile.description}`,
               url: `${contact.website}`,
               email: `${contact.email}`,
@@ -109,7 +109,7 @@ class MainApp extends App {
             data={{
               '@context': 'http://schema.org',
               '@type': 'Organization',
-              logo: '/static/meta/google-plus.jpg',
+              logo: '/static/images/meta/google-plus.jpg',
               url: `${contact.website}`,
               contactPoint: [
                 {

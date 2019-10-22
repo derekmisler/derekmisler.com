@@ -1,7 +1,7 @@
 const firstName = 'Derek'
 const middleName = 'Alan'
 const lastName = 'Misler'
-const description = 'Software Engineer'
+const description = 'Software Engineer & UI/UX Designer'
 const email = 'derekmisler@gmail.com'
 const socialId = 'derekmisler'
 const metaDescription = `${firstName} is a ${description.toLowerCase()} with a design background and 10+ years of experience. He is also available for hire. Send an email to ${email} if you'd like to learn more.`

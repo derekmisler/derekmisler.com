@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { routes } from '../utils/constants/routes'
+import { routes } from '../constants/routes'
 
 const Nav = () => {
   const columns = routes.length || 1
@@ -32,7 +32,7 @@ const Nav = () => {
                   <span property='name'>{section.label}</span>
                 </a>
               </Link>
-              <meta property='position' content={i + 1} />
+              <meta property='position' content={(i + 1).toString()} />
             </li>
           ))}
         </ul>

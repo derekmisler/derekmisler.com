@@ -1,0 +1,8 @@
+export const orange =  '#D94700'
+export const red =  '#BB1F28'
+export const green =  '#2DC22D'
+export const yellow =  '#FFCF9A'
+export const blue =  '#253a57'
+export const black =  '#2A2C2B'
+export const white = '#ffffff'
+export const transparentWhite = 'rgba(255,255,255,.35)'

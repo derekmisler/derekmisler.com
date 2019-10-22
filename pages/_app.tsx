@@ -9,9 +9,8 @@ import resume from '../constants/resume'
 import routes from '../constants/routes'
 
 const theme = {
-  colors: {
-    primary: '#0070f3'
-  }
+  mode: 'default',
+  font: 'serif'
 }
 
 class MainApp extends App {

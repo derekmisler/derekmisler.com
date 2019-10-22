@@ -1,3 +1,4 @@
+import React from 'react'
 import styled from 'styled-components'
 import { fontSizeLarge, serif } from '../styles/typography'
 import { white } from '../styles/colors'
@@ -13,6 +14,6 @@ const StyledH1 = styled.h1`
   padding-bottom: ${navHeight}px;
 `
 
-export const H1 = ({ children }) => (
+export const H1: React.FC<{}> = ({ children }) => (
   <StyledH1>{children}</StyledH1>
 )

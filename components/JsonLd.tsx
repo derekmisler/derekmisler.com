@@ -1,10 +1,9 @@
-import PropTypes from 'prop-types'
+interface JsonTypes {}
 
-const JsonLd = ({ data }) => (
+const JsonLd = ({ data }: { data: JsonTypes }) => (
   <script
     type='application/ld+json'
     dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
   />
 )
-JsonLd.propTypes = { data: PropTypes.shape.isRequired }
 export default JsonLd

@@ -43,7 +43,12 @@ const DownArrow = styled.div`
   z-index: 3;
 `
 
-export default ({ heading, subheading }) => (
+interface HeaderTypes {
+  heading?: string,
+  subheading?: string
+}
+
+const Hero: React.FC<HeaderTypes> = ({ heading, subheading }) => (
   <Header>
     <Container>
       <H1>
@@ -60,4 +65,6 @@ export default ({ heading, subheading }) => (
     <Overlay />
   </Header>
 )
+
+export default Hero
 

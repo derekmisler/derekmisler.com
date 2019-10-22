@@ -10,12 +10,13 @@ interface LayoutTypes {
 }
 
 const Layout: React.FC<LayoutTypes> = ({ children, heading, subheading }) => (
-  <Analytics>
+  <>
+    <Analytics />
     <Header heading={heading} subheading={subheading} />
     <Nav />
     {children && <main>{children}</main>}
     <Footer />
-  </Analytics>
+  </>
 )
 
 export default Layout

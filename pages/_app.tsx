@@ -10,8 +10,8 @@ import routes from '../constants/routes'
 
 const theme = {
   colors: {
-    primary: '#0070f3',
-  },
+    primary: '#0070f3'
+  }
 }
 
 class MainApp extends App {
@@ -25,7 +25,6 @@ class MainApp extends App {
       <>
         <Head>
           <title>{pageTitle}</title>
-
           <meta charSet='utf-8' />
           <meta httpEquiv='X-UA-Compatible' content='IE=Edge' />
           <meta
@@ -83,7 +82,7 @@ class MainApp extends App {
                 streetAddress: `${location.houseNumber} ${location.street}`,
                 addressLocality: `${location.city}`,
                 addressRegion: `${location.state}`,
-                postalCode: `${location.zipcode}`,
+                postalCode: `${location.zipcode}`
               },
               sameAs: [
                 `${contact.linkedin}`,
@@ -93,8 +92,8 @@ class MainApp extends App {
                 `${contact.flickr}`,
                 `${contact.stackOverflow}`,
                 `${contact.pinterest}`,
-                `${contact.fivehundred}`,
-              ],
+                `${contact.fivehundred}`
+              ]
             }}
           />
           <JsonLd
@@ -103,7 +102,7 @@ class MainApp extends App {
               '@type': 'WebSite',
               name: `${profile.fullName}`,
               alternateName: `${profile.firstName}`,
-              url: `${contact.website}`,
+              url: `${contact.website}`
             }}
           />
           <JsonLd
@@ -116,9 +115,9 @@ class MainApp extends App {
                 {
                   '@type': 'ContactPoint',
                   telephone: `${contact.phone}`,
-                  contactType: 'technical support',
-                },
-              ],
+                  contactType: 'technical support'
+                }
+              ]
             }}
           />
         </Head>

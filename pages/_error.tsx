@@ -9,7 +9,7 @@ const Error = ({ statusCode }: { statusCode: number }) => (
 )
 
 interface ErrorTypes {
-  err?: { statusCode: number },
+  err?: { statusCode: number }
   res?: { statusCode?: number }
 }
 

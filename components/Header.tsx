@@ -22,6 +22,7 @@ const SubHeading = styled.small`
   line-height: 1;
   display: inline-block;
   padding-top: ${navHeight}px;
+  font-size: 75%;
 `
 const Overlay = styled.div`
   background-image: linear-gradient(45deg, ${blue}, ${orange});

@@ -1,15 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import { fontSizeLarge, serif } from '../styles/typography'
+import { serif } from '../styles/typography'
 import { white } from '../styles/colors'
 import { navHeight } from '../styles/variables'
 
 const StyledH1 = styled.h1`
-  font-size: ${fontSizeLarge}px;
+  font-size: 12vw;
   font-family: ${serif};
+  line-height: 2;
   color: ${white};
   margin: 0;
-  line-height: 2;
   display: inline-block;
   padding-bottom: ${navHeight}px;
 `

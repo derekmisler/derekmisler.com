@@ -27,7 +27,7 @@ const Nav = () => {
               property='itemListElement'
               typeof='ListItem'
             >
-              <Link prefetch href={section.location}>
+              <Link href={section.location}>
                 <a property='item' typeof='WebPage'>
                   <span property='name'>{section.label}</span>
                 </a>

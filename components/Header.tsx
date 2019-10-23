@@ -26,7 +26,7 @@ const SubHeading = styled.small`
 `
 const Overlay = styled.div`
   background-image: linear-gradient(45deg, ${blue}, ${orange});
-  opacity: .75;
+  opacity: 0.75;
   position: fixed;
   top: 0;
   left: 0;
@@ -45,7 +45,7 @@ const DownArrow = styled.div`
 `
 
 interface HeaderTypes {
-  heading?: string,
+  heading?: string
   subheading?: string
 }
 
@@ -68,4 +68,3 @@ const Hero: React.FC<HeaderTypes> = ({ heading, subheading }) => (
 )
 
 export default Hero
-

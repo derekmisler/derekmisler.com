@@ -10,7 +10,7 @@
     "build": "next build && next export",
     "start": "next start",
     "lint:css": "stylelint './**/*.tsx'",
-    "format": "prettier --write 'pages/**/*.{ts,tsx}'",
+    "format": "prettier --write '**/*.{ts,tsx}'",
     "deploy": "npm run build && firebase deploy",
     "clean:all": "rm -rf out && rm -rf node_modules && rm -rf package-lock.json && npm cache clean --force && npm i --no-audit"
   },

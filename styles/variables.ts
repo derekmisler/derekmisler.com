@@ -1,1 +1,1 @@
-export const navHeight = 40
+export const navHeight: number = 40

@@ -5,7 +5,7 @@ import Footer from './Footer'
 import Analytics from './Analytics'
 
 interface LayoutTypes {
-  heading?: string,
+  heading?: string
   subheading?: string
 }
 

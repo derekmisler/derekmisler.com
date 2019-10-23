@@ -57,11 +57,17 @@ class MainApp extends App {
           <meta name='twitter:site' content={contact.twitterHandle} />
           <meta name='twitter:description' content={profile.metaDescription} />
           <meta name='twitter:creator' content={contact.twitterHandle} />
-          <meta name='twitter:image' content='/static/images/meta/twitter-card.jpg' />
+          <meta
+            name='twitter:image'
+            content='/static/images/meta/twitter-card.jpg'
+          />
           <meta property='og:title' content={pageTitle} />
           <meta property='og:type' content='website' />
           <meta property='og:url' content={contact.website} />
-          <meta property='og:image' content='/static/images/meta/facebook.jpg' />
+          <meta
+            property='og:image'
+            content='/static/images/meta/facebook.jpg'
+          />
           <meta property='og:description' content={profile.metaDescription} />
           <meta property='og:site_name' content={pageTitle} />
           <meta property='fb:admins' content='812785510' />

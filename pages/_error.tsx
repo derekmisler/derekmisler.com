@@ -1,11 +1,15 @@
 import React from 'react'
-import Layout from '../components/Layout'
+import Header from '../components/Header'
 
-const Error = ({ statusCode }: { statusCode: number }) => (
-  statusCode
-    ? <Layout heading={statusCode.toString()} subheading='An error occurred on server' />
-    : <Layout heading='404' subheading={`This page doesn't exist!`} />
-)
+const Error = ({ statusCode }: { statusCode: number }) =>
+  statusCode ? (
+    <Header
+      heading={statusCode.toString()}
+      subheading='An error occurred on the server'
+    />
+  ) : (
+    <Header heading={`This page doesn't exist!`} />
+  )
 
 interface ErrorTypes {
   err?: { statusCode: number }

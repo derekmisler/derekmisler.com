@@ -1,4 +1,4 @@
-name: Producton
+name: Production
 
 on: [push]
 

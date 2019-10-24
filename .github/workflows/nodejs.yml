@@ -22,6 +22,6 @@ jobs:
         npm ci
         npm run stylelint
         npm run build
-        npm run deploy:ci
+        firebase deploy --only hosting --token ${{ secrets.FIREBASE_TOKEN }}
       env:
         CI: true

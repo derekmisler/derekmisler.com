@@ -21,6 +21,7 @@ jobs:
       run: |
         npm ci
         npm run stylelint
-        npm deploy
+        npm run build
+        npm run deploy:ci
       env:
         CI: true

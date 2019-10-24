@@ -6,12 +6,13 @@
   "homepage": "https://portfolio-derek-misler.firebaseapp.com",
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "next",
-    "build": "next build && next export",
-    "start": "next start",
-    "stylelint": "stylelint './**/*.tsx'",
-    "format": "prettier --write '**/*.{ts,tsx}'",
+    "dev": "npx next",
+    "build": "npx next build && next export",
+    "start": "npx next start",
+    "stylelint": "npx stylelint './**/*.tsx'",
+    "format": "npx prettier --write '**/*.{ts,tsx}'",
     "deploy": "npm run build && firebase deploy",
+    "deploy:ci": "firebase deploy --only hosting --token ${{ secrets.FIREBASE_TOKEN }}",
     "clean:all": "rm -rf out && rm -rf node_modules && rm -rf package-lock.json && npm cache clean --force && npm i --no-audit"
   },
   "dependencies": {

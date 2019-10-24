@@ -70,5 +70,5 @@ export const Link = styled('a')<LinkProps>`
   ${getExtras(TextType.Link)}
 `
 
-export { TypographyProps, defaultTheme } from './utils'
+export * from './utils'
 export * from './types'

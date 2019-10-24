@@ -1,4 +1,4 @@
-name: Node CI
+name: Producton
 
 on: [push]
 
@@ -17,9 +17,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-      - run: npm ci
-      - run: npm run stylelint
-      - run: npm run build
-      - run: npx firebase deploy --only hosting --token ${{ secrets.FIREBASE_TOKEN }}
+    - name: npm install, test, and deploy
+      run: |
+        npm ci
+        npm run stylelint
+        npm run build
+        npx firebase deploy --only hosting --token ${{ secrets.FIREBASE_TOKEN }}
       env:
         CI: true

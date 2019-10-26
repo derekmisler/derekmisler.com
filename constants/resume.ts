@@ -255,6 +255,10 @@ const skills: SkillTypes[] = [
     level: 5
   },
   {
+    title: 'Angular',
+    level: 4
+  },
+  {
     title: 'Aurelia/Web Components',
     level: 5
   },

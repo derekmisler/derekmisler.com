@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { fixWidow } from '../utils/stringFormat'
-import { H1 } from './StyledText'
-import { navHeight } from '../styles/variables'
-import { transparentWhite, blue, orange } from '../styles/colors'
+import { navHeight } from '../styles/layout'
+import { transparentWhite, blue, orange } from '../styles'
+import { Heading } from './Typography'
 
 const Header = styled.header`
   height: 100vh;
@@ -52,7 +52,7 @@ interface HeaderTypes {
 const Hero: React.FC<HeaderTypes> = ({ heading, subheading }) => (
   <Header>
     <Container>
-      <H1>
+      <Heading level={1}>
         {heading}
         {subheading && (
           <>
@@ -60,7 +60,7 @@ const Hero: React.FC<HeaderTypes> = ({ heading, subheading }) => (
             <SubHeading>{fixWidow(subheading)}</SubHeading>
           </>
         )}
-      </H1>
+      </Heading>
     </Container>
     <DownArrow />
     <Overlay />

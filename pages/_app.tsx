@@ -4,6 +4,7 @@ import { withRouter } from 'next/router'
 import Head from 'next/head'
 import { ThemeProvider } from 'styled-components'
 import { Normalize } from 'styled-normalize'
+import { GlobalTypeStyles } from '../styles'
 import JsonLd from '../components/JsonLd'
 import resume from '../constants/resume'
 import routes from '../constants/routes'
@@ -42,7 +43,7 @@ class MainApp extends App {
           <link rel='shortcut icon' href='favicon.ico' />
           <link
             rel='stylesheet'
-            href='https://fonts.googleapis.com/css?family=Lato:300,300italic,700,700italic|Playfair+Display:700'
+            href='https://fonts.googleapis.com/css?family=Lato:400,400i,700|Patua+One&display=swap'
           />
           <meta
             name='google-site-verification'
@@ -127,6 +128,7 @@ class MainApp extends App {
           />
         </Head>
         <Normalize />
+        <GlobalTypeStyles />
         <ThemeProvider theme={theme}>
           <Component {...pageProps} />
         </ThemeProvider>

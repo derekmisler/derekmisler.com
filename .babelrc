@@ -13,7 +13,8 @@
         "components": "./components",
         "styles": "./styles",
         "sections": "./sections",
-        "constants": "./constants"
+        "constants": "./constants",
+        "types": "./types"
       }
     }]
   ]

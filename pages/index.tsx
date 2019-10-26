@@ -1,4 +1,4 @@
-import resume from 'constants/resume'
+import { resume } from 'constants/resume'
 import Layout from 'components/Layout'
 
 export const App = () => {

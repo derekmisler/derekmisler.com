@@ -1,18 +1,20 @@
 import { createGlobalStyle } from 'styled-components'
-import { TypeSettings, FontStyle, FontWeight } from 'components/Typography'
+import { FontStyle, FontWeight } from 'types/typography'
+import { TYPOGRAPHY_DEFAULTS } from './typography'
 import { blue } from './colors'
 
 export const GlobalTypeStyles = createGlobalStyle`
-body {
-  background-color: ${blue};
-  color: ${TypeSettings.textColor};
-  font-family: ${TypeSettings.sans};
-  font-size: ${TypeSettings.baseFontSize};
-  font-weight: ${FontWeight.Normal};
-  font-style: ${FontStyle.Normal};
-  line-height: ${TypeSettings.baseLineHeight};
-}
+  body {
+    background-color: ${blue};
+    color: ${TYPOGRAPHY_DEFAULTS.textColor};
+    font-family: ${TYPOGRAPHY_DEFAULTS.sans};
+    font-size: ${TYPOGRAPHY_DEFAULTS.baseFontSize};
+    font-weight: ${FontWeight.Normal};
+    font-style: ${FontStyle.Normal};
+    line-height: ${TYPOGRAPHY_DEFAULTS.baseLineHeight};
+  }
 `
 
 export * from './colors'
 export * from './layout'
+export * from './typography'

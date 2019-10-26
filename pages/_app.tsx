@@ -1,13 +1,11 @@
 import React from 'react'
 import App from 'next/app'
-import { withRouter } from 'next/router'
 import Head from 'next/head'
 import { ThemeProvider } from 'styled-components'
 import { Normalize } from 'styled-normalize'
-import { GlobalTypeStyles } from 'styles'
 import JsonLd from 'components/JsonLd'
-import resume from 'constants/resume'
-import routes from 'constants/routes'
+import { GlobalTypeStyles } from 'styles'
+import { resume } from 'constants/resume'
 
 const theme = {
   mode: 'default',
@@ -16,15 +14,12 @@ const theme = {
 
 class MainApp extends App {
   render() {
-    const { Component, pageProps, router } = this.props
-    const { pathname } = router
+    const { Component, pageProps } = this.props
     const { profile, contact, location } = resume
-    const { label = '' } = routes.find(r => r.location === pathname) || {}
-    const pageTitle = label ? `${label} | ${profile.title}` : profile.title
     return (
       <>
         <Head>
-          <title>{pageTitle}</title>
+          <title>{profile.title}</title>
           <meta charSet='utf-8' />
           <meta httpEquiv='X-UA-Compatible' content='IE=Edge' />
           <meta
@@ -38,7 +33,7 @@ class MainApp extends App {
           />
           <meta name='mobile-web-app-capable' content='yes' />
           <meta name='description' content={profile.metaDescription} />
-          <link rel='canonical' href={`${contact.website}${pathname}`} />
+          <link rel='canonical' href={contact.website} />
           <link rel='manifest' href='manifest.json' />
           <link rel='shortcut icon' href='favicon.ico' />
           <link
@@ -53,7 +48,7 @@ class MainApp extends App {
             rel='publisher'
             href='https://plus.google.com/110617470325528028773/'
           />
-          <meta name='twitter:title' content={pageTitle} />
+          <meta name='twitter:title' content={profile.title} />
           <meta name='twitter:card' content='summary_large_image' />
           <meta name='twitter:site' content={contact.twitterHandle} />
           <meta name='twitter:description' content={profile.metaDescription} />
@@ -62,7 +57,7 @@ class MainApp extends App {
             name='twitter:image'
             content='/static/images/meta/twitter-card.jpg'
           />
-          <meta property='og:title' content={pageTitle} />
+          <meta property='og:title' content={profile.title} />
           <meta property='og:type' content='website' />
           <meta property='og:url' content={contact.website} />
           <meta
@@ -70,7 +65,7 @@ class MainApp extends App {
             content='/static/images/meta/facebook.jpg'
           />
           <meta property='og:description' content={profile.metaDescription} />
-          <meta property='og:site_name' content={pageTitle} />
+          <meta property='og:site_name' content={profile.title} />
           <meta property='fb:admins' content='812785510' />
           <JsonLd
             data={{
@@ -137,4 +132,4 @@ class MainApp extends App {
   }
 }
 
-export default withRouter(MainApp)
+export default MainApp

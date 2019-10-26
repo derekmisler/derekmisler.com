@@ -413,7 +413,7 @@ const projects: ProjectTypes[] = [
   }
 ]
 
-export default {
+export const resume = {
   profile,
   location,
   contact,

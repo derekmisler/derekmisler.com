@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import { initGA, logPageView } from '../utils/analytics'
+import { initGA, logPageView } from 'utils/analytics'
 
 interface Window {
   GA_INITIALIZED: boolean

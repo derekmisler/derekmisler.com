@@ -4,10 +4,10 @@ import { withRouter } from 'next/router'
 import Head from 'next/head'
 import { ThemeProvider } from 'styled-components'
 import { Normalize } from 'styled-normalize'
-import { GlobalTypeStyles } from '../styles'
-import JsonLd from '../components/JsonLd'
-import resume from '../constants/resume'
-import routes from '../constants/routes'
+import { GlobalTypeStyles } from 'styles'
+import JsonLd from 'components/JsonLd'
+import resume from 'constants/resume'
+import routes from 'constants/routes'
 
 const theme = {
   mode: 'default',

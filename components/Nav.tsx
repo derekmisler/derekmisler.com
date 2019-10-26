@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { routes } from '../constants/routes'
+import { routes } from 'constants/routes'
 
 const Nav = () => {
   const columns = routes.length || 1

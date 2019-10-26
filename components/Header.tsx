@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { fixWidow } from '../utils/stringFormat'
-import { navHeight } from '../styles/layout'
-import { transparentWhite, blue, orange } from '../styles'
+import { fixWidow } from 'utils/stringFormat'
+import { navHeight, transparentWhite, blue, orange } from 'styles'
 import { Heading } from './Typography'
 
 const Header = styled.header`

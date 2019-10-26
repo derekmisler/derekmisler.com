@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import { TypeSettings, FontStyle, FontWeight } from '../components/Typography'
+import { TypeSettings, FontStyle, FontWeight } from 'components/Typography'
 import { blue } from './colors'
 
 export const GlobalTypeStyles = createGlobalStyle`

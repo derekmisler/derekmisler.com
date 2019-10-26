@@ -1,8 +1,20 @@
 {
   "presets": ["next/babel"],
-  "plugins": [["styled-components", {
-    "ssr": true,
-    "minify": true,
-    "pure": true
-  }]]
+  "plugins": [
+    ["styled-components", {
+      "ssr": true,
+      "minify": true,
+      "pure": true
+    }],
+    ["module-resolver", {
+      "root": ["."],
+      "alias": {
+        "utils": "./utils",
+        "components": "./components",
+        "styles": "./styles",
+        "sections": "./sections",
+        "constants": "./constants"
+      }
+    }]
+  ]
 }

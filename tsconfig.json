@@ -7,6 +7,14 @@
       "dom",
       "es2017"
     ],
+    "baseUrl": "./",
+    "paths": {
+        "components/*": ["components/*"],
+        "utils/*": ["utils/*"],
+        "constants/*": ["constants/*"],
+        "styles/*": ["styles/*"],
+        "sections/*": ["sections/*"],
+    },
     "moduleResolution": "node",
     "allowJs": true,
     "noEmit": true,

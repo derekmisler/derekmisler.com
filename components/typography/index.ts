@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { HeadingProps, TypographyTypes, FontStyle, FontWeight } from './types'
-import { orange, red, black } from '../../styles'
+import { orange, red, black } from 'styles'
 
 export const TypeSettings: TypographyTypes = {
   sans: '"Lato", "Helvetica Neue", Helvetica, sans-serif',

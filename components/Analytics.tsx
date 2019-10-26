@@ -15,7 +15,7 @@ const Analytics: React.FC<{}> = () => {
       window.GA_INITIALIZED = true
     }
 
-    logPageView()
+    logPageView(router.pathname)
     router.events.on('routeChangeComplete', logPageView)
 
     return () => {

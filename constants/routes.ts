@@ -1,23 +1,22 @@
 export const routes = [
   {
     label: 'About',
-    location: '/about'
+    location: 'about'
   },
   {
     label: 'Experience',
-    location: '/experience'
+    location: 'experience'
   },
   {
     label: 'Qualifications',
-    location: '/qualifications'
+    location: 'qualifications'
   },
   {
     label: 'Projects',
-    location: '/projects'
+    location: 'projects'
   },
   {
     label: 'Contact',
-    location: '/contact'
+    location: 'contact'
   }
 ]
-

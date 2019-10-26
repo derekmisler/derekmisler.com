@@ -2,7 +2,6 @@ import React from 'react'
 import App from 'next/app'
 import Head from 'next/head'
 import { ThemeProvider } from 'styled-components'
-import { Normalize } from 'styled-normalize'
 import JsonLd from 'components/JsonLd'
 import { GlobalTypeStyles } from 'styles'
 import { resume } from 'constants/resume'
@@ -34,7 +33,26 @@ class MainApp extends App {
           <meta name='mobile-web-app-capable' content='yes' />
           <meta name='description' content={profile.metaDescription} />
           <link rel='canonical' href={contact.website} />
-          <link rel='manifest' href='manifest.json' />
+          <link
+            rel='apple-touch-icon'
+            sizes='180x180'
+            href='/apple-touch-icon.png'
+          />
+          <link
+            rel='icon'
+            type='image/png'
+            sizes='32x32'
+            href='/favicon-32x32.png'
+          />
+          <link
+            rel='icon'
+            type='image/png'
+            sizes='16x16'
+            href='/favicon-16x16.png'
+          />
+          <link rel='manifest' href='/site.webmanifest' />
+          <meta name='msapplication-TileColor' content='#da532c' />
+          <meta name='theme-color' content='#ffffff' />
           <link rel='shortcut icon' href='favicon.ico' />
           <link
             rel='stylesheet'
@@ -53,17 +71,11 @@ class MainApp extends App {
           <meta name='twitter:site' content={contact.twitterHandle} />
           <meta name='twitter:description' content={profile.metaDescription} />
           <meta name='twitter:creator' content={contact.twitterHandle} />
-          <meta
-            name='twitter:image'
-            content='/images/meta/twitter-card.jpg'
-          />
+          <meta name='twitter:image' content='/images/meta/twitter-card.jpg' />
           <meta property='og:title' content={profile.title} />
           <meta property='og:type' content='website' />
           <meta property='og:url' content={contact.website} />
-          <meta
-            property='og:image'
-            content='/images/meta/facebook.jpg'
-          />
+          <meta property='og:image' content='/images/meta/facebook.jpg' />
           <meta property='og:description' content={profile.metaDescription} />
           <meta property='og:site_name' content={profile.title} />
           <meta property='fb:admins' content='812785510' />
@@ -122,10 +134,11 @@ class MainApp extends App {
             }}
           />
         </Head>
-        <Normalize />
-        <GlobalTypeStyles />
         <ThemeProvider theme={theme}>
-          <Component {...pageProps} />
+          <>
+            <GlobalTypeStyles />
+            <Component {...pageProps} />
+          </>
         </ThemeProvider>
       </>
     )

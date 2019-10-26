@@ -23,4 +23,6 @@ export enum FontWeight {
   Inherit = 'inherit'
 }
 
-export type HeadingProps = { level?: 1 | 2 | 3 | 4 | 5 | 6 } & HTMLProps<HTMLDivElement>
+export type HeadingProps = { level?: 1 | 2 | 3 | 4 | 5 | 6 } & HTMLProps<
+  HTMLDivElement
+>

@@ -1,8 +1,9 @@
 import Section from 'components/Section'
+import { routes } from 'constants/routes'
 
 export const Experience = () => {
   return (
-    <Section heading='Experience'>
+    <Section section={routes.experience}>
       <h2>placeholder</h2>
     </Section>
   )

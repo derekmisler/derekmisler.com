@@ -10,10 +10,10 @@ export const Heading = styled('div').attrs<HeadingProps>(
 )<HeadingProps>`
   font-family: ${TYPOGRAPHY_DEFAULTS.serif};
   font-size: ${({ level }) =>
-    TYPOGRAPHY_DEFAULTS.fontSizes[(level as number) - 1 || 0]};
+    TYPOGRAPHY_DEFAULTS.headingFontSizes[(level as number) - 1]};
   font-weight: ${FontWeight.Normal};
   font-style: ${FontStyle.Normal};
-  line-height: ${TYPOGRAPHY_DEFAULTS.baseLineHeight};
+  line-height: ${TYPOGRAPHY_DEFAULTS.headingLineHeight};
 `
 
 export const Link = styled('a')<{}>`

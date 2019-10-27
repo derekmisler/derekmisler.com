@@ -1,10 +1,10 @@
-import Layout from 'components/Layout'
+import Section from 'components/Section'
 
 export const Qualifications = () => {
   return (
-    <Layout heading='Qualifications'>
+    <Section heading='Qualifications'>
       <h2>placeholder</h2>
-    </Layout>
+    </Section>
   )
 }
 

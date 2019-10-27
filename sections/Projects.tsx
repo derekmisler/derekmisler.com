@@ -1,10 +1,10 @@
-import Layout from 'components/Layout'
+import Section from 'components/Section'
 
 export const Projects = () => {
   return (
-    <Layout heading='Projects'>
+    <Section heading='Projects'>
       <h2>placeholder</h2>
-    </Layout>
+    </Section>
   )
 }
 

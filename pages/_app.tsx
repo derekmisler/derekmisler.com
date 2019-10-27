@@ -1,15 +1,8 @@
 import React from 'react'
 import App from 'next/app'
 import Head from 'next/head'
-import { ThemeProvider } from 'styled-components'
 import JsonLd from 'components/JsonLd'
-import { GlobalTypeStyles } from 'styles'
 import { resume } from 'constants/resume'
-
-const theme = {
-  mode: 'default',
-  font: 'serif'
-}
 
 class MainApp extends App {
   render() {
@@ -134,12 +127,7 @@ class MainApp extends App {
             }}
           />
         </Head>
-        <ThemeProvider theme={theme}>
-          <>
-            <GlobalTypeStyles />
-            <Component {...pageProps} />
-          </>
-        </ThemeProvider>
+        <Component {...pageProps} />
       </>
     )
   }

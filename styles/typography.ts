@@ -2,9 +2,10 @@ import { TypographyTypes, FontWeight } from 'types/typography'
 import { white, blue, darkBlue } from './colors'
 
 export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
-  sans: '"Lato", "Helvetica Neue", Helvetica, sans-serif',
+  sans: '"Lora", serif',
   serif: '"Patua One", serif',
   textColor: white,
+  accentColor: blue,
   linkColor: blue,
   linkColorHover: darkBlue,
   baseFontSize: '20px',

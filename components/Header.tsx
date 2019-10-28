@@ -3,18 +3,9 @@ import styled from 'styled-components'
 import { fixWidow } from 'utils/stringFormat'
 import { LAYOUT_DEFAULTS } from 'styles/layout'
 import { Heading, Small, Text } from './Typography'
+import { Container } from './Container'
 import { resume } from 'constants/resume'
 
-const Header = styled.header`
-  height: 100vh;
-  display: flex;
-  margin: 0 auto;
-  justify-content: center;
-  flex-direction: column;
-  z-index: 4;
-  position: relative;
-  max-width: 66vw;
-`
 const SubHeading = styled(Small)`
   border-top: 1px solid ${LAYOUT_DEFAULTS.borderColor};
   display: inline-block;
@@ -27,14 +18,17 @@ const Hero: React.FC<{}> = () => {
     profile: { fullName, description, metaDescription }
   } = resume
   return (
-    <Header>
+    <Container as='header' level={3} fullHeight>
+      <Text accent>Hello, my name is</Text>
       <Heading level={1}>
         {fullName}
         <br />
-        <SubHeading>{fixWidow(description)}</SubHeading>
+        <SubHeading as='small' transparent>
+          {fixWidow(description)}
+        </SubHeading>
       </Heading>
-      <Text>{fixWidow(metaDescription)}</Text>
-    </Header>
+      <Text transparent>{fixWidow(metaDescription)}</Text>
+    </Container>
   )
 }
 

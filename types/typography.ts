@@ -4,6 +4,7 @@ export interface TypographyTypes {
   sans: string
   serif: string
   textColor: string
+  accentColor: string
   linkColor: string
   linkColorHover: string
   baseFontSize: string
@@ -26,6 +27,11 @@ export enum FontWeight {
   Inherit = 'inherit'
 }
 
-export type HeadingProps = { level: 1 | 2 | 3 | 4 | 5 | 6 } & HTMLProps<
-  HTMLDivElement
->
+export type HeadingProps = {
+  level: 1 | 2 | 3 | 4 | 5 | 6
+} & HTMLProps<HTMLDivElement>
+
+export type TextProps = {
+  transparent?: boolean
+  accent?: boolean
+} & HTMLProps<HTMLDivElement>

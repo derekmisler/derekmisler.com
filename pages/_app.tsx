@@ -49,7 +49,7 @@ class MainApp extends App {
           <link rel='shortcut icon' href='favicon.ico' />
           <link
             rel='stylesheet'
-            href='https://fonts.googleapis.com/css?family=Lato:400,400i,700|Patua+One&display=swap'
+            href='https://fonts.googleapis.com/css?family=Lora:400,400i,700|Patua+One&display=swap'
           />
           <meta
             name='google-site-verification'

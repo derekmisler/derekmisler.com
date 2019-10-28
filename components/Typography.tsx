@@ -1,5 +1,10 @@
 import styled from 'styled-components'
-import { HeadingProps, FontStyle, FontWeight } from 'types/typography'
+import {
+  HeadingProps,
+  FontStyle,
+  FontWeight,
+  TextProps
+} from 'types/typography'
 import { TYPOGRAPHY_DEFAULTS } from 'styles/typography'
 
 export const Heading = styled('div').attrs<HeadingProps>(
@@ -28,10 +33,14 @@ export const Link = styled('a')<{}>`
   }
 `
 
-export const Text = styled('p')<{}>`
+export const Text = styled('p')<TextProps>`
   margin-bottom: 1.25em;
+  opacity: ${({ transparent }) => (transparent ? '0.65' : '1')};
+  color: ${({ accent }) =>
+    accent ? TYPOGRAPHY_DEFAULTS.accentColor : TYPOGRAPHY_DEFAULTS.textColor};
 `
 
-export const Small = styled('small')<{}>`
+export const Small = styled(Text)<TextProps>`
+  margin-bottom: 0;
   font-size: ${TYPOGRAPHY_DEFAULTS.smallFontSize};
 `

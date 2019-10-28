@@ -1,12 +1,12 @@
 import { TypographyTypes, FontWeight } from 'types/typography'
-import { white, orange, red } from './colors'
+import { white, blue, darkBlue } from './colors'
 
 export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
   sans: '"Lato", "Helvetica Neue", Helvetica, sans-serif',
   serif: '"Patua One", serif',
   textColor: white,
-  linkColor: orange,
-  linkColorHover: red,
+  linkColor: blue,
+  linkColorHover: darkBlue,
   baseFontSize: '20px',
   smallFontSize: '0.65em',
   headingFontSizes: [

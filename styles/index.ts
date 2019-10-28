@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import { TYPOGRAPHY_DEFAULTS } from './typography'
-import { blue } from './colors'
+import { LAYOUT_DEFAULTS } from './layout'
 
 export const GlobalTypeStyles = createGlobalStyle`
   html, body, div, span,
@@ -23,7 +23,7 @@ export const GlobalTypeStyles = createGlobalStyle`
   }
   html { font-size: ${TYPOGRAPHY_DEFAULTS.baseFontSize}; }
   body {
-    background-color: ${blue};
+    background-color: ${LAYOUT_DEFAULTS.backgroundColor};
     font-family: ${TYPOGRAPHY_DEFAULTS.sans};
     font-weight: ${TYPOGRAPHY_DEFAULTS.baseFontWeight};
     line-height: ${TYPOGRAPHY_DEFAULTS.baseLineHeight};

@@ -1,4 +1,3 @@
-import { resume } from 'constants/resume'
 import Header from 'components/Header'
 import Nav from 'components/Nav'
 import Footer from 'components/Footer'
@@ -8,12 +7,11 @@ import { sections } from 'constants/sections'
 import Section from 'components/Section'
 
 export const App = () => {
-  const { profile } = resume
   return (
     <>
       <Analytics />
       <GlobalTypeStyles />
-      <Header heading={profile.fullName} subheading={profile.description} />
+      <Header />
       <Nav />
       <main>
         {sections.map((section, i) => (

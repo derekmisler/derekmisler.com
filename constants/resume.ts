@@ -4,8 +4,8 @@ const lastName: string = 'Misler'
 const description: string = 'Software Engineer & UI/UX Designer'
 const email: string = 'derekmisler@gmail.com'
 const socialId: string = 'derekmisler'
-const metaDescription: string = `${firstName} is a ${description.toLowerCase()} with a design background and 10+ years of experience. He is also available for hire. Send an email to ${email} if you'd like to learn more.`
-const biography: string = `I am a ${description.toLowerCase()} living in New York with 10+ years experience. I have a diverse education, both traditional and self-driven, of many different web and app development languages for desktop and mobile. I also have a design background, tons of UI/UX experience, and a surprisingly large knowledge of typography (seriously, let's talk about it). I think all developers should study design, and I believe having this well-rounded education makes me a stronger engineer.`
+const metaDescription: string = `${firstName} is a software engineer living in Brooklyn, NY with a design background and 15+ years of experience building exceptional, high-quality websites and applications.`
+const biography: string = `I am a software engineer living in New York with 15+ years experience. I have a diverse education, both traditional and self-driven, of many different web and app development languages for desktop and mobile. I also have a design background, tons of UI/UX experience, and a surprisingly large knowledge of typography (seriously, let's talk about it). I think all developers should study design, and I believe having this well-rounded education makes me a stronger engineer.`
 
 const profile: {
   firstName: string

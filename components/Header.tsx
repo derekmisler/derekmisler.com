@@ -1,41 +1,41 @@
 import React from 'react'
 import styled from 'styled-components'
 import { fixWidow } from 'utils/stringFormat'
-import { navHeight, transparentWhite } from 'styles'
-import { Heading, Small } from './Typography'
+import { LAYOUT_DEFAULTS } from 'styles/layout'
+import { Heading, Small, Text } from './Typography'
+import { resume } from 'constants/resume'
 
 const Header = styled.header`
   height: 100vh;
   display: flex;
-  align-items: center;
+  margin: 0 auto;
+  justify-content: center;
+  flex-direction: column;
   z-index: 4;
   position: relative;
-  padding: ${navHeight}px ${Math.floor(navHeight * 2)}px;
-  max-width: 75vw;
+  max-width: 66vw;
 `
 const SubHeading = styled(Small)`
-  border-top: 1px solid ${transparentWhite};
+  border-top: 1px solid ${LAYOUT_DEFAULTS.borderColor};
   display: inline-block;
-  padding-top: ${navHeight}px;
+  padding-top: ${LAYOUT_DEFAULTS.navHeight}px;
+  margin-top: ${LAYOUT_DEFAULTS.navHeight}px;
 `
 
-interface HeaderTypes {
-  heading?: string
-  subheading?: string
+const Hero: React.FC<{}> = () => {
+  const {
+    profile: { fullName, description, metaDescription }
+  } = resume
+  return (
+    <Header>
+      <Heading level={1}>
+        {fullName}
+        <br />
+        <SubHeading>{fixWidow(description)}</SubHeading>
+      </Heading>
+      <Text>{fixWidow(metaDescription)}</Text>
+    </Header>
+  )
 }
-
-const Hero: React.FC<HeaderTypes> = ({ heading, subheading }) => (
-  <Header>
-    <Heading level={1}>
-      {heading}
-      {subheading && (
-        <>
-          <br />
-          <SubHeading>{fixWidow(subheading)}</SubHeading>
-        </>
-      )}
-    </Heading>
-  </Header>
-)
 
 export default Hero

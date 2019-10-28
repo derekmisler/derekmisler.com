@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { HeadingProps, FontStyle, FontWeight } from 'types'
-import { TYPOGRAPHY_DEFAULTS } from 'styles'
+import { HeadingProps, FontStyle, FontWeight } from 'types/typography'
+import { TYPOGRAPHY_DEFAULTS } from 'styles/typography'
 
 export const Heading = styled('div').attrs<HeadingProps>(
   ({ level }: { level: number }) => ({

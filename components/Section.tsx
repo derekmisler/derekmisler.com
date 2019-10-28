@@ -1,24 +1,20 @@
 import React from 'react'
-import { Heading } from 'components/Typography'
-import { SectionTypes } from 'constants/sections'
+import { Heading, Small } from './Typography'
 
 interface SectionProps {
-  subheading?: string
-  section: SectionTypes
+  id: string
+  heading: string
+  count?: string
+  Component: React.FC
 }
 
-const Section: React.FC<SectionProps> = ({ children, subheading, section }) => (
-  <section id={section.location}>
+const Section: React.FC<SectionProps> = ({ count, id, heading, Component }) => (
+  <section id={id}>
     <Heading level={2}>
-      {section.label}
-      {subheading && (
-        <>
-          <br />
-          <small>{subheading}</small>
-        </>
-      )}
+      {count && <Small>{count} </Small>}
+      {heading}
     </Heading>
-    {children && children}
+    <Component />
   </section>
 )
 

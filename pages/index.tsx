@@ -16,10 +16,13 @@ export const App = () => {
       <Header heading={profile.fullName} subheading={profile.description} />
       <Nav />
       <main>
-        {sections.map(section => (
-          <Section section={section}>
-            <section.component />
-          </Section>
+        {sections.map((section, i) => (
+          <Section
+            heading={section.label}
+            count={`0${i + 1}`}
+            id={section.location}
+            Component={section.component}
+          />
         ))}
       </main>
       <Footer />

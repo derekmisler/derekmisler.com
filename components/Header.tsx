@@ -2,12 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { fixWidow } from 'utils/stringFormat'
 import { navHeight, transparentWhite } from 'styles'
-import { Heading } from './Typography'
+import { Heading, Small } from './Typography'
 
 const Header = styled.header`
-  height: 100vh;
-`
-const Container = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
@@ -16,12 +13,10 @@ const Container = styled.div`
   padding: ${navHeight}px ${Math.floor(navHeight * 2)}px;
   max-width: 75vw;
 `
-const SubHeading = styled.small`
+const SubHeading = styled(Small)`
   border-top: 1px solid ${transparentWhite};
-  line-height: 1;
   display: inline-block;
   padding-top: ${navHeight}px;
-  font-size: 75%;
 `
 
 interface HeaderTypes {
@@ -31,17 +26,15 @@ interface HeaderTypes {
 
 const Hero: React.FC<HeaderTypes> = ({ heading, subheading }) => (
   <Header>
-    <Container>
-      <Heading level={1}>
-        {heading}
-        {subheading && (
-          <>
-            <br />
-            <SubHeading>{fixWidow(subheading)}</SubHeading>
-          </>
-        )}
-      </Heading>
-    </Container>
+    <Heading level={1}>
+      {heading}
+      {subheading && (
+        <>
+          <br />
+          <SubHeading>{fixWidow(subheading)}</SubHeading>
+        </>
+      )}
+    </Heading>
   </Header>
 )
 

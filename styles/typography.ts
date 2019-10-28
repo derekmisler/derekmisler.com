@@ -8,14 +8,14 @@ export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
   linkColor: orange,
   linkColorHover: red,
   baseFontSize: '20px',
-  smallFontSize: '0.75rem',
+  smallFontSize: '0.75em',
   headingFontSizes: [
-    '4.209rem',
-    '3.157rem',
-    '2.369rem',
-    '1.777rem',
-    '1.333rem',
-    '1rem'
+    '4.209em',
+    '3.157em',
+    '2.369em',
+    '1.777em',
+    '1.333em',
+    '1em'
   ],
   baseLineHeight: 1.5,
   headingLineHeight: 1.15,

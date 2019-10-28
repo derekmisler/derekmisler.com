@@ -1,10 +1,11 @@
 import Section from 'components/Section'
 import { routes } from 'constants/routes'
+import { Text } from 'components/Typography'
 
 export const About = () => {
   return (
     <Section section={routes.about}>
-      <h2>placeholder</h2>
+      <Text>placeholder</Text>
     </Section>
   )
 }

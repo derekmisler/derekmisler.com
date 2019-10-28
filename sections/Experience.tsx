@@ -1,10 +1,11 @@
 import Section from 'components/Section'
 import { routes } from 'constants/routes'
+import { Text } from 'components/Typography'
 
 export const Experience = () => {
   return (
     <Section section={routes.experience}>
-      <h2>placeholder</h2>
+      <Text>placeholder</Text>
     </Section>
   )
 }

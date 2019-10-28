@@ -8,6 +8,7 @@ export const Heading = styled('div').attrs<HeadingProps>(
     'aria-level': level || 1
   })
 )<HeadingProps>`
+  margin: ${({ level }) => (level !== 1 ? '2.75rem 0 1rem' : '0 0 1rem')};
   font-family: ${TYPOGRAPHY_DEFAULTS.serif};
   font-size: ${({ level }) =>
     TYPOGRAPHY_DEFAULTS.headingFontSizes[(level as number) - 1]};
@@ -25,4 +26,12 @@ export const Link = styled('a')<{}>`
     cursor: pointer;
     color: ${TYPOGRAPHY_DEFAULTS.linkColorHover};
   }
+`
+
+export const Text = styled('p')<{}>`
+  margin-bottom: 1.25em;
+`
+
+export const Small = styled('small')<{}>`
+  font-size: ${TYPOGRAPHY_DEFAULTS.smallFontSize};
 `

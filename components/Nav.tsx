@@ -1,11 +1,11 @@
 import { Link } from 'components/Typography'
-import { routes } from 'constants/routes'
+import { sections } from 'constants/sections'
 
 const Nav = () => {
   return (
     <nav>
       <ul vocab='http://schema.org/' typeof='BreadcrumbList'>
-        {Object.values(routes).map((section, i) => (
+        {sections.map((section, i) => (
           <li key={section.label} property='itemListElement' typeof='ListItem'>
             <Link
               href={`#${section.location}`}

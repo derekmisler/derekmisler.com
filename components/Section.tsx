@@ -1,13 +1,13 @@
 import React from 'react'
 import { Heading } from 'components/Typography'
-import { RouteTypes } from 'constants/routes'
+import { SectionTypes } from 'constants/sections'
 
-interface SectionTypes {
+interface SectionProps {
   subheading?: string
-  section: RouteTypes
+  section: SectionTypes
 }
 
-const Section: React.FC<SectionTypes> = ({ children, subheading, section }) => (
+const Section: React.FC<SectionProps> = ({ children, subheading, section }) => (
   <section id={section.location}>
     <Heading level={2}>
       {section.label}

@@ -5,7 +5,7 @@ const description: string = 'Software Engineer & UI/UX Designer'
 const email: string = 'derekmisler@gmail.com'
 const socialId: string = 'derekmisler'
 const metaDescription: string = `${firstName} is a ${description.toLowerCase()} with a design background and 10+ years of experience. He is also available for hire. Send an email to ${email} if you'd like to learn more.`
-const biography: string = `I am a ${description.toLowerCase()} living in New York with 10+ years experience. I have a diverse education, both traditional and self-driven, of many different web and app development languages for desktop and mobile. I am fluent with HTML5, CSS3 (including CSS preprocessors like LESS and Sass) along with JavaScript (ES6/7), including frameworks like React/Redux, React Native, Angular, Aurelia, Next.js. I have experience with back-end languages, too, like Node, Ruby, Java, and a long history with PHP. I also have a design background, tons of UI/UX experience, and a surprisingly large knowledge of typography (seriously, let's talk about it). I think all developers should study design, and I believe having this well-rounded education makes me a stronger engineer.`
+const biography: string = `I am a ${description.toLowerCase()} living in New York with 10+ years experience. I have a diverse education, both traditional and self-driven, of many different web and app development languages for desktop and mobile. I also have a design background, tons of UI/UX experience, and a surprisingly large knowledge of typography (seriously, let's talk about it). I think all developers should study design, and I believe having this well-rounded education makes me a stronger engineer.`
 
 const profile: {
   firstName: string
@@ -108,7 +108,7 @@ const careers: CareerTypes[] = [
     location: 'New York, New York',
     level: 'Full-time',
     description:
-      'I started at Transfix very early on, as the first front-end engineer. During that time, I lead multiple teams that were tasked with redesigns of both the public website, as well as the primary web app, including a brand-new CI/CD pipeline (CircleCI). We started with a Rails app, before moving over to Aurelia, a terrific JS framework, and finally landing on React/Redux. As the company grew, and our product offerings grew with it, I developed an internal React library for creating web or mobile apps, giving other engineers the ability to spin up new apps with networking configurations, coding standards, shared stylesheets, and reusable utility functions. During this time, I also developed our web networking standards, using AWS tools, including all of our deployment configurations, client-side security, and multi-region failover. Most recently, I was the technical lead on the creation of our internal component library, while rebuilding our Android and iOS apps using React Native, before developing a team of cross-functional engineers and designers to continue the work.',
+      'I started at Transfix very early on, as the first front-end engineer. During that time, I lead multiple teams that were tasked with redesigns of both the public website, as well as the primary web app, including a brand-new CI/CD pipeline (CircleCI). We started with a Rails app, before moving over to Aurelia, a terrific JS framework, and finally landing on React/Redux. As the company grew, and our product offerings grew with it, I developed an internal React library for creating web or mobile apps, giving other engineers the ability to spin up new apps with networking configurations, coding standards, shared stylesheets, and reusable utility functions. During this time, I also developed our web networking standards, using AWS tools, including all of our deployment configurations, client-side security, and multi-region failover. Most recently, I was the technical lead on the creation of our internal component/design pattern library, while rebuilding our Android and iOS apps using React Native, before developing a team of cross-functional engineers and designers to continue the work.',
     startDate: '2016',
     endDate: 'Present',
     link: 'https://www.transfix.io'
@@ -259,7 +259,7 @@ const skills: SkillTypes[] = [
     level: 4
   },
   {
-    title: 'Aurelia/Web Components',
+    title: 'Aurelia',
     level: 5
   },
   {
@@ -287,7 +287,7 @@ const skills: SkillTypes[] = [
     level: 4
   },
   {
-    title: 'Node',
+    title: 'Node.js',
     level: 5
   },
   {
@@ -313,6 +313,14 @@ const skills: SkillTypes[] = [
   {
     title: 'DevOps',
     level: 4
+  },
+  {
+    title: 'AWS',
+    level: 5
+  },
+  {
+    title: 'Firebase',
+    level: 5
   },
   {
     title: 'Adobe CS',

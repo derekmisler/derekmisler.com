@@ -6,6 +6,11 @@
     "ignore": [
       "_next/**",
       "index/**"
-    ]
+    ],
+    "redirects": [ {
+      "source": "*!(/)",
+      "destination": "/",
+      "type": 301
+    }
   }
 }

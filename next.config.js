@@ -1,3 +1,7 @@
 module.exports = {
-  exportTrailingSlash: true
+  exportTrailingSlash: false,
+  poweredByHeader: false,
+  devIndicators: {
+    autoPrerender: false
+  }
 }

@@ -1,42 +1,23 @@
-import Link from 'next/link'
+import { Link } from 'components/Typography'
 import { routes } from 'constants/routes'
 
 const Nav = () => {
-  const columns = Object.values(routes).length || 1
-  const navClass = `nav medium-block-grid-${columns}`
-
   return (
-    <nav className='navbar scroll-down hidden-xs hidden-sm'>
-      <button
-        type='button'
-        className='navbar-toggle'
-        data-toggle='collapse'
-        data-target='.navbar-collapse'
-      >
-        Menu
-      </button>
-      <div className='collapse navbar-collapse'>
-        <ul
-          className={navClass}
-          vocab='http://schema.org/'
-          typeof='BreadcrumbList'
-        >
-          {Object.values(routes).map((section, i) => (
-            <li
-              key={section.label}
-              property='itemListElement'
-              typeof='ListItem'
+    <nav>
+      <ul vocab='http://schema.org/' typeof='BreadcrumbList'>
+        {Object.values(routes).map((section, i) => (
+          <li key={section.label} property='itemListElement' typeof='ListItem'>
+            <Link
+              href={`#${section.location}`}
+              property='item'
+              typeof='WebPage'
             >
-              <Link href={`#${section.location}`}>
-                <a property='item' typeof='WebPage'>
-                  <span property='name'>{section.label}</span>
-                </a>
-              </Link>
-              <meta property='position' content={(i + 1).toString()} />
-            </li>
-          ))}
-        </ul>
-      </div>
+              <span property='name'>{section.label}</span>
+            </Link>
+            <meta property='position' content={(i + 1).toString()} />
+          </li>
+        ))}
+      </ul>
     </nav>
   )
 }

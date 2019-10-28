@@ -1,5 +1,5 @@
 import React from 'react'
-import { Heading } from './Typography'
+import { Heading } from 'components/Typography'
 import { RouteTypes } from 'constants/routes'
 
 interface SectionTypes {

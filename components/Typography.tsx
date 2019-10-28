@@ -22,6 +22,7 @@ export const Link = styled('a')<{}>`
   &:hover,
   &:focus,
   &:active {
+    cursor: pointer;
     color: ${TYPOGRAPHY_DEFAULTS.linkColorHover};
   }
 `

@@ -3,14 +3,6 @@
     "public": "out",
     "cleanUrls": true,
     "trailingSlash": false,
-    "ignore": [
-      "_next/**",
-      "index/**"
-    ],
-    "redirects": [ {
-      "source": "*!(/)",
-      "destination": "/",
-      "type": 301
-    }
+    "ignore": ["_next/**", "index/**"]
   }
 }

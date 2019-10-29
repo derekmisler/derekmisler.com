@@ -5,6 +5,8 @@ import Analytics from 'components/Analytics'
 import { GlobalTypeStyles } from 'styles'
 import { sections } from 'constants/sections'
 import Section from 'components/Section'
+import { ContainerWidths } from 'types/layout'
+import { Container } from 'components/Container'
 
 export const App = () => {
   return (
@@ -13,7 +15,7 @@ export const App = () => {
       <GlobalTypeStyles />
       <Header />
       <Nav />
-      <main>
+      <Container as='main' width={ContainerWidths.Large}>
         {sections.map((section, i) => (
           <Section
             key={section.location}
@@ -23,7 +25,7 @@ export const App = () => {
             Component={section.component}
           />
         ))}
-      </main>
+      </Container>
       <Footer />
     </>
   )

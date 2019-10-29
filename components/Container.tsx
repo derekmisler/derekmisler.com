@@ -9,5 +9,5 @@ export const Container = styled('div')<ContainerProps>`
   justify-content: center;
   flex-direction: column;
   position: relative;
-  max-width: ${({ level }) => LAYOUT_DEFAULTS.widths[level - 1]};
+  width: ${({ width }) => LAYOUT_DEFAULTS.widths[width]};
 `

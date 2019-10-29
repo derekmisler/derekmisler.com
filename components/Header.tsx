@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { fixWidow } from 'utils/stringFormat'
 import { LAYOUT_DEFAULTS } from 'styles/layout'
 import { Heading, Small, Text } from './Typography'
+import { ContainerWidths } from 'types/layout'
 import { Container } from './Container'
 import { resume } from 'constants/resume'
 
@@ -18,8 +19,8 @@ const Hero: React.FC<{}> = () => {
     profile: { fullName, description, metaDescription }
   } = resume
   return (
-    <Container as='header' level={3} fullHeight>
-      <Text accent>Hello, my name is</Text>
+    <Container as='header' width={ContainerWidths.Small} fullHeight>
+      <Text accent>Hello! My name is</Text>
       <Heading level={1}>
         {fullName}
         <br />

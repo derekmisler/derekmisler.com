@@ -1,21 +1,29 @@
 {
   "presets": ["next/babel"],
   "plugins": [
-    ["styled-components", {
-      "ssr": true,
-      "minify": true,
-      "pure": true
-    }],
-    ["module-resolver", {
-      "root": ["."],
-      "alias": {
-        "utils": "./utils",
-        "components": "./components",
-        "styles": "./styles",
-        "sections": "./sections",
-        "constants": "./constants",
-        "types": "./types"
+    [
+      "styled-components",
+      {
+        "ssr": true,
+        "minify": true,
+        "pure": true,
+        "displayName": false,
+        "fileName": false
       }
-    }]
+    ],
+    [
+      "module-resolver",
+      {
+        "root": ["."],
+        "alias": {
+          "utils": "./utils",
+          "components": "./components",
+          "styles": "./styles",
+          "sections": "./sections",
+          "constants": "./constants",
+          "types": "./types"
+        }
+      }
+    ]
   ]
 }

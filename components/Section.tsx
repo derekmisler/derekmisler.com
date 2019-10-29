@@ -1,5 +1,7 @@
 import React from 'react'
 import { Heading, Small } from './Typography'
+import { ContainerWidths } from 'types/layout'
+import { Container } from './Container'
 
 interface SectionProps {
   id: string
@@ -9,13 +11,13 @@ interface SectionProps {
 }
 
 const Section: React.FC<SectionProps> = ({ count, id, heading, Component }) => (
-  <section id={id}>
+  <Container as='section' id={id} width={ContainerWidths.Medium}>
     <Heading level={2}>
       {count && <Small>{count} </Small>}
       {heading}
     </Heading>
     <Component />
-  </section>
+  </Container>
 )
 
 export default Section

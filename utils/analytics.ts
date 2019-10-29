@@ -9,13 +9,16 @@ export const logPageView = (page: string) => {
   ReactGA.pageview(page)
 }
 
-export const logEvent = (category = '', action = '') => {
+export const logEvent = (category: string = '', action: string = '') => {
   if (category && action) {
     ReactGA.event({ category, action })
   }
 }
 
-export const logException = (description = '', fatal = false) => {
+export const logException = (
+  description: string = '',
+  fatal: boolean = false
+) => {
   if (description) {
     ReactGA.exception({ description, fatal })
   }

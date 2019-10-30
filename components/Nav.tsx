@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { Link } from 'components/Typography'
 import { sections } from 'constants/sections'
 import { Grid } from 'components/Grid'
+import { SmMdLgWidths } from 'types/layout'
 
 const Ul = styled(Grid)`
   list-style-type: none;
@@ -13,8 +14,8 @@ const Nav = () => {
     <nav>
       <Ul
         as='ul'
-        padding
-        count={sections.length}
+        padding={SmMdLgWidths.Small}
+        columns={sections.length}
         vocab='http://schema.org/'
         typeof='BreadcrumbList'
       >

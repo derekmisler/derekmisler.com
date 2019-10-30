@@ -14,19 +14,19 @@ export interface LayoutTypes {
   spacing: SmMdLgTypes
 }
 
-export enum ContainerWidths {
+export enum SmMdLgWidths {
   Small = 'small',
   Medium = 'medium',
   Large = 'large'
 }
 
 export interface ContainerProps extends HTMLProps<HTMLDivElement> {
-  width: ContainerWidths
+  width: SmMdLgWidths
   fullHeight?: boolean
   fullWidth?: boolean
 }
 
 export interface GridProps {
-  count?: number
-  padding?: boolean
+  columns?: number
+  padding?: SmMdLgWidths
 }

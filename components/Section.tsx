@@ -1,6 +1,6 @@
 import React from 'react'
 import { Heading, Small } from './Typography'
-import { ContainerWidths } from 'types/layout'
+import { SmMdLgWidths } from 'types/layout'
 import { Container } from './Container'
 
 interface SectionProps {
@@ -11,7 +11,7 @@ interface SectionProps {
 }
 
 const Section: React.FC<SectionProps> = ({ count, id, heading, Component }) => (
-  <Container as='section' id={id} width={ContainerWidths.Medium}>
+  <Container as='section' id={id} width={SmMdLgWidths.Medium}>
     <Heading level={2}>
       {count && <Small>{count} </Small>}
       {heading}

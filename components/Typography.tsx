@@ -1,11 +1,22 @@
 import styled from 'styled-components'
-import {
-  HeadingProps,
-  FontStyle,
-  FontWeight,
-  TextProps
-} from 'types/typography'
+import { HeadingProps, TextProps } from 'types/typography'
 import { TYPOGRAPHY_DEFAULTS } from 'styles/typography'
+
+const {
+  headingFontFamily,
+  baseFontFamily,
+  headingFontSizes,
+  headingLineHeight,
+  baseFontSize,
+  baseLineHeight,
+  baseFontWeight,
+  baseFontStyle,
+  smallFontSize,
+  linkColor,
+  linkColorHover,
+  accentColor,
+  textColor
+} = TYPOGRAPHY_DEFAULTS
 
 export const Heading = styled('div').attrs<HeadingProps>(
   ({ level }: { level: number }) => ({
@@ -14,33 +25,37 @@ export const Heading = styled('div').attrs<HeadingProps>(
   })
 )<HeadingProps>`
   margin: ${({ level }) => (level !== 1 ? '2.75rem 0 1rem' : '0 0 1rem')};
-  font-family: ${TYPOGRAPHY_DEFAULTS.serif};
-  font-size: ${({ level }) =>
-    TYPOGRAPHY_DEFAULTS.headingFontSizes[(level as number) - 1]};
-  font-weight: ${FontWeight.Normal};
-  font-style: ${FontStyle.Normal};
-  line-height: ${TYPOGRAPHY_DEFAULTS.headingLineHeight};
+  font-family: ${headingFontFamily};
+  font-size: ${({ level }) => headingFontSizes[(level as number) - 1]};
+  font-weight: ${baseFontWeight};
+  font-style: ${baseFontStyle};
+  line-height: ${headingLineHeight};
 `
 
 export const Link = styled('a')<{}>`
   display: inline-block;
-  color: ${TYPOGRAPHY_DEFAULTS.linkColor};
+  color: ${linkColor};
+  text-decoration: none;
   &:hover,
   &:focus,
   &:active {
     cursor: pointer;
-    color: ${TYPOGRAPHY_DEFAULTS.linkColorHover};
+    color: ${linkColorHover};
   }
 `
 
 export const Text = styled('p')<TextProps>`
   margin-bottom: 1.25em;
+  font-family: ${baseFontFamily};
+  font-size: ${baseFontSize};
+  font-weight: ${baseFontWeight};
+  font-style: ${baseFontStyle};
+  line-height: ${baseLineHeight};
   opacity: ${({ transparent }) => (transparent ? '0.65' : '1')};
-  color: ${({ accent }) =>
-    accent ? TYPOGRAPHY_DEFAULTS.accentColor : TYPOGRAPHY_DEFAULTS.textColor};
+  color: ${({ accent }) => (accent ? accentColor : textColor)};
 `
 
 export const Small = styled(Text)<TextProps>`
   margin-bottom: 0;
-  font-size: ${TYPOGRAPHY_DEFAULTS.smallFontSize};
+  font-size: ${smallFontSize};
 `

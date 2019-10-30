@@ -2,6 +2,16 @@ import { createGlobalStyle } from 'styled-components'
 import { TYPOGRAPHY_DEFAULTS } from './typography'
 import { LAYOUT_DEFAULTS } from './layout'
 
+const {
+  baseFontSize,
+  baseFontWeight,
+  baseLineHeight,
+  baseFontFamily,
+  textColor
+} = TYPOGRAPHY_DEFAULTS
+
+const { backgroundColor } = LAYOUT_DEFAULTS
+
 export const GlobalTypeStyles = createGlobalStyle`
   html, body, div, span,
   h1, h2, h3, h4, h5, h6, p, pre,
@@ -21,13 +31,13 @@ export const GlobalTypeStyles = createGlobalStyle`
   footer, header, menu, nav, section {
     display: block;
   }
-  html { font-size: ${TYPOGRAPHY_DEFAULTS.baseFontSize}; }
+  html { font-size: ${baseFontSize}; }
   body {
-    background-color: ${LAYOUT_DEFAULTS.backgroundColor};
-    font-family: ${TYPOGRAPHY_DEFAULTS.sans};
-    font-weight: ${TYPOGRAPHY_DEFAULTS.baseFontWeight};
-    line-height: ${TYPOGRAPHY_DEFAULTS.baseLineHeight};
-    color: ${TYPOGRAPHY_DEFAULTS.textColor};
+    background-color: ${backgroundColor};
+    font-family: ${baseFontFamily};
+    font-weight: ${baseFontWeight};
+    line-height: ${baseLineHeight};
+    color: ${textColor};
   }
 `
 

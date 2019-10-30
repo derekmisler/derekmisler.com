@@ -5,6 +5,11 @@ export const LAYOUT_DEFAULTS: LayoutTypes = {
   navHeight: 40,
   backgroundColor: black,
   borderColor: gray,
+  spacing: {
+    small: '.5rem',
+    medium: '1.25rem',
+    large: '2.75rem'
+  },
   widths: {
     small: '50vw',
     medium: '66vw',

@@ -1,6 +1,6 @@
 import { HTMLProps } from 'react'
 
-export interface WidthTypes {
+export interface SmMdLgTypes {
   small: string
   medium: string
   large: string
@@ -10,7 +10,8 @@ export interface LayoutTypes {
   navHeight: number
   backgroundColor: string
   borderColor: string
-  widths: WidthTypes
+  widths: SmMdLgTypes
+  spacing: SmMdLgTypes
 }
 
 export enum ContainerWidths {
@@ -19,8 +20,13 @@ export enum ContainerWidths {
   Large = 'large'
 }
 
-export type ContainerProps = {
+export interface ContainerProps extends HTMLProps<HTMLDivElement> {
   width: ContainerWidths
   fullHeight?: boolean
   fullWidth?: boolean
-} & HTMLProps<HTMLDivElement>
+}
+
+export interface GridProps {
+  count?: number
+  padding?: boolean
+}

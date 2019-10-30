@@ -1,9 +1,9 @@
-import { TypographyTypes, FontWeight } from 'types/typography'
+import { TypographyTypes, FontWeight, FontStyle } from 'types/typography'
 import { white, blue, darkBlue } from './colors'
 
 export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
-  sans: '"Lora", serif',
-  serif: '"Patua One", serif',
+  baseFontFamily: '"Lora", serif',
+  headingFontFamily: '"Patua One", serif',
   textColor: white,
   accentColor: blue,
   linkColor: blue,
@@ -20,5 +20,6 @@ export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
   ],
   baseLineHeight: 1.5,
   headingLineHeight: 1.15,
-  baseFontWeight: FontWeight.Normal
+  baseFontWeight: FontWeight.Normal,
+  baseFontStyle: FontStyle.Normal
 }

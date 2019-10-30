@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 import { Link } from 'components/Typography'
 import { sections } from 'constants/sections'
-import { Grid } from 'components/Grid'
+import { Card } from 'components/Card'
 import { SmMdLgWidths } from 'types/layout'
 
-const Ul = styled(Grid)`
+const Ul = styled(Card)`
   list-style-type: none;
   text-align: center;
 `
 
-const Nav = () => {
+export const Nav = () => {
   return (
     <nav>
       <Ul
@@ -25,6 +25,7 @@ const Nav = () => {
               href={`#${section.location}`}
               property='item'
               typeof='WebPage'
+              variant='text'
             >
               <span property='name'>{section.label}</span>
             </Link>
@@ -35,5 +36,3 @@ const Nav = () => {
     </nav>
   )
 }
-
-export default Nav

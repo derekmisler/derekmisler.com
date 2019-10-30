@@ -10,7 +10,12 @@ interface SectionProps {
   Component: React.FC
 }
 
-const Section: React.FC<SectionProps> = ({ count, id, heading, Component }) => (
+export const Section: React.FC<SectionProps> = ({
+  count,
+  id,
+  heading,
+  Component
+}) => (
   <Container as='section' id={id} width={SmMdLgWidths.Medium}>
     <Heading level={2}>
       {count && <Small>{count} </Small>}
@@ -19,5 +24,3 @@ const Section: React.FC<SectionProps> = ({ count, id, heading, Component }) => (
     <Component />
   </Container>
 )
-
-export default Section

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Heading } from 'components/Typography'
 import { GlobalTypeStyles } from 'styles'
-import Analytics from 'components/Analytics'
+import { Analytics } from 'components/Analytics'
 
 const Error = ({ statusCode }: { statusCode: number }) => (
   <>

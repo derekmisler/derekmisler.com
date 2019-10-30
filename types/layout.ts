@@ -10,6 +10,8 @@ export interface LayoutTypes {
   navHeight: number
   backgroundColor: string
   borderColor: string
+  borderRadius: string
+  opacity: string
   widths: SmMdLgTypes
   spacing: SmMdLgTypes
 }
@@ -26,7 +28,7 @@ export interface ContainerProps extends HTMLProps<HTMLDivElement> {
   fullWidth?: boolean
 }
 
-export interface GridProps {
+export interface CardProps {
   columns?: number
   padding?: SmMdLgWidths
 }

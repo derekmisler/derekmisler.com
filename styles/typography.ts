@@ -1,11 +1,11 @@
 import { TypographyTypes, FontWeight, FontStyle } from 'types/typography'
-import { white, blue, darkBlue } from './colors'
+import { white, blue, darkBlue, yellow } from './colors'
 
 export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
   baseFontFamily: '"Lora", serif',
   headingFontFamily: '"Patua One", serif',
   textColor: white,
-  accentColor: blue,
+  accentColor: yellow,
   linkColor: blue,
   linkColorHover: darkBlue,
   baseFontSize: '20px',

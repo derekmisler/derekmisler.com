@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { fixWidow } from 'utils/stringFormat'
 import { LAYOUT_DEFAULTS } from 'styles/layout'
-import { Heading, Small, Text } from './Typography'
+import { Heading, Small, Text, Link } from './Typography'
 import { SmMdLgWidths } from 'types/layout'
 import { Container } from './Container'
 import { resume } from 'constants/resume'
@@ -14,7 +14,7 @@ const SubHeading = styled(Small)`
   margin-top: ${LAYOUT_DEFAULTS.navHeight}px;
 `
 
-const Hero: React.FC<{}> = () => {
+export const Header: React.FC<{}> = () => {
   const {
     profile: { fullName, description, metaDescription }
   } = resume
@@ -29,8 +29,7 @@ const Hero: React.FC<{}> = () => {
         </SubHeading>
       </Heading>
       <Text transparent>{fixWidow(metaDescription)}</Text>
+      <Link href='mailto:derekmisler@gmail.com?subject=Hello!'>Say Hello!</Link>
     </Container>
   )
 }
-
-export default Hero

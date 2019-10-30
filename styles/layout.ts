@@ -5,6 +5,8 @@ export const LAYOUT_DEFAULTS: LayoutTypes = {
   navHeight: 40,
   backgroundColor: black,
   borderColor: gray,
+  borderRadius: '5px',
+  opacity: '0.65',
   spacing: {
     small: '.5rem',
     medium: '1.25rem',

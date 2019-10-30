@@ -1,7 +1,7 @@
 import React from 'react'
 import App from 'next/app'
 import Head from 'next/head'
-import JsonLd from 'components/JsonLd'
+import { JsonLd } from 'components/JsonLd'
 import { resume } from 'constants/resume'
 
 class MainApp extends App {

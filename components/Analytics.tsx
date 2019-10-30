@@ -7,7 +7,7 @@ interface Window {
 }
 declare var window: Window
 
-const Analytics: React.FC<{}> = () => {
+export const Analytics: React.FC<{}> = () => {
   const router = useRouter()
   React.useEffect(() => {
     if (!window.GA_INITIALIZED) {
@@ -25,5 +25,3 @@ const Analytics: React.FC<{}> = () => {
 
   return null
 }
-
-export default Analytics

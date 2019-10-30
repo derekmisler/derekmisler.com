@@ -1,6 +1,7 @@
 import styled from 'styled-components'
-import { HeadingProps, TextProps } from 'types/typography'
+import { HeadingProps, TextProps, LinkProps } from 'types/typography'
 import { TYPOGRAPHY_DEFAULTS } from 'styles/typography'
+import { LAYOUT_DEFAULTS } from 'styles/layout'
 
 const {
   headingFontFamily,
@@ -18,13 +19,18 @@ const {
   textColor
 } = TYPOGRAPHY_DEFAULTS
 
+const { spacing, borderRadius, opacity } = LAYOUT_DEFAULTS
+
 export const Heading = styled('div').attrs<HeadingProps>(
   ({ level }: { level: number }) => ({
     role: 'heading',
     'aria-level': level || 1
   })
 )<HeadingProps>`
-  margin: ${({ level }) => (level !== 1 ? '2.75rem 0 1rem' : '0 0 1rem')};
+  margin: ${({ level }) =>
+    level !== 1
+      ? `${spacing.large} 0 ${spacing.medium}`
+      : `0 0 ${spacing.medium}`};
   font-family: ${headingFontFamily};
   font-size: ${({ level }) => headingFontSizes[(level as number) - 1]};
   font-weight: ${baseFontWeight};
@@ -32,30 +38,39 @@ export const Heading = styled('div').attrs<HeadingProps>(
   line-height: ${headingLineHeight};
 `
 
-export const Link = styled('a')<{}>`
+export const Link = styled('a')<LinkProps>`
   display: inline-block;
   color: ${linkColor};
+  border: ${({ variant }) =>
+    variant === 'text' ? '0px' : `1px solid ${linkColor}`};
   text-decoration: none;
+  padding: ${({ variant }) =>
+    variant === 'text' ? '0px' : `${spacing.small} ${spacing.medium}`};
+  border-radius: ${borderRadius};
+  width: fit-content;
   &:hover,
   &:focus,
   &:active {
     cursor: pointer;
     color: ${linkColorHover};
+    border-color: ${linkColorHover};
   }
 `
 
 export const Text = styled('p')<TextProps>`
-  margin-bottom: 1.25em;
+  margin-bottom: ${spacing.medium};
   font-family: ${baseFontFamily};
   font-size: ${baseFontSize};
   font-weight: ${baseFontWeight};
   font-style: ${baseFontStyle};
   line-height: ${baseLineHeight};
-  opacity: ${({ transparent }) => (transparent ? '0.65' : '1')};
+  opacity: ${({ transparent }) => (transparent ? opacity : '1')};
   color: ${({ accent }) => (accent ? accentColor : textColor)};
 `
 
-export const Small = styled(Text)<TextProps>`
+export const Small = styled('small')<TextProps>`
   margin-bottom: 0;
   font-size: ${smallFontSize};
+  opacity: ${({ transparent }) => (transparent ? opacity : '1')};
+  color: ${({ accent }) => (accent ? accentColor : textColor)};
 `

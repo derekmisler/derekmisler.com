@@ -35,4 +35,8 @@ export type HeadingProps = {
 export type TextProps = {
   transparent?: boolean
   accent?: boolean
-} & HTMLProps<HTMLDivElement>
+} & HTMLProps<HTMLParagraphElement>
+
+export type LinkProps = {
+  variant?: 'text' | 'default'
+} & HTMLProps<HTMLLinkElement>

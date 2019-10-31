@@ -19,14 +19,12 @@ const {
   textColor
 } = TYPOGRAPHY_DEFAULTS
 
-const { spacing, borderRadius, opacity } = LAYOUT_DEFAULTS
+const { spacing, borderRadius, opacity, borderColor } = LAYOUT_DEFAULTS
 
-export const Heading = styled('div').attrs<HeadingProps>(
-  ({ level }: { level: number }) => ({
-    role: 'heading',
-    'aria-level': level || 1
-  })
-)<HeadingProps>`
+export const Heading = styled.div.attrs<HeadingProps>(({ level, as }) => ({
+  role: as ? '' : 'heading',
+  'aria-level': level || 1
+}))<HeadingProps>`
   margin: ${({ level }) =>
     level !== 1
       ? `${spacing.large} 0 ${spacing.medium}`
@@ -38,7 +36,7 @@ export const Heading = styled('div').attrs<HeadingProps>(
   line-height: ${headingLineHeight};
 `
 
-export const Link = styled('a')<LinkProps>`
+export const Link = styled.a<LinkProps>`
   display: inline-block;
   color: ${linkColor};
   border: ${({ variant }) =>
@@ -57,7 +55,7 @@ export const Link = styled('a')<LinkProps>`
   }
 `
 
-export const Text = styled('p')<TextProps>`
+export const Text = styled.p<TextProps>`
   margin-bottom: ${spacing.medium};
   font-family: ${baseFontFamily};
   font-size: ${baseFontSize};
@@ -68,9 +66,17 @@ export const Text = styled('p')<TextProps>`
   color: ${({ accent }) => (accent ? accentColor : textColor)};
 `
 
-export const Small = styled('small')<TextProps>`
+export const Small = styled.small<TextProps>`
   margin-bottom: 0;
   font-size: ${smallFontSize};
   opacity: ${({ transparent }) => (transparent ? opacity : '1')};
   color: ${({ accent }) => (accent ? accentColor : textColor)};
+`
+
+export const SubHeading = styled(Small)<TextProps>`
+  border-top: 1px solid ${borderColor};
+  display: block;
+  padding-top: ${spacing.large};
+  margin-top: ${spacing.large};
+  opacity: ${opacity};
 `

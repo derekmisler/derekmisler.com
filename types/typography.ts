@@ -30,6 +30,7 @@ export interface TypographyTypes {
 
 export type HeadingProps = {
   level: 1 | 2 | 3 | 4 | 5 | 6
+  as?: string
 } & HTMLProps<HTMLDivElement>
 
 export type TextProps = {

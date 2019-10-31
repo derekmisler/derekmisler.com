@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { ContainerProps } from 'types/layout'
 import { LAYOUT_DEFAULTS } from 'styles/layout'
+import { SmMdLgWidths } from 'types/layout'
 
 export const Container = styled('div')<ContainerProps>`
   height: ${({ fullHeight }) => (fullHeight ? '100vh' : 'auto')};
@@ -9,5 +10,5 @@ export const Container = styled('div')<ContainerProps>`
   justify-content: center;
   flex-direction: column;
   position: relative;
-  width: ${({ width }) => LAYOUT_DEFAULTS.widths[width]};
+  width: ${({ width = SmMdLgWidths.Medium }) => LAYOUT_DEFAULTS.widths[width]};
 `

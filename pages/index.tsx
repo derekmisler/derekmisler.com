@@ -19,6 +19,7 @@ export const App = () => {
         {sections.map((section, i) => (
           <Section
             key={section.location}
+            width={section.width}
             heading={section.label}
             count={`0${i + 1}`}
             id={section.location}

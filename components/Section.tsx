@@ -8,15 +8,17 @@ interface SectionProps {
   heading: string
   count?: string
   Component: React.FC
+  width?: SmMdLgWidths
 }
 
 export const Section: React.FC<SectionProps> = ({
   count,
   id,
   heading,
-  Component
+  Component,
+  width = SmMdLgWidths.Medium
 }) => (
-  <Container as='section' id={id} width={SmMdLgWidths.Medium}>
+  <Container as='section' id={id} width={width}>
     <Heading level={2}>
       {count && <Small>{count} </Small>}
       {heading}

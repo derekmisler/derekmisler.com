@@ -1,38 +1,40 @@
-import styled from 'styled-components'
-import { Link } from 'components/Typography'
+import { Link, Small } from 'components/Typography'
 import { sections } from 'constants/sections'
 import { Card } from 'components/Card'
-import { SmMdLgWidths } from 'types/layout'
-
-const Ul = styled(Card)`
-  list-style-type: none;
-  text-align: center;
-`
+import { SmMdLgWidths, CardAlignment } from 'types/layout'
 
 export const Nav = () => {
   return (
     <nav>
-      <Ul
+      <Card
         as='ul'
-        padding={SmMdLgWidths.Small}
         columns={sections.length}
         vocab='http://schema.org/'
         typeof='BreadcrumbList'
+        align={CardAlignment.End}
       >
         {sections.map((section, i) => (
-          <li key={section.label} property='itemListElement' typeof='ListItem'>
+          <Card
+            as='li'
+            delay={100 * (i + 1) + 500}
+            key={section.label}
+            property='itemListElement'
+            padding={SmMdLgWidths.Small}
+            typeof='ListItem'
+          >
             <Link
               href={`#${section.location}`}
               property='item'
               typeof='WebPage'
               variant='text'
             >
+              <Small>0{i + 1}&nbsp;</Small>
               <span property='name'>{section.label}</span>
             </Link>
             <meta property='position' content={(i + 1).toString()} />
-          </li>
+          </Card>
         ))}
-      </Ul>
+      </Card>
     </nav>
   )
 }

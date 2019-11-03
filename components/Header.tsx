@@ -4,6 +4,7 @@ import { Heading, Text, Link, SubHeading } from './Typography'
 import { SmMdLgWidths } from 'types/layout'
 import { Container } from './Container'
 import { resume } from 'constants/resume'
+import { Card } from 'components/Card'
 
 export const Header: React.FC<{}> = () => {
   const {
@@ -11,14 +12,28 @@ export const Header: React.FC<{}> = () => {
   } = resume
   return (
     <Container as='header' width={SmMdLgWidths.Small} fullHeight>
-      <Text accent>Hello! My name is</Text>
+      <Card delay={100}>
+        <Text accent>Hello! My name is</Text>
+      </Card>
       <Heading level={1}>
-        {fullName}
-        <br />
-        <SubHeading as='small'>{fixWidow(description)}</SubHeading>
+        <Card as='span' delay={200}>
+          {fullName}
+          <br />
+        </Card>
+        <Card as='span' delay={300}>
+          <SubHeading as='small'>{fixWidow(description)}</SubHeading>
+        </Card>
       </Heading>
-      <Text transparent>{fixWidow(metaDescription)}</Text>
-      <Link href='mailto:derekmisler@gmail.com?subject=Hello!'>Say Hello!</Link>
+      <Card delay={400}>
+        <Text transparent>{fixWidow(metaDescription)}</Text>
+      </Card>
+      <Card delay={500}>
+        <Text>
+          <Link href='mailto:derekmisler@gmail.com?subject=Hello!'>
+            Say Hello!
+          </Link>
+        </Text>
+      </Card>
     </Container>
   )
 }

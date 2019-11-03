@@ -21,11 +21,14 @@ export interface TypographyTypes {
   linkColorHover: string
   baseFontSize: string
   smallFontSize: string
+  baseLetterSpacing: string
   headingFontSizes: [string, string, string, string, string, string]
   baseLineHeight: number
   headingLineHeight: number
   baseFontWeight: FontWeight
+  accentFontWeight: FontWeight
   baseFontStyle: FontStyle
+  accentFontStyle: FontStyle
 }
 
 export type HeadingProps = {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { initGA, logPageView } from 'utils/analytics'
 
@@ -9,7 +9,7 @@ declare var window: Window
 
 export const Analytics: React.FC<{}> = () => {
   const router = useRouter()
-  React.useEffect(() => {
+  useEffect(() => {
     if (!window.GA_INITIALIZED) {
       initGA()
       window.GA_INITIALIZED = true

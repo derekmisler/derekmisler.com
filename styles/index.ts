@@ -3,7 +3,6 @@ import { TYPOGRAPHY_DEFAULTS } from './typography'
 import { LAYOUT_DEFAULTS } from './layout'
 
 const {
-  baseFontSize,
   baseFontWeight,
   baseLineHeight,
   baseFontFamily,
@@ -31,13 +30,16 @@ export const GlobalTypeStyles = createGlobalStyle`
   footer, header, menu, nav, section {
     display: block;
   }
-  html { font-size: ${baseFontSize}; }
+  html { font-size: 20px; }
   body {
     background-color: ${backgroundColor};
     font-family: ${baseFontFamily};
     font-weight: ${baseFontWeight};
     line-height: ${baseLineHeight};
     color: ${textColor};
+  }
+  ul, ol {
+    list-style-type: none;
   }
 `
 

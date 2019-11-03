@@ -3,18 +3,15 @@
     "target": "esnext",
     "module": "esnext",
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "es2017"
-    ],
+    "lib": ["dom", "es2017"],
     "baseUrl": "./",
     "paths": {
-        "components/*": ["components/*"],
-        "utils/*": ["utils/*"],
-        "constants/*": ["constants/*"],
-        "styles/*": ["styles/*"],
-        "sections/*": ["sections/*"],
-        "types/*": ["types/*"]
+      "components/*": ["components/*"],
+      "utils/*": ["utils/*"],
+      "constants/*": ["constants/*"],
+      "styles/*": ["styles/*"],
+      "sections/*": ["sections/*"],
+      "types/*": ["types/*"]
     },
     "moduleResolution": "node",
     "allowJs": true,
@@ -32,15 +29,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "types": [
-    "react-ga"
-  ]
+  "exclude": ["node_modules"],
+  "include": ["**/*.d.ts", "**/*.ts", "**/*.tsx"],
+  "types": ["react-ga"]
 }

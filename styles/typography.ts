@@ -8,8 +8,9 @@ export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
   accentColor: yellow,
   linkColor: blue,
   linkColorHover: darkBlue,
-  baseFontSize: '20px',
+  baseFontSize: '1.25em',
   smallFontSize: '0.65em',
+  baseLetterSpacing: '0.5px',
   headingFontSizes: [
     '4.209em',
     '3.157em',
@@ -21,5 +22,7 @@ export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
   baseLineHeight: 1.5,
   headingLineHeight: 1.15,
   baseFontWeight: FontWeight.Normal,
-  baseFontStyle: FontStyle.Normal
+  accentFontWeight: FontWeight.Bold,
+  baseFontStyle: FontStyle.Normal,
+  accentFontStyle: FontStyle.Italic
 }

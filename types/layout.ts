@@ -48,6 +48,7 @@ export interface StyledCardProps extends HTMLProps<HTMLDivElement> {
 }
 
 export interface CardProps extends StyledCardProps {
+  ref?: any
   as?: any
   delay?: number
 }

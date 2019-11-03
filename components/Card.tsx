@@ -26,14 +26,20 @@ const StyledCard = styled.div<StyledCardProps>`
   ${props => props.animated && animationEndCss}
 `
 
-export const Card: React.FC<CardProps> = ({ delay, ref, ...rest }) => {
-  const [animated, setAnimated] = useState(false)
+export const Card: React.FC<CardProps> = ({
+  delay = 0,
+  noAnimation = false,
+  ...rest
+}) => {
+  const [animated, setAnimated] = useState(noAnimation)
 
   useEffect(() => {
-    setTimeout(() => {
-      setAnimated(true)
-    }, delay || 0)
-  })
+    if (!noAnimation) {
+      setTimeout(() => {
+        setAnimated(true)
+      }, delay)
+    }
+  }, [])
 
   return <StyledCard {...rest} animated={animated} />
 }

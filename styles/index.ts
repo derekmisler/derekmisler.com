@@ -6,7 +6,8 @@ const {
   baseFontWeight,
   baseLineHeight,
   baseFontFamily,
-  textColor
+  textColor,
+  baseFontSize
 } = TYPOGRAPHY_DEFAULTS
 
 const { backgroundColor } = LAYOUT_DEFAULTS
@@ -30,7 +31,7 @@ export const GlobalTypeStyles = createGlobalStyle`
   footer, header, menu, nav, section {
     display: block;
   }
-  html { font-size: 20px; }
+  html { font-size: ${baseFontSize}; }
   body {
     background-color: ${backgroundColor};
     font-family: ${baseFontFamily};

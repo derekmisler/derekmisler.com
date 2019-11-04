@@ -1,13 +1,13 @@
-const firstName: string = 'Derek'
-const middleName: string = 'Alan'
-const lastName: string = 'Misler'
-const description: string = 'Software Engineer & UI/UX Designer'
-const email: string = 'derekmisler@gmail.com'
-const socialId: string = 'derekmisler'
-const metaDescription: string = `Derek is a software engineer living in Brooklyn, NY with a design background and 15+ years of experience building exceptional, high-quality websites and applications.`
-const biography: string = `I am a software engineer living in New York with 15+ years experience. I have a diverse education, both traditional and self-driven, of many different web and app development languages for desktop and mobile. I also have a design background, tons of UI/UX experience, and a surprisingly large knowledge of typography (seriously, let's talk about it). I think all developers should study design, and I believe having this well-rounded education makes me a stronger engineer.`
+export const firstName: string = 'Derek'
+export const middleName: string = 'Alan'
+export const lastName: string = 'Misler'
+export const description: string = 'Software Engineer & UI/UX Designer'
+export const email: string = 'derekmisler@gmail.com'
+export const socialId: string = 'derekmisler'
+export const metaDescription: string = `Derek is a software engineer living in Brooklyn, NY with a design background and 15+ years of experience building exceptional, high-quality websites and applications.`
+export const biography: string = `I am a software engineer living in New York with 15+ years experience. I have a diverse education, both traditional and self-driven, of many different web and app development languages for desktop and mobile. I also have a design background, tons of UI/UX experience, and a surprisingly large knowledge of typography (seriously, let's talk about it). I think all developers should study design, and I believe having this well-rounded education makes me a stronger engineer.`
 
-const profile: {
+export const profile: {
   firstName: string
   middleName: string
   lastName: string
@@ -26,7 +26,7 @@ const profile: {
   metaDescription,
   biography
 }
-const location: {
+export const location: {
   houseNumber: string
   street: string
   zipcode: string
@@ -41,7 +41,7 @@ const location: {
   state: 'NY',
   country: 'United States'
 }
-const contact: {
+export const contact: {
   email: string
   website: string
   phone: string
@@ -66,7 +66,7 @@ const contact: {
   github: `http://${socialId}.github.io`,
   flickr: `http://www.flickr.com/photos/${socialId}/`,
   fivehundred: `https://prime.500px.com/${socialId}`,
-  stackOverflow: `http://careers.stackoverflow.com/${socialId}`,
+  stackOverflow: `https://stackoverflow.com/story/${socialId}`,
   instagram: `https://www.instagram.com/${socialId}/`,
   pinterest: `https://www.pinterest.com/${socialId}/`
 }
@@ -79,7 +79,7 @@ interface EducationTypes {
   startDate: string
   endDate: string
 }
-const education: EducationTypes[] = [
+export const education: EducationTypes[] = [
   {
     title: 'Appalachian State University',
     specification: 'BFA - Graphic Design',
@@ -101,7 +101,7 @@ interface CareerTypes {
   endDate: string
   link?: string
 }
-const careers: CareerTypes[] = [
+export const careers: CareerTypes[] = [
   {
     title: 'Transfix',
     specification: 'Staff Software Engineer',
@@ -174,7 +174,7 @@ interface CourseWorkTypes {
   title: string
   specification: string
 }
-const coursework: CourseWorkTypes[] = [
+export const coursework: CourseWorkTypes[] = [
   {
     title: 'Harvard',
     specification: 'CS50x3: Computer Science'
@@ -237,11 +237,11 @@ const coursework: CourseWorkTypes[] = [
   }
 ]
 
-interface SkillTypes {
+export interface SkillTypes {
   title: string
   level: number
 }
-const skills: SkillTypes[] = [
+export const skills: SkillTypes[] = [
   {
     title: 'HTML5',
     level: 5
@@ -343,7 +343,7 @@ interface ProjectTypes {
   image: string
   tags: string[]
 }
-const projects: ProjectTypes[] = [
+export const projects: ProjectTypes[] = [
   {
     title: 'Personal Website',
     description: 'The fourth iteration of my personal website.',

@@ -20,9 +20,17 @@ export interface TypographyTypes {
   linkColor: string
   linkColorHover: string
   baseFontSize: string
+  textFontSize: string
   smallFontSize: string
   baseLetterSpacing: string
-  headingFontSizes: [string, string, string, string, string, string]
+  headingFontSizes: {
+    h1: string
+    h2: string
+    h3: string
+    h4: string
+    h5: string
+    h6: string
+  }
   baseLineHeight: number
   headingLineHeight: number
   baseFontWeight: FontWeight

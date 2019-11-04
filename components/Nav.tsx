@@ -3,7 +3,7 @@ import { sections } from 'constants/sections'
 import { Card } from 'components/Card'
 import { SmMdLgWidths, CardAlignment } from 'types/layout'
 
-export const Nav = () => {
+export const Nav: React.FC<{}> = () => {
   return (
     <nav>
       <Card
@@ -16,6 +16,7 @@ export const Nav = () => {
         {sections.map((section, i) => (
           <Card
             as='li'
+            animation
             delay={100 * (i + 1) + 500}
             key={section.label}
             property='itemListElement'

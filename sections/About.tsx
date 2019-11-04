@@ -1,18 +1,19 @@
 import { Text } from 'components/Typography'
-import { resume } from 'constants/resume'
+import { biography } from 'constants/resume'
 import { fixWidow } from 'utils/stringFormat'
 import { Card } from 'components/Card'
+import { Qualifications } from 'components/Qualifications'
 import { SmMdLgWidths } from 'types/layout'
+import { Hr } from 'components/Hr'
 
-export const About = () => {
-  const {
-    profile: { biography }
-  } = resume
-  return (
-    <Card columns='2fr 1fr' gap={SmMdLgWidths.Small} noAnimation>
-      <Text>{fixWidow(biography)}</Text>
-    </Card>
-  )
-}
+export const About = () => (
+  <Card columns='2fr 1fr' gap={SmMdLgWidths.Small}>
+    <Text>
+      {fixWidow(biography)}
+      <Hr />
+      <Qualifications />
+    </Text>
+  </Card>
+)
 
 export default About

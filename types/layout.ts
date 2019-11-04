@@ -10,6 +10,7 @@ export interface LayoutTypes {
   backgroundColor: string
   borderColor: string
   borderRadius: string
+  borderSize: string
   borderStyle: string
   opacity: string
   widths: SmMdLgTypes
@@ -41,10 +42,11 @@ export interface ContainerProps extends HTMLProps<HTMLDivElement> {
 export interface StyledCardProps extends HTMLProps<HTMLDivElement> {
   columns?: number | string
   padding?: SmMdLgWidths
+  margin?: SmMdLgWidths
   gap?: SmMdLgWidths
   align?: CardAlignment
   animated?: boolean
-  noAnimation?: boolean
+  animation?: boolean
 }
 
 export interface CardProps extends StyledCardProps {

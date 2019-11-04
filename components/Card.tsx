@@ -20,21 +20,21 @@ const StyledCard = styled.div<StyledCardProps>`
   display: grid;
   justify-content: ${({ align = 'stretch' }) => align};
   grid-template-columns: ${({ columns = 1 }) => generateGrid(columns)};
-  grid-gap: ${({ gap }) => (gap ? spacing[gap] : 0)};
+  grid-column-gap: ${({ gap }) => (gap ? spacing[gap] : 0)};
   padding: ${({ padding }) => (padding ? spacing[padding] : 0)};
-  ${props => !props.noAnimation && animationStartCss}
+  margin-bottom: ${({ margin }) => (margin ? spacing[margin] : 0)};
+  ${props => props.animation && animationStartCss}
   ${props => props.animated && animationEndCss}
 `
 
 export const Card: React.FC<CardProps> = ({
   delay = 0,
-  noAnimation = false,
+  animation = false,
   ...rest
 }) => {
-  const [animated, setAnimated] = useState(noAnimation)
-
+  const [animated, setAnimated] = useState(!animation)
   useEffect(() => {
-    if (!noAnimation) {
+    if (animation) {
       setTimeout(() => {
         setAnimated(true)
       }, delay)

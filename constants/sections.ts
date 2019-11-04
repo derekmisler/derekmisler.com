@@ -1,6 +1,5 @@
 import About from 'sections/About'
 import Experience from 'sections/Experience'
-import Qualifications from 'sections/Qualifications'
 import Projects from 'sections/Projects'
 import Contact from 'sections/Contact'
 import { SmMdLgWidths } from 'types/layout'
@@ -23,12 +22,6 @@ export const sections: SectionTypes[] = [
     label: 'Experience',
     location: 'experience',
     component: Experience,
-    width: SmMdLgWidths.Medium
-  },
-  {
-    label: 'Qualifications',
-    location: 'qualifications',
-    component: Qualifications,
     width: SmMdLgWidths.Medium
   },
   {

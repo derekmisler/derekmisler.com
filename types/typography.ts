@@ -23,14 +23,7 @@ export interface TypographyTypes {
   textFontSize: string
   smallFontSize: string
   baseLetterSpacing: string
-  headingFontSizes: {
-    h1: string
-    h2: string
-    h3: string
-    h4: string
-    h5: string
-    h6: string
-  }
+  headingFontSizes: [string, string, string, string, string, string]
   baseLineHeight: number
   headingLineHeight: number
   baseFontWeight: FontWeight

@@ -63,7 +63,7 @@ export const contact: {
   twitter: `http://twitter.com/${socialId}`,
   twitterHandle: `@${socialId}`,
   linkedin: `http://www.linkedin.com/in/${socialId}/`,
-  github: `http://${socialId}.github.io`,
+  github: `https://github.com/${socialId}`,
   flickr: `http://www.flickr.com/photos/${socialId}/`,
   fivehundred: `https://prime.500px.com/${socialId}`,
   stackOverflow: `https://stackoverflow.com/story/${socialId}`,

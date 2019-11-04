@@ -12,14 +12,14 @@ export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
   textFontSize: '1.25em',
   smallFontSize: '0.65em',
   baseLetterSpacing: '0.5px',
-  headingFontSizes: {
-    h1: '4.209em',
-    h2: '3.157em',
-    h3: '2.369em',
-    h4: '1.777em',
-    h5: '1.333em',
-    h6: '1em'
-  },
+  headingFontSizes: [
+    '4.209em',
+    '3.157em',
+    '2.369em',
+    '1.777em',
+    '1.333em',
+    '1em'
+  ],
   baseLineHeight: 1.5,
   headingLineHeight: 1.15,
   baseFontWeight: FontWeight.Normal,

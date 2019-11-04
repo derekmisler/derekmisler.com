@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { HeadingProps, TextProps, LinkProps } from 'types/typography'
 import { TYPOGRAPHY_DEFAULTS } from 'styles/typography'
 import { LAYOUT_DEFAULTS } from 'styles/layout'
@@ -32,50 +32,21 @@ const {
   backgroundColor
 } = LAYOUT_DEFAULTS
 
-const baseHeadingStyle = css`
-  margin: ${spacing.large} 0 ${spacing.medium};
+export const Heading = styled.div.attrs<HeadingProps>(({ level, as }) => ({
+  role: as ? '' : 'heading',
+  'aria-level': level || 1,
+  as: `h${level}`
+}))<HeadingProps>`
+  margin: ${({ level }) =>
+    level !== 1
+      ? `${spacing.large} 0 ${spacing.medium}`
+      : `0 0 ${spacing.medium}`};
   font-family: ${headingFontFamily};
   font-weight: ${baseFontWeight};
   font-style: ${baseFontStyle};
   line-height: ${headingLineHeight};
+  font-size: ${({ level }) => headingFontSizes[(level as number) - 1]};
 `
-
-const headings = [
-  styled.h1`
-    ${baseHeadingStyle};
-    margin: 0 0 ${spacing.medium};
-    font-size: ${headingFontSizes.h1};
-  `,
-  styled.h2`
-    ${baseHeadingStyle};
-    font-size: ${headingFontSizes.h2};
-  `,
-  styled.h3`
-    ${baseHeadingStyle};
-    font-size: ${headingFontSizes.h3};
-  `,
-  styled.h4`
-    ${baseHeadingStyle};
-    font-size: ${headingFontSizes.h4};
-  `,
-  styled.h5`
-    ${baseHeadingStyle};
-    font-size: ${headingFontSizes.h5};
-  `,
-  styled.h6`
-    ${baseHeadingStyle};
-    font-size: ${headingFontSizes.h6};
-  `
-]
-
-export const Heading: React.FC<HeadingProps> = ({ level = 1, children }) => {
-  const El = headings[level - 1]
-  return (
-    <El role='heading' aria-level={level}>
-      {children}
-    </El>
-  )
-}
 
 export const Link = styled.a<LinkProps>`
   display: inline-block;
@@ -115,7 +86,9 @@ export const Text = styled.p<TextProps>`
   letter-spacing: ${({ accent }) => (accent ? baseLetterSpacing : '0')};
 `
 
-export const Small = styled.small<TextProps>`
+export const Small = styled(Text).attrs(() => ({
+  as: 'small'
+}))<TextProps>`
   margin-bottom: 0;
   font-size: ${smallFontSize};
   opacity: ${({ transparent }) => (transparent ? opacity : '1')};
@@ -128,4 +101,5 @@ export const SubHeading = styled(Small)<TextProps>`
   padding-top: ${spacing.large};
   margin-top: ${spacing.large};
   opacity: ${opacity};
+  font-family: inherit;
 `

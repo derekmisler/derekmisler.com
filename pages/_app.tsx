@@ -7,7 +7,7 @@ import { resume } from 'constants/resume'
 class MainApp extends App {
   render() {
     const { Component, pageProps } = this.props
-    const { profile, contact, location } = resume
+    const { profile, contact } = resume
     return (
       <>
         <Head>
@@ -83,13 +83,6 @@ class MainApp extends App {
               url: `${contact.website}`,
               email: `${contact.email}`,
               telephone: `${contact.phoneDisplay}`,
-              address: {
-                '@type': 'PostalAddress',
-                streetAddress: `${location.houseNumber} ${location.street}`,
-                addressLocality: `${location.city}`,
-                addressRegion: `${location.state}`,
-                postalCode: `${location.zipcode}`
-              },
               sameAs: [
                 `${contact.linkedin}`,
                 `${contact.github}`,

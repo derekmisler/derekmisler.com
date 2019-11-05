@@ -32,14 +32,17 @@ export const Card: React.FC<CardProps> = ({
   animation = false,
   ...rest
 }) => {
-  const [animated, setAnimated] = useState(!animation)
+  const animateComponent: boolean = animation || delay > 0
+  const [animated, setAnimated] = useState(!animateComponent)
   useEffect(() => {
-    if (animation) {
+    if (animateComponent) {
       setTimeout(() => {
         setAnimated(true)
       }, delay)
     }
   }, [])
 
-  return <StyledCard {...rest} animated={animated} />
+  return (
+    <StyledCard {...rest} animated={animated} animation={animateComponent} />
+  )
 }

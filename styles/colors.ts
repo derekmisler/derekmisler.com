@@ -1,6 +1,8 @@
 export const yellow: string = '#efd995'
+export const yellowDark: string = '#c18e00'
 export const blue: string = '#a6d5e6'
 export const darkBlue: string = '#67aec7'
+export const lightBlue: string = '#dbeaff'
 export const black: string = '#171a1b'
 export const transparentBlack: string = 'rgba(23, 26, 27, .3)'
 export const gray: string = '#32393B'

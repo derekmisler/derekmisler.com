@@ -25,7 +25,10 @@ export const Qualifications = () => {
           <Small>{skill.title}</Small>
           <Card columns={maxStars.length}>
             {maxStars.map((...args) => (
-              <Star active={args[1] + 1 <= skill.level} />
+              <Star
+                key={`${skill.title}-${args[1]}`}
+                active={args[1] + 1 <= skill.level}
+              />
             ))}
           </Card>
         </Card>

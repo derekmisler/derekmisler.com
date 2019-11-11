@@ -8,6 +8,8 @@ import { Section } from 'components/Section'
 import { SmMdLgWidths } from 'types/layout'
 import { Container } from 'components/Container'
 
+export const config = { amp: false }
+
 export const App = () => {
   return (
     <>

@@ -5,14 +5,16 @@ import { Card } from 'components/Card'
 import { Qualifications } from 'components/Qualifications'
 import { SmMdLgWidths } from 'types/layout'
 import { Hr } from 'components/Hr'
+import { Img } from 'components/Img'
 
 export const About = () => (
-  <Card columns='2fr 1fr' gap={SmMdLgWidths.Small}>
+  <Card columns='2fr 1fr' gap={SmMdLgWidths.Large}>
     <Text>
       {fixWidow(biography)}
       <Hr />
       <Qualifications />
     </Text>
+    <Img src='/images/portfolio/retina/derek-misler.jpg' />
   </Card>
 )
 

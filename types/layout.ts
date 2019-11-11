@@ -1,4 +1,4 @@
-import { HTMLProps } from 'react'
+import { HTMLProps, ImgHTMLAttributes } from 'react'
 export interface SmMdLgTypes {
   small: string
   medium: string
@@ -31,6 +31,10 @@ export enum CardAlignment {
   SpaceAround = 'space-around',
   SpaceBetween = 'space-between',
   SpaceEvenly = 'space-evenly'
+}
+
+export interface ImgProps extends ImgHTMLAttributes<HTMLImageElement> {
+  src: string
 }
 
 export interface ContainerProps extends HTMLProps<HTMLDivElement> {

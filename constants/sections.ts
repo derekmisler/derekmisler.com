@@ -16,7 +16,7 @@ export const sections: SectionTypes[] = [
     label: 'About',
     location: 'about',
     component: About,
-    width: SmMdLgWidths.Small
+    width: SmMdLgWidths.Medium
   },
   {
     label: 'Experience',

@@ -90,6 +90,7 @@ export const Small = styled(Text).attrs(() => ({
   as: 'small'
 }))<TextProps>`
   margin-bottom: 0;
+  font-family: inherit;
   font-size: ${smallFontSize};
   opacity: ${({ transparent }) => (transparent ? opacity : '1')};
   color: ${({ accent }) => (accent ? accentColor : 'inherit')};

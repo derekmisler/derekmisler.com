@@ -9,6 +9,12 @@ export const LAYOUT_DEFAULTS: LayoutTypes = {
   borderSize: '3px',
   borderStyle: 'solid',
   opacity: '0.65',
+  transition: `500ms all ease-in-out`,
+  dropShadow: {
+    small: '3px',
+    medium: '6px',
+    large: '9px'
+  },
   spacing: {
     small: '.5rem',
     medium: '1.25rem',

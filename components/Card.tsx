@@ -4,12 +4,12 @@ import { CardProps, StyledCardProps } from 'types/layout'
 import { LAYOUT_DEFAULTS } from 'styles/layout'
 import { generateGrid } from 'utils/layout'
 
-const { spacing } = LAYOUT_DEFAULTS
+const { spacing, transition } = LAYOUT_DEFAULTS
 
 const animationStartCss = css`
   opacity: 0;
   transform: translateY(1rem);
-  transition: 500ms all ease-in-out;
+  transition: ${transition};
 `
 const animationEndCss = css`
   opacity: 1;

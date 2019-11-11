@@ -13,6 +13,8 @@ export interface LayoutTypes {
   borderSize: string
   borderStyle: string
   opacity: string
+  transition: string
+  dropShadow: SmMdLgTypes
   widths: SmMdLgTypes
   spacing: SmMdLgTypes
 }
@@ -34,7 +36,7 @@ export enum CardAlignment {
 }
 
 export interface ImgProps extends ImgHTMLAttributes<HTMLImageElement> {
-  src: string
+  fileName: string
 }
 
 export interface ContainerProps extends HTMLProps<HTMLDivElement> {

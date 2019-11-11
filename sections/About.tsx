@@ -14,7 +14,7 @@ export const About = () => (
       <Hr />
       <Qualifications />
     </Text>
-    <Img src='/images/portfolio/retina/derek-misler.jpg' />
+    <Img alt='Derek Misler' fileName='derek-misler.jpg' />
   </Card>
 )
 

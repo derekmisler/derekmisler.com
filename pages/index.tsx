@@ -18,12 +18,11 @@ export const App = () => {
       <Nav />
       <Header />
       <Container as='main' width={SmMdLgWidths.Large}>
-        {sections.map((section, i) => (
+        {sections.map(section => (
           <Section
             key={section.location}
             width={section.width}
             heading={section.label}
-            count={`0${i + 1}`}
             id={section.location}
             Component={section.component}
           />

@@ -1,5 +1,5 @@
 module.exports = {
-  exportTrailingSlash: false,
+  exportTrailingSlash: true,
   poweredByHeader: false,
   devIndicators: {
     autoPrerender: false

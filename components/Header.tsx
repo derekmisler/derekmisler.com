@@ -1,39 +1,42 @@
 import React from 'react'
 import { fixWidow } from 'utils/stringFormat'
-import { Heading, Text, Link, SubHeading } from './Typography'
-import { SmMdLgWidths } from 'types/layout'
-import { Container } from './Container'
 import { resume } from 'constants/resume'
-import { Card } from 'components/Card'
+import { Animated } from 'components/Animated'
+import { Heading, Text, Link, SubHeading } from 'components/Typography'
+import { Row, Col } from 'components/Grid'
 
 export const Header: React.FC<{}> = () => {
   const {
-    profile: { fullName, description, metaDescription }
+    profile: { firstName, lastName, description, metaDescription }
   } = resume
   return (
-    <Container as='header' width={SmMdLgWidths.Small} fullHeight>
-      <Card delay={100}>
-        <Text accent>Hello! My name is</Text>
-      </Card>
-      <Heading level={1}>
-        <Card as='span' delay={200}>
-          {fullName}
-          <br />
-        </Card>
-        <Card as='span' delay={300}>
-          <SubHeading as='small'>{fixWidow(description)}</SubHeading>
-        </Card>
-      </Heading>
-      <Card delay={400}>
-        <Text transparent>{fixWidow(metaDescription)}</Text>
-      </Card>
-      <Card delay={500}>
-        <Text>
-          <Link href='mailto:derekmisler@gmail.com?subject=Hello!'>
-            Say Hello!
-          </Link>
-        </Text>
-      </Card>
-    </Container>
+    <Row as='header'>
+      <Col row>
+        <Animated delay={100}>
+          <Text accent>Hello! My name is</Text>
+        </Animated>
+        <Heading level={1}>
+          <Animated delay={200}>
+            {firstName}
+            <br />
+            {lastName}
+            <br />
+          </Animated>
+          <Animated delay={300}>
+            <SubHeading>{fixWidow(description)}</SubHeading>
+          </Animated>
+        </Heading>
+        <Animated delay={400}>
+          <Text transparent>{fixWidow(metaDescription)}</Text>
+        </Animated>
+        <Animated delay={500}>
+          <Text>
+            <Link href='mailto:derekmisler@gmail.com?subject=Hello!'>
+              Say Hello!
+            </Link>
+          </Text>
+        </Animated>
+      </Col>
+    </Row>
   )
 }

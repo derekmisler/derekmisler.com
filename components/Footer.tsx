@@ -1,9 +1,8 @@
-import { SmMdLgWidths } from 'types/layout'
-import { Container } from './Container'
-import { Text } from './Typography'
+import { Row } from 'components/Grid'
+import { Text } from 'components/Typography'
 
 export const Footer = () => (
-  <Container as='footer' width={SmMdLgWidths.Large}>
+  <Row as='footer'>
     <Text accent>Footer</Text>
-  </Container>
+  </Row>
 )

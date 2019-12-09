@@ -47,10 +47,7 @@ class MainApp extends App {
           <meta name='msapplication-TileColor' content='#da532c' />
           <meta name='theme-color' content='#ffffff' />
           <link rel='shortcut icon' href='favicon.ico' />
-          <link
-            rel='stylesheet'
-            href='https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Patua+One&display=swap'
-          />
+          <link rel='stylesheet' href='https://use.typekit.net/jzw6tzs.css' />
           <meta
             name='google-site-verification'
             content='oM1NjzxvtvPp4JL2t2qo13zUhGnrpGF0Fbgyb6S8vDk'

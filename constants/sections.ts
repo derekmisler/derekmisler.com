@@ -1,32 +1,27 @@
 import About from 'sections/About'
 import Experience from 'sections/Experience'
 import Projects from 'sections/Projects'
-import { SmMdLgWidths } from 'types/layout'
 
 export interface SectionTypes {
   label: string
   location: string
   component: React.FC
-  width: SmMdLgWidths
 }
 
 export const sections: SectionTypes[] = [
   {
     label: 'About Me',
     location: 'about',
-    component: About,
-    width: SmMdLgWidths.Medium
+    component: About
   },
   {
     label: 'Experience',
     location: 'experience',
-    component: Experience,
-    width: SmMdLgWidths.Medium
+    component: Experience
   },
   {
     label: 'Projects',
     location: 'projects',
-    component: Projects,
-    width: SmMdLgWidths.Medium
+    component: Projects
   }
 ]

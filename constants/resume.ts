@@ -96,7 +96,8 @@ interface CareerTypes {
   specification: string
   location: string
   level: string
-  description: string
+  description?: string
+  accomplishments: string[]
   startDate: string
   endDate: string
   link?: string
@@ -107,8 +108,19 @@ export const careers: CareerTypes[] = [
     specification: 'Staff Software Engineer',
     location: 'New York, New York',
     level: 'Full-time',
-    description:
-      'I started at Transfix very early on, as the first front-end engineer. During that time, I lead multiple teams that were tasked with redesigns of both the public website, as well as the primary web app, including a brand-new CI/CD pipeline (CircleCI). We started with a Rails app, before moving over to Aurelia, a terrific JS framework, and finally landing on React/Redux. As the company grew, and our product offerings grew with it, I developed an internal library for creating web (React/Redux) apps, mobile (React Native) apps, and shared modules (NPM), giving other engineers the ability to spin up new apps with pre-built networking configurations, coding standards, shared stylesheets, and reusable utility functions. During this time, I also developed our web networking standards, using AWS tools, including all of our deployment configurations, client-side security, and multi-region failover. Most recently, I was the technical lead on the creation of our internal component/design pattern library, while rebuilding our Android and iOS apps using React Native, before developing a team of cross-functional engineers and designers to continue the work.',
+    description: undefined,
+    accomplishments: [
+      'First front-end engineer',
+      'Refactored web app from Rails, to Aurelia (a terrific JS framework), and finally landing on React/Redux.',
+      'Refactored our public site from Wordpress to Jade, a great (but extinct) static site templating language, and then eventually to 11ty.js.',
+      'Developed an internal library for creating web (React/Redux) apps, mobile (React Native) apps, and shared modules (NPM).',
+      'Brand-new CI/CD pipeline (CircleCI).',
+      'Created standards for networking configurations, CSS and JS syntax linting, and automated testing.',
+      'Developed our web networking standards, using AWS tools, including all of our deployment configurations, client-side security, and multi-region failover.',
+      'Technical lead on the creation of our internal component/design pattern library.',
+      'Rebuilt our Android and iOS apps using React Native.',
+      'Grew a team of cross-functional engineers and designers to continue the work.'
+    ],
     startDate: '2016',
     endDate: 'Present',
     link: 'https://www.transfix.io'
@@ -120,6 +132,7 @@ export const careers: CareerTypes[] = [
     level: 'Full-time',
     description:
       "As the only developer on staff, my job was to maintain our entire web presence. We started with a .NET-backed site, and one of my first tasks was to create a matching mobile site and responsive blog theme. While I was on board, I oversaw two redesigns, first with Coldfusion and more recently with a responsive site that was built with Node/MongoDB on the back-end and a custom JS templating language, Goatee, on the front-end. I've been in charge of creating all print- and web-related assets for our various marketing campaigns, all of the data analysis of those campaigns, and two long-form, media-rich, highly interactive, award-winning web applications. I also oversaw the email marketing program, which included designing and creating the email templates, capturing and segmenting demographic data, and the analysis of the data we received after each campaign.",
+    accomplishments: [],
     startDate: '2011',
     endDate: '2016',
     link: 'http://www.exploreasheville.com'
@@ -130,7 +143,8 @@ export const careers: CareerTypes[] = [
     location: 'Fletcher, North Carolina',
     level: 'Full-time',
     description:
-      'During my time at Houser Shoes, I was part of a 3 person team that redesigned their e-commerce website. We also created a custom CMS based on Magento, which utilized primarily PHP and MySQL and was tied to their inventory and accounting systems. Photography is a part of my design background, so I was also the product photographer. Many hours were spent taking and editing and uploading photos of shoes. Just so many shoes. I was also in charge of the email marketing program, including all of the design and implementation of each campaign, as well as the analysis of the results after each campaign.',
+      'During my time at Houser Shoes, I was part of a 3 person team that redesigned their e-commerce website. We also created a custom CMS based on Magento, which utilized primarily PHP and MySQL and was tied to their inventory and accounting systems. Photography is a part of my design background, so I was also the lead product photographer. Many hours were spent taking and editing and uploading photos of shoes. Just so many shoes. I was also in charge of the email marketing program, including all of the design and implementation of each campaign, as well as the analysis of the results after each campaign.',
+    accomplishments: [],
     startDate: '2010',
     endDate: '2011',
     link: 'http://www.housershoes.com'
@@ -141,7 +155,8 @@ export const careers: CareerTypes[] = [
     location: 'Asheville, North Carolina',
     level: 'Freelance',
     description:
-      'A lot of branding, especially at first, but I eventually had enough clients needing new websites that I became a full-time web developer. A lot of HTML/CSS/JavaScript and PHP (usually Wordpress).',
+      'A lot of branding at first, but eventually full-time web development. Mostly Shopify, SquareSpace, or Wordpress in the past, but I recently had a chance to work on a custom Go-backed (Buffalo) UI/component library.',
+    accomplishments: [],
     startDate: '2009',
     endDate: '2016',
     link: undefined
@@ -153,6 +168,7 @@ export const careers: CareerTypes[] = [
     level: 'Part-time',
     description:
       "Though this isn't web-related, I still think my experience working in a print shop can be seen in my work as a developer. When a job consists of tens of thousands of prints, the whole process requires an extremely detail-oriented approach, efficiency, and communication among all members of the team to ensure we weren't making mistakes that would cost us a lot of time/paper/ink/money to fix.",
+    accomplishments: [],
     startDate: '2007',
     endDate: '2009',
     link: undefined
@@ -164,6 +180,7 @@ export const careers: CareerTypes[] = [
     level: 'Part-time',
     description:
       'I worked with an intern to establish an online presence for The Appalachian newspaper, while still maintaining my role as the lead graphic designer.',
+    accomplishments: [],
     startDate: '2006',
     endDate: '2008',
     link: 'http://theappalachianonline.com'

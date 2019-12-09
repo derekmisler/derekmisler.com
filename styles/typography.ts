@@ -2,28 +2,31 @@ import { TypographyTypes, FontWeight, FontStyle } from 'types/typography'
 import { white, blue, darkBlue, yellow } from './colors'
 
 export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
-  baseFontFamily: '"Lora", serif',
-  headingFontFamily: '"Patua One", serif',
+  baseFontFamily: 'mrs-eaves-xl-serif, serif',
+  headingFontFamily: 'ohno-blazeface, serif',
   textColor: white,
   accentColor: yellow,
   linkColor: blue,
   linkColorHover: darkBlue,
-  baseFontSize: '20px',
-  textFontSize: '1.25em',
-  smallFontSize: '0.65em',
+  baseFontSize: '18px',
+  textFontSize: {
+    desktop: '2rem',
+    mobile: '3vw'
+  },
+  smallFontSize: {
+    desktop: '.65em',
+    mobile: '.85em'
+  },
   baseLetterSpacing: '0.5px',
-  headingFontSizes: [
-    '4.209em',
-    '3.157em',
-    '2.369em',
-    '1.777em',
-    '1.333em',
-    '1em'
-  ],
-  baseLineHeight: 1.5,
-  headingLineHeight: 1.15,
+  headingFontSizes: {
+    desktop: ['14vw', '4rem', '3rem', '2.5rem', '1.5rem', '1rem'],
+    mobile: ['22vw', '14vw', '10vw', '8vw', '5vw', '1rem']
+  },
+  baseLineHeight: 1.65,
+  headingLineHeight: 1,
   baseFontWeight: FontWeight.Normal,
-  accentFontWeight: FontWeight.Bold,
+  boldFontWeight: FontWeight.Bold,
+  headingFontWeight: FontWeight.Heavy,
   baseFontStyle: FontStyle.Normal,
   accentFontStyle: FontStyle.Italic
 }

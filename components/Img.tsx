@@ -2,15 +2,9 @@ import styled from 'styled-components'
 import { LAYOUT_DEFAULTS } from 'styles/layout'
 import { TYPOGRAPHY_DEFAULTS } from 'styles/typography'
 import { ImgProps } from 'types/layout'
+import { generateShadow } from 'utils/generateShadow'
 
-const {
-  borderSize,
-  borderStyle,
-  transition,
-  backgroundColor,
-  borderColor,
-  dropShadow
-} = LAYOUT_DEFAULTS
+const { transition, borderColor } = LAYOUT_DEFAULTS
 
 const { linkColorHover } = TYPOGRAPHY_DEFAULTS
 
@@ -24,23 +18,10 @@ const StyledImg = styled.img`
 `
 const StyledImgContainer = styled.div`
   display: flex;
-  background-color: ${borderColor};
-  border: ${borderSize} ${borderStyle} ${borderColor};
   height: fit-content;
   width: fit-content;
   max-width: 100%;
-  box-shadow: 0 0 0 ${dropShadow.small} ${backgroundColor},
-    -${dropShadow.medium} ${dropShadow.medium} ${borderColor},
-    ${dropShadow.medium} -${dropShadow.medium} ${borderColor};
-  transition: ${transition};
-
-  &:hover {
-    background-color: ${linkColorHover};
-    border-color: ${linkColorHover};
-    box-shadow: 0 0 0 ${dropShadow.medium} ${backgroundColor},
-      -${dropShadow.large} ${dropShadow.large} ${linkColorHover},
-      ${dropShadow.large} -${dropShadow.large} ${linkColorHover};
-  }
+  ${generateShadow(borderColor, linkColorHover, 'box')}
 `
 
 export const Img: React.FC<ImgProps> = ({ fileName, ...rest }) => {

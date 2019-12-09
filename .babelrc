@@ -1,5 +1,7 @@
 {
-  "presets": ["next/babel"],
+  "presets": [
+    "next/babel"
+  ],
   "plugins": [
     [
       "styled-components",
@@ -7,14 +9,16 @@
         "ssr": true,
         "minify": true,
         "pure": true,
-        "displayName": false,
-        "fileName": false
+        "displayName": true,
+        "fileName": true
       }
     ],
     [
       "module-resolver",
       {
-        "root": ["."],
+        "root": [
+          "."
+        ],
         "alias": {
           "utils": "./utils",
           "components": "./components",

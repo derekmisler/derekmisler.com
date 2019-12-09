@@ -1,21 +1,20 @@
 import { Text } from 'components/Typography'
 import { biography } from 'constants/resume'
 import { fixWidow } from 'utils/stringFormat'
-import { Card } from 'components/Card'
+import { Row, Col } from 'components/Grid'
 import { Qualifications } from 'components/Qualifications'
-import { SmMdLgWidths } from 'types/layout'
-import { Hr } from 'components/Hr'
-import { Img } from 'components/Img'
 
 export const About = () => (
-  <Card columns='2fr 1fr' gap={SmMdLgWidths.Large}>
-    <Text>
-      {fixWidow(biography)}
-      <Hr />
-      <Qualifications />
-    </Text>
-    <Img alt='Derek Misler' fileName='derek-misler.jpg' />
-  </Card>
+  <>
+    <Row columns={1} columnsDesktop={2} gap='large'>
+      <Col>
+        <Text>{fixWidow(biography)}</Text>
+      </Col>
+      <Col>
+        <Qualifications />
+      </Col>
+    </Row>
+  </>
 )
 
 export default About

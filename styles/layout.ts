@@ -1,19 +1,33 @@
 import { LayoutTypes } from 'types/layout'
 import { white, black } from './colors'
 
+export const breakpoints = {
+  mobile: '64em',
+  desktop: '64.063em'
+}
+
+export const transitionDefaults = {
+  duration: '500ms',
+  property: 'all',
+  timing: 'ease-in-out'
+}
+
 export const LAYOUT_DEFAULTS: LayoutTypes = {
-  navHeight: 40,
   backgroundColor: black,
   borderColor: white,
   borderRadius: '0',
-  borderSize: '3px',
+  borderSize: '.15rem',
   borderStyle: 'solid',
   opacity: '0.65',
-  transition: `500ms all ease-in-out`,
+  transition: `${transitionDefaults.duration} ${transitionDefaults.property} ${transitionDefaults.timing}`,
+  mediaQueries: {
+    mobile: `screen and (max-width: ${breakpoints.mobile})`,
+    desktop: `screen and (min-width: ${breakpoints.desktop})`
+  },
   dropShadow: {
-    small: '3px',
-    medium: '6px',
-    large: '9px'
+    small: '.15rem',
+    medium: '.3rem',
+    large: '.45rem'
   },
   spacing: {
     small: '.5rem',
@@ -23,6 +37,6 @@ export const LAYOUT_DEFAULTS: LayoutTypes = {
   widths: {
     small: '50vw',
     medium: '66vw',
-    large: '100vw'
+    large: '100%'
   }
 }

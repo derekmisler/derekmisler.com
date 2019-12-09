@@ -1,9 +1,9 @@
 import { skills, SkillTypes } from 'constants/resume'
 import { Small } from 'components/Typography'
-import { Card } from 'components/Card'
+import { Row, Col } from 'components/Grid'
 import { compare } from 'utils/compare'
-import { CardAlignment, SmMdLgWidths } from 'types/layout'
 import { Star } from 'components/Icons'
+import { Text, Heading } from 'components/Typography'
 
 export const Qualifications = () => {
   const sortedSkills: SkillTypes[] = skills.sort((a, b) => {
@@ -13,26 +13,34 @@ export const Qualifications = () => {
   const maxStars = [...Array(sortedSkills[0].level)]
 
   return (
-    <Card as='span' columns={2} gap={SmMdLgWidths.Large}>
-      {sortedSkills.map(skill => (
-        <Card
-          as='span'
-          align={CardAlignment.SpaceBetween}
-          columns={2}
-          key={skill.title}
-          margin={SmMdLgWidths.Small}
-        >
-          <Small>{skill.title}</Small>
-          <Card columns={maxStars.length}>
-            {maxStars.map((...args) => (
-              <Star
-                key={`${skill.title}-${args[1]}`}
-                active={args[1] + 1 <= skill.level}
-              />
-            ))}
-          </Card>
-        </Card>
-      ))}
-    </Card>
+    <>
+      <Heading level={4}>Qualifications</Heading>
+      <Row columns={1} columnsDesktop={2} gap='large'>
+        {sortedSkills.map(skill => (
+          <Col range={1} key={`${skill.title}-${skill.level}`}>
+            <Row
+              vAlign='flex-end'
+              gap='small'
+              columns={8}
+              columnsDesktop={12}
+            >
+              <Col range={3} rangeDesktop={7}>
+                <Text inline={true}>
+                  <Small>{skill.title}</Small>
+                </Text>
+              </Col>
+              {maxStars.map((...args) => (
+                <Col>
+                  <Star
+                    key={`${skill.title}-${args[1]}`}
+                    active={args[1] + 1 <= skill.level}
+                  />
+                </Col>
+              ))}
+            </Row>
+          </Col>
+        ))}
+      </Row>
+    </>
   )
 }

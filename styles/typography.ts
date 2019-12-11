@@ -1,13 +1,28 @@
-import { TypographyTypes, FontWeight, FontStyle } from 'types/typography'
-import { white, blue, darkBlue, yellow } from './colors'
+import { DesktopMobile, FontWeight, FontStyle } from 'types'
+
+interface TypographyTypes {
+  baseFontFamily: string
+  headingFontFamily: string
+  baseFontSize: string
+  textFontSize: DesktopMobile
+  smallFontSize: DesktopMobile
+  baseLetterSpacing: string
+  headingFontSizes: {
+    desktop: [string, string, string, string, string, string]
+    mobile: [string, string, string, string, string, string]
+  }
+  baseLineHeight: number
+  headingLineHeight: number
+  baseFontWeight: FontWeight
+  boldFontWeight: FontWeight
+  headingFontWeight: FontWeight
+  baseFontStyle: FontStyle
+  accentFontStyle: FontStyle
+}
 
 export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
   baseFontFamily: 'mrs-eaves-xl-serif, serif',
   headingFontFamily: 'ohno-blazeface, serif',
-  textColor: white,
-  accentColor: yellow,
-  linkColor: blue,
-  linkColorHover: darkBlue,
   baseFontSize: '18px',
   textFontSize: {
     desktop: '2rem',

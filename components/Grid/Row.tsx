@@ -1,11 +1,23 @@
+import { memo, FC } from 'react'
 import styled from 'styled-components'
-import { GridProps } from 'types/layout'
-import { LAYOUT_DEFAULTS } from 'styles/layout'
+import { StyledComponentProps, SmMdLgSizes, FlexAlignment } from 'types'
+import { LAYOUT_DEFAULTS } from 'styles'
 import { generateResponsiveRow } from 'utils/generateResponsiveGrid'
 
 const { spacing, mediaQueries } = LAYOUT_DEFAULTS
 
-const StyledGrid = styled.div<GridProps>`
+interface RowProps extends StyledComponentProps {
+  columns?: number
+  columnsDesktop?: number
+  padding?: SmMdLgSizes
+  margin?: SmMdLgSizes
+  gap?: SmMdLgSizes
+  vAlign?: FlexAlignment
+  hAlign?: FlexAlignment
+  fullHeight?: boolean
+}
+
+const StyledGrid = styled.div<RowProps>`
   display: grid;
   overflow: hidden;
   padding: ${({ padding }) => (padding ? spacing[padding] : 0)};
@@ -22,4 +34,4 @@ const StyledGrid = styled.div<GridProps>`
   }
 `
 
-export const Row: React.FC<GridProps> = props => <StyledGrid {...props} />
+export const Row: FC<RowProps> = memo(props => <StyledGrid {...props} />)

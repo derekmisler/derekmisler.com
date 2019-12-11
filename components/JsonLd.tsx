@@ -1,6 +1,5 @@
-interface JsonTypes {}
 
-export const JsonLd = ({ data }: { data: JsonTypes }) => (
+export const JsonLd = ({ data }: { data: {} }) => (
   <script
     type='application/ld+json'
     dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}

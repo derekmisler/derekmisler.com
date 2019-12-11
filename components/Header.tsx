@@ -1,11 +1,11 @@
-import React from 'react'
+import { FC, memo } from 'react'
 import { fixWidow } from 'utils/stringFormat'
 import { resume } from 'constants/resume'
 import { Animated } from 'components/Animated'
 import { Heading, Text, Link, SubHeading } from 'components/Typography'
 import { Row, Col } from 'components/Grid'
 
-export const Header: React.FC<{}> = () => {
+export const Header: FC<{}> = memo(() => {
   const {
     profile: { firstName, lastName, description, metaDescription }
   } = resume
@@ -39,4 +39,4 @@ export const Header: React.FC<{}> = () => {
       </Col>
     </Row>
   )
-}
+})

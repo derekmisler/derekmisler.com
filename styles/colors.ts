@@ -8,3 +8,26 @@ export const transparentBlack: string = 'rgba(23, 26, 27, .8)'
 export const gray: string = '#32393B'
 export const white: string = '#f4e2da'
 export const darkWhite: string = '#ead7d3'
+
+export const themes = {
+  light: {
+    text: black,
+    accent: yellowDark,
+    link: darkBlue,
+    linkHover: blue,
+    disabled: gray,
+    background: white,
+    border: black,
+    shadow: darkWhite
+  },
+  dark: {
+    text: white,
+    accent: yellow,
+    link: blue,
+    linkHover: darkBlue,
+    disabled: gray,
+    background: black,
+    border: white,
+    shadow: gray
+  }
+}

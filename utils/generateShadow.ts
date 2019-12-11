@@ -1,11 +1,12 @@
 import { css } from 'styled-components'
-import { LAYOUT_DEFAULTS } from 'styles/layout'
+import { LAYOUT_DEFAULTS } from 'styles'
 
-const { transition, backgroundColor, dropShadow } = LAYOUT_DEFAULTS
+const { transition, dropShadow } = LAYOUT_DEFAULTS
 
 export const generateShadow = (
   first: string,
   second: string,
+  backgroundColor: string,
   boxOrText: 'text' | 'box'
 ) => {
   const boxShadow = boxOrText === 'box'

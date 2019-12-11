@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect, FC, memo } from 'react'
 import { useRouter } from 'next/router'
 import { initGA, logPageView } from 'utils/analytics'
 
@@ -7,7 +7,7 @@ interface Window {
 }
 declare var window: Window
 
-export const Analytics: React.FC<{}> = () => {
+export const Analytics: FC<{}> = memo(() => {
   const router = useRouter()
   useEffect(() => {
     if (!window.GA_INITIALIZED) {
@@ -24,4 +24,4 @@ export const Analytics: React.FC<{}> = () => {
   }, [])
 
   return null
-}
+})

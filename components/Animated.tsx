@@ -1,9 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, FC, memo } from 'react'
 import styled, { css } from 'styled-components'
-import { AnimatedProps, StyledAnimatedProps } from 'types/layout'
-import { LAYOUT_DEFAULTS } from 'styles/layout'
+import { StyledComponentProps } from 'types'
+import { LAYOUT_DEFAULTS } from 'styles'
 
 const { transition } = LAYOUT_DEFAULTS
+
+interface StyledAnimatedProps extends StyledComponentProps {
+  animated?: boolean
+}
+
+interface AnimatedProps extends StyledAnimatedProps {
+  active?: boolean
+  delay?: number
+}
 
 const animationEndCss = css`
   opacity: 1;
@@ -17,7 +26,7 @@ const StyledAnimated = styled.div<StyledAnimatedProps>`
   ${props => props.animated && animationEndCss}
 `
 
-export const Animated: React.FC<AnimatedProps> = ({
+export const Animated: FC<AnimatedProps> = memo(({
   active = true,
   delay = 0,
   ...rest
@@ -30,4 +39,4 @@ export const Animated: React.FC<AnimatedProps> = ({
   }, [active])
 
   return <StyledAnimated {...rest} animated={animated} />
-}
+})

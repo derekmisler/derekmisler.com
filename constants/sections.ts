@@ -1,27 +1,33 @@
+import { FC } from 'react'
 import About from 'sections/About'
 import Experience from 'sections/Experience'
 import Projects from 'sections/Projects'
+import { SmMdLgSizes } from 'types'
 
-export interface SectionTypes {
-  label: string
-  location: string
-  component: React.FC
+interface SectionTypes {
+  heading: string
+  id: string
+  Component: FC
+  width: SmMdLgSizes
 }
 
 export const sections: SectionTypes[] = [
   {
-    label: 'About Me',
-    location: 'about',
-    component: About
+    heading: 'About Me',
+    id: 'about',
+    Component: About,
+    width: 'large'
   },
   {
-    label: 'Experience',
-    location: 'experience',
-    component: Experience
+    heading: 'Experience',
+    id: 'experience',
+    Component: Experience,
+    width: 'large'
   },
   {
-    label: 'Projects',
-    location: 'projects',
-    component: Projects
+    heading: 'Projects',
+    id: 'projects',
+    Component: Projects,
+    width: 'large'
   }
 ]

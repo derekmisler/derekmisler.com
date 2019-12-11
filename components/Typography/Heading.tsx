@@ -1,9 +1,9 @@
+import { useReducer, memo, FC } from 'react'
 import styled from 'styled-components'
-import { HeadingProps } from 'types/typography'
-import { TYPOGRAPHY_DEFAULTS } from 'styles/typography'
-import { LAYOUT_DEFAULTS } from 'styles/layout'
+import { TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
 import { generateShadow } from 'utils/generateShadow'
-import { gray } from 'styles/colors'
+import { StyledComponentProps } from 'types'
+import { themeReducer, initialThemeState } from 'utils/reducers'
 
 const {
   baseFontFamily,
@@ -18,11 +18,21 @@ const {
 
 const { spacing, mediaQueries } = LAYOUT_DEFAULTS
 
-export const Heading = styled.div.attrs<HeadingProps>(({ level, as }) => ({
+export interface HeadingProps extends StyledComponentProps {
+  textAlign?: string
+  level?: number
+}
+export interface StyledHeadingProps extends HeadingProps {
+  shadow: string
+  shadowHover: string
+  backgroundColor: string
+}
+
+export const StyledHeading = styled.div.attrs<StyledHeadingProps>(({ level, as }) => ({
   role: as ? '' : 'heading',
   'aria-level': level || 1,
   as: `h${level}`
-})) <HeadingProps>`
+})) <StyledHeadingProps>`
   text-align: ${({ textAlign = 'left' }) => textAlign};
   margin: ${({ level }) =>
     level !== 1
@@ -36,5 +46,18 @@ export const Heading = styled.div.attrs<HeadingProps>(({ level, as }) => ({
   @media ${mediaQueries.desktop} {
     font-size: ${({ level }) => headingFontSizes.desktop[(level as number) - 1]};
   }
-  ${({ level }) => level === 1 && generateShadow(gray, gray, 'text')}
+  ${({ level, shadow, shadowHover, backgroundColor }) => level === 1 && generateShadow(shadow, shadowHover, backgroundColor, 'text')}
 `
+
+
+export const Heading: FC<HeadingProps> = memo(({ ref, as, ...rest }) => {
+  const [state] = useReducer(themeReducer, initialThemeState)
+  return (
+    <StyledHeading
+      {...rest}
+      shadow={state.theme.shadow}
+      shadowHover={state.theme.shadow}
+      backgroundColor={state.theme.background}
+    />
+  )
+})

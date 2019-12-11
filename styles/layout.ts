@@ -1,5 +1,19 @@
-import { LayoutTypes } from 'types/layout'
-import { white, black } from './colors'
+import { SmMdLgTypes } from 'types'
+
+export interface LayoutTypes {
+  borderRadius: string
+  borderSize: string
+  borderStyle: string
+  opacity: string
+  transition: string
+  mediaQueries: {
+    mobile: string
+    desktop: string
+  }
+  dropShadow: SmMdLgTypes
+  widths: SmMdLgTypes
+  spacing: SmMdLgTypes
+}
 
 export const breakpoints = {
   mobile: '64em',
@@ -13,8 +27,6 @@ export const transitionDefaults = {
 }
 
 export const LAYOUT_DEFAULTS: LayoutTypes = {
-  backgroundColor: black,
-  borderColor: white,
   borderRadius: '0',
   borderSize: '.15rem',
   borderStyle: 'solid',
@@ -35,8 +47,8 @@ export const LAYOUT_DEFAULTS: LayoutTypes = {
     large: '2.75rem'
   },
   widths: {
-    small: '50vw',
-    medium: '66vw',
-    large: '100%'
+    small: '50%',
+    medium: '66%',
+    large: '90%'
   }
 }

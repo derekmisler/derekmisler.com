@@ -1,7 +1,8 @@
+import { useReducer, memo, FC } from 'react'
+import { themeReducer, initialThemeState } from 'utils/reducers'
 import styled from 'styled-components'
-import { TextProps } from 'types/typography'
-import { TYPOGRAPHY_DEFAULTS } from 'styles/typography'
-import { LAYOUT_DEFAULTS } from 'styles/layout'
+import { TextProps } from 'types'
+import { TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
 
 const {
   baseFontFamily,
@@ -9,16 +10,19 @@ const {
   baseLineHeight,
   baseFontWeight,
   boldFontWeight,
-  baseFontStyle,
-  accentColor,
-  textColor
+  baseFontStyle
 } = TYPOGRAPHY_DEFAULTS
 
 const { spacing, opacity, mediaQueries } = LAYOUT_DEFAULTS
 
-export const Text = styled.p.attrs<TextProps>(({ inline }) => ({
+
+export interface StyledTextProps extends TextProps {
+  textColor: string
+}
+
+export const StyledText = styled.p.attrs<StyledTextProps>(({ inline }) => ({
   as: inline ? 'span' : 'p'
-})) <TextProps>`
+})) <StyledTextProps>`
   margin-bottom: ${spacing.medium};
   font-family: ${baseFontFamily};
   font-size: ${textFontSize.mobile};
@@ -28,9 +32,16 @@ export const Text = styled.p.attrs<TextProps>(({ inline }) => ({
   font-weight: ${({ bold }) => (bold ? boldFontWeight : baseFontWeight)};
   font-style: ${baseFontStyle};
   opacity: ${({ transparent }) => (transparent ? opacity : '1')};
-  color: ${({ accent }) => (accent ? accentColor : textColor)};
+  color: ${({ textColor }) => textColor};
+  mix-blend-mode: difference;
   @media ${mediaQueries.desktop} {
     font-size: ${textFontSize.desktop};
     text-align: ${({ textAlignDesktop }) => textAlignDesktop};
   }
 `
+
+export const Text: FC<TextProps> = memo(({ accent, ref, as, ...rest }) => {
+  const [state] = useReducer(themeReducer, initialThemeState)
+  const textColor = accent ? state.theme.accent : state.theme.text
+  return <StyledText {...rest} textColor={textColor} />
+})

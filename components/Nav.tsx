@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components'
-import React, { useState, memo } from 'react'
+import React, { useState, memo, FC } from 'react'
 import { Link, Heading } from 'components/Typography'
+import { Button } from 'components/Buttons'
 import { sections } from 'constants/sections'
 import { Animated } from 'components/Animated'
-import { transparentBlack } from 'styles/colors'
-import { transitionDefaults } from 'styles/layout'
+import { transparentBlack, transitionDefaults } from 'styles'
 
 const { duration, timing } = transitionDefaults
 
@@ -34,35 +34,35 @@ const Ul = styled.ul`
   justify-content: 'center';
 `
 
-export const Nav: React.FC<{}> = memo(() => {
+export const Nav: FC<{}> = memo(() => {
   const [navIsActive, activateNav] = useState<boolean>(false)
   const handleClick = () => {
     activateNav(!navIsActive)
   }
   return (
     <>
-      <Link as='button' onClick={handleClick}>
+      <Button onClick={handleClick}>
         Click
-      </Link>
+      </Button>
       <StyledNav isActive={navIsActive} onClick={handleClick}>
         <Ul vocab='http://schema.org/' typeof='BreadcrumbList'>
           {sections.map((section, i) => (
             <Animated
               as='li'
-              key={section.label}
+              key={section.id}
               property='itemListElement'
               typeof='ListItem'
               active={navIsActive}
               delay={100 * (i + 1) + (navIsActive ? 500 : 0)}
             >
               <Link
-                href={`#${section.location}`}
+                href={`#${section.id}`}
                 property='item'
                 typeof='WebPage'
                 variant='text'
               >
                 <Heading level={1} as='span' property='name'>
-                  {section.label}
+                  {section.heading}
                 </Heading>
               </Link>
               <meta property='position' content={(i + 1).toString()} />

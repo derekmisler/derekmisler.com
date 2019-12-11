@@ -13,51 +13,11 @@ export enum FontWeight {
   Inherit = 'inherit'
 }
 
-export interface DesktopMobile {
-  desktop: string
-  mobile: string
-}
-
-export interface TypographyTypes {
-  baseFontFamily: string
-  headingFontFamily: string
-  textColor: string
-  accentColor: string
-  linkColor: string
-  linkColorHover: string
-  baseFontSize: string
-  textFontSize: DesktopMobile
-  smallFontSize: DesktopMobile
-  baseLetterSpacing: string
-  headingFontSizes: {
-    desktop: [string, string, string, string, string, string]
-    mobile: [string, string, string, string, string, string]
-  }
-  baseLineHeight: number
-  headingLineHeight: number
-  baseFontWeight: FontWeight
-  boldFontWeight: FontWeight
-  headingFontWeight: FontWeight
-  baseFontStyle: FontStyle
-  accentFontStyle: FontStyle
-}
-
-export type HeadingProps = {
-  textAlign?: string
-  level?: number
-  as?: string
-} & HTMLProps<HTMLDivElement>
-
-export type TextProps = {
+export interface TextProps extends HTMLProps<HTMLParagraphElement> {
   textAlign?: string
   textAlignDesktop?: string
   transparent?: boolean
   accent?: boolean
   bold?: boolean
   inline?: boolean
-} & HTMLProps<HTMLParagraphElement>
-
-export type LinkProps = {
-  onClick?: Function
-  variant?: 'text' | 'default'
-} & HTMLProps<HTMLLinkElement>
+}

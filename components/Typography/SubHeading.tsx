@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { TextProps } from 'types/typography'
-import { LAYOUT_DEFAULTS } from 'styles/layout'
+import { TextProps } from 'types'
+import { LAYOUT_DEFAULTS } from 'styles'
 import { Small } from './Small'
 
 const {

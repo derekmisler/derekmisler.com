@@ -17,7 +17,7 @@ export const Qualifications = () => {
       <Heading level={4}>Qualifications</Heading>
       <Row columns={1} columnsDesktop={2} gap='large'>
         {sortedSkills.map(skill => (
-          <Col range={1} key={`${skill.title}-${skill.level}`}>
+          <Col range={1} key={`qualification-${skill.title}-${skill.level}`}>
             <Row
               vAlign='flex-end'
               gap='small'
@@ -30,9 +30,8 @@ export const Qualifications = () => {
                 </Text>
               </Col>
               {maxStars.map((...args) => (
-                <Col>
+                <Col key={`star-${skill.title}-${args[1]}`}>
                   <Star
-                    key={`${skill.title}-${args[1]}`}
                     active={args[1] + 1 <= skill.level}
                   />
                 </Col>

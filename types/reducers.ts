@@ -1,5 +1,5 @@
 import { ThemeActionTypes } from 'types'
 
-export interface ActionProps {
+export interface ThemeActionProps {
   type: ThemeActionTypes
 }

@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components'
-import React, { useState, memo, FC } from 'react'
+import React, { memo, FC, useReducer } from 'react'
 import { Link, Heading } from 'components/Typography'
-import { Button } from 'components/Buttons'
+import { Action } from 'components/Buttons'
 import { sections } from 'constants/sections'
 import { Animated } from 'components/Animated'
 import { transparentBlack, transitionDefaults } from 'styles'
+import { navReducer } from 'utils/reducers'
 
 const { duration, timing } = transitionDefaults
 
@@ -35,16 +36,15 @@ const Ul = styled.ul`
 `
 
 export const Nav: FC<{}> = memo(() => {
-  const [navIsActive, activateNav] = useState<boolean>(false)
+  const [state, dispatch] = useReducer(navReducer, { active: false })
+  const { active } = state
   const handleClick = () => {
-    activateNav(!navIsActive)
+    dispatch({})
   }
   return (
     <>
-      <Button onClick={handleClick}>
-        Click
-      </Button>
-      <StyledNav isActive={navIsActive} onClick={handleClick}>
+      <Action onClick={handleClick} />
+      <StyledNav isActive={active} onClick={handleClick}>
         <Ul vocab='http://schema.org/' typeof='BreadcrumbList'>
           {sections.map((section, i) => (
             <Animated
@@ -52,8 +52,8 @@ export const Nav: FC<{}> = memo(() => {
               key={section.id}
               property='itemListElement'
               typeof='ListItem'
-              active={navIsActive}
-              delay={100 * (i + 1) + (navIsActive ? 500 : 0)}
+              active={active}
+              delay={100 * (i + 1) + (active ? 500 : 0)}
             >
               <Link
                 href={`#${section.id}`}

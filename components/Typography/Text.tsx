@@ -1,6 +1,5 @@
-import { memo, FC } from 'react'
-import { useTheme } from 'utils/useTheme'
-import styled from 'styled-components'
+import { FC, useContext, memo } from 'react'
+import styled, { ThemeContext } from 'styled-components'
 import { TextProps } from 'types'
 import { TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
 
@@ -41,7 +40,7 @@ export const StyledText = styled.p.attrs<StyledTextProps>(({ inline }) => ({
 `
 
 export const Text: FC<TextProps> = memo(({ accent, ref, as, ...rest }) => {
-  const [{ accent: accentColor, text }] = useTheme()
+  const { accent: accentColor, text } = useContext(ThemeContext)
   const textColor = accent ? accentColor : text
   return <StyledText {...rest} textColor={textColor} />
 })

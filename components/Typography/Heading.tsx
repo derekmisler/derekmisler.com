@@ -1,9 +1,8 @@
-import { memo, FC } from 'react'
-import styled from 'styled-components'
+import { memo, FC, useContext } from 'react'
+import styled, { ThemeContext } from 'styled-components'
 import { TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
 import { generateShadow } from 'utils/generateShadow'
 import { StyledComponentProps } from 'types'
-import { useTheme } from 'utils/useTheme'
 
 const {
   baseFontFamily,
@@ -51,7 +50,7 @@ export const StyledHeading = styled.div.attrs<StyledHeadingProps>(({ level, as }
 
 
 export const Heading: FC<HeadingProps> = memo(({ ref, as, ...rest }) => {
-  const [{ shadow, background }] = useTheme()
+  const { shadow, background } = useContext(ThemeContext)
   return (
     <StyledHeading
       {...rest}

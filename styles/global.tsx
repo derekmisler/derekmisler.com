@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components'
-import { useTheme } from 'utils/useTheme'
+import { useContext } from 'react'
+import { createGlobalStyle, ThemeContext } from 'styled-components'
 import { TYPOGRAPHY_DEFAULTS } from './typography'
 
 const {
@@ -47,7 +47,7 @@ export const GlobalTypeStyles = createGlobalStyle<GlobalStyleProps>`
 `
 
 export const GlobalStyle = () => {
-  const [{ text, background }] = useTheme()
+  const { text, background } = useContext(ThemeContext)
   return (
     <GlobalTypeStyles
       textColor={text}

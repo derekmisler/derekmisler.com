@@ -18,6 +18,7 @@ interface RowProps extends StyledComponentProps {
 }
 
 const StyledGrid = styled.div<RowProps>`
+  position: relative;
   display: grid;
   overflow: hidden;
   padding: ${({ padding }) => (padding ? spacing[padding] : 0)};

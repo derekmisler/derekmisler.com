@@ -1,8 +1,8 @@
-import React, { FC, memo } from 'react'
-import { useTheme } from 'utils/useTheme'
+import React, { FC, memo, useContext } from 'react'
+import { ThemeContext } from 'styled-components'
 
 export const Plus: FC<{ fill?: string }> = memo(({ fill }) => {
-  const [{ text }] = useTheme()
+  const { text } = useContext(ThemeContext)
   return (
     <svg width='24px' height='24px' viewBox='0 0 24 24'>
       <path

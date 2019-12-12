@@ -1,19 +1,20 @@
-import { createContext } from 'react'
+
+import { ThemeProvider } from 'styled-components'
 import { Header } from 'components/Header'
 import { Nav } from 'components/Nav'
 import { Footer } from 'components/Footer'
 import { Analytics } from 'components/Analytics'
 import { GlobalStyle } from 'styles'
-import { themes } from 'styles'
 import { sections } from 'constants/sections'
 import { Section } from 'components/Section'
+import { useTheme } from 'utils/useTheme'
 
 export const config = { amp: false }
-const ThemeContext = createContext(themes.dark)
 
 export const App = () => {
+  const [theme, toggleTheme] = useTheme()
   return (
-    <ThemeContext.Provider value={themes.dark}>
+    <ThemeProvider theme={theme}>
       <>
         <Analytics />
         <GlobalStyle />
@@ -30,9 +31,9 @@ export const App = () => {
             />
           ))}
         </main>
-        <Footer />
+        <Footer handleClick={toggleTheme} />
       </>
-    </ThemeContext.Provider>
+    </ThemeProvider>
   )
 }
 

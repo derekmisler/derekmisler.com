@@ -1,11 +1,9 @@
-import { memo, FC } from 'react'
-import styled from 'styled-components'
+import { memo, FC, useContext } from 'react'
+import styled, { ThemeContext } from 'styled-components'
 import { TextProps } from 'types'
 import { TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
-import { useTheme } from 'utils/useTheme'
 
 const { smallFontSize } = TYPOGRAPHY_DEFAULTS
-
 const { opacity, mediaQueries } = LAYOUT_DEFAULTS
 
 interface StyledSmallProps extends TextProps {
@@ -23,7 +21,7 @@ export const StyledSmall = styled.small<StyledSmallProps>`
 `
 
 export const Small: FC<TextProps> = memo(({ accent, ref, as, ...rest }) => {
-  const [{ accent: accentColor }] = useTheme()
+  const { accent: accentColor } = useContext(ThemeContext)
   const textColor = accent ? accentColor : 'inherit'
   return <StyledSmall {...rest} textColor={textColor} />
 })

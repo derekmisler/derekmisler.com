@@ -1,8 +1,8 @@
-import React, { FC, memo } from 'react'
-import { useTheme } from 'utils/useTheme'
+import React, { FC, useContext, memo } from 'react'
+import { ThemeContext } from 'styled-components'
 
 export const Star: FC<{ active?: boolean }> = memo(({ active }) => {
-  const [{ accent, disabled }] = useTheme()
+  const { accent, disabled } = useContext(ThemeContext)
   return (
     <svg width='21px' height='20px' viewBox='0 0 21 20'>
       <polygon

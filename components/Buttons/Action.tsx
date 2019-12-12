@@ -1,17 +1,16 @@
-import { HTMLProps, memo, FC } from 'react'
-import styled from 'styled-components'
+import { HTMLProps, FC, memo, useContext } from 'react'
+import styled, { ThemeContext } from 'styled-components'
 import { LAYOUT_DEFAULTS } from 'styles'
 import { Plus } from 'components/Icons'
-import { useTheme } from 'utils/useTheme'
 
 const {
   spacing,
   mediaQueries
 } = LAYOUT_DEFAULTS
 
-interface ActionProps extends HTMLProps<HTMLButtonElement> {
-  active: boolean
-}
+type ActionProps = {
+  active?: boolean
+} & HTMLProps<HTMLButtonElement>
 
 interface StyledActionProps {
   linkColor: string
@@ -21,7 +20,7 @@ interface StyledActionProps {
 }
 
 const StyledAction = styled.button<StyledActionProps>`
-  position: fixed;
+  position: absolute;
   bottom: ${spacing.medium};
   right: ${spacing.medium};
   display: flex;
@@ -48,8 +47,8 @@ const StyledAction = styled.button<StyledActionProps>`
   }
 `
 
-export const Action: FC<ActionProps> = memo(({ onClick, active }) => {
-  const [{ link, linkHover, background, accent }] = useTheme()
+export const Action: FC<ActionProps> = memo(({ onClick, active = false }) => {
+  const { link, linkHover, background, accent } = useContext(ThemeContext)
   return (
     <StyledAction
       onClick={onClick}

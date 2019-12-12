@@ -1,8 +1,7 @@
-import { memo, FC, ImgHTMLAttributes } from 'react'
-import styled from 'styled-components'
+import { memo, FC, ImgHTMLAttributes, useContext } from 'react'
+import styled, { ThemeContext } from 'styled-components'
 import { LAYOUT_DEFAULTS } from 'styles'
 import { generateShadow } from 'utils/generateShadow'
-import { useTheme } from 'utils/useTheme'
 
 const { transition } = LAYOUT_DEFAULTS
 
@@ -34,7 +33,7 @@ const StyledImgContainer = styled.div<StyledImageProps>`
 export const Img: FC<ImgProps> = memo(({ fileName, ...rest }) => {
   const src = `/images/portfolio/${fileName}`
   const retinaSrc = `/images/portfolio/retina/${fileName}`
-  const [{ border, linkHover, background }] = useTheme()
+  const { border, linkHover, background } = useContext(ThemeContext)
 
   return (
     <StyledImgContainer

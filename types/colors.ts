@@ -3,4 +3,5 @@ export interface ThemeProps {
 }
 export interface ThemeStateProps {
   theme: ThemeProps
+  isDarkMode: boolean
 }

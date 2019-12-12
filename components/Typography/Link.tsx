@@ -1,6 +1,5 @@
-import { HTMLProps, memo, FC } from 'react'
-import styled from 'styled-components'
-import { useTheme } from 'utils/useTheme'
+import { HTMLProps, memo, FC, useContext } from 'react'
+import styled, { ThemeContext } from 'styled-components'
 import { TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
 
 const {
@@ -58,7 +57,7 @@ text-decoration: none;
 `
 
 export const Link: FC<LinkProps> = memo(({ variant, children }) => {
-  const [{ link, linkHover, background }] = useTheme()
+  const { link, linkHover, background } = useContext(ThemeContext)
   return (
     <StyledLink
       variant={variant}

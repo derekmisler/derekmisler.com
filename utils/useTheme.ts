@@ -1,14 +1,21 @@
-import { useReducer, Dispatch } from 'react'
-import { themeReducer, initialThemeState } from 'utils/reducers'
-import { ThemeProps, ThemeActionProps } from 'types'
+import { useReducer, MouseEventHandler } from 'react'
+import { themeReducer } from 'utils/reducers'
+import { ThemeProps, ThemeActionTypes } from 'types'
+import { themes } from 'styles/colors'
 
 type UseThemeProps = [
   ThemeProps,
-  Dispatch<ThemeActionProps>
+  MouseEventHandler
 ]
 
-export const useTheme = (initialTheme = initialThemeState): UseThemeProps => {
-  const [state, dispatch] = useReducer(themeReducer, initialTheme)
-  const { theme } = state
-  return [theme, dispatch]
+export const useTheme = (): UseThemeProps => {
+  const initialThemeState = {
+    isDarkMode: true,
+    theme: themes[ThemeActionTypes.Dark]
+  }
+  const [{ theme, isDarkMode }, dispatch] = useReducer(themeReducer, initialThemeState)
+  const toggleTheme = () => {
+    dispatch({ type: isDarkMode ? ThemeActionTypes.Light : ThemeActionTypes.Dark })
+  }
+  return [theme, toggleTheme]
 }

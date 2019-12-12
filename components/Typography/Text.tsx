@@ -1,5 +1,5 @@
-import { useReducer, memo, FC } from 'react'
-import { themeReducer, initialThemeState } from 'utils/reducers'
+import { memo, FC } from 'react'
+import { useTheme } from 'utils/useTheme'
 import styled from 'styled-components'
 import { TextProps } from 'types'
 import { TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
@@ -41,7 +41,7 @@ export const StyledText = styled.p.attrs<StyledTextProps>(({ inline }) => ({
 `
 
 export const Text: FC<TextProps> = memo(({ accent, ref, as, ...rest }) => {
-  const [state] = useReducer(themeReducer, initialThemeState)
-  const textColor = accent ? state.theme.accent : state.theme.text
+  const [{ accent: accentColor, text }] = useTheme()
+  const textColor = accent ? accentColor : text
   return <StyledText {...rest} textColor={textColor} />
 })

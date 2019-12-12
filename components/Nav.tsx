@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components'
-import React, { memo, FC, useReducer } from 'react'
+import React, { memo, FC } from 'react'
 import { Link, Heading } from 'components/Typography'
 import { Action } from 'components/Buttons'
 import { sections } from 'constants/sections'
 import { Animated } from 'components/Animated'
 import { transparentBlack, transitionDefaults } from 'styles'
-import { navReducer } from 'utils/reducers'
+import { useNav } from 'utils/useNav'
 
 const { duration, timing } = transitionDefaults
 
@@ -36,14 +36,11 @@ const Ul = styled.ul`
 `
 
 export const Nav: FC<{}> = memo(() => {
-  const [state, dispatch] = useReducer(navReducer, { active: false })
-  const { active } = state
-  const handleClick = () => {
-    dispatch({})
-  }
+  const [active, toggleNavState] = useNav()
+  const handleClick = () => toggleNavState()
   return (
     <>
-      <Action onClick={handleClick} />
+      <Action onClick={handleClick} active={active} />
       <StyledNav isActive={active} onClick={handleClick}>
         <Ul vocab='http://schema.org/' typeof='BreadcrumbList'>
           {sections.map((section, i) => (

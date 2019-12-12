@@ -1,8 +1,8 @@
-import { useReducer, memo, FC, ImgHTMLAttributes } from 'react'
+import { memo, FC, ImgHTMLAttributes } from 'react'
 import styled from 'styled-components'
 import { LAYOUT_DEFAULTS } from 'styles'
 import { generateShadow } from 'utils/generateShadow'
-import { themeReducer, initialThemeState } from 'utils/reducers'
+import { useTheme } from 'utils/useTheme'
 
 const { transition } = LAYOUT_DEFAULTS
 
@@ -34,13 +34,13 @@ const StyledImgContainer = styled.div<StyledImageProps>`
 export const Img: FC<ImgProps> = memo(({ fileName, ...rest }) => {
   const src = `/images/portfolio/${fileName}`
   const retinaSrc = `/images/portfolio/retina/${fileName}`
-  const [state] = useReducer(themeReducer, initialThemeState)
+  const [{ border, linkHover, background }] = useTheme()
 
   return (
     <StyledImgContainer
-      shadowColor={state.theme.border}
-      shadowColorHover={state.theme.linkHover}
-      backgroundColor={state.theme.background}
+      shadowColor={border}
+      shadowColorHover={linkHover}
+      backgroundColor={background}
     >
       <StyledImg
         src={src}

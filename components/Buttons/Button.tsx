@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { HTMLProps, useReducer, memo, FC } from 'react'
-import { themeReducer, initialThemeState } from 'utils/reducers'
+import { HTMLProps, memo, FC } from 'react'
+import { useTheme } from 'utils/useTheme'
 import { TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
 
 const {
@@ -52,8 +52,7 @@ const StyledButton = styled.button<StyledButtonProps>`
 `
 
 export const Button: FC<ButtonProps> = memo(({ onClick, children }) => {
-  const [state] = useReducer(themeReducer, initialThemeState)
-  const { link, linkHover, background } = state.theme
+  const [{ link, linkHover, background }] = useTheme()
   return (
     <StyledButton
       onClick={onClick}

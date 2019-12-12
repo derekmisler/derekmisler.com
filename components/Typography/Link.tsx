@@ -1,6 +1,6 @@
-import { HTMLProps, useReducer, memo, FC } from 'react'
-import { themeReducer, initialThemeState } from 'utils/reducers'
+import { HTMLProps, memo, FC } from 'react'
 import styled from 'styled-components'
+import { useTheme } from 'utils/useTheme'
 import { TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
 
 const {
@@ -58,13 +58,13 @@ text-decoration: none;
 `
 
 export const Link: FC<LinkProps> = memo(({ variant, children }) => {
-  const [state] = useReducer(themeReducer, initialThemeState)
+  const [{ link, linkHover, background }] = useTheme()
   return (
     <StyledLink
       variant={variant}
-      linkColor={state.theme.link}
-      linkColorHover={state.theme.linkHover}
-      backgroundColor={state.theme.background}
+      linkColor={link}
+      linkColorHover={linkHover}
+      backgroundColor={background}
     >
       {children}
     </StyledLink>

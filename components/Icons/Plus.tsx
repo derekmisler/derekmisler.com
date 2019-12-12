@@ -1,9 +1,8 @@
-import React, { FC, memo, useReducer } from 'react'
-import { themeReducer, initialThemeState } from 'utils/reducers'
+import React, { FC, memo } from 'react'
+import { useTheme } from 'utils/useTheme'
 
 export const Plus: FC<{ fill?: string }> = memo(({ fill }) => {
-  const [state] = useReducer(themeReducer, initialThemeState)
-  const { text } = state.theme
+  const [{ text }] = useTheme()
   return (
     <svg width='24px' height='24px' viewBox='0 0 24 24'>
       <path

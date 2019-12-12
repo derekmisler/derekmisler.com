@@ -1,9 +1,8 @@
-import React, { FC, memo, useReducer } from 'react'
-import { themeReducer, initialThemeState } from 'utils/reducers'
+import React, { FC, memo } from 'react'
+import { useTheme } from 'utils/useTheme'
 
 export const Star: FC<{ active?: boolean }> = memo(({ active }) => {
-  const [state] = useReducer(themeReducer, initialThemeState)
-  const { accent, disabled } = state.theme
+  const [{ accent, disabled }] = useTheme()
   return (
     <svg width='21px' height='20px' viewBox='0 0 21 20'>
       <polygon

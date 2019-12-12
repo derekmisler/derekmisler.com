@@ -1,9 +1,9 @@
-import { useReducer, memo, FC } from 'react'
+import { memo, FC } from 'react'
 import styled from 'styled-components'
 import { TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
 import { generateShadow } from 'utils/generateShadow'
 import { StyledComponentProps } from 'types'
-import { themeReducer, initialThemeState } from 'utils/reducers'
+import { useTheme } from 'utils/useTheme'
 
 const {
   baseFontFamily,
@@ -51,13 +51,13 @@ export const StyledHeading = styled.div.attrs<StyledHeadingProps>(({ level, as }
 
 
 export const Heading: FC<HeadingProps> = memo(({ ref, as, ...rest }) => {
-  const [state] = useReducer(themeReducer, initialThemeState)
+  const [{ shadow, background }] = useTheme()
   return (
     <StyledHeading
       {...rest}
-      shadow={state.theme.shadow}
-      shadowHover={state.theme.shadow}
-      backgroundColor={state.theme.background}
+      shadow={shadow}
+      shadowHover={shadow}
+      backgroundColor={background}
     />
   )
 })

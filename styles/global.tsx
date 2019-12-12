@@ -1,6 +1,5 @@
-import { useReducer } from 'react'
 import { createGlobalStyle } from 'styled-components'
-import { themeReducer, initialThemeState } from 'utils/reducers'
+import { useTheme } from 'utils/useTheme'
 import { TYPOGRAPHY_DEFAULTS } from './typography'
 
 const {
@@ -48,11 +47,11 @@ export const GlobalTypeStyles = createGlobalStyle<GlobalStyleProps>`
 `
 
 export const GlobalStyle = () => {
-  const [state] = useReducer(themeReducer, initialThemeState)
+  const [{ text, background }] = useTheme()
   return (
     <GlobalTypeStyles
-      textColor={state.theme.text}
-      backgroundColor={state.theme.background}
+      textColor={text}
+      backgroundColor={background}
     />
   )
 }

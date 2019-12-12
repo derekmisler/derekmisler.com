@@ -1,8 +1,8 @@
-import { useReducer, memo, FC } from 'react'
+import { memo, FC } from 'react'
 import styled from 'styled-components'
 import { TextProps } from 'types'
 import { TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
-import { themeReducer, initialThemeState } from 'utils/reducers'
+import { useTheme } from 'utils/useTheme'
 
 const { smallFontSize } = TYPOGRAPHY_DEFAULTS
 
@@ -23,7 +23,7 @@ export const StyledSmall = styled.small<StyledSmallProps>`
 `
 
 export const Small: FC<TextProps> = memo(({ accent, ref, as, ...rest }) => {
-  const [state] = useReducer(themeReducer, initialThemeState)
-  const textColor = accent ? state.theme.accent : 'inherit'
+  const [{ accent: accentColor }] = useTheme()
+  const textColor = accent ? accentColor : 'inherit'
   return <StyledSmall {...rest} textColor={textColor} />
 })

@@ -1,5 +1,6 @@
 export interface ThemeProps {
-  theme: {
-    [colorName: string]: string
-  }
+  [colorName: string]: string
+}
+export interface ThemeStateProps {
+  theme: ThemeProps
 }

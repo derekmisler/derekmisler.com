@@ -1,19 +1,23 @@
+import { HTMLProps, memo, FC } from 'react'
 import styled from 'styled-components'
-import { HTMLProps, useReducer, memo, FC } from 'react'
-import { themeReducer, initialThemeState } from 'utils/reducers'
 import { LAYOUT_DEFAULTS } from 'styles'
 import { Plus } from 'components/Icons'
+import { useTheme } from 'utils/useTheme'
 
 const {
-  spacing
+  spacing,
+  mediaQueries
 } = LAYOUT_DEFAULTS
 
-interface ActionProps extends HTMLProps<HTMLButtonElement> { }
+interface ActionProps extends HTMLProps<HTMLButtonElement> {
+  active: boolean
+}
 
 interface StyledActionProps {
   linkColor: string
   linkColorHover: string
   backgroundColor: string
+  fillColor: string
 }
 
 const StyledAction = styled.button<StyledActionProps>`
@@ -27,6 +31,9 @@ const StyledAction = styled.button<StyledActionProps>`
   background-color: ${({ linkColor }) => linkColor};
   padding: ${spacing.medium};
   border-radius: 50%;
+  > svg * {
+    fill: ${({ fillColor }) => fillColor}
+  }
   &:hover,
   &:focus,
   &:active {
@@ -34,18 +41,22 @@ const StyledAction = styled.button<StyledActionProps>`
     cursor: pointer;
     background-color: ${({ linkColorHover }) => linkColorHover};
   }
+  @media ${mediaQueries.desktop} {
+    bottom: auto;
+    right: ${spacing.medium};
+    top: ${spacing.medium};
+  }
 `
 
-export const Action: FC<ActionProps> = memo(({ onClick }) => {
-  const [state] = useReducer(themeReducer, initialThemeState)
-  const { link, linkHover, background } = state.theme
-
+export const Action: FC<ActionProps> = memo(({ onClick, active }) => {
+  const [{ link, linkHover, background, accent }] = useTheme()
   return (
     <StyledAction
       onClick={onClick}
       linkColor={link}
       linkColorHover={linkHover}
       backgroundColor={background}
+      fillColor={active ? accent : background}
     >
       <Plus />
     </StyledAction>

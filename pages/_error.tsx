@@ -12,11 +12,11 @@ const Error = ({ statusCode }: { statusCode: number }) => (
   <>
     <Analytics />
     <GlobalStyle />
-    {
-      statusCode
-        ? <Heading level={1}>{statusCode.toString()}</Heading>
-        : <Heading level={1}>This page doesn't exist!</Heading>
-    }
+    {statusCode ? (
+      <Heading level={1}>{statusCode.toString()}</Heading>
+    ) : (
+      <Heading level={1}>This page doesn't exist!</Heading>
+    )}
   </>
 )
 

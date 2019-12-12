@@ -14,14 +14,13 @@ const {
 
 const { spacing, opacity, mediaQueries } = LAYOUT_DEFAULTS
 
-
 export interface StyledTextProps extends TextProps {
   textColor: string
 }
 
 export const StyledText = styled.p.attrs<StyledTextProps>(({ inline }) => ({
   as: inline ? 'span' : 'p'
-})) <StyledTextProps>`
+}))<StyledTextProps>`
   margin-bottom: ${spacing.medium};
   font-family: ${baseFontFamily};
   font-size: ${textFontSize.mobile};

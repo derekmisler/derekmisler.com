@@ -48,10 +48,5 @@ export const GlobalTypeStyles = createGlobalStyle<GlobalStyleProps>`
 
 export const GlobalStyle = () => {
   const { text, background } = useContext(ThemeContext)
-  return (
-    <GlobalTypeStyles
-      textColor={text}
-      backgroundColor={background}
-    />
-  )
+  return <GlobalTypeStyles textColor={text} backgroundColor={background} />
 }

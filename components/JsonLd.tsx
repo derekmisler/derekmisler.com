@@ -1,4 +1,3 @@
-
 export const JsonLd = ({ data }: { data: {} }) => (
   <script
     type='application/ld+json'

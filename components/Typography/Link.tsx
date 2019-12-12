@@ -8,12 +8,7 @@ const {
   baseLetterSpacing
 } = TYPOGRAPHY_DEFAULTS
 
-const {
-  spacing,
-  borderRadius,
-  borderStyle,
-  borderSize
-} = LAYOUT_DEFAULTS
+const { spacing, borderRadius, borderStyle, borderSize } = LAYOUT_DEFAULTS
 
 export interface LinkProps extends HTMLProps<HTMLLinkElement> {
   href?: string
@@ -37,7 +32,7 @@ export const StyledLink = styled.a<StyledLinkProps>`
   background-color: transparent;
   border: ${({ variant, linkColor }) =>
     variant === 'text' ? '0px' : `${borderSize} ${borderStyle} ${linkColor}`};
-text-decoration: none;
+  text-decoration: none;
   padding: ${({ variant }) =>
     variant === 'text' ? '0px' : `${spacing.small} ${spacing.medium}`};
   border-radius: ${borderRadius};
@@ -49,11 +44,11 @@ text-decoration: none;
     outline: none;
     cursor: pointer;
     color: ${({ variant, linkColorHover, backgroundColor }) =>
-    variant === 'text' ? linkColorHover : backgroundColor};
+      variant === 'text' ? linkColorHover : backgroundColor};
     background-color: ${({ variant, linkColorHover }) =>
-    variant === 'text' ? 'transparent' : linkColorHover};
+      variant === 'text' ? 'transparent' : linkColorHover};
     border-color: ${({ linkColorHover }) => linkColorHover};
-}
+  }
 `
 
 export const Link: FC<LinkProps> = memo(({ variant, children }) => {

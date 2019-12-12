@@ -3,10 +3,7 @@ import styled, { ThemeContext } from 'styled-components'
 import { LAYOUT_DEFAULTS } from 'styles'
 import { Plus } from 'components/Icons'
 
-const {
-  spacing,
-  mediaQueries
-} = LAYOUT_DEFAULTS
+const { spacing, mediaQueries } = LAYOUT_DEFAULTS
 
 type ActionProps = {
   active?: boolean
@@ -31,7 +28,7 @@ const StyledAction = styled.button<StyledActionProps>`
   padding: ${spacing.medium};
   border-radius: 50%;
   > svg * {
-    fill: ${({ fillColor }) => fillColor}
+    fill: ${({ fillColor }) => fillColor};
   }
   &:hover,
   &:focus,

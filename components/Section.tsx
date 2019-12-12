@@ -23,11 +23,13 @@ const StyledSectionInner = styled.div<{ width: SmMdLgSizes }>`
   width: ${({ width }) => widths[width]};
 `
 
-export const Section: FC<SectionTypes> = memo(({ id, heading, Component, width }) => (
-  <StyledSectionOuter id={id}>
-    <StyledSectionInner width={width}>
-      <Heading level={2}>{heading}</Heading>
-      <Component />
-    </StyledSectionInner>
-  </StyledSectionOuter>
-))
+export const Section: FC<SectionTypes> = memo(
+  ({ id, heading, Component, width }) => (
+    <StyledSectionOuter id={id}>
+      <StyledSectionInner width={width}>
+        <Heading level={2}>{heading}</Heading>
+        <Component />
+      </StyledSectionInner>
+    </StyledSectionOuter>
+  )
+)

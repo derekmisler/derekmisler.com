@@ -8,12 +8,7 @@ const {
   baseLetterSpacing
 } = TYPOGRAPHY_DEFAULTS
 
-const {
-  spacing,
-  borderRadius,
-  borderStyle,
-  borderSize
-} = LAYOUT_DEFAULTS
+const { spacing, borderRadius, borderStyle, borderSize } = LAYOUT_DEFAULTS
 
 interface ButtonProps extends HTMLProps<HTMLButtonElement> {
   accent?: boolean

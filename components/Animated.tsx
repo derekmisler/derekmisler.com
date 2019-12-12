@@ -26,17 +26,15 @@ const StyledAnimated = styled.div<StyledAnimatedProps>`
   ${props => props.animated && animationEndCss}
 `
 
-export const Animated: FC<AnimatedProps> = memo(({
-  active = true,
-  delay = 0,
-  ...rest
-}) => {
-  const [animated, setAnimated] = useState(false)
-  useEffect(() => {
-    setTimeout(() => {
-      setAnimated(active)
-    }, delay)
-  }, [active])
+export const Animated: FC<AnimatedProps> = memo(
+  ({ active = true, delay = 0, ...rest }) => {
+    const [animated, setAnimated] = useState(false)
+    useEffect(() => {
+      setTimeout(() => {
+        setAnimated(active)
+      }, delay)
+    }, [active])
 
-  return <StyledAnimated {...rest} animated={animated} />
-})
+    return <StyledAnimated {...rest} animated={animated} />
+  }
+)

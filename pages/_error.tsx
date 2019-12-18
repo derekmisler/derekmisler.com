@@ -15,8 +15,8 @@ const Error = ({ statusCode }: { statusCode: number }) => (
     {statusCode ? (
       <Heading level={1}>{statusCode.toString()}</Heading>
     ) : (
-      <Heading level={1}>This page doesn't exist!</Heading>
-    )}
+        <Heading level={1}>This page doesn't exist!</Heading>
+      )}
   </>
 )
 

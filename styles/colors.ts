@@ -31,25 +31,25 @@ export const colors = {
 
 export const themes = {
   light: {
-    text: colors.dark[0],
-    accent: orange,
-    link: blueDarker,
-    linkHover: blueDarkest,
-    disabled: gray,
-    background: white,
+    text: colors.dark[3],
+    accent: colors.accent[1],
+    link: colors.mid[1],
+    linkHover: colors.mid[2],
+    disabled: colors.dark[1],
+    background: colors.light[0],
     transparentBackground: transparentWhite,
-    border: black,
-    shadow: whiteDarkest
+    border: colors.dark[3],
+    shadow: colors.light[2]
   },
   dark: {
     text: colors.light[0],
-    accent: yellow,
-    link: blue,
-    linkHover: blueDarker,
-    disabled: gray,
-    background: grayDarkest,
+    accent: colors.accent[2],
+    link: colors.mid[0],
+    linkHover: colors.mid[1],
+    disabled: colors.dark[1],
+    background: colors.dark[2],
     transparentBackground: transparentBlack,
-    border: white,
-    shadow: black
+    border: colors.light[0],
+    shadow: colors.dark[0]
   }
 }

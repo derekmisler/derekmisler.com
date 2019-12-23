@@ -1,16 +1,16 @@
-import styled, { css } from 'styled-components'
-import React, { memo, FC } from 'react'
+import styled, { css, ThemeContext } from 'styled-components'
+import React, { memo, FC, useContext } from 'react'
 import { Link, Heading } from 'components/Typography'
 import { Action } from 'components/Buttons'
 import { sections } from 'constants/sections'
 import { Animated } from 'components/Animated'
-import { transparentBlack, transitionDefaults } from 'styles'
+import { transitionDefaults } from 'styles'
 import { useNav } from 'utils/useNav'
 
 const { duration, timing } = transitionDefaults
 
-const activeNav = css`
-  background-color: ${transparentBlack};
+const activeNav = css<{ backgroundColor: string }>`
+  background-color: ${({ backgroundColor }) => backgroundColor};
   top: 0;
   bottom: 0;
 `
@@ -20,7 +20,7 @@ const inactiveNav = css`
   bottom: -200vh;
 `
 
-const StyledNav = styled.nav<{ isActive?: boolean }>`
+const StyledNav = styled.nav<{ isActive?: boolean, backgroundColor: string }>`
   position: fixed;
   left: 0;
   right: 0;
@@ -37,11 +37,12 @@ const Ul = styled.ul`
 
 export const Nav: FC<{}> = memo(() => {
   const [active, toggleNavState] = useNav()
+  const { transparentBackground } = useContext(ThemeContext)
   const handleClick = () => toggleNavState()
   return (
     <>
       <Action onClick={handleClick} active={active} />
-      <StyledNav isActive={active} onClick={handleClick}>
+      <StyledNav isActive={active} onClick={handleClick} backgroundColor={transparentBackground}>
         <Ul vocab='http://schema.org/' typeof='BreadcrumbList'>
           {sections.map((section, i) => (
             <Animated

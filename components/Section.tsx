@@ -1,7 +1,6 @@
-import React, { FC, memo } from 'react'
+import React, { SFC, memo } from 'react'
 import styled from 'styled-components'
-import { SmMdLgSizes } from 'types'
-import { LAYOUT_DEFAULTS } from 'styles'
+import { SmMdLgSizes, LAYOUT_DEFAULTS } from 'styles'
 import { Heading } from './Typography'
 
 const { widths } = LAYOUT_DEFAULTS
@@ -9,7 +8,7 @@ const { widths } = LAYOUT_DEFAULTS
 interface SectionTypes {
   id: string
   heading: string
-  Component: FC
+  Component: SFC
   width: SmMdLgSizes
 }
 
@@ -23,7 +22,7 @@ const StyledSectionInner = styled.div<{ width: SmMdLgSizes }>`
   width: ${({ width }) => widths[width]};
 `
 
-export const Section: FC<SectionTypes> = memo(
+export const Section: SFC<SectionTypes> = memo(
   ({ id, heading, Component, width }) => (
     <StyledSectionOuter id={id}>
       <StyledSectionInner width={width}>

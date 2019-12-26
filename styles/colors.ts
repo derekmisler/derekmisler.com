@@ -1,55 +1,57 @@
 import { hexToRgba } from 'utils/hexToRgba'
 
-const black: string = '#2E3440'
-const transparentBlack: string = hexToRgba(black, .8)
-
-const gray: string = '#4C566A'
-const grayDarker: string = '#434C5E'
-const grayDarkest: string = '#3B4252'
-
-const white: string = '#ECEFF4'
-const whiteDarker: string = '#E5E9F0'
-const whiteDarkest: string = '#D8DEE9'
-const transparentWhite: string = hexToRgba(white, .8)
-
-const red: string = '#BF616A'
-const orange: string = '#D08770'
-const yellow: string = '#EBCB8B'
-const green: string = '#A3BE8C'
-const purple: string = '#B48EAD'
-
-const blue: string = '#88C0D0'
-const blueDarker: string = '#81A1C1'
-const blueDarkest: string = '#5E81AC'
-
-export const colors = {
-  light: [white, whiteDarker, whiteDarkest],
-  mid: [blue, blueDarker, blueDarkest],
-  dark: [black, gray, grayDarker, grayDarkest],
-  accent: [red, orange, yellow, green, purple]
+export interface ThemeProps {
+  [colorName: string]: string
 }
+export interface ThemeStateProps {
+  theme: ThemeProps
+  isDarkMode: boolean
+}
+
+export const black: string = '#2E3440'
+export const transparentBlack: string = hexToRgba(black, .3)
+
+export const gray: string = '#4C566A'
+export const grayDarker: string = '#434C5E'
+export const grayDarkest: string = '#3B4252'
+
+export const white: string = '#ECEFF4'
+export const whiteDarker: string = '#E5E9F0'
+export const whiteDarkest: string = '#D8DEE9'
+export const transparentWhite: string = hexToRgba(white, .3)
+
+export const red: string = '#BF616A'
+export const orange: string = '#D08770'
+export const yellow: string = '#EBCB8B'
+export const green: string = '#A3BE8C'
+export const teal: string = '#8FBCBB'
+export const purple: string = '#B48EAD'
+
+export const blue: string = '#88C0D0'
+export const blueDarker: string = '#81A1C1'
+export const blueDarkest: string = '#5E81AC'
 
 export const themes = {
   light: {
-    text: colors.dark[3],
-    accent: colors.accent[1],
-    link: colors.mid[1],
-    linkHover: colors.mid[2],
-    disabled: colors.dark[1],
-    background: colors.light[0],
+    text: black,
+    accent: red,
+    link: blueDarker,
+    linkHover: blueDarkest,
+    disabled: gray,
+    background: white,
     transparentBackground: transparentWhite,
-    border: colors.dark[3],
-    shadow: colors.light[2]
+    border: black,
+    shadow: transparentBlack
   },
   dark: {
-    text: colors.light[0],
-    accent: colors.accent[2],
-    link: colors.mid[0],
-    linkHover: colors.mid[1],
-    disabled: colors.dark[1],
-    background: colors.dark[2],
+    text: white,
+    accent: red,
+    link: blue,
+    linkHover: blueDarker,
+    disabled: gray,
+    background: black,
     transparentBackground: transparentBlack,
-    border: colors.light[0],
-    shadow: colors.dark[0]
+    border: white,
+    shadow: transparentWhite
   }
 }

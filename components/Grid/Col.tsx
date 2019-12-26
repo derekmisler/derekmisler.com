@@ -1,8 +1,7 @@
-import { FC, memo } from 'react'
+import { SFC, memo } from 'react'
 import styled, { css } from 'styled-components'
-import { LAYOUT_DEFAULTS } from 'styles'
+import { StyledComponentProps, LAYOUT_DEFAULTS } from 'styles'
 import { generateResponsiveCols } from 'utils/generateResponsiveGrid'
-import { StyledComponentProps } from 'types'
 
 const { mediaQueries } = LAYOUT_DEFAULTS
 
@@ -15,15 +14,18 @@ interface ColProps extends StyledComponentProps {
 const StyledCol = styled.div<ColProps>`
   display: block;
   text-align: ${({ textAlign }) => (textAlign ? textAlign : 'left')};
-  ${({ range = '', rangeDesktop = '' }) => {
+  ${({ range = '', rangeDesktop = '', row = false }) => {
+    if (row) {
+      return css`${generateResponsiveCols('1..')}`
+    }
     if (!(range || rangeDesktop)) return null
     return css`
       ${generateResponsiveCols(range)}
       @media ${mediaQueries.desktop} {
-        ${generateResponsiveCols(rangeDesktop)}
+        ${generateResponsiveCols(rangeDesktop || range)}
       }
     `
   }}
 `
 
-export const Col: FC<ColProps> = memo(props => <StyledCol {...props} />)
+export const Col: SFC<ColProps> = memo(props => <StyledCol {...props} />)

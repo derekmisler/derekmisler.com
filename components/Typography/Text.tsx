@@ -1,7 +1,6 @@
-import { FC, useContext, memo } from 'react'
+import { SFC, useContext, memo } from 'react'
 import styled, { ThemeContext } from 'styled-components'
-import { TextProps } from 'types'
-import { TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
+import { TextProps, TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
 
 const {
   baseFontFamily,
@@ -30,7 +29,7 @@ export const StyledText = styled.p.attrs<StyledTextProps>(({ inline }) => ({
   font-weight: ${({ bold }) => (bold ? boldFontWeight : baseFontWeight)};
   font-style: ${baseFontStyle};
   opacity: ${({ transparent }) => (transparent ? opacity : '1')};
-  color: ${({ textColor }) => textColor};
+  color: ${({ textColor, inline }) => inline ? 'inherit' : textColor};
   mix-blend-mode: difference;
   @media ${mediaQueries.desktop} {
     font-size: ${textFontSize.desktop};
@@ -38,7 +37,7 @@ export const StyledText = styled.p.attrs<StyledTextProps>(({ inline }) => ({
   }
 `
 
-export const Text: FC<TextProps> = memo(({ accent, ref, as, ...rest }) => {
+export const Text: SFC<TextProps> = memo(({ accent, ref, as, ...rest }) => {
   const { accent: accentColor, text } = useContext(ThemeContext)
   const textColor = accent ? accentColor : text
   return <StyledText {...rest} textColor={textColor} />

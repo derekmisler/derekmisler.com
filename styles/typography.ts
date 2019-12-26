@@ -1,4 +1,31 @@
-import { DesktopMobile, FontWeight, FontStyle } from 'types'
+import { HTMLProps } from 'react'
+import { DesktopMobile } from './layout'
+
+export enum FontStyle {
+  Italic = 'italic',
+  Normal = 'normal',
+  Inherit = 'inherit'
+}
+
+export enum FontWeight {
+  UltraThin = '100',
+  Thin = '200',
+  Light = '300',
+  Normal = '400',
+  Medium = '500',
+  Bold = '700',
+  Black = '900',
+  Inherit = 'inherit'
+}
+
+export interface TextProps extends HTMLProps<HTMLParagraphElement> {
+  textAlign?: string
+  textAlignDesktop?: string
+  transparent?: boolean
+  accent?: boolean
+  bold?: boolean
+  inline?: boolean
+}
 
 interface TypographyTypes {
   baseFontFamily: string
@@ -21,12 +48,12 @@ interface TypographyTypes {
 }
 
 export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
-  baseFontFamily: 'mrs-eaves-xl-serif, serif',
-  headingFontFamily: 'ohno-blazeface, serif',
+  baseFontFamily: 'neue-haas-grotesk-text, sans-serif;',
+  headingFontFamily: 'neue-haas-grotesk-display, sans-serif;',
   baseFontSize: '18px',
   textFontSize: {
     desktop: '2rem',
-    mobile: '3vw'
+    mobile: '2rem'
   },
   smallFontSize: {
     desktop: '.65em',
@@ -34,14 +61,14 @@ export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
   },
   baseLetterSpacing: '0.5px',
   headingFontSizes: {
-    desktop: ['14vw', '4rem', '3rem', '2.5rem', '1.5rem', '1rem'],
-    mobile: ['22vw', '14vw', '10vw', '8vw', '5vw', '1rem']
+    desktop: ['12rem', '10rem', '6rem', '4rem', '2rem', '1rem'],
+    mobile: ['6rem', '4rem', '3rem', '2.5rem', '1.5rem', '1rem']
   },
   baseLineHeight: 1.65,
   headingLineHeight: 1,
-  baseFontWeight: FontWeight.Normal,
-  boldFontWeight: FontWeight.Bold,
-  headingFontWeight: FontWeight.Heavy,
+  baseFontWeight: FontWeight.Medium,
+  boldFontWeight: FontWeight.Medium,
+  headingFontWeight: FontWeight.Bold,
   baseFontStyle: FontStyle.Normal,
-  accentFontStyle: FontStyle.Italic
+  accentFontStyle: FontStyle.Normal
 }

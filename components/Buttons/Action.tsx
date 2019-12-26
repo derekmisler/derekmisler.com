@@ -1,4 +1,4 @@
-import { HTMLProps, FC, memo, useContext } from 'react'
+import { HTMLProps, SFC, memo, useContext } from 'react'
 import styled, { ThemeContext } from 'styled-components'
 import { LAYOUT_DEFAULTS } from 'styles'
 import { Plus } from 'components/Icons'
@@ -44,7 +44,7 @@ const StyledAction = styled.button<StyledActionProps>`
   }
 `
 
-export const Action: FC<ActionProps> = memo(({ onClick, active = false }) => {
+export const Action: SFC<ActionProps> = memo(({ onClick, active = false }) => {
   const { link, linkHover, background, accent } = useContext(ThemeContext)
   return (
     <StyledAction

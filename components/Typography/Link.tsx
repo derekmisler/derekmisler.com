@@ -1,4 +1,4 @@
-import { HTMLProps, memo, FC, useContext } from 'react'
+import { HTMLProps, memo, SFC, useContext } from 'react'
 import styled, { ThemeContext } from 'styled-components'
 import { TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
 
@@ -44,14 +44,14 @@ export const StyledLink = styled.a<StyledLinkProps>`
     outline: none;
     cursor: pointer;
     color: ${({ variant, linkColorHover, backgroundColor }) =>
-      variant === 'text' ? linkColorHover : backgroundColor};
+    variant === 'text' ? linkColorHover : backgroundColor};
     background-color: ${({ variant, linkColorHover }) =>
-      variant === 'text' ? 'transparent' : linkColorHover};
+    variant === 'text' ? 'transparent' : linkColorHover};
     border-color: ${({ linkColorHover }) => linkColorHover};
   }
 `
 
-export const Link: FC<LinkProps> = memo(({ variant, children }) => {
+export const Link: SFC<LinkProps> = memo(({ variant, children }) => {
   const { link, linkHover, background } = useContext(ThemeContext)
   return (
     <StyledLink

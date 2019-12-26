@@ -1,4 +1,4 @@
-import { HTMLProps, FC, useContext, memo } from 'react'
+import { HTMLProps, SFC, useContext, memo } from 'react'
 import styled, { ThemeContext } from 'styled-components'
 import { TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
 
@@ -45,7 +45,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   }
 `
 
-export const Button: FC<ButtonProps> = memo(({ onClick, children }) => {
+export const Button: SFC<ButtonProps> = memo(({ onClick, children }) => {
   const { link, linkHover, background } = useContext(ThemeContext)
   return (
     <StyledButton

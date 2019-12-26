@@ -1,18 +1,14 @@
-import { memo, FC, useContext } from 'react'
+import { memo, SFC, useContext } from 'react'
 import styled, { ThemeContext } from 'styled-components'
-import { TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
-import { generateShadow } from 'utils/generateShadow'
-import { StyledComponentProps } from 'types'
+import { StyledComponentProps, TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
 
 const {
-  baseFontFamily,
   headingFontFamily,
   headingFontSizes,
   headingLineHeight,
   headingFontWeight,
   boldFontWeight,
-  baseFontStyle,
-  accentFontStyle
+  baseFontStyle
 } = TYPOGRAPHY_DEFAULTS
 
 const { spacing, mediaQueries } = LAYOUT_DEFAULTS
@@ -23,44 +19,41 @@ export interface HeadingProps extends StyledComponentProps {
 }
 export interface StyledHeadingProps extends HeadingProps {
   shadow: string
-  shadowHover: string
   backgroundColor: string
 }
 
 export const StyledHeading = styled.div.attrs<StyledHeadingProps>(
-  ({ level, as }) => ({
+  ({ level = 1, as }) => ({
     role: as ? '' : 'heading',
-    'aria-level': level || 1,
+    'aria-level': level,
     as: `h${level}`
   })
-)<StyledHeadingProps>`
+) <StyledHeadingProps>`
   text-align: ${({ textAlign = 'left' }) => textAlign};
   margin: ${({ level }) =>
     level !== 1
       ? `${spacing.small} 0 ${spacing.medium}`
       : `0 0 ${spacing.medium}`};
-  font-family: ${({ level }) =>
-    level === 1 ? headingFontFamily : baseFontFamily};
-  font-weight: ${({ level }) =>
-    level === 1 ? headingFontWeight : boldFontWeight};
-  font-style: ${({ level }) => (level === 1 ? baseFontStyle : accentFontStyle)};
+  font-family: ${headingFontFamily};
+  font-weight: ${({ level = 1 }) =>
+    level <= 2
+      ? headingFontWeight
+      : boldFontWeight};
+  font-style: ${baseFontStyle};
   line-height: ${headingLineHeight};
   font-size: ${({ level }) => headingFontSizes.mobile[(level as number) - 1]};
   @media ${mediaQueries.desktop} {
     font-size: ${({ level }) =>
-      headingFontSizes.desktop[(level as number) - 1]};
+    headingFontSizes.desktop[(level as number) - 1]};
   }
-  ${({ level, shadow, shadowHover, backgroundColor }) =>
-    level === 1 && generateShadow(shadow, shadowHover, backgroundColor, 'text')}
 `
 
-export const Heading: FC<HeadingProps> = memo(({ ref, as, ...rest }) => {
+export const Heading: SFC<HeadingProps> = memo(({ ref, as, ...rest }) => {
   const { shadow, background } = useContext(ThemeContext)
   return (
     <StyledHeading
       {...rest}
       shadow={shadow}
-      shadowHover={shadow}
       backgroundColor={background}
     />
   )

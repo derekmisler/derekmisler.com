@@ -1,4 +1,31 @@
-import { SmMdLgTypes } from 'types'
+import { HTMLProps } from 'react'
+
+export type SmMdLgSizes = 'small' | 'medium' | 'large'
+
+export interface SmMdLgTypes {
+  small: string
+  medium: string
+  large: string
+}
+
+export interface DesktopMobile {
+  desktop: string
+  mobile: string
+}
+
+export interface StyledComponentProps extends HTMLProps<HTMLDivElement> {
+  as?: any
+  ref?: any
+}
+
+export type FlexAlignment =
+  | 'flex-start'
+  | 'flex-end'
+  | 'center'
+  | 'stretch'
+  | 'space-around'
+  | 'space-between'
+  | 'space-evenly'
 
 export interface LayoutTypes {
   borderRadius: string
@@ -28,7 +55,7 @@ export const transitionDefaults = {
 
 export const LAYOUT_DEFAULTS: LayoutTypes = {
   borderRadius: '0',
-  borderSize: '.15rem',
+  borderSize: '1rem',
   borderStyle: 'solid',
   opacity: '0.65',
   transition: `${transitionDefaults.duration} ${transitionDefaults.property} ${transitionDefaults.timing}`,
@@ -37,9 +64,9 @@ export const LAYOUT_DEFAULTS: LayoutTypes = {
     desktop: `screen and (min-width: ${breakpoints.desktop})`
   },
   dropShadow: {
-    small: '.15rem',
-    medium: '.3rem',
-    large: '.45rem'
+    small: '.1rem',
+    medium: '.2rem',
+    large: '.4rem'
   },
   spacing: {
     small: '.5rem',

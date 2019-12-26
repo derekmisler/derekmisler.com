@@ -1,13 +1,13 @@
-import { FC } from 'react'
+import { SFC } from 'react'
 import About from 'sections/About'
 import Experience from 'sections/Experience'
 import Projects from 'sections/Projects'
-import { SmMdLgSizes } from 'types'
+import { SmMdLgSizes } from 'styles'
 
-interface SectionTypes {
+export interface SectionTypes {
   heading: string
   id: string
-  Component: FC
+  Component: SFC
   width: SmMdLgSizes
 }
 

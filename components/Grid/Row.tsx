@@ -1,7 +1,6 @@
-import { memo, FC } from 'react'
+import { memo, SFC } from 'react'
 import styled from 'styled-components'
-import { StyledComponentProps, SmMdLgSizes, FlexAlignment } from 'types'
-import { LAYOUT_DEFAULTS } from 'styles'
+import { StyledComponentProps, SmMdLgSizes, LAYOUT_DEFAULTS, FlexAlignment } from 'styles'
 import { generateResponsiveRow } from 'utils/generateResponsiveGrid'
 
 const { spacing, mediaQueries } = LAYOUT_DEFAULTS
@@ -35,4 +34,4 @@ const StyledGrid = styled.div<RowProps>`
   }
 `
 
-export const Row: FC<RowProps> = memo(props => <StyledGrid {...props} />)
+export const Row: SFC<RowProps> = memo(props => <StyledGrid {...props} />)

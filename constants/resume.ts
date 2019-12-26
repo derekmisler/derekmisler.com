@@ -293,7 +293,7 @@ export const skills: SkillTypes[] = [
   },
   {
     title: 'ColdFusion',
-    level: 2
+    level: 1
   },
   {
     title: 'Python',
@@ -301,7 +301,7 @@ export const skills: SkillTypes[] = [
   },
   {
     title: 'Ruby/Rails',
-    level: 4
+    level: 3
   },
   {
     title: 'Node.js',
@@ -309,7 +309,7 @@ export const skills: SkillTypes[] = [
   },
   {
     title: 'C/C++',
-    level: 2
+    level: 1
   },
   {
     title: 'Go',
@@ -337,11 +337,11 @@ export const skills: SkillTypes[] = [
   },
   {
     title: 'AWS',
-    level: 5
+    level: 4
   },
   {
     title: 'Firebase',
-    level: 5
+    level: 4
   },
   {
     title: 'Adobe CS',

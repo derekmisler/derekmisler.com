@@ -1,7 +1,6 @@
-import { memo, FC, useContext } from 'react'
+import { memo, SFC, useContext } from 'react'
 import styled, { ThemeContext } from 'styled-components'
-import { TextProps } from 'types'
-import { TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
+import { TextProps, TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
 
 const { smallFontSize } = TYPOGRAPHY_DEFAULTS
 const { opacity, mediaQueries } = LAYOUT_DEFAULTS
@@ -20,7 +19,7 @@ export const StyledSmall = styled.small<StyledSmallProps>`
   }
 `
 
-export const Small: FC<TextProps> = memo(({ accent, ref, as, ...rest }) => {
+export const Small: SFC<TextProps> = memo(({ accent, ref, as, ...rest }) => {
   const { accent: accentColor } = useContext(ThemeContext)
   const textColor = accent ? accentColor : 'inherit'
   return <StyledSmall {...rest} textColor={textColor} />

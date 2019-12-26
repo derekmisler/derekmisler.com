@@ -1,7 +1,6 @@
 import { useReducer, MouseEventHandler } from 'react'
-import { themeReducer } from 'utils/reducers'
-import { ThemeProps, ThemeActionTypes } from 'types'
-import { themes } from 'styles/colors'
+import { themeReducer, ThemeActionTypes } from 'utils/reducers'
+import { themes, ThemeProps } from 'styles'
 
 type UseThemeProps = [ThemeProps, MouseEventHandler]
 

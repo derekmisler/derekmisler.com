@@ -1,4 +1,4 @@
-import { memo, FC, ImgHTMLAttributes, useContext } from 'react'
+import { memo, SFC, ImgHTMLAttributes, useContext } from 'react'
 import styled, { ThemeContext } from 'styled-components'
 import { LAYOUT_DEFAULTS } from 'styles'
 import { generateShadow } from 'utils/generateShadow'
@@ -11,7 +11,6 @@ interface ImgProps extends ImgHTMLAttributes<HTMLImageElement> {
 interface StyledImageProps {
   backgroundColor: string
   shadowColor: string
-  shadowColorHover: string
 }
 
 const StyledImg = styled.img`
@@ -27,19 +26,18 @@ const StyledImgContainer = styled.div<StyledImageProps>`
   height: fit-content;
   width: fit-content;
   max-width: 100%;
-  ${({ shadowColor, shadowColorHover, backgroundColor }) =>
-    generateShadow(shadowColor, shadowColorHover, backgroundColor, 'box')}
+  ${({ shadowColor, backgroundColor }) =>
+    generateShadow(shadowColor, backgroundColor, 'box')}
 `
 
-export const Img: FC<ImgProps> = memo(({ fileName, ...rest }) => {
+export const Img: SFC<ImgProps> = memo(({ fileName, ...rest }) => {
   const src = `/images/portfolio/${fileName}`
   const retinaSrc = `/images/portfolio/retina/${fileName}`
-  const { border, linkHover, background } = useContext(ThemeContext)
+  const { border, background } = useContext(ThemeContext)
 
   return (
     <StyledImgContainer
       shadowColor={border}
-      shadowColorHover={linkHover}
       backgroundColor={background}
     >
       <StyledImg

@@ -4,8 +4,7 @@ import { LAYOUT_DEFAULTS } from 'styles'
 const { transition, dropShadow } = LAYOUT_DEFAULTS
 
 export const generateShadow = (
-  first: string,
-  second: string,
+  shadowColor: string,
   backgroundColor: string,
   boxOrText: 'text' | 'box'
 ) => {
@@ -15,18 +14,9 @@ export const generateShadow = (
     ? `0 0 0 ${dropShadow.small}`
     : `${dropShadow.small} ${dropShadow.small}`
 
-  const offsetHover = boxShadow
-    ? `0 0 0 ${dropShadow.medium}`
-    : `${dropShadow.medium} ${dropShadow.medium}`
-
   return css`
     ${boxOrText}-shadow: ${offset} ${backgroundColor},
-      ${dropShadow.medium} ${dropShadow.medium} ${first};
+      ${dropShadow.medium} ${dropShadow.medium} ${shadowColor};
     transition: ${transition};
-
-    &:hover {
-      ${boxOrText}-shadow: ${offsetHover} ${backgroundColor},
-        ${dropShadow.large} ${dropShadow.large} ${second};
-    }
   `
 }

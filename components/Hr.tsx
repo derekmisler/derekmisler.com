@@ -1,4 +1,4 @@
-import { memo, FC, useContext } from 'react'
+import { memo, SFC, useContext } from 'react'
 import styled, { ThemeContext } from 'styled-components'
 import { LAYOUT_DEFAULTS } from 'styles'
 
@@ -12,7 +12,7 @@ const StyledHr = styled.hr<{ borderColor: string }>`
   margin: ${spacing.medium} auto;
 `
 
-export const Hr: FC<{}> = memo(() => {
+export const Hr: SFC<{}> = memo(() => {
   const { border } = useContext(ThemeContext)
   return <StyledHr borderColor={border} />
 })

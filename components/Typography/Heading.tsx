@@ -1,5 +1,4 @@
-import { memo, SFC, useContext } from 'react'
-import styled, { ThemeContext } from 'styled-components'
+import styled from 'styled-components'
 import { StyledComponentProps, TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
 
 const {
@@ -13,16 +12,13 @@ const {
 
 const { spacing, mediaQueries } = LAYOUT_DEFAULTS
 
-export interface HeadingProps extends StyledComponentProps {
+export interface StyledHeadingProps extends StyledComponentProps {
+  accent?: boolean
   textAlign?: string
   level?: number
 }
-export interface StyledHeadingProps extends HeadingProps {
-  shadow: string
-  backgroundColor: string
-}
 
-export const StyledHeading = styled.div.attrs<StyledHeadingProps>(
+export const Heading = styled.div.attrs<StyledHeadingProps>(
   ({ level = 1, as }) => ({
     role: as ? '' : 'heading',
     'aria-level': level,
@@ -42,19 +38,8 @@ export const StyledHeading = styled.div.attrs<StyledHeadingProps>(
   font-style: ${baseFontStyle};
   line-height: ${headingLineHeight};
   font-size: ${({ level }) => headingFontSizes.mobile[(level as number) - 1]};
+  color: ${({ theme, accent }) => (accent ? theme.accent : undefined)};
   @media ${mediaQueries.desktop} {
-    font-size: ${({ level }) =>
-    headingFontSizes.desktop[(level as number) - 1]};
+    font-size: ${({ level }) => headingFontSizes.desktop[(level as number) - 1]};
   }
 `
-
-export const Heading: SFC<HeadingProps> = memo(({ ref, as, ...rest }) => {
-  const { shadow, background } = useContext(ThemeContext)
-  return (
-    <StyledHeading
-      {...rest}
-      shadow={shadow}
-      backgroundColor={background}
-    />
-  )
-})

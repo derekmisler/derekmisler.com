@@ -1,5 +1,5 @@
-import { HTMLProps, memo, SFC, useContext } from 'react'
-import styled, { ThemeContext } from 'styled-components'
+import { HTMLProps } from 'react'
+import styled from 'styled-components'
 import { TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
 
 const {
@@ -10,28 +10,21 @@ const {
 
 const { spacing, borderRadius, borderStyle, borderSize } = LAYOUT_DEFAULTS
 
-export interface LinkProps extends HTMLProps<HTMLLinkElement> {
+export interface StyledLinkProps extends HTMLProps<HTMLLinkElement> {
   href?: string
   variant?: 'text' | 'default'
 }
 
-export interface StyledLinkProps extends LinkProps {
-  linkColor: string
-  linkColorHover: string
-  backgroundColor: string
-  variant?: 'text' | 'default'
-}
-
-export const StyledLink = styled.a<StyledLinkProps>`
+export const Link = styled.a<StyledLinkProps>`
   font: unset;
   display: inline-block;
-  color: ${({ linkColor }) => linkColor};
+  color: ${({ theme }) => theme.link};
   font-size: inherit;
   font-weight: ${boldFontWeight};
   font-style: ${accentFontStyle};
   background-color: transparent;
-  border: ${({ variant, linkColor }) =>
-    variant === 'text' ? '0px' : `${borderSize} ${borderStyle} ${linkColor}`};
+  border: ${({ variant, theme }) =>
+    variant === 'text' ? '0px' : `${borderSize} ${borderStyle} ${theme.link}`};
   text-decoration: none;
   padding: ${({ variant }) =>
     variant === 'text' ? '0px' : `${spacing.small} ${spacing.medium}`};
@@ -43,24 +36,9 @@ export const StyledLink = styled.a<StyledLinkProps>`
   &:active {
     outline: none;
     cursor: pointer;
-    color: ${({ variant, linkColorHover, backgroundColor }) =>
-    variant === 'text' ? linkColorHover : backgroundColor};
-    background-color: ${({ variant, linkColorHover }) =>
-    variant === 'text' ? 'transparent' : linkColorHover};
-    border-color: ${({ linkColorHover }) => linkColorHover};
+    color: ${({ variant, theme }) =>
+    variant === 'text' ? theme.linkHover : theme.background};
+    background-color: ${({ variant, theme }) => variant === 'text' ? 'transparent' : theme.linkHover};
+    border-color: ${({ theme }) => theme.linkHover};
   }
 `
-
-export const Link: SFC<LinkProps> = memo(({ variant, children }) => {
-  const { link, linkHover, background } = useContext(ThemeContext)
-  return (
-    <StyledLink
-      variant={variant}
-      linkColor={link}
-      linkColorHover={linkHover}
-      backgroundColor={background}
-    >
-      {children}
-    </StyledLink>
-  )
-})

@@ -1,5 +1,4 @@
-import { SFC, useContext, memo } from 'react'
-import styled, { ThemeContext } from 'styled-components'
+import styled from 'styled-components'
 import { TextProps, TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
 
 const {
@@ -14,10 +13,11 @@ const {
 const { spacing, opacity, mediaQueries } = LAYOUT_DEFAULTS
 
 export interface StyledTextProps extends TextProps {
-  textColor: string
+  inline?: boolean
+  accent?: boolean
 }
 
-export const StyledText = styled.p.attrs<StyledTextProps>(({ inline }) => ({
+export const Text = styled.p.attrs<StyledTextProps>(({ inline }) => ({
   as: inline ? 'span' : 'p'
 }))<StyledTextProps>`
   margin-bottom: ${spacing.medium};
@@ -29,16 +29,9 @@ export const StyledText = styled.p.attrs<StyledTextProps>(({ inline }) => ({
   font-weight: ${({ bold }) => (bold ? boldFontWeight : baseFontWeight)};
   font-style: ${baseFontStyle};
   opacity: ${({ transparent }) => (transparent ? opacity : '1')};
-  color: ${({ textColor, inline }) => inline ? 'inherit' : textColor};
-  mix-blend-mode: difference;
+  color: ${({ theme, accent }) => (accent ? theme.accent : undefined)};
   @media ${mediaQueries.desktop} {
     font-size: ${textFontSize.desktop};
     text-align: ${({ textAlignDesktop }) => textAlignDesktop};
   }
 `
-
-export const Text: SFC<TextProps> = memo(({ accent, ref, as, ...rest }) => {
-  const { accent: accentColor, text } = useContext(ThemeContext)
-  const textColor = accent ? accentColor : text
-  return <StyledText {...rest} textColor={textColor} />
-})

@@ -1,5 +1,5 @@
-import { HTMLProps, SFC, useContext, memo } from 'react'
-import styled, { ThemeContext } from 'styled-components'
+import { HTMLProps } from 'react'
+import styled from 'styled-components'
 import { TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
 
 const {
@@ -10,25 +10,19 @@ const {
 
 const { spacing, borderRadius, borderStyle, borderSize } = LAYOUT_DEFAULTS
 
-interface ButtonProps extends HTMLProps<HTMLButtonElement> {
+interface StyledButtonProps extends HTMLProps<HTMLButtonElement> {
   accent?: boolean
 }
 
-interface StyledButtonProps {
-  linkColor: string
-  linkColorHover: string
-  backgroundColor: string
-}
-
-const StyledButton = styled.button<StyledButtonProps>`
+export const Button = styled.button<StyledButtonProps>`
   font: unset;
   display: inline-block;
-  color: ${({ linkColor }) => linkColor};
+  color: ${({ theme }) => theme.link};
   font-size: inherit;
   font-weight: ${boldFontWeight};
   font-style: ${accentFontStyle};
   background-color: transparent;
-  border: ${({ linkColor }) => `${borderSize} ${borderStyle} ${linkColor}`};
+  border: ${({ theme }) => `${borderSize} ${borderStyle} ${theme.link}`};
   text-decoration: none;
   padding: ${spacing.small} ${spacing.medium};
   border-radius: ${borderRadius};
@@ -39,22 +33,8 @@ const StyledButton = styled.button<StyledButtonProps>`
   &:active {
     outline: none;
     cursor: pointer;
-    color: ${({ backgroundColor }) => backgroundColor};
-    background-color: ${({ linkColorHover }) => linkColorHover};
-    border-color: ${({ linkColorHover }) => linkColorHover};
+    color: ${({ theme }) => theme.background};
+    background-color: ${({ theme }) => theme.linkHover};
+    border-color: ${({ theme }) => theme.linkHover};
   }
 `
-
-export const Button: SFC<ButtonProps> = memo(({ onClick, children }) => {
-  const { link, linkHover, background } = useContext(ThemeContext)
-  return (
-    <StyledButton
-      onClick={onClick}
-      linkColor={link}
-      linkColorHover={linkHover}
-      backgroundColor={background}
-    >
-      {children}
-    </StyledButton>
-  )
-})

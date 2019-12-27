@@ -1,20 +1,15 @@
-import { HTMLProps, SFC, memo, useContext } from 'react'
-import styled, { ThemeContext } from 'styled-components'
+import { HTMLProps, SFC, memo } from 'react'
+import styled from 'styled-components'
 import { LAYOUT_DEFAULTS } from 'styles'
 import { Plus } from 'components/Icons'
 
 const { spacing, mediaQueries } = LAYOUT_DEFAULTS
 
-type ActionProps = {
+interface ActionProps extends HTMLProps<HTMLButtonElement> {
   active?: boolean
-} & HTMLProps<HTMLButtonElement>
-
-interface StyledActionProps {
-  linkColor: string
-  linkColorHover: string
-  backgroundColor: string
-  fillColor: string
 }
+
+interface StyledActionProps extends ActionProps {}
 
 const StyledAction = styled.button<StyledActionProps>`
   position: absolute;
@@ -23,19 +18,19 @@ const StyledAction = styled.button<StyledActionProps>`
   display: flex;
   align-items: center;
   justify-items: center;
-  color: ${({ backgroundColor }) => backgroundColor};
-  background-color: ${({ linkColor }) => linkColor};
+  color: ${({ theme }) => theme.background};
+  background-color: ${({ theme }) => theme.link};
   padding: ${spacing.medium};
   border-radius: 50%;
   > svg * {
-    fill: ${({ fillColor }) => fillColor};
+    fill: ${({ active, theme }) => active ? theme.accent : theme.background};
   }
   &:hover,
   &:focus,
   &:active {
     outline: none;
     cursor: pointer;
-    background-color: ${({ linkColorHover }) => linkColorHover};
+    background-color: ${({ theme }) => theme.linkHover};
   }
   @media ${mediaQueries.desktop} {
     bottom: auto;
@@ -45,14 +40,10 @@ const StyledAction = styled.button<StyledActionProps>`
 `
 
 export const Action: SFC<ActionProps> = memo(({ onClick, active = false }) => {
-  const { link, linkHover, background, accent } = useContext(ThemeContext)
   return (
     <StyledAction
       onClick={onClick}
-      linkColor={link}
-      linkColorHover={linkHover}
-      backgroundColor={background}
-      fillColor={active ? accent : background}
+      active={active}
     >
       <Plus />
     </StyledAction>

@@ -26,6 +26,7 @@ export type FlexAlignment =
   | 'space-around'
   | 'space-between'
   | 'space-evenly'
+  | 'baseline'
 
 export interface LayoutTypes {
   borderRadius: string

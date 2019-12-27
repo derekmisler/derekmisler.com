@@ -1,27 +1,35 @@
 import React from 'react'
+import { NextPage, NextPageContext } from 'next'
+import { ThemeProvider } from 'styled-components'
 import { Heading } from 'components/Typography'
 import { GlobalStyle } from 'styles'
 import { Analytics } from 'components/Analytics'
+import { useTheme } from 'utils/useTheme'
 
-export interface ErrorTypes {
-  err?: { statusCode: number }
-  res?: { statusCode?: number }
+interface ErrorProps {
+  statusCode: string
+}
+interface ErrorTypes extends NextPageContext {}
+
+const Error: NextPage<ErrorProps> = ({ statusCode }) => {
+  const [theme] = useTheme()
+
+  return (
+    <ThemeProvider theme={theme}>
+      <Analytics />
+      <GlobalStyle />
+      {statusCode
+        ? <Heading level={1}>{statusCode}</Heading>
+        : <Heading level={1}>This page doesn't exist!</Heading>
+      }
+    </ThemeProvider>
+  )
 }
 
-const Error = ({ statusCode }: { statusCode: number }) => (
-  <>
-    <Analytics />
-    <GlobalStyle />
-    {statusCode ? (
-      <Heading level={1}>{statusCode.toString()}</Heading>
-    ) : (
-        <Heading level={1}>This page doesn't exist!</Heading>
-      )}
-  </>
-)
-
 Error.getInitialProps = ({ res, err }: ErrorTypes) => {
-  const statusCode = res ? res.statusCode : err ? err.statusCode : undefined
+  const { statusCode: resStatusCode } = res || {}
+  const { statusCode: errStatusCode } = err || {}
+  const statusCode = (resStatusCode || errStatusCode || '').toString()
   return { statusCode }
 }
 

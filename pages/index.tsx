@@ -1,3 +1,4 @@
+import { NextPage } from 'next'
 import { ThemeProvider } from 'styled-components'
 import { Header } from 'components/Header'
 import { Nav } from 'components/Nav'
@@ -10,28 +11,26 @@ import { useTheme } from 'utils/useTheme'
 
 export const config = { amp: false }
 
-export const App = () => {
+export const App: NextPage<{}> = () => {
   const [theme, toggleTheme] = useTheme()
   return (
     <ThemeProvider theme={theme}>
-      <>
-        <Analytics />
-        <GlobalStyle theme={theme} />
-        <Nav />
-        <Header />
-        <main>
-          {sections.map(section => (
-            <Section
-              key={section.id}
-              heading={section.heading}
-              id={section.id}
-              width={section.width}
-              Component={section.Component}
-            />
-          ))}
-        </main>
-        <Footer handleClick={toggleTheme} />
-      </>
+      <Analytics />
+      <GlobalStyle theme={theme} />
+      <Nav />
+      <Header />
+      <main>
+        {sections.map(section => (
+          <Section
+            key={section.id}
+            heading={section.heading}
+            id={section.id}
+            width={section.width}
+            Component={section.Component}
+          />
+        ))}
+      </main>
+      <Footer handleClick={toggleTheme} />
     </ThemeProvider>
   )
 }

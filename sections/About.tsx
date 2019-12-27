@@ -8,7 +8,7 @@ export const About = () => (
   <>
     <Row columns={1} columnsDesktop={2} gap='large'>
       <Col>
-        <Text>{fixWidow(biography)}</Text>
+        <Text columns={2}>{fixWidow(biography)}</Text>
       </Col>
       <Col>
         <Qualifications />

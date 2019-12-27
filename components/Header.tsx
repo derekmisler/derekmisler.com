@@ -4,13 +4,14 @@ import { resume } from 'constants/resume'
 import { Animated } from 'components/Animated'
 import { Heading, Text, Link } from 'components/Typography'
 import { Row, Col } from 'components/Grid'
+import { Hr } from 'components/Hr'
 
 export const Header: SFC<{}> = memo(() => {
   const {
     profile: { fullName, description, metaDescription }
   } = resume
   return (
-    <Row as='header'>
+    <Row as='header' columnsDesktop={2}>
       <Col row>
         <Animated delay={100}>
           <Text accent>Hello! My name is</Text>
@@ -21,8 +22,11 @@ export const Header: SFC<{}> = memo(() => {
           </Animated>
         </Heading>
         <Animated delay={300}>
-          <Heading level={2}>{fixWidow(description)}</Heading>
+          <Hr accent />
+          <Heading accent level={2}>{description}</Heading>
         </Animated>
+      </Col>
+      <Col>
         <Animated delay={400}>
           <Text transparent>{fixWidow(metaDescription)}</Text>
         </Animated>

@@ -5,7 +5,7 @@ export const description: string = 'Software Engineer & UI/UX Designer'
 export const email: string = 'derekmisler@gmail.com'
 export const socialId: string = 'derekmisler'
 export const metaDescription: string = `Derek is a software engineer living in Brooklyn, NY with a design background and 15+ years of experience building exceptional, high-quality websites and applications.`
-export const biography: string = `I am a software engineer living in Brooklyn, NY with 15+ years experience. I have a diverse education, both traditional and self-driven, of many different web and app development languages for desktop and mobile. I also have a design background, tons of UI/UX experience, and a surprisingly large knowledge of typography (seriously, let's talk about it). I think all developers should study design, and I believe having this well-rounded education makes me a stronger engineer.`
+export const biography: string = `I have a diverse education, both traditional and self-driven, of many different web and app development languages for desktop and mobile. I also have a design background, tons of UI/UX experience, and a surprisingly large knowledge of typography (seriously, let's talk about it). I think all developers should study design, and I believe having this well-rounded education makes me a stronger engineer.`
 
 export const profile: {
   firstName: string
@@ -348,7 +348,7 @@ export const skills: SkillTypes[] = [
     level: 5
   },
   {
-    title: 'LESS/Sass/Stylus',
+    title: 'LESS/Sass',
     level: 5
   }
 ]

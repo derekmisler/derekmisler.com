@@ -20,19 +20,21 @@ const QualificationBar = styled.div<{ level: number }>`
 export const Qualifications: SFC = memo(() => (
   <>
     <Heading level={4}>Qualifications</Heading>
-    <ul>
+    <Row as='ul' columns={1} columnsDesktop={2} gap='large'>
       {sortedSkills.map(skill => (
-        <Row as='li' columns={2} gap='large' key={skill.title} vAlign='baseline'>
-          <Col>
-            <Text inline textAlign='right'>
-              <Small>{skill.title}</Small>
-            </Text>
-          </Col>
-          <Col>
-            <QualificationBar level={skill.level} />
-          </Col>
-        </Row>
+        <Col as='li' key={skill.title}>
+          <Row columns={2} gap='small' vAlign='baseline'>
+            <Col>
+              <Text inline textAlign='right'>
+                <Small>{skill.title}</Small>
+              </Text>
+            </Col>
+            <Col>
+              <QualificationBar level={skill.level} />
+            </Col>
+          </Row>
+        </Col>
       ))}
-    </ul>
+    </Row>
   </>
 ))

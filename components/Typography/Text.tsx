@@ -7,19 +7,15 @@ const {
   baseLineHeight,
   baseFontWeight,
   boldFontWeight,
-  baseFontStyle
+  baseFontStyle,
+  minColWidth
 } = TYPOGRAPHY_DEFAULTS
 
 const { spacing, opacity, mediaQueries } = LAYOUT_DEFAULTS
 
-export interface StyledTextProps extends TextProps {
-  inline?: boolean
-  accent?: boolean
-}
-
-export const Text = styled.p.attrs<StyledTextProps>(({ inline }) => ({
+export const Text = styled.p.attrs<TextProps>(({ inline }) => ({
   as: inline ? 'span' : 'p'
-}))<StyledTextProps>`
+}))<TextProps>`
   margin-bottom: ${spacing.medium};
   font-family: ${baseFontFamily};
   font-size: ${textFontSize.mobile};
@@ -30,8 +26,13 @@ export const Text = styled.p.attrs<StyledTextProps>(({ inline }) => ({
   font-style: ${baseFontStyle};
   opacity: ${({ transparent }) => (transparent ? opacity : '1')};
   color: ${({ theme, accent }) => (accent ? theme.accent : undefined)};
+
   @media ${mediaQueries.desktop} {
     font-size: ${textFontSize.desktop};
     text-align: ${({ textAlignDesktop }) => textAlignDesktop};
+  }
+  @media ${mediaQueries.fullHeight} {
+    columns: ${({ columns = 1 }) => `${columns} ${minColWidth}`};
+    column-gap: ${({ columns }) => columns ? spacing.large : undefined};
   }
 `

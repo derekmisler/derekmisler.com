@@ -25,6 +25,7 @@ export interface TextProps extends HTMLProps<HTMLParagraphElement> {
   accent?: boolean
   bold?: boolean
   inline?: boolean
+  columns?: number
 }
 
 interface TypographyTypes {
@@ -45,12 +46,13 @@ interface TypographyTypes {
   headingFontWeight: FontWeight
   baseFontStyle: FontStyle
   accentFontStyle: FontStyle
+  minColWidth: string
 }
 
 export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
   baseFontFamily: 'neue-haas-grotesk-text, sans-serif;',
   headingFontFamily: 'neue-haas-grotesk-display, sans-serif;',
-  baseFontSize: '18px',
+  baseFontSize: '16px',
   textFontSize: {
     desktop: '2rem',
     mobile: '2rem'
@@ -61,8 +63,8 @@ export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
   },
   baseLetterSpacing: '0.5px',
   headingFontSizes: {
-    desktop: ['12rem', '10rem', '6rem', '4rem', '2rem', '1rem'],
-    mobile: ['6rem', '4rem', '3rem', '2.5rem', '1.5rem', '1rem']
+    desktop: ['17.942em', '11.089em', '6.854em', '4.236em', '2.618em', '1.618em'],
+    mobile: ['6.854em', '4.236em', '2.618em', '1.618em', '1em', '.85em']
   },
   baseLineHeight: 1.65,
   headingLineHeight: 1,
@@ -70,5 +72,7 @@ export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
   boldFontWeight: FontWeight.Medium,
   headingFontWeight: FontWeight.Bold,
   baseFontStyle: FontStyle.Normal,
-  accentFontStyle: FontStyle.Normal
+  accentFontStyle: FontStyle.Normal,
+  minColWidth: `16ch`
+
 }

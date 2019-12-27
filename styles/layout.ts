@@ -37,6 +37,7 @@ export interface LayoutTypes {
   mediaQueries: {
     mobile: string
     desktop: string
+    fullHeight: string
   }
   dropShadow: SmMdLgTypes
   widths: SmMdLgTypes
@@ -62,7 +63,8 @@ export const LAYOUT_DEFAULTS: LayoutTypes = {
   transition: `${transitionDefaults.duration} ${transitionDefaults.property} ${transitionDefaults.timing}`,
   mediaQueries: {
     mobile: `screen and (max-width: ${breakpoints.mobile})`,
-    desktop: `screen and (min-width: ${breakpoints.desktop})`
+    desktop: `screen and (min-width: ${breakpoints.desktop})`,
+    fullHeight: `screen and (max-height: 100vh)`
   },
   dropShadow: {
     small: '.1rem',

@@ -38,6 +38,7 @@ export const Heading = styled.div.attrs<StyledHeadingProps>(
   font-style: ${baseFontStyle};
   line-height: ${headingLineHeight};
   font-size: ${({ level }) => headingFontSizes.mobile[(level as number) - 1]};
+  column-span: all;
   color: ${({ theme, accent }) => (accent ? theme.accent : undefined)};
   @media ${mediaQueries.desktop} {
     font-size: ${({ level }) => headingFontSizes.desktop[(level as number) - 1]};

@@ -4,19 +4,20 @@ import { sections } from 'constants/sections'
 import { NavItem } from './NavItem'
 import { LAYOUT_DEFAULTS } from 'styles/layout'
 
-const { mediaQueries } = LAYOUT_DEFAULTS
+const { spacing, mediaQueries, borderStyle, borderSize } = LAYOUT_DEFAULTS
 
 const StyledNav = styled.nav`
-  /* position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  z-index: 3; */
+  border-bottom: ${({ theme }) => `${borderSize} ${borderStyle} ${theme.link}`};
+  padding: ${spacing.medium} 0;
+  margin-bottom: ${spacing.medium};
+  @media ${mediaQueries.desktop} {
+    border-bottom: none;
+  }
 `
 
 const Ul = styled.ul`
-  display: flex;
   @media ${mediaQueries.desktop} {
+    display: flex;
     justify-content: flex-end;
   }
 `

@@ -1,5 +1,4 @@
-import { useContext } from 'react'
-import { createGlobalStyle, ThemeContext } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 import { TYPOGRAPHY_DEFAULTS } from './typography'
 
 const {
@@ -10,11 +9,13 @@ const {
 } = TYPOGRAPHY_DEFAULTS
 
 interface GlobalStyleProps {
-  backgroundColor: string
-  textColor: string
+  theme: {
+    background: string,
+    text: string
+  }
 }
 
-export const GlobalTypeStyles = createGlobalStyle<GlobalStyleProps>`
+export const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
   html, body, div, span,
   h1, h2, h3, h4, h5, h6, p, pre,
   a, code, em, img,
@@ -35,18 +36,13 @@ export const GlobalTypeStyles = createGlobalStyle<GlobalStyleProps>`
   }
   html { font-size: ${baseFontSize}; }
   body {
-    background-color: ${({ backgroundColor }) => backgroundColor};
+    background-color: ${({ theme }) => theme.background};
     font-family: ${baseFontFamily};
     font-weight: ${baseFontWeight};
     line-height: ${baseLineHeight};
-    color: ${({ textColor }) => textColor};
+    color: ${({ theme }) => theme.text};
   }
   ul, ol {
     list-style-type: none;
   }
 `
-
-export const GlobalStyle = () => {
-  const { text, background } = useContext(ThemeContext)
-  return <GlobalTypeStyles textColor={text} backgroundColor={background} />
-}

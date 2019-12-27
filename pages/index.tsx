@@ -16,7 +16,7 @@ export const App = () => {
     <ThemeProvider theme={theme}>
       <>
         <Analytics />
-        <GlobalStyle />
+        <GlobalStyle theme={theme} />
         <Nav />
         <Header />
         <main>

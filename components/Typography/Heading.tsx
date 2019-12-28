@@ -4,13 +4,13 @@ import { StyledComponentProps, TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styl
 const {
   headingFontFamily,
   headingFontSizes,
-  headingLineHeight,
-  headingFontWeight,
-  boldFontWeight,
+  headingLineHeights,
+  headingFontWeights,
+  headingLetterSpacing,
   baseFontStyle
 } = TYPOGRAPHY_DEFAULTS
 
-const { spacing, mediaQueries } = LAYOUT_DEFAULTS
+const { spacing } = LAYOUT_DEFAULTS
 
 export interface StyledHeadingProps extends StyledComponentProps {
   accent?: boolean
@@ -26,21 +26,13 @@ export const Heading = styled.div.attrs<StyledHeadingProps>(
   })
 ) <StyledHeadingProps>`
   text-align: ${({ textAlign = 'left' }) => textAlign};
-  margin: ${({ level }) =>
-    level !== 1
-      ? `${spacing.small} 0 ${spacing.medium}`
-      : `0 0 ${spacing.medium}`};
+  margin: ${`0 0 ${spacing.medium}`};
   font-family: ${headingFontFamily};
-  font-weight: ${({ level = 1 }) =>
-    level <= 2
-      ? headingFontWeight
-      : boldFontWeight};
   font-style: ${baseFontStyle};
-  line-height: ${headingLineHeight};
-  font-size: ${({ level }) => headingFontSizes.mobile[(level as number) - 1]};
+  font-weight: ${({ level }) => headingFontWeights[(level as number) - 1]};
+  line-height: ${({ level }) => headingLineHeights[(level as number) - 1]};
+  font-size: ${({ level }) => headingFontSizes[(level as number) - 1]};
+  letter-spacing: ${({ level }) => headingLetterSpacing[(level as number) - 1]};
   column-span: all;
   color: ${({ theme, accent }) => (accent ? theme.accent : undefined)};
-  @media ${mediaQueries.desktop} {
-    font-size: ${({ level }) => headingFontSizes.desktop[(level as number) - 1]};
-  }
 `

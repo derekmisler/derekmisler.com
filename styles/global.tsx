@@ -5,7 +5,7 @@ const {
   baseFontWeight,
   baseLineHeight,
   baseFontFamily,
-  baseFontSize
+  htmlFontSize
 } = TYPOGRAPHY_DEFAULTS
 
 interface GlobalStyleProps {
@@ -34,7 +34,7 @@ export const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
   footer, header, menu, nav, section {
     display: block;
   }
-  html { font-size: ${baseFontSize}; }
+  html { font-size: ${htmlFontSize}; }
   body {
     background-color: ${({ theme }) => theme.background};
     font-family: ${baseFontFamily};

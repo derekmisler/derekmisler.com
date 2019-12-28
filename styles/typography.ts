@@ -1,22 +1,9 @@
 import { HTMLProps } from 'react'
 import { DesktopMobile } from './layout'
 
-export enum FontStyle {
-  Italic = 'italic',
-  Normal = 'normal',
-  Inherit = 'inherit'
-}
-
-export enum FontWeight {
-  UltraThin = '100',
-  Thin = '200',
-  Light = '300',
-  Normal = '400',
-  Medium = '500',
-  Bold = '700',
-  Black = '900',
-  Inherit = 'inherit'
-}
+type FontStyle = 'italic' | 'normal'
+type BaseFontWeight = '400' | '500' | '700'
+type HeadingFontWeight = '100' | '200' | '300' | '400' | '500' | '600' | '700' | '900'
 
 export interface TextProps extends HTMLProps<HTMLParagraphElement> {
   textAlign?: string
@@ -31,19 +18,17 @@ export interface TextProps extends HTMLProps<HTMLParagraphElement> {
 interface TypographyTypes {
   baseFontFamily: string
   headingFontFamily: string
-  baseFontSize: string
-  textFontSize: DesktopMobile
+  htmlFontSize: string
+  baseFontSize: DesktopMobile
   smallFontSize: DesktopMobile
   baseLetterSpacing: string
-  headingFontSizes: {
-    desktop: [string, string, string, string, string, string]
-    mobile: [string, string, string, string, string, string]
-  }
+  headingFontSizes: [string, string, string, string, string, string]
+  headingLineHeights: [number, number, number, number, number, number]
+  headingLetterSpacing: [string, string, string, string, string, string]
+  headingFontWeights: [HeadingFontWeight, HeadingFontWeight, HeadingFontWeight, HeadingFontWeight, HeadingFontWeight, HeadingFontWeight]
   baseLineHeight: number
-  headingLineHeight: number
-  baseFontWeight: FontWeight
-  boldFontWeight: FontWeight
-  headingFontWeight: FontWeight
+  baseFontWeight: BaseFontWeight
+  boldFontWeight: BaseFontWeight
   baseFontStyle: FontStyle
   accentFontStyle: FontStyle
   minColWidth: string
@@ -52,8 +37,8 @@ interface TypographyTypes {
 export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
   baseFontFamily: 'neue-haas-grotesk-text, sans-serif;',
   headingFontFamily: 'neue-haas-grotesk-display, sans-serif;',
-  baseFontSize: '16px',
-  textFontSize: {
+  htmlFontSize: '16px',
+  baseFontSize: {
     desktop: '2rem',
     mobile: '2rem'
   },
@@ -61,18 +46,16 @@ export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
     desktop: '.65em',
     mobile: '.85em'
   },
-  baseLetterSpacing: '0.5px',
-  headingFontSizes: {
-    desktop: ['17.942em', '11.089em', '6.854em', '4.236em', '2.618em', '1.618em'],
-    mobile: ['6.854em', '4.236em', '2.618em', '1.618em', '1em', '.85em']
-  },
+  baseLetterSpacing: '0.00938em',
   baseLineHeight: 1.65,
-  headingLineHeight: 1,
-  baseFontWeight: FontWeight.Medium,
-  boldFontWeight: FontWeight.Medium,
-  headingFontWeight: FontWeight.Bold,
-  baseFontStyle: FontStyle.Normal,
-  accentFontStyle: FontStyle.Normal,
+  baseFontWeight: '500',
+  boldFontWeight: '500',
+  baseFontStyle: 'normal',
+  accentFontStyle: 'normal',
+  headingFontSizes: ['6em', '3.75em', '3em', '2.125em', '1.5em', '1em'],
+  headingLineHeights: [1.167, 1.2, 1.167, 1.235, 1.334, 1.6],
+  headingLetterSpacing: ['-0.01562em', '-0.00833em', '0em', '0.00735em', '0em', '0.0075em'],
+  headingFontWeights: ['600', '600', '600', '600', '600', '600'],
   minColWidth: `16ch`
 
 }

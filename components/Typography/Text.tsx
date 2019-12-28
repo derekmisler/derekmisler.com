@@ -3,7 +3,7 @@ import { TextProps, TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
 
 const {
   baseFontFamily,
-  textFontSize,
+  baseFontSize,
   baseLineHeight,
   baseFontWeight,
   boldFontWeight,
@@ -18,7 +18,8 @@ export const Text = styled.p.attrs<TextProps>(({ inline }) => ({
 }))<TextProps>`
   margin-bottom: ${spacing.medium};
   font-family: ${baseFontFamily};
-  font-size: ${textFontSize.mobile};
+  font-size: ${baseFontSize.mobile};
+  word-wrap: break-word;
   text-align: ${({ textAlign }) => textAlign};
   display: ${({ inline }) => (inline ? 'inline' : 'block')};
   line-height: ${({ inline }) => (inline ? 1 : baseLineHeight)};
@@ -28,7 +29,7 @@ export const Text = styled.p.attrs<TextProps>(({ inline }) => ({
   color: ${({ theme, accent }) => (accent ? theme.accent : undefined)};
 
   @media ${mediaQueries.desktop} {
-    font-size: ${textFontSize.desktop};
+    font-size: ${baseFontSize.desktop};
     text-align: ${({ textAlignDesktop }) => textAlignDesktop};
   }
   @media ${mediaQueries.fullHeight} {

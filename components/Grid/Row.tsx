@@ -26,7 +26,7 @@ const StyledGrid = styled.div<RowProps>`
   grid-column-gap: ${({ gap }) => (gap ? spacing[gap] : 0)};
   align-items: ${({ vAlign = 'stretch' }) => vAlign};
   justify-items: ${({ hAlign = 'stretch' }) => hAlign};
-  ${({ columns = 8 }) => generateResponsiveRow(columns)}
+  ${({ columns = 1 }) => generateResponsiveRow(columns)}
 
   @media ${mediaQueries.desktop} {
     min-height: ${({ fullHeight }) => (fullHeight ? `100vh` : `auto`)};

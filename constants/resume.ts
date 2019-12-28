@@ -280,7 +280,7 @@ export const skills: SkillTypes[] = [
     level: 5
   },
   {
-    title: 'React/Redux',
+    title: 'React & Redux',
     level: 5
   },
   {

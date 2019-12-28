@@ -6,7 +6,7 @@ import { Qualifications } from 'components/Qualifications'
 
 export const About = () => (
   <>
-    <Row columns={1} columnsDesktop={2} gap='large'>
+    <Row columnsDesktop={2} gap='large'>
       <Col>
         <Text columns={2}>{fixWidow(biography)}</Text>
       </Col>

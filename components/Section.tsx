@@ -1,34 +1,27 @@
 import React, { SFC, memo } from 'react'
 import styled from 'styled-components'
-import { SmMdLgSizes, LAYOUT_DEFAULTS } from 'styles'
+import { StyledComponentProps, LAYOUT_DEFAULTS } from 'styles'
 import { Heading } from './Typography'
 
-const { widths } = LAYOUT_DEFAULTS
+const { spacing } = LAYOUT_DEFAULTS
 
-interface SectionTypes {
+interface SectionTypes extends StyledComponentProps {
   id: string
-  heading: string
+  heading?: string
   Component: SFC
-  width: SmMdLgSizes
 }
 
-const StyledSectionOuter = styled.section`
+const StyledSection = styled.section.attrs<StyledComponentProps>(({ as }) => ({
+  as
+}))`
   margin: 0;
-  padding: 0;
-  width: auto;
+  padding: 0 ${spacing.large};
 `
-const StyledSectionInner = styled.div<{ width: SmMdLgSizes }>`
-  margin: 0 auto;
-  width: ${({ width }) => widths[width]};
-`
-
 export const Section: SFC<SectionTypes> = memo(
-  ({ id, heading, Component, width }) => (
-    <StyledSectionOuter id={id}>
-      <StyledSectionInner width={width}>
-        <Heading level={2}>{heading}</Heading>
-        <Component />
-      </StyledSectionInner>
-    </StyledSectionOuter>
+  ({ id, heading, Component, as }) => (
+    <StyledSection as={as} id={id}>
+      { heading && <Heading level={2}>{heading}</Heading> }
+      <Component />
+    </StyledSection>
   )
 )

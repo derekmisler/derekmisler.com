@@ -1,4 +1,3 @@
-import { HTMLProps } from 'react'
 import styled from 'styled-components'
 import { TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
 
@@ -11,9 +10,14 @@ const {
 
 const { spacing, borderRadius, borderStyle, borderSize } = LAYOUT_DEFAULTS
 
-export const Button = styled.button.attrs<HTMLProps<HTMLButtonElement>>(({ href }) => ({
+interface StyledButtonProps {
+  accent?: boolean
+  href?: string
+}
+
+export const Button = styled.button.attrs<StyledButtonProps>(({ href }) => ({
   as: href ? 'a' : 'button'
-}))`
+}))<StyledButtonProps>`
   font: unset;
   display: inline-block;
   color: ${({ theme }) => theme.link};

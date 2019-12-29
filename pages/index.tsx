@@ -25,7 +25,6 @@ export const App: NextPage<{}> = () => {
             key={section.id}
             heading={section.heading}
             id={section.id}
-            width={section.width}
             Component={section.Component}
           />
         ))}

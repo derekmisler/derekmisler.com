@@ -12,14 +12,14 @@ const sortedSkills: SkillTypes[] = skills.sort((a, b) => {
 const maxLevel: number = sortedSkills[0].level
 
 interface QualificationTypes {
-  fill?: boolean
+  active?: boolean
 }
 
 const QualificationBar = styled.div<QualificationTypes>`
   display: block;
-  background-color: ${({ fill, theme }) => fill ? theme.accent : 'transparent'};
+  background-color: ${({ active, theme }) => active ? theme.accent : 'transparent'};
   height: ${LAYOUT_DEFAULTS.borderSize};
-  border-right: ${({ fill, theme }) => fill ? `1px solid ${theme.background}` : 0};
+  border-right: ${({ active, theme }) => active ? `1px solid ${theme.background}` : 0};
 `
 
 export const Qualifications: SFC = memo(() => (
@@ -34,7 +34,7 @@ export const Qualifications: SFC = memo(() => (
           <Row columns={maxLevel}>
             {Array(maxLevel).fill(skill.level).map((level, i) => (
               <Col key={`${skill.title}-${i}`}>
-                <QualificationBar fill={i < level} />
+                <QualificationBar active={i < level} />
               </Col>
             ))}
           </Row>

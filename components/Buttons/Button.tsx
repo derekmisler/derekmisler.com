@@ -5,25 +5,25 @@ import { TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
 const {
   boldFontWeight,
   accentFontStyle,
-  baseLetterSpacing
+  baseLetterSpacing,
+  buttonFontSize
 } = TYPOGRAPHY_DEFAULTS
 
 const { spacing, borderRadius, borderStyle, borderSize } = LAYOUT_DEFAULTS
 
-interface StyledButtonProps extends HTMLProps<HTMLButtonElement> {
-  accent?: boolean
-}
-
-export const Button = styled.button<StyledButtonProps>`
+export const Button = styled.button.attrs<HTMLProps<HTMLButtonElement>>(({ href }) => ({
+  as: href ? 'a' : 'button'
+}))`
   font: unset;
   display: inline-block;
   color: ${({ theme }) => theme.link};
-  font-size: inherit;
+  font-size: ${buttonFontSize};
   font-weight: ${boldFontWeight};
   font-style: ${accentFontStyle};
   background-color: transparent;
   border: ${({ theme }) => `${borderSize} ${borderStyle} ${theme.link}`};
   text-decoration: none;
+  text-transform: uppercase;
   padding: ${spacing.small} ${spacing.medium};
   border-radius: ${borderRadius};
   width: fit-content;

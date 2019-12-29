@@ -2,7 +2,8 @@ import { SFC, memo } from 'react'
 import { fixWidow } from 'utils/stringFormat'
 import { resume } from 'constants/resume'
 import { Animated } from 'components/Animated'
-import { Heading, Text, Link } from 'components/Typography'
+import { Heading, Text } from 'components/Typography'
+import { Button } from 'components/Buttons'
 import { Row, Col } from 'components/Grid'
 import { Hr } from 'components/Hr'
 
@@ -32,9 +33,9 @@ export const Header: SFC<{}> = memo(() => {
         </Animated>
         <Animated delay={500}>
           <Text>
-            <Link href='mailto:derekmisler@gmail.com?subject=Hello!'>
+            <Button href='mailto:derekmisler@gmail.com?subject=Hello!'>
               Say Hello!
-            </Link>
+            </Button>
           </Text>
         </Animated>
       </Col>

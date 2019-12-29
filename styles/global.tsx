@@ -41,6 +41,8 @@ export const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
     font-weight: ${baseFontWeight};
     line-height: ${baseLineHeight};
     color: ${({ theme }) => theme.text};
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
   }
   ul, ol {
     list-style-type: none;

@@ -22,6 +22,7 @@ const StyledAction = styled.button<StyledActionProps>`
   background-color: ${({ theme }) => theme.link};
   padding: ${spacing.medium};
   border-radius: 50%;
+  border: 0;
   > svg * {
     fill: ${({ active, theme }) => active ? theme.accent : theme.background};
   }

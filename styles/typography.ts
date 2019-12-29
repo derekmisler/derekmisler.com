@@ -1,5 +1,4 @@
 import { HTMLProps } from 'react'
-import { DesktopMobile } from './layout'
 
 type FontStyle = 'italic' | 'normal'
 type BaseFontWeight = '400' | '500' | '700'
@@ -19,13 +18,14 @@ interface TypographyTypes {
   baseFontFamily: string
   headingFontFamily: string
   htmlFontSize: string
-  baseFontSize: DesktopMobile
-  smallFontSize: DesktopMobile
+  baseFontSize: string
+  smallFontSize: string
+  buttonFontSize: string
   baseLetterSpacing: string
   headingFontSizes: [string, string, string, string, string, string]
   headingLineHeights: [number, number, number, number, number, number]
   headingLetterSpacing: [string, string, string, string, string, string]
-  headingFontWeights: [HeadingFontWeight, HeadingFontWeight, HeadingFontWeight, HeadingFontWeight, HeadingFontWeight, HeadingFontWeight]
+  headingFontWeights: HeadingFontWeight[]
   baseLineHeight: number
   baseFontWeight: BaseFontWeight
   boldFontWeight: BaseFontWeight
@@ -34,18 +34,15 @@ interface TypographyTypes {
   minColWidth: string
 }
 
+export const BASE_MEASURE = 16
+
 export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
   baseFontFamily: 'neue-haas-grotesk-text, sans-serif;',
   headingFontFamily: 'neue-haas-grotesk-display, sans-serif;',
-  htmlFontSize: '16px',
-  baseFontSize: {
-    desktop: '2rem',
-    mobile: '2rem'
-  },
-  smallFontSize: {
-    desktop: '.65em',
-    mobile: '.85em'
-  },
+  htmlFontSize: `${BASE_MEASURE}px`,
+  baseFontSize: '2rem',
+  smallFontSize: '.65em',
+  buttonFontSize: '1.5rem',
   baseLetterSpacing: '0.00938em',
   baseLineHeight: 1.65,
   baseFontWeight: '500',
@@ -55,7 +52,7 @@ export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
   headingFontSizes: ['6em', '3.75em', '3em', '2.125em', '1.5em', '1em'],
   headingLineHeights: [1.167, 1.2, 1.167, 1.235, 1.334, 1.6],
   headingLetterSpacing: ['-0.01562em', '-0.00833em', '0em', '0.00735em', '0em', '0.0075em'],
-  headingFontWeights: ['600', '600', '600', '600', '600', '600'],
-  minColWidth: `16ch`
+  headingFontWeights: new Array(6).fill('600'),
+  minColWidth: `${BASE_MEASURE}ch`
 
 }

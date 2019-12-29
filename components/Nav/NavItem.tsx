@@ -15,7 +15,7 @@ const { spacing, mediaQueries } = LAYOUT_DEFAULTS
 const Li = styled.li`
   padding: ${spacing.small};
   @media ${mediaQueries.desktop} {
-    padding: ${spacing.medium} ${spacing.large} ${spacing.medium} 0;
+    padding: ${spacing.small} ${spacing.large} ${spacing.small} 0;
   }
 `
 
@@ -35,7 +35,6 @@ export const NavItem: SFC<NavItemProps> = memo(({ section, index }) => {
           href={`#${section.id}`}
           property='item'
           typeof='WebPage'
-          variant='text'
         >
           <Text inline property='name'>
             <Small>{positionLabel}</Small>

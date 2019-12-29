@@ -18,7 +18,7 @@ export const Text = styled.p.attrs<TextProps>(({ inline }) => ({
 }))<TextProps>`
   margin-bottom: ${spacing.medium};
   font-family: ${baseFontFamily};
-  font-size: ${baseFontSize.mobile};
+  font-size: ${baseFontSize};
   word-wrap: break-word;
   text-align: ${({ textAlign }) => textAlign};
   display: ${({ inline }) => (inline ? 'inline' : 'block')};
@@ -29,7 +29,6 @@ export const Text = styled.p.attrs<TextProps>(({ inline }) => ({
   color: ${({ theme, accent }) => (accent ? theme.accent : undefined)};
 
   @media ${mediaQueries.desktop} {
-    font-size: ${baseFontSize.desktop};
     text-align: ${({ textAlignDesktop }) => textAlignDesktop};
   }
   @media ${mediaQueries.fullHeight} {

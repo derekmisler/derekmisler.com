@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { StyledComponentProps, TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
+import { StyledComponentProps, TYPOGRAPHY_DEFAULTS } from 'styles'
 
 const {
   headingFontFamily,
@@ -9,8 +9,6 @@ const {
   headingLetterSpacing,
   baseFontStyle
 } = TYPOGRAPHY_DEFAULTS
-
-const { spacing } = LAYOUT_DEFAULTS
 
 export interface StyledHeadingProps extends StyledComponentProps {
   accent?: boolean
@@ -26,7 +24,6 @@ export const Heading = styled.div.attrs<StyledHeadingProps>(
   })
 ) <StyledHeadingProps>`
   text-align: ${({ textAlign = 'left' }) => textAlign};
-  margin: ${`0 0 ${spacing.medium}`};
   font-family: ${headingFontFamily};
   font-style: ${baseFontStyle};
   font-weight: ${({ level }) => headingFontWeights[(level as number) - 1]};

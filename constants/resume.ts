@@ -308,16 +308,8 @@ export const skills: SkillTypes[] = [
     level: 5
   },
   {
-    title: 'C/C++',
-    level: 1
-  },
-  {
     title: 'Go',
     level: 3
-  },
-  {
-    title: 'C#/.NET',
-    level: 2
   },
   {
     title: 'Java',

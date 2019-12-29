@@ -11,9 +11,7 @@ interface SectionTypes extends StyledComponentProps {
   Component: SFC
 }
 
-const StyledSection = styled.section.attrs<StyledComponentProps>(({ as }) => ({
-  as
-}))`
+const StyledSection = styled.section.attrs<StyledComponentProps>(({ as }) => ({ as }))`
   margin: 0;
   padding: 0 ${spacing.large};
 `

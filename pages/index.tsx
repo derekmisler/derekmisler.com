@@ -17,7 +17,7 @@ export const App: NextPage<{}> = () => {
     <ThemeProvider theme={theme}>
       <Analytics />
       <GlobalStyle theme={theme} />
-      <Nav />
+      <Nav handleClick={toggleTheme} />
       <Header />
       <main>
         {sections.map(section => (
@@ -29,7 +29,7 @@ export const App: NextPage<{}> = () => {
           />
         ))}
       </main>
-      <Footer handleClick={toggleTheme} />
+      <Footer />
     </ThemeProvider>
   )
 }

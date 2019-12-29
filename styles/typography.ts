@@ -1,4 +1,5 @@
 import { HTMLProps } from 'react'
+import { css } from 'styled-components'
 
 type FontStyle = 'italic' | 'normal'
 type BaseFontWeight = '400' | '500' | '700'
@@ -40,7 +41,7 @@ export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
   baseFontFamily: 'neue-haas-grotesk-text, sans-serif;',
   headingFontFamily: 'neue-haas-grotesk-display, sans-serif;',
   htmlFontSize: `${BASE_MEASURE}px`,
-  baseFontSize: '1.75rem',
+  baseFontSize: '2rem',
   smallFontSize: '.65em',
   buttonFontSize: '1.35rem',
   baseLetterSpacing: '0.00938em',
@@ -54,5 +55,15 @@ export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
   headingLetterSpacing: ['-0.01562em', '-0.00833em', '0em', '0.00735em', '0em', '0.0075em'],
   headingFontWeights: new Array(6).fill('600'),
   minColWidth: `${BASE_MEASURE}ch`
-
 }
+
+export const DEFAULT_TEXT_STYLES = css`
+  font-family: ${TYPOGRAPHY_DEFAULTS.baseFontFamily};
+  font-size: ${TYPOGRAPHY_DEFAULTS.baseFontSize};
+  font-style: ${TYPOGRAPHY_DEFAULTS.baseFontStyle};
+  line-height: ${TYPOGRAPHY_DEFAULTS.baseLineHeight};
+  font-weight: ${TYPOGRAPHY_DEFAULTS.baseFontWeight};
+  letter-spacing: ${TYPOGRAPHY_DEFAULTS.baseLetterSpacing};
+  word-wrap: break-word;
+  text-align: left;
+`

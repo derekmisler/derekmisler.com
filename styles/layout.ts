@@ -34,6 +34,7 @@ export interface LayoutTypes {
   borderStyle: string
   opacity: string
   transition: string
+  borderSizeSmall: string
   mediaQueries: {
     mobile: string
     desktop: string
@@ -57,7 +58,8 @@ export const transitionDefaults = {
 
 export const LAYOUT_DEFAULTS: LayoutTypes = {
   borderRadius: '0',
-  borderSize: '1rem',
+  borderSize: '.85rem',
+  borderSizeSmall: '.125rem',
   borderStyle: 'solid',
   opacity: '0.65',
   transition: `${transitionDefaults.duration} ${transitionDefaults.property} ${transitionDefaults.timing}`,

@@ -1,8 +1,9 @@
 import styled from 'styled-components'
-import React, { memo, SFC } from 'react'
+import React, { memo, MouseEventHandler, SFC } from 'react'
 import { sections } from 'constants/sections'
 import { NavItem } from './NavItem'
 import { LAYOUT_DEFAULTS } from 'styles/layout'
+import { Toggle } from 'components/Forms'
 
 const { spacing, mediaQueries, borderStyle, borderSize } = LAYOUT_DEFAULTS
 
@@ -22,13 +23,18 @@ const Ul = styled.ul`
   }
 `
 
-export const Nav: SFC<{}> = memo(() => {
+export const Nav: SFC<{
+  handleClick: MouseEventHandler
+}> = memo(({ handleClick }) => {
   return (
     <StyledNav>
       <Ul vocab='http://schema.org/' typeof='BreadcrumbList'>
         {sections.map((section, i) => (
           <NavItem section={section} index={i} key={section.id} />
         ))}
+        <li>
+          <Toggle onLabel='Dark' offLabel='Light' onToggle={handleClick} />
+        </li>
       </Ul>
     </StyledNav>
   )

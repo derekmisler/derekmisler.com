@@ -17,11 +17,9 @@ const mediaQueryMatcher = (queryToMatch: string): boolean => {
   return matches
 }
 
-export const setDarkMode = (): boolean => {
-  const isDark = mediaQueryMatcher('(prefers-color-scheme: dark)')
-  const isLight = mediaQueryMatcher('(prefers-color-scheme: light)')
-  if (isDark) return true
-  if (isLight) return false
+export const useDarkMode = (): boolean => {
+  if (mediaQueryMatcher('(prefers-color-scheme: dark)')) return true
+  if (mediaQueryMatcher('(prefers-color-scheme: light)')) return false
 
   const now: Date = new Date()
   const hour: number = now.getHours()

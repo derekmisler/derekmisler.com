@@ -3,8 +3,14 @@ import styled from 'styled-components'
 import { Small } from 'components/Typography'
 import { DEFAULT_TEXT_STYLES, LAYOUT_DEFAULTS, transitionDefaults } from 'styles'
 
-const { borderStyle, borderSize, borderSizeSmall } = LAYOUT_DEFAULTS
-const { duration, timing } = transitionDefaults
+const {
+  borderSize,
+  borderSizeSmall,
+  borderSizeLarge,
+  borderStyle
+} = LAYOUT_DEFAULTS
+
+const { timing, duration } = transitionDefaults
 
 interface ToggleProps extends HTMLProps<HTMLInputElement> {
   onLabel?: string
@@ -17,43 +23,43 @@ const ToggleWrapper = styled.fieldset`
   border: 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 `
 
-const StyledCheckBox = styled.input`
-  height: 0;
-  width: ${borderSize};
+const NavToggle = styled.input`
+  height: ${borderSize};
+  width: ${borderSizeLarge};
+  padding: 0;
+  margin: 0;
   position: relative;
-  border: ${({ theme }) => `${borderSizeSmall} ${borderStyle} ${theme.link}`};
   appearance: none;
   outline: none;
+  background-color: transparent;
+  border: ${({ theme }) => `${borderSizeSmall} ${borderStyle} ${theme.link}`};
 
   &::before {
-    transition: ${duration} left ${timing};
-    background-color: transparent;
-    border: ${({ theme }) => `${borderSize} ${borderStyle} ${theme.link}`};
-    color: ${({ theme }) => theme.link};
     content: '';
-    display: inline-block;
-    height: ${borderSize};
-    left: -${borderSize};
     position: absolute;
+    height: ${borderSize};
     width: ${borderSize};
+    background-color: ${({ theme }) => theme.link};
+    transition: ${timing} left ${duration};
+    left: 0;
+    will-change: left;
+    top: -${borderSizeSmall};
   }
 
   &:checked {
     background-image: none;
 
     &::before {
-      left: ${borderSize};
+      left: calc(100% - ${borderSize});
     }
   }
-
 `
 
 export const Toggle: SFC<ToggleProps> = memo(({
-  onLabel = 'On',
-  offLabel = 'Off',
+  onLabel,
+  offLabel,
   onToggle
 }) => {
   const [isActive, setActive] = useState(false)
@@ -63,9 +69,9 @@ export const Toggle: SFC<ToggleProps> = memo(({
   }
   return (
     <ToggleWrapper>
-      <Small as='label'>{onLabel}</Small>
-      <StyledCheckBox onChange={handleChange} type='checkbox' />
-      <Small as='label'>{offLabel}</Small>
+      { onLabel && <Small htmlFor='toggle' as='label'>{onLabel}</Small> }
+      <NavToggle id='toggle' onChange={handleChange} type='checkbox' />
+      {offLabel && <Small htmlFor='toggle' as='label'>{offLabel}</Small> }
     </ToggleWrapper>
   )
 })

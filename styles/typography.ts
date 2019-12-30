@@ -28,8 +28,12 @@ interface TypographyTypes {
     mobile: [string, string, string, string, string, string],
     desktop: [string, string, string, string, string, string]
   }
-  headingLineHeights: [number, number, number, number, number, number]
+  headingLineHeights: number[]
   headingLetterSpacing: [string, string, string, string, string, string]
+  headingLeftMargin: {
+    mobile: string[],
+    desktop: string[]
+  }
   headingFontWeights: HeadingFontWeight[]
   baseLineHeight: number
   baseFontWeight: BaseFontWeight
@@ -40,6 +44,7 @@ interface TypographyTypes {
 }
 
 export const BASE_MEASURE = 16
+const HEADING_SIZES = new Array(6)
 
 export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
   baseFontFamily: 'neue-haas-grotesk-text, sans-serif;',
@@ -55,22 +60,27 @@ export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
     mobile: '1rem'
   },
   baseLetterSpacing: '0.00938em',
-  baseLineHeight: 1.65,
+  baseLineHeight: 1.5,
   baseFontWeight: '500',
   boldFontWeight: '500',
   baseFontStyle: 'normal',
   accentFontStyle: 'normal',
-  headingFontSizes: {
-    mobile: ['5.5rem', '3.75rem', '3rem', '2.125rem', '1.5rem', '1rem'],
-    desktop: ['7.75rem', '5.5rem', '3.75rem', '3rem', '2.125rem', '1.5rem']
+  headingLeftMargin: {
+    mobile: ['-.25rem', '-.08rem'],
+    desktop: ['-.45rem', '-.25rem', '-.125rem', '-.125rem']
   },
-  headingLineHeights: [1.167, 1.2, 1.167, 1.235, 1.334, 1.6],
+  headingFontSizes: {
+    mobile: ['6rem', '3.75rem', '3rem', '2.125rem', '1.5rem', '1rem'],
+    desktop: ['10rem', '7.5rem', '3.75rem', '3rem', '2.125rem', '1.5rem']
+  },
+  headingLineHeights: [.75, .85, .8, .8, .8, .8],
   headingLetterSpacing: ['-0.01562em', '-0.00833em', '0em', '0.00735em', '0em', '0.0075em'],
-  headingFontWeights: new Array(6).fill('600'),
+  headingFontWeights: HEADING_SIZES.fill('600'),
   minColWidth: `${BASE_MEASURE}ch`
 }
 
 export const DEFAULT_TEXT_STYLES = css`
+  font: unset;
   font-family: ${TYPOGRAPHY_DEFAULTS.baseFontFamily};
   font-size: ${TYPOGRAPHY_DEFAULTS.baseFontSize.mobile};
   font-style: ${TYPOGRAPHY_DEFAULTS.baseFontStyle};

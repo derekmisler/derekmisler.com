@@ -8,5 +8,5 @@ export const Hr = styled.hr<{ accent?: boolean }>`
   border: 0;
   color: ${({ accent, theme }) => accent ? theme.accent : theme.border};
   height: ${borderSize};
-  margin: ${spacing.medium} auto;
+  margin: ${spacing.small} auto;
 `

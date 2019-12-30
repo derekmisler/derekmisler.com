@@ -31,10 +31,11 @@ export type FlexAlignment =
 export interface LayoutTypes {
   borderRadius: string
   borderSize: string
+  borderSizeSmall: string
+  borderSizeLarge: string
   borderStyle: string
   opacity: string
   transition: string
-  borderSizeSmall: string
   mediaQueries: {
     mobile: string
     desktop: string
@@ -51,15 +52,17 @@ export const breakpoints = {
 }
 
 export const transitionDefaults = {
+  durationFast: '230ms',
   duration: '500ms',
   property: 'all',
-  timing: 'ease-in-out'
+  timing: 'cubic-bezier(.68, -.55, .265, 1.55)'
 }
 
 export const LAYOUT_DEFAULTS: LayoutTypes = {
   borderRadius: '0',
   borderSize: '.85rem',
   borderSizeSmall: '.125rem',
+  borderSizeLarge: '1.95rem',
   borderStyle: 'solid',
   opacity: '0.65',
   transition: `${transitionDefaults.duration} ${transitionDefaults.property} ${transitionDefaults.timing}`,

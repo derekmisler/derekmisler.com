@@ -13,28 +13,26 @@ const HeaderContent: SFC<{}> = memo(() => {
     profile: { fullName, description, metaDescription }
   } = resume
   return (
-    <Row columnsDesktop={5}>
+    <Row columnsDesktop={6}>
       <Col row>
         <Animated delay={100}>
-          <Text accent>Hello! My name is</Text>
+          <Text inline accent>Hello! My name is</Text>
         </Animated>
         <Animated delay={200}>
           <Heading level={1}>
             {fullName}
-        </Heading>
+          </Heading>
         </Animated>
         <Animated delay={300}>
           <Hr accent />
         </Animated>
       </Col>
-      <Col rangeDesktop='3..'>
+      <Col rangeDesktop='4..'>
         <Animated delay={400}>
           <Heading accent level={2}>{description}</Heading>
         </Animated>
-      {/* </Col>
-      <Col> */}
         <Animated delay={500}>
-          <Text transparent>{fixWidow(metaDescription)}</Text>
+          <Text inline transparent>{fixWidow(metaDescription)}</Text>
         </Animated>
         <Animated delay={600}>
           <Text>

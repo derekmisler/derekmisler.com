@@ -10,18 +10,18 @@ export interface SectionTypes {
 
 export const sections: SectionTypes[] = [
   {
-    heading: 'About Me',
-    id: 'about',
+    heading: 'Me',
+    id: 'me',
     Component: About
   },
   {
-    heading: 'Experience',
-    id: 'experience',
+    heading: 'Work',
+    id: 'work',
     Component: Experience
   },
   {
-    heading: 'Projects',
-    id: 'projects',
+    heading: 'Works',
+    id: 'works',
     Component: Projects
   }
 ]

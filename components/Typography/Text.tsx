@@ -2,9 +2,6 @@ import styled from 'styled-components'
 import { DEFAULT_TEXT_STYLES, TextProps, TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
 
 const {
-  baseLineHeight,
-  baseFontWeight,
-  boldFontWeight,
   minColWidth
 } = TYPOGRAPHY_DEFAULTS
 
@@ -14,11 +11,9 @@ export const Text = styled.p.attrs<TextProps>(({ inline }) => ({
   as: inline ? 'span' : 'p'
 }))<TextProps>`
   ${DEFAULT_TEXT_STYLES}
-  margin-bottom: ${spacing.medium};
+  margin-bottom: ${spacing.large};
   text-align: ${({ textAlign }) => textAlign};
   display: ${({ inline }) => (inline ? 'inline' : 'block')};
-  line-height: ${({ inline }) => (inline ? 1 : baseLineHeight)};
-  font-weight: ${({ bold }) => (bold ? boldFontWeight : baseFontWeight)};
   opacity: ${({ transparent }) => (transparent ? opacity : '1')};
   color: ${({ theme, accent }) => (accent ? theme.accent : undefined)};
 

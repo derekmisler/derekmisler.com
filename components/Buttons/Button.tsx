@@ -1,10 +1,7 @@
 import styled from 'styled-components'
-import { TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
+import { TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS, DEFAULT_TEXT_STYLES } from 'styles'
 
 const {
-  boldFontWeight,
-  accentFontStyle,
-  baseLetterSpacing,
   buttonFontSize
 } = TYPOGRAPHY_DEFAULTS
 
@@ -24,12 +21,10 @@ interface StyledButtonProps {
 export const Button = styled.button.attrs<StyledButtonProps>(({ href }) => ({
   as: href ? 'a' : 'button'
 }))<StyledButtonProps>`
-  font: unset;
+  ${DEFAULT_TEXT_STYLES}
+  font-size: ${buttonFontSize.mobile};
   display: inline-block;
   color: ${({ theme }) => theme.link};
-  font-size: ${buttonFontSize.mobile};
-  font-weight: ${boldFontWeight};
-  font-style: ${accentFontStyle};
   background-color: transparent;
   border: ${({ theme }) => `${borderSize} ${borderStyle} ${theme.link}`};
   text-decoration: none;
@@ -37,7 +32,6 @@ export const Button = styled.button.attrs<StyledButtonProps>(({ href }) => ({
   padding: ${spacing.small} ${spacing.medium};
   border-radius: ${borderRadius};
   width: fit-content;
-  letter-spacing: ${baseLetterSpacing};
   &:hover,
   &:focus,
   &:active {

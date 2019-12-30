@@ -1,9 +1,9 @@
 import { memo, SFC } from 'react'
 import styled from 'styled-components'
-import { skills, SkillTypes } from 'constants/resume'
 import { Row, Col } from 'components/Grid'
-import { compare } from 'utils/compare'
 import { Small, Text, Heading } from 'components/Typography'
+import { skills, SkillTypes } from 'constants/resume'
+import { compare } from 'utils/compare'
 import { LAYOUT_DEFAULTS } from 'styles'
 
 const sortedSkills: SkillTypes[] = skills.sort((a, b) => {
@@ -11,7 +11,7 @@ const sortedSkills: SkillTypes[] = skills.sort((a, b) => {
 })
 const maxLevel: number = sortedSkills[0].level
 
-const { borderSize, borderStyle, borderSizeSmall, spacing } = LAYOUT_DEFAULTS
+const { borderSize, borderStyle, borderSizeSmall } = LAYOUT_DEFAULTS
 
 interface QualificationTypes {
   active?: boolean
@@ -22,7 +22,6 @@ const QualificationBar = styled.div<QualificationTypes>`
   background-color: ${({ active, theme }) => active ? theme.accent : 'transparent'};
   height: ${borderSize};
   border-right: ${({ active, theme }) => active ? `${borderSizeSmall} ${borderStyle} ${theme.background}` : 0};
-  margin-bottom: ${spacing.small};
 `
 
 export const Qualifications: SFC = memo(() => (

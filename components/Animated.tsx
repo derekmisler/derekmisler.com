@@ -22,6 +22,7 @@ const StyledAnimated = styled.div<StyledAnimatedProps>`
   opacity: 0;
   transform: translateY(1rem);
   transition: ${transition};
+  will-change: transform;
   ${props => props.animated && animationEndCss}
 `
 

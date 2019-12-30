@@ -1,12 +1,12 @@
 import { useReducer, MouseEventHandler } from 'react'
 import { themeReducer, ThemeActionTypes } from 'utils/reducers'
 import { themes, ThemeProps } from 'styles'
-import { setDarkMode } from 'utils/setDarkMode'
+import { useDarkMode } from 'utils/useDarkMode'
 
 type UseThemeProps = [ThemeProps, MouseEventHandler]
 
 export const useTheme = (): UseThemeProps => {
-  const defaultDarkMode = setDarkMode()
+  const defaultDarkMode = useDarkMode()
 
   const initialThemeState = {
     isDarkMode: defaultDarkMode,

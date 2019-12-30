@@ -1,5 +1,6 @@
 import { HTMLProps } from 'react'
 import { css } from 'styled-components'
+import { DesktopMobile, LAYOUT_DEFAULTS } from './layout'
 
 type FontStyle = 'italic' | 'normal'
 type BaseFontWeight = '400' | '500' | '700'
@@ -19,11 +20,14 @@ interface TypographyTypes {
   baseFontFamily: string
   headingFontFamily: string
   htmlFontSize: string
-  baseFontSize: string
+  baseFontSize: DesktopMobile
   smallFontSize: string
-  buttonFontSize: string
+  buttonFontSize: DesktopMobile
   baseLetterSpacing: string
-  headingFontSizes: [string, string, string, string, string, string]
+  headingFontSizes: {
+    mobile: [string, string, string, string, string, string],
+    desktop: [string, string, string, string, string, string]
+  }
   headingLineHeights: [number, number, number, number, number, number]
   headingLetterSpacing: [string, string, string, string, string, string]
   headingFontWeights: HeadingFontWeight[]
@@ -41,16 +45,25 @@ export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
   baseFontFamily: 'neue-haas-grotesk-text, sans-serif;',
   headingFontFamily: 'neue-haas-grotesk-display, sans-serif;',
   htmlFontSize: `${BASE_MEASURE}px`,
-  baseFontSize: '2rem',
+  baseFontSize: {
+    desktop: '2rem',
+    mobile: '1.5rem'
+  },
   smallFontSize: '.65em',
-  buttonFontSize: '1.35rem',
+  buttonFontSize: {
+    desktop: '1.35rem',
+    mobile: '1rem'
+  },
   baseLetterSpacing: '0.00938em',
   baseLineHeight: 1.65,
   baseFontWeight: '500',
   boldFontWeight: '500',
   baseFontStyle: 'normal',
   accentFontStyle: 'normal',
-  headingFontSizes: ['7.75rem', '5.5rem', '3.75rem', '3rem', '2.125rem', '1.5rem'],
+  headingFontSizes: {
+    mobile: ['5.5rem', '3.75rem', '3rem', '2.125rem', '1.5rem', '1rem'],
+    desktop: ['7.75rem', '5.5rem', '3.75rem', '3rem', '2.125rem', '1.5rem']
+  },
   headingLineHeights: [1.167, 1.2, 1.167, 1.235, 1.334, 1.6],
   headingLetterSpacing: ['-0.01562em', '-0.00833em', '0em', '0.00735em', '0em', '0.0075em'],
   headingFontWeights: new Array(6).fill('600'),
@@ -59,11 +72,13 @@ export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
 
 export const DEFAULT_TEXT_STYLES = css`
   font-family: ${TYPOGRAPHY_DEFAULTS.baseFontFamily};
-  font-size: ${TYPOGRAPHY_DEFAULTS.baseFontSize};
+  font-size: ${TYPOGRAPHY_DEFAULTS.baseFontSize.mobile};
   font-style: ${TYPOGRAPHY_DEFAULTS.baseFontStyle};
   line-height: ${TYPOGRAPHY_DEFAULTS.baseLineHeight};
   font-weight: ${TYPOGRAPHY_DEFAULTS.baseFontWeight};
   letter-spacing: ${TYPOGRAPHY_DEFAULTS.baseLetterSpacing};
-  word-wrap: break-word;
   text-align: left;
+  @media ${LAYOUT_DEFAULTS.mediaQueries.desktop} {
+    font-size: ${TYPOGRAPHY_DEFAULTS.baseFontSize.desktop};
+  }
 `

@@ -43,6 +43,7 @@ export const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
     color: ${({ theme }) => theme.text};
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
   ul, ol {
     list-style-type: none;

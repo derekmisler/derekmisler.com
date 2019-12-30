@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { StyledComponentProps, TYPOGRAPHY_DEFAULTS } from 'styles'
+import { StyledComponentProps, TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
 
 const {
   headingFontFamily,
@@ -9,6 +9,8 @@ const {
   headingLetterSpacing,
   baseFontStyle
 } = TYPOGRAPHY_DEFAULTS
+
+const { mediaQueries } = LAYOUT_DEFAULTS
 
 export interface StyledHeadingProps extends StyledComponentProps {
   accent?: boolean
@@ -28,8 +30,12 @@ export const Heading = styled.div.attrs<StyledHeadingProps>(
   font-style: ${baseFontStyle};
   font-weight: ${({ level }) => headingFontWeights[(level as number) - 1]};
   line-height: ${({ level }) => headingLineHeights[(level as number) - 1]};
-  font-size: ${({ level }) => headingFontSizes[(level as number) - 1]};
+  font-size: ${({ level }) => headingFontSizes.mobile[(level as number) - 1]};
   letter-spacing: ${({ level }) => headingLetterSpacing[(level as number) - 1]};
   column-span: all;
   color: ${({ theme, accent }) => (accent ? theme.accent : undefined)};
+
+  @media ${mediaQueries.desktop} {
+    font-size: ${({ level }) => headingFontSizes.desktop[(level as number) - 1]};
+  }
 `

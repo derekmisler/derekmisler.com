@@ -28,7 +28,7 @@ const QualificationBar = styled.div<QualificationTypes>`
 export const Qualifications: SFC = memo(() => (
   <>
     <Heading level={4}>Tools</Heading>
-    <Row as='ul' columnsDesktop={3} gap='large'>
+    <Row as='ul' columns={2} columnsDesktop={3} gap='large'>
       {sortedSkills.map(skill => (
         <Col as='li' key={skill.title}>
           <Text inline>

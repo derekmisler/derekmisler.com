@@ -8,7 +8,13 @@ const {
   buttonFontSize
 } = TYPOGRAPHY_DEFAULTS
 
-const { spacing, borderRadius, borderStyle, borderSize } = LAYOUT_DEFAULTS
+const {
+  spacing,
+  borderRadius,
+  borderStyle,
+  borderSize,
+  mediaQueries
+} = LAYOUT_DEFAULTS
 
 interface StyledButtonProps {
   accent?: boolean
@@ -21,7 +27,7 @@ export const Button = styled.button.attrs<StyledButtonProps>(({ href }) => ({
   font: unset;
   display: inline-block;
   color: ${({ theme }) => theme.link};
-  font-size: ${buttonFontSize};
+  font-size: ${buttonFontSize.mobile};
   font-weight: ${boldFontWeight};
   font-style: ${accentFontStyle};
   background-color: transparent;
@@ -40,5 +46,9 @@ export const Button = styled.button.attrs<StyledButtonProps>(({ href }) => ({
     color: ${({ theme }) => theme.background};
     background-color: ${({ theme }) => theme.linkHover};
     border-color: ${({ theme }) => theme.linkHover};
+  }
+
+  @media ${mediaQueries.desktop} {
+    font-size: ${buttonFontSize.desktop};
   }
 `

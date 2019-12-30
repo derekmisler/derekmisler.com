@@ -9,7 +9,7 @@ export interface ThemeStateProps {
 }
 
 export const black: string = '#2E3440'
-export const transparentBlack: string = hexToRgba(black, .3)
+export const transparentBlack: string = hexToRgba(black, .6)
 
 export const gray: string = '#4C566A'
 export const grayDarker: string = '#434C5E'
@@ -18,7 +18,7 @@ export const grayDarkest: string = '#3B4252'
 export const white: string = '#ECEFF4'
 export const whiteDarker: string = '#E5E9F0'
 export const whiteDarkest: string = '#D8DEE9'
-export const transparentWhite: string = hexToRgba(white, .3)
+export const transparentWhite: string = hexToRgba(white, .6)
 
 export const red: string = '#BF616A'
 export const orange: string = '#D08770'

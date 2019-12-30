@@ -8,6 +8,7 @@ import { GlobalStyle } from 'styles'
 import { sections } from 'constants/sections'
 import { Section } from 'components/Section'
 import { useTheme } from 'utils/useTheme'
+import { Toggle } from 'components/Forms'
 
 export const config = { amp: false }
 
@@ -17,7 +18,7 @@ export const App: NextPage<{}> = () => {
     <ThemeProvider theme={theme}>
       <Analytics />
       <GlobalStyle theme={theme} />
-      <Nav handleClick={toggleTheme} />
+      <Nav />
       <Header />
       <main>
         {sections.map(section => (
@@ -30,6 +31,7 @@ export const App: NextPage<{}> = () => {
         ))}
       </main>
       <Footer />
+      <Toggle onLabel='Dark' offLabel='Light' onToggle={toggleTheme} />
     </ThemeProvider>
   )
 }

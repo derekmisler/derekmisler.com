@@ -15,7 +15,7 @@ const { spacing, mediaQueries } = LAYOUT_DEFAULTS
 const Li = styled.li`
   padding: ${spacing.small};
   @media ${mediaQueries.desktop} {
-    padding: ${spacing.small} ${spacing.large} ${spacing.small} 0;
+    padding: 0 0 0 ${spacing.large};
   }
 `
 

@@ -8,7 +8,8 @@ const {
   borderSizeSmall,
   borderSizeLarge,
   borderStyle,
-  borderRadius
+  borderRadius,
+  spacing
 } = LAYOUT_DEFAULTS
 
 const { timing, duration } = transitionDefaults
@@ -19,19 +20,26 @@ interface ToggleProps extends HTMLProps<HTMLInputElement> {
   onToggle: Function
 }
 
-const ToggleWrapper = styled.fieldset`
+const ToggleWrapper = styled.div`
   ${DEFAULT_TEXT_STYLES}
   border: 0;
   display: flex;
   align-items: center;
+  margin: 0;
+  padding: ${spacing.small} ${spacing.medium};
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 3;
+  background-color: ${({ theme }) => theme.transparentBackground};
 `
 
-const NavToggle = styled.input`
+const Checkbox = styled.input`
   height: ${borderSize};
   width: ${borderSizeLarge};
   border-radius: ${borderRadius};
   padding: 0;
-  margin: 0;
+  margin: 0 ${spacing.small};
   position: relative;
   appearance: none;
   outline: none;
@@ -74,7 +82,7 @@ export const Toggle: SFC<ToggleProps> = memo(({
   return (
     <ToggleWrapper>
       { onLabel && <Small htmlFor='toggle' as='label'>{onLabel}</Small> }
-      <NavToggle id='toggle' onChange={handleChange} type='checkbox' />
+      <Checkbox id='toggle' onChange={handleChange} type='checkbox' />
       {offLabel && <Small htmlFor='toggle' as='label'>{offLabel}</Small> }
     </ToggleWrapper>
   )

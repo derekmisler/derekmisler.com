@@ -66,7 +66,7 @@ export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
   baseFontStyle: 'normal',
   accentFontStyle: 'normal',
   headingLeftMargin: {
-    mobile: ['-.25rem', '-.08rem'],
+    mobile: ['-.275rem', '-.08rem'],
     desktop: ['-.45rem', '-.25rem', '-.125rem', '-.125rem']
   },
   headingFontSizes: {

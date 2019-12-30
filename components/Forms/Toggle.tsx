@@ -7,7 +7,8 @@ const {
   borderSize,
   borderSizeSmall,
   borderSizeLarge,
-  borderStyle
+  borderStyle,
+  borderRadius
 } = LAYOUT_DEFAULTS
 
 const { timing, duration } = transitionDefaults
@@ -28,22 +29,25 @@ const ToggleWrapper = styled.fieldset`
 const NavToggle = styled.input`
   height: ${borderSize};
   width: ${borderSizeLarge};
+  border-radius: ${borderRadius};
   padding: 0;
   margin: 0;
   position: relative;
   appearance: none;
   outline: none;
   background-color: transparent;
+  overflow: hidden;
   border: ${({ theme }) => `${borderSizeSmall} ${borderStyle} ${theme.link}`};
 
   &::before {
     content: '';
     position: absolute;
     height: ${borderSize};
-    width: ${borderSize};
+    width: calc(${borderSize} + ${borderSizeSmall});
+    border-radius: ${borderRadius};
     background-color: ${({ theme }) => theme.link};
     transition: ${timing} left ${duration};
-    left: 0;
+    left: -${borderSizeSmall};
     will-change: left;
     top: -${borderSizeSmall};
   }

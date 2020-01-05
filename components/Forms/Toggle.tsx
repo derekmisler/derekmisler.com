@@ -18,6 +18,7 @@ interface ToggleProps extends HTMLProps<HTMLInputElement> {
   onLabel?: string
   offLabel?: string
   onToggle: Function
+  defaultChecked?: boolean
 }
 
 const ToggleWrapper = styled.div`
@@ -72,18 +73,19 @@ const Checkbox = styled.input`
 export const Toggle: SFC<ToggleProps> = memo(({
   onLabel,
   offLabel,
-  onToggle
+  onToggle,
+  defaultChecked
 }) => {
-  const [isActive, setActive] = useState(false)
+  const [isActive, setActive] = useState(defaultChecked)
   const handleChange = () => {
     setActive(!isActive)
     onToggle(isActive)
   }
   return (
     <ToggleWrapper>
-      { onLabel && <Small htmlFor='toggle' as='label'>{onLabel}</Small> }
-      <Checkbox id='toggle' onChange={handleChange} type='checkbox' />
-      {offLabel && <Small htmlFor='toggle' as='label'>{offLabel}</Small> }
+      {onLabel && <Small htmlFor='toggle' as='label'>{onLabel}</Small>}
+      <Checkbox id='toggle' onChange={handleChange} type='checkbox' checked={isActive} />
+      {offLabel && <Small htmlFor='toggle' as='label'>{offLabel}</Small>}
     </ToggleWrapper>
   )
 })

@@ -7,13 +7,15 @@ import { Analytics } from 'components/Analytics'
 import { GlobalStyle } from 'styles'
 import { sections } from 'constants/sections'
 import { Section } from 'components/Section'
-import { useTheme } from 'utils/useTheme'
 import { Toggle } from 'components/Forms'
+import { useTheme } from 'utils/useTheme'
+import { useDarkMode } from 'utils/useDarkMode'
 
 export const config = { amp: false }
 
 export const App: NextPage<{}> = () => {
   const [theme, toggleTheme] = useTheme()
+  const defaultDarkMode = useDarkMode()
   return (
     <ThemeProvider theme={theme}>
       <Analytics />
@@ -31,7 +33,12 @@ export const App: NextPage<{}> = () => {
         ))}
       </main>
       <Footer />
-      <Toggle onLabel='Dark' offLabel='Light' onToggle={toggleTheme} />
+      <Toggle
+        onLabel='Dark'
+        offLabel='Light'
+        onToggle={toggleTheme}
+        defaultChecked={!defaultDarkMode}
+      />
     </ThemeProvider>
   )
 }

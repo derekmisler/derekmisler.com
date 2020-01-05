@@ -20,7 +20,7 @@ interface StyledButtonProps {
 
 export const Button = styled.button.attrs<StyledButtonProps>(({ href }) => ({
   as: href ? 'a' : 'button'
-}))<StyledButtonProps>`
+})) <StyledButtonProps>`
   ${DEFAULT_TEXT_STYLES}
   font-size: ${buttonFontSize.mobile};
   display: inline-block;

@@ -15,13 +15,13 @@ export const sections: SectionTypes[] = [
     Component: About
   },
   {
-    heading: 'Work',
-    id: 'work',
+    heading: 'Experience',
+    id: 'experience',
     Component: Experience
   },
   {
-    heading: 'Works',
-    id: 'works',
+    heading: 'Projects',
+    id: 'projects',
     Component: Projects
   }
 ]

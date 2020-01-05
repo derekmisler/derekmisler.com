@@ -24,7 +24,7 @@ const StyledSection = styled.section.attrs<StyledComponentProps>(({ as }) => ({ 
 export const Section: SFC<SectionTypes> = memo(
   ({ id, heading, Component, as }) => (
     <StyledSection as={as} id={id}>
-      { heading && (
+      {heading && (
         <>
           <Row columnsDesktop={5} gap='large'>
             <Col rangeDesktop={3}>
@@ -33,7 +33,7 @@ export const Section: SFC<SectionTypes> = memo(
             </Col>
           </Row>
         </>
-      ) }
+      )}
       <Component />
     </StyledSection>
   )

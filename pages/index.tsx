@@ -9,13 +9,11 @@ import { sections } from 'constants/sections'
 import { Section } from 'components/Section'
 import { Toggle } from 'components/Forms'
 import { useTheme } from 'utils/useTheme'
-import { useDarkMode } from 'utils/useDarkMode'
 
 export const config = { amp: false }
 
 export const App: NextPage<{}> = () => {
-  const [theme, toggleTheme] = useTheme()
-  const defaultDarkMode = useDarkMode()
+  const [{ theme, isDarkMode }, toggleTheme] = useTheme()
   return (
     <ThemeProvider theme={theme}>
       <Analytics />
@@ -37,7 +35,7 @@ export const App: NextPage<{}> = () => {
         onLabel='Dark'
         offLabel='Light'
         onToggle={toggleTheme}
-        defaultChecked={!defaultDarkMode}
+        defaultChecked={!isDarkMode}
       />
     </ThemeProvider>
   )

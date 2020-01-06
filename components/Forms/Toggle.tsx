@@ -1,4 +1,4 @@
-import { HTMLProps, memo, SFC, useState } from 'react'
+import { HTMLProps, memo, SFC, ChangeEvent } from 'react'
 import styled from 'styled-components'
 import { Small } from 'components/Typography'
 import { DEFAULT_TEXT_STYLES, LAYOUT_DEFAULTS, transitionDefaults } from 'styles'
@@ -76,15 +76,14 @@ export const Toggle: SFC<ToggleProps> = memo(({
   onToggle,
   defaultChecked
 }) => {
-  const [isActive, setActive] = useState(defaultChecked)
-  const handleChange = () => {
-    setActive(!isActive)
-    onToggle(isActive)
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { target: { checked = false } = {} } = e || {}
+    onToggle(checked)
   }
   return (
     <ToggleWrapper>
       {onLabel && <Small htmlFor='toggle' as='label'>{onLabel}</Small>}
-      <Checkbox id='toggle' onChange={handleChange} type='checkbox' checked={isActive} />
+      <Checkbox id='toggle' onChange={handleChange} type='checkbox' defaultChecked={defaultChecked} />
       {offLabel && <Small htmlFor='toggle' as='label'>{offLabel}</Small>}
     </ToggleWrapper>
   )

@@ -19,7 +19,7 @@ export interface StyledComponentProps extends HTMLProps<HTMLDivElement> {
 }
 
 export type FlexAlignment =
-  | 'flex-start'
+  'flex-start'
   | 'flex-end'
   | 'center'
   | 'stretch'

@@ -1,4 +1,4 @@
-import { HTMLProps, memo, SFC, ChangeEvent } from 'react'
+import { useState, useEffect, HTMLProps, FC } from 'react'
 import styled from 'styled-components'
 import { Small } from 'components/Typography'
 import { DEFAULT_TEXT_STYLES, LAYOUT_DEFAULTS, transitionDefaults } from 'styles'
@@ -21,7 +21,7 @@ interface ToggleProps extends HTMLProps<HTMLInputElement> {
   defaultChecked?: boolean
 }
 
-const ToggleWrapper = styled.div`
+const ToggleWrapper = styled.button`
   ${DEFAULT_TEXT_STYLES}
   border: 0;
   display: flex;
@@ -33,9 +33,14 @@ const ToggleWrapper = styled.div`
   right: 0;
   z-index: 3;
   background-color: ${({ theme }) => theme.transparentBackground};
+  outline: none;
+  color: ${({ theme }) => theme.text};
+  &:hover {
+    cursor: pointer;
+  }
 `
 
-const Checkbox = styled.input`
+const ToggleSlider = styled.div<{ isActive?: boolean }>`
   height: ${borderSize};
   width: ${borderSizeLarge};
   border-radius: ${borderRadius};
@@ -56,35 +61,30 @@ const Checkbox = styled.input`
     border-radius: ${borderRadius};
     background-color: ${({ theme }) => theme.link};
     transition: ${timing} left ${duration};
-    left: -${borderSizeSmall};
+    left: ${({ isActive }) => isActive ? `calc(100% - (${borderSize} + ${borderSizeSmall}))` : 0 };
     will-change: left;
-    top: -${borderSizeSmall};
-  }
-
-  &:checked {
-    background-image: none;
-
-    &::before {
-      left: calc(100% - ${borderSize});
-    }
+    top: 0;
   }
 `
 
-export const Toggle: SFC<ToggleProps> = memo(({
+export const Toggle: FC<ToggleProps> = ({
   onLabel,
   offLabel,
   onToggle,
   defaultChecked
 }) => {
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { target: { checked = false } = {} } = e || {}
-    onToggle(checked)
+  const [active, setActive] = useState(defaultChecked)
+  const handleChange = () => {
+    setActive(!active)
   }
+  useEffect(() => {
+    onToggle(active)
+  }, [active])
   return (
-    <ToggleWrapper>
-      {onLabel && <Small htmlFor='toggle' as='label'>{onLabel}</Small>}
-      <Checkbox id='toggle' onChange={handleChange} type='checkbox' defaultChecked={defaultChecked} />
-      {offLabel && <Small htmlFor='toggle' as='label'>{offLabel}</Small>}
+    <ToggleWrapper onClick={handleChange} >
+      {offLabel && <Small>{offLabel}</Small>}
+      <ToggleSlider isActive={active} />
+      {onLabel && <Small>{onLabel}</Small>}
     </ToggleWrapper>
   )
-})
+}

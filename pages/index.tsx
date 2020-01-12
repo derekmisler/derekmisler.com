@@ -31,12 +31,14 @@ export const App: NextPage<{}> = () => {
         ))}
       </main>
       <Footer />
-      <Toggle
-        onLabel='Dark'
-        offLabel='Light'
-        onToggle={toggleTheme}
-        defaultChecked={!isDarkMode}
-      />
+      { toggleTheme && (
+        <Toggle
+          onLabel='Light'
+          offLabel='Dark'
+          onToggle={toggleTheme}
+          defaultChecked={!isDarkMode}
+        />
+      )}
     </ThemeProvider>
   )
 }

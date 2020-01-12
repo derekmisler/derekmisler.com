@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 
 const mediaQueryMatcher = (queryToMatch: string): boolean => {
-  if (typeof window !== 'object') return true
-  if (!window.matchMedia) return true
+  if (typeof window !== 'object') return false
+  if (!window.matchMedia) return false
 
   const [matches, setMatches] = useState(window.matchMedia(queryToMatch).matches)
 
@@ -19,7 +19,6 @@ const mediaQueryMatcher = (queryToMatch: string): boolean => {
 
 export const useDarkMode = (): boolean => {
   if (mediaQueryMatcher('(prefers-color-scheme: dark)')) return true
-  if (mediaQueryMatcher('(prefers-color-scheme: light)')) return false
 
   const now: Date = new Date()
   const hour: number = now.getHours()

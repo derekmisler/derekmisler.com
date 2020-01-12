@@ -91,7 +91,7 @@ export const education: EducationTypes[] = [
   }
 ]
 
-interface CareerTypes {
+export interface CareerTypes {
   title: string
   specification: string
   location: string
@@ -127,7 +127,7 @@ export const careers: CareerTypes[] = [
   },
   {
     title: 'Asheville Convention & Visitors Bureau',
-    specification: 'Web Manager/Developer',
+    specification: 'Web Manager & Developer',
     location: 'Asheville, North Carolina',
     level: 'Full-time',
     description:
@@ -139,7 +139,7 @@ export const careers: CareerTypes[] = [
   },
   {
     title: 'Houser Shoes, Inc.',
-    specification: 'Front-End Developer/Designer/Photographer',
+    specification: 'Front-End Developer & Designer & Photographer',
     location: 'Fletcher, North Carolina',
     level: 'Full-time',
     description:
@@ -163,7 +163,7 @@ export const careers: CareerTypes[] = [
   },
   {
     title: 'Precision Printing',
-    specification: 'Designer/Printer',
+    specification: 'Designer & Printer',
     location: 'Boone, North Carolina',
     level: 'Part-time',
     description:
@@ -175,7 +175,7 @@ export const careers: CareerTypes[] = [
   },
   {
     title: 'The Appalachian Newspaper',
-    specification: 'Lead Designer/Developer',
+    specification: 'Lead Designer & Developer',
     location: 'Boone, North Carolina',
     level: 'Part-time',
     description:

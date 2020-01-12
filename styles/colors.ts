@@ -9,6 +9,7 @@ export interface ThemeStateProps {
 }
 
 export const black: string = '#2E3440'
+export const blackDarker: string = '#000000'
 export const transparentBlack: string = hexToRgba(black, .6)
 
 export const gray: string = '#4C566A'
@@ -52,6 +53,6 @@ export const themes = {
     background: black,
     transparentBackground: transparentBlack,
     border: white,
-    shadow: transparentWhite
+    shadow: blackDarker
   }
 }

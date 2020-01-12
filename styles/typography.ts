@@ -71,7 +71,7 @@ export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
   },
   headingFontSizes: {
     mobile: ['6rem', '3.75rem', '3rem', '2.125rem', '1.5rem', '1rem'],
-    desktop: ['9.75rem', '7.5rem', '3.75rem', '3rem', '2.125rem', '1.5rem']
+    desktop: ['9.75rem', '7.5rem', '5rem', '3rem', '2rem', '1.5rem']
   },
   headingLineHeights: [.75, .85, .8, .8, .8, .8],
   headingLetterSpacing: ['-0.01562em', '-0.00833em', '0em', '0.00735em', '0em', '0.0075em'],

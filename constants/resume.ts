@@ -104,7 +104,7 @@ export interface CareerTypes {
 }
 export const careers: CareerTypes[] = [
   {
-    title: 'Transfix',
+    title: 'Transfix, Inc.',
     specification: 'Staff Software Engineer',
     location: 'New York, New York',
     level: 'Full-time',
@@ -127,7 +127,7 @@ export const careers: CareerTypes[] = [
   },
   {
     title: 'Asheville Convention & Visitors Bureau',
-    specification: 'Web Manager & Developer',
+    specification: 'Web Manager& Developer& Photographer',
     location: 'Asheville, North Carolina',
     level: 'Full-time',
     description:
@@ -139,7 +139,7 @@ export const careers: CareerTypes[] = [
   },
   {
     title: 'Houser Shoes, Inc.',
-    specification: 'Front-End Developer & Designer & Photographer',
+    specification: 'Developer& Designer& Photographer',
     location: 'Fletcher, North Carolina',
     level: 'Full-time',
     description:
@@ -151,7 +151,7 @@ export const careers: CareerTypes[] = [
   },
   {
     title: 'Freelance',
-    specification: 'Developer/Designer',
+    specification: 'Developer& Designer& Photographer',
     location: 'Asheville, North Carolina',
     level: 'Freelance',
     description:
@@ -163,7 +163,7 @@ export const careers: CareerTypes[] = [
   },
   {
     title: 'Precision Printing',
-    specification: 'Designer & Printer',
+    specification: 'Designer& Printer',
     location: 'Boone, North Carolina',
     level: 'Part-time',
     description:
@@ -175,7 +175,7 @@ export const careers: CareerTypes[] = [
   },
   {
     title: 'The Appalachian Newspaper',
-    specification: 'Lead Designer & Developer',
+    specification: 'Designer& Developer& Photographer',
     location: 'Boone, North Carolina',
     level: 'Part-time',
     description:

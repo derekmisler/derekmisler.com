@@ -11,7 +11,7 @@ const {
   headingLeftMargin
 } = TYPOGRAPHY_DEFAULTS
 
-const { mediaQueries, opacity } = LAYOUT_DEFAULTS
+const { mediaQueries } = LAYOUT_DEFAULTS
 
 export interface StyledHeadingProps extends StyledComponentProps {
   accent?: boolean
@@ -36,7 +36,6 @@ export const Heading = styled.div.attrs<StyledHeadingProps>(
   letter-spacing: ${({ level }) => headingLetterSpacing[level - 1]};
   column-span: all;
   color: ${({ theme, accent }) => (accent ? theme.accent : undefined)};
-  opacity: ${({ level }) => (level % 3 === 0 ? opacity : undefined)};
 
   @media ${mediaQueries.desktop} {
     margin-left: ${({ level }) => headingLeftMargin.desktop[level - 1]};

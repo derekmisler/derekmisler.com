@@ -17,8 +17,9 @@ const StyledSection = styled.section.attrs<StyledComponentProps>(({ as }) => ({ 
   margin: ${spacing.large} 0 0 0;
   padding: 0 ${spacing.small};
   @media ${mediaQueries.desktop} {
-    margin: 0;
-    padding: 0 ${spacing.large};
+    margin: 0 0 ${spacing.large};
+    padding: ${spacing.large};
+    padding-top: 0;
   }
 `
 export const Section: SFC<SectionTypes> = memo(

@@ -71,38 +71,31 @@ export const contact: {
   pinterest: `https://www.pinterest.com/${socialId}/`
 }
 
-interface EducationTypes {
+export interface ExperienceTypes {
   title: string
   specification: string
   location: string
-  description: string
-  startDate: string
-  endDate: string
-}
-export const education: EducationTypes[] = [
-  {
-    title: 'Appalachian State University',
-    specification: 'BFA - Graphic Design',
-    location: 'Boone, North Carolina',
-    description:
-      'I chose to study graphic design in an arts department. I already had a grasp on front-end web development techniques and continued to study them during this time, but the curriculum path I chose focused on web design while also teaching color theory, typography, and layout design in a group setting. Outside of designing for the web, we also had the opportunity to learn Flash/Actionscript game development.',
-    startDate: '2005',
-    endDate: '2009'
-  }
-]
-
-export interface CareerTypes {
-  title: string
-  specification: string
-  location: string
-  level: string
+  level?: string
   description?: string
   accomplishments: string[]
   startDate: string
   endDate: string
   link?: string
 }
-export const careers: CareerTypes[] = [
+export const education: ExperienceTypes[] = [
+  {
+    title: 'Appalachian State University',
+    specification: 'BFA - Graphic Design',
+    location: 'Boone, North Carolina',
+    description:
+      'I chose to study graphic design in an arts department. I already had a grasp on front-end web development techniques and continued to study them during this time, but the curriculum path I chose focused on web design while also teaching color theory, typography, and layout design in a group setting. Outside of designing for the web, we also had the opportunity to learn Flash/Actionscript game development.',
+    accomplishments: [],
+    startDate: '2005',
+    endDate: '2009'
+  }
+]
+
+export const careers: ExperienceTypes[] = [
   {
     title: 'Transfix, Inc.',
     specification: 'Staff Software Engineer',

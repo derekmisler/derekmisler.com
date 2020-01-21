@@ -3,13 +3,15 @@ import { useState, SFC, memo, MouseEvent } from 'react'
 import { Text, Heading, Small, Link } from 'atoms/Typography'
 import { Row, Col } from 'atoms/Grid'
 import { Ul, Li } from 'atoms/Lists'
-import { careers, CareerTypes } from 'constants/resume'
+import { Hr } from 'atoms/Hr'
+import { careers, ExperienceTypes, education } from 'constants/resume'
 import { LAYOUT_DEFAULTS, StyledComponentProps } from 'styles/layout'
+import { fixWidow } from 'utils/stringFormat'
 
 const { borderSize, borderStyle, spacing } = LAYOUT_DEFAULTS
 
 interface ExperienceCardProps extends StyledComponentProps {
-  c: CareerTypes
+  e: ExperienceTypes
 }
 
 const StyledCol = styled(Col)<{ isActive?: boolean }>`
@@ -22,42 +24,43 @@ const StyledCol = styled(Col)<{ isActive?: boolean }>`
   }
 `
 
-const InactiveExperienceCard: SFC<ExperienceCardProps> = memo(({ c }) => (
+const InactiveExperienceCard: SFC<ExperienceCardProps> = memo(({ e }) => (
   <>
     <Heading level={5}>
-      {c.startDate}&ndash;{c.endDate}
+      {e.startDate}&ndash;{e.endDate}
       <br />
-      {c.title}
+      {e.title}
     </Heading>
     <Text inline transparent>
-      <Small>{c.location}</Small>
+      <Small>{e.location}</Small>
     </Text>
   </>
 ))
 
-const ActiveExperienceCard: SFC<ExperienceCardProps> = memo(({ c }) => (
+const ActiveExperienceCard: SFC<ExperienceCardProps> = memo(({ e }) => (
   <>
-    <Heading level={3}>{c.title}</Heading>
     <Row columnsDesktop={5} gap='large'>
       <Col rangeDesktop={3}>
-        {c.description && <Text>{c.description}</Text>}
-        {c.accomplishments.length > 0 && (
+        <Heading level={3}>{e.title}</Heading>
+        {e.description && <Text><Small>{fixWidow(e.description)}</Small></Text>}
+        {e.accomplishments.length > 0 && (
           <Ul flexDirection='column' bullet>
-            {c.accomplishments.map(a => (
-              <Li key={a}><Small>{a}<br /></Small></Li>
+            {e.accomplishments.map((a: string) => (
+              <Li key={a}><Small>{fixWidow(a)}</Small></Li>
             ))}
           </Ul>
         )}
       </Col>
       <Col rangeDesktop={2}>
+        <Hr large />
         <Heading level={4}>
-          {c.specification}
+          {e.specification}
         </Heading>
         <Text>
-          {c.startDate}&ndash;{c.endDate}
+          {e.startDate}&ndash;{e.endDate}
           <br />
-          {c.location}
-          {c.link && <><br /><Link href={c.link} target='_blank'>Link</Link></>}
+          {e.location}
+          {e.link && <><br /><Link href={e.link} target='_blank'>Link</Link></>}
         </Text>
       </Col>
     </Row>
@@ -66,6 +69,7 @@ const ActiveExperienceCard: SFC<ExperienceCardProps> = memo(({ c }) => (
 
 export const Experience: SFC<{}> = memo(() => {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [edu] = education
 
   const onClick = (e: MouseEvent) => {
     const id: number = Number(e.currentTarget.id)
@@ -73,20 +77,27 @@ export const Experience: SFC<{}> = memo(() => {
   }
 
   return (
-    <Row columnsDesktop={3} gap='large'>
-      <StyledCol isActive rangeDesktop={2}>
-        <ActiveExperienceCard c={careers[activeIndex]} />
-      </StyledCol>
-      <Col>
-        {
-          careers.map((c, i) => (
-            <StyledCol isActive={i === activeIndex} key={c.title} id={`${i}`} onClick={onClick}>
-              <InactiveExperienceCard c={c} />
-            </StyledCol>
-          ))
-        }
-      </Col>
-    </Row>
+    <>
+      <Row columnsDesktop={3} gap='large'>
+        <StyledCol isActive rangeDesktop={2}>
+          <ActiveExperienceCard e={careers[activeIndex]} />
+        </StyledCol>
+        <Col>
+          {
+            careers.map((c, i) => (
+              <StyledCol isActive={i === activeIndex} key={c.title} id={`${i}`} onClick={onClick}>
+                <InactiveExperienceCard e={c} />
+              </StyledCol>
+            ))
+          }
+        </Col>
+      </Row>
+      <Row columnsDesktop={3} gap='large'>
+        <StyledCol isActive rangeDesktop={2}>
+          <ActiveExperienceCard e={edu} />
+        </StyledCol>
+      </Row>
+    </>
   )
 })
 

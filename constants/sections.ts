@@ -1,7 +1,8 @@
 import { SFC } from 'react'
 import About from 'organisms/About'
 import Experience from 'organisms/Experience'
-import Projects from 'organisms/Projects'
+// import Projects from 'organisms/Projects'
+
 export interface SectionTypes {
   heading: string
   id: string
@@ -19,9 +20,9 @@ export const sections: SectionTypes[] = [
     id: 'experience',
     Component: Experience
   },
-  {
-    heading: 'Projects',
-    id: 'projects',
-    Component: Projects
-  }
+  // {
+  //   heading: 'Projects',
+  //   id: 'projects',
+  //   Component: Projects
+  // }
 ]

@@ -1,7 +1,7 @@
 import { Text } from 'atoms/Typography'
 
 export const Contact = () => {
-  return <Text>placeholder</Text>
+  return <Text>Contact</Text>
 }
 
 export default Contact

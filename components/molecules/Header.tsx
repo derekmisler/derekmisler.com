@@ -39,6 +39,9 @@ const HeaderContent: SFC<{}> = memo(() => {
             <Button href='mailto:derekmisler@gmail.com?subject=Hello!'>
               Say Hello!
             </Button>
+            <Button download href='images/Derek-Misler-resume.pdf'>
+              Download PDF
+            </Button>
           </Text>
         </Animated>
       </Col>

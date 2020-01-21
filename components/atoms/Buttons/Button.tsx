@@ -16,6 +16,7 @@ const {
 interface StyledButtonProps {
   accent?: boolean
   href?: string
+  download?: boolean
 }
 
 export const Button = styled.button.attrs<StyledButtonProps>(({ href }) => ({
@@ -32,6 +33,9 @@ export const Button = styled.button.attrs<StyledButtonProps>(({ href }) => ({
   padding: ${spacing.small} ${spacing.medium};
   border-radius: ${borderRadius};
   width: fit-content;
+  & + & {
+    margin-left: ${spacing.small};
+  }
   &:hover,
   &:focus,
   &:active {

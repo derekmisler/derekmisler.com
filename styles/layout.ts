@@ -44,7 +44,7 @@ export const LAYOUT_DEFAULTS = {
   borderRadius: '0',
   borderSize: '.85rem',
   borderSizeSmall: '.125rem',
-  borderSizeLarge: '2rem',
+  borderSizeLarge: '1.95rem',
   borderStyle: 'solid',
   opacity: '0.65',
   transition: `${transitionDefaults.duration} ${transitionDefaults.property} ${transitionDefaults.timing}`,

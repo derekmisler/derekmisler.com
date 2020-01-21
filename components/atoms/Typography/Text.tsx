@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { DEFAULT_TEXT_STYLES, TextProps, TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
+import { Small } from 'atoms/Typography'
 
 const {
   minColWidth

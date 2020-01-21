@@ -4,13 +4,12 @@ import { sections } from 'constants/sections'
 import { NavItem } from './NavItem'
 import { LAYOUT_DEFAULTS } from 'styles/layout'
 
-const { spacing, mediaQueries, borderStyle, borderSize } = LAYOUT_DEFAULTS
+const { spacing, mediaQueries } = LAYOUT_DEFAULTS
 
 const StyledNav = styled.nav`
-  border-bottom: ${({ theme }) => `${borderSize} ${borderStyle} ${theme.link}`};
-  padding: 0;
-  margin-bottom: ${spacing.medium};
+  display: none;
   @media ${mediaQueries.desktop} {
+    display: block;
     border-bottom: none;
     padding: 0 ${spacing.large};
   }

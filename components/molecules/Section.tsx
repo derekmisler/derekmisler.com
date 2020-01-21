@@ -14,10 +14,10 @@ interface SectionTypes extends StyledComponentProps {
 }
 
 const StyledSection = styled.section.attrs<StyledComponentProps>(({ as }) => ({ as }))`
-  margin: ${spacing.large} 0 0 0;
+  margin: 0 0 ${spacing.large} 0;
   padding: 0 ${spacing.small};
   @media ${mediaQueries.desktop} {
-    margin: 0 0 ${spacing.large};
+    margin: ${spacing.large} 0 0 0;
     padding: ${spacing.large};
     padding-top: 0;
   }

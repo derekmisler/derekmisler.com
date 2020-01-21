@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 
 const mediaQueryMatcher = (queryToMatch: string): boolean => {
-  if (typeof window !== 'object') return false
-  if (!window.matchMedia) return false
+  if (typeof window !== 'object') return true
+  if (!window.matchMedia) return true
 
   const [matches, setMatches] = useState(window.matchMedia(queryToMatch).matches)
 

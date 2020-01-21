@@ -34,25 +34,25 @@ export const blueDarkest: string = '#5E81AC'
 
 export const themes = {
   light: {
-    text: black,
-    accent: red,
-    link: blueDarker,
-    linkHover: blueDarkest,
+    text: gray,
+    border: gray,
+    accent: orange,
+    link: blue,
+    linkHover: teal,
     disabled: gray,
     background: white,
     transparentBackground: transparentWhite,
-    border: black,
     shadow: transparentBlack
   },
   dark: {
     text: white,
+    border: white,
     accent: red,
-    link: blue,
-    linkHover: blueDarker,
+    link: blueDarker,
+    linkHover: blueDarkest,
     disabled: gray,
     background: black,
     transparentBackground: transparentBlack,
-    border: white,
     shadow: blackDarker
   }
 }

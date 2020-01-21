@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { DEFAULT_TEXT_STYLES, TextProps, TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from 'styles'
-import { Small } from 'atoms/Typography'
 
 const {
   minColWidth
@@ -12,13 +11,14 @@ export const Text = styled.p.attrs<TextProps>(({ inline }) => ({
   as: inline ? 'span' : 'p'
 }))<TextProps>`
   ${DEFAULT_TEXT_STYLES}
-  margin-bottom: ${spacing.large};
+  margin-bottom: ${spacing.small};
   text-align: ${({ textAlign }) => textAlign};
   display: ${({ inline }) => (inline ? 'inline' : 'block')};
   opacity: ${({ transparent }) => (transparent ? opacity : '1')};
   color: ${({ theme, accent }) => (accent ? theme.accent : undefined)};
 
   @media ${mediaQueries.desktop} {
+    margin-bottom: ${spacing.large};
     text-align: ${({ textAlignDesktop }) => textAlignDesktop};
   }
   @media ${mediaQueries.fullHeight} {

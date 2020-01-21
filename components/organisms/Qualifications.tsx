@@ -22,6 +22,7 @@ const QualificationBar = styled.div<QualificationTypes>`
   background-color: ${({ active, theme }) => active ? theme.accent : 'transparent'};
   height: ${borderSize};
   margin-right: ${borderSizeSmall};
+  margin-bottom: ${borderSize};
 `
 
 export const Qualifications: FC = () => (
@@ -30,9 +31,7 @@ export const Qualifications: FC = () => (
     <Row as='ul' columns={2} columnsDesktop={3} gap='large'>
       {sortedSkills.map(skill => (
         <Col as='li' key={skill.title}>
-          <Text inline>
-            <Small>{skill.title}</Small>
-          </Text>
+          <Small>{skill.title}</Small>
           <Row columns={maxLevel}>
             {Array(maxLevel).fill(skill.level).map((level, i) => (
               <Col key={`${skill.title}-${i}`}>

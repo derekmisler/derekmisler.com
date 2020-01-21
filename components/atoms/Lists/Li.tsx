@@ -1,15 +1,21 @@
 import styled from 'styled-components'
-import { DEFAULT_TEXT_STYLES, LAYOUT_DEFAULTS, StyledComponentProps } from 'styles'
+import { DEFAULT_TEXT_STYLES, TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS, StyledComponentProps } from 'styles'
 
 interface ListItemProps extends StyledComponentProps {
   textAlign?: string
 }
 
-const { spacing } = LAYOUT_DEFAULTS
+const { smallFontSize, smallLineHeight } = TYPOGRAPHY_DEFAULTS
+const { spacing, mediaQueries } = LAYOUT_DEFAULTS
 
 export const Li = styled.li<ListItemProps>`
   ${DEFAULT_TEXT_STYLES}
+  font-size: ${smallFontSize.mobile};
+  line-height: ${smallLineHeight};
   text-align: ${({ textAlign }) => (textAlign ? textAlign : 'left')};
-  padding: ${spacing.medium} 0 ${spacing.small} ${spacing.small};
-  line-height: 1;
+  padding: ${spacing.medium} 0 0 ${spacing.small};
+  @media ${mediaQueries.desktop} {
+    font-size: ${smallFontSize.desktop};
+    line-height: ${smallLineHeight};
+  }
 `

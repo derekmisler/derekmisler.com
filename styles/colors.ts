@@ -24,6 +24,7 @@ export const transparentWhite: string = hexToRgba(white, .6)
 export const red: string = '#BF616A'
 export const orange: string = '#D08770'
 export const yellow: string = '#EBCB8B'
+export const yellowDarker: string = '#d9b048'
 export const green: string = '#A3BE8C'
 export const teal: string = '#8FBCBB'
 export const purple: string = '#B48EAD'
@@ -36,9 +37,9 @@ export const themes = {
   light: {
     text: gray,
     border: gray,
-    accent: orange,
+    accent: yellowDarker,
     link: blue,
-    linkHover: teal,
+    linkHover: blueDarker,
     disabled: gray,
     background: white,
     transparentBackground: transparentWhite,

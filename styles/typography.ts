@@ -27,13 +27,17 @@ export const TYPOGRAPHY_DEFAULTS = {
     desktop: '2rem',
     mobile: '1.5rem'
   },
-  smallFontSize: '.65em',
+  smallFontSize: {
+    desktop: '1.5rem',
+    mobile: '1.2rem'
+  },
   buttonFontSize: {
     desktop: '1.35rem',
     mobile: '1rem'
   },
   baseLetterSpacing: '0.00938em',
   baseLineHeight: 1.5,
+  smallLineHeight: 1.5,
   baseFontWeight: '500',
   boldFontWeight: '500',
   baseFontStyle: 'normal',

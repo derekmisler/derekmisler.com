@@ -1,10 +1,10 @@
 import { HTMLProps } from 'react'
 import { css } from 'styled-components'
-import { DesktopMobile, LAYOUT_DEFAULTS } from './layout'
+import { LAYOUT_DEFAULTS } from './layout'
 
-type FontStyle = 'italic' | 'normal'
-type BaseFontWeight = '400' | '500' | '700'
-type HeadingFontWeight = '100' | '200' | '300' | '400' | '500' | '600' | '700' | '900'
+export type FontStyle = 'italic' | 'normal'
+export type BaseFontWeight = '400' | '500' | '700'
+export type HeadingFontWeight = '100' | '200' | '300' | '400' | '500' | '600' | '700' | '900'
 
 export interface TextProps extends HTMLProps<HTMLParagraphElement> {
   textAlign?: string
@@ -16,37 +16,10 @@ export interface TextProps extends HTMLProps<HTMLParagraphElement> {
   columns?: number
 }
 
-interface TypographyTypes {
-  baseFontFamily: string
-  headingFontFamily: string
-  htmlFontSize: string
-  baseFontSize: DesktopMobile
-  smallFontSize: string
-  buttonFontSize: DesktopMobile
-  baseLetterSpacing: string
-  headingFontSizes: {
-    mobile: [string, string, string, string, string, string],
-    desktop: [string, string, string, string, string, string]
-  }
-  headingLineHeights: number[]
-  headingLetterSpacing: [string, string, string, string, string, string]
-  headingLeftMargin: {
-    mobile: string[],
-    desktop: string[]
-  }
-  headingFontWeights: HeadingFontWeight[]
-  baseLineHeight: number
-  baseFontWeight: BaseFontWeight
-  boldFontWeight: BaseFontWeight
-  baseFontStyle: FontStyle
-  accentFontStyle: FontStyle
-  minColWidth: string
-}
-
 export const BASE_MEASURE = 16
 const HEADING_SIZES = new Array(6)
 
-export const TYPOGRAPHY_DEFAULTS: TypographyTypes = {
+export const TYPOGRAPHY_DEFAULTS = {
   baseFontFamily: 'neue-haas-grotesk-text, sans-serif;',
   headingFontFamily: 'neue-haas-grotesk-display, sans-serif;',
   htmlFontSize: `${BASE_MEASURE}px`,

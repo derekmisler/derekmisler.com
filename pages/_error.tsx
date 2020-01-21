@@ -1,9 +1,9 @@
 import React from 'react'
 import { NextPage, NextPageContext } from 'next'
 import { ThemeProvider } from 'styled-components'
-import { Heading } from 'components/Typography'
+import { Heading } from 'atoms/Typography'
 import { GlobalStyle } from 'styles'
-import { Analytics } from 'components/Analytics'
+import { Analytics } from 'atoms/Analytics'
 import { useTheme } from 'utils/useTheme'
 
 interface ErrorProps {

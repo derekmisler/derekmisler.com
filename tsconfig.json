@@ -6,12 +6,12 @@
     "lib": ["dom", "es2017"],
     "baseUrl": ".",
     "paths": {
-      "components/*": ["components/*"],
+      "atoms/*": ["components/atoms/*"],
+      "molecules/*": ["components/molecules/*"],
+      "organisms/*": ["components/organisms/*"],
       "utils/*": ["utils/*"],
       "constants/*": ["constants/*"],
-      "styles/*": ["styles/*"],
-      "sections/*": ["sections/*"],
-      "types/*": ["types/*"]
+      "styles/*": ["styles/*"]
     },
     "moduleResolution": "node",
     "allowJs": true,

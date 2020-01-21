@@ -1,7 +1,7 @@
 import { HTMLProps, SFC, memo } from 'react'
 import styled from 'styled-components'
 import { LAYOUT_DEFAULTS } from 'styles'
-import { Plus } from 'components/Icons'
+import { Plus } from 'atoms/Icons'
 
 const { spacing, mediaQueries } = LAYOUT_DEFAULTS
 

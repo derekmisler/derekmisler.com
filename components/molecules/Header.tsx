@@ -1,12 +1,12 @@
 import { SFC, memo } from 'react'
 import { fixWidow } from 'utils/stringFormat'
 import { resume } from 'constants/resume'
-import { Animated } from 'components/Animated'
-import { Heading, Text } from 'components/Typography'
-import { Button } from 'components/Buttons'
-import { Row, Col } from 'components/Grid'
-import { Hr } from 'components/Hr'
-import { Section } from 'components/Section'
+import { Animated } from 'molecules/Animated'
+import { Heading, Text } from 'atoms/Typography'
+import { Button } from 'atoms/Buttons'
+import { Row, Col } from 'atoms/Grid'
+import { Hr } from 'atoms/Hr'
+import { Section } from 'molecules/Section'
 
 const HeaderContent: SFC<{}> = memo(() => {
   const {

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import React, { memo, SFC } from 'react'
-import { Link, Text, Small } from 'components/Typography'
-import { Animated } from 'components/Animated'
+import { Link, Text, Small } from 'atoms/Typography'
+import { Animated } from 'molecules/Animated'
 import { SectionTypes } from 'constants/sections'
 import { LAYOUT_DEFAULTS } from 'styles/layout'
 

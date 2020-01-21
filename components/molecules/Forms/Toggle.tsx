@@ -1,6 +1,6 @@
 import { useState, useEffect, HTMLProps, FC } from 'react'
 import styled from 'styled-components'
-import { Small } from 'components/Typography'
+import { Small } from 'atoms/Typography'
 import { DEFAULT_TEXT_STYLES, LAYOUT_DEFAULTS, transitionDefaults } from 'styles'
 
 const {

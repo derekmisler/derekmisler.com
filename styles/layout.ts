@@ -19,7 +19,7 @@ export interface StyledComponentProps extends HTMLProps<HTMLDivElement> {
 }
 
 export type FlexAlignment =
-  'flex-start'
+  | 'flex-start'
   | 'flex-end'
   | 'center'
   | 'stretch'
@@ -27,24 +27,6 @@ export type FlexAlignment =
   | 'space-between'
   | 'space-evenly'
   | 'baseline'
-
-export interface LayoutTypes {
-  borderRadius: string
-  borderSize: string
-  borderSizeSmall: string
-  borderSizeLarge: string
-  borderStyle: string
-  opacity: string
-  transition: string
-  mediaQueries: {
-    mobile: string
-    desktop: string
-    fullHeight: string
-  }
-  dropShadow: SmMdLgTypes
-  widths: SmMdLgTypes
-  spacing: SmMdLgTypes
-}
 
 export const breakpoints = {
   mobile: '64em',
@@ -58,7 +40,7 @@ export const transitionDefaults = {
   timing: 'cubic-bezier(.68, -.55, .265, 1.55)'
 }
 
-export const LAYOUT_DEFAULTS: LayoutTypes = {
+export const LAYOUT_DEFAULTS = {
   borderRadius: '0',
   borderSize: '.85rem',
   borderSizeSmall: '.125rem',

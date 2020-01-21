@@ -1,9 +1,9 @@
 import React, { SFC, memo } from 'react'
 import styled from 'styled-components'
 import { StyledComponentProps, LAYOUT_DEFAULTS } from 'styles'
-import { Row, Col } from 'components/Grid'
-import { Hr } from 'components/Hr'
-import { Heading } from './Typography'
+import { Row, Col } from 'atoms/Grid'
+import { Hr } from 'atoms/Hr'
+import { Heading } from 'atoms/Typography'
 
 const { spacing, mediaQueries } = LAYOUT_DEFAULTS
 

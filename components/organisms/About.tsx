@@ -1,8 +1,8 @@
-import { Text } from 'components/Typography'
+import { Text } from 'atoms/Typography'
 import { biography } from 'constants/resume'
 import { fixWidow } from 'utils/stringFormat'
-import { Row, Col } from 'components/Grid'
-import { Qualifications } from 'components/Qualifications'
+import { Row, Col } from 'atoms/Grid'
+import { Qualifications } from 'organisms/Qualifications'
 
 export const About = () => (
   <>

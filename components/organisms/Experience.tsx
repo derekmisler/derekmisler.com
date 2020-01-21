@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { useState, SFC, memo, MouseEvent, useEffect } from 'react'
-import { Text, Heading, Small } from 'components/Typography'
-import { Row, Col } from 'components/Grid'
+import { Text, Heading, Small } from 'atoms/Typography'
+import { Row, Col } from 'atoms/Grid'
 import { careers, CareerTypes } from 'constants/resume'
 import { LAYOUT_DEFAULTS, StyledComponentProps } from 'styles/layout'
 
@@ -74,7 +74,7 @@ export const Experience: SFC<{}> = memo(() => {
       </StyledCol>
       {
         sortedCareers.map((c, i) => (
-          <StyledCol rangeDesktop={1} id={i.toString()} onClick={onClick}>
+          <StyledCol id={i.toString()} onClick={onClick}>
             <InactiveExperienceCard c={c} />
           </StyledCol>
         ))

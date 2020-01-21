@@ -1,23 +1,13 @@
-import styled from 'styled-components'
 import React, { memo, SFC } from 'react'
 import { Link, Text, Small } from 'atoms/Typography'
+import { Li } from 'atoms/Lists'
 import { Animated } from 'molecules/Animated'
 import { SectionTypes } from 'constants/sections'
-import { LAYOUT_DEFAULTS } from 'styles/layout'
 
 interface NavItemProps {
   section: SectionTypes,
   index: number
 }
-
-const { spacing, mediaQueries } = LAYOUT_DEFAULTS
-
-const Li = styled.li`
-  padding: ${spacing.small};
-  @media ${mediaQueries.desktop} {
-    padding: 0 0 0 ${spacing.large};
-  }
-`
 
 export const NavItem: SFC<NavItemProps> = memo(({ section, index }) => {
   const position: string = (index + 1).toString()

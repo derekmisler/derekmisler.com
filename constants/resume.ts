@@ -123,7 +123,7 @@ export const careers: CareerTypes[] = [
     ],
     startDate: '2016',
     endDate: 'Present',
-    link: 'https://www.transfix.io'
+    link: 'https://transfix.io'
   },
   {
     title: 'Asheville Convention & Visitors Bureau',
@@ -158,7 +158,7 @@ export const careers: CareerTypes[] = [
       'A lot of branding at first, but eventually full-time web development. Mostly Shopify, SquareSpace, or Wordpress in the past, but I recently had a chance to work on a custom Go-backed (Buffalo) UI/component library.',
     accomplishments: [],
     startDate: '2009',
-    endDate: '2016',
+    endDate: 'Present',
     link: undefined
   },
   {

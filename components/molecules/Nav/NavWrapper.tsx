@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import React, { memo, SFC } from 'react'
+import { Ul } from 'atoms/Lists'
 import { sections } from 'constants/sections'
 import { NavItem } from './NavItem'
 import { LAYOUT_DEFAULTS } from 'styles/layout'
@@ -15,18 +16,16 @@ const StyledNav = styled.nav`
   }
 `
 
-const Ul = styled.ul`
-  display: flex;
-  align-items: center;
-  @media ${mediaQueries.desktop} {
-    justify-content: flex-end;
-  }
-`
-
 export const Nav: SFC<{}> = memo(() => {
   return (
     <StyledNav>
-      <Ul vocab='http://schema.org/' typeof='BreadcrumbList'>
+      <Ul
+        alignItems='center'
+        flexDirection='row'
+        justifyContent='flex-end'
+        vocab='http://schema.org/'
+        typeof='BreadcrumbList'
+      >
         {sections.map((section, i) => (
           <NavItem section={section} index={i} key={section.id} />
         ))}

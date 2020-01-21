@@ -16,6 +16,7 @@ interface GlobalStyleProps {
 }
 
 export const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
+  * { box-sizing: border-box };
   html, body, div, span,
   h1, h2, h3, h4, h5, h6, p, pre,
   a, code, em, img,
@@ -44,8 +45,5 @@ export const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
-  }
-  ul, ol {
-    list-style-type: none;
   }
 `

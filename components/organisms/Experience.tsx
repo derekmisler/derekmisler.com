@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { useState, SFC, memo, MouseEvent, useEffect } from 'react'
+import { useState, SFC, memo, MouseEvent } from 'react'
 import { Text, Heading, Small, Link } from 'atoms/Typography'
 import { Row, Col } from 'atoms/Grid'
 import { Ul, Li } from 'atoms/Lists'

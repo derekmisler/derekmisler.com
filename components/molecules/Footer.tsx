@@ -15,10 +15,14 @@ export const StyledFooter = styled.footer`
   margin: ${spacing.large} 0 0 0;
   padding: ${spacing.large} ${spacing.large} 0;
   border-top: ${({ theme }) => `${borderSize} ${borderStyle} ${theme.accent}`};
+
+  @media ${mediaQueries.desktop} {
+    padding: ${spacing.large};
+  }
 `
 
 export const Footer = memo(() => (
   <StyledFooter>
-    <Text transparent>Whoa! You made it all the way down to the footer!</Text>
+    <Text transparent>Whoa!<br />You made it all the way down to the footer!</Text>
   </StyledFooter>
 ))

@@ -40,7 +40,7 @@ const HeaderContent: SFC<{}> = memo(() => {
               Say Hello!
             </Button>
             <Button download href='images/Derek-Misler-resume.pdf'>
-              Download PDF
+              Download Resume!
             </Button>
           </Text>
         </Animated>

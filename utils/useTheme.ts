@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { themes, ThemeStateProps } from 'styles'
-import { useDarkMode } from 'utils/useDarkMode'
 
 enum ThemeActionTypes {
   Light = 'light',
@@ -10,7 +9,9 @@ enum ThemeActionTypes {
 type UseThemeProps = [ThemeStateProps, Function]
 
 export const useTheme = (): UseThemeProps => {
-  const defaultDarkMode = useDarkMode()
+  const now: Date = new Date()
+  const hour: number = now.getHours()
+  const defaultDarkMode = hour < 9 || hour >= 17
 
   const [isDarkMode, setDarkMode] = useState(defaultDarkMode)
   const [theme, setTheme] = useState(themes[defaultDarkMode ? ThemeActionTypes.Dark : ThemeActionTypes.Light])

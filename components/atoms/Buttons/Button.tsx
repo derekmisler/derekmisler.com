@@ -31,11 +31,9 @@ export const Button = styled.button.attrs<StyledButtonProps>(({ href }) => ({
   text-decoration: none;
   text-transform: uppercase;
   padding: ${spacing.small} ${spacing.medium};
+  margin: 0 ${spacing.small} ${spacing.small} 0;
   border-radius: ${borderRadius};
   width: fit-content;
-  & + & {
-    margin-left: ${spacing.small};
-  }
   &:hover,
   &:focus,
   &:active {

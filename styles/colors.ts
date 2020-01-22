@@ -8,38 +8,27 @@ export interface ThemeStateProps {
   isDarkMode: boolean
 }
 
-export const black: string = '#2E3440'
-export const blackDarker: string = '#000000'
-export const transparentBlack: string = hexToRgba(black, .6)
+const gray: string = '#4C566A'
+const black: string = '#2E3440'
+const blackDarker: string = '#000000'
+const transparentBlack: string = hexToRgba(black, .6)
 
-export const gray: string = '#4C566A'
-export const grayDarker: string = '#434C5E'
-export const grayDarkest: string = '#3B4252'
+const white: string = '#ECEFF4'
+const whiteDarker: string = '#E5E9F0'
+const transparentWhite: string = hexToRgba(white, .6)
 
-export const white: string = '#ECEFF4'
-export const whiteDarker: string = '#E5E9F0'
-export const whiteDarkest: string = '#D8DEE9'
-export const transparentWhite: string = hexToRgba(white, .6)
-
-export const red: string = '#BF616A'
-export const orange: string = '#D08770'
-export const yellow: string = '#EBCB8B'
-export const yellowDarker: string = '#d9b048'
-export const green: string = '#A3BE8C'
-export const teal: string = '#8FBCBB'
-export const purple: string = '#B48EAD'
-
-export const blue: string = '#88C0D0'
-export const blueDarker: string = '#81A1C1'
-export const blueDarkest: string = '#5E81AC'
+const red: string = '#BF616A'
+const redDarker: string = '#9b4b56'
+const blue: string = '#81A1C1'
+const blueDarker: string = '#5E81AC'
 
 export const themes = {
   light: {
     text: gray,
     border: gray,
-    accent: yellowDarker,
-    link: blue,
-    linkHover: blueDarker,
+    accent: blueDarker,
+    link: red,
+    linkHover: redDarker,
     disabled: gray,
     background: white,
     transparentBackground: transparentWhite,
@@ -49,8 +38,8 @@ export const themes = {
     text: white,
     border: white,
     accent: red,
-    link: blueDarker,
-    linkHover: blueDarkest,
+    link: blue,
+    linkHover: blueDarker,
     disabled: gray,
     background: black,
     transparentBackground: transparentBlack,

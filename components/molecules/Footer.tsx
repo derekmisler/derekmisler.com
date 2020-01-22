@@ -13,11 +13,11 @@ const {
 
 export const StyledFooter = styled.footer`
   margin: ${spacing.large} 0 0 0;
-  padding: ${spacing.large} ${spacing.large} 0;
+  padding: ${spacing.large};
   border-top: ${({ theme }) => `${borderSize} ${borderStyle} ${theme.accent}`};
 
   @media ${mediaQueries.desktop} {
-    padding: ${spacing.large};
+    padding: ${spacing.large} ${spacing.large} 0;
   }
 `
 

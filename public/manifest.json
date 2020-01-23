@@ -1,6 +1,6 @@
 {
   "short_name": "Derek Misler",
-  "name": "Derek Misler | Software Engineer & UI/UX Designer",
+  "name": "Derek Misler | Software Engineer& Occasional Designer",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,8 +8,8 @@
       "type": "image/x-icon"
     }
   ],
-  "start_url": "./index.html",
+  "start_url": "index.html",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#f4f1ec",
+  "background_color": "#2E3440"
 }

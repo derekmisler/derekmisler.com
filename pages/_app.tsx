@@ -3,6 +3,7 @@ import App from 'next/app'
 import Head from 'next/head'
 import { JsonLd } from 'atoms/JsonLd'
 import { resume } from 'constants/resume'
+import { themes } from 'styles'
 
 class MainApp extends App {
   render() {
@@ -18,19 +19,26 @@ class MainApp extends App {
             name='viewport'
             content='width=device-width, initial-scale=1.0'
           />
-          <meta name='apple-mobile-web-app-capable' content='yes' />
-          <meta
-            name='apple-mobile-web-app-status-bar-style'
-            content='black-translucent'
-          />
-          <meta name='mobile-web-app-capable' content='yes' />
           <meta name='description' content={profile.metaDescription} />
           <link rel='canonical' href={contact.website} />
-          <link
-            rel='apple-touch-icon'
-            sizes='180x180'
-            href='/apple-touch-icon.png'
-          />
+          <link rel='manifest' href='/site.webmanifest' />
+
+          {/* Chrome for Android */}
+          <meta name='apple-mobile-web-app-capable' content='yes' />
+          <meta name='theme-color' content={themes.dark.text} />
+          <meta name='application-name' content={profile.fullName} />
+          <link rel='icon' sizes='192x192' href='/icon-192x192.png' />
+
+          {/* Safari for iOS */}
+          <meta name='apple-mobile-web-app-title' content={profile.fullName} />
+          <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
+          <link rel='apple-touch-icon' href='/icon-192x192.png' />
+
+          {/* Win8 */}
+          <meta name='msapplication-TileColor' content={themes.dark.text} />
+          <meta name='msapplication-TileImage' content='/icon-192x192.png' />
+
+          {/* Favicons */}
           <link
             rel='icon'
             type='image/png'
@@ -43,11 +51,8 @@ class MainApp extends App {
             sizes='16x16'
             href='/favicon-16x16.png'
           />
-          <link rel='manifest' href='/site.webmanifest' />
-          <meta name='msapplication-TileColor' content='#da532c' />
-          <meta name='theme-color' content='#ffffff' />
           <link rel='shortcut icon' href='favicon.ico' />
-          <link rel='stylesheet' href='https://use.typekit.net/jzw6tzs.css' />
+          <link rel='preload' as='style' href='https://use.typekit.net/jzw6tzs.css' />
           <meta
             name='google-site-verification'
             content='oM1NjzxvtvPp4JL2t2qo13zUhGnrpGF0Fbgyb6S8vDk'

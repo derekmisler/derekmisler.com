@@ -1,10 +1,10 @@
 export const firstName: string = 'Derek'
 export const middleName: string = 'Alan'
 export const lastName: string = 'Misler'
-export const description: string = 'Software Engineer & Occasional Designer'
+export const description: string = 'Software Engineer& Occasional Designer'
 export const email: string = 'derekmisler@gmail.com'
 export const socialId: string = 'derekmisler'
-export const metaDescription: string = `Derek is a software engineer living in Brooklyn, NY with a design background and 15+ years of experience building exceptional, high-quality websites and applications.`
+export const metaDescription: string = `I am a software engineer living in Brooklyn, NY with a design background and 15+ years of experience building exceptional, high-quality websites and applications.`
 export const biography: string = `I have a diverse education, both traditional and self-driven, of many different web and app development languages for desktop and mobile. I also have a design background, tons of UI/UX experience, and a surprisingly large knowledge of typography (seriously, let's talk about it). I think all developers should study design, and I believe having this well-rounded education makes me a stronger engineer.`
 
 export const profile: {
@@ -148,7 +148,7 @@ export const careers: ExperienceTypes[] = [
     location: 'Asheville, North Carolina',
     level: 'Freelance',
     description:
-      'A lot of branding at first, but eventually full-time web development. Mostly Shopify, SquareSpace, or Wordpress in the past, but I recently had a chance to work on a custom Go-backed (Buffalo) UI/component library.',
+      'A lot of branding at first, but eventually full-time web development. Mostly Shopify, SquareSpace, or Wordpress, but I recently had a chance to work on a custom Go-backed (Buffalo) UI/component library.',
     accomplishments: [],
     startDate: '2009',
     endDate: 'Present',
@@ -273,20 +273,16 @@ export const skills: SkillTypes[] = [
     level: 5
   },
   {
-    title: 'React & Redux',
+    title: 'React/Redux',
     level: 5
   },
   {
-    title: 'React-Native',
+    title: 'React Native',
     level: 5
   },
   {
     title: 'PHP',
     level: 4
-  },
-  {
-    title: 'ColdFusion',
-    level: 1
   },
   {
     title: 'Python',
@@ -334,6 +330,10 @@ export const skills: SkillTypes[] = [
   },
   {
     title: 'LESS/Sass',
+    level: 5
+  },
+  {
+    title: 'CSS-in-JS',
     level: 5
   }
 ]

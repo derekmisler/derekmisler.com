@@ -57,7 +57,7 @@ export const contact: {
   pinterest: string
 } = {
   email,
-  website: `http://www.${socialId}.com`,
+  website: `https://${socialId}.com`,
   phone: '+18282736943',
   phoneDisplay: '(828) 273-6943',
   twitter: `http://twitter.com/${socialId}`,

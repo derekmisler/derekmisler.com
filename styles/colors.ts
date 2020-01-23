@@ -13,7 +13,7 @@ const black: string = '#2E3440'
 const blackDarker: string = '#000000'
 const transparentBlack: string = hexToRgba(black, .6)
 
-const white: string = '#ECEFF4'
+const white: string = '#f4f1ec'
 const whiteDarker: string = '#E5E9F0'
 const transparentWhite: string = hexToRgba(white, .6)
 

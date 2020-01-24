@@ -14,6 +14,7 @@ export const config = { amp: false }
 
 export const App: NextPage<{}> = () => {
   const [{ theme, isDarkMode }, toggleTheme] = useTheme()
+
   return (
     <ThemeProvider theme={theme}>
       <Analytics />

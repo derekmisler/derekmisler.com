@@ -27,16 +27,16 @@ class MainApp extends App {
           <meta name='apple-mobile-web-app-capable' content='yes' />
           <meta name='theme-color' content={themes.dark.text} />
           <meta name='application-name' content={profile.fullName} />
-          <link rel='icon' sizes='192x192' href='/icon-192x192.png' />
+          <link rel='icon' sizes='192x192' href='/icon-192.png' />
 
           {/* Safari for iOS */}
           <meta name='apple-mobile-web-app-title' content={profile.fullName} />
           <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
-          <link rel='apple-touch-icon' href='/icon-192x192.png' />
+          <link rel='apple-touch-icon' href='/icon-192.png' />
 
           {/* Win8 */}
           <meta name='msapplication-TileColor' content={themes.dark.text} />
-          <meta name='msapplication-TileImage' content='/icon-192x192.png' />
+          <meta name='msapplication-TileImage' content='/icon-192.png' />
 
           {/* Favicons */}
           <link
@@ -49,7 +49,7 @@ class MainApp extends App {
             rel='icon'
             type='image/png'
             sizes='16x16'
-            href='/favicon-16x16.png'
+            href='/favicon-16.png'
           />
           <link rel='shortcut icon' href='favicon.ico' />
           <link rel='preload' as='style' href='https://use.typekit.net/jzw6tzs.css' />

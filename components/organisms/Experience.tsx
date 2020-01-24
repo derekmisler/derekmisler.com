@@ -49,7 +49,7 @@ const ActiveExperienceCard: SFC<ExperienceCardProps> = memo(({ e }) => (
           {e.startDate}&ndash;{e.endDate}
           <br />
           {e.location}
-          {e.link && <><br /><Link href={e.link} target='_blank'>Link</Link></>}
+          {e.link && <><br /><Link href={e.link} target='_blank' rel='noopener'>Link</Link></>}
         </Text>
       </Col>
       <Col rangeDesktop={6}>

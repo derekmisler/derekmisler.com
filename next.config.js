@@ -1,5 +1,3 @@
-const withOffline = require('next-offline')
-
 const nextConfig = {
   distDir: 'dist',
   target: 'serverless',
@@ -10,4 +8,4 @@ const nextConfig = {
   }
 }
 
-module.exports = withOffline(nextConfig);
+module.exports = nextConfig

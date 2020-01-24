@@ -18,9 +18,9 @@ app.prepare()
     createServer(httpsOptions, (req, res) => {
       const parsedUrl = parse(req.url, true)
       const { pathname } = parsedUrl
-      if (pathname === '/sw.js') {
-        res.setHeader('content-type', 'text/javascript')
-        createReadStream('./public/service-worker.js').pipe(res)
+      if (pathname === '/service-worker.js') {
+        const filePath = join(__dirname, '.next', pathname)
+        app.serveStatic(req, res, filePath)
       } else {
         handle(req, res, parsedUrl)
       }

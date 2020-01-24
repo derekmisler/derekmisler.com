@@ -25,7 +25,7 @@ class MainApp extends App {
 
           {/* Chrome for Android */}
           <meta name='apple-mobile-web-app-capable' content='yes' />
-          <meta name='theme-color' content={themes.dark.text} />
+          <meta name='theme-color' content={themes.dark.background} />
           <meta name='application-name' content={profile.fullName} />
           <link rel='icon' sizes='192x192' href='/icon-192.png' />
 
@@ -35,7 +35,7 @@ class MainApp extends App {
           <link rel='apple-touch-icon' href='/icon-192.png' />
 
           {/* Win8 */}
-          <meta name='msapplication-TileColor' content={themes.dark.text} />
+          <meta name='msapplication-TileColor' content={themes.dark.background} />
           <meta name='msapplication-TileImage' content='/icon-192.png' />
 
           {/* Favicons */}
@@ -43,7 +43,13 @@ class MainApp extends App {
             rel='icon'
             type='image/png'
             sizes='32x32'
-            href='/favicon-32x32.png'
+            href='/favicon-96.png'
+          />
+          <link
+            rel='icon'
+            type='image/png'
+            sizes='32x32'
+            href='/favicon-32.png'
           />
           <link
             rel='icon'

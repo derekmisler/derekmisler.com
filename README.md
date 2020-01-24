@@ -8,7 +8,7 @@ I am a software engineer living in Brooklyn, NY with a design background and 15+
 
 ## Some notes about this site:
 
-- Server-side rendering with [Next.js](https://nextjs.org/)
+- Statically generated with [Next.js](https://nextjs.org/)
 - **100** on [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fderekmisler.com%2F&tab=desktop)
 - Styling courtesy of [Styled Components](https://styled-components.com/)
 - Font choice: [Neue Haas Grotesk](https://fonts.adobe.com/fonts/neue-haas-grotesk)

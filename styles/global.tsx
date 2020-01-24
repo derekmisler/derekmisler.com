@@ -16,7 +16,7 @@ interface GlobalStyleProps {
 }
 
 export const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
-  * { box-sizing: border-box };
+  * { box-sizing: border-box; }
   html, body, div, span,
   h1, h2, h3, h4, h5, h6, p, pre,
   a, code, em, img,
@@ -27,8 +27,8 @@ export const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
     font: inherit;
+    font-size: 100%;
     vertical-align: baseline;
   }
   article, aside, details, figcaption, figure,

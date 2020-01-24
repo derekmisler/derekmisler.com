@@ -26,7 +26,6 @@ export const Heading = styled.div.attrs<StyledHeadingProps>(
     as: `h${level}`
   })
 ) <StyledHeadingProps>`
-  margin-left: ${({ level }) => headingLeftMargin.mobile[level - 1]};
   text-align: ${({ textAlign = 'left' }) => textAlign};
   font-family: ${headingFontFamily};
   font-style: ${baseFontStyle};
@@ -37,6 +36,7 @@ export const Heading = styled.div.attrs<StyledHeadingProps>(
   column-span: all;
   color: ${({ theme, accent }) => (accent ? theme.accent : undefined)};
   margin: ${({ level }) => level > 2 ? `${spacing.medium} 0` : 0};
+  margin-left: ${({ level }) => headingLeftMargin.mobile[level - 1]};
 
   @media ${mediaQueries.desktop} {
     margin-left: ${({ level }) => headingLeftMargin.desktop[level - 1]};

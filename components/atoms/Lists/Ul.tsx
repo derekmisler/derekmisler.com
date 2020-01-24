@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { StyledComponentProps, SmMdLgSizes, LAYOUT_DEFAULTS, FlexAlignment } from 'styles'
 
-const { spacing, mediaQueries } = LAYOUT_DEFAULTS
+const { spacing } = LAYOUT_DEFAULTS
 
 interface ListProps extends StyledComponentProps {
   padding?: SmMdLgSizes
@@ -23,7 +23,4 @@ export const Ul = styled.ul<ListProps>`
   padding-left: ${({ bullet }) => bullet ? spacing.large : 0};
   margin: 0;
   margin-bottom: ${({ margin }) => (margin ? spacing[margin] : 0)};
-
-  @media ${mediaQueries.desktop} {
-  }
 `

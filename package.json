@@ -11,6 +11,8 @@
     "static": "npm run build && npx next export",
     "start": "NODE_ENV=production node server.js",
     "stylelint": "npx stylelint './**/*.tsx'",
+    "check-types": "tsc --jsx preserve --esModuleInterop --skipLibCheck",
+    "test": "npm run stylelint && npm run check-types",
     "format": "npx prettier --write '**/*.{ts,tsx}'",
     "deploy": "npm run build && npx now",
     "deploy:prod": "npm run build && npx now --prod",

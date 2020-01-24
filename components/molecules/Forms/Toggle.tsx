@@ -61,7 +61,7 @@ const ToggleSlider = styled.div<{ isActive?: boolean }>`
     border-radius: ${borderRadius};
     background-color: ${({ theme }) => theme.link};
     transition: ${timing} left ${duration};
-    left: ${({ isActive }) => isActive ? `calc(100% - (${borderSize} + ${borderSizeSmall}))` : 0 };
+    left: ${({ isActive }) => isActive ? borderSize : 0};
     will-change: left;
     top: 0;
   }

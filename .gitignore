@@ -1,4 +1,4 @@
 .next/
 .firebase/
-out/
+dist/
 .report.html

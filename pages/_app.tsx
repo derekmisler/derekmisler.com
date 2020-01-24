@@ -58,7 +58,10 @@ class MainApp extends App {
             href='/favicon-16.png'
           />
           <link rel='shortcut icon' href='favicon.ico' />
-          <link rel='dns-prefetch' as='style' href='https://use.typekit.net/jzw6tzs.css' />
+          <link rel='dns-prefetch' as='style' href='https://use.typekit.com' />
+          <link rel='dns-prefetch' as='script' href='https://www.google-analytics.com' />
+          <link rel='dns-prefetch' as='style' href='https://p.typekit.net' />
+          <link rel='stylesheet' href='https://use.typekit.net/jzw6tzs.css' />
           <meta
             name='google-site-verification'
             content='oM1NjzxvtvPp4JL2t2qo13zUhGnrpGF0Fbgyb6S8vDk'

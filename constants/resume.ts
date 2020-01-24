@@ -1,7 +1,7 @@
 export const firstName: string = 'Derek'
 export const middleName: string = 'Alan'
 export const lastName: string = 'Misler'
-export const description: string = 'Software Engineer& Occasional Designer'
+export const description: string = 'Software Engineer & Occasional Designer'
 export const email: string = 'derekmisler@gmail.com'
 export const socialId: string = 'derekmisler'
 export const metaDescription: string = `I am a software engineer living in Brooklyn, NY with a design background and 15+ years of experience building exceptional, high-quality websites and applications.`

@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { NextPage } from 'next'
 import { ThemeProvider } from 'styled-components'
 import { Header } from 'molecules/Header'
@@ -13,6 +14,12 @@ import { useTheme } from 'utils/useTheme'
 export const config = { amp: false }
 
 export const App: NextPage<{}> = () => {
+  useEffect(() => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .catch(err => console.error('Service worker registration failed, but that\'s fine, this is a really small website. I wouldn\'t be very good at my job if it reloaded slowly.', err))
+    }
+  }, [])
   const [{ theme, isDarkMode }, toggleTheme] = useTheme()
 
   return (

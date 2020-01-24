@@ -58,7 +58,7 @@ class MainApp extends App {
             href='/favicon-16.png'
           />
           <link rel='shortcut icon' href='favicon.ico' />
-          <link rel='preload' as='style' href='https://use.typekit.net/jzw6tzs.css' />
+          <link rel='dns-prefetch' as='style' href='https://use.typekit.net/jzw6tzs.css' />
           <meta
             name='google-site-verification'
             content='oM1NjzxvtvPp4JL2t2qo13zUhGnrpGF0Fbgyb6S8vDk'

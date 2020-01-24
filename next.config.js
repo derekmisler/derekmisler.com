@@ -1,5 +1,4 @@
 const nextConfig = {
-  distDir: 'dist',
   target: 'serverless',
   exportTrailingSlash: true,
   poweredByHeader: false,

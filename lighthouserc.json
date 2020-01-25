@@ -1,9 +1,6 @@
 {
   "ci": {
     "collect": {
-      "numberOfRuns": 3
-    },
-    "autorun": {
       "staticDistDir": "./.next"
     },
     "assert": {

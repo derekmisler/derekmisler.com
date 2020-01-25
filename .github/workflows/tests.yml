@@ -13,7 +13,7 @@ jobs:
       with:
         node-version: 12.13.1
     - name: Install Dependencies
-      run: npm install
+      run: npm ci
     - name: Type checking
       run: npm run check-types
     - name: Style linting
@@ -30,7 +30,7 @@ jobs:
           node-version: 12.13.1
       - name: npm install, build
         run: |
-          npm install
+          npm ci
           npm run build
       - name: run Lighthouse CI
         run: |

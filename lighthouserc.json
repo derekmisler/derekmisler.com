@@ -5,7 +5,7 @@
       "staticDistDir": "./.next"
     },
     "assert": {
-      "preset": "lighthouse:recommended"
+      "preset": "lighthouse:all"
     },
     "upload": {
       "target": "temporary-public-storage"

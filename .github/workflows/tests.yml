@@ -38,6 +38,8 @@ jobs:
           LHCI_GITHUB_APP_TOKEN: process.env.LHCI_GITHUB_APP_TOKEN
         run: lhci autorun
       - name: upload Lighthouse results
+        env:
+          LHCI_GITHUB_APP_TOKEN: process.env.LHCI_GITHUB_APP_TOKEN
         run: lhci upload
       - name: Save results
         uses: actions/upload-artifact@v1

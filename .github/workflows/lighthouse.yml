@@ -1,0 +1,29 @@
+name: Lighthouse
+
+on: [push]
+
+jobs:
+  lhci:
+    name: Lighthouse CI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.13.1
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.13.1
+          urls: |
+            https://localhost:3000
+        env:
+          LHCI_GITHUB_APP_TOKEN: process.env.LHCI_GITHUB_APP_TOKEN
+      - name: npm install, build
+        run: |
+          npm ci
+          npm run build
+      - name: run Lighthouse CI
+        run: npx lhci autorun
+      - name: Save results
+        uses: actions/upload-artifact@v1
+        with:
+          name: lighthouse-results
+          path: '.lighthouseci'

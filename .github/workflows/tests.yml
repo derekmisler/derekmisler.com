@@ -1,4 +1,4 @@
-name: Build project and Run Lighthouse CI
+name: Tests
 
 on: [push]
 
@@ -18,31 +18,3 @@ jobs:
       run: npm run check-types
     - name: Style linting
       run: npm run stylelint
-
-  lhci:
-    name: Lighthouse CI
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js 12.13.1
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12.13.1
-      - name: npm install, build
-        run: |
-          npm ci
-          npm install -g @lhci/cli@0.3.x
-          npm run build
-      - name: run Lighthouse CI
-        env:
-          LHCI_GITHUB_APP_TOKEN: process.env.LHCI_GITHUB_APP_TOKEN
-        run: lhci autorun
-      - name: upload Lighthouse results
-        env:
-          LHCI_GITHUB_APP_TOKEN: process.env.LHCI_GITHUB_APP_TOKEN
-        run: lhci upload
-      - name: Save results
-        uses: actions/upload-artifact@v1
-        with:
-          name: lighthouse-results
-          path: '.lighthouseci'

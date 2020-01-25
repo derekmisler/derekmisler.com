@@ -1,6 +1,7 @@
 const { createServer } = require('https')
 const { parse } = require('url')
-const { readFileSync, createReadStream } = require('fs')
+const { join } = require('path')
+const { readFileSync } = require('fs')
 const next = require('next')
 
 const port = 3000
@@ -18,7 +19,7 @@ app.prepare()
     createServer(httpsOptions, (req, res) => {
       const parsedUrl = parse(req.url, true)
       const { pathname } = parsedUrl
-      if (pathname === '/service-worker.js') {
+      if (pathname === '/sw.js') {
         const filePath = join(__dirname, '.next', pathname)
         app.serveStatic(req, res, filePath)
       } else {

@@ -78,8 +78,13 @@ export const Toggle: FC<ToggleProps> = ({
     setActive(!active)
   }
   useEffect(() => {
+    setActive(defaultChecked)
+  }, [defaultChecked])
+
+  useEffect(() => {
     onToggle(active)
   }, [active])
+
   return (
     <ToggleWrapper onClick={handleChange} >
       {offLabel && <Small>{offLabel}</Small>}

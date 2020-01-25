@@ -3,8 +3,10 @@
     "collect": {
       "numberOfRuns": 3,
       "staticDistDir": "./.next",
-      "startServerCommand": "npm run start",
-      "url": "https://localhost:3000"
+      "startServerCommand": "npm run serve:lhci",
+      "url": [
+        "http://localhost:3000"
+      ]
     },
     "assert": {
       "preset": "lighthouse:all"

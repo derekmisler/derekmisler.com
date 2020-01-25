@@ -10,7 +10,6 @@
     "build": "npx next build",
     "static": "npm run build && npx next export",
     "start": "NODE_ENV=production node server.js",
-    "serve:lhci": "npm run start",
     "stylelint": "npx stylelint './**/*.tsx'",
     "check-types": "tsc --jsx preserve --esModuleInterop --skipLibCheck",
     "test": "npm run stylelint && npm run check-types",

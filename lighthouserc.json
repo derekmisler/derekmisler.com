@@ -3,7 +3,9 @@
     "collect": {
       "numberOfRuns": 3
     },
-    "staticDistDir": "./.next",
+    "autorun": {
+      "staticDistDir": "./.next"
+    },
     "assert": {
       "preset": "lighthouse:recommended",
       "assertions": {

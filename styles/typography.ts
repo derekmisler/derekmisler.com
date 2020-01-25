@@ -20,8 +20,8 @@ export const BASE_MEASURE = 16
 const HEADING_SIZES = new Array(6)
 
 export const TYPOGRAPHY_DEFAULTS = {
-  baseFontFamily: 'neue-haas-grotesk-text, sans-serif;',
-  headingFontFamily: 'neue-haas-grotesk-display, sans-serif;',
+  baseFontFamily: 'neue-haas-grotesk-text, "Helvetica Neue", Helvetica, sans-serif;',
+  headingFontFamily: 'neue-haas-grotesk-display, "Helvetica Neue", Helvetica, sans-serif;',
   htmlFontSize: `${BASE_MEASURE}px`,
   baseFontSize: {
     desktop: '2rem',

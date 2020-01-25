@@ -31,13 +31,14 @@ jobs:
       - name: npm install, build
         run: |
           npm ci
+          npm install -g @lhci/cli@0.3.x
           npm run build
       - name: run Lighthouse CI
         env:
           LHCI_GITHUB_APP_TOKEN: process.env.LHCI_GITHUB_APP_TOKEN
-        run: |
-          npm install -g @lhci/cli@0.3.x
-          lhci autorun
+        run: lhci autorun
+      - name: upload Lighthouse results
+        run: lhci upload
       - name: Save results
         uses: actions/upload-artifact@v1
         with:

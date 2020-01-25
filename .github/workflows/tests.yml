@@ -8,6 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
+    - name: Use Node.js 12.13.1
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.13.1
+    - name: Install Dependencies
+      run: npm install
     - name: Type checking
       run: npm run check-types
     - name: Style linting
@@ -18,10 +24,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Use Node.js 10.x
+      - name: Use Node.js 12.13.1
         uses: actions/setup-node@v1
         with:
-          node-version: 10.x
+          node-version: 12.13.1
       - name: npm install, build
         run: |
           npm install

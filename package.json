@@ -20,6 +20,7 @@
     "clean:all": "rm -rf out && rm -rf node_modules && rm -rf package-lock.json && npm cache clean --force && npm i --no-audit"
   },
   "dependencies": {
+    "@lhci/cli": "^0.3.8",
     "next": "^9.1.5",
     "next-offline": "^4.0.6",
     "react": "^16.12.0",

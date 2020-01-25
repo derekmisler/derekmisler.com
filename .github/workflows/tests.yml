@@ -33,6 +33,8 @@ jobs:
           npm ci
           npm run build
       - name: run Lighthouse CI
+        env:
+          LHCI_GITHUB_APP_TOKEN: process.env.LHCI_GITHUB_APP_TOKEN
         run: |
           npm install -g @lhci/cli@0.3.x
           lhci autorun

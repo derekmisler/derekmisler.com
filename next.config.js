@@ -17,7 +17,6 @@ const nextConfig = {
   },
   transformManifest: manifest => urlsToCache.concat(manifest),
   workboxOpts: {
-    devSwSrc: 'public/service-worker.js',
     swDest: 'static/service-worker.js',
   }
 }

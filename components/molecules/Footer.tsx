@@ -23,6 +23,6 @@ export const StyledFooter = styled.footer`
 
 export const Footer = memo(() => (
   <StyledFooter>
-    <Text transparent>Whoa!<br />You made it all the way down to the footer!</Text>
+    <Text>Whoa!<br />You made it all the way down to the footer!</Text>
   </StyledFooter>
 ))

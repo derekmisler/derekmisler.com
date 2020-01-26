@@ -14,7 +14,6 @@ export const Text = styled.p.attrs<TextProps>(({ inline }) => ({
   margin-bottom: ${spacing.small};
   text-align: ${({ textAlign }) => textAlign};
   display: ${({ inline }) => (inline ? 'inline' : 'block')};
-  opacity: ${({ transparent }) => (transparent ? opacity : '1')};
   color: ${({ theme, accent }) => (accent ? theme.accent : undefined)};
 
   @media ${mediaQueries.desktop} {

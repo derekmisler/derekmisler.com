@@ -9,7 +9,6 @@ export type HeadingFontWeight = '100' | '200' | '300' | '400' | '500' | '600' | 
 export interface TextProps extends HTMLProps<HTMLParagraphElement> {
   textAlign?: string
   textAlignDesktop?: string
-  transparent?: boolean
   accent?: boolean
   bold?: boolean
   inline?: boolean

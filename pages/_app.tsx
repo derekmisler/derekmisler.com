@@ -70,6 +70,7 @@ class MainApp extends App {
             href='/favicon-16.png'
           />
           <link rel='shortcut icon' href='favicon.ico' />
+          <link rel='preload' as='script' href='https://fonts.adobe.com' />
           <link rel='preload' as='font' href='https://use.typekit.net' />
           <link rel='preload' as='script' href='https://www.google-analytics.com' />
           <meta

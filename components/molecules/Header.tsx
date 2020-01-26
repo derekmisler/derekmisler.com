@@ -32,7 +32,7 @@ const HeaderContent: SFC<{}> = memo(() => {
           <Heading accent level={2}>{description}</Heading>
         </Animated>
         <Animated delay={500}>
-          <Text inline transparent>{fixWidow(metaDescription)}</Text>
+          <Text inline>{fixWidow(metaDescription)}</Text>
         </Animated>
         <Animated delay={600}>
           <Text>

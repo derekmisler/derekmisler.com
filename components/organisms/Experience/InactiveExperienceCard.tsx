@@ -9,6 +9,6 @@ export const InactiveExperienceCard: SFC<{ e: ExperienceTypes }> = memo(({ e }) 
       <br />
       {e.startDate}&ndash;{e.endDate}
     </Heading>
-    <Small transparent>{e.location}</Small>
+    <Small>{e.location}</Small>
   </>
 ))

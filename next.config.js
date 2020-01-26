@@ -4,9 +4,6 @@ const urlsToCache = [
   'https://use.typekit.net/jzw6tzs.css'
 ]
 const nextConfig = {
-  env: {
-    LHCI_GITHUB_APP_TOKEN: process.env.LHCI_GITHUB_APP_TOKEN,
-  },
   target: 'serverless',
   exportTrailingSlash: true,
   poweredByHeader: false,
@@ -15,6 +12,7 @@ const nextConfig = {
   },
   transformManifest: manifest => urlsToCache.concat(manifest),
   workboxOpts: {
+    devSwSrc: 'public/service-worker.js',
     swDest: 'static/service-worker.js',
   }
 }

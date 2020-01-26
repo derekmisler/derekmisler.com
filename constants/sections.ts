@@ -1,7 +1,7 @@
 import { SFC } from 'react'
-import About from 'organisms/About'
-import Experience from 'organisms/Experience'
-// import Projects from 'organisms/Projects'
+import { About } from 'organisms/About'
+import { Experience } from 'organisms/Experience'
+// import { Projects } from 'organisms/Projects'
 
 export interface SectionTypes {
   heading: string

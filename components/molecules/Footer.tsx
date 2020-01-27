@@ -1,7 +1,9 @@
 import { memo } from 'react'
 import styled from 'styled-components'
 import { Text } from 'atoms/Typography'
+import { Row, Col } from 'atoms/Grid'
 import { LAYOUT_DEFAULTS } from 'styles'
+import { Contact } from 'organisms/Contact'
 
 const {
   spacing,
@@ -23,6 +25,12 @@ export const StyledFooter = styled.footer`
 
 export const Footer = memo(() => (
   <StyledFooter>
-    <Text>Whoa!<br />You made it all the way down to the footer!</Text>
+    <Row columnsDesktop={2}>
+      <Col>
+        <Text>Whoa!<br />You made it all the way down to the footer!</Text>
+        <Text>This site is still under construction, so here are some links to keep you busy:</Text>
+        <Contact />
+      </Col>
+    </Row>
   </StyledFooter>
 ))

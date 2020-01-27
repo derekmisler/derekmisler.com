@@ -62,10 +62,10 @@ export const contact: {
   phoneDisplay: '(828) 273-6943',
   twitter: `http://twitter.com/${socialId}`,
   twitterHandle: `@${socialId}`,
-  linkedin: `http://www.linkedin.com/in/${socialId}/`,
+  linkedin: `https://www.linkedin.com/in/${socialId}/`,
   github: `https://github.com/${socialId}`,
   flickr: `http://www.flickr.com/photos/${socialId}/`,
-  fivehundred: `https://prime.500px.com/${socialId}`,
+  fivehundred: `https://500px.com/${socialId}`,
   stackOverflow: `https://stackoverflow.com/story/${socialId}`,
   instagram: `https://www.instagram.com/${socialId}/`,
   pinterest: `https://www.pinterest.com/${socialId}/`

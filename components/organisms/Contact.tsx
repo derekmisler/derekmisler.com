@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { Fragment, memo } from 'react'
 import { Text, Link } from 'atoms/Typography'
 import { contact } from 'constants/resume'
 
@@ -16,10 +16,10 @@ export const Contact = memo(() => {
         LINKS.map((link, i) => {
           const isLast = i === LINKS.length - 1
           return (
-            <>
+            <Fragment key={link.title}>
               <Link href={link.url} rel='noopener' target='_blank'>{link.title}</Link>
               { !isLast && ' / '}
-            </>
+            </Fragment>
           )
         })
       }

@@ -85,7 +85,8 @@ export interface ExperienceTypes {
 export const education: ExperienceTypes[] = [
   {
     title: 'Appalachian State University',
-    specification: 'BFA - Graphic Design',
+    specification: 'Graphic Design',
+    level: 'BFA',
     location: 'Boone, North Carolina',
     description:
       'I chose to study graphic design in an arts department. I already had a grasp on front-end web development techniques and continued to study them during this time, but the curriculum path I chose focused on web design while also teaching color theory, typography, and layout design in a group setting. Outside of designing for the web, we also had the opportunity to learn Flash/Actionscript game development.',

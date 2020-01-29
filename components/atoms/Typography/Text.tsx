@@ -11,6 +11,7 @@ export const Text = styled.p.attrs<TextProps>(({ inline }) => ({
   as: inline ? 'span' : 'p'
 }))<TextProps>`
   ${DEFAULT_TEXT_STYLES}
+  padding-top: ${spacing.medium};
   margin-bottom: ${spacing.small};
   text-align: ${({ textAlign }) => textAlign};
   display: ${({ inline }) => (inline ? 'inline' : 'block')};

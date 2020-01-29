@@ -1,15 +1,31 @@
 import { SFC, memo } from 'react'
+import styled from 'styled-components'
 import { ExperienceTypes } from 'constants/resume'
 import { Text, Heading, Small, Link } from 'atoms/Typography'
 import { Row, Col } from 'atoms/Grid'
 import { Ul, Li } from 'atoms/Lists'
 import { Hr } from 'atoms/Hr'
 import { fixWidow } from 'utils/stringFormat'
+import { LAYOUT_DEFAULTS } from 'styles/layout'
 
-export const ActiveExperienceCard: SFC<{ e: ExperienceTypes }> = memo(({ e }) => (
-  <>
+const { borderSize, borderStyle, spacing, mediaQueries } = LAYOUT_DEFAULTS
+
+const StyledContent = styled.div<{ isActive?: boolean }>`
+  padding-top: ${spacing.small};
+  padding-bottom: ${spacing.large};
+  display: block;
+  border-bottom: ${({ theme }) => `${borderSize} ${borderStyle} ${theme.accent}`};
+  @media ${mediaQueries.desktop} {
+    height: 100%;
+    margin-bottom: ${spacing.large};
+    display: ${({ isActive }) => isActive ? 'block' : 'none'};
+  }
+`
+
+export const ExperienceContent: SFC<{ e: ExperienceTypes, activeId?: string, id: string }> = memo(({ e, id, activeId }) => (
+  <StyledContent isActive={id === activeId}>
     <Row columnsDesktop={10} gap='large'>
-      <Col rangeDesktop={4}>
+      <Col rangeDesktop={6}>
         <Heading level={3}>{e.title}</Heading>
         <Hr />
       </Col>
@@ -21,6 +37,8 @@ export const ActiveExperienceCard: SFC<{ e: ExperienceTypes }> = memo(({ e }) =>
         </Heading>
         <Hr />
         <Text>
+          {e.level}
+          <br />
           {e.startDate}&ndash;{e.endDate}
           <br />
           {e.location}
@@ -28,7 +46,7 @@ export const ActiveExperienceCard: SFC<{ e: ExperienceTypes }> = memo(({ e }) =>
         </Text>
       </Col>
       <Col rangeDesktop={6}>
-        {e.description && <Small>{fixWidow(e.description)}</Small>}
+        {e.description && <Text>{fixWidow(e.description)}</Text>}
         {e.accomplishments.length > 0 && (
           <Ul flexDirection='column' bullet>
             {e.accomplishments.map((a: string) => (
@@ -38,5 +56,5 @@ export const ActiveExperienceCard: SFC<{ e: ExperienceTypes }> = memo(({ e }) =>
         )}
       </Col>
     </Row>
-  </>
+  </StyledContent>
 ))

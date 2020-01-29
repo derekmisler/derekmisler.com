@@ -3,24 +3,10 @@ import { useRef, useState, memo, MouseEvent } from 'react'
 import { Row, Col } from 'atoms/Grid'
 import { careers, education } from 'constants/resume'
 import { LAYOUT_DEFAULTS } from 'styles/layout'
-import { ActiveExperienceCard } from './ActiveExperienceCard'
-import { InactiveExperienceCard } from './InactiveExperienceCard'
+import { ExperienceContent } from './ExperienceContent'
+import { ExperienceTab } from './ExperienceTab'
 
 const { borderSize, borderStyle, spacing, mediaQueries } = LAYOUT_DEFAULTS
-
-const StyledExperienceWrapper = styled(Col)<{ isActive?: boolean }>`
-  display: none;
-  @media ${mediaQueries.desktop} {
-    display: block;
-    margin-bottom: ${spacing.large};
-    padding: ${spacing.small} 0;
-    cursor: ${({ isActive }) => isActive ? undefined : 'pointer'};
-    border-bottom: ${({ theme, isActive }) => `${borderSize} ${borderStyle} ${isActive ? theme.accent : theme.link}`};
-    &:hover {
-      border-bottom-color: ${({ theme, isActive }) => isActive ? theme.accent : theme.linkHover};
-    }
-  }
-`
 
 const StyledExperienceContentWrapper = styled(Col)<{ isActive?: boolean }>`
   padding-top: ${spacing.small};
@@ -34,38 +20,35 @@ const StyledExperienceContentWrapper = styled(Col)<{ isActive?: boolean }>`
 `
 
 export const Experience = memo(() => {
-  const [activeIndex, setActiveIndex] = useState(0)
   const totalExperience = [...careers, ...education]
+  const [activeId, setActiveId] = useState(totalExperience[0].title)
   const elementWrapper = useRef<HTMLDivElement>(null)
 
-  const onClick = (e: MouseEvent) => {
-    const { current } = elementWrapper || {}
-    if (current) current.scrollIntoView({ behavior: 'smooth' })
-    const id: number = Number(e.currentTarget.id)
-    if (id !== activeIndex) setActiveIndex(id)
+  const onClick = (id: string) => {
+    if (id !== activeId) {
+      const { current } = elementWrapper || {}
+      if (current) current.scrollIntoView({ behavior: 'smooth' })
+      setActiveId(id)
+    }
   }
 
   return (
     <div ref={elementWrapper}>
       <Row columnsDesktop={10} gap='large'>
         <Col rangeDesktop={2}>
-          <Row columns={2} columnsDesktop={1} gap='small'>
-            {
-              totalExperience.map((e, i) => (
-                <StyledExperienceWrapper key={e.title} isActive={i === activeIndex} id={`${i}`} onClick={onClick}>
-                  <InactiveExperienceCard e={e} />
-                </StyledExperienceWrapper>
-              ))
-            }
-          </Row>
+          {
+            totalExperience.map(e => (
+              <ExperienceTab e={e} id={e.title} key={e.title} onClick={onClick} activeId={activeId} />
+            ))
+          }
         </Col>
-        {
-          totalExperience.map((e, i) => (
-            <StyledExperienceContentWrapper key={e.title} isActive={i === activeIndex}  rangeDesktop={8}>
-              <ActiveExperienceCard e={e} />
-            </StyledExperienceContentWrapper>
-          ))
-        }
+        <Col rangeDesktop={8}>
+          {
+            totalExperience.map(e => (
+              <ExperienceContent e={e} id={e.title} key={e.title} activeId={activeId} />
+            ))
+          }
+        </Col>
       </Row>
     </div>
   )

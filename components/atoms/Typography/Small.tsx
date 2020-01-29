@@ -3,7 +3,7 @@ import { DEFAULT_TEXT_STYLES, TextProps, TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } 
 import { Text } from 'atoms/Typography'
 
 const { smallFontSize, smallLineHeight } = TYPOGRAPHY_DEFAULTS
-const { opacity, mediaQueries } = LAYOUT_DEFAULTS
+const { opacity, mediaQueries, spacing } = LAYOUT_DEFAULTS
 
 interface StyledSmallProps extends TextProps {
   accent?: boolean

@@ -1,3 +1,3 @@
-export * from './ActiveExperienceCard'
-export * from './InactiveExperienceCard'
+export * from './ExperienceContent'
+export * from './ExperienceTab'
 export * from './ExperienceWrapper'

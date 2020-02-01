@@ -18,6 +18,18 @@ const nextConfig = {
   transformManifest: manifest => urlsToCache.concat(manifest),
   workboxOpts: {
     swDest: 'static/service-worker.js',
+    runtimeCaching: [
+      {
+        urlPattern: /^https?.*/,
+        handler: 'NetworkFirst',
+        options: {
+          cacheName: 'offlineCache',
+          expiration: {
+            maxAgeSeconds: 24 * 60 * 60
+          }
+        }
+      }
+    ]
   }
 }
 

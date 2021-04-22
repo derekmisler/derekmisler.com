@@ -100,7 +100,6 @@ class MainApp extends App {
               jobTitle: `${profile.description}`,
               url: `${contact.website}`,
               email: `${contact.email}`,
-              telephone: `${contact.phoneDisplay}`,
               sameAs: [
                 `${contact.linkedin}`,
                 `${contact.github}`,
@@ -128,13 +127,6 @@ class MainApp extends App {
               '@type': 'Organization',
               logo: '/images/meta/google-plus.jpg',
               url: `${contact.website}`,
-              contactPoint: [
-                {
-                  '@type': 'ContactPoint',
-                  telephone: `${contact.phone}`,
-                  contactType: 'technical support'
-                }
-              ]
             }}
           />
         </Head>

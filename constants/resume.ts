@@ -44,8 +44,6 @@ export const location: {
 export const contact: {
   email: string
   website: string
-  phone: string
-  phoneDisplay: string
   twitter: string
   twitterHandle: string
   linkedin: string
@@ -58,8 +56,6 @@ export const contact: {
 } = {
   email,
   website: `https://${socialId}.com`,
-  phone: '+18282736943',
-  phoneDisplay: '(828) 273-6943',
   twitter: `http://twitter.com/${socialId}`,
   twitterHandle: `@${socialId}`,
   linkedin: `https://www.linkedin.com/in/${socialId}/`,

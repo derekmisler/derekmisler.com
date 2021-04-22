@@ -42,7 +42,7 @@ const HeaderContent: SFC<{}> = memo(() => {
             <Button href='mailto:derekmisler@gmail.com?subject=Hello!'>
               Say Hello!
             </Button>
-            <Button download href='images/Derek-Misler-resume.pdf'>
+            <Button download href='images/Derek-Misler-Resume.pdf'>
               Download a PDF!
             </Button>
           </Text>

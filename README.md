@@ -1,6 +1,5 @@
 # Derek Misler
 - Brooklyn, NY, United States
-- 828-273-6943
 - derekmisler@gmail.com
 - [derekmisler.com](https://derekmisler.com)
 

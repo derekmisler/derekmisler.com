@@ -10,7 +10,7 @@ const urlsToCache = [
 ]
 const nextConfig = {
   target: 'serverless',
-  exportTrailingSlash: true,
+  trailingSlash: true,
   poweredByHeader: false,
   devIndicators: {
     autoPrerender: false

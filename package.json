@@ -16,8 +16,7 @@
     "test": "npm run stylelint && npm run check-types",
     "format": "npx prettier --write '**/*.{ts,tsx}'",
     "deploy": "npm run build && npx now",
-    "deploy:prod": "npm run build && npx now --prod",
-    "clean:all": "rm -rf out && rm -rf node_modules && yarn cache clean && yarn install"
+    "deploy:prod": "npm run build && npx now --prod"
   },
   "dependencies": {
     "@material-ui/core": "^4.9.0",

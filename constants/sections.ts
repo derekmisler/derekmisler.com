@@ -19,7 +19,7 @@ export const sections: SectionTypes[] = [
     heading: 'Experience',
     id: 'experience',
     Component: Experience
-  },
+  }
   // {
   //   heading: 'Projects',
   //   id: 'projects',

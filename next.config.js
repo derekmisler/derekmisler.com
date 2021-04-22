@@ -15,6 +15,9 @@ const nextConfig = {
   devIndicators: {
     autoPrerender: false
   },
+  future: {
+    webpack5: true,
+  },
   transformManifest: manifest => urlsToCache.concat(manifest),
   workboxOpts: {
     swDest: 'static/service-worker.js',

@@ -1,17 +1,9 @@
 import styled from 'styled-components'
 import { TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS, DEFAULT_TEXT_STYLES } from 'styles'
 
-const {
-  buttonFontSize
-} = TYPOGRAPHY_DEFAULTS
+const { buttonFontSize } = TYPOGRAPHY_DEFAULTS
 
-const {
-  spacing,
-  borderRadius,
-  borderStyle,
-  borderSize,
-  mediaQueries
-} = LAYOUT_DEFAULTS
+const { spacing, borderRadius, borderStyle, borderSize, mediaQueries } = LAYOUT_DEFAULTS
 
 interface StyledButtonProps {
   accent?: boolean

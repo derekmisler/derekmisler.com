@@ -19,13 +19,11 @@ export interface StyledHeadingProps extends StyledComponentProps {
   level: 1 | 2 | 3 | 4 | 5 | 6
 }
 
-export const Heading = styled.div.attrs<StyledHeadingProps>(
-  ({ level, as }) => ({
-    role: as ? '' : 'heading',
-    'aria-level': level,
-    as: `h${level}`
-  })
-) <StyledHeadingProps>`
+export const Heading = styled.div.attrs<StyledHeadingProps>(({ level, as }) => ({
+  role: as ? '' : 'heading',
+  'aria-level': level,
+  as: `h${level}`
+}))<StyledHeadingProps>`
   text-align: ${({ textAlign = 'left' }) => textAlign};
   font-family: ${headingFontFamily};
   font-style: ${baseFontStyle};
@@ -35,7 +33,7 @@ export const Heading = styled.div.attrs<StyledHeadingProps>(
   letter-spacing: ${({ level }) => headingLetterSpacing[level - 1]};
   column-span: all;
   color: ${({ theme, accent }) => (accent ? theme.accent : undefined)};
-  margin: ${({ level }) => level > 2 ? `${spacing.medium} 0` : 0};
+  margin: ${({ level }) => (level > 2 ? `${spacing.medium} 0` : 0)};
   margin-left: ${({ level }) => headingLeftMargin.mobile[level - 1]};
 
   @media ${mediaQueries.desktop} {

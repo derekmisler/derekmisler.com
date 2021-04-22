@@ -14,42 +14,42 @@ const HeaderContent: SFC<{}> = memo(() => {
   } = resume
   return (
     <>
-    <Row columnsDesktop={6}>
-      <Col rangeDesktop={4}>
-        <Animated delay={100}>
-          <Text inline accent>Hello! My name is</Text>
-        </Animated>
-        <Animated delay={200}>
-          <Heading level={1}>
-            {fullName}
-          </Heading>
-        </Animated>
-        <Animated delay={300}>
-          <Hr accent />
-        </Animated>
-      </Col>
-    </Row>
-    <Row columnsDesktop={6}>
-      <Col rangeDesktop='4..'>
-        <Animated delay={400}>
-          <Heading accent level={2}>{description}</Heading>
-        </Animated>
-        <Animated delay={500}>
-          <Text inline>{fixWidow(metaDescription)}</Text>
-        </Animated>
-        <Animated delay={600}>
-          <Text>
-            <Button href='mailto:derekmisler@gmail.com?subject=Hello!'>
-              Say Hello!
-            </Button>
-            <Button download href='images/Derek-Misler-Resume.pdf'>
-              Download a PDF!
-            </Button>
-          </Text>
-        </Animated>
-      </Col>
-    </Row>
-   </>
+      <Row columnsDesktop={6}>
+        <Col rangeDesktop={4}>
+          <Animated delay={100}>
+            <Text inline accent>
+              Hello! My name is
+            </Text>
+          </Animated>
+          <Animated delay={200}>
+            <Heading level={1}>{fullName}</Heading>
+          </Animated>
+          <Animated delay={300}>
+            <Hr accent />
+          </Animated>
+        </Col>
+      </Row>
+      <Row columnsDesktop={6}>
+        <Col rangeDesktop='4..'>
+          <Animated delay={400}>
+            <Heading accent level={2}>
+              {description}
+            </Heading>
+          </Animated>
+          <Animated delay={500}>
+            <Text inline>{fixWidow(metaDescription)}</Text>
+          </Animated>
+          <Animated delay={600}>
+            <Text>
+              <Button href='mailto:derekmisler@gmail.com?subject=Hello!'>Say Hello!</Button>
+              <Button download href='images/Derek-Misler-Resume.pdf'>
+                Download a PDF!
+              </Button>
+            </Text>
+          </Animated>
+        </Col>
+      </Row>
+    </>
   )
 })
 

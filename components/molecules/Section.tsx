@@ -22,20 +22,18 @@ const StyledSection = styled.section.attrs<StyledComponentProps>(({ as }) => ({ 
     padding-top: 0;
   }
 `
-export const Section: SFC<SectionTypes> = memo(
-  ({ id, heading, Component, as }) => (
-    <StyledSection as={as} id={id}>
-      {heading && (
-        <>
-          <Row columnsDesktop={5} gap='large'>
-            <Col rangeDesktop={3}>
-              <Heading level={2}>{heading}</Heading>
-              <Hr accent />
-            </Col>
-          </Row>
-        </>
-      )}
-      <Component />
-    </StyledSection>
-  )
-)
+export const Section: SFC<SectionTypes> = memo(({ id, heading, Component, as }) => (
+  <StyledSection as={as} id={id}>
+    {heading && (
+      <>
+        <Row columnsDesktop={5} gap='large'>
+          <Col rangeDesktop={3}>
+            <Heading level={2}>{heading}</Heading>
+            <Hr accent />
+          </Col>
+        </Row>
+      </>
+    )}
+    <Component />
+  </StyledSection>
+))

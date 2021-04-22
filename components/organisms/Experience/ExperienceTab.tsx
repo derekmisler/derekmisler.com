@@ -11,15 +11,21 @@ const StyledTab = styled.div<{ isActive?: boolean }>`
   @media ${mediaQueries.desktop} {
     display: block;
     padding: ${spacing.small} 0;
-    cursor: ${({ isActive }) => isActive ? undefined : 'pointer'};
-    border-bottom: ${({ theme, isActive }) => `${borderSize} ${borderStyle} ${isActive ? theme.accent : theme.link}`};
+    cursor: ${({ isActive }) => (isActive ? undefined : 'pointer')};
+    border-bottom: ${({ theme, isActive }) =>
+      `${borderSize} ${borderStyle} ${isActive ? theme.accent : theme.link}`};
     &:hover {
-      border-bottom-color: ${({ theme, isActive }) => isActive ? theme.accent : theme.linkHover};
+      border-bottom-color: ${({ theme, isActive }) => (isActive ? theme.accent : theme.linkHover)};
     }
   }
 `
 
-export const ExperienceTab: SFC<{ e: ExperienceTypes, onClick: Function, activeId?: string, id: string }> = memo(({ e, onClick, id, activeId }) => {
+export const ExperienceTab: SFC<{
+  e: ExperienceTypes
+  onClick: Function
+  activeId?: string
+  id: string
+}> = memo(({ e, onClick, id, activeId }) => {
   const handleClick = () => onClick(id)
   return (
     <StyledTab isActive={id === activeId} onClick={handleClick}>

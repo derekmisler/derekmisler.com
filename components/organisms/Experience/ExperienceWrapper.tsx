@@ -15,7 +15,7 @@ const StyledExperienceContentWrapper = styled(Col)<{ isActive?: boolean }>`
   border-bottom: ${({ theme }) => `${borderSize} ${borderStyle} ${theme.accent}`};
   @media ${mediaQueries.desktop} {
     margin-bottom: ${spacing.large};
-    display: ${({ isActive }) => isActive ? 'block' : 'none'};
+    display: ${({ isActive }) => (isActive ? 'block' : 'none')};
   }
 `
 
@@ -36,18 +36,14 @@ export const Experience = memo(() => {
     <div ref={elementWrapper}>
       <Row columnsDesktop={10} gap='large'>
         <Col rangeDesktop={2}>
-          {
-            totalExperience.map(e => (
-              <ExperienceTab e={e} id={e.title} key={e.title} onClick={onClick} activeId={activeId} />
-            ))
-          }
+          {totalExperience.map(e => (
+            <ExperienceTab e={e} id={e.title} key={e.title} onClick={onClick} activeId={activeId} />
+          ))}
         </Col>
         <Col rangeDesktop={8}>
-          {
-            totalExperience.map(e => (
-              <ExperienceContent e={e} id={e.title} key={e.title} activeId={activeId} />
-            ))
-          }
+          {totalExperience.map(e => (
+            <ExperienceContent e={e} id={e.title} key={e.title} activeId={activeId} />
+          ))}
         </Col>
       </Row>
     </div>

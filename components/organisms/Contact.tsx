@@ -12,17 +12,17 @@ const LINKS = [
 export const Contact = memo(() => {
   return (
     <Text>
-      {
-        LINKS.map((link, i) => {
-          const isLast = i === LINKS.length - 1
-          return (
-            <Fragment key={link.title}>
-              <Link href={link.url} rel='noopener' target='_blank'>{link.title}</Link>
-              { !isLast && ' / '}
-            </Fragment>
-          )
-        })
-      }
+      {LINKS.map((link, i) => {
+        const isLast = i === LINKS.length - 1
+        return (
+          <Fragment key={link.title}>
+            <Link href={link.url} rel='noopener' target='_blank'>
+              {link.title}
+            </Link>
+            {!isLast && ' / '}
+          </Fragment>
+        )
+      })}
     </Text>
   )
 })

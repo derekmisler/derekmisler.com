@@ -10,9 +10,7 @@ export const generateShadow = (
 ) => {
   const boxShadow = boxOrText === 'box'
 
-  const offset = boxShadow
-    ? `0 0 0 ${dropShadow.small}`
-    : `${dropShadow.small} ${dropShadow.small}`
+  const offset = boxShadow ? `0 0 0 ${dropShadow.small}` : `${dropShadow.small} ${dropShadow.small}`
 
   return css`
     ${boxOrText}-shadow: ${offset} ${backgroundColor},

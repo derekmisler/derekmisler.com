@@ -15,10 +15,7 @@ class MainApp extends App {
           <title>{profile.title}</title>
           <meta charSet='utf-8' />
           <meta httpEquiv='X-UA-Compatible' content='IE=Edge' />
-          <meta
-            name='viewport'
-            content='width=device-width, initial-scale=1.0'
-          />
+          <meta name='viewport' content='width=device-width, initial-scale=1.0' />
           <meta name='description' content={profile.metaDescription} />
           <link rel='canonical' href={contact.website} />
           <link rel='manifest' href='/site.webmanifest' />
@@ -34,41 +31,65 @@ class MainApp extends App {
           <meta name='apple-mobile-web-app-title' content={profile.fullName} />
           <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
           <link rel='apple-touch-icon' href='/icon-192.png' />
-          <link href='splashscreens/iphone5_splash.png' media='(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)' rel='apple-touch-startup-image' />
-          <link href='splashscreens/iphone6_splash.png' media='(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)' rel='apple-touch-startup-image' />
-          <link href='splashscreens/iphoneplus_splash.png' media='(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)' rel='apple-touch-startup-image' />
-          <link href='splashscreens/iphonex_splash.png' media='(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)' rel='apple-touch-startup-image' />
-          <link href='splashscreens/iphonexr_splash.png' media='(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)' rel='apple-touch-startup-image' />
-          <link href='splashscreens/iphonexsmax_splash.png' media='(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)' rel='apple-touch-startup-image' />
-          <link href='splashscreens/ipad_splash.png' media='(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)' rel='apple-touch-startup-image' />
-          <link href='splashscreens/ipadpro1_splash.png' media='(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)' rel='apple-touch-startup-image' />
-          <link href='splashscreens/ipadpro3_splash.png' media='(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)' rel='apple-touch-startup-image' />
-          <link href='splashscreens/ipadpro2_splash.png' media='(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)' rel='apple-touch-startup-image' />
-
+          <link
+            href='splashscreens/iphone5_splash.png'
+            media='(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
+            rel='apple-touch-startup-image'
+          />
+          <link
+            href='splashscreens/iphone6_splash.png'
+            media='(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)'
+            rel='apple-touch-startup-image'
+          />
+          <link
+            href='splashscreens/iphoneplus_splash.png'
+            media='(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)'
+            rel='apple-touch-startup-image'
+          />
+          <link
+            href='splashscreens/iphonex_splash.png'
+            media='(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)'
+            rel='apple-touch-startup-image'
+          />
+          <link
+            href='splashscreens/iphonexr_splash.png'
+            media='(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)'
+            rel='apple-touch-startup-image'
+          />
+          <link
+            href='splashscreens/iphonexsmax_splash.png'
+            media='(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)'
+            rel='apple-touch-startup-image'
+          />
+          <link
+            href='splashscreens/ipad_splash.png'
+            media='(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)'
+            rel='apple-touch-startup-image'
+          />
+          <link
+            href='splashscreens/ipadpro1_splash.png'
+            media='(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)'
+            rel='apple-touch-startup-image'
+          />
+          <link
+            href='splashscreens/ipadpro3_splash.png'
+            media='(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)'
+            rel='apple-touch-startup-image'
+          />
+          <link
+            href='splashscreens/ipadpro2_splash.png'
+            media='(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)'
+            rel='apple-touch-startup-image'
+          />
 
           {/* Win8 */}
           <meta name='msapplication-TileColor' content={themes.dark.background} />
           <meta name='msapplication-TileImage' content='/icon-192.png' />
 
           {/* Favicons */}
-          <link
-            rel='icon'
-            type='image/png'
-            sizes='32x32'
-            href='/favicon-96.png'
-          />
-          <link
-            rel='icon'
-            type='image/png'
-            sizes='32x32'
-            href='/favicon-32.png'
-          />
-          <link
-            rel='icon'
-            type='image/png'
-            sizes='16x16'
-            href='/favicon-16.png'
-          />
+          <link rel='icon' type='image/png' sizes='32x32' href='/favicon-96.png' />
+          <link rel='icon' type='image/png' sizes='32x32' href='/favicon-32.png' />
+          <link rel='icon' type='image/png' sizes='16x16' href='/favicon-16.png' />
           <link rel='shortcut icon' href='favicon.ico' />
           <link rel='preload' as='script' href='https://fonts.adobe.com' />
           <link rel='preload' as='font' href='https://use.typekit.net' />
@@ -126,7 +147,7 @@ class MainApp extends App {
               '@context': 'http://schema.org',
               '@type': 'Organization',
               logo: '/images/meta/google-plus.jpg',
-              url: `${contact.website}`,
+              url: `${contact.website}`
             }}
           />
         </Head>

@@ -22,8 +22,7 @@ const StyledImgContainer = styled.div`
   height: fit-content;
   width: fit-content;
   max-width: 100%;
-  ${({ theme }) =>
-    generateShadow(theme.border, theme.background, 'box')}
+  ${({ theme }) => generateShadow(theme.border, theme.background, 'box')}
 `
 
 export const Img: SFC<ImgProps> = memo(({ fileName, ...rest }) => {

@@ -19,7 +19,7 @@ interface QualificationTypes {
 
 const QualificationBar = styled.div<QualificationTypes>`
   display: block;
-  background-color: ${({ active, theme }) => active ? theme.accent : 'transparent'};
+  background-color: ${({ active, theme }) => (active ? theme.accent : 'transparent')};
   height: ${borderSize};
   margin-right: ${borderSizeSmall};
   margin-bottom: ${borderSize};
@@ -33,11 +33,13 @@ export const Qualifications: FC = () => (
         <Col as='li' key={skill.title}>
           <Small>{skill.title}</Small>
           <Row columns={maxLevel}>
-            {Array(maxLevel).fill(skill.level).map((level, i) => (
-              <Col key={`${skill.title}-${i}`}>
-                <QualificationBar active={i < level} />
-              </Col>
-            ))}
+            {Array(maxLevel)
+              .fill(skill.level)
+              .map((level, i) => (
+                <Col key={`${skill.title}-${i}`}>
+                  <QualificationBar active={i < level} />
+                </Col>
+              ))}
           </Row>
         </Col>
       ))}

@@ -24,7 +24,7 @@ const StyledAction = styled.button<StyledActionProps>`
   border-radius: 50%;
   border: 0;
   > svg * {
-    fill: ${({ active, theme }) => active ? theme.accent : theme.background};
+    fill: ${({ active, theme }) => (active ? theme.accent : theme.background)};
   }
   &:hover,
   &:focus,
@@ -42,10 +42,7 @@ const StyledAction = styled.button<StyledActionProps>`
 
 export const Action: SFC<ActionProps> = memo(({ onClick, active = false }) => {
   return (
-    <StyledAction
-      onClick={onClick}
-      active={active}
-    >
+    <StyledAction onClick={onClick} active={active}>
       <Plus />
     </StyledAction>
   )

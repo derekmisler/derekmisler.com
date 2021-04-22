@@ -49,7 +49,7 @@ export const TYPOGRAPHY_DEFAULTS = {
     mobile: ['6rem', '3.75rem', '3rem', '2.125rem', '1.5rem', '1rem'],
     desktop: ['9.75rem', '7.5rem', '5rem', '3rem', '2rem', '1.5rem']
   },
-  headingLineHeights: [.75, .85, .9, .85, .9, .9],
+  headingLineHeights: [0.75, 0.85, 0.9, 0.85, 0.9, 0.9],
   headingLetterSpacing: ['-0.01562em', '-0.00833em', '0em', '0.00735em', '0em', '0.0075em'],
   headingFontWeights: HEADING_SIZES.fill('600'),
   minColWidth: `${BASE_MEASURE}ch`

@@ -1,16 +1,11 @@
 import { createGlobalStyle } from 'styled-components'
 import { TYPOGRAPHY_DEFAULTS } from './typography'
 
-const {
-  baseFontWeight,
-  baseLineHeight,
-  baseFontFamily,
-  htmlFontSize
-} = TYPOGRAPHY_DEFAULTS
+const { baseFontWeight, baseLineHeight, baseFontFamily, htmlFontSize } = TYPOGRAPHY_DEFAULTS
 
 interface GlobalStyleProps {
   theme: {
-    background: string,
+    background: string
     text: string
   }
 }

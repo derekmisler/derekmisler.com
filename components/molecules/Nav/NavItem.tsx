@@ -7,7 +7,7 @@ import { SectionTypes } from 'constants/sections'
 import { LAYOUT_DEFAULTS } from 'styles'
 
 interface NavItemProps {
-  section: SectionTypes,
+  section: SectionTypes
   index: number
 }
 
@@ -23,17 +23,8 @@ export const NavItem: SFC<NavItemProps> = memo(({ section, index }) => {
   const delay: number = 100 * (index + 1)
   return (
     <StyledNavItem>
-      <Animated
-        key={section.id}
-        property='itemListElement'
-        typeof='ListItem'
-        delay={delay}
-      >
-        <Link
-          href={`#${section.id}`}
-          property='item'
-          typeof='WebPage'
-        >
+      <Animated key={section.id} property='itemListElement' typeof='ListItem' delay={delay}>
+        <Link href={`#${section.id}`} property='item' typeof='WebPage'>
           <Text inline property='name'>
             <Small>{positionLabel}</Small>
             {section.heading}

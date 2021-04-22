@@ -1,5 +1,10 @@
 import styled from 'styled-components'
-import { DEFAULT_TEXT_STYLES, TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS, StyledComponentProps } from 'styles'
+import {
+  DEFAULT_TEXT_STYLES,
+  TYPOGRAPHY_DEFAULTS,
+  LAYOUT_DEFAULTS,
+  StyledComponentProps
+} from 'styles'
 
 interface ListItemProps extends StyledComponentProps {
   textAlign?: string

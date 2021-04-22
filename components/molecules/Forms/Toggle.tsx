@@ -61,18 +61,13 @@ const ToggleSlider = styled.div<{ isActive?: boolean }>`
     border-radius: ${borderRadius};
     background-color: ${({ theme }) => theme.link};
     transition: ${timing} left ${duration};
-    left: ${({ isActive }) => isActive ? borderSize : 0};
+    left: ${({ isActive }) => (isActive ? borderSize : 0)};
     will-change: left;
     top: 0;
   }
 `
 
-export const Toggle: FC<ToggleProps> = ({
-  onLabel,
-  offLabel,
-  onToggle,
-  defaultChecked
-}) => {
+export const Toggle: FC<ToggleProps> = ({ onLabel, offLabel, onToggle, defaultChecked }) => {
   const [active, setActive] = useState(defaultChecked)
   const handleChange = () => {
     setActive(!active)
@@ -86,7 +81,7 @@ export const Toggle: FC<ToggleProps> = ({
   }, [active])
 
   return (
-    <ToggleWrapper onClick={handleChange} >
+    <ToggleWrapper onClick={handleChange}>
       {offLabel && <Small>{offLabel}</Small>}
       <ToggleSlider isActive={active} />
       {onLabel && <Small>{onLabel}</Small>}

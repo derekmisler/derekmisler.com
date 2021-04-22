@@ -250,6 +250,10 @@ export interface SkillTypes {
 }
 export const skills: SkillTypes[] = [
   {
+    title: 'TypeScript',
+    level: 5
+  },
+  {
     title: 'HTML5',
     level: 5
   },
@@ -279,11 +283,11 @@ export const skills: SkillTypes[] = [
   },
   {
     title: 'PHP',
-    level: 4
+    level: 3
   },
   {
     title: 'Python',
-    level: 2
+    level: 4
   },
   {
     title: 'Ruby/Rails',
@@ -295,11 +299,7 @@ export const skills: SkillTypes[] = [
   },
   {
     title: 'Go',
-    level: 3
-  },
-  {
-    title: 'Java',
-    level: 3
+    level: 2
   },
   {
     title: 'Git/Github',
@@ -355,25 +355,14 @@ export const projects: ProjectTypes[] = [
     description: 'The second redesign of ExploreAsheville.com.',
     link: 'http://www.exploreasheville.com/',
     image: 'new-exploreasheville.jpg',
-    tags: [
-      'HTML5',
-      'CSS3',
-      'Goatee (Custom JavaScript templating language)',
-      'Responsive Design'
-    ]
+    tags: ['HTML5', 'CSS3', 'Goatee (Custom JavaScript templating language)', 'Responsive Design']
   },
   {
     title: 'Explorers of the Blue Ridge Parkway',
     description: 'An incredibly large project for just one developer/designer.',
     link: 'http://www.exploreasheville.com/blue-ridge-parkway/',
     image: 'explorers-of-the-blue-ridge-parkway.jpg',
-    tags: [
-      'HTML5',
-      'CSS3',
-      'jQuery',
-      'Responsive Design',
-      'Custom CSS Framework'
-    ]
+    tags: ['HTML5', 'CSS3', 'jQuery', 'Responsive Design', 'Custom CSS Framework']
   },
   {
     title: 'The Science Behind Fall Color',
@@ -384,8 +373,7 @@ export const projects: ProjectTypes[] = [
   },
   {
     title: 'HouserShoes.com',
-    description:
-      'A custom content management system built upon Magento by a 3-person team.',
+    description: 'A custom content management system built upon Magento by a 3-person team.',
     link: 'http://www.housershoes.com',
     image: 'houser-shoes.jpg',
     tags: ['PHP', 'Magento', 'Custom CMS', 'Responsive Design']
@@ -393,8 +381,7 @@ export const projects: ProjectTypes[] = [
   {
     title: 'Strunk Home Solutions',
     description: 'Branding project: Logo, business cards, letterhead.',
-    link:
-      'http://www.derekmisler.com/images/portfolio/strunk-home-solutions-letterhead.jpg',
+    link: 'http://www.derekmisler.com/images/portfolio/strunk-home-solutions-letterhead.jpg',
     image: 'strunk-home-solutions-logo.jpg',
     tags: ['InDesign', 'Illustrator']
   },
@@ -417,8 +404,7 @@ export const projects: ProjectTypes[] = [
     title: 'Houser Shoes Email Marketing',
     description:
       'I was in charge of the email marketing at Houser Shoes. These are just a few examples of the fun ones.',
-    link:
-      'http://www.derekmisler.com/images/portfolio/houser-shoes-email-big.jpg',
+    link: 'http://www.derekmisler.com/images/portfolio/houser-shoes-email-big.jpg',
     image: 'houser-shoes-email.jpg',
     tags: ['HTML', 'CSS', 'Photoshop', 'Illustrator']
   }

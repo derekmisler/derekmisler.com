@@ -18,43 +18,50 @@ const StyledContent = styled.div<{ isActive?: boolean }>`
   @media ${mediaQueries.desktop} {
     height: 100%;
     margin-bottom: ${spacing.large};
-    display: ${({ isActive }) => isActive ? 'block' : 'none'};
+    display: ${({ isActive }) => (isActive ? 'block' : 'none')};
   }
 `
 
-export const ExperienceContent: SFC<{ e: ExperienceTypes, activeId?: string, id: string }> = memo(({ e, id, activeId }) => (
-  <StyledContent isActive={id === activeId}>
-    <Row columnsDesktop={10} gap='large'>
-      <Col rangeDesktop={6}>
-        <Heading level={3}>{e.title}</Heading>
-        <Hr />
-      </Col>
-    </Row>
-    <Row columnsDesktop={10} gap='large'>
-      <Col rangeDesktop={4}>
-        <Heading level={4}>
-          {e.specification}
-        </Heading>
-        <Hr />
-        <Text>
-          {e.level}
-          <br />
-          {e.startDate}&ndash;{e.endDate}
-          <br />
-          {e.location}
-          {e.link && <><br /><Link href={e.link} target='_blank' rel='noopener'>Link</Link></>}
-        </Text>
-      </Col>
-      <Col rangeDesktop={6}>
-        {e.description && <Text>{fixWidow(e.description)}</Text>}
-        {e.accomplishments.length > 0 && (
-          <Ul flexDirection='column' bullet>
-            {e.accomplishments.map((a: string) => (
-              <Li key={a}>{fixWidow(a)}</Li>
-            ))}
-          </Ul>
-        )}
-      </Col>
-    </Row>
-  </StyledContent>
-))
+export const ExperienceContent: SFC<{ e: ExperienceTypes; activeId?: string; id: string }> = memo(
+  ({ e, id, activeId }) => (
+    <StyledContent isActive={id === activeId}>
+      <Row columnsDesktop={10} gap='large'>
+        <Col rangeDesktop={6}>
+          <Heading level={3}>{e.title}</Heading>
+          <Hr />
+        </Col>
+      </Row>
+      <Row columnsDesktop={10} gap='large'>
+        <Col rangeDesktop={4}>
+          <Heading level={4}>{e.specification}</Heading>
+          <Hr />
+          <Text>
+            {e.level}
+            <br />
+            {e.startDate}&ndash;{e.endDate}
+            <br />
+            {e.location}
+            {e.link && (
+              <>
+                <br />
+                <Link href={e.link} target='_blank' rel='noopener'>
+                  Link
+                </Link>
+              </>
+            )}
+          </Text>
+        </Col>
+        <Col rangeDesktop={6}>
+          {e.description && <Text>{fixWidow(e.description)}</Text>}
+          {e.accomplishments.length > 0 && (
+            <Ul flexDirection='column' bullet>
+              {e.accomplishments.map((a: string) => (
+                <Li key={a}>{fixWidow(a)}</Li>
+              ))}
+            </Ul>
+          )}
+        </Col>
+      </Row>
+    </StyledContent>
+  )
+)

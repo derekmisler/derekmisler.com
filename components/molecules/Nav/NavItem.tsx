@@ -25,7 +25,7 @@ export const NavItem = ({ section, index }: NavItemProps) => {
     <StyledNavItem>
       <Animated key={section.id} delay={delay}>
         <Link href={`#${section.id}`}>
-          <Text inline property='name'>
+          <Text inline>
             <Small>{positionLabel}</Small>
             {section.heading}
           </Text>

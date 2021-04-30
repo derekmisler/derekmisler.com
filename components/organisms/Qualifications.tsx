@@ -1,7 +1,6 @@
-import { FC } from 'react'
 import styled from 'styled-components'
 import { Row, Col } from 'atoms/Grid'
-import { Small, Text, Heading } from 'atoms/Typography'
+import { Small, Heading } from 'atoms/Typography'
 import { skills, SkillTypes } from 'constants/resume'
 import { compare } from 'utils/compare'
 import { LAYOUT_DEFAULTS } from 'styles'
@@ -25,7 +24,7 @@ const QualificationBar = styled.div<QualificationTypes>`
   margin-bottom: ${borderSize};
 `
 
-export const Qualifications: FC = () => (
+export const Qualifications = () => (
   <>
     <Heading level={3}>Tools that I use</Heading>
     <Row as='ul' columns={2} columnsDesktop={3} gap='large'>

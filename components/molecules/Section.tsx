@@ -1,4 +1,4 @@
-import React, { SFC, memo } from 'react'
+import React, { ComponentType } from 'react'
 import styled from 'styled-components'
 import { StyledComponentProps, LAYOUT_DEFAULTS } from 'styles'
 import { Row, Col } from 'atoms/Grid'
@@ -7,10 +7,10 @@ import { Heading } from 'atoms/Typography'
 
 const { spacing, mediaQueries } = LAYOUT_DEFAULTS
 
-interface SectionTypes extends StyledComponentProps {
+interface SectionProps extends StyledComponentProps {
   id: string
   heading?: string
-  Component: SFC
+  Component: ComponentType
 }
 
 const StyledSection = styled.section.attrs<StyledComponentProps>(({ as }) => ({ as }))`
@@ -22,7 +22,8 @@ const StyledSection = styled.section.attrs<StyledComponentProps>(({ as }) => ({ 
     padding-top: 0;
   }
 `
-export const Section: SFC<SectionTypes> = memo(({ id, heading, Component, as }) => (
+
+export const Section = ({ id, heading, Component, as }: SectionProps) => (
   <StyledSection as={as} id={id}>
     {heading && (
       <>
@@ -36,4 +37,4 @@ export const Section: SFC<SectionTypes> = memo(({ id, heading, Component, as }) 
     )}
     <Component />
   </StyledSection>
-))
+)

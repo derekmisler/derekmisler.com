@@ -1,4 +1,3 @@
-import { SFC, memo } from 'react'
 import styled from 'styled-components'
 import { ExperienceTypes } from 'constants/resume'
 import { Heading, Small } from 'atoms/Typography'
@@ -20,12 +19,14 @@ const StyledTab = styled.div<{ isActive?: boolean }>`
   }
 `
 
-export const ExperienceTab: SFC<{
+interface ExperienceTabProps {
   e: ExperienceTypes
   onClick: Function
   activeId?: string
   id: string
-}> = memo(({ e, onClick, id, activeId }) => {
+}
+
+export const ExperienceTab = ({ e, onClick, id, activeId }: ExperienceTabProps) => {
   const handleClick = () => onClick(id)
   return (
     <StyledTab isActive={id === activeId} onClick={handleClick}>
@@ -37,4 +38,4 @@ export const ExperienceTab: SFC<{
       <Small>{e.location}</Small>
     </StyledTab>
   )
-})
+}

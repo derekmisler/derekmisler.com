@@ -1,25 +1,10 @@
-import styled from 'styled-components'
-import { useRef, useState, memo, MouseEvent } from 'react'
+import { useRef, useState } from 'react'
 import { Row, Col } from 'atoms/Grid'
 import { careers, education } from 'constants/resume'
-import { LAYOUT_DEFAULTS } from 'styles/layout'
 import { ExperienceContent } from './ExperienceContent'
 import { ExperienceTab } from './ExperienceTab'
 
-const { borderSize, borderStyle, spacing, mediaQueries } = LAYOUT_DEFAULTS
-
-const StyledExperienceContentWrapper = styled(Col)<{ isActive?: boolean }>`
-  padding-top: ${spacing.small};
-  padding-bottom: ${spacing.large};
-  display: block;
-  border-bottom: ${({ theme }) => `${borderSize} ${borderStyle} ${theme.accent}`};
-  @media ${mediaQueries.desktop} {
-    margin-bottom: ${spacing.large};
-    display: ${({ isActive }) => (isActive ? 'block' : 'none')};
-  }
-`
-
-export const Experience = memo(() => {
+export const Experience = () => {
   const totalExperience = [...careers, ...education]
   const [activeId, setActiveId] = useState(totalExperience[0].title)
   const elementWrapper = useRef<HTMLDivElement>(null)
@@ -48,4 +33,4 @@ export const Experience = memo(() => {
       </Row>
     </div>
   )
-})
+}

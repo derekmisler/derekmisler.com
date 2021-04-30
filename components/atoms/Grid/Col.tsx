@@ -1,4 +1,3 @@
-import { SFC, memo } from 'react'
 import styled, { css } from 'styled-components'
 import { StyledComponentProps, LAYOUT_DEFAULTS } from 'styles'
 import { generateResponsiveCols } from 'utils/generateResponsiveGrid'
@@ -30,4 +29,4 @@ const StyledCol = styled.div<ColProps>`
   }}
 `
 
-export const Col: SFC<ColProps> = memo(props => <StyledCol {...props} />)
+export const Col = (props: ColProps) => <StyledCol {...props} />

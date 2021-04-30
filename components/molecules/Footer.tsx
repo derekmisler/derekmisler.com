@@ -1,11 +1,10 @@
-import { memo } from 'react'
 import styled from 'styled-components'
 import { Text } from 'atoms/Typography'
 import { Row, Col } from 'atoms/Grid'
 import { LAYOUT_DEFAULTS } from 'styles'
-import { Contact } from 'organisms/Contact'
+import Contact from 'organisms/Contact'
 
-const { spacing, borderRadius, borderStyle, borderSize, mediaQueries } = LAYOUT_DEFAULTS
+const { spacing, borderStyle, borderSize, mediaQueries } = LAYOUT_DEFAULTS
 
 export const StyledFooter = styled.footer`
   margin: ${spacing.large} 0 0 0;
@@ -17,7 +16,7 @@ export const StyledFooter = styled.footer`
   }
 `
 
-export const Footer = memo(() => (
+export const Footer = () => (
   <StyledFooter>
     <Row columnsDesktop={2}>
       <Col>
@@ -31,4 +30,4 @@ export const Footer = memo(() => (
       </Col>
     </Row>
   </StyledFooter>
-))
+)

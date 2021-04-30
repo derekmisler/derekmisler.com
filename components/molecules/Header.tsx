@@ -1,4 +1,3 @@
-import { SFC, memo } from 'react'
 import { fixWidow } from 'utils/stringFormat'
 import { resume } from 'constants/resume'
 import { Animated } from 'molecules/Animated'
@@ -8,7 +7,7 @@ import { Row, Col } from 'atoms/Grid'
 import { Hr } from 'atoms/Hr'
 import { Section } from 'molecules/Section'
 
-const HeaderContent: SFC<{}> = memo(() => {
+const HeaderContent = () => {
   const {
     profile: { fullName, description, metaDescription }
   } = resume
@@ -51,8 +50,6 @@ const HeaderContent: SFC<{}> = memo(() => {
       </Row>
     </>
   )
-})
+}
 
-export const Header: SFC<{}> = memo(() => (
-  <Section id='start' as='header' Component={HeaderContent} />
-))
+export const Header = () => <Section id='start' as='header' Component={HeaderContent} />

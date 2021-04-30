@@ -1,4 +1,4 @@
-import { useState, useEffect, HTMLProps, FC } from 'react'
+import { useState, useEffect, HTMLProps } from 'react'
 import styled from 'styled-components'
 import { Small } from 'atoms/Typography'
 import { DEFAULT_TEXT_STYLES, LAYOUT_DEFAULTS, transitionDefaults } from 'styles'
@@ -67,7 +67,7 @@ const ToggleSlider = styled.div<{ isActive?: boolean }>`
   }
 `
 
-export const Toggle: FC<ToggleProps> = ({ onLabel, offLabel, onToggle, defaultChecked }) => {
+export const Toggle = ({ onLabel, offLabel, onToggle, defaultChecked }: ToggleProps) => {
   const [active, setActive] = useState(defaultChecked)
   const handleChange = () => {
     setActive(!active)

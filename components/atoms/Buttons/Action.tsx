@@ -1,4 +1,4 @@
-import { HTMLProps, SFC, memo } from 'react'
+import { HTMLProps } from 'react'
 import styled from 'styled-components'
 import { LAYOUT_DEFAULTS } from 'styles'
 import { Plus } from 'atoms/Icons'
@@ -40,10 +40,10 @@ const StyledAction = styled.button<StyledActionProps>`
   }
 `
 
-export const Action: SFC<ActionProps> = memo(({ onClick, active = false }) => {
+export const Action = ({ onClick, active = false }: ActionProps) => {
   return (
     <StyledAction onClick={onClick} active={active}>
       <Plus />
     </StyledAction>
   )
-})
+}

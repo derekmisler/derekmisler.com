@@ -1,4 +1,4 @@
-import React, { memo, SFC } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Link, Text, Small } from 'atoms/Typography'
 import { Li } from 'atoms/Lists'
@@ -17,21 +17,20 @@ const StyledNavItem = styled(Li)`
   padding-left: ${spacing.large};
 `
 
-export const NavItem: SFC<NavItemProps> = memo(({ section, index }) => {
+export const NavItem = ({ section, index }: NavItemProps) => {
   const position: string = (index + 1).toString()
   const positionLabel = `0${position}.\xa0`
   const delay: number = 100 * (index + 1)
   return (
     <StyledNavItem>
-      <Animated key={section.id} property='itemListElement' typeof='ListItem' delay={delay}>
-        <Link href={`#${section.id}`} property='item' typeof='WebPage'>
+      <Animated key={section.id} delay={delay}>
+        <Link href={`#${section.id}`}>
           <Text inline property='name'>
             <Small>{positionLabel}</Small>
             {section.heading}
           </Text>
         </Link>
-        <meta property='position' content={position} />
       </Animated>
     </StyledNavItem>
   )
-})
+}

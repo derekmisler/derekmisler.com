@@ -1,4 +1,4 @@
-import React, { useState, useEffect, SFC, memo } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
 import { StyledComponentProps, LAYOUT_DEFAULTS } from 'styles'
 
@@ -26,7 +26,7 @@ const StyledAnimated = styled.div<StyledAnimatedProps>`
   ${props => props.animated && animationEndCss}
 `
 
-export const Animated: SFC<AnimatedProps> = memo(({ active = true, delay = 0, ...rest }) => {
+export const Animated = ({ active = true, delay = 0, ...rest }: AnimatedProps) => {
   const [animated, setAnimated] = useState(false)
   useEffect(() => {
     setTimeout(() => {
@@ -35,4 +35,4 @@ export const Animated: SFC<AnimatedProps> = memo(({ active = true, delay = 0, ..
   }, [active])
 
   return <StyledAnimated {...rest} animated={animated} />
-})
+}

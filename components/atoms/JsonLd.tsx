@@ -1,3 +1,5 @@
-export const JsonLd = ({ data }: { data: {} }) => (
+const JsonLd = ({ data }: { data: {} }) => (
   <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />
 )
+
+export default JsonLd

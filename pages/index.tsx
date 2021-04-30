@@ -2,17 +2,17 @@ import { NextPage } from 'next'
 import { ThemeProvider } from 'styled-components'
 import { Header } from 'molecules/Header'
 import { Nav } from 'molecules/Nav'
-import { Footer } from 'molecules/Footer'
+import Footer from 'molecules/Footer'
 import { Analytics } from 'atoms/Analytics'
 import { GlobalStyle } from 'styles'
 import { sections } from 'constants/sections'
-import { Section } from 'molecules/Section'
-import { Toggle } from 'molecules/Forms'
+import Section from 'molecules/Section'
+import Toggle from 'molecules/Forms/Toggle'
 import { useTheme } from 'utils/useTheme'
 
 export const config = { amp: false }
 
-export const App: NextPage<{}> = () => {
+const App: NextPage<{}> = () => {
   const [{ theme, isDarkMode }, toggleTheme] = useTheme()
 
   return (

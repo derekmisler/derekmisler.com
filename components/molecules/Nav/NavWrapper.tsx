@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import React, { memo, SFC } from 'react'
+import React from 'react'
 import { Ul } from 'atoms/Lists'
 import { sections } from 'constants/sections'
 import { NavItem } from './NavItem'
@@ -16,20 +16,14 @@ const StyledNav = styled.nav`
   }
 `
 
-export const Nav: SFC<{}> = memo(() => {
+export const Nav = () => {
   return (
     <StyledNav>
-      <Ul
-        alignItems='center'
-        flexDirection='row'
-        justifyContent='flex-end'
-        vocab='http://schema.org/'
-        typeof='BreadcrumbList'
-      >
+      <Ul alignItems='center' flexDirection='row' justifyContent='flex-end'>
         {sections.map((section, i) => (
           <NavItem section={section} index={i} key={section.id} />
         ))}
       </Ul>
     </StyledNav>
   )
-})
+}

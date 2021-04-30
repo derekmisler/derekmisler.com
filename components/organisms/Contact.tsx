@@ -1,4 +1,4 @@
-import { Fragment, memo } from 'react'
+import { Fragment } from 'react'
 import { Text, Link } from 'atoms/Typography'
 import { contact } from 'constants/resume'
 
@@ -9,7 +9,7 @@ const LINKS = [
   { title: '500px', url: contact.fivehundred }
 ]
 
-export const Contact = memo(() => {
+export const Contact = () => {
   return (
     <Text>
       {LINKS.map((link, i) => {
@@ -25,4 +25,4 @@ export const Contact = memo(() => {
       })}
     </Text>
   )
-})
+}

@@ -1,4 +1,4 @@
-import { memo, SFC, ImgHTMLAttributes } from 'react'
+import { ImgHTMLAttributes } from 'react'
 import styled from 'styled-components'
 import { LAYOUT_DEFAULTS } from 'styles'
 import { generateShadow } from 'utils/generateShadow'
@@ -25,7 +25,7 @@ const StyledImgContainer = styled.div`
   ${({ theme }) => generateShadow(theme.border, theme.background, 'box')}
 `
 
-export const Img: SFC<ImgProps> = memo(({ fileName, ...rest }) => {
+export const Img = ({ fileName, ...rest }: ImgProps) => {
   const src = `/images/portfolio/${fileName}`
   const retinaSrc = `/images/portfolio/retina/${fileName}`
 
@@ -41,4 +41,4 @@ export const Img: SFC<ImgProps> = memo(({ fileName, ...rest }) => {
       />
     </StyledImgContainer>
   )
-})
+}

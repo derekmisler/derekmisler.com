@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Text } from 'atoms/Typography'
 import { Row, Col } from 'atoms/Grid'
 import { LAYOUT_DEFAULTS } from 'styles'
-import Contact from 'organisms/Contact'
+import { Contact } from 'organisms/Contact'
 
 const { spacing, borderStyle, borderSize, mediaQueries } = LAYOUT_DEFAULTS
 

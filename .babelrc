@@ -1,32 +1,15 @@
 {
-  "presets": ["next/babel"],
-  "plugins": [
-    [
-      "styled-components",
-      {
-        "ssr": true,
-        "minify": true,
-        "pure": true,
-        "displayName": true,
-        "fileName": true
-      }
-    ],
-    [
-      "module-resolver",
-      {
-        "root": ["."],
-        "alias": {
-          "utils": "./utils",
-          "atoms": "./components/atoms",
-          "molecules": "./components/molecules",
-          "organisms": "./components/organisms",
-          "styles": "./styles",
-          "constants": "./constants"
-        }
-      }
-    ],
-    "@babel/proposal-optional-chaining",
-    "@babel/proposal-nullish-coalescing-operator",
-    "@babel/plugin-transform-react-display-name"
-  ]
+    "presets": ["next/babel"],
+    "plugins": [
+        [
+            "styled-components",
+            {
+                "ssr": true,
+                "minify": true,
+                "pure": true,
+                "displayName": true,
+                "fileName": true
+            }
+        ]
+    ]
 }

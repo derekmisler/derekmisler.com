@@ -3,14 +3,8 @@ import styled from 'styled-components'
 import { Small } from 'atoms/Typography'
 import { DEFAULT_TEXT_STYLES, LAYOUT_DEFAULTS, transitionDefaults } from 'styles'
 
-const {
-  borderSize,
-  borderSizeSmall,
-  borderSizeLarge,
-  borderStyle,
-  borderRadius,
-  spacing
-} = LAYOUT_DEFAULTS
+const { borderSize, borderSizeSmall, borderSizeLarge, borderStyle, borderRadius, spacing } =
+  LAYOUT_DEFAULTS
 
 const { timing, duration } = transitionDefaults
 
@@ -78,7 +72,7 @@ export const Toggle = ({ onLabel, offLabel, onToggle, defaultChecked }: TogglePr
 
   useEffect(() => {
     onToggle(active)
-  }, [active])
+  }, [active, onToggle])
 
   return (
     <ToggleWrapper onClick={handleChange}>

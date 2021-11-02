@@ -3,7 +3,6 @@ import { NextPage } from 'next'
 import { ThemeProvider } from 'styled-components'
 import { Heading } from 'atoms/Typography'
 import { GlobalStyle } from 'styles'
-import { Analytics } from 'atoms/Analytics'
 import { useTheme } from 'utils/useTheme'
 
 const FourOhFour: NextPage<{}> = () => {
@@ -11,9 +10,8 @@ const FourOhFour: NextPage<{}> = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Analytics />
       <GlobalStyle theme={theme} />
-      <Heading level={1}>This page doesn't exist!</Heading>
+      <Heading level={1}>This page doesn&apos;t exist!</Heading>
     </ThemeProvider>
   )
 }

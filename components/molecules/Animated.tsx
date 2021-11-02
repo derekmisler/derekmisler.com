@@ -32,7 +32,7 @@ export const Animated = ({ active = true, delay = 0, ...rest }: AnimatedProps) =
     setTimeout(() => {
       setAnimated(active)
     }, delay)
-  }, [active])
+  }, [active, delay])
 
   return <StyledAnimated {...rest} animated={animated} />
 }

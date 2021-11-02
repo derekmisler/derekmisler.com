@@ -94,6 +94,24 @@ export const education: ExperienceTypes[] = [
 
 export const careers: ExperienceTypes[] = [
   {
+    title: 'Cadre',
+    specification: 'Senior Software Engineer',
+    location: 'New York, New York',
+    level: 'Full-time',
+    description: undefined,
+    accomplishments: [
+      'Refactored and combined a decoupled SPA and third-party marketing site to a Django/React web app.',
+      'Migrated fragmented codebases to a monorepo.',
+      'Developed a custom server rendering configuration for our marketing site with Webpack, React, and new Node service.',
+      'Technical lead and developer of our internal component/design pattern library.',
+      'Contributed to the open-source component library that inspired our own component library (Base Web).',
+      'Lead/mentored teams of full-stack engineers across multiple projects, using both Agile and Shape Up methodologies.'
+    ],
+    startDate: '2020',
+    endDate: 'Present',
+    link: 'https://cadre.com'
+  },
+  {
     title: 'Transfix, Inc.',
     specification: 'Staff Software Engineer',
     location: 'New York, New York',
@@ -101,6 +119,7 @@ export const careers: ExperienceTypes[] = [
     description: undefined,
     accomplishments: [
       'First front-end engineer',
+      'Rebuilt our Android and iOS apps using React Native.',
       'Refactored web app from Rails, to Aurelia (a terrific JS framework), and finally landing on React/Redux.',
       'Refactored our public site from Wordpress to Jade, a great (but extinct) static site templating language, and then eventually to 11ty.js.',
       'Developed an internal library for creating web (React/Redux) apps, mobile (React Native) apps, and shared modules (NPM).',
@@ -108,11 +127,10 @@ export const careers: ExperienceTypes[] = [
       'Created standards for networking configurations, CSS and JS syntax linting, and automated testing.',
       'Developed our web networking standards, using AWS tools, including all of our deployment configurations, client-side security, and multi-region failover.',
       'Technical lead on the creation of our internal component/design pattern library.',
-      'Rebuilt our Android and iOS apps using React Native.',
-      'Grew a team of cross-functional engineers and designers to continue the work.'
+      'Grew a team of cross-functional engineers and designers to continue the front-end and mobile work.'
     ],
     startDate: '2016',
-    endDate: 'Present',
+    endDate: '2020',
     link: 'https://transfix.io'
   },
   {

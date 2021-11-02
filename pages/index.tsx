@@ -3,7 +3,6 @@ import { ThemeProvider } from 'styled-components'
 import { Header } from 'molecules/Header'
 import { Nav } from 'molecules/Nav/NavWrapper'
 import { Footer } from 'molecules/Footer'
-import { Analytics } from 'atoms/Analytics'
 import { GlobalStyle } from 'styles'
 import { sections } from 'constants/sections'
 import { Section } from 'molecules/Section'
@@ -17,7 +16,6 @@ const App: NextPage<{}> = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Analytics />
       <GlobalStyle theme={theme} />
       <Nav />
       <Header />

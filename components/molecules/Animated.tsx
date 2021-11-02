@@ -32,7 +32,7 @@ export const Animated = ({ active = true, delay = 0, ...rest }: AnimatedProps) =
     setTimeout(() => {
       setAnimated(active)
     }, delay)
-  }, [active, delay])
+  }, [active]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return <StyledAnimated {...rest} animated={animated} />
 }

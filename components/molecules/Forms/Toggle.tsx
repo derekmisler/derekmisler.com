@@ -72,7 +72,7 @@ export const Toggle = ({ onLabel, offLabel, onToggle, defaultChecked }: TogglePr
 
   useEffect(() => {
     onToggle(active)
-  }, [active, onToggle])
+  }, [active]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <ToggleWrapper onClick={handleChange}>

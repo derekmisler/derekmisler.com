@@ -41,7 +41,7 @@ const HeaderContent = () => {
           <Animated delay={600}>
             <Text>
               <Button href='mailto:derekmisler@gmail.com?subject=Hello!'>Say Hello!</Button>
-              <Button download href='images/Derek-Misler-Resume.pdf'>
+              <Button download href='derek-misler-resume.pdf'>
                 Download a PDF!
               </Button>
             </Text>

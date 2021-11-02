@@ -304,7 +304,7 @@ export const skills: SkillTypes[] = [
     level: 3
   },
   {
-    title: 'Python',
+    title: 'Python/Django',
     level: 4
   },
   {

@@ -10,11 +10,12 @@ const StyledTab = styled.div<{ isActive?: boolean }>`
   @media ${mediaQueries.desktop} {
     display: block;
     padding: ${spacing.small} 0;
+    margin-bottom: ${spacing.medium};
     cursor: ${({ isActive }) => (isActive ? undefined : 'pointer')};
     border-bottom: ${({ theme, isActive }) =>
-      `${borderSize} ${borderStyle} ${isActive ? theme.accent : theme.link}`};
+      `${borderSize} ${borderStyle} ${isActive ? theme.accent : theme.text}`};
     &:hover {
-      border-bottom-color: ${({ theme, isActive }) => (isActive ? theme.accent : theme.linkHover)};
+      border-bottom-color: ${({ theme, isActive }) => (isActive ? theme.accent : theme.accent)};
     }
   }
 `
@@ -28,14 +29,15 @@ interface ExperienceTabProps {
 
 export const ExperienceTab = ({ e, onClick, id, activeId }: ExperienceTabProps) => {
   const handleClick = () => onClick(id)
+  const isActive = id === activeId
   return (
-    <StyledTab isActive={id === activeId} onClick={handleClick}>
-      <Heading level={5}>
+    <StyledTab isActive={isActive} onClick={handleClick}>
+      <Heading level={5} accent={isActive}>
         {e.title}
         <br />
         {e.startDate}&ndash;{e.endDate}
       </Heading>
-      <Small>{e.location}</Small>
+      <Small accent={isActive}>{e.location}</Small>
     </StyledTab>
   )
 }

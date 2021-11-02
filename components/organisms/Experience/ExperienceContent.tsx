@@ -31,14 +31,18 @@ export const ExperienceContent = ({ e, id, activeId }: ExperienceContentProps) =
   <StyledContent isActive={id === activeId}>
     <Row columnsDesktop={10} gap='large'>
       <Col rangeDesktop={6}>
-        <Heading level={3}>{e.title}</Heading>
-        <Hr />
+        <Heading accent level={3}>
+          {e.title}
+        </Heading>
+        <Hr accent />
       </Col>
     </Row>
     <Row columnsDesktop={10} gap='large'>
       <Col rangeDesktop={4}>
-        <Heading level={4}>{e.specification}</Heading>
-        <Hr />
+        <Heading accent level={4}>
+          {e.specification}
+        </Heading>
+        <Hr accent />
         <Text>
           {e.level}
           <br />

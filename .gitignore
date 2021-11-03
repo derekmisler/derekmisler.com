@@ -1,6 +1,4 @@
 .next/
-.firebase/
 dist/
 .report.html
-*.tsbuildinfo
 *.tsbuildinfo

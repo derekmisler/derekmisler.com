@@ -98,9 +98,8 @@ export const careers: ExperienceTypes[] = [
     specification: 'Senior Software Engineer',
     location: 'New York, New York',
     level: 'Full-time',
-    description: undefined,
     accomplishments: [
-      'Refactored and combined a decoupled SPA and third-party marketing site to a Django/React web app.',
+      'Refactored and combined a decoupled SPA and third-party marketing site into a Django/React web app.',
       'Migrated fragmented codebases to a monorepo.',
       'Developed a custom server rendering configuration for our marketing site with Webpack, React, and new Node service.',
       'Technical lead and developer of our internal component/design pattern library.',
@@ -116,7 +115,6 @@ export const careers: ExperienceTypes[] = [
     specification: 'Staff Software Engineer',
     location: 'New York, New York',
     level: 'Full-time',
-    description: undefined,
     accomplishments: [
       'First front-end engineer',
       'Rebuilt our Android and iOS apps using React Native.',
@@ -138,9 +136,14 @@ export const careers: ExperienceTypes[] = [
     specification: 'Web Manager& Developer& Photographer',
     location: 'Asheville, North Carolina',
     level: 'Full-time',
-    description:
-      "As the only developer on staff, my job was to maintain our entire web presence. We started with a .NET-backed site, and one of my first tasks was to create a matching mobile site and responsive blog theme. While I was on board, I oversaw two redesigns, first with Coldfusion and more recently with a responsive site that was built with Node/MongoDB on the back-end and a custom JS templating language, Goatee, on the front-end. I've been in charge of creating all print- and web-related assets for our various marketing campaigns, all of the data analysis of those campaigns, and two long-form, media-rich, highly interactive, award-winning web applications. I also oversaw the email marketing program, which included designing and creating the email templates, capturing and segmenting demographic data, and the analysis of the data we received after each campaign.",
-    accomplishments: [],
+    accomplishments: [
+      'Lead and primary developer of our entire web presence.',
+      'Created our first mobile site and responsive blog theme within a .NET-backed codebase.',
+      'Redesigned and refactored our marketing site twice, first with Coldfusion and later with Node/MongoDB on the back-end and a custom JS templating language, Goatee, on the front-end.',
+      'Oversaw design aspects of all print- and web-related assets for our various marketing campaigns.',
+      'Primary data analyst for all marketing campaigns, including capturing and segmenting demographic data to drive future campaigns.',
+      'Lead developer and designer of two long-form, media-rich, highly interactive, award-winning web applications with our Node back-end and AngularJS front-end.'
+    ],
     startDate: '2011',
     endDate: '2016',
     link: 'http://www.exploreasheville.com'

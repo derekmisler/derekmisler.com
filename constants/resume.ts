@@ -94,8 +94,20 @@ export const education: ExperienceTypes[] = [
 
 export const careers: ExperienceTypes[] = [
   {
-    title: 'Cadre',
+    title: 'Patreon',
     specification: 'Senior Software Engineer',
+    location: 'New York, New York',
+    level: 'Full-time',
+    accomplishments: [
+      'In progress...'
+    ],
+    startDate: '2021',
+    endDate: 'Present',
+    link: 'https://www.patreon.com'
+  },
+  {
+    title: 'Cadre',
+    specification: 'Lead Software Engineer',
     location: 'New York, New York',
     level: 'Full-time',
     accomplishments: [
@@ -107,7 +119,7 @@ export const careers: ExperienceTypes[] = [
       'Lead/mentored teams of full-stack engineers across multiple projects, using both Agile and Shape Up methodologies.'
     ],
     startDate: '2020',
-    endDate: 'Present',
+    endDate: '2021',
     link: 'https://cadre.com'
   },
   {

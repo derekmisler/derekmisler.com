@@ -2,3 +2,4 @@
 dist/
 .report.html
 *.tsbuildinfo
+node_modules

@@ -4,8 +4,10 @@ interface Props {
 }
 
 import { injectSpeedInsights } from '@vercel/speed-insights'
+import { inject } from '@vercel/analytics';
 
 injectSpeedInsights({ debug: import.meta.env.DEV })
+inject({ debug: import.meta.env.DEV });
 
 const { title } = Astro.props
 ---

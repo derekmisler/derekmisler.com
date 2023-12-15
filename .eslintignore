@@ -1,0 +1,6 @@
+# Ignore build and output directories
+/dist
+/.astro
+
+# Ignore node_modules, you may want to lint these files, but it's common to ignore them
+/node_modules

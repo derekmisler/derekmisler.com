@@ -1,9 +1,9 @@
 import React from 'react'
 import { NextPage } from 'next'
 import { ThemeProvider } from 'styled-components'
-import { Heading } from 'atoms/Typography'
-import { GlobalStyle } from 'styles'
-import { useTheme } from 'utils/useTheme'
+import { Heading } from '@/atoms/Typography'
+import { GlobalStyle } from '@/styles'
+import { useTheme } from '@/utils/useTheme'
 
 const FourOhFour: NextPage<{}> = () => {
   const [theme] = useTheme()

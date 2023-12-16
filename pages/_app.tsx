@@ -1,9 +1,9 @@
 import React from 'react'
 import App from 'next/app'
 import Head from 'next/head'
-import { JsonLd } from 'atoms/JsonLd'
-import { resume } from 'constants/resume'
-import { themes } from 'styles'
+import { JsonLd } from '@/atoms/JsonLd'
+import { resume } from '@/constants/resume'
+import { themes } from '@/styles'
 
 class MainApp extends App {
   render() {

@@ -1,15 +1,11 @@
 'use client'
-import { NextPage } from 'next'
 import { Header } from '@/molecules/Header'
-import { Footer } from '@/molecules/Footer'
 import { GlobalStyle } from '@/styles/global'
 import { sections } from '@/constants/sections'
 import { Section } from '@/molecules/Section'
 import { useTheme } from '@/utils/useTheme'
 
-export const config = { amp: false }
-
-const App: NextPage<{}> = () => {
+export default function App() {
   const { theme } = useTheme()
 
   return (
@@ -26,9 +22,7 @@ const App: NextPage<{}> = () => {
           />
         ))}
       </main>
-      <Footer />
     </>
   )
 }
 
-export default App

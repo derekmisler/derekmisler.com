@@ -9,7 +9,7 @@ export const Experience = () => {
       <Row $columnsDesktop={10} $gap='large'>
         <Col $rangeDesktop={8}>
           {totalExperience.map(e => (
-            <ExperienceContent e={e} id={e.title} key={e.title} />
+            <ExperienceContent key={e.title} {...e} />
           ))}
         </Col>
       </Row>

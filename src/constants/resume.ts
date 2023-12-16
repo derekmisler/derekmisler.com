@@ -4,7 +4,7 @@ export const lastName = 'Misler'
 export const description = 'Software Engineer & Occasional Designer'
 export const email = 'derekmisler@gmail.com'
 export const socialId = 'derekmisler'
-export const metaDescription = `I am a software engineer living in Brooklyn, NY with a design background and 15+ years of experience building exceptional, high-quality websites and applications.`
+export const metaDescription = `I am a software engineer living in Brooklyn, NY with a design background and 15+ years of experience building exceptional, high-quality websites and applications. I just love the front-end so much. All I want to do is to make the web a better, more performant, accessible, and welcoming place.`
 export const biography = `I have a diverse education, both traditional and self-driven, of many different web and app development languages for desktop and mobile. I also have a design background, tons of UI/UX experience, and a surprisingly large knowledge of typography (seriously, let's talk about it). I think all developers should study design, and I believe having this well-rounded education makes me a stronger engineer.`
 
 export const profile = {
@@ -15,7 +15,6 @@ export const profile = {
   description,
   title: `${firstName} ${lastName} | ${description}`,
   metaDescription,
-  biography
 }
 export const location = {
   houseNumber: '495',
@@ -71,7 +70,7 @@ export const careers: Experience[] = [
     location: 'New York, New York',
     level: 'Full-time',
     accomplishments: [
-      'In progress...'
+      'In progress'
     ],
     startDate: '2021',
     endDate: 'Present',
@@ -182,73 +181,6 @@ export const careers: Experience[] = [
   }
 ]
 
-interface CourseWorkTypes {
-  title: string
-  specification: string
-}
-export const coursework: CourseWorkTypes[] = [
-  {
-    title: 'Harvard',
-    specification: 'CS50x3: Computer Science'
-  },
-  {
-    title: 'Microsoft',
-    specification: 'DEV204x: Programming with C#'
-  },
-  {
-    title: 'Codecademy',
-    specification: 'Python'
-  },
-  {
-    title: 'Codecademy',
-    specification: 'Ruby on Rails: Make a Rails App'
-  },
-  {
-    title: 'Codecademy',
-    specification: 'AngularJS'
-  },
-  {
-    title: 'Codecademy',
-    specification: 'JavaScript APIs'
-  },
-  {
-    title: 'Codecademy/Code School',
-    specification: 'JavaScript'
-  },
-  {
-    title: 'Code School',
-    specification: 'Ruby'
-  },
-  {
-    title: 'Code School',
-    specification: 'Shaping Up with Angular.js'
-  },
-  {
-    title: 'Code School',
-    specification: 'Git'
-  },
-  {
-    title: 'Code School',
-    specification: 'jQuery'
-  },
-  {
-    title: 'Udemy',
-    specification: 'Beginner Python & Django Programming'
-  },
-  {
-    title: 'Udemy',
-    specification: 'Python, The Next Level'
-  },
-  {
-    title: 'Udemy',
-    specification: 'Ruby Programming for Beginners'
-  },
-  {
-    title: 'Udemy',
-    specification: 'Advanced Ruby: 10 Steps to Mastery'
-  }
-]
-
 export interface SkillTypes {
   title: string
   level: number
@@ -259,15 +191,15 @@ export const skills: SkillTypes[] = [
     level: 5
   },
   {
-    title: 'HTML5',
+    title: 'A11y',
     level: 5
   },
   {
-    title: 'CSS3',
+    title: 'Next.js',
     level: 5
   },
   {
-    title: 'ES6/7',
+    title: 'CSS',
     level: 5
   },
   {
@@ -275,11 +207,7 @@ export const skills: SkillTypes[] = [
     level: 4
   },
   {
-    title: 'Aurelia',
-    level: 5
-  },
-  {
-    title: 'React/Redux',
+    title: 'React',
     level: 5
   },
   {
@@ -291,8 +219,12 @@ export const skills: SkillTypes[] = [
     level: 3
   },
   {
-    title: 'Django/Python',
+    title: 'Flask/Python',
     level: 4
+  },
+  {
+    title: 'Django/Python',
+    level: 3
   },
   {
     title: 'Ruby/Rails',
@@ -315,10 +247,6 @@ export const skills: SkillTypes[] = [
     level: 5
   },
   {
-    title: 'DevOps',
-    level: 4
-  },
-  {
     title: 'AWS',
     level: 4
   },
@@ -339,89 +267,3 @@ export const skills: SkillTypes[] = [
     level: 5
   }
 ]
-
-interface ProjectTypes {
-  title: string
-  description: string
-  link: string
-  image: string
-  tags: string[]
-}
-export const projects: ProjectTypes[] = [
-  {
-    title: 'Personal Website',
-    description: 'The fourth iteration of my personal website.',
-    link: 'https://github.com/derekmisler/derekmisler.com',
-    image: 'new-exploreasheville.jpg',
-    tags: ['Next.js', 'Typescript', 'styled-components']
-  },
-  {
-    title: 'ExploreAsheville.com',
-    description: 'The second redesign of ExploreAsheville.com.',
-    link: 'http://www.exploreasheville.com/',
-    image: 'new-exploreasheville.jpg',
-    tags: ['HTML5', 'CSS3', 'Goatee (Custom JavaScript templating language)', 'Responsive Design']
-  },
-  {
-    title: 'Explorers of the Blue Ridge Parkway',
-    description: 'An incredibly large project for just one developer/designer.',
-    link: 'http://www.exploreasheville.com/blue-ridge-parkway/',
-    image: 'explorers-of-the-blue-ridge-parkway.jpg',
-    tags: ['HTML5', 'CSS3', 'jQuery', 'Responsive Design', 'Custom CSS Framework']
-  },
-  {
-    title: 'The Science Behind Fall Color',
-    description: 'An award-winning project.',
-    link: 'http://www.exploreasheville.com/science-behind-fall-color/',
-    image: 'science-behind-fall-color.jpg',
-    tags: ['HTML5', 'CSS3', 'jQuery', 'Responsive Design', 'Bootstrap']
-  },
-  {
-    title: 'HouserShoes.com',
-    description: 'A custom content management system built upon Magento by a 3-person team.',
-    link: 'http://www.housershoes.com',
-    image: 'houser-shoes.jpg',
-    tags: ['PHP', 'Magento', 'Custom CMS', 'Responsive Design']
-  },
-  {
-    title: 'Strunk Home Solutions',
-    description: 'Branding project: Logo, business cards, letterhead.',
-    link: 'http://www.derekmisler.com/images/portfolio/strunk-home-solutions-letterhead.jpg',
-    image: 'strunk-home-solutions-logo.jpg',
-    tags: ['InDesign', 'Illustrator']
-  },
-  {
-    title: 'NC Saves Energy',
-    description: 'Logo and posters for area non-profit.',
-    link: 'http://www.derekmisler.com/images/portfolio/nc-saves-energy.jpg',
-    image: 'nc-saves-logo.jpg',
-    tags: ['InDesign', 'Illustrator', 'Photoshop', 'Old Blueprints']
-  },
-  {
-    title: 'Periscope Magazine',
-    description:
-      'This was a magazine a couple of friends and I put together a few years ago. My job was all of the branding and the layout of the first issue, as well as the web development for the others. The first issue is the only PDF and the code for the others can be viewed on Github.',
-    link: 'http://www.derekmisler.com/images/portfolio/The-First-Issue.pdf',
-    image: 'periscope.jpg',
-    tags: ['InDesign', 'Illustrator', 'Photography', 'PHP', 'HTML5', 'CSS3']
-  },
-  {
-    title: 'Houser Shoes Email Marketing',
-    description:
-      'I was in charge of the email marketing at Houser Shoes. These are just a few examples of the fun ones.',
-    link: 'http://www.derekmisler.com/images/portfolio/houser-shoes-email-big.jpg',
-    image: 'houser-shoes-email.jpg',
-    tags: ['HTML', 'CSS', 'Photoshop', 'Illustrator']
-  }
-]
-
-export const resume = {
-  profile,
-  location,
-  contact,
-  education,
-  careers,
-  coursework,
-  skills,
-  projects
-}

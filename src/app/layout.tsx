@@ -1,10 +1,8 @@
 import Head from 'next/head'
 import { JsonLd } from '@/atoms/JsonLd'
-import { resume } from '@/constants/resume'
+import { profile, contact } from '@/constants/resume'
 import { themes } from '@/styles/colors'
 import {StyledComponentsRegistry} from '@/molecules/StyledComponentsRegistry'
-
-const { profile, contact } = resume
 
 export default function RootLayout({
   children,

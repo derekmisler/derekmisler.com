@@ -8,7 +8,7 @@ export const About = () => (
   <>
     <Row $columnsDesktop={5} $gap='large'>
       <Col $rangeDesktop={3}>
-        <Text $columns={2}>{fixWidow(biography)}</Text>
+        <Text>{fixWidow(biography)}</Text>
       </Col>
       <Col $rangeDesktop={2}>
         <Qualifications />

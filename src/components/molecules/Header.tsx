@@ -1,17 +1,15 @@
 import { fixWidow } from '@/utils/stringFormat'
-import { resume } from '@/constants/resume'
+import { profile } from '@/constants/resume'
 import { Animated } from '@/molecules/Animated'
 import { Heading } from '@/atoms/Typography/Heading'
 import { Text } from '@/atoms/Typography/Text'
-import { Button } from '@/atoms/Button'
 import { Row, Col } from '@/atoms/Grid'
 import { Hr } from '@/atoms/Hr'
 import { Section } from '@/molecules/Section'
+import { Contact } from '@/organisms/Contact'
 
 const HeaderContent = () => {
-  const {
-    profile: { fullName, description, metaDescription }
-  } = resume
+  const { fullName, description, metaDescription } = profile
   return (
     <>
       <Row $columnsDesktop={6}>
@@ -40,12 +38,7 @@ const HeaderContent = () => {
             <Text $inline>{fixWidow(metaDescription)}</Text>
           </Animated>
           <Animated $delay={600}>
-            <Text>
-              <Button href='mailto:derekmisler@gmail.com?subject=Hello!'>Say Hello!</Button>
-              <Button download href='derek-misler-resume.pdf'>
-                Download a PDF!
-              </Button>
-            </Text>
+            <Contact />
           </Animated>
         </Col>
       </Row>

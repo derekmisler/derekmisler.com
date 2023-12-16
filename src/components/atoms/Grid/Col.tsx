@@ -5,25 +5,25 @@ import { generateResponsiveCols } from '@/utils/generateResponsiveGrid'
 const { mediaQueries } = LAYOUT_DEFAULTS
 
 interface ColProps extends StyledComponentProps {
-  row?: boolean
-  range?: number | string
-  rangeDesktop?: number | string
-  textAlign?: string
+  $row?: boolean
+  $range?: number | string
+  $rangeDesktop?: number | string
+  $textAlign?: string
 }
 const StyledCol = styled.div<ColProps>`
   display: block;
-  text-align: ${({ textAlign }) => (textAlign ? textAlign : 'left')};
-  ${({ range = '', rangeDesktop = '', row = false }) => {
-    if (row) {
+  text-align: ${({ $textAlign }) => ($textAlign ? $textAlign : 'left')};
+  ${({ $range = '', $rangeDesktop = '', $row = false }) => {
+    if ($row) {
       return css`
         ${generateResponsiveCols('1..')}
       `
     }
-    if (!(range || rangeDesktop)) return null
+    if (!($range || $rangeDesktop)) return null
     return css`
-      ${generateResponsiveCols(range)}
+      ${generateResponsiveCols($range)}
       @media ${mediaQueries.desktop} {
-        ${generateResponsiveCols(rangeDesktop || range)}
+        ${generateResponsiveCols($rangeDesktop || $range)}
       }
     `
   }}

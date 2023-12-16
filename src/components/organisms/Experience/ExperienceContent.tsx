@@ -9,15 +9,15 @@ import { LAYOUT_DEFAULTS } from '@/styles/layout'
 
 const { borderSize, borderStyle, spacing, mediaQueries } = LAYOUT_DEFAULTS
 
-const StyledContent = styled.div<{ isActive?: boolean }>`
+const StyledContent = styled.div<{ $isActive?: boolean }>`
   padding-top: ${spacing.small};
   padding-bottom: ${spacing.large};
   display: block;
-  border-bottom: ${({ theme }) => `${borderSize} ${borderStyle} ${theme.accent}`};
+  border-bottom: ${({ theme }) => `${borderSize} ${borderStyle} ${theme.$accent}`};
   @media ${mediaQueries.desktop} {
     height: 100%;
     margin-bottom: ${spacing.large};
-    display: ${({ isActive }) => (isActive ? 'block' : 'none')};
+    display: ${({ $isActive }) => ($isActive ? 'block' : 'none')};
   }
 `
 
@@ -27,22 +27,22 @@ interface ExperienceContentProps {
   id: string
 }
 
-export const ExperienceContent = ({ e, id, activeId }: ExperienceContentProps) => (
-  <StyledContent isActive={id === activeId}>
-    <Row columnsDesktop={10} gap='large'>
-      <Col rangeDesktop={6}>
-        <Heading accent level={3}>
+export const ExperienceContent = ({ e, id }: ExperienceContentProps) => (
+  <StyledContent $isActive={true}>
+    <Row $columnsDesktop={10} $gap='large'>
+      <Col $rangeDesktop={6}>
+        <Heading $accent $level={3}>
           {e.title}
         </Heading>
-        <Hr accent />
+        <Hr $accent />
       </Col>
     </Row>
-    <Row columnsDesktop={10} gap='large'>
-      <Col rangeDesktop={4}>
-        <Heading accent level={4}>
+    <Row $columnsDesktop={10} $gap='large'>
+      <Col $rangeDesktop={4}>
+        <Heading $accent $level={4}>
           {e.specification}
         </Heading>
-        <Hr accent />
+        <Hr $accent />
         <Text>
           {e.level}
           <br />
@@ -59,10 +59,10 @@ export const ExperienceContent = ({ e, id, activeId }: ExperienceContentProps) =
           )}
         </Text>
       </Col>
-      <Col rangeDesktop={6}>
+      <Col $rangeDesktop={6}>
         {e.description && <Text>{fixWidow(e.description)}</Text>}
         {e.accomplishments.length > 0 && (
-          <Ul flexDirection='column' bullet>
+          <Ul $flexDirection='column' $bullet>
             {e.accomplishments.map((a: string) => (
               <Li key={a}>{fixWidow(a)}</Li>
             ))}

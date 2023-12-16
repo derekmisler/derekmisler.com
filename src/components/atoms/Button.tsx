@@ -7,7 +7,6 @@ const { buttonFontSize } = TYPOGRAPHY_DEFAULTS
 const { spacing, borderRadius, borderStyle, borderSize, mediaQueries } = LAYOUT_DEFAULTS
 
 interface StyledButtonProps {
-  accent?: boolean
   href?: string
   download?: boolean
 }

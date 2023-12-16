@@ -13,12 +13,12 @@ const maxLevel: number = sortedSkills[0].level
 const { borderSize, borderSizeSmall } = LAYOUT_DEFAULTS
 
 interface QualificationTypes {
-  active?: boolean
+  $active?: boolean
 }
 
 const QualificationBar = styled.div<QualificationTypes>`
   display: block;
-  background-color: ${({ active, theme }) => (active ? theme.accent : 'transparent')};
+  background-color: ${({ $active, theme }) => ($active ? theme.accent : 'transparent')};
   height: ${borderSize};
   margin-right: ${borderSizeSmall};
   margin-bottom: ${borderSize};
@@ -26,17 +26,17 @@ const QualificationBar = styled.div<QualificationTypes>`
 
 export const Qualifications = () => (
   <>
-    <Heading level={3}>Tools that I use</Heading>
-    <Row as='ul' columns={2} columnsDesktop={3} gap='large'>
+    <Heading $level={3}>Tools that I use</Heading>
+    <Row as='ul' $columns={2} $columnsDesktop={3} $gap='large'>
       {sortedSkills.map(skill => (
         <Col as='li' key={skill.title}>
           <Small>{skill.title}</Small>
-          <Row columns={maxLevel}>
+          <Row $columns={maxLevel}>
             {Array(maxLevel)
               .fill(skill.level)
               .map((level, i) => (
                 <Col key={`${skill.title}-${i}`}>
-                  <QualificationBar active={i < level} />
+                  <QualificationBar $active={i < level} />
                 </Col>
               ))}
           </Row>

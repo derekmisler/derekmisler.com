@@ -7,12 +7,12 @@ export type BaseFontWeight = '400' | '500' | '700'
 export type HeadingFontWeight = '100' | '200' | '300' | '400' | '500' | '600' | '700' | '900'
 
 export interface TextProps extends HTMLProps<HTMLParagraphElement> {
-  textAlign?: string
-  textAlignDesktop?: string
-  accent?: boolean
-  bold?: boolean
-  inline?: boolean
-  columns?: number
+  $textAlign?: string
+  $textAlignDesktop?: string
+  $accent?: boolean
+  $bold?: boolean
+  $inline?: boolean
+  $columns?: number
 }
 
 export const BASE_MEASURE = 16

@@ -5,8 +5,6 @@ import { contact } from '@/constants/resume'
 const LINKS = [
   { title: 'LinkedIn', url: contact.linkedin },
   { title: 'GitHub', url: contact.github },
-  { title: 'Stack Overflow', url: contact.stackOverflow },
-  { title: '500px', url: contact.fivehundred }
 ]
 
 export const Contact = () => {

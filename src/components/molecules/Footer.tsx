@@ -18,7 +18,7 @@ export const StyledFooter = styled.footer`
 
 export const Footer = () => (
   <StyledFooter>
-    <Row columnsDesktop={2}>
+    <Row $columnsDesktop={2}>
       <Col>
         <Text>
           Whoa!

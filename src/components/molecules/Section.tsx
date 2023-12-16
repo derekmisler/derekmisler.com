@@ -27,10 +27,10 @@ export const Section = ({ id, heading, Component, as }: SectionProps) => (
   <StyledSection as={as} id={id}>
     {heading && (
       <>
-        <Row columnsDesktop={5} gap='large'>
-          <Col rangeDesktop={3}>
-            <Heading level={2}>{heading}</Heading>
-            <Hr accent />
+        <Row $columnsDesktop={5} $gap='large'>
+          <Col $rangeDesktop={3}>
+            <Heading $level={2}>{heading}</Heading>
+            <Hr $accent />
           </Col>
         </Row>
       </>

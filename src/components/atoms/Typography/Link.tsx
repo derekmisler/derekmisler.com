@@ -1,6 +1,6 @@
 import { HTMLProps } from 'react'
 import styled from 'styled-components'
-import { DEFAULT_TEXT_STYLES } from '@/styles'
+import { DEFAULT_TEXT_STYLES } from '@/styles/typography'
 
 export const Link = styled.a<HTMLProps<HTMLLinkElement>>`
   font: unset;

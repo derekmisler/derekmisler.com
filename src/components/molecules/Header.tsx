@@ -1,11 +1,12 @@
 import { fixWidow } from '@/utils/stringFormat'
 import { resume } from '@/constants/resume'
-import { Animated } from 'molecules/Animated'
-import { Heading, Text } from '@/atoms/Typography'
-import { Button } from '@/atoms/Buttons'
+import { Animated } from '@/molecules/Animated'
+import { Heading } from '@/atoms/Typography/Heading'
+import { Text } from '@/atoms/Typography/Text'
+import { Button } from '@/atoms/Button'
 import { Row, Col } from '@/atoms/Grid'
 import { Hr } from '@/atoms/Hr'
-import { Section } from 'molecules/Section'
+import { Section } from '@/molecules/Section'
 
 const HeaderContent = () => {
   const {

@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import { LAYOUT_DEFAULTS } from '@/styles'
+import { LAYOUT_DEFAULTS } from '@/styles/layout'
 
 const { transition, dropShadow } = LAYOUT_DEFAULTS
 

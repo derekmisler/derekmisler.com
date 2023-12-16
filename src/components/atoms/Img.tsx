@@ -1,6 +1,6 @@
 import { ImgHTMLAttributes } from 'react'
 import styled from 'styled-components'
-import { LAYOUT_DEFAULTS } from '@/styles'
+import { LAYOUT_DEFAULTS } from '@/styles/layout'
 import { generateShadow } from '@/utils/generateShadow'
 
 const { transition } = LAYOUT_DEFAULTS

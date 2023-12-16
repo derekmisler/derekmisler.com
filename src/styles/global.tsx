@@ -5,8 +5,8 @@ const { baseFontWeight, baseLineHeight, baseFontFamily, htmlFontSize } = TYPOGRA
 
 interface GlobalStyleProps {
   theme: {
-    background: string
-    text: string
+    background?: string
+    text?: string
   }
 }
 

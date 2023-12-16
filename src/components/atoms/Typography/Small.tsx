@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import { DEFAULT_TEXT_STYLES, TextProps, TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from '@/styles'
-import { Text } from '@/atoms/Typography'
+import { LAYOUT_DEFAULTS } from '@/styles/layout'
+import { DEFAULT_TEXT_STYLES, TextProps, TYPOGRAPHY_DEFAULTS } from '@/styles/typography'
 
 const { smallFontSize, smallLineHeight } = TYPOGRAPHY_DEFAULTS
-const { opacity, mediaQueries, spacing } = LAYOUT_DEFAULTS
+const { mediaQueries } = LAYOUT_DEFAULTS
 
 interface StyledSmallProps extends TextProps {
   accent?: boolean

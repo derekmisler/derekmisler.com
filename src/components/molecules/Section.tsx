@@ -1,9 +1,9 @@
 import React, { ComponentType } from 'react'
 import styled from 'styled-components'
-import { StyledComponentProps, LAYOUT_DEFAULTS } from '@/styles'
+import { StyledComponentProps, LAYOUT_DEFAULTS } from '@/styles/layout'
 import { Row, Col } from '@/atoms/Grid'
 import { Hr } from '@/atoms/Hr'
-import { Heading } from '@/atoms/Typography'
+import { Heading } from '@/atoms/Typography/Heading'
 
 const { spacing, mediaQueries } = LAYOUT_DEFAULTS
 

@@ -1,9 +1,10 @@
 import styled from 'styled-components'
-import { DEFAULT_TEXT_STYLES, TextProps, TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from '@/styles'
+import { DEFAULT_TEXT_STYLES, TextProps, TYPOGRAPHY_DEFAULTS } from '@/styles/typography'
+import { LAYOUT_DEFAULTS } from '@/styles/layout'
 
 const { minColWidth } = TYPOGRAPHY_DEFAULTS
 
-const { spacing, opacity, mediaQueries } = LAYOUT_DEFAULTS
+const { spacing, mediaQueries } = LAYOUT_DEFAULTS
 
 export const Text = styled.p.attrs<TextProps>(({ inline }) => ({
   as: inline ? 'span' : 'p'

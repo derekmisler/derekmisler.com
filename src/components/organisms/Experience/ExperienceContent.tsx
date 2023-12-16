@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import { ExperienceTypes } from '@/constants/resume'
+import { type Experience } from '@/constants/resume'
 import { Text, Heading, Link } from '@/atoms/Typography'
 import { Row, Col } from '@/atoms/Grid'
 import { Ul, Li } from '@/atoms/Lists'
 import { Hr } from '@/atoms/Hr'
 import { fixWidow } from '@/utils/stringFormat'
-import { LAYOUT_DEFAULTS } from 'styles/layout'
+import { LAYOUT_DEFAULTS } from '@/styles/layout'
 
 const { borderSize, borderStyle, spacing, mediaQueries } = LAYOUT_DEFAULTS
 
@@ -22,7 +22,7 @@ const StyledContent = styled.div<{ isActive?: boolean }>`
 `
 
 interface ExperienceContentProps {
-  e: ExperienceTypes
+  e: Experience
   activeId?: string
   id: string
 }

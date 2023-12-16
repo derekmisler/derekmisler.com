@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS, DEFAULT_TEXT_STYLES } from '@/styles'
+import { LAYOUT_DEFAULTS } from '@/styles/layout'
+import { TYPOGRAPHY_DEFAULTS, DEFAULT_TEXT_STYLES } from '@/styles/typography'
 
 const { buttonFontSize } = TYPOGRAPHY_DEFAULTS
 

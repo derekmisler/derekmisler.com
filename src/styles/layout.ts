@@ -1,4 +1,4 @@
-import { HTMLProps } from 'react'
+import { HTMLProps, ReactNode, RefObject } from 'react'
 
 export type SmMdLgSizes = 'small' | 'medium' | 'large'
 
@@ -14,8 +14,9 @@ export interface DesktopMobile {
 }
 
 export interface StyledComponentProps extends HTMLProps<HTMLDivElement> {
-  as?: any
-  ref?: any
+  children?: ReactNode
+  as?: string
+  ref?: RefObject<HTMLDivElement>
 }
 
 export type FlexAlignment =
@@ -28,12 +29,12 @@ export type FlexAlignment =
   | 'space-evenly'
   | 'baseline'
 
-export const breakpoints = {
+export const BREAKPOINTS = {
   mobile: '64em',
   desktop: '64.063em'
 }
 
-export const transitionDefaults = {
+export const TRANSITION_DEFAULTS = {
   durationFast: '230ms',
   duration: '500ms',
   property: 'all',
@@ -47,10 +48,10 @@ export const LAYOUT_DEFAULTS = {
   borderSizeLarge: '1.95rem',
   borderStyle: 'solid',
   opacity: '0.65',
-  transition: `${transitionDefaults.duration} ${transitionDefaults.property} ${transitionDefaults.timing}`,
+  transition: `${TRANSITION_DEFAULTS.duration} ${TRANSITION_DEFAULTS.property} ${TRANSITION_DEFAULTS.timing}`,
   mediaQueries: {
-    mobile: `screen and (max-width: ${breakpoints.mobile})`,
-    desktop: `screen and (min-width: ${breakpoints.desktop})`,
+    mobile: `screen and (max-width: ${BREAKPOINTS.mobile})`,
+    desktop: `screen and (min-width: ${BREAKPOINTS.desktop})`,
     fullHeight: `screen and (max-height: 100vh)`
   },
   dropShadow: {

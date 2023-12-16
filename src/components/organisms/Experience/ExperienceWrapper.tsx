@@ -1,3 +1,5 @@
+'use client'
+
 import { useRef, useState } from 'react'
 import { Row, Col } from '@/atoms/Grid'
 import { careers, education } from '@/constants/resume'

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { ExperienceTypes } from '@/constants/resume'
+import { Experience } from '@/constants/resume'
 import { Heading, Small } from '@/atoms/Typography'
-import { LAYOUT_DEFAULTS } from 'styles/layout'
+import { LAYOUT_DEFAULTS } from '@/styles/layout'
 
 const { borderSize, borderStyle, spacing, mediaQueries } = LAYOUT_DEFAULTS
 
@@ -21,7 +21,7 @@ const StyledTab = styled.div<{ isActive?: boolean }>`
 `
 
 interface ExperienceTabProps {
-  e: ExperienceTypes
+  e: Experience
   onClick: Function
   activeId?: string
   id: string

@@ -24,7 +24,7 @@
       "@/organisms/*": ["./src/components/organisms/*"],
       "@/components/*": ["./src/components/*"],
       "@/constants/*": ["./src/constants/*"],
-      "@/styles": ["./src/styles"],
+      "@/styles/*": ["./src/styles/*"],
       "@/utils/*": ["./src/utils/*"],
     }
   },

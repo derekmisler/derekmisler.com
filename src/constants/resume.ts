@@ -1,22 +1,13 @@
-export const firstName: string = 'Derek'
-export const middleName: string = 'Alan'
-export const lastName: string = 'Misler'
-export const description: string = 'Software Engineer & Occasional Designer'
-export const email: string = 'derekmisler@gmail.com'
-export const socialId: string = 'derekmisler'
-export const metaDescription: string = `I am a software engineer living in Brooklyn, NY with a design background and 15+ years of experience building exceptional, high-quality websites and applications.`
-export const biography: string = `I have a diverse education, both traditional and self-driven, of many different web and app development languages for desktop and mobile. I also have a design background, tons of UI/UX experience, and a surprisingly large knowledge of typography (seriously, let's talk about it). I think all developers should study design, and I believe having this well-rounded education makes me a stronger engineer.`
+export const firstName = 'Derek'
+export const middleName = 'Alan'
+export const lastName = 'Misler'
+export const description = 'Software Engineer & Occasional Designer'
+export const email = 'derekmisler@gmail.com'
+export const socialId = 'derekmisler'
+export const metaDescription = `I am a software engineer living in Brooklyn, NY with a design background and 15+ years of experience building exceptional, high-quality websites and applications.`
+export const biography = `I have a diverse education, both traditional and self-driven, of many different web and app development languages for desktop and mobile. I also have a design background, tons of UI/UX experience, and a surprisingly large knowledge of typography (seriously, let's talk about it). I think all developers should study design, and I believe having this well-rounded education makes me a stronger engineer.`
 
-export const profile: {
-  firstName: string
-  middleName: string
-  lastName: string
-  fullName: string
-  description: string
-  title: string
-  metaDescription: string
-  biography: string
-} = {
+export const profile = {
   firstName,
   middleName,
   lastName,
@@ -26,14 +17,7 @@ export const profile: {
   metaDescription,
   biography
 }
-export const location: {
-  houseNumber: string
-  street: string
-  zipcode: string
-  city: string
-  state: string
-  country: string
-} = {
+export const location = {
   houseNumber: '495',
   street: '12th St., 4L',
   zipcode: '11215',
@@ -41,19 +25,7 @@ export const location: {
   state: 'NY',
   country: 'United States'
 }
-export const contact: {
-  email: string
-  website: string
-  twitter: string
-  twitterHandle: string
-  linkedin: string
-  github: string
-  flickr: string
-  fivehundred: string
-  stackOverflow: string
-  instagram: string
-  pinterest: string
-} = {
+export const contact = {
   email,
   website: `https://${socialId}.com`,
   twitter: `http://twitter.com/${socialId}`,
@@ -67,7 +39,7 @@ export const contact: {
   pinterest: `https://www.pinterest.com/${socialId}/`
 }
 
-export interface ExperienceTypes {
+export interface Experience {
   title: string
   specification: string
   location: string
@@ -78,7 +50,7 @@ export interface ExperienceTypes {
   endDate: string
   link?: string
 }
-export const education: ExperienceTypes[] = [
+export const education: Experience[] = [
   {
     title: 'Appalachian State University',
     specification: 'Graphic Design',
@@ -92,7 +64,7 @@ export const education: ExperienceTypes[] = [
   }
 ]
 
-export const careers: ExperienceTypes[] = [
+export const careers: Experience[] = [
   {
     title: 'Patreon',
     specification: 'Senior Software Engineer',

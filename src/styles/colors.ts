@@ -1,10 +1,17 @@
 import { hexToRgba } from '@/utils/hexToRgba'
 
-export interface ThemeProps {
-  [colorName: string]: string
-}
 export interface ThemeStateProps {
-  theme: ThemeProps
+  theme: {
+    text?: string
+    border?: string
+    accent?: string
+    link?: string
+    linkHover?: string
+    disabled?: string
+    background?: string
+    transparentBackground?: string
+    shadow?: string
+  },
   isDarkMode: boolean
 }
 

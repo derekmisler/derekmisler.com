@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { StyledComponentProps, SmMdLgSizes, LAYOUT_DEFAULTS, FlexAlignment } from '@/styles'
+import { StyledComponentProps, SmMdLgSizes, LAYOUT_DEFAULTS, FlexAlignment } from '@/styles/layout'
 import { generateResponsiveRow } from '@/utils/generateResponsiveGrid'
 
 const { spacing, mediaQueries } = LAYOUT_DEFAULTS

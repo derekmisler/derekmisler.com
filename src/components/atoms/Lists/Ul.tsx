@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { StyledComponentProps, SmMdLgSizes, LAYOUT_DEFAULTS, FlexAlignment } from '@/styles'
+import { StyledComponentProps, SmMdLgSizes, LAYOUT_DEFAULTS, FlexAlignment } from '@/styles/layout'
 
 const { spacing } = LAYOUT_DEFAULTS
 

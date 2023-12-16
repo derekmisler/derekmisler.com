@@ -1,5 +1,7 @@
+'use client'
+
 import { useState, useEffect } from 'react'
-import { themes, ThemeStateProps } from '@/styles'
+import { themes, type ThemeStateProps } from '@/styles/colors'
 
 enum ThemeActionTypes {
   Light = 'light',
@@ -21,9 +23,9 @@ export const useTheme = (): UseThemeProps => {
     setTheme(themes[outsideOfWorkingHours ? ThemeActionTypes.Dark : ThemeActionTypes.Light])
   }, [outsideOfWorkingHours])
 
-  const toggleTheme = (switchToLightMode: boolean) => {
-    setDarkMode(!switchToLightMode)
-    setTheme(themes[switchToLightMode ? ThemeActionTypes.Light : ThemeActionTypes.Dark])
+  const toggleTheme = () => {
+    setDarkMode(prev => !prev)
+    setTheme(themes[isDarkMode ? ThemeActionTypes.Light : ThemeActionTypes.Dark])
   }
 
   return [{ theme, isDarkMode }, toggleTheme]

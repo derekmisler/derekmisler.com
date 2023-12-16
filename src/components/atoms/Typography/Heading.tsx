@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { StyledComponentProps, TYPOGRAPHY_DEFAULTS, LAYOUT_DEFAULTS } from '@/styles'
+import { LAYOUT_DEFAULTS } from '@/styles/layout'
+import { TYPOGRAPHY_DEFAULTS } from '@/styles/typography'
 
 const {
   headingFontFamily,
@@ -13,7 +14,8 @@ const {
 
 const { mediaQueries, spacing } = LAYOUT_DEFAULTS
 
-export interface StyledHeadingProps extends StyledComponentProps {
+export interface StyledHeadingProps {
+  as?: string;
   accent?: boolean
   textAlign?: string
   level: 1 | 2 | 3 | 4 | 5 | 6

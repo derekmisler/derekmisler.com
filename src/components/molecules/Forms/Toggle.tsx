@@ -1,12 +1,15 @@
+'use client'
+
 import { useState, useEffect, HTMLProps } from 'react'
 import styled from 'styled-components'
 import { Small } from '@/atoms/Typography'
-import { DEFAULT_TEXT_STYLES, LAYOUT_DEFAULTS, transitionDefaults } from '@/styles'
+import { LAYOUT_DEFAULTS, TRANSITION_DEFAULTS } from '@/styles/layout'
+import { DEFAULT_TEXT_STYLES } from '@/styles/typography'
 
 const { borderSize, borderSizeSmall, borderSizeLarge, borderStyle, borderRadius, spacing } =
   LAYOUT_DEFAULTS
 
-const { timing, duration } = transitionDefaults
+const { timing, duration } = TRANSITION_DEFAULTS
 
 interface ToggleProps extends HTMLProps<HTMLInputElement> {
   onLabel?: string

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { Text } from '@/atoms/Typography'
+import { Text } from '@/atoms/Typography/Text'
 import { Row, Col } from '@/atoms/Grid'
-import { LAYOUT_DEFAULTS } from '@/styles'
+import { LAYOUT_DEFAULTS } from '@/styles/layout'
 import { Contact } from '@/organisms/Contact'
 
 const { spacing, borderStyle, borderSize, mediaQueries } = LAYOUT_DEFAULTS

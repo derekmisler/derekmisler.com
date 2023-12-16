@@ -3,7 +3,7 @@ import { Row, Col } from '@/atoms/Grid'
 import { Small, Heading } from '@/atoms/Typography'
 import { skills, SkillTypes } from '@/constants/resume'
 import { compare } from '@/utils/compare'
-import { LAYOUT_DEFAULTS } from '@/styles'
+import { LAYOUT_DEFAULTS } from '@/styles/layout'
 
 const sortedSkills: SkillTypes[] = skills.sort((a, b) => {
   return compare(a.level, b.level) || compare(a.title, b.title)

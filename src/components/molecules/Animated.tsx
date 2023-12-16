@@ -1,6 +1,8 @@
+'use client'
+
 import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
-import { StyledComponentProps, LAYOUT_DEFAULTS } from '@/styles'
+import { StyledComponentProps, LAYOUT_DEFAULTS } from '@/styles/layout'
 
 const { transition } = LAYOUT_DEFAULTS
 

@@ -1,3 +1,6 @@
+import type { Metadata, Viewport } from 'next'
+import { themes } from '@/styles/colors'
+
 export const firstName = 'Derek'
 export const middleName = 'Alan'
 export const lastName = 'Misler'
@@ -16,6 +19,7 @@ export const profile = {
   title: `${firstName} ${lastName} | ${description}`,
   metaDescription,
 }
+
 export const location = {
   houseNumber: '495',
   street: '12th St., 4L',
@@ -27,17 +31,31 @@ export const location = {
 export const contact = {
   email,
   website: `https://${socialId}.com`,
-  twitter: `http://twitter.com/${socialId}`,
-  twitterHandle: `@${socialId}`,
   linkedin: `https://www.linkedin.com/in/${socialId}/`,
   github: `https://github.com/${socialId}`,
-  flickr: `http://www.flickr.com/photos/${socialId}/`,
-  fivehundred: `https://500px.com/${socialId}`,
-  stackOverflow: `https://stackoverflow.com/story/${socialId}`,
-  instagram: `https://www.instagram.com/${socialId}/`,
-  pinterest: `https://www.pinterest.com/${socialId}/`
 }
 
+export const metadata: Metadata = {
+  description: profile.metaDescription,
+  abstract: profile.metaDescription,
+  title: profile.title,
+  applicationName: profile.fullName,
+  openGraph: {
+    type: "website",
+    url: contact.website,
+    title: profile.title,
+    description: profile.metaDescription,
+    siteName: profile.title,
+    images: [{
+      url: "/images/meta/facebook.jpg",
+    }],
+  },
+  twitter: { card: "summary_large_image", site: contact.website, "images": '/images/meta/twitter-card.jpg' },
+  verification: {google: 'oM1NjzxvtvPp4JL2t2qo13zUhGnrpGF0Fbgyb6S8vDk'}
+}
+export const viewport: Viewport = {
+  themeColor: themes.dark.background,
+}
 export interface Experience {
   title: string
   specification: string

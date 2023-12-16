@@ -1,4 +1,5 @@
 'use client'
+import Head from 'next/head'
 import { Header } from '@/molecules/Header'
 import { GlobalStyle } from '@/styles/global'
 import { sections } from '@/constants/sections'
@@ -10,6 +11,10 @@ export default function App() {
 
   return (
     <>
+      <Head>
+        <link rel='preload' as='script' href='https://fonts.adobe.com' />
+        <link rel='preload' as='font' href='https://use.typekit.net' />
+      </Head>
       <GlobalStyle theme={theme} />
       <Header />
       <main>
@@ -25,4 +30,3 @@ export default function App() {
     </>
   )
 }
-

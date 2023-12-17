@@ -1,4 +1,4 @@
-import React, { ComponentType } from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { StyledComponentProps, LAYOUT_DEFAULTS } from '@/styles/layout';
 import { Row, Col } from '@/atoms/Grid';
@@ -8,9 +8,8 @@ import { Heading } from '@/atoms/Typography/Heading';
 const { spacing, mediaQueries } = LAYOUT_DEFAULTS;
 
 interface SectionProps extends StyledComponentProps {
-  id: string;
   heading?: string;
-  Component: ComponentType;
+  children: ReactNode;
 }
 
 const StyledSection = styled.section.attrs<StyledComponentProps>(({ as }) => ({
@@ -25,18 +24,16 @@ const StyledSection = styled.section.attrs<StyledComponentProps>(({ as }) => ({
   }
 `;
 
-export const Section = ({ id, heading, Component, as }: SectionProps) => (
-  <StyledSection as={as} id={id}>
+export const Section = ({ heading, as, children }: SectionProps) => (
+  <StyledSection as={as}>
     {heading && (
-      <>
-        <Row $columnsDesktop={5} $gap="large">
-          <Col $rangeDesktop={3}>
-            <Heading $level={2}>{heading}</Heading>
-            <Hr $accent />
-          </Col>
-        </Row>
-      </>
+    <Row $columnsDesktop={5} $gap="large">
+      <Col $rangeDesktop={3}>
+        <Heading $level={2}>{heading}</Heading>
+        <Hr $accent />
+      </Col>
+    </Row>
     )}
-    <Component />
+    {children}
   </StyledSection>
 );

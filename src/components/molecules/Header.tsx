@@ -1,4 +1,4 @@
-import { fixWidow } from '@/utils/stringFormat';
+import { fixWidow } from '@/utils/fixWidow';
 import { profile } from '@/constants/resume';
 import { Animated } from '@/molecules/Animated';
 import { Heading } from '@/atoms/Typography/Heading';
@@ -47,5 +47,5 @@ const HeaderContent = () => {
 };
 
 export const Header = () => (
-  <Section id="start" as="header" Component={HeaderContent} />
+  <Section as="header"><HeaderContent /></Section>
 );

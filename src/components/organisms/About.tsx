@@ -1,6 +1,6 @@
 import { Text } from '@/atoms/Typography';
 import { biography } from '@/constants/resume';
-import { fixWidow } from '@/utils/stringFormat';
+import { fixWidow } from '@/utils/fixWidow';
 import { Row, Col } from '@/atoms/Grid';
 import { Qualifications } from '@/organisms/Qualifications';
 

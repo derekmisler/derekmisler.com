@@ -4,8 +4,6 @@ import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { StyledComponentProps, LAYOUT_DEFAULTS } from '@/styles/layout';
 
-const { transition } = LAYOUT_DEFAULTS;
-
 interface StyledAnimatedProps extends StyledComponentProps {
   $animated?: boolean;
 }
@@ -23,7 +21,7 @@ const animationEndCss = css`
 const StyledAnimated = styled.div<StyledAnimatedProps>`
   opacity: 0;
   transform: translateY(1rem);
-  transition: ${transition};
+  transition: ${LAYOUT_DEFAULTS.transition};
   will-change: transform;
   ${(props) => props.$animated && animationEndCss}
 `;

@@ -1,32 +1,29 @@
-'use client';
-import Head from 'next/head';
+'use client'
+
 import { Header } from '@/molecules/Header';
 import { GlobalStyle } from '@/styles/global';
-import { sections } from '@/constants/sections';
 import { Section } from '@/molecules/Section';
-import { useTheme } from '@/utils/useTheme';
+import { About } from '@/organisms/About';
+import { Experience } from '@/organisms/Experience';
+import { getTheme } from '@/utils/getTheme';
+
+import {Preload} from '@/atoms/Preload'
 
 export default function App() {
-  const { theme } = useTheme();
-
+  const theme = getTheme()
   return (
     <>
-      <Head>
-        <link rel="preload" as="script" href="https://fonts.adobe.com" />
-        <link rel="preload" as="font" href="https://use.typekit.net" />
-      </Head>
-      <GlobalStyle theme={theme} />
-      <Header />
-      <main>
-        {sections.map((section) => (
-          <Section
-            key={section.id}
-            heading={section.heading}
-            id={section.id}
-            Component={section.Component}
-          />
-        ))}
-      </main>
-    </>
+    <Preload />
+    <GlobalStyle theme={theme} />
+    <Header />
+    <main>
+      <Section heading="This Is Me">
+        <About />
+      </Section>
+      <Section heading="This Is My Experience">
+        <Experience />
+      </Section>
+    </main>
+  </>
   );
 }

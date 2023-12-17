@@ -7,7 +7,7 @@ import {
   StyleSheetManager,
   ThemeProvider,
 } from 'styled-components';
-import { useTheme } from '@/utils/useTheme';
+import { getTheme } from '@/utils/getTheme';
 
 export function StyledComponentsRegistry({
   children,
@@ -15,7 +15,7 @@ export function StyledComponentsRegistry({
   children: React.ReactNode;
 }) {
   const [styledComponentsStyleSheet] = useState(() => new ServerStyleSheet());
-  const { theme } = useTheme();
+  const { theme } = getTheme();
 
   useServerInsertedHTML(() => {
     const styles = styledComponentsStyleSheet.getStyleElement();

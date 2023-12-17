@@ -40,6 +40,7 @@ export const metadata: Metadata = {
   abstract: profile.metaDescription,
   title: profile.title,
   applicationName: profile.fullName,
+  metadataBase: new URL(contact.website),
   openGraph: {
     type: 'website',
     url: contact.website,

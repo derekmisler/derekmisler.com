@@ -22,7 +22,6 @@
       "@/atoms/*": ["./src/components/atoms/*"],
       "@/molecules/*": ["./src/components/molecules/*"],
       "@/organisms/*": ["./src/components/organisms/*"],
-      "@/components/*": ["./src/components/*"],
       "@/constants/*": ["./src/constants/*"],
       "@/styles/*": ["./src/styles/*"],
       "@/utils/*": ["./src/utils/*"],

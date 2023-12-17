@@ -1,19 +1,13 @@
-import styled from 'styled-components'
-import {
-  LAYOUT_DEFAULTS,
-  StyledComponentProps
-} from '@/styles/layout'
-import {
-  DEFAULT_TEXT_STYLES,
-  TYPOGRAPHY_DEFAULTS,
-} from '@/styles/typography'
+import styled from 'styled-components';
+import { LAYOUT_DEFAULTS, StyledComponentProps } from '@/styles/layout';
+import { DEFAULT_TEXT_STYLES, TYPOGRAPHY_DEFAULTS } from '@/styles/typography';
 
 interface ListItemProps extends StyledComponentProps {
-  textAlign?: string
+  textAlign?: string;
 }
 
-const { baseFontSize, smallLineHeight } = TYPOGRAPHY_DEFAULTS
-const { spacing, mediaQueries } = LAYOUT_DEFAULTS
+const { baseFontSize, smallLineHeight } = TYPOGRAPHY_DEFAULTS;
+const { spacing, mediaQueries } = LAYOUT_DEFAULTS;
 
 export const Li = styled.li<ListItemProps>`
   ${DEFAULT_TEXT_STYLES}
@@ -25,4 +19,4 @@ export const Li = styled.li<ListItemProps>`
     font-size: ${baseFontSize.desktop};
     line-height: ${smallLineHeight};
   }
-`
+`;

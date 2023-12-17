@@ -1,13 +1,14 @@
-import { createGlobalStyle } from 'styled-components'
-import { TYPOGRAPHY_DEFAULTS } from './typography'
+import { createGlobalStyle } from 'styled-components';
+import { TYPOGRAPHY_DEFAULTS } from './typography';
 
-const { baseFontWeight, baseLineHeight, baseFontFamily, htmlFontSize } = TYPOGRAPHY_DEFAULTS
+const { baseFontWeight, baseLineHeight, baseFontFamily, htmlFontSize } =
+  TYPOGRAPHY_DEFAULTS;
 
 interface GlobalStyleProps {
   theme: {
-    background?: string
-    text?: string
-  }
+    background?: string;
+    text?: string;
+  };
 }
 
 export const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
@@ -55,4 +56,4 @@ export const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
-`
+`;

@@ -1,18 +1,23 @@
-import styled from 'styled-components'
-import { StyledComponentProps, SmMdLgSizes, LAYOUT_DEFAULTS, FlexAlignment } from '@/styles/layout'
-import { generateResponsiveRow } from '@/utils/generateResponsiveGrid'
+import styled from 'styled-components';
+import {
+  StyledComponentProps,
+  SmMdLgSizes,
+  LAYOUT_DEFAULTS,
+  FlexAlignment,
+} from '@/styles/layout';
+import { generateResponsiveRow } from '@/utils/generateResponsiveGrid';
 
-const { spacing, mediaQueries } = LAYOUT_DEFAULTS
+const { spacing, mediaQueries } = LAYOUT_DEFAULTS;
 
 interface RowProps extends StyledComponentProps {
-  $columns?: number
-  $columnsDesktop?: number
-  $padding?: SmMdLgSizes
-  $margin?: SmMdLgSizes
-  $gap?: SmMdLgSizes
-  $vAlign?: FlexAlignment
-  $hAlign?: FlexAlignment
-  $fullHeight?: boolean
+  $columns?: number;
+  $columnsDesktop?: number;
+  $padding?: SmMdLgSizes;
+  $margin?: SmMdLgSizes;
+  $gap?: SmMdLgSizes;
+  $vAlign?: FlexAlignment;
+  $hAlign?: FlexAlignment;
+  $fullHeight?: boolean;
 }
 
 const StyledGrid = styled.div<RowProps>`
@@ -30,6 +35,6 @@ const StyledGrid = styled.div<RowProps>`
     min-height: ${({ $fullHeight }) => ($fullHeight ? `100vh` : `auto`)};
     ${({ $columnsDesktop }) => generateResponsiveRow($columnsDesktop)}
   }
-`
+`;
 
-export const Row = (props: RowProps) => <StyledGrid {...props} />
+export const Row = (props: RowProps) => <StyledGrid {...props} />;

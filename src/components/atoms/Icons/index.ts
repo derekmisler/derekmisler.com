@@ -1,2 +1,2 @@
-export * from './Star'
-export * from './Plus'
+export * from './Star';
+export * from './Plus';

@@ -1,18 +1,17 @@
-import {StyledComponentsRegistry} from '@/molecules/StyledComponentsRegistry'
+import { StyledComponentsRegistry } from '@/molecules/StyledComponentsRegistry';
 
-export {metadata,viewport} from '@/constants/resume'
+export { metadata, viewport } from '@/constants/resume';
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-
       <body>
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>
-  )
+  );
 }

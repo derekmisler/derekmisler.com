@@ -1,14 +1,14 @@
-import type { Metadata, Viewport } from 'next'
-import { themes } from '@/styles/colors'
+import type { Metadata, Viewport } from 'next';
+import { themes } from '@/styles/colors';
 
-export const firstName = 'Derek'
-export const middleName = 'Alan'
-export const lastName = 'Misler'
-export const description = 'Software Engineer & Occasional Designer'
-export const email = 'derekmisler@gmail.com'
-export const socialId = 'derekmisler'
-export const metaDescription = `I am a software engineer living in Brooklyn, NY with a design background and 15+ years of experience building exceptional, high-quality websites and applications. I just love the front-end so much. All I want to do is to make the web a better, more performant, accessible, and welcoming place.`
-export const biography = `I have a diverse education, both traditional and self-driven, of many different web and app development languages for desktop and mobile. I also have a design background, tons of UI/UX experience, and a surprisingly large knowledge of typography (seriously, let's talk about it). I think all developers should study design, and I believe having this well-rounded education makes me a stronger engineer.`
+export const firstName = 'Derek';
+export const middleName = 'Alan';
+export const lastName = 'Misler';
+export const description = 'Software Engineer & Occasional Designer';
+export const email = 'derekmisler@gmail.com';
+export const socialId = 'derekmisler';
+export const metaDescription = `I am a software engineer living in Brooklyn, NY with a design background and 15+ years of experience building exceptional, high-quality websites and applications. I just love the front-end so much. All I want to do is to make the web a better, more performant, accessible, and welcoming place.`;
+export const biography = `I have a diverse education, both traditional and self-driven, of many different web and app development languages for desktop and mobile. I also have a design background, tons of UI/UX experience, and a surprisingly large knowledge of typography (seriously, let's talk about it). I think all developers should study design, and I believe having this well-rounded education makes me a stronger engineer.`;
 
 export const profile = {
   firstName,
@@ -18,7 +18,7 @@ export const profile = {
   description,
   title: `${firstName} ${lastName} | ${description}`,
   metaDescription,
-}
+};
 
 export const location = {
   houseNumber: '495',
@@ -26,14 +26,14 @@ export const location = {
   zipcode: '11215',
   city: 'Brooklyn',
   state: 'NY',
-  country: 'United States'
-}
+  country: 'United States',
+};
 export const contact = {
   email,
   website: `https://${socialId}.com`,
   linkedin: `https://www.linkedin.com/in/${socialId}/`,
   github: `https://github.com/${socialId}`,
-}
+};
 
 export const metadata: Metadata = {
   description: profile.metaDescription,
@@ -41,31 +41,37 @@ export const metadata: Metadata = {
   title: profile.title,
   applicationName: profile.fullName,
   openGraph: {
-    type: "website",
+    type: 'website',
     url: contact.website,
     title: profile.title,
     description: profile.metaDescription,
     siteName: profile.title,
-    images: [{
-      url: "/images/meta/facebook.jpg",
-    }],
+    images: [
+      {
+        url: '/images/meta/facebook.jpg',
+      },
+    ],
   },
-  twitter: { card: "summary_large_image", site: contact.website, "images": '/images/meta/twitter-card.jpg' },
-  verification: {google: 'oM1NjzxvtvPp4JL2t2qo13zUhGnrpGF0Fbgyb6S8vDk'}
-}
+  twitter: {
+    card: 'summary_large_image',
+    site: contact.website,
+    images: '/images/meta/twitter-card.jpg',
+  },
+  verification: { google: 'oM1NjzxvtvPp4JL2t2qo13zUhGnrpGF0Fbgyb6S8vDk' },
+};
 export const viewport: Viewport = {
   themeColor: themes.dark.background,
-}
+};
 export interface Experience {
-  title: string
-  specification: string
-  location: string
-  level?: string
-  description?: string
-  accomplishments: string[]
-  startDate: string
-  endDate: string
-  link?: string
+  title: string;
+  specification: string;
+  location: string;
+  level?: string;
+  description?: string;
+  accomplishments: string[];
+  startDate: string;
+  endDate: string;
+  link?: string;
 }
 export const education: Experience[] = [
   {
@@ -77,9 +83,9 @@ export const education: Experience[] = [
       'I chose to study graphic design in an arts department. I already had a grasp on front-end web development techniques and continued to study them during this time, but the curriculum path I chose focused on web design while also teaching color theory, typography, and layout design in a group setting. Outside of designing for the web, we also had the opportunity to learn Flash/Actionscript game development.',
     accomplishments: [],
     startDate: '2005',
-    endDate: '2009'
-  }
-]
+    endDate: '2009',
+  },
+];
 
 export const careers: Experience[] = [
   {
@@ -87,12 +93,10 @@ export const careers: Experience[] = [
     specification: 'Senior Software Engineer',
     location: 'New York, New York',
     level: 'Full-time',
-    accomplishments: [
-      'In progress'
-    ],
+    accomplishments: ['In progress'],
     startDate: '2021',
     endDate: 'Present',
-    link: 'https://www.patreon.com'
+    link: 'https://www.patreon.com',
   },
   {
     title: 'Cadre',
@@ -105,11 +109,11 @@ export const careers: Experience[] = [
       'Developed a custom server rendering configuration for our marketing site with Webpack, React, and new Node service.',
       'Technical lead and developer of our internal component/design pattern library.',
       'Contributed to the open-source component library that inspired our own component library (Base Web).',
-      'Lead/mentored teams of full-stack engineers across multiple projects, using both Agile and Shape Up methodologies.'
+      'Lead/mentored teams of full-stack engineers across multiple projects, using both Agile and Shape Up methodologies.',
     ],
     startDate: '2020',
     endDate: '2021',
-    link: 'https://cadre.com'
+    link: 'https://cadre.com',
   },
   {
     title: 'Transfix, Inc.',
@@ -126,11 +130,11 @@ export const careers: Experience[] = [
       'Created standards for networking configurations, CSS and JS syntax linting, and automated testing.',
       'Developed our web networking standards, using AWS tools, including all of our deployment configurations, client-side security, and multi-region failover.',
       'Technical lead on the creation of our internal component/design pattern library.',
-      'Grew a team of cross-functional engineers and designers to continue the front-end and mobile work.'
+      'Grew a team of cross-functional engineers and designers to continue the front-end and mobile work.',
     ],
     startDate: '2016',
     endDate: '2020',
-    link: 'https://transfix.io'
+    link: 'https://transfix.io',
   },
   {
     title: 'Asheville Convention & Visitors Bureau',
@@ -143,11 +147,11 @@ export const careers: Experience[] = [
       'Redesigned and refactored our marketing site twice, first with Coldfusion and later with Node/MongoDB on the back-end and a custom JS templating language, Goatee, on the front-end.',
       'Oversaw design aspects of all print- and web-related assets for our various marketing campaigns.',
       'Primary data analyst for all marketing campaigns, including capturing and segmenting demographic data to drive future campaigns.',
-      'Lead developer and designer of two long-form, media-rich, highly interactive, award-winning web applications with our Node back-end and AngularJS front-end.'
+      'Lead developer and designer of two long-form, media-rich, highly interactive, award-winning web applications with our Node back-end and AngularJS front-end.',
     ],
     startDate: '2011',
     endDate: '2016',
-    link: 'http://www.exploreasheville.com'
+    link: 'http://www.exploreasheville.com',
   },
   {
     title: 'Houser Shoes, Inc.',
@@ -159,7 +163,7 @@ export const careers: Experience[] = [
     accomplishments: [],
     startDate: '2010',
     endDate: '2011',
-    link: 'http://www.housershoes.com'
+    link: 'http://www.housershoes.com',
   },
   {
     title: 'Freelance',
@@ -171,7 +175,7 @@ export const careers: Experience[] = [
     accomplishments: [],
     startDate: '2009',
     endDate: 'Present',
-    link: undefined
+    link: undefined,
   },
   {
     title: 'Precision Printing',
@@ -183,7 +187,7 @@ export const careers: Experience[] = [
     accomplishments: [],
     startDate: '2007',
     endDate: '2009',
-    link: undefined
+    link: undefined,
   },
   {
     title: 'The Appalachian Newspaper',
@@ -195,93 +199,69 @@ export const careers: Experience[] = [
     accomplishments: [],
     startDate: '2006',
     endDate: '2008',
-    link: 'http://theappalachianonline.com'
-  }
-]
+    link: 'http://theappalachianonline.com',
+  },
+];
 
 export interface SkillTypes {
-  title: string
-  level: number
+  title: string;
+  level: number;
 }
 export const skills: SkillTypes[] = [
   {
     title: 'TypeScript',
-    level: 5
+    level: 5,
   },
   {
     title: 'A11y',
-    level: 5
+    level: 5,
   },
   {
     title: 'Next.js',
-    level: 5
+    level: 5,
   },
   {
     title: 'CSS',
-    level: 5
+    level: 5,
   },
   {
     title: 'Angular',
-    level: 4
+    level: 4,
   },
   {
     title: 'React',
-    level: 5
+    level: 5,
   },
   {
     title: 'React Native',
-    level: 5
+    level: 5,
   },
   {
     title: 'PHP',
-    level: 3
+    level: 3,
   },
   {
     title: 'Flask/Python',
-    level: 4
+    level: 4,
   },
   {
     title: 'Django/Python',
-    level: 3
+    level: 3,
   },
   {
     title: 'Ruby/Rails',
-    level: 3
+    level: 3,
   },
   {
     title: 'Node.js',
-    level: 5
+    level: 5,
   },
   {
     title: 'Go',
-    level: 2
-  },
-  {
-    title: 'Git/Github',
-    level: 5
-  },
-  {
-    title: 'CI/CD',
-    level: 5
-  },
-  {
-    title: 'AWS',
-    level: 4
-  },
-  {
-    title: 'Firebase',
-    level: 4
-  },
-  {
-    title: 'Adobe CS',
-    level: 5
-  },
-  {
-    title: 'LESS/Sass',
-    level: 5
+    level: 2,
   },
   {
     title: 'CSS-in-JS',
-    level: 5
-  }
-]
+    level: 5,
+  },
+];

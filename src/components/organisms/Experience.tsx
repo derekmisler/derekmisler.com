@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { type Experience as ExperienceType } from 'constants/resume';
-import { Text, Heading, Link } from 'atoms/Typography';
-import { Row, Col } from 'atoms/Grid';
-import { Ul, Li } from 'atoms/Lists';
+import { Text, Heading, Link } from 'components/atoms/Typography';
+import { Row, Col } from 'components/atoms/Grid';
+import { Ul, Li } from 'components/atoms/Lists';
 import { Hr } from '../atoms/Hr';
 import { fixWidow } from 'utils/fixWidow';
 import { LAYOUT_DEFAULTS } from 'styles/layout';

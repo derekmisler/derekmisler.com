@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { StyledComponentProps, LAYOUT_DEFAULTS } from 'styles/layout';
-import { Row, Col } from 'atoms/Grid';
-import { Hr } from 'atoms/Hr';
-import { Heading } from 'atoms/Typography/Heading';
+import { Row, Col } from 'components/atoms/Grid';
+import { Hr } from 'components/atoms/Hr';
+import { Heading } from 'components/atoms/Typography/Heading';
 
 const { spacing, mediaQueries } = LAYOUT_DEFAULTS;
 

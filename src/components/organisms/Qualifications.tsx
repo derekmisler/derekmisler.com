@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Row, Col } from 'atoms/Grid';
-import { Small, Heading } from 'atoms/Typography';
+import { Row, Col } from 'components/atoms/Grid';
+import { Small, Heading } from 'components/atoms/Typography';
 import { skills, SkillTypes } from 'constants/resume';
 import { compare } from 'utils/compare';
 import { LAYOUT_DEFAULTS } from 'styles/layout';

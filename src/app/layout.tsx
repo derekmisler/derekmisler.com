@@ -1,9 +1,5 @@
-import { StyledComponentsRegistry } from 'molecules/StyledComponentsRegistry';
-import { Header } from 'molecules/Header';
+import { StyledComponentsRegistry } from 'components/molecules/StyledComponentsRegistry';
 export { metadata, viewport } from 'constants/resume';
-import { Preload } from '../components/atoms/Preload';
-import { GlobalStyle } from 'styles/global';
-import { Theme } from 'molecules/Theme';
 
 export default function RootLayout({
   children,
@@ -13,14 +9,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <StyledComponentsRegistry>
-          <Preload />
-          <Theme variant="dark">
-            <GlobalStyle />
-            <Header />
-            {children}
-          </Theme>
-        </StyledComponentsRegistry>
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>
   );

@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { Text, Link } from 'atoms/Typography';
+import { Text, Link } from 'components/atoms/Typography';
 import { contact } from 'constants/resume';
 
 const LINKS = [

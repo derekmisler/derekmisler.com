@@ -41,7 +41,7 @@ export const ExperienceContent = ({
         <Hr $accent />
       </Col>
     </Row>
-    <Row $columnsDesktop={10} $gap="large">
+    <Row $columnsDesktop={12} $gap="large">
       <Col $rangeDesktop={4}>
         <Heading $accent $level={4}>
           {specification}
@@ -63,10 +63,10 @@ export const ExperienceContent = ({
           )}
         </Text>
       </Col>
-      <Col $rangeDesktop={6}>
+      <Col $rangeDesktop={7}>
         {description && <Text>{fixWidow(description)}</Text>}
         {accomplishments.length > 0 && (
-          <Ul $flexDirection="column" $bullet>
+          <Ul $flexDirection="column">
             {accomplishments.map((a: string) => (
               <Li key={a}>{fixWidow(a)}</Li>
             ))}
@@ -81,8 +81,8 @@ export const Experience = () => {
   const totalExperience = [...careers, ...education];
 
   return (
-    <Row $columnsDesktop={10} $gap="large">
-      <Col $rangeDesktop={8}>
+    <Row $gap="large">
+      <Col>
         {totalExperience.map((e) => (
           <ExperienceContent key={e.title} {...e} />
         ))}

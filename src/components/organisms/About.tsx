@@ -6,14 +6,12 @@ import { Qualifications } from 'components/organisms/Qualifications';
 import { Theme } from 'components/molecules/Theme';
 
 export const About = () => (
-  <Theme variant="light">
-    <Row $columnsDesktop={5} $gap="large">
-      <Col $rangeDesktop={3}>
-        <Text>{fixWidow(biography)}</Text>
-      </Col>
-      <Col $rangeDesktop={2}>
-        <Qualifications />
-      </Col>
-    </Row>
-  </Theme>
+  <Row $columnsDesktop={5} $gap="large">
+    <Col $rangeDesktop={3}>
+      <Text>{fixWidow(biography)}</Text>
+    </Col>
+    <Col $rangeDesktop={2}>
+      <Qualifications />
+    </Col>
+  </Row>
 );

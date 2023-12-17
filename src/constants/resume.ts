@@ -93,8 +93,23 @@ export const careers: Experience[] = [
     title: 'Patreon',
     specification: 'Senior Software Engineer',
     location: 'New York, New York',
-    level: 'Full-time',
-    accomplishments: ['In progress'],
+    level: 'Full-time/Hybrid',
+    accomplishments: [
+      'Senior engineer on the front-end platform team with a focus on our large-scale front-end architecture migration from a Flask/React multi-page app and an in-house server-rendering service to Next.js.',
+      'Led the front-end development of the migration, and partnered with the BE platform and infra teams, resulting in an immediate 55% decrease in LCP, the primary metric used for the project’s KRs.',
+      'Developed a pattern that enabled our team to migrate features incrementally without blocking others.',
+      'This included feature flag support for percentage-based rollouts, error alerting with Pager Duty/Sentry/Slack, and DataDog dashboards for monitoring.',
+      'The migration also included setting up scheduled QA sessions with all product teams, to facilitate knowledge sharing and developing all comms, including regular status updates for both upper management the engineering teams.',
+      'Spearheaded best practices in front-end development, like Typescript adoption, linting, and documentation.',
+      'Integral in the migration from Enzyme and very few automated tests, to React Testing Library and Cypress for a full suite of integration, e2e, and smoke tests.',
+      'Collaborated with cross-functional teams to streamline the development process, which included the ability to run those e2e and smoke tests in development and on PRs, instead of as the last step in the deploy.',
+      'Mentored junior engineers and interns, contributing to their professional growth and team cohesion.',
+      'At one point, I was the only IC in the list of top 10 interviewers.',
+      'Designed and led “Front-End 101” on-boarding sessions for all new engineers.',
+      'Played a key role in adopting industry-leading front-end technologies for better developer productivity and maintainability.',
+      'Essential in the migration away from Redux to Jotai.',
+      'Also, the developer of accessible form elements and validation, integrated with our component library (including React Hook Form to manage form state).',
+    ],
     startDate: '2021',
     endDate: 'Present',
     link: 'https://www.patreon.com',
@@ -103,7 +118,7 @@ export const careers: Experience[] = [
     title: 'Cadre',
     specification: 'Lead Software Engineer',
     location: 'New York, New York',
-    level: 'Full-time',
+    level: 'Full-time/Remote',
     accomplishments: [
       'Refactored and combined a decoupled SPA and third-party marketing site into a Django/React web app.',
       'Migrated fragmented codebases to a monorepo.',
@@ -120,7 +135,7 @@ export const careers: Experience[] = [
     title: 'Transfix, Inc.',
     specification: 'Staff Software Engineer',
     location: 'New York, New York',
-    level: 'Full-time',
+    level: 'Full-time/Hybrid',
     accomplishments: [
       'First front-end engineer',
       'Rebuilt our Android and iOS apps using React Native.',
@@ -218,6 +233,10 @@ export const skills: SkillTypes[] = [
     level: 5,
   },
   {
+    title: 'I18n',
+    level: 4,
+  },
+  {
     title: 'Next.js',
     level: 5,
   },
@@ -258,11 +277,23 @@ export const skills: SkillTypes[] = [
     level: 5,
   },
   {
-    title: 'Go',
-    level: 2,
+    title: 'CSS-in-JS',
+    level: 5,
   },
   {
-    title: 'CSS-in-JS',
+    title: 'DevOps',
+    level: 4,
+  },
+  {
+    title: 'Jest',
+    level: 5,
+  },
+  {
+    title: 'RTL',
+    level: 5,
+  },
+  {
+    title: 'Cypress',
     level: 5,
   },
 ];

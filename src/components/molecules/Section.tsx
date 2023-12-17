@@ -28,7 +28,7 @@ export const Section = ({ heading, as, children }: SectionProps) => (
   <StyledSection as={as}>
     {heading && (
       <Row $columnsDesktop={5} $gap="large">
-        <Col $rangeDesktop={3}>
+        <Col $rangeDesktop={4}>
           <Heading $level={2}>{heading}</Heading>
           <Hr $accent />
         </Col>

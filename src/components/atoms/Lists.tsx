@@ -16,18 +16,17 @@ interface ListProps extends StyledComponentProps {
   $alignItems?: FlexAlignment;
   $justifyContent?: FlexAlignment;
   $flexDirection?: 'row' | 'column';
-  $bullet?: boolean;
 }
 
 export const Ul = styled.ul<ListProps>`
-  list-style-type: ${({ $bullet }) => ($bullet ? 'square' : 'none')};
+  list-style-type: square;
   display: flex;
   flex-direction: ${({ $flexDirection = 'row' }) => $flexDirection};
   justify-content: ${({ $justifyContent }) => $justifyContent};
   align-items: ${({ $alignItems }) => $alignItems};
   position: relative;
   padding: ${({ $padding }) => ($padding ? spacing[$padding] : 0)};
-  padding-left: ${({ $bullet }) => ($bullet ? spacing.large : 0)};
+  padding-left: ${spacing.large};
   margin: 0;
   margin-bottom: ${({ $margin }) => ($margin ? spacing[$margin] : 0)};
 `;

@@ -1,7 +1,7 @@
 import { HTMLProps } from 'react';
 import styled from 'styled-components';
-import { LAYOUT_DEFAULTS } from '@/styles/layout';
-import { TYPOGRAPHY_DEFAULTS, DEFAULT_TEXT_STYLES } from '@/styles/typography';
+import { LAYOUT_DEFAULTS } from 'styles/layout';
+import { TYPOGRAPHY_DEFAULTS, DEFAULT_TEXT_STYLES } from 'styles/typography';
 
 const { buttonFontSize } = TYPOGRAPHY_DEFAULTS;
 

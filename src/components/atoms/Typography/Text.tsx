@@ -3,8 +3,8 @@ import {
   DEFAULT_TEXT_STYLES,
   TextProps,
   TYPOGRAPHY_DEFAULTS,
-} from '@/styles/typography';
-import { LAYOUT_DEFAULTS } from '@/styles/layout';
+} from 'styles/typography';
+import { LAYOUT_DEFAULTS } from 'styles/layout';
 
 const { minColWidth } = TYPOGRAPHY_DEFAULTS;
 

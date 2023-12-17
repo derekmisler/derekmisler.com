@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import { type Experience as ExperienceType } from '@/constants/resume';
-import { Text, Heading, Link } from '@/atoms/Typography';
-import { Row, Col } from '@/atoms/Grid';
-import { Ul, Li } from '@/atoms/Lists';
-import { Hr } from '@/atoms/Hr';
-import { fixWidow } from '@/utils/fixWidow';
-import { LAYOUT_DEFAULTS } from '@/styles/layout';
-import { careers, education } from '@/constants/resume';
+import { type Experience as ExperienceType } from 'constants/resume';
+import { Text, Heading, Link } from 'atoms/Typography';
+import { Row, Col } from 'atoms/Grid';
+import { Ul, Li } from 'atoms/Lists';
+import { Hr } from '../atoms/Hr';
+import { fixWidow } from 'utils/fixWidow';
+import { LAYOUT_DEFAULTS } from 'styles/layout';
+import { careers, education } from 'constants/resume';
 
 const { borderSize, borderStyle, spacing, mediaQueries } = LAYOUT_DEFAULTS;
 

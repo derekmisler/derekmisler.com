@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { LAYOUT_DEFAULTS } from '@/styles/layout';
+import { LAYOUT_DEFAULTS } from 'styles/layout';
 import {
   DEFAULT_TEXT_STYLES,
   TextProps,
   TYPOGRAPHY_DEFAULTS,
-} from '@/styles/typography';
+} from 'styles/typography';
 
 const { smallFontSize, smallLineHeight } = TYPOGRAPHY_DEFAULTS;
 const { mediaQueries } = LAYOUT_DEFAULTS;

@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
-import { Text, Link } from '@/atoms/Typography';
-import { contact } from '@/constants/resume';
+import { Text, Link } from 'atoms/Typography';
+import { contact } from 'constants/resume';
 
 const LINKS = [
   { title: 'Say Hello', url: 'mailto:derekmisler@gmail.com?subject=Hello!' },

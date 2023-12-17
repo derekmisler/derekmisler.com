@@ -1,12 +1,12 @@
-import { fixWidow } from '@/utils/fixWidow';
-import { profile } from '@/constants/resume';
-import { Animated } from '@/molecules/Animated';
-import { Heading } from '@/atoms/Typography/Heading';
-import { Text } from '@/atoms/Typography/Text';
-import { Row, Col } from '@/atoms/Grid';
-import { Hr } from '@/atoms/Hr';
-import { Section } from '@/molecules/Section';
-import { Contact } from '@/organisms/Contact';
+import { fixWidow } from 'utils/fixWidow';
+import { profile } from 'constants/resume';
+import { Animated } from 'molecules/Animated';
+import { Heading } from '../atoms/Typography/Heading';
+import { Text } from '../atoms/Typography/Text';
+import { Row, Col } from 'atoms/Grid';
+import { Hr } from 'atoms/Hr';
+import { Section } from 'molecules/Section';
+import { Contact } from 'organisms/Contact';
 
 const HeaderContent = () => {
   const { fullName, description, metaDescription } = profile;
@@ -47,5 +47,7 @@ const HeaderContent = () => {
 };
 
 export const Header = () => (
-  <Section as="header"><HeaderContent /></Section>
+  <Section as="header">
+    <HeaderContent />
+  </Section>
 );

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { LAYOUT_DEFAULTS } from '@/styles/layout';
-import { TYPOGRAPHY_DEFAULTS } from '@/styles/typography';
+import { LAYOUT_DEFAULTS } from 'styles/layout';
+import { TYPOGRAPHY_DEFAULTS } from 'styles/typography';
 
 const {
   headingFontFamily,

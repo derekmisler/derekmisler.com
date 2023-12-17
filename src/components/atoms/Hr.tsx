@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { LAYOUT_DEFAULTS } from '@/styles/layout';
+import { LAYOUT_DEFAULTS } from 'styles/layout';
 
 const { borderSize, borderSizeLarge, spacing } = LAYOUT_DEFAULTS;
 

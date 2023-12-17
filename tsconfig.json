@@ -18,14 +18,7 @@
         "name": "next"
       }
     ],
-    "paths": {
-      "@/atoms/*": ["./src/components/atoms/*"],
-      "@/molecules/*": ["./src/components/molecules/*"],
-      "@/organisms/*": ["./src/components/organisms/*"],
-      "@/constants/*": ["./src/constants/*"],
-      "@/styles/*": ["./src/styles/*"],
-      "@/utils/*": ["./src/utils/*"],
-    }
+    "baseUrl": "."
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

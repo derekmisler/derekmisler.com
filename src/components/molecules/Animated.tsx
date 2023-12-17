@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import { StyledComponentProps, LAYOUT_DEFAULTS } from '@/styles/layout';
+import { StyledComponentProps, LAYOUT_DEFAULTS } from 'styles/layout';
 
 interface StyledAnimatedProps extends StyledComponentProps {
   $animated?: boolean;

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { themes } from '@/styles/colors';
+import { themes } from 'styles/colors';
 
 export const firstName = 'Derek';
 export const middleName = 'Alan';

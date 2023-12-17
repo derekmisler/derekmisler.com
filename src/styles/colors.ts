@@ -1,22 +1,10 @@
-export interface ThemeStateProps {
-  theme: {
-    text?: string;
-    border?: string;
-    accent?: string;
-    link?: string;
-    linkHover?: string;
-    background?: string;
-  };
-  isDarkMode: boolean;
-}
-
-const gray: string = '#4C566A';
-const black: string = '#2E3440';
-const white: string = '#f4f1ec';
-const red: string = '#BF616A';
-const redDarker: string = '#9b4b56';
-const blue: string = '#81A1C1';
-const blueDarker: string = '#5E81AC';
+const gray = '#4C566A';
+const black = '#2E3440';
+const white = '#f4f1ec';
+const red = '#BF616A';
+const redDarker = '#9b4b56';
+const blue = '#81A1C1';
+const blueDarker = '#5E81AC';
 
 export const themes = {
   light: {

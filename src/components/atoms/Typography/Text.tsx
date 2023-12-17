@@ -1,13 +1,17 @@
-import styled from 'styled-components'
-import { DEFAULT_TEXT_STYLES, TextProps, TYPOGRAPHY_DEFAULTS } from '@/styles/typography'
-import { LAYOUT_DEFAULTS } from '@/styles/layout'
+import styled from 'styled-components';
+import {
+  DEFAULT_TEXT_STYLES,
+  TextProps,
+  TYPOGRAPHY_DEFAULTS,
+} from 'styles/typography';
+import { LAYOUT_DEFAULTS } from 'styles/layout';
 
-const { minColWidth } = TYPOGRAPHY_DEFAULTS
+const { minColWidth } = TYPOGRAPHY_DEFAULTS;
 
-const { spacing, mediaQueries } = LAYOUT_DEFAULTS
+const { spacing, mediaQueries } = LAYOUT_DEFAULTS;
 
 export const Text = styled.p.attrs<TextProps>(({ $inline }) => ({
-  as: $inline ? 'span' : 'p'
+  as: $inline ? 'span' : 'p',
 }))<TextProps>`
   ${DEFAULT_TEXT_STYLES}
   padding-top: ${spacing.medium};
@@ -24,4 +28,4 @@ export const Text = styled.p.attrs<TextProps>(({ $inline }) => ({
     columns: ${({ $columns = 1 }) => `${$columns} ${minColWidth}`};
     column-gap: ${({ $columns }) => ($columns ? spacing.large : undefined)};
   }
-`
+`;

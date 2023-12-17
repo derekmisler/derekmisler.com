@@ -1,15 +1,15 @@
-import { fixWidow } from '@/utils/stringFormat'
-import { profile } from '@/constants/resume'
-import { Animated } from '@/molecules/Animated'
-import { Heading } from '@/atoms/Typography/Heading'
-import { Text } from '@/atoms/Typography/Text'
-import { Row, Col } from '@/atoms/Grid'
-import { Hr } from '@/atoms/Hr'
-import { Section } from '@/molecules/Section'
-import { Contact } from '@/organisms/Contact'
+import { fixWidow } from 'utils/fixWidow';
+import { profile } from 'constants/resume';
+import { Animated } from 'components/molecules/Animated';
+import { Heading } from '../atoms/Typography/Heading';
+import { Text } from '../atoms/Typography/Text';
+import { Row, Col } from 'components/atoms/Grid';
+import { Hr } from 'components/atoms/Hr';
+import { Section } from 'components/molecules/Section';
+import { Contact } from 'components/organisms/Contact';
 
 const HeaderContent = () => {
-  const { fullName, description, metaDescription } = profile
+  const { fullName, description, metaDescription } = profile;
   return (
     <>
       <Row $columnsDesktop={6}>
@@ -28,7 +28,7 @@ const HeaderContent = () => {
         </Col>
       </Row>
       <Row $columnsDesktop={6}>
-        <Col $rangeDesktop='4..'>
+        <Col $rangeDesktop="4..">
           <Animated $delay={400}>
             <Heading $accent $level={2}>
               {description}
@@ -43,7 +43,11 @@ const HeaderContent = () => {
         </Col>
       </Row>
     </>
-  )
-}
+  );
+};
 
-export const Header = () => <Section id='start' as='header' Component={HeaderContent} />
+export const Header = () => (
+  <Section as="header">
+    <HeaderContent />
+  </Section>
+);

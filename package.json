@@ -7,10 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "stylelint": "stylelint './**/*.tsx'",
     "check-types": "tsc --jsx preserve --esModuleInterop --skipLibCheck",
     "format": "prettier --write '**/*.{ts,tsx}'",
-    "test": "npm run lint && npm run stylelint && npm run check-types"
+    "test": "npm run lint && npm run check-types"
   },
   "dependencies": {
     "next": "14.0.4",
@@ -24,6 +23,7 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
+    "prettier": "^3.1.1",
     "typescript": "^5"
   }
 }

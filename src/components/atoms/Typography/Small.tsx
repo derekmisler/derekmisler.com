@@ -1,12 +1,16 @@
-import styled from 'styled-components'
-import { LAYOUT_DEFAULTS } from '@/styles/layout'
-import { DEFAULT_TEXT_STYLES, TextProps, TYPOGRAPHY_DEFAULTS } from '@/styles/typography'
+import styled from 'styled-components';
+import { LAYOUT_DEFAULTS } from 'styles/layout';
+import {
+  DEFAULT_TEXT_STYLES,
+  TextProps,
+  TYPOGRAPHY_DEFAULTS,
+} from 'styles/typography';
 
-const { smallFontSize, smallLineHeight } = TYPOGRAPHY_DEFAULTS
-const { mediaQueries } = LAYOUT_DEFAULTS
+const { smallFontSize, smallLineHeight } = TYPOGRAPHY_DEFAULTS;
+const { mediaQueries } = LAYOUT_DEFAULTS;
 
 interface StyledSmallProps extends TextProps {
-  $accent?: boolean
+  $accent?: boolean;
 }
 
 export const Small = styled.small<StyledSmallProps>`
@@ -18,4 +22,4 @@ export const Small = styled.small<StyledSmallProps>`
     font-size: ${smallFontSize.desktop};
     line-height: ${smallLineHeight};
   }
-`
+`;

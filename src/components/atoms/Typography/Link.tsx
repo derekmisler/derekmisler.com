@@ -1,11 +1,12 @@
-import { HTMLProps } from 'react'
-import styled from 'styled-components'
-import { LAYOUT_DEFAULTS } from '@/styles/layout'
-import { TYPOGRAPHY_DEFAULTS, DEFAULT_TEXT_STYLES } from '@/styles/typography'
+import { HTMLProps } from 'react';
+import styled from 'styled-components';
+import { LAYOUT_DEFAULTS } from 'styles/layout';
+import { TYPOGRAPHY_DEFAULTS, DEFAULT_TEXT_STYLES } from 'styles/typography';
 
-const { buttonFontSize } = TYPOGRAPHY_DEFAULTS
+const { buttonFontSize } = TYPOGRAPHY_DEFAULTS;
 
-const { spacing, borderRadius, borderStyle, borderSize, mediaQueries } = LAYOUT_DEFAULTS
+const { spacing, borderRadius, borderStyle, borderSize, mediaQueries } =
+  LAYOUT_DEFAULTS;
 
 export const Link = styled.a<HTMLProps<HTMLLinkElement>>`
   font: unset;
@@ -34,4 +35,4 @@ export const Link = styled.a<HTMLProps<HTMLLinkElement>>`
   @media ${mediaQueries.desktop} {
     font-size: ${buttonFontSize.desktop};
   }
-`
+`;

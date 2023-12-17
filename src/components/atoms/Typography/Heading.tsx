@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import { LAYOUT_DEFAULTS } from '@/styles/layout'
-import { TYPOGRAPHY_DEFAULTS } from '@/styles/typography'
+import styled from 'styled-components';
+import { LAYOUT_DEFAULTS } from 'styles/layout';
+import { TYPOGRAPHY_DEFAULTS } from 'styles/typography';
 
 const {
   headingFontFamily,
@@ -9,23 +9,25 @@ const {
   headingFontWeights,
   headingLetterSpacing,
   baseFontStyle,
-  headingLeftMargin
-} = TYPOGRAPHY_DEFAULTS
+  headingLeftMargin,
+} = TYPOGRAPHY_DEFAULTS;
 
-const { mediaQueries, spacing } = LAYOUT_DEFAULTS
+const { mediaQueries, spacing } = LAYOUT_DEFAULTS;
 
 export interface StyledHeadingProps {
   $as?: string;
-  $accent?: boolean
-  $textAlign?: string
-  $level: 1 | 2 | 3 | 4 | 5 | 6
+  $accent?: boolean;
+  $textAlign?: string;
+  $level: 1 | 2 | 3 | 4 | 5 | 6;
 }
 
-export const Heading = styled.div.attrs<StyledHeadingProps>(({ $level, $as }) => ({
-  role: $as ? '' : 'heading',
-  'aria-level': $level,
-  as: `h${$level}`
-}))<StyledHeadingProps>`
+export const Heading = styled.div.attrs<StyledHeadingProps>(
+  ({ $level, $as }) => ({
+    role: $as ? '' : 'heading',
+    'aria-level': $level,
+    as: `h${$level}`,
+  }),
+)<StyledHeadingProps>`
   text-align: ${({ $textAlign = 'left' }) => $textAlign};
   font-family: ${headingFontFamily};
   font-style: ${baseFontStyle};
@@ -42,4 +44,4 @@ export const Heading = styled.div.attrs<StyledHeadingProps>(({ $level, $as }) =>
     margin-left: ${({ $level }) => headingLeftMargin.desktop[$level - 1]};
     font-size: ${({ $level }) => headingFontSizes.desktop[$level - 1]};
   }
-`
+`;

@@ -1,16 +1,10 @@
-import { createGlobalStyle } from 'styled-components'
-import { TYPOGRAPHY_DEFAULTS } from './typography'
+import { createGlobalStyle } from 'styled-components';
+import { TYPOGRAPHY_DEFAULTS } from './typography';
 
-const { baseFontWeight, baseLineHeight, baseFontFamily, htmlFontSize } = TYPOGRAPHY_DEFAULTS
+const { baseFontWeight, baseLineHeight, baseFontFamily, htmlFontSize } =
+  TYPOGRAPHY_DEFAULTS;
 
-interface GlobalStyleProps {
-  theme: {
-    background?: string
-    text?: string
-  }
-}
-
-export const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
+export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'neue-haas-grotesk-display';
     src: url('https://use.typekit.net/af/8a200c/00000000000000003b9b204a/27/l?primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n6&v=3') format('woff2'), url('https://use.typekit.net/af/8a200c/00000000000000003b9b204a/27/d?primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n6&v=3') format('woff'), url('https://use.typekit.net/af/8a200c/00000000000000003b9b204a/27/a?primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n6&v=3') format('opentype');
@@ -55,4 +49,4 @@ export const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
-`
+`;

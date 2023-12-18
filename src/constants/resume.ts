@@ -7,7 +7,7 @@ export const lastName = 'Misler';
 export const description = 'Software Engineer & Occasional Designer';
 export const email = 'derekmisler@gmail.com';
 export const socialId = 'derekmisler';
-export const metaDescription = `I am a software engineer living in Brooklyn, NY with a design background and 15+ years of experience building exceptional, high-quality websites and applications. I just love the front-end so much. All I want to do is to make the web a better, more performant, accessible, and welcoming place.`;
+export const metaDescription = `I am a front-end engineer and, occasionally, a designer with 15+ years of experience building exceptional, high-quality websites and applications. I have a design background, tons of UI/UX experience, and a surprisingly large knowledge of typography (seriously, let’s talk about it). I think all front-end engineers should study design, and I believe having this well-rounded education makes me a stronger engineer. I just love the front-end so much. All I want to do is to make the web a better, more performant, accessible, and welcoming place.`;
 export const biography = `I have a diverse education, both traditional and self-driven, of many different web and app development languages for desktop and mobile. I also have a design background, tons of UI/UX experience, and a surprisingly large knowledge of typography (seriously, let's talk about it). I think all developers should study design, and I believe having this well-rounded education makes me a stronger engineer.`;
 
 export const profile = {

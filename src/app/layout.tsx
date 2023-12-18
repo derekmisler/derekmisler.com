@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={font.className}>
+    <html lang="en">
       <body className={font.variable}>
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>

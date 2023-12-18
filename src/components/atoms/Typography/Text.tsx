@@ -18,7 +18,7 @@ export const Text = styled.p.attrs<TextProps>(({ $inline }) => ({
   margin-bottom: ${spacing.small};
   text-align: ${({ $textAlign }) => $textAlign};
   display: ${({ $inline }) => ($inline ? '$inline' : 'block')};
-  color: ${({ theme, $accent }) => ($accent ? theme.accent : undefined)};
+  color: ${({ $accent }) => ($accent ? 'var(--accent-color)' : undefined)};
 
   @media ${mediaQueries.desktop} {
     margin-bottom: ${spacing.large};

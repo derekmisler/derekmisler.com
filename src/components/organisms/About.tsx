@@ -3,7 +3,6 @@ import { biography } from 'constants/resume';
 import { fixWidow } from 'utils/fixWidow';
 import { Row, Col } from 'components/atoms/Grid';
 import { Qualifications } from 'components/organisms/Qualifications';
-import { Theme } from 'components/molecules/Theme';
 
 export const About = () => (
   <Row $columnsDesktop={5} $gap="large">

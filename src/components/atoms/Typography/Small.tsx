@@ -6,7 +6,7 @@ import {
   TYPOGRAPHY_DEFAULTS,
 } from 'styles/typography';
 
-const { smallFontSize, smallLineHeight } = TYPOGRAPHY_DEFAULTS;
+const { smallFontSize } = TYPOGRAPHY_DEFAULTS;
 const { mediaQueries } = LAYOUT_DEFAULTS;
 
 interface StyledSmallProps extends TextProps {
@@ -16,10 +16,9 @@ interface StyledSmallProps extends TextProps {
 export const Small = styled.small<StyledSmallProps>`
   ${DEFAULT_TEXT_STYLES}
   font-size: ${smallFontSize.mobile};
-  line-height: ${smallLineHeight};
-  color: ${({ theme, $accent }) => ($accent ? theme.accent : undefined)};
+  color: ${({ $accent }) =>
+    $accent ? 'var(--accent-color)' : 'var(--text-color)'};
   @media ${mediaQueries.desktop} {
     font-size: ${smallFontSize.desktop};
-    line-height: ${smallLineHeight};
   }
 `;

@@ -18,8 +18,8 @@ interface QualificationTypes {
 
 const QualificationBar = styled.div<QualificationTypes>`
   display: block;
-  background-color: ${({ $active, theme }) =>
-    $active ? theme.accent : 'transparent'};
+  background-color: ${({ $active }) =>
+    $active ? 'var(--accent-color)' : 'transparent'};
   height: ${borderSize};
   margin-right: ${borderSizeSmall};
   margin-bottom: ${borderSize};

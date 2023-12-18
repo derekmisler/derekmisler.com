@@ -49,14 +49,14 @@ export const metadata: Metadata = {
     siteName: profile.title,
     images: [
       {
-        url: '/facebook.jpg',
+        url: '/square.jpg',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     site: contact.website,
-    images: '/twitter-card.jpg',
+    images: '/horizontal.jpg',
   },
   verification: { google: 'oM1NjzxvtvPp4JL2t2qo13zUhGnrpGF0Fbgyb6S8vDk' },
 };

@@ -1,5 +1,15 @@
+import localFont from 'next/font/local';
+
 import { StyledComponentsRegistry } from 'components/molecules/StyledComponentsRegistry';
 export { metadata, viewport } from 'constants/resume';
+
+const font = localFont({
+  src: '../styles/neue-haas.woff2',
+  display: 'swap',
+  weight: '500',
+  variable: '--font',
+  style: 'normal',
+});
 
 export default function RootLayout({
   children,
@@ -8,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={font.variable}>
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>

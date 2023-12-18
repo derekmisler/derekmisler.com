@@ -14,8 +14,7 @@ const StyledContent = styled.div`
   padding-top: ${spacing.small};
   padding-bottom: ${spacing.large};
   display: block;
-  border-bottom: ${({ theme }) =>
-    `${borderSize} ${borderStyle} ${theme.$accent}`};
+  border-bottom: ${borderSize} ${borderStyle} var(--accent-color);
   @media ${mediaQueries.desktop} {
     margin-bottom: ${spacing.large};
   }

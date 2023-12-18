@@ -18,8 +18,8 @@ interface QualificationTypes {
 
 const QualificationBar = styled.div<QualificationTypes>`
   display: block;
-  background-color: ${({ $active, theme }) =>
-    $active ? theme.accent : 'transparent'};
+  background-color: ${({ $active }) =>
+    $active ? 'var(--accent-color)' : 'transparent'};
   height: ${borderSize};
   margin-right: ${borderSizeSmall};
   margin-bottom: ${borderSize};
@@ -27,7 +27,7 @@ const QualificationBar = styled.div<QualificationTypes>`
 
 export const Qualifications = () => (
   <>
-    <Heading $level={3}>Tools that I use</Heading>
+    <Heading $level={3}>Tools I Use</Heading>
     <Row as="ul" $columns={2} $columnsDesktop={3} $gap="large">
       {sortedSkills.map((skill) => (
         <Col as="li" key={skill.title}>

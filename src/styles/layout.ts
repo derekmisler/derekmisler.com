@@ -47,7 +47,7 @@ export const LAYOUT_DEFAULTS = {
   borderSizeSmall: '.125rem',
   borderSizeLarge: '1.95rem',
   borderStyle: 'solid',
-  opacity: '0.65',
+  blur: '3px',
   transition: `${TRANSITION_DEFAULTS.duration} ${TRANSITION_DEFAULTS.property} ${TRANSITION_DEFAULTS.timing}`,
   mediaQueries: {
     mobile: `screen and (max-width: ${BREAKPOINTS.mobile})`,

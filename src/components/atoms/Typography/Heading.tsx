@@ -3,12 +3,10 @@ import { LAYOUT_DEFAULTS } from 'styles/layout';
 import { TYPOGRAPHY_DEFAULTS } from 'styles/typography';
 
 const {
-  headingFontFamily,
   headingFontSizes,
   headingLineHeights,
   headingFontWeights,
   headingLetterSpacing,
-  baseFontStyle,
   headingLeftMargin,
 } = TYPOGRAPHY_DEFAULTS;
 
@@ -29,14 +27,12 @@ export const Heading = styled.div.attrs<StyledHeadingProps>(
   }),
 )<StyledHeadingProps>`
   text-align: ${({ $textAlign = 'left' }) => $textAlign};
-  font-family: ${headingFontFamily};
-  font-style: ${baseFontStyle};
   font-weight: ${({ $level }) => headingFontWeights[$level - 1]};
   line-height: ${({ $level }) => headingLineHeights[$level - 1]};
   font-size: ${({ $level }) => headingFontSizes.mobile[$level - 1]};
   letter-spacing: ${({ $level }) => headingLetterSpacing[$level - 1]};
   column-span: all;
-  color: ${({ theme, $accent }) => ($accent ? theme.accent : undefined)};
+  color: ${({ $accent }) => ($accent ? 'var(--accent-color)' : undefined)};
   margin: ${({ $level }) => ($level > 2 ? `${spacing.medium} 0` : 0)};
   margin-left: ${({ $level }) => headingLeftMargin.mobile[$level - 1]};
 

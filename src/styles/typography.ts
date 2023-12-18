@@ -27,10 +27,6 @@ export const BASE_MEASURE = 16;
 const HEADING_SIZES = new Array(6);
 
 export const TYPOGRAPHY_DEFAULTS = {
-  baseFontFamily:
-    'neue-haas-grotesk-text, "Helvetica Neue", Helvetica, sans-serif;',
-  headingFontFamily:
-    'neue-haas-grotesk-display, "Helvetica Neue", Helvetica, sans-serif;',
   htmlFontSize: `${BASE_MEASURE}px`,
   baseFontSize: {
     desktop: '2rem',
@@ -46,11 +42,6 @@ export const TYPOGRAPHY_DEFAULTS = {
   },
   baseLetterSpacing: '0.00938em',
   baseLineHeight: 1.5,
-  smallLineHeight: 1.5,
-  baseFontWeight: '500',
-  boldFontWeight: '500',
-  baseFontStyle: 'normal',
-  accentFontStyle: 'normal',
   headingLeftMargin: {
     mobile: ['-.275rem', '-.08rem'],
     desktop: ['-.45rem', '-.25rem', '-.125rem', '-.125rem'],
@@ -74,11 +65,8 @@ export const TYPOGRAPHY_DEFAULTS = {
 
 export const DEFAULT_TEXT_STYLES = css`
   font: unset;
-  font-family: ${TYPOGRAPHY_DEFAULTS.baseFontFamily};
   font-size: ${TYPOGRAPHY_DEFAULTS.baseFontSize.mobile};
-  font-style: ${TYPOGRAPHY_DEFAULTS.baseFontStyle};
   line-height: ${TYPOGRAPHY_DEFAULTS.baseLineHeight};
-  font-weight: ${TYPOGRAPHY_DEFAULTS.baseFontWeight};
   letter-spacing: ${TYPOGRAPHY_DEFAULTS.baseLetterSpacing};
   text-align: left;
   @media ${LAYOUT_DEFAULTS.mediaQueries.desktop} {

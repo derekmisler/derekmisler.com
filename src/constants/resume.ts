@@ -104,7 +104,7 @@ export const careers: Experience[] = [
       'Integral in the migration from Enzyme and very few automated tests, to React Testing Library and Cypress for a full suite of integration, e2e, and smoke tests.',
       'Collaborated with cross-functional teams to streamline the development process, which included the ability to run those e2e and smoke tests in development and on PRs, instead of as the last step in the deploy.',
       'Mentored junior engineers and interns, contributing to their professional growth and team cohesion.',
-      'At one point, I was the only IC in the list of top 10 interviewers.',
+      'At one point, I was top IC interviewer (in terms of number of interviews).',
       'Designed and led “Front-End 101” on-boarding sessions for all new engineers.',
       'Played a key role in adopting industry-leading front-end technologies for better developer productivity and maintainability.',
       'Essential in the migration away from Redux to Jotai.',

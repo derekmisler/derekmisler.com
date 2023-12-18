@@ -13,9 +13,9 @@ export const Link = styled.a<HTMLProps<HTMLLinkElement>>`
   ${DEFAULT_TEXT_STYLES}
   font-size: ${buttonFontSize.mobile};
   display: inline-block;
-  color: ${({ theme }) => theme.link};
+  color: var(--link-color);
   background-color: transparent;
-  border: ${({ theme }) => `${borderSize} ${borderStyle} ${theme.link}`};
+  border: ${borderSize} ${borderStyle} var(--link-color);
   text-decoration: none;
   text-transform: uppercase;
   padding: ${spacing.small} ${spacing.medium};
@@ -27,9 +27,9 @@ export const Link = styled.a<HTMLProps<HTMLLinkElement>>`
   &:active {
     outline: none;
     cursor: pointer;
-    color: ${({ theme }) => theme.background};
-    background-color: ${({ theme }) => theme.linkHover};
-    border-color: ${({ theme }) => theme.linkHover};
+    color: var(--background-color);
+    background-color: var(--link-hover-color);
+    border-color: var(--link-hover-color);
   }
 
   @media ${mediaQueries.desktop} {

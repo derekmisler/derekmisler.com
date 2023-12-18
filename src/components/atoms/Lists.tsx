@@ -7,7 +7,7 @@ import {
 } from 'styles/layout';
 import { DEFAULT_TEXT_STYLES, TYPOGRAPHY_DEFAULTS } from 'styles/typography';
 
-const { baseFontSize, smallLineHeight } = TYPOGRAPHY_DEFAULTS;
+const { baseFontSize } = TYPOGRAPHY_DEFAULTS;
 const { spacing, mediaQueries } = LAYOUT_DEFAULTS;
 
 interface ListProps extends StyledComponentProps {
@@ -37,11 +37,9 @@ interface ListItemProps extends StyledComponentProps {
 export const Li = styled.li<ListItemProps>`
   ${DEFAULT_TEXT_STYLES}
   font-size: ${baseFontSize.mobile};
-  line-height: ${smallLineHeight};
   text-align: ${({ textAlign }) => (textAlign ? textAlign : 'left')};
   padding: ${spacing.medium} 0 0 0;
   @media ${mediaQueries.desktop} {
     font-size: ${baseFontSize.desktop};
-    line-height: ${smallLineHeight};
   }
 `;

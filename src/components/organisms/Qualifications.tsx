@@ -27,7 +27,7 @@ const QualificationBar = styled.div<QualificationTypes>`
 
 export const Qualifications = () => (
   <>
-    <Heading $level={3}>Tools that I use</Heading>
+    <Heading $level={3}>Tools I Use</Heading>
     <Row as="ul" $columns={2} $columnsDesktop={3} $gap="large">
       {sortedSkills.map((skill) => (
         <Col as="li" key={skill.title}>

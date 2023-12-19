@@ -14,30 +14,30 @@ const HeaderContent = () => {
     <>
       <Row $columnsDesktop={6}>
         <Col $rangeDesktop={4}>
-          <Animated $delay={100}>
+          <Animated $delay={0}>
             <Text $inline $accent>
               Hello! My name is
             </Text>
           </Animated>
-          <Animated $delay={200}>
+          <Animated $delay={100}>
             <Heading $level={1}>{fullName}</Heading>
           </Animated>
-          <Animated $delay={300}>
+          <Animated $delay={200}>
             <Hr $accent />
           </Animated>
         </Col>
       </Row>
       <Row $columnsDesktop={6}>
         <Col $rangeDesktop="4..">
-          <Animated $delay={400}>
+          <Animated $delay={300}>
             <Heading $accent $level={2}>
               {description}
             </Heading>
           </Animated>
-          <Animated $delay={500}>
+          <Animated $delay={400}>
             <Text $inline>{fixWidow(metaDescription)}</Text>
           </Animated>
-          <Animated $delay={600}>
+          <Animated $delay={500}>
             <Contact />
           </Animated>
         </Col>

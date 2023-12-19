@@ -9,7 +9,6 @@ interface StyledAnimatedProps extends StyledComponentProps {
 }
 
 interface AnimatedProps extends StyledAnimatedProps {
-  $active?: boolean;
   $delay?: number;
 }
 
@@ -19,24 +18,25 @@ const animationEndCss = css`
 `;
 
 const StyledAnimated = styled.div<StyledAnimatedProps>`
-  opacity: 0;
+  opacity: 0.1;
   transform: translateY(1rem);
   transition: ${LAYOUT_DEFAULTS.transition};
   will-change: transform;
   ${(props) => props.$animated && animationEndCss}
 `;
 
-export const Animated = ({
-  $active = true,
-  $delay = 0,
-  ...rest
-}: AnimatedProps) => {
+export const Animated = ({ $delay = 0, children }: AnimatedProps) => {
   const [animated, setAnimated] = useState(false);
   useEffect(() => {
-    setTimeout(() => {
-      setAnimated($active);
+    if (animated) return;
+    const timer = setTimeout(() => {
+      setAnimated(true);
     }, $delay);
-  }, [$active]); // eslint-disable-line react-hooks/exhaustive-deps
+    return () => {
+      clearTimeout(timer);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [$delay]);
 
-  return <StyledAnimated {...rest} $animated={animated} />;
+  return <StyledAnimated $animated={animated}>{children}</StyledAnimated>;
 };

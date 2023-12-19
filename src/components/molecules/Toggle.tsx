@@ -70,9 +70,9 @@ const ToggleSlider = styled.div<{ $isActive?: boolean }>`
 export const Toggle = ({ onToggle, isActive }: ToggleProps) => {
   return (
     <ToggleWrapper onClick={onToggle}>
-      <Small>☼</Small>
+      <Small>Dark</Small>
       <ToggleSlider $isActive={isActive} />
-      <Small>☀</Small>
+      <Small>Light</Small>
     </ToggleWrapper>
   );
 };

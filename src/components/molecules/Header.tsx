@@ -1,5 +1,4 @@
-import { fixWidow } from 'utils/fixWidow';
-import { profile } from 'constants/resume';
+import { fullName, subheadline, headline } from 'constants/resume';
 import { Animated } from 'components/molecules/Animated';
 import { Heading } from '../atoms/Typography/Heading';
 import { Text } from '../atoms/Typography/Text';
@@ -9,7 +8,6 @@ import { Section } from 'components/molecules/Section';
 import { Contact } from 'components/organisms/Contact';
 
 const HeaderContent = () => {
-  const { fullName, description, metaDescription } = profile;
   return (
     <>
       <Row $columnsDesktop={6}>
@@ -31,11 +29,11 @@ const HeaderContent = () => {
         <Col $rangeDesktop="4..">
           <Animated $delay={300}>
             <Heading $accent $level={2}>
-              {description}
+              {headline}
             </Heading>
           </Animated>
           <Animated $delay={400}>
-            <Text $inline>{fixWidow(metaDescription)}</Text>
+            <Text $inline>{subheadline}</Text>
           </Animated>
           <Animated $delay={500}>
             <Contact />

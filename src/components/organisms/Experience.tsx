@@ -4,7 +4,6 @@ import { Text, Heading, Link } from 'components/atoms/Typography';
 import { Row, Col } from 'components/atoms/Grid';
 import { Ul, Li } from 'components/atoms/Lists';
 import { Hr } from '../atoms/Hr';
-import { fixWidow } from 'utils/fixWidow';
 import { LAYOUT_DEFAULTS } from 'styles/layout';
 import { careers, education } from 'constants/resume';
 
@@ -63,11 +62,11 @@ export const ExperienceContent = ({
         </Text>
       </Col>
       <Col $rangeDesktop={7}>
-        {description && <Text>{fixWidow(description)}</Text>}
+        {description && <Text>{description}</Text>}
         {accomplishments.length > 0 && (
           <Ul $flexDirection="column">
-            {accomplishments.map((a: string) => (
-              <Li key={a}>{fixWidow(a)}</Li>
+            {accomplishments.map((a) => (
+              <Li key={a}>{a}</Li>
             ))}
           </Ul>
         )}

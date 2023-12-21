@@ -27,12 +27,12 @@ const QualificationBar = styled.div<QualificationTypes>`
 
 export const Qualifications = () => (
   <>
-    <Heading $level={3}>Tools I Use</Heading>
-    <Row as="ul" $columns={2} $columnsDesktop={3} $gap="large">
+    <Heading $level={3}>Skills I Have</Heading>
+    <Row as="ul" $columns={2} $columnsDesktop={2} $gap="large">
       {sortedSkills.map((skill) => (
         <Col as="li" key={skill.title}>
           <Small>{skill.title}</Small>
-          <Row $columns={maxLevel}>
+          <Row $columns={maxLevel} $gap="small">
             {Array(maxLevel)
               .fill(skill.level)
               .map((level, i) => (

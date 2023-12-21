@@ -42,7 +42,7 @@ export const TRANSITION_DEFAULTS = {
 };
 
 export const LAYOUT_DEFAULTS = {
-  borderRadius: '0',
+  borderRadius: '1px',
   borderSize: '.85rem',
   borderSizeSmall: '.125rem',
   borderSizeLarge: '1.95rem',

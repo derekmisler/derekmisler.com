@@ -1,4 +1,4 @@
-import { HTMLProps, ReactNode, RefObject } from 'react';
+import { HTMLProps, PropsWithRef, PropsWithChildren } from 'react';
 
 export type SmMdLgSizes = 'small' | 'medium' | 'large';
 
@@ -13,10 +13,9 @@ export interface DesktopMobile {
   mobile: string;
 }
 
-export interface StyledComponentProps extends HTMLProps<HTMLDivElement> {
-  children?: ReactNode;
+export interface StyledComponentProps
+  extends PropsWithChildren<PropsWithRef<HTMLProps<HTMLDivElement>>> {
   as?: string;
-  ref?: RefObject<HTMLDivElement>;
 }
 
 export type FlexAlignment =
@@ -42,7 +41,7 @@ export const TRANSITION_DEFAULTS = {
 };
 
 export const LAYOUT_DEFAULTS = {
-  borderRadius: '0',
+  borderRadius: '1px',
   borderSize: '.85rem',
   borderSizeSmall: '.125rem',
   borderSizeLarge: '1.95rem',

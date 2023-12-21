@@ -69,6 +69,7 @@ export const DEFAULT_TEXT_STYLES = css`
   line-height: ${TYPOGRAPHY_DEFAULTS.baseLineHeight};
   letter-spacing: ${TYPOGRAPHY_DEFAULTS.baseLetterSpacing};
   text-align: left;
+  text-wrap: balance;
   @media ${LAYOUT_DEFAULTS.mediaQueries.desktop} {
     font-size: ${TYPOGRAPHY_DEFAULTS.baseFontSize.desktop};
   }

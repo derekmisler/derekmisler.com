@@ -1,13 +1,13 @@
 import { MetadataRoute } from 'next';
 
 import { themes } from 'styles/colors';
-import { profile } from 'constants/resume';
+import { title, metaDescription } from 'constants/resume';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: profile.title,
-    short_name: profile.fullName,
-    description: profile.metaDescription,
+    name: title,
+    short_name: title,
+    description: metaDescription,
     start_url: '/',
     display: 'standalone',
     background_color: themes.dark.background,

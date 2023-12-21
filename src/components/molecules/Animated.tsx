@@ -17,11 +17,10 @@ const animationEndCss = css`
   transform: translateY(0);
 `;
 
-const StyledAnimated = styled.div<StyledAnimatedProps>`
-  opacity: 0.1;
+const StyledAnimated = styled.div<AnimatedProps>`
+  opacity: ${(props) => (props.$delay === 0 ? '0.1' : '0')};
   transform: translateY(1rem);
   transition: ${LAYOUT_DEFAULTS.transition};
-  will-change: transform;
   ${(props) => props.$animated && animationEndCss}
 `;
 
@@ -38,5 +37,9 @@ export const Animated = ({ $delay = 0, children }: AnimatedProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [$delay]);
 
-  return <StyledAnimated $animated={animated}>{children}</StyledAnimated>;
+  return (
+    <StyledAnimated $animated={animated} $delay={$delay}>
+      {children}
+    </StyledAnimated>
+  );
 };

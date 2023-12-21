@@ -1,52 +1,36 @@
 import type { Metadata, Viewport } from 'next';
 import { themes } from 'styles/colors';
 
-export const firstName = 'Derek';
-export const middleName = 'Alan';
-export const lastName = 'Misler';
-export const description = 'Software Engineer & Occasional Designer';
-export const email = 'derekmisler@gmail.com';
-export const socialId = 'derekmisler';
-export const metaDescription = `I am a front-end engineer and, occasionally, a designer with 15+ years of experience building exceptional, high-quality websites and applications. I just love the front-end so much. All I want to do is to make the web a better, more performant, accessible, and welcoming place.`;
-export const biography = `I have a diverse education, both traditional and self-driven, of many different web and app development languages for desktop and mobile. I also have a design background, tons of UI/UX experience, and a surprisingly large knowledge of typography (seriously, let's talk about it). I think all developers should study design, and I believe having this well-rounded education makes me a stronger engineer.`;
+const firstName = 'Derek';
+const lastName = 'Misler';
+export const fullName = `${firstName} ${lastName}`;
+export const headline = 'Software Engineer & Occasional Designer';
+export const subheadline =
+  'Derek is a front-end engineer and design enthusiast, dedicated to creating accessible and engaging web experiences with a keen eye for UI/UX and typography. This website showcases over 15 years of creating accessible, high-quality web applications and designs that blend functionality with aesthetics.';
+export const title = `${firstName} ${lastName} | ${headline}`;
+const socialId = 'derekmisler';
+export const metaDescription =
+  'Discover the world of Derek Misler, a seasoned front-end engineer with a flair for design. Dive into a portfolio showcasing over 15 years of creating accessible, high-quality web applications and designs that blend functionality with aesthetics.';
 
-export const profile = {
-  firstName,
-  middleName,
-  lastName,
-  fullName: `${firstName} ${lastName}`,
-  description,
-  title: `${firstName} ${lastName} | ${description}`,
-  metaDescription,
-};
-
-export const location = {
-  houseNumber: '495',
-  street: '12th St., 4L',
-  zipcode: '11215',
-  city: 'Brooklyn',
-  state: 'NY',
-  country: 'United States',
-};
 export const contact = {
-  email,
+  email: `${socialId}@gmail.com`,
   website: `https://${socialId}.com`,
   linkedin: `https://www.linkedin.com/in/${socialId}/`,
   github: `https://github.com/${socialId}`,
 };
 
 export const metadata: Metadata = {
-  description: profile.metaDescription,
-  abstract: profile.metaDescription,
-  title: profile.title,
-  applicationName: profile.fullName,
+  description: metaDescription,
+  abstract: metaDescription,
+  title: title,
+  applicationName: title,
   metadataBase: new URL(contact.website),
   openGraph: {
     type: 'website',
     url: contact.website,
-    title: profile.title,
-    description: profile.metaDescription,
-    siteName: profile.title,
+    title: title,
+    description: metaDescription,
+    siteName: title,
     images: [
       {
         url: '/square.jpg',
@@ -63,6 +47,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   themeColor: themes.dark.background,
 };
+
 export interface Experience {
   title: string;
   specification: string;

@@ -3,9 +3,8 @@ import { Row, Col } from 'components/atoms/Grid';
 import { Qualifications } from 'components/organisms/Qualifications';
 
 export const biography = [
-  `My journey with front-end development began at 13, driven by a natural curiosity and a passion for understanding how things work. The web, for me, has always been a playground for experimentation and learning.`,
-  `I pursued a degree in design, which, coupled with my freelance work, allowed me to blend my design acumen with my love for front-end development. This experience has enriched my approach to building websites for local businesses.`,
-  `My passion lies in making the web a more efficient, accessible, and welcoming space. My education spans a range of web and app development languages, both for desktop and mobile. With a robust background in design, substantial UI/UX experience, and an extensive knowledge of typography, I advocate for developers to embrace design principles. I firmly believe that this diverse, well-rounded education fortifies my capabilities as an engineer.`,
+  `Derek's passion lies in making the web a more efficient, accessible, and welcoming space. His graphic design education coupled with freelance work building websites for small businesses in his town, allowed him to blend his eye for design with his love for front-end development.`,
+  `The career experiences listed below span a broad range of web, desktop and mobile, and native app development languages. They have given Derek a diverse, well-rounded education. Along with a robust background in design, substantial UI/UX experience, and an extensive knowledge of typography, Derek's experience and education have made him a uniquely capable front-end software engineer.`,
 ];
 
 export const About = () => (

@@ -1,15 +1,29 @@
+import styled from 'styled-components';
+
 import { fullName, subheadline, headline } from 'constants/resume';
+import { LAYOUT_DEFAULTS } from 'styles/layout';
 import { Animated } from 'components/molecules/Animated';
-import { Heading } from '../atoms/Typography/Heading';
-import { Text } from '../atoms/Typography/Text';
+import { Heading } from 'components/atoms/Typography/Heading';
+import { Text } from 'components/atoms/Typography/Text';
 import { Row, Col } from 'components/atoms/Grid';
 import { Hr } from 'components/atoms/Hr';
-import { Section } from 'components/molecules/Section';
 import { Contact } from 'components/organisms/Contact';
 
-const HeaderContent = () => {
+const { spacing, mediaQueries } = LAYOUT_DEFAULTS;
+
+const StyledHeader = styled.header`
+  margin: 0 0 ${spacing.large} 0;
+  padding: 0 ${spacing.small};
+  @media ${mediaQueries.desktop} {
+    margin: ${spacing.large} 0 0 0;
+    padding: ${spacing.large};
+    padding-top: 0;
+  }
+`;
+
+export const Header = () => {
   return (
-    <>
+    <StyledHeader>
       <Row $columnsDesktop={6}>
         <Col $rangeDesktop={4}>
           <Animated $delay={0}>
@@ -40,12 +54,6 @@ const HeaderContent = () => {
           </Animated>
         </Col>
       </Row>
-    </>
+    </StyledHeader>
   );
 };
-
-export const Header = () => (
-  <Section as="header">
-    <HeaderContent />
-  </Section>
-);

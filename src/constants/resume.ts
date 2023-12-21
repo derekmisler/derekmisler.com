@@ -66,7 +66,7 @@ export const education: Experience[] = [
     level: 'BFA',
     location: 'Boone, North Carolina',
     description:
-      'I chose to study graphic design in an arts department. I already had a grasp on front-end web development techniques and continued to study them during this time, but the curriculum path I chose focused on web design while also teaching color theory, typography, and layout design in a group setting. Outside of designing for the web, we also had the opportunity to learn Flash/Actionscript game development.',
+      'Derek chose to study graphic design in an arts department. He already had a grasp on front-end web development techniques and continued to study them during this time, but the curriculum path he chose focused on web design while also teaching color theory, typography, and layout design in a group setting. Outside of designing for the web, Derek also had the opportunity to learn Flash/Actionscript game development.',
     accomplishments: [],
     startDate: '2005',
     endDate: '2009',
@@ -89,7 +89,6 @@ export const careers: Experience[] = [
       'Integral in the migration from Enzyme and very few automated tests, to React Testing Library and Cypress for a full suite of integration, e2e, and smoke tests.',
       'Collaborated with cross-functional teams to streamline the development process, which included the ability to run those e2e and smoke tests in development and on PRs, instead of as the last step in the deploy.',
       'Mentored junior engineers and interns, contributing to their professional growth and team cohesion.',
-      'At one point, I was top IC interviewer (in terms of number of interviews).',
       'Designed and led “Front-End 101” on-boarding sessions for all new engineers.',
       'Played a key role in adopting industry-leading front-end technologies for better developer productivity and maintainability.',
       'Essential in the migration away from Redux to Jotai.',
@@ -159,24 +158,11 @@ export const careers: Experience[] = [
     specification: 'Developer& Designer& Photographer',
     location: 'Fletcher, North Carolina',
     level: 'Full-time',
-    description:
-      'During my time at Houser Shoes, I was part of a 3 person team that redesigned their e-commerce website. We also created a custom CMS based on Magento, which utilized primarily PHP and MySQL and was tied to their inventory and accounting systems. Photography is a part of my design background, so I was also the lead product photographer. Many hours were spent taking and editing and uploading photos of shoes. Just so many shoes. I was also in charge of the email marketing program, including all of the design and implementation of each campaign, as well as the analysis of the results after each campaign.',
+    description: `During his time at Houser Shoes, Derek was part of a 3 person team that redesigned their e-commerce website. We also created a custom CMS based on Magento, which utilized primarily PHP and MySQL and was tied to their inventory and accounting systems. Photography is a part of Derek's design background, so he was also made lead product photographer. Many hours were spent taking and editing and uploading photos of shoes. Just so many shoes. Derek was also in charge of the email marketing program, including all of the design and implementation of each campaign, as well as the analysis of the results after each campaign.`,
     accomplishments: [],
     startDate: '2010',
     endDate: '2011',
     link: 'http://www.housershoes.com',
-  },
-  {
-    title: 'Freelance',
-    specification: 'Developer& Designer& Photographer',
-    location: 'Asheville, North Carolina',
-    level: 'Freelance',
-    description:
-      'A lot of branding at first, but eventually full-time web development. Mostly Shopify, SquareSpace, or Wordpress, but I recently had a chance to work on a custom Go-backed (Buffalo) UI/component library.',
-    accomplishments: [],
-    startDate: '2009',
-    endDate: 'Present',
-    link: undefined,
   },
   {
     title: 'Precision Printing',
@@ -184,7 +170,7 @@ export const careers: Experience[] = [
     location: 'Boone, North Carolina',
     level: 'Part-time',
     description:
-      "Though this isn't web-related, I still think my experience working in a print shop can be seen in my work as a developer. When a job consists of tens of thousands of prints, the whole process requires an extremely detail-oriented approach, efficiency, and communication among all members of the team to ensure we weren't making mistakes that would cost us a lot of time/paper/ink/money to fix.",
+      "Though this isn't web-related, Derek's experience working in a print shop can be seen in his work as a developer. When a job consists of tens of thousands of prints, the whole process requires an extremely detail-oriented approach, efficiency, and communication among all members of the team to ensure there weren't making mistakes that would cost the company a lot of time/paper/ink/money to fix.",
     accomplishments: [],
     startDate: '2007',
     endDate: '2009',
@@ -196,7 +182,7 @@ export const careers: Experience[] = [
     location: 'Boone, North Carolina',
     level: 'Part-time',
     description:
-      'I worked with an intern to establish an online presence for The Appalachian newspaper, while still maintaining my role as the lead graphic designer.',
+      'Derek worked with an intern to establish an online presence for The Appalachian newspaper, while still maintaining his role as the lead graphic designer.',
     accomplishments: [],
     startDate: '2006',
     endDate: '2008',

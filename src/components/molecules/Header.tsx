@@ -28,7 +28,7 @@ export const Header = () => {
         <Col $rangeDesktop={4}>
           <Animated $delay={0}>
             <Text $inline $accent>
-              Hello! My name is
+              Hello! This website is about
             </Text>
           </Animated>
           <Animated $delay={100}>

@@ -18,10 +18,10 @@ export default function App() {
       <GlobalStyle theme={isActive ? themes.light : themes.dark} />
       <Header />
       <main>
-        <Section heading="This Is Me">
+        <Section heading="This Is Derek">
           <About />
         </Section>
-        <Section heading="This Is My Experience">
+        <Section heading="This Is Derek's Experience">
           <Experience />
         </Section>
       </main>

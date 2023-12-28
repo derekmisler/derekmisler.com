@@ -27,29 +27,24 @@ export const Header = () => {
       <Row $columnsDesktop={6}>
         <Col $rangeDesktop={4}>
           <Animated $delay={0}>
-            <Text $inline $accent>
-              Hello! This website is about
-            </Text>
-          </Animated>
-          <Animated $delay={100}>
             <Heading $level={1}>{fullName}</Heading>
           </Animated>
-          <Animated $delay={200}>
+          <Animated $delay={100}>
             <Hr $accent />
           </Animated>
         </Col>
       </Row>
       <Row $columnsDesktop={6}>
         <Col $rangeDesktop="4..">
-          <Animated $delay={300}>
+          <Animated $delay={200}>
             <Heading $accent $level={2}>
               {headline}
             </Heading>
           </Animated>
-          <Animated $delay={400}>
+          <Animated $delay={300}>
             <Text $inline>{subheadline}</Text>
           </Animated>
-          <Animated $delay={500}>
+          <Animated $delay={400}>
             <Contact />
           </Animated>
         </Col>

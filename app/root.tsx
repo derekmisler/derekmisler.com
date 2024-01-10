@@ -8,6 +8,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from '@remix-run/react';
+import { SpeedInsights } from '@vercel/speed-insights/remix';
 import { Analytics } from '@vercel/analytics/react';
 
 export const links: LinksFunction = () => [
@@ -24,6 +25,7 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <SpeedInsights />
         <Analytics />
         <Outlet />
         <ScrollRestoration />

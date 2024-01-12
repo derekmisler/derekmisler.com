@@ -1,0 +1,52 @@
+---
+import { contact, fullName, navItems } from '@/constants';
+---
+
+<header id={navItems.home.slug} class="border-accent-top border-accent-bottom">
+  <h1 class="sticky-header">{fullName}</h1>
+  <div class="content-padding">
+    <h2>
+      <strong class="gradient-text">Front-end engineer, design enthusiast, and accessibility advocate</strong> with 15+ years
+      of experience across diverse industries. Currently building <strong class="gradient-text"
+        >AI&#x2011;powered developer tools</strong
+      > at{' '}
+      <a href="https://www.docker.com" target="_blank" rel="noopener noreferrer">Docker</a>.
+    </h2>
+    <nav class="flex-gap-responsive">
+      {
+        contact.map((item) => (
+          <a href={item.href} download={item.download} target="_blank" rel="noopener noreferrer">
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>
+
+<style>
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    justify-content: space-between;
+    min-height: 100vh;
+    @supports (height: 100dvh) {
+      min-height: 100dvh;
+    }
+  }
+  header h1 {
+    font-size: var(--font-size-lg);
+    font-weight: 450;
+    @media (min-width: 1024px) {
+      justify-self: start;
+    }
+  }
+  header h2 {
+    line-height: var(--line-height-heading);
+    text-wrap: balance;
+    max-width: min(36ch, 100%);
+    font-weight: 450;
+    margin-bottom: calc(var(--line-height-heading) * 3vw);
+  }
+</style>

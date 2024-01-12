@@ -1,0 +1,52 @@
+---
+import NavToggle from '@/components/NavToggle.astro';
+import ThemeToggle from '@/components/ThemeToggle.astro';
+import { navItems } from '@/constants';
+
+const navItemsArray = Object.values(navItems);
+---
+
+<nav class="nav fixed-full overlay-hidden">
+  {
+    navItemsArray.map(({ slug, label }) => (
+      <button data-target={slug}>
+        <strong>{label}</strong>
+      </button>
+    ))
+  }
+</nav>
+<ThemeToggle />
+<NavToggle />
+
+<script>
+  // Click to scroll
+  const navButtons = document.querySelectorAll<HTMLButtonElement>('nav button');
+  navButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const target = button.getAttribute('data-target');
+      if (!target) return;
+      const targetElement = document.getElementById(target);
+      document.body.removeAttribute('data-hidden');
+      targetElement?.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+
+<style>
+  .nav {
+    overflow: hidden;
+    background-color: var(--color-background);
+    padding: var(--space-md);
+  }
+  .nav button {
+    --border-width: 10px;
+    padding: 0;
+    margin-bottom: var(--space-sm);
+    width: 100%;
+    text-align: left;
+    font-size: var(--font-size-xxl);
+    line-height: var(--line-height-tight);
+    width: fit-content;
+    display: block;
+  }
+</style>

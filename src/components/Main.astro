@@ -1,0 +1,103 @@
+---
+import Section from '@/components/Section.astro';
+import { contact, currentCareers, education, highlights, navItems, skills, subHeadline, tools } from '@/constants';
+---
+
+<main class="grid">
+  <Section id={navItems.about.slug} label={navItems.about.label}>
+    <h4>Background</h4>
+    <p>{subHeadline}</p>
+    <h4>Highlights</h4>
+    <ul>
+      {highlights.map((highlight) => <li>{highlight}</li>)}
+    </ul>
+    <h4>Education</h4>
+    <p>{education.title}</p>
+  </Section>
+
+  <Section id={navItems.experience.slug} label={navItems.experience.label}>
+    {
+      currentCareers.map((career) => (
+        <>
+          <h4>
+            <a href={career.link} target="_blank" rel="noopener noreferrer">
+              {career.location}
+            </a>
+            <p>{career.title}</p>
+          </h4>
+          <ul>
+            {career.accomplishments.map((accomplishment) => (
+              <li>{accomplishment}</li>
+            ))}
+          </ul>
+        </>
+      ))
+    }
+  </Section>
+
+  <Section id={navItems.coreSkills.slug} label={navItems.coreSkills.label}>
+    {
+      skills.map(([category, skills]) => (
+        <>
+          <h4>{category}</h4>
+          <p>{skills.join(', ')}</p>
+        </>
+      ))
+    }
+  </Section>
+
+  <Section id={navItems.workingWith.slug} label={navItems.workingWith.label}>
+    {
+      tools.map(([category, tools]) => (
+        <>
+          <h4>{category}</h4>
+          <p>{tools.join(', ')}</p>
+        </>
+      ))
+    }
+  </Section>
+
+  <Section id={navItems.contact.slug} label={navItems.contact.label}>
+    {
+      contact.map((item) => (
+        <>
+          <h4>{item.label}</h4>
+          <p>
+            <a href={item.href} download={item.download} target="_blank" rel="noopener noreferrer">
+              {item.altLabel}
+            </a>
+          </p>
+        </>
+      ))
+    }
+  </Section>
+</main>
+
+<style>
+  main {
+    width: 100%;
+    align-items: baseline;
+    padding: 0;
+  }
+  .grid {
+    --columns: auto;
+    @media (min-width: 1024px) {
+      --columns: min-content var(--border-width) auto;
+    }
+    @media (min-width: 1280px) {
+      --columns: auto var(--border-width) min-content auto;
+    }
+    @media (min-width: 1440px) {
+      --columns: auto var(--border-width) auto auto;
+    }
+
+    display: grid;
+    grid-template-columns: var(--columns);
+    column-gap: var(--space-md);
+    row-gap: 0;
+  }
+  main :global(p:not(:last-child)),
+  main :global(ul:not(:last-child)) {
+    margin-bottom: var(--space-md);
+  }
+</style>

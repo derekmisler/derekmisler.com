@@ -1,0 +1,33 @@
+---
+const { id, position, ariaLabel } = Astro.props;
+const top = position === 'top' ? 'var(--space-sm)' : undefined;
+const bottom = position === 'bottom' ? 'var(--space-sm)' : undefined;
+---
+
+<button class="icon-button" id={id} aria-label={ariaLabel}>
+  <slot />
+</button>
+
+<style define:vars={{ top, bottom }}>
+  .icon-button {
+    position: fixed;
+    padding: var(--space-xs);
+    bottom: var(--bottom);
+    top: var(--top);
+    right: var(--space-sm);
+    height: calc(40px + var(--space-xs) * 2);
+    width: calc(40px + var(--space-xs) * 2);
+    z-index: var(--z-index-overlay);
+    background-color: var(--color-background-transparent);
+    @media (min-width: 1024px) {
+      bottom: var(--bottom);
+      top: var(--top);
+      right: var(--space-md);
+    }
+  }
+  :global(body[data-hidden] .icon-button) {
+    @media (pointer: fine) {
+      margin-right: var(--border-width);
+    }
+  }
+</style>

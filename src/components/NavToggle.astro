@@ -1,0 +1,59 @@
+---
+import IconButton from '@/components/IconButton.astro';
+---
+
+<IconButton id="nav-toggle" aria-label="Toggle navigation" position="top">
+  <span class="container">
+    <span class="inner"></span>
+  </span>
+</IconButton>
+
+<script>
+  const navToggle = document.getElementById('nav-toggle');
+  const nav = document.querySelector<HTMLDivElement>('.nav');
+  navToggle?.addEventListener('click', () => {
+    nav?.toggleAttribute('data-active');
+    document.body.toggleAttribute('data-hidden');
+  });
+</script>
+
+<style>
+  .container {
+    width: 40px;
+    height: var(--space-xs);
+    display: flex;
+    place-items: center;
+  }
+  .inner {
+    display: block;
+  }
+  .inner,
+  .inner::before,
+  .inner::after {
+    width: 40px;
+    height: calc(var(--space-xs) / 2);
+    background-color: var(--color-accent);
+    position: absolute;
+    transition:
+      bottom var(--transition-duration) var(--transition-timing-function),
+      top var(--transition-duration) var(--transition-timing-function);
+  }
+  .inner::before,
+  .inner::after {
+    content: '';
+    display: block;
+  }
+  .inner::before {
+    top: calc(var(--space-xs) * -2);
+  }
+  .inner::after {
+    bottom: calc(var(--space-xs) * -2);
+  }
+
+  :global(body[data-hidden] .inner::before) {
+    top: 0;
+  }
+  :global(body[data-hidden] .inner::after) {
+    bottom: 0;
+  }
+</style>

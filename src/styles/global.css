@@ -1,0 +1,303 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  /* Font families */
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-head: 'IBM Plex Sans', sans-serif;
+
+  /* Line heights */
+  --line-height-tight: 1;
+  --line-height-heading: 1.1;
+  --line-height-body: 1.6;
+
+  /*
+   * Fluid Type Scale
+   */
+  --font-size-xs: clamp(0.75rem, 5vw, 1rem);
+  --font-size-sm: clamp(1.35rem, 5vw, 1.5rem);
+  --font-size-md: clamp(1.5rem, 5vw, 2rem);
+  --font-size-lg: clamp(1.75rem, 5vw, 2.25rem);
+  --font-size-xl: clamp(2rem, 5vw, 4rem);
+  --font-size-xxl: clamp(3rem, 2vw, 5rem);
+
+  /*
+   * Fluid Spacing Scale
+   */
+  --space-xs: clamp(0.25rem, 5vw, 0.5rem);
+  --space-sm: clamp(1rem, 5vw, 1.5rem);
+  --space-md: clamp(1.5rem, 5vw, 3rem);
+  --space-lg: clamp(3rem, 3vw, 5rem);
+
+  /* Border width */
+  --border-width: 10px;
+
+  /* Transition duration */
+  --transition-duration: 100ms;
+  --transition-duration-long: 230ms;
+  --transition-timing-function: ease-out;
+
+  /* Z-index */
+  --z-index-sticky: 100;
+  --z-index-overlay: 1000;
+}
+
+html {
+  --color-text: #fff2ef;
+  --color-background: #37353e;
+  --color-background-accent: #824d74;
+  --color-background-transparent: color-mix(in srgb, var(--color-background) 80%, transparent);
+  --color-accent: #be7b72;
+  color-scheme: dark;
+}
+
+html[data-theme='light'] {
+  --color-text: #37353e;
+  --color-background: #fff2ef;
+  --color-background-accent: #d6ddf1;
+  --color-accent: #f7a5a5;
+  color-scheme: light;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: 450;
+  -webkit-font-smoothing: antialiased;
+  line-height: var(--line-height-body);
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+body::-webkit-scrollbar {
+  width: var(--border-width);
+}
+
+body::-webkit-scrollbar-track {
+  background-color: var(--color-background);
+  box-shadow: none;
+}
+
+body::-webkit-scrollbar-thumb {
+  outline: none;
+  background-color: var(--color-accent);
+}
+
+body[data-hidden] {
+  margin-right: var(--border-width);
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-head);
+  font-weight: 700;
+  line-height: var(--line-height-heading);
+  color: var(--color-text);
+  text-wrap: balance;
+}
+
+h2 {
+  font-size: var(--font-size-xl);
+}
+
+h3 {
+  font-size: var(--font-size-lg);
+}
+
+h4 {
+  font-size: var(--font-size-md);
+}
+
+p,
+li {
+  max-width: min(65ch, 100%);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-body);
+  text-wrap: balance;
+}
+.lead {
+  font-size: var(--font-size-md);
+  font-weight: 450;
+  line-height: var(--line-height-body);
+  text-wrap: balance;
+}
+
+ul {
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+li:not(:last-child) {
+  margin-bottom: var(--space-md);
+}
+
+small {
+  font-size: var(--font-size-xs);
+}
+hr {
+  display: block;
+  align-self: start;
+  width: 100%;
+  height: var(--border-width);
+  background-color: var(--color-accent);
+  border: none;
+}
+hr.vertical {
+  display: none;
+  @media (min-width: 1024px) {
+    display: block;
+    align-self: start;
+    width: var(--border-width);
+    height: 100%;
+    margin: 0;
+    background-color: var(--color-accent);
+    border: none;
+  }
+}
+a,
+a:visited,
+button {
+  position: relative;
+  padding: 0;
+  font-family: var(--font-heading);
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: var(--border-width);
+  text-decoration-color: var(--color-background-accent);
+  text-underline-offset: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+a::after,
+button::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background-color: var(--color-background-accent);
+  transform: scaleX(0);
+  transform-origin: top left;
+  transition: transform var(--transition-duration-long) var(--transition-timing-function);
+}
+a:focus-visible,
+button:focus-visible {
+  outline: none;
+}
+a:hover::after,
+a:focus::after,
+a:focus-visible::after,
+a:active::after,
+button:hover::after,
+button:focus::after,
+button:focus-visible::after,
+button:active::after {
+  transform: scaleX(1);
+}
+
+strong {
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
+
+pre {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+/*
+ * Utility Classes
+ */
+
+/* Gradient text effect with fallback */
+.gradient-text {
+  color: var(--color-text);
+  @supports (background-clip: text) {
+    display: inline-block;
+    color: transparent;
+    background-image: linear-gradient(
+      45deg,
+      var(--color-text),
+      color-mix(in srgb, var(--color-text) 50%, var(--color-accent))
+    );
+    background-clip: text;
+  }
+}
+
+/* Sticky header with transparent background */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-index-sticky);
+  padding: var(--space-md);
+  background-color: var(--color-background-transparent);
+}
+
+/* Content padding */
+.content-padding {
+  padding: var(--space-md);
+}
+
+/* Border accent utilities */
+.border-accent-top {
+  border-top: var(--border-width) solid var(--color-accent);
+}
+.border-accent-bottom {
+  border-bottom: var(--border-width) solid var(--color-accent);
+}
+
+/* Stack spacing - adds margin between consecutive children */
+.stack-spacing > *:not(:last-child) {
+  margin-bottom: var(--space-md);
+}
+
+/* Flexbox with responsive gap */
+.flex-gap-responsive {
+  display: flex;
+  gap: var(--space-sm);
+  @media (min-width: 1024px) {
+    gap: var(--space-md);
+  }
+}
+
+/* Fixed full-screen overlay */
+.fixed-full {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-index-overlay);
+}
+
+/* Overlay visibility states */
+.overlay-hidden {
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-duration-long) var(--transition-timing-function);
+}
+body[data-hidden] .overlay-hidden {
+  pointer-events: auto;
+  opacity: 1;
+}

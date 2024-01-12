@@ -25,12 +25,12 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <SpeedInsights />
-        <Analytics />
         <Outlet />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

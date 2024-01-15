@@ -1,6 +1,3 @@
-import type { Metadata, Viewport } from 'next';
-import { themes } from 'styles/colors';
-
 const firstName = 'Derek';
 const lastName = 'Misler';
 export const fullName = `${firstName} ${lastName}`;
@@ -19,7 +16,7 @@ export const contact = {
   github: `https://github.com/${socialId}`,
 };
 
-export const metadata: Metadata = {
+export const metadata = {
   description: metaDescription,
   abstract: metaDescription,
   title: title,
@@ -43,9 +40,6 @@ export const metadata: Metadata = {
     images: '/horizontal.jpg',
   },
   verification: { google: 'oM1NjzxvtvPp4JL2t2qo13zUhGnrpGF0Fbgyb6S8vDk' },
-};
-export const viewport: Viewport = {
-  themeColor: themes.dark.background,
 };
 
 export interface Experience {

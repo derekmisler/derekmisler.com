@@ -1,49 +1,23 @@
 ---
-// import { getCollection } from 'astro:content';
-
-// Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
+import ThemeToggle from '../components/ThemeToggle.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-
-// const compare = (a: number, b: number): 1 | -1 | 0 => {
-//   if (a > b) return typeof a === 'number' ? -1 : 1;
-//   if (a < b) return typeof a === 'number' ? 1 : -1;
-//   return 0;
-// };
-// const projects = (await getCollection('work'))
-// 	.sort(compare);
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
 ---
 
 <BaseLayout>
-	<div class="stack gap-20 lg:gap-48">
-		<div class="wrapper stack gap-8 lg:gap-20">
-			<header class="hero">
-			</header>
+  <div class="">
+    <div class="wrapper">
+      <ThemeToggle />
+      <header class="hero"><h1>Hero</h1></header>
+    </div>
 
-		</div>
-
-		<main class="wrapper stack gap-20 lg:gap-48">
-			<section class="section with-background with-cta">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Selected Work</h3>
-				</header>
-
-			</section>
-
-			<section class="section with-background bg-variant">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Mentions</h3>
-
-				</header>
-
-			</section>
-		</main>
-	</div>
+    <main class="wrapper">
+      <section>
+        <header>
+          <h3>Section Header</h3>
+        </header>
+      </section>
+    </main>
+  </div>
 </BaseLayout>
 
-<style>
-
-</style>
+<style></style>

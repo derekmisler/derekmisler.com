@@ -6,36 +6,31 @@
 import MainHead from '../components/MainHead.astro';
 
 interface Props {
-	title?: string | undefined;
-	description?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
 }
 
 const { title, description } = Astro.props;
 ---
 
 <html lang="en">
-	<head>
-		<MainHead title={title} description={description} />
-	</head>
-	<body>
-		<div class="stack backgrounds">
-			<slot />
-		</div>
+  <head>
+    <MainHead title={title} description={description} />
+  </head>
+  <body>
+    <slot />
+    <script>
+      addEventListener('load', () =>
+        document.documentElement.classList.add('loaded'),
+      );
+    </script>
 
-		<script>
-			// Add “loaded” class once the document has completely loaded.
-			addEventListener('load', () => document.documentElement.classList.add('loaded'));
-		</script>
+    <style>
+      :root {
+      }
 
-		<style>
-			:root {
-
-			}
-
-			:root.theme-dark {
-
-			}
-
-		</style>
-	</body>
+      :root.theme-dark {
+      }
+    </style>
+  </body>
 </html>

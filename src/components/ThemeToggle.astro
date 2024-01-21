@@ -31,19 +31,12 @@
       const setTheme = () => {
         let currentTheme = getTheme();
         const currentThemeIndex = THEMES.findIndex((t) => t === currentTheme);
-        if (currentThemeIndex < THEMES.length - 1) {
-          const nextTheme = THEMES[currentThemeIndex + 1];
-          document.documentElement.dataset.theme = nextTheme;
-          localStorage.setItem('theme', nextTheme);
-          console.debug(
-            `<------------src/components/ThemeToggle.astro:39------------>\n`,
-            {
-              currentTheme,
-              currentThemeIndex,
-              nextTheme,
-            },
-          );
-        }
+        const indexWithinRange = currentThemeIndex < THEMES.length - 1;
+        const nextTheme = indexWithinRange
+          ? THEMES[currentThemeIndex + 1]
+          : THEMES[0];
+        document.documentElement.dataset.theme = nextTheme;
+        localStorage.setItem('theme', nextTheme);
       };
 
       const button = this.querySelector('button')!;

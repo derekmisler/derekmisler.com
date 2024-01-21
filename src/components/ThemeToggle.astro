@@ -9,6 +9,11 @@
 <style>
   .toggle {
     background-color: var(--color-text);
+    color: var(--color-bg);
+    border: none;
+    font-size: 2rem;
+    padding: 0.5rem;
+    cursor: pointer;
   }
 </style>
 
@@ -16,33 +21,40 @@
   class ThemeToggle extends HTMLElement {
     constructor() {
       super();
-      const THEMES = ['dark', 'light', 'unicorn'];
+      const THEMES = ['dark', 'green', 'light', 'pink', 'blue'];
 
-      const getTheme = () => {
-        const themeLocalStorage = localStorage.getItem('theme');
-        const themeDefault = window.matchMedia('(prefers-color-scheme: dark)')
-          .matches
+      const getDefaultTheme = () =>
+        window.matchMedia('(prefers-color-scheme: dark)').matches
           ? 'dark'
           : 'light';
 
-        return themeLocalStorage ?? themeDefault;
+      const getTheme = () => {
+        const themeLocalStorage = localStorage.getItem('theme');
+        return themeLocalStorage ?? getDefaultTheme();
       };
 
-      const setTheme = () => {
+      const setTheme = (theme: string) => {
+        document.documentElement.dataset.theme = theme;
+        localStorage.setItem('theme', theme);
+      };
+
+      const button = this.querySelector('button')!;
+      button.addEventListener('click', () => {
         let currentTheme = getTheme();
         const currentThemeIndex = THEMES.findIndex((t) => t === currentTheme);
         const indexWithinRange = currentThemeIndex < THEMES.length - 1;
         const nextTheme = indexWithinRange
           ? THEMES[currentThemeIndex + 1]
           : THEMES[0];
-        document.documentElement.dataset.theme = nextTheme;
-        localStorage.setItem('theme', nextTheme);
-      };
+        setTheme(nextTheme);
+      });
 
-      const button = this.querySelector('button')!;
-      button.addEventListener('click', setTheme);
+      const watchSysTheme = window.matchMedia('(prefers-color-scheme: dark)');
+      watchSysTheme.addEventListener('change', () => {
+        setTheme(getDefaultTheme());
+      });
 
-      setTheme();
+      setTheme(getTheme());
     }
   }
   customElements.define('theme-toggle', ThemeToggle);

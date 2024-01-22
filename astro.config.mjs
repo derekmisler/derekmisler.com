@@ -6,9 +6,4 @@ export default defineConfig({
   output: 'static',
   adapter: vercelStatic(),
   site: 'https://derekmisler.com',
-  build: {
-    rollupOptions: {
-      external: ['@'],
-    },
-  },
 });

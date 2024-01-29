@@ -1,0 +1,62 @@
+---
+
+---
+
+<theme-toggle>
+  <button class="toggle">Change theme</button>
+</theme-toggle>
+
+<style>
+  .toggle {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    border: none;
+    font-size: 4rem;
+    padding: 1rem;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  class ThemeToggle extends HTMLElement {
+    constructor() {
+      super();
+      const THEMES = ['HOMER', 'KOONS', 'WARHOL'];
+
+      const getDefaultTheme = () =>
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? THEMES[0]
+          : THEMES[1];
+
+      const getTheme = () => {
+        const themeLocalStorage = localStorage.getItem('theme') || '';
+        if (THEMES.includes(themeLocalStorage)) return themeLocalStorage;
+        return getDefaultTheme();
+      };
+
+      const setTheme = (theme: string) => {
+        document.documentElement.dataset.theme = theme;
+        localStorage.setItem('theme', theme);
+      };
+
+      const button = this.querySelector('button')!;
+      button.addEventListener('click', () => {
+        const currentTheme = getTheme();
+        const currentThemeIndex = THEMES.findIndex((t) => t === currentTheme);
+        const isIndexWithinRange = currentThemeIndex < THEMES.length - 1;
+        const nextTheme = isIndexWithinRange
+          ? THEMES[currentThemeIndex + 1]
+          : THEMES[0];
+        setTheme(nextTheme);
+      });
+
+      const watchSysTheme = window.matchMedia('(prefers-color-scheme: dark)');
+      watchSysTheme.addEventListener('change', () => {
+        setTheme(getDefaultTheme());
+      });
+
+      setTheme(getTheme());
+    }
+  }
+  customElements.define('theme-toggle', ThemeToggle);
+</script>

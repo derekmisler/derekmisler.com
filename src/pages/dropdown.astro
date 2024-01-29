@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Menu">
+  <!-- Menu -->
+  <fancy-menu>
+    <button class="menu-trigger closed">Select</button>
+    <ul class="menu-body" aria-expanded="false"></ul>
+  </fancy-menu>
+  <template id="menu-item-template">
+    <li class="menu-item">
+      <span class="icon"></span>
+      <p class="menu-item-label"></p>
+      <span class="pill"></span>
+    </li>
+  </template>
+</BaseLayout>
+
+<style is:global>
+  :root {
+    --spacing: 0.5rem;
+    --icon-size: 3rem;
+  }
+  body {
+    font-family: sans-serif;
+    font-size: 16px;
+  }
+  fancy-menu {
+    display: block;
+  }
+  .menu-trigger::after {
+    content: '^';
+    display: inline-flex;
+    place-content: center;
+    width: var(--icon-size);
+    transition: transform 230ms ease-in-out;
+  }
+  .menu-trigger.open::after {
+    transform: rotate(180deg);
+  }
+  .menu-trigger.closed::after {
+    transform: rotate(0deg);
+  }
+  .menu-body {
+    list-style: none;
+    margin: 0;
+    padding: var(--spacing);
+    max-width: 200px;
+    display: block;
+  }
+  .menu-body[aria-expanded='false'] {
+    display: none;
+  }
+  .menu-item {
+    cursor: pointer;
+    margin: 0 0 var(--spacing) 0;
+    display: flex;
+    column-gap: var(--spacing);
+  }
+  .menu-item[disabled='true'] {
+    cursor: not-allowed;
+    color: grey;
+  }
+  .icon {
+    display: flex;
+    place-content: center;
+    width: var(--icon-size);
+  }
+  .menu-item-label {
+    overflow: hidden;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    flex: 1;
+  }
+</style>
+
+<script>
+  type OptionsType = Array<{
+    icon?: string;
+    label: string;
+    count?: number;
+    disabled?: boolean;
+    value: string;
+  }>;
+  const OPTIONS: OptionsType = [
+    { icon: '+', label: 'Option 1', count: 12, value: 'opt_1' },
+    { label: 'A really long option title', value: 'opt_2' },
+    { icon: '-', label: 'Option 3', value: 'opt_3' },
+    { icon: 'x', label: 'Disabled option', disabled: true, value: 'opt_4' },
+  ];
+  class Menu extends HTMLElement {
+    constructor() {
+      super();
+      const menuItemTemplate = document.querySelector('#menu-item-template');
+      const menu = document.querySelector('.menu-body');
+      menu?.addEventListener('click', (e: Event) => {
+        e.stopPropagation();
+        if (!e.target.parentNode.getAttribute('disabled')) {
+          return console.log({ value: e.target.parentNode.dataset.value });
+        }
+      });
+      OPTIONS.forEach(({ icon, label, count, disabled, value }) => {
+        if (menuItemTemplate) {
+          const menuItem =
+            menuItemTemplate?.content?.firstElementChild?.cloneNode(true);
+          const iconMarkup = icon
+            ? `<span class='icon'>${icon}</span>`
+            : '<span class="icon"></span>';
+          const countMarkup = count
+            ? `<div class='pill'>${count}</div>`
+            : '<div class="pill"></div>';
+          menuItem.innerHTML = `${iconMarkup}<p class='menu-item-label'>${label}</p>${countMarkup}`;
+          if (disabled) {
+            menuItem?.setAttribute('aria-disabled', 'true');
+            menuItem?.setAttribute('disabled', 'true');
+          }
+          menuItem.dataset.value = value;
+          menu?.appendChild(menuItem);
+        }
+      });
+      const button = this.querySelector('.menu-trigger');
+      if (button) {
+        const handleKeyDown = (e: KeyboardEvent) => {
+          if (e.key === 'Escape') {
+            closeMenu();
+          }
+        };
+        const closeMenu = () => {
+          menu?.setAttribute('aria-expanded', 'false');
+          button.classList.toggle('open');
+          button.classList.add('closed');
+          document.removeEventListener('keydown', handleKeyDown);
+        };
+        const openMenu = () => {
+          menu?.setAttribute('aria-expanded', 'true');
+          button.classList.remove('closed');
+          button.classList.add('open');
+          document.addEventListener('keydown', handleKeyDown);
+        };
+
+        const toggleMenu = () => {
+          if (button.classList.contains('closed')) {
+            openMenu();
+          } else {
+            closeMenu();
+          }
+        };
+        button.addEventListener('click', toggleMenu);
+      }
+    }
+  }
+  customElements.define('fancy-menu', Menu);
+</script>

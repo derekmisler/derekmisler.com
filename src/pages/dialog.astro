@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Dialog">
+  <button id="trigger">Open dialog</button>
+  <template id="dialog-template">
+    <custom-dialog>4</custom-dialog>
+  </template>
+</BaseLayout>
+
+<style></style>
+
+<script>
+  class CustomDialog extends HTMLElement {
+    constructor() {
+      super();
+    }
+  }
+  customElements.define('custom-dialog', CustomDialog);
+</script>

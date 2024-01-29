@@ -15,10 +15,5 @@ const { title, description } = Astro.props;
   </head>
   <body>
     <slot />
-    <script>
-      addEventListener('load', () =>
-        document.documentElement.classList.add('loaded'),
-      );
-    </script>
   </body>
 </html>

@@ -7,8 +7,8 @@
 }
 
 :root[data-theme='KOONS'] {
-  --color-text: #a26775;
-  --color-bg: #ecd9ad;
+  --color-text: #bd483c;
+  --color-bg: #f2d9b3;
   --font-body: 'Open Sans', sans-serif;
   --font-head: 'Playfair Display', serif;
   color-scheme: light;

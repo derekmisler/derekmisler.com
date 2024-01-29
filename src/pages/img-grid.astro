@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Image Grid">
+  <pre>
+    6 images
+    each has an 'x'
+      clicking the 'x' removes the image
+    each image has a hidden description
+      clicking the image displays the description
+    https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg
+  </pre>
+  <hr />
+  <div class="img-grid"></div>
+  <button id="show-more-images">Show more images</button>
+</BaseLayout>
+
+<style is:global>
+  :root {
+    --space: 12px;
+  }
+  .img-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space);
+  }
+  img-container {
+    display: block;
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: var(--space);
+  }
+  .close {
+    position: absolute;
+    top: var(--space);
+    right: var(--space);
+  }
+</style>
+
+<script>
+  type ImgsType = Array<{ url: string; label: string }>;
+  const IMGS: ImgsType = [
+    {
+      url: 'https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg',
+      label: 'a lovely image',
+    },
+    {
+      url: 'https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg',
+      label: 'a peaceful beach scene long description',
+    },
+    {
+      url: 'https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg',
+      label: 'a lovely image',
+    },
+    {
+      url: 'https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg',
+      label: 'a peaceful beach scene long description',
+    },
+    {
+      url: 'https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg',
+      label: 'a lovely image',
+    },
+    {
+      url: 'https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg',
+      label: 'a peaceful beach scene long description',
+    },
+  ];
+  const grid = document.querySelector('.img-grid');
+  if (grid) {
+    IMGS.forEach(({ url, label }, index) => {
+      const imgContainer = document.createElement('img-container');
+      imgContainer.innerHTML = `
+        <button class="close" aria-label="Close"><span aria-hidden="true">x</span></button>
+        <img class='img' src="${url}" aria-label="${label}" />
+        <div class="caption"><p>${label}</p></div>
+      `;
+      imgContainer.dataset.index = String(index);
+      grid.appendChild(imgContainer);
+    });
+  }
+  class ImgContainer extends HTMLElement {
+    constructor() {
+      super();
+    }
+  }
+  customElements.define('img-container', ImgContainer);
+</script>

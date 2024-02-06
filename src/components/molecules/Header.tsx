@@ -29,7 +29,7 @@ export const Header = () => {
           <Animated $delay={0}>
             <Heading $level={1}>{fullName}</Heading>
           </Animated>
-          <Animated $delay={100}>
+          <Animated $delay={1}>
             <Hr $accent />
           </Animated>
         </Col>

@@ -1,0 +1,51 @@
+---
+
+---
+
+<theme-toggle>
+  <button class="toggle">Change theme</button>
+</theme-toggle>
+
+<style>
+  .toggle {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    border: none;
+    font-size: 4rem;
+    padding: 1rem;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  class ThemeToggle extends HTMLElement {
+    constructor() {
+      super();
+      const THEMES = ['grey', 'purple', 'pink', 'green', 'blue'];
+      const button = this.querySelector('button')!;
+
+      const getTheme = () => {
+        const themeLocalStorage = localStorage.getItem('theme') || '';
+        if (THEMES.includes(themeLocalStorage)) return themeLocalStorage;
+        return THEMES[0];
+      };
+
+      const setTheme = (theme: string) => {
+        document.documentElement.dataset.theme = theme;
+        localStorage.setItem('theme', theme);
+        button.innerText = theme;
+      };
+
+      button.addEventListener('click', () => {
+        const currentTheme = getTheme();
+        const currentThemeIndex = THEMES.findIndex((t) => t === currentTheme);
+        const isIndexWithinRange = currentThemeIndex < THEMES.length - 1;
+        const nextTheme = isIndexWithinRange ? THEMES[currentThemeIndex + 1] : THEMES[0];
+        setTheme(nextTheme);
+      });
+
+      setTheme(getTheme());
+    }
+  }
+  customElements.define('theme-toggle', ThemeToggle);
+</script>

@@ -1,25 +1,20 @@
-import type { Metadata, Viewport } from 'next';
-import { themes } from 'styles/colors';
-
 const firstName = 'Derek';
 const lastName = 'Misler';
-export const fullName = `${firstName} ${lastName}`;
-export const headline = 'Software Engineer & Occasional Designer';
-export const subheadline =
-  'Derek is a front-end engineer and design enthusiast, dedicated to creating accessible and engaging web experiences with a keen eye for UI/UX and typography. This website showcases over 15 years of creating accessible, high-quality web applications and designs that blend functionality with aesthetics.';
-export const title = `${firstName} ${lastName} | ${headline}`;
+const fullName = `${firstName} ${lastName}`;
+const headline = 'Front-end engineer and design enthusiast, dedicated to creating accessible and engaging web experiences with a keen eye for UI/UX and typography.';
+const subheadline = 'A seasoned front-end engineer with 15+ years of experience, I began web development at age 13, driven by curiosity. Skilled in graphic design and diverse web and app development, I excel in crafting accessible, user-friendly digital experiences, combining technical expertise with strong design sensibility and deep UI/UX and typography knowledge.';
+const title = `${fullName} | Front-end engineer and, occasionally, a designer`;
 const socialId = 'derekmisler';
-export const metaDescription =
-  'Discover the world of Derek Misler, a seasoned front-end engineer with a flair for design. Dive into a portfolio showcasing over 15 years of creating accessible, high-quality web applications and designs that blend functionality with aesthetics.';
+const metaDescription = 'Discover the world of Derek Misler, a seasoned front-end engineer with a flair for design. Dive into a portfolio showcasing over 15 years of creating accessible, high-quality web applications and designs that blend functionality with aesthetics.';
 
-export const contact = {
+const contact = {
   email: `${socialId}@gmail.com`,
   website: `https://${socialId}.com`,
   linkedin: `https://www.linkedin.com/in/${socialId}/`,
   github: `https://github.com/${socialId}`,
 };
 
-export const metadata: Metadata = {
+const metadata = {
   description: metaDescription,
   abstract: metaDescription,
   title: title,
@@ -44,11 +39,8 @@ export const metadata: Metadata = {
   },
   verification: { google: 'oM1NjzxvtvPp4JL2t2qo13zUhGnrpGF0Fbgyb6S8vDk' },
 };
-export const viewport: Viewport = {
-  themeColor: themes.dark.background,
-};
 
-export interface Experience {
+interface Experience {
   title: string;
   specification: string;
   location: string;
@@ -59,21 +51,20 @@ export interface Experience {
   endDate: string;
   link?: string;
 }
-export const education: Experience[] = [
+const education: Experience[] = [
   {
     title: 'Appalachian State University',
     specification: 'Graphic Design',
     level: 'BFA',
     location: 'Boone, North Carolina',
-    description:
-      'Derek chose to study graphic design in an arts department. He already had a grasp on front-end web development techniques and continued to study them during this time, but the curriculum path he chose focused on web design while also teaching color theory, typography, and layout design in a group setting. Outside of designing for the web, Derek also had the opportunity to learn Flash/Actionscript game development.',
+    description: 'Derek chose to study graphic design in an arts department. He already had a grasp on front-end web development techniques and continued to study them during this time, but the curriculum path he chose focused on web design while also teaching color theory, typography, and layout design in a group setting. Outside of designing for the web, Derek also had the opportunity to learn Flash/Actionscript game development.',
     accomplishments: [],
     startDate: '2005',
     endDate: '2009',
   },
 ];
 
-export const careers: Experience[] = [
+const careers: Experience[] = [
   {
     title: 'Patreon',
     specification: 'Senior Software Engineer',
@@ -103,14 +94,7 @@ export const careers: Experience[] = [
     specification: 'Lead Software Engineer',
     location: 'New York, New York',
     level: 'Full-time/Remote',
-    accomplishments: [
-      'Refactored and combined a decoupled SPA and third-party marketing site into a Django/React web app.',
-      'Migrated fragmented codebases to a monorepo.',
-      'Developed a custom server rendering configuration for our marketing site with Webpack, React, and new Node service.',
-      'Technical lead and developer of our internal component/design pattern library.',
-      'Contributed to the open-source component library that inspired our own component library (Base Web).',
-      'Lead/mentored teams of full-stack engineers across multiple projects, using both Agile and Shape Up methodologies.',
-    ],
+    accomplishments: ['Refactored and combined a decoupled SPA and third-party marketing site into a Django/React web app.', 'Migrated fragmented codebases to a monorepo.', 'Developed a custom server rendering configuration for our marketing site with Webpack, React, and new Node service.', 'Technical lead and developer of our internal component/design pattern library.', 'Contributed to the open-source component library that inspired our own component library (Base Web).', 'Lead/mentored teams of full-stack engineers across multiple projects, using both Agile and Shape Up methodologies.'],
     startDate: '2020',
     endDate: '2021',
     link: 'https://cadre.com',
@@ -120,18 +104,7 @@ export const careers: Experience[] = [
     specification: 'Staff Software Engineer',
     location: 'New York, New York',
     level: 'Full-time/Hybrid',
-    accomplishments: [
-      'First front-end engineer',
-      'Rebuilt our Android and iOS apps using React Native.',
-      'Refactored web app from Rails, to Aurelia (a terrific JS framework), and finally landing on React/Redux.',
-      'Refactored our public site from Wordpress to Jade, a great (but extinct) static site templating language, and then eventually to 11ty.js.',
-      'Developed an internal library for creating web (React/Redux) apps, mobile (React Native) apps, and shared modules (NPM).',
-      'Brand-new CI/CD pipeline (CircleCI).',
-      'Created standards for networking configurations, CSS and JS syntax linting, and automated testing.',
-      'Developed our web networking standards, using AWS tools, including all of our deployment configurations, client-side security, and multi-region failover.',
-      'Technical lead on the creation of our internal component/design pattern library.',
-      'Grew a team of cross-functional engineers and designers to continue the front-end and mobile work.',
-    ],
+    accomplishments: ['First front-end engineer', 'Rebuilt our Android and iOS apps using React Native.', 'Refactored web app from Rails, to Aurelia (a terrific JS framework), and finally landing on React/Redux.', 'Refactored our public site from Wordpress to Jade, a great (but extinct) static site templating language, and then eventually to 11ty.js.', 'Developed an internal library for creating web (React/Redux) apps, mobile (React Native) apps, and shared modules (NPM).', 'Brand-new CI/CD pipeline (CircleCI).', 'Created standards for networking configurations, CSS and JS syntax linting, and automated testing.', 'Developed our web networking standards, using AWS tools, including all of our deployment configurations, client-side security, and multi-region failover.', 'Technical lead on the creation of our internal component/design pattern library.', 'Grew a team of cross-functional engineers and designers to continue the front-end and mobile work.'],
     startDate: '2016',
     endDate: '2020',
     link: 'https://transfix.io',
@@ -141,14 +114,7 @@ export const careers: Experience[] = [
     specification: 'Web Manager& Developer& Photographer',
     location: 'Asheville, North Carolina',
     level: 'Full-time',
-    accomplishments: [
-      'Lead and primary developer of our entire web presence.',
-      'Created our first mobile site and responsive blog theme within a .NET-backed codebase.',
-      'Redesigned and refactored our marketing site twice, first with Coldfusion and later with Node/MongoDB on the back-end and a custom JS templating language, Goatee, on the front-end.',
-      'Oversaw design aspects of all print- and web-related assets for our various marketing campaigns.',
-      'Primary data analyst for all marketing campaigns, including capturing and segmenting demographic data to drive future campaigns.',
-      'Lead developer and designer of two long-form, media-rich, highly interactive, award-winning web applications with our Node back-end and AngularJS front-end.',
-    ],
+    accomplishments: ['Lead and primary developer of our entire web presence.', 'Created our first mobile site and responsive blog theme within a .NET-backed codebase.', 'Redesigned and refactored our marketing site twice, first with Coldfusion and later with Node/MongoDB on the back-end and a custom JS templating language, Goatee, on the front-end.', 'Oversaw design aspects of all print- and web-related assets for our various marketing campaigns.', 'Primary data analyst for all marketing campaigns, including capturing and segmenting demographic data to drive future campaigns.', 'Lead developer and designer of two long-form, media-rich, highly interactive, award-winning web applications with our Node back-end and AngularJS front-end.'],
     startDate: '2011',
     endDate: '2016',
     link: 'http://www.exploreasheville.com',
@@ -169,8 +135,7 @@ export const careers: Experience[] = [
     specification: 'Designer& Printer',
     location: 'Boone, North Carolina',
     level: 'Part-time',
-    description:
-      "Though this isn't web-related, Derek's experience working in a print shop can be seen in his work as a developer. When a job consists of tens of thousands of prints, the whole process requires an extremely detail-oriented approach, efficiency, and communication among all members of the team to ensure there weren't making mistakes that would cost the company a lot of time/paper/ink/money to fix.",
+    description: "Though this isn't web-related, Derek's experience working in a print shop can be seen in his work as a developer. When a job consists of tens of thousands of prints, the whole process requires an extremely detail-oriented approach, efficiency, and communication among all members of the team to ensure there weren't making mistakes that would cost the company a lot of time/paper/ink/money to fix.",
     accomplishments: [],
     startDate: '2007',
     endDate: '2009',
@@ -181,90 +146,10 @@ export const careers: Experience[] = [
     specification: 'Designer& Developer& Photographer',
     location: 'Boone, North Carolina',
     level: 'Part-time',
-    description:
-      'Derek worked with an intern to establish an online presence for The Appalachian newspaper, while still maintaining his role as the lead graphic designer.',
+    description: 'Derek worked with an intern to establish an online presence for The Appalachian newspaper, while still maintaining his role as the lead graphic designer.',
     accomplishments: [],
     startDate: '2006',
     endDate: '2008',
     link: 'http://theappalachianonline.com',
-  },
-];
-
-export interface SkillTypes {
-  title: string;
-  level: number;
-}
-export const skills: SkillTypes[] = [
-  {
-    title: 'TypeScript',
-    level: 5,
-  },
-  {
-    title: 'A11y',
-    level: 5,
-  },
-  {
-    title: 'I18n',
-    level: 4,
-  },
-  {
-    title: 'Next.js',
-    level: 5,
-  },
-  {
-    title: 'CSS',
-    level: 5,
-  },
-  {
-    title: 'Angular',
-    level: 4,
-  },
-  {
-    title: 'React',
-    level: 5,
-  },
-  {
-    title: 'React Native',
-    level: 5,
-  },
-  {
-    title: 'PHP',
-    level: 3,
-  },
-  {
-    title: 'Flask/Python',
-    level: 4,
-  },
-  {
-    title: 'Django/Python',
-    level: 3,
-  },
-  {
-    title: 'Ruby/Rails',
-    level: 3,
-  },
-  {
-    title: 'Node.js',
-    level: 5,
-  },
-  {
-    title: 'CSS-in-JS',
-    level: 5,
-  },
-  {
-    title: 'DevOps',
-    level: 4,
-  },
-  {
-    title: 'Jest',
-    level: 5,
-  },
-  {
-    title: 'RTL',
-    level: 5,
-  },
-  {
-    title: 'Cypress',
-    level: 5,
   },
 ];

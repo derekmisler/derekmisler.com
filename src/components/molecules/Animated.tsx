@@ -18,8 +18,9 @@ const animationEndCss = css`
 `;
 
 const StyledAnimated = styled.div<AnimatedProps>`
-  opacity: ${(props) => (props.$delay === 0 ? '0.1' : '0')};
-  transform: translateY(1rem);
+  opacity: ${(props) => (props.$delay === 0 ? '1' : '0')};
+  transform: ${(props) =>
+    props.$delay === 0 ? 'translateY(.1rem)' : 'translateY(1rem)'};
   transition: ${LAYOUT_DEFAULTS.transition};
   ${(props) => props.$animated && animationEndCss}
 `;

@@ -21,38 +21,27 @@
   class ThemeToggle extends HTMLElement {
     constructor() {
       super();
-      const THEMES = ['HOMER', 'KOONS', 'WARHOL'];
-
-      const getDefaultTheme = () =>
-        window.matchMedia('(prefers-color-scheme: dark)').matches
-          ? THEMES[0]
-          : THEMES[1];
+      const THEMES = ['grey', 'purple', 'pink', 'green', 'blue'];
+      const button = this.querySelector('button')!;
 
       const getTheme = () => {
         const themeLocalStorage = localStorage.getItem('theme') || '';
         if (THEMES.includes(themeLocalStorage)) return themeLocalStorage;
-        return getDefaultTheme();
+        return THEMES[0];
       };
 
       const setTheme = (theme: string) => {
         document.documentElement.dataset.theme = theme;
         localStorage.setItem('theme', theme);
+        button.innerText = theme;
       };
 
-      const button = this.querySelector('button')!;
       button.addEventListener('click', () => {
         const currentTheme = getTheme();
         const currentThemeIndex = THEMES.findIndex((t) => t === currentTheme);
         const isIndexWithinRange = currentThemeIndex < THEMES.length - 1;
-        const nextTheme = isIndexWithinRange
-          ? THEMES[currentThemeIndex + 1]
-          : THEMES[0];
+        const nextTheme = isIndexWithinRange ? THEMES[currentThemeIndex + 1] : THEMES[0];
         setTheme(nextTheme);
-      });
-
-      const watchSysTheme = window.matchMedia('(prefers-color-scheme: dark)');
-      watchSysTheme.addEventListener('change', () => {
-        setTheme(getDefaultTheme());
       });
 
       setTheme(getTheme());

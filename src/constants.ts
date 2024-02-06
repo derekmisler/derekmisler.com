@@ -1,20 +1,20 @@
 const firstName = 'Derek';
 const lastName = 'Misler';
-export const fullName = `${firstName} ${lastName}`;
-export const headline = 'Software Engineer & Occasional Designer';
-export const subheadline = 'Derek is a front-end engineer and design enthusiast, dedicated to creating accessible and engaging web experiences with a keen eye for UI/UX and typography. This website showcases over 15 years of creating accessible, high-quality web applications and designs that blend functionality with aesthetics.';
-export const title = `${firstName} ${lastName} | ${headline}`;
+const fullName = `${firstName} ${lastName}`;
+const headline = 'Front-end engineer and design enthusiast, dedicated to creating accessible and engaging web experiences with a keen eye for UI/UX and typography.';
+const subheadline = 'A seasoned front-end engineer with 15+ years of experience, I began web development at age 13, driven by curiosity. Skilled in graphic design and diverse web and app development, I excel in crafting accessible, user-friendly digital experiences, combining technical expertise with strong design sensibility and deep UI/UX and typography knowledge.';
+const title = `${fullName} | Front-end engineer and, occasionally, a designer`;
 const socialId = 'derekmisler';
-export const metaDescription = 'Discover the world of Derek Misler, a seasoned front-end engineer with a flair for design. Dive into a portfolio showcasing over 15 years of creating accessible, high-quality web applications and designs that blend functionality with aesthetics.';
+const metaDescription = 'Discover the world of Derek Misler, a seasoned front-end engineer with a flair for design. Dive into a portfolio showcasing over 15 years of creating accessible, high-quality web applications and designs that blend functionality with aesthetics.';
 
-export const contact = {
+const contact = {
   email: `${socialId}@gmail.com`,
   website: `https://${socialId}.com`,
   linkedin: `https://www.linkedin.com/in/${socialId}/`,
   github: `https://github.com/${socialId}`,
 };
 
-export const metadata = {
+const metadata = {
   description: metaDescription,
   abstract: metaDescription,
   title: title,
@@ -40,7 +40,7 @@ export const metadata = {
   verification: { google: 'oM1NjzxvtvPp4JL2t2qo13zUhGnrpGF0Fbgyb6S8vDk' },
 };
 
-export interface Experience {
+interface Experience {
   title: string;
   specification: string;
   location: string;
@@ -51,7 +51,7 @@ export interface Experience {
   endDate: string;
   link?: string;
 }
-export const education: Experience[] = [
+const education: Experience[] = [
   {
     title: 'Appalachian State University',
     specification: 'Graphic Design',
@@ -64,7 +64,7 @@ export const education: Experience[] = [
   },
 ];
 
-export const careers: Experience[] = [
+const careers: Experience[] = [
   {
     title: 'Patreon',
     specification: 'Senior Software Engineer',
@@ -151,84 +151,5 @@ export const careers: Experience[] = [
     startDate: '2006',
     endDate: '2008',
     link: 'http://theappalachianonline.com',
-  },
-];
-
-export interface SkillTypes {
-  title: string;
-  level: number;
-}
-export const skills: SkillTypes[] = [
-  {
-    title: 'TypeScript',
-    level: 5,
-  },
-  {
-    title: 'A11y',
-    level: 5,
-  },
-  {
-    title: 'I18n',
-    level: 4,
-  },
-  {
-    title: 'Next.js',
-    level: 5,
-  },
-  {
-    title: 'CSS',
-    level: 5,
-  },
-  {
-    title: 'Angular',
-    level: 4,
-  },
-  {
-    title: 'React',
-    level: 5,
-  },
-  {
-    title: 'React Native',
-    level: 5,
-  },
-  {
-    title: 'PHP',
-    level: 3,
-  },
-  {
-    title: 'Flask/Python',
-    level: 4,
-  },
-  {
-    title: 'Django/Python',
-    level: 3,
-  },
-  {
-    title: 'Ruby/Rails',
-    level: 3,
-  },
-  {
-    title: 'Node.js',
-    level: 5,
-  },
-  {
-    title: 'CSS-in-JS',
-    level: 5,
-  },
-  {
-    title: 'DevOps',
-    level: 4,
-  },
-  {
-    title: 'Jest',
-    level: 5,
-  },
-  {
-    title: 'RTL',
-    level: 5,
-  },
-  {
-    title: 'Cypress',
-    level: 5,
   },
 ];

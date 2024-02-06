@@ -1,37 +1,24 @@
+@property --hue {
+  syntax: '<angle>';
+  initial-value: .75turn;
+  inherits: false;
+}
+
+@keyframes hue-cycle { to {
+  --hue: 2turn;
+}}
+
 :root {
+  color-scheme: dark;
   --font-body: 'Open Sans', sans-serif;
   --font-head: 'Staatliches', sans-serif;
-  color-scheme: dark;
 }
 
-:root[data-theme='grey'] {
-  --color-bg: oklch(32% 0.009 67.5);
-  --color-text: oklch(72.6% 0.007 174.3);
-  --color-accent: oklch(72.6% 0.007 174.3);
-}
-
-:root[data-theme='purple'] {
-  --color-bg: oklch(18.1% 0.063 342.8);
-  --color-text: oklch(75% 0.165 63.2);
-  --color-accent: oklch(75% 0.165 63.2);
-}
-
-:root[data-theme='pink'] {
-  --color-bg: oklch(25.6% 0.006 17.6);
-  --color-text: oklch(61.7% 0.191 0.2);
-  --color-accent: oklch(61.7% 0.191 0.2);
-}
-
-:root[data-theme='green'] {
-  --color-bg: oklch(24.4% 0.025 163.8);
-  --color-text: oklch(75.4% 0.172 130.1);
-  --color-accent: oklch(75.4% 0.172 130.1);
-}
-
-:root[data-theme='blue'] {
-  --color-bg: oklch(27.9% 0.033 238.7);
-  --color-text: oklch(58.9% 0.236 29.6);
-  --color-accent: oklch(58.9% 0.236 29.6);
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
 }
 
 html,
@@ -41,18 +28,19 @@ body {
 }
 
 body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  background-color: oklch(20% 0.02 var(--hue));
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
+  padding-block: 4rem;
+  padding-inline: 2rem;
+  display: grid;
+  justify-content: center;
 }
 
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-  margin: 0;
+body, h1, h2, h3, h4, h5, h6, p {
+  animation: hue-cycle 1s linear both;
+  animation-timeline: scroll();
 }
 
 img {
@@ -64,11 +52,13 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+h6 {
   font-family: var(--font-head);
   line-height: 1.1;
   font-weight: 600;
-  color: var(--color-accent);
+  color: oklch(65% 0.05 var(--hue));
+  max-inline-size: 20ch;
 }
 
 h1 {
@@ -91,8 +81,19 @@ h5 {
   font-size: 2rem;
 }
 
+h6 {
+  font-size: 1.1rem;
+}
+
 strong {
-  font-weight: 900;
+  font-weight: 800;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.4;
+  max-inline-size: 40ch;
+  color: oklch(90% 0.02 var(--hue));
 }
 
 .wrapper {

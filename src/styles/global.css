@@ -1,17 +1,58 @@
 @property --hue {
   syntax: '<angle>';
-  initial-value: .75turn;
+  initial-value: 0.75turn;
   inherits: false;
 }
 
-@keyframes hue-cycle { to {
-  --hue: 2turn;
-}}
+@keyframes hue-cycle {
+  to {
+    --hue: 2turn;
+  }
+}
 
 :root {
   color-scheme: dark;
   --font-body: 'Open Sans', sans-serif;
   --font-head: 'Staatliches', sans-serif;
+
+  /* set base values */
+  --text-base-size: 16px;
+  --text-scale-ratio: 1.75;
+
+  /* type scale */
+  --text-xs: calc(1em / (var(--text-scale-ratio) * var(--text-scale-ratio)));
+  --text-sm: calc(1em / var(--text-scale-ratio));
+  --text-md: calc(1em * var(--text-scale-ratio));
+  --text-lg: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio));
+  --text-xl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+  --text-xxl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+  --text-xxxl: calc(
+    1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio)
+  );
+
+  /* line height */
+  --heading-line-height: 1.2;
+  --body-line-height: 1.4;
+
+  /* breakpoints */
+  --breakpoint-mobile: 480px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+}
+/* Tablet styles */
+@media (min-width: var(--breakpoint-mobile)) and (max-width: var(--breakpoint-tablet)) {
+  :root {
+    --text-base-size: 16px;
+    --text-scale-ratio: 1;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: var(--breakpoint-desktop)) {
+  :root {
+    --text-base-size: 16px;
+    --text-scale-ratio: 1;
+  }
 }
 
 *,
@@ -27,25 +68,24 @@ body {
   overflow-x: hidden;
 }
 
-body {
-  background-color: oklch(20% 0.02 var(--hue));
-  font-family: var(--font-body);
-  -webkit-font-smoothing: antialiased;
-  line-height: 1.5;
-  padding-block: 4rem;
-  padding-inline: 2rem;
-  display: grid;
-  justify-content: center;
-}
-
-body, h1, h2, h3, h4, h5, h6, p {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   animation: hue-cycle 1s linear both;
   animation-timeline: scroll();
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+body {
+  background-color: oklch(20% 0.02 var(--hue));
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  font-size: var(--text-base-size);
+  color: oklch(90% 0.02 var(--hue));
 }
 
 h1,
@@ -55,47 +95,65 @@ h4,
 h5,
 h6 {
   font-family: var(--font-head);
-  line-height: 1.1;
-  font-weight: 600;
+  margin-bottom: var(--space-xs);
+  line-height: var(--heading-line-height);
   color: oklch(65% 0.05 var(--hue));
-  max-inline-size: 20ch;
 }
 
 h1 {
-  font-size: 6rem;
+  font-size: var(--text-xxxl);
 }
 
 h2 {
-  font-size: 5rem;
+  font-size: var(--text-xxl);
 }
 
 h3 {
-  font-size: 4rem;
+  font-size: var(--text-xl);
 }
 
 h4 {
-  font-size: 3rem;
+  font-size: var(--text-lg);
 }
 
 h5 {
-  font-size: 2rem;
+  font-size: var(--text-md);
 }
 
 h6 {
-  font-size: 1.1rem;
+  font-size: var(--text-sm);
 }
 
-strong {
-  font-weight: 800;
+small {
+  font-size: var(--text-xs);
 }
 
 p {
-  font-size: 1rem;
-  line-height: 1.4;
-  max-inline-size: 40ch;
-  color: oklch(90% 0.02 var(--hue));
+  line-height: var(--body-line-height);
 }
 
+a {
+  color: oklch(90% 0.05 var(--hue));
+}
+a:visited {
+  color: oklch(90% 0.04 var(--hue));
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* utility classes */
 .wrapper {
   width: 100%;
   max-width: 83rem;
@@ -106,4 +164,10 @@ p {
 .stack {
   display: flex;
   flex-direction: column;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

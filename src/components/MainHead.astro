@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { SEO } from 'astro-seo';
 
 interface Props {
   title?: string | undefined;
@@ -10,11 +11,11 @@ const { title = 'Derek', description = 'asdfads' } = Astro.props;
 ---
 
 <meta charset="UTF-8" />
-<meta name="description" property="og:description" content={description} />
 <meta name="viewport" content="width=device-width" />
-<title>{title}</title>
-<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,800;1,400&display=swap&family=Staatliches&display=swap" rel="stylesheet" />
+<SEO
+  title={title}
+  description={description}
+  extend={{
+    link: [{ rel: 'icon', href: '/favicon.ico' }],
+  }}
+/>

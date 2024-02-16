@@ -7,7 +7,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "test": "astro check && prettier . --check --cache && stylelint **/*.css",
-    "build": "yarn test && astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier . --write --cache"

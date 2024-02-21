@@ -13,7 +13,7 @@
 :root {
   color-scheme: dark;
   --font-body: 'Open Sans', sans-serif;
-  --font-head: 'Staatliches', sans-serif;
+  --font-head: 'League Gothic', sans-serif;
 
   /* set base values */
   --text-base-size: 1em;
@@ -108,6 +108,7 @@ h6 {
   margin-bottom: var(--space-xxs);
   line-height: var(--heading-line-height);
   color: oklch(65% 0.05 var(--hue));
+  text-transform: uppercase;
 }
 
 h1 {

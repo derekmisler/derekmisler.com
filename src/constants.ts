@@ -1,45 +1,13 @@
-const firstName = 'Derek';
-const lastName = 'Misler';
-const fullName = `${firstName} ${lastName}`;
-const headline =
-  'Front-end engineer and design enthusiast, dedicated to creating accessible and engaging web experiences with a keen eye for UI/UX and typography.';
-const subheadline =
+export const headline =
   'A seasoned front-end engineer with 15+ years of experience, I began web development at age 13, driven by curiosity. Skilled in graphic design and diverse web and app development, I excel in crafting accessible, user-friendly digital experiences, combining technical expertise with strong design sensibility and deep UI/UX and typography knowledge.';
-const title = `${fullName} | Front-end engineer and, occasionally, a designer`;
+
 const socialId = 'derekmisler';
-const metaDescription =
-  'Discover the world of Derek Misler, a seasoned front-end engineer with a flair for design. Dive into a portfolio showcasing over 15 years of creating accessible, high-quality web applications and designs that blend functionality with aesthetics.';
-
-const contact = {
-  email: `${socialId}@gmail.com`,
-  website: `https://${socialId}.com`,
-  linkedin: `https://www.linkedin.com/in/${socialId}/`,
-  github: `https://github.com/${socialId}`,
-};
-
-const metadata = {
-  description: metaDescription,
-  title,
-  canonical: contact.website,
-  openGraph: {
-    type: 'website',
-    url: contact.website,
-    title,
-    description: metaDescription,
-    siteName: title,
-    images: [
-      {
-        url: '/square.jpg',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    site: contact.website,
-    images: '/horizontal.jpg',
-  },
-  verification: { google: 'oM1NjzxvtvPp4JL2t2qo13zUhGnrpGF0Fbgyb6S8vDk' },
-};
+export const contact: Partial<HTMLAnchorElement>[] = [
+  { href: `mailto:${socialId}@gmail.com?subject=Hello!` },
+  { href: `https://www.linkedin.com/in/${socialId}/` },
+  { href: `https://github.com/${socialId}` },
+  { href: '/derek-misler-resume.pdf', download: 'true' },
+];
 
 interface Experience {
   location: string;
@@ -50,7 +18,7 @@ interface Experience {
   endDate: string;
   link?: string;
 }
-const education: Experience[] = [
+export const education: Experience[] = [
   {
     location: 'Appalachian State University',
     title: 'BFA, Graphic Design',
@@ -61,7 +29,7 @@ const education: Experience[] = [
   },
 ];
 
-const careers: Experience[] = [
+export const careers: Experience[] = [
   {
     location: 'Docker',
     title: 'Senior Software Engineer',

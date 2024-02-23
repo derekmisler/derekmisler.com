@@ -11,7 +11,6 @@
 }
 
 :root {
-  color-scheme: dark;
   --font-body: 'Open Sans', sans-serif;
   --font-head: 'League Gothic', sans-serif;
 
@@ -20,14 +19,12 @@
   --text-scale-ratio: 1.618;
 
   /* type scale */
-  --text-sm: calc(1em / var(--text-scale-ratio));
-  --text-md: calc(1em * var(--text-scale-ratio));
-  --text-lg: calc(1em * pow(var(--text-scale-ratio), 2));
-  --text-xl: calc(1em * pow(var(--text-scale-ratio), 3));
-  --text-xxl: calc(1em * pow(var(--text-scale-ratio), 4));
-  --text-xxxl: calc(1em * pow(var(--text-scale-ratio), 5));
-
-  --text-hero: calc(1em * pow(var(--text-scale-ratio), 6));
+  --text-xs: calc(1em / var(--text-scale-ratio));
+  --text-sm: calc(1em * var(--text-scale-ratio));
+  --text-md: calc(1em * pow(var(--text-scale-ratio), 2));
+  --text-lg: calc(1em * pow(var(--text-scale-ratio), 3));
+  --text-xl: calc(1em * pow(var(--text-scale-ratio), 4));
+  --text-xxl: calc(1em * pow(var(--text-scale-ratio), 5));
 
   /* line height */
   --heading-line-height: 1.2;
@@ -67,25 +64,20 @@
   margin: 0;
 }
 
+html {
+  color-scheme: dark;
+}
+
 html,
 body {
   height: 100%;
   overflow-x: hidden;
-}
-
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  animation: hue-cycle 1s linear both;
-  animation-timeline: scroll();
+  overscroll-behavior-y: none;
 }
 
 body {
+  animation: hue-cycle 1s linear both;
+  animation-timeline: scroll();
   background-color: oklch(20% 0.02 var(--hue));
   font-family: var(--font-body);
   font-size: var(--text-base-size);
@@ -93,69 +85,58 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
   font-family: var(--font-head);
-  margin-bottom: var(--space-xxs);
   line-height: var(--heading-line-height);
   color: oklch(65% 0.05 var(--hue));
   text-transform: uppercase;
 }
 
-h1 {
-  font-size: var(--text-hero);
-}
-
 h2 {
-  font-size: var(--text-xxxl);
-}
-
-h3 {
   font-size: var(--text-xxl);
 }
 
-h4 {
+h3 {
   font-size: var(--text-xl);
 }
 
-h5 {
+h4 {
   font-size: var(--text-lg);
 }
 
-h6 {
+h5 {
   font-size: var(--text-md);
 }
 
-small {
+h6 {
   font-size: var(--text-sm);
 }
 
+small {
+  font-size: var(--text-xs);
+}
+
 p {
-  font-size: var(--text-md);
+  font-size: var(--text-sm);
   line-height: var(--body-line-height);
 }
 
 a {
   color: oklch(90% 0.05 var(--hue));
 }
+
 a:visited {
   color: oklch(90% 0.04 var(--hue));
 }
 
-b,
 strong {
   font-weight: bold;
 }
 
 em {
   font-style: italic;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
 }

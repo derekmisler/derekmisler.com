@@ -1,29 +1,47 @@
 ---
-import { firstName } from '../constants';
+import { fullName } from '../constants';
 ---
 
 <header>
-  <svg preserveAspectRatio="xMinYMin" viewBox="0 0 1500 150" role="heading" aria-level="1">
-    <text x="50%" y="50%" text-anchor="middle" alignment-baseline="central" dominant-baseline="central">{firstName}</text>
+  <svg preserveAspectRatio="xMinYMin" viewBox="0 0 1640 380" role="heading" aria-level="1">
+    <text x="50%" y="50%">{fullName}</text>
   </svg>
 </header>
 
 <style>
   header {
     width: 100vw;
-    height: 100vh;
+    margin-top: -2vw;
+    height: 300vh;
   }
 
   svg {
     width: 100%;
+    overflow: visible;
   }
 
   text {
-    font-family: var(--font-head);
-    font-size: var(--text-hero);
-    text-transform: uppercase;
-    fill: oklch(65% 0.05 var(--hue));
     animation: hue-cycle 1s linear both;
     animation-timeline: scroll();
+    font-family: var(--font-head);
+    font-size: 500px;
+    font-kerning: normal;
+    letter-spacing: -20px;
+    text-transform: uppercase;
+    fill: oklch(65% 0.1 var(--hue));
+    text-shadow:
+      1px 1px 0px oklch(55% 0.1 var(--hue)),
+      2px 2px 0px oklch(55% 0.1 var(--hue)),
+      3px 3px 0px oklch(55% 0.1 var(--hue)),
+      4px 4px 0px oklch(55% 0.1 var(--hue)),
+      5px 5px 0px oklch(55% 0.1 var(--hue)),
+      6px 6px 0.2px oklch(55% 0.1 var(--hue)),
+      7px 7px 0.4px oklch(55% 0.1 var(--hue)),
+      8px 8px 0.6px oklch(55% 0.1 var(--hue)),
+      9px 9px 0.8px oklch(55% 0.1 var(--hue)),
+      10px 10px 1px oklch(55% 0.1 var(--hue));
+    text-anchor: middle;
+    dominant-baseline: central;
+    alignment-baseline: central;
   }
 </style>

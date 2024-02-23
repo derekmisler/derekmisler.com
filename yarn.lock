@@ -484,16 +484,6 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.19.11.tgz#a5d300008960bb39677c46bf16f53ec70d8dee04"
   integrity sha512-vfkhltrjCAb603XaFhqhAF4LGDi2M4OrCRrFusyQ+iTLQ/o60QQXxc9cZC/FFpihBI9N1Grn6SMKVJ4KP7Fuiw==
 
-"@fontsource/league-gothic@^5.0.18":
-  version "5.0.18"
-  resolved "https://registry.yarnpkg.com/@fontsource/league-gothic/-/league-gothic-5.0.18.tgz#baa07f6a0295c001d1170f2f829502ec823085ba"
-  integrity sha512-jccZ4qdBuuHXDYC8OOURNoGm+uflx03HvWh516nkXDw+nIJSAG5aDTNLVg7uaJMvyII4MXG4o49QKZ29Yv7zbw==
-
-"@fontsource/open-sans@^5.0.24":
-  version "5.0.24"
-  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-5.0.24.tgz#02f85e51d0ee75c3c2f42f683cd486364f99e2d9"
-  integrity sha512-bIF+87vxfOPTyvnBKS+rCPmz/m66um3zCk1UdPv8RGBgwu6MMxwED0jpcbvyFSkfy0ApcdjfkDSAhlFTm/pgiw==
-
 "@isaacs/cliui@^8.0.2":
   version "8.0.2"
   resolved "https://registry.npmjs.org/@isaacs/cliui/-/cliui-8.0.2.tgz"

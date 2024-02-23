@@ -22,14 +22,12 @@
   /* type scale */
   --text-sm: calc(1em / var(--text-scale-ratio));
   --text-md: calc(1em * var(--text-scale-ratio));
-  --text-lg: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio));
-  --text-xl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
-  --text-xxl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
-  --text-xxxl: calc(
-    1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio)
-  );
+  --text-lg: calc(1em * pow(var(--text-scale-ratio), 2));
+  --text-xl: calc(1em * pow(var(--text-scale-ratio), 3));
+  --text-xxl: calc(1em * pow(var(--text-scale-ratio), 4));
+  --text-xxxl: calc(1em * pow(var(--text-scale-ratio), 5));
 
-  --text-hero: 250px;
+  --text-hero: calc(1em * pow(var(--text-scale-ratio), 6));
 
   /* line height */
   --heading-line-height: 1.2;
@@ -51,14 +49,11 @@
   --space-xxl: 5.25em;
   --space-xxxl: 8.5em;
 }
-/* Tablet styles */
 @media (min-width: var(--breakpoint-mobile)) and (max-width: var(--breakpoint-tablet)) {
   :root {
     --text-base-size: 18px;
   }
 }
-
-/* Desktop styles */
 @media (min-width: var(--breakpoint-desktop)) {
   :root {
     --text-base-size: 24px;

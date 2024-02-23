@@ -1,0 +1,29 @@
+---
+import { firstName } from '../constants';
+---
+
+<header>
+  <svg preserveAspectRatio="xMinYMin" viewBox="0 0 1500 150" role="heading" aria-level="1">
+    <text x="50%" y="50%" text-anchor="middle" alignment-baseline="central" dominant-baseline="central">{firstName}</text>
+  </svg>
+</header>
+
+<style>
+  header {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  svg {
+    width: 100%;
+  }
+
+  text {
+    font-family: var(--font-head);
+    font-size: var(--text-hero);
+    text-transform: uppercase;
+    fill: oklch(65% 0.05 var(--hue));
+    animation: hue-cycle 1s linear both;
+    animation-timeline: scroll();
+  }
+</style>

@@ -9,6 +9,14 @@ export const contact: Partial<HTMLAnchorElement>[] = [
   { href: '/derek-misler-resume.pdf', download: 'true' },
 ];
 
+export const firstName = 'Derek';
+export const lastName = 'Misler';
+export const fullName = `${firstName} ${lastName}`;
+export const description =
+  'Discover the world of Derek Misler, a seasoned front-end engineer with a flair for design. Dive into a portfolio showcasing over 15 years of creating accessible, high-quality web applications and designs that blend functionality with aesthetics.';
+export const socialTitle =
+  'A seasoned front-end engineer and design enthusiast, dedicated to creating accessible and engaging web experiences, with a keen eye for UI/UX and typography.';
+
 interface Experience {
   location: string;
   title: string;

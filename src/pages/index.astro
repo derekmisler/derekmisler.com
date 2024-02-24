@@ -1,15 +1,15 @@
 ---
+import Section from '../components/Section.astro';
 import Header from '../components/Header.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+import { headline } from '../constants';
 ---
 
 <BaseLayout>
   <Header />
-
   <main>
-    <section>
-      <header></header>
-    </section>
+    <Section><p>{headline}</p></Section>
   </main>
 </BaseLayout>
 

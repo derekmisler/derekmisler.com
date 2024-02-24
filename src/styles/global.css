@@ -6,7 +6,6 @@
   src:
     url(/fonts/league-gothic-latin-400-normal.woff2) format('woff2'),
     url(/fonts/league-gothic-latin-400-normal.woff) format('woff');
-  unicode-range: U+0044, U+0045, U+0049, U+004B, U+004C, U+004D, U+0052, U+0053;
 }
 @font-face {
   font-family: 'Open Sans';
@@ -28,7 +27,7 @@
 
 @keyframes hue-cycle {
   to {
-    --hue: 2turn;
+    --hue: 4turn;
   }
 }
 
@@ -37,7 +36,7 @@
   --font-head: 'League Gothic', sans-serif;
 
   /* set base values */
-  --text-base-size: 1em;
+  --text-base-size: 16px;
   --text-scale-ratio: 1.618;
 
   /* type scale */
@@ -97,9 +96,18 @@ body {
   overscroll-behavior-y: none;
 }
 
-body {
+body,
+h2,
+h3,
+h4,
+h5,
+h6,
+text {
   animation: hue-cycle 1s linear both;
   animation-timeline: scroll();
+}
+
+body {
   background-color: oklch(20% 0.02 var(--hue));
   font-family: var(--font-body);
   font-size: var(--text-base-size);

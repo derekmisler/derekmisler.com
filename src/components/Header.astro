@@ -1,5 +1,5 @@
 ---
-import { fullName } from '../constants';
+import { fullName, headline } from '../constants';
 ---
 
 <header>
@@ -12,7 +12,6 @@ import { fullName } from '../constants';
   header {
     width: 100vw;
     margin-top: -2vw;
-    height: 300vh;
   }
 
   svg {
@@ -21,8 +20,6 @@ import { fullName } from '../constants';
   }
 
   text {
-    animation: hue-cycle 1s linear both;
-    animation-timeline: scroll();
     font-family: var(--font-head);
     font-size: 500px;
     font-kerning: normal;

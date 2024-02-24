@@ -1,6 +1,12 @@
 export const headline =
   'A seasoned front-end engineer with 15+ years of experience, I began web development at age 13, driven by curiosity. Skilled in graphic design and diverse web and app development, I excel in crafting accessible, user-friendly digital experiences, combining technical expertise with strong design sensibility and deep UI/UX and typography knowledge.';
 
+export const firstName = 'Derek';
+export const lastName = 'Misler';
+export const fullName = `${firstName} ${lastName}`;
+export const description =
+  'Discover the world of Derek Misler, a seasoned front-end engineer with a flair for design. Dive into a portfolio showcasing over 15 years of creating accessible, high-quality web applications and designs that blend functionality with aesthetics.';
+
 const socialId = 'derekmisler';
 export const contact: Partial<HTMLAnchorElement>[] = [
   { href: `mailto:${socialId}@gmail.com?subject=Hello!` },
@@ -8,14 +14,18 @@ export const contact: Partial<HTMLAnchorElement>[] = [
   { href: `https://github.com/${socialId}` },
   { href: '/derek-misler-resume.pdf', download: 'true' },
 ];
-
-export const firstName = 'Derek';
-export const lastName = 'Misler';
-export const fullName = `${firstName} ${lastName}`;
-export const description =
-  'Discover the world of Derek Misler, a seasoned front-end engineer with a flair for design. Dive into a portfolio showcasing over 15 years of creating accessible, high-quality web applications and designs that blend functionality with aesthetics.';
 export const socialTitle =
   'A seasoned front-end engineer and design enthusiast, dedicated to creating accessible and engaging web experiences, with a keen eye for UI/UX and typography.';
+
+type Skills = [string, string[]];
+export const skills: Skills[] = [
+  ['Languages', ['HTML', 'CSS', 'JavaScript/TypeScript', 'Python', 'Ruby']],
+  ['Frameworks & Libraries', ['React', 'Redux', 'Next.js', 'Astro', 'Flask', 'Django', 'Rails', 'Node.js', 'React Native', 'AngularJS', 'Aurelia']],
+  ['Tools & Technologies', ['Webpack', 'Babel', 'swc', 'ESLint', 'Prettier', 'NPM/Yarn', 'Docker', 'AWS', 'GCP', 'CircleCI']],
+  ['Testing', ['Jest', 'React Testing Library (RTL)', 'Cypress', 'Enzyme', 'Storybook', 'Chromatic']],
+  ['Design & UX', ['Figma', 'UI/UX', 'Responsive/Mobile-First Design', 'Typography', 'Tailwind']],
+  ['Other Skills', ['SEO', 'A11y', 'Functional Programming', 'API Design', 'Performance', 'PWAs']],
+];
 
 interface Experience {
   location: string;

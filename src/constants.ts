@@ -1,4 +1,7 @@
 export const headline =
+  'Front-end engineer and design enthusiast, dedicated to creating accessible and engaging web experiences with a keen eye for UI/UX and typography.';
+
+export const subHeadline =
   'A seasoned front-end engineer with 15+ years of experience, I began web development at age 13, driven by curiosity. Skilled in graphic design and diverse web and app development, I excel in crafting accessible, user-friendly digital experiences, combining technical expertise with strong design sensibility and deep UI/UX and typography knowledge.';
 
 export const firstName = 'Derek';
@@ -14,8 +17,6 @@ export const contact: Partial<HTMLAnchorElement>[] = [
   { href: `https://github.com/${socialId}` },
   { href: '/derek-misler-resume.pdf', download: 'true' },
 ];
-export const socialTitle =
-  'A seasoned front-end engineer and design enthusiast, dedicated to creating accessible and engaging web experiences, with a keen eye for UI/UX and typography.';
 
 type Skills = [string, string[]];
 export const skills: Skills[] = [

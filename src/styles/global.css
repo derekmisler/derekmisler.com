@@ -1,12 +1,13 @@
 @font-face {
-  font-family: 'League Gothic';
+  font-family: 'Oswald';
   font-style: normal;
   font-display: block;
   font-weight: 400;
   src:
-    url(/fonts/league-gothic-latin-400-normal.woff2) format('woff2'),
-    url(/fonts/league-gothic-latin-400-normal.woff) format('woff');
+    url(/fonts/oswald-latin-700-normal.woff2) format('woff2'),
+    url(/fonts/oswald-latin-700-normal.woff) format('woff');
 }
+
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
@@ -19,65 +20,6 @@
     U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-@property --hue {
-  syntax: '<angle>';
-  initial-value: 0.75turn;
-  inherits: false;
-}
-
-@keyframes hue-cycle {
-  to {
-    --hue: 4turn;
-  }
-}
-
-:root {
-  --font-body: 'Open Sans', sans-serif;
-  --font-head: 'League Gothic', sans-serif;
-
-  /* set base values */
-  --text-base-size: 16px;
-  --text-scale-ratio: 1.618;
-
-  /* type scale */
-  --text-xs: calc(1em / var(--text-scale-ratio));
-  --text-sm: calc(1em * var(--text-scale-ratio));
-  --text-md: calc(1em * pow(var(--text-scale-ratio), 2));
-  --text-lg: calc(1em * pow(var(--text-scale-ratio), 3));
-  --text-xl: calc(1em * pow(var(--text-scale-ratio), 4));
-  --text-xxl: calc(1em * pow(var(--text-scale-ratio), 5));
-
-  /* line height */
-  --heading-line-height: 1.2;
-  --body-line-height: 1.4;
-
-  /* breakpoints */
-  --breakpoint-mobile: 480px;
-  --breakpoint-tablet: 768px;
-  --breakpoint-desktop: 1024px;
-
-  /* spacing values */
-  --space-xxxs: 0.25em;
-  --space-xxs: 0.375em;
-  --space-xs: 0.5em;
-  --space-sm: 0.75em;
-  --space-md: 1.25em;
-  --space-lg: 2em;
-  --space-xl: 3.25em;
-  --space-xxl: 5.25em;
-  --space-xxxl: 8.5em;
-}
-@media (min-width: var(--breakpoint-mobile)) and (max-width: var(--breakpoint-tablet)) {
-  :root {
-    --text-base-size: 18px;
-  }
-}
-@media (min-width: var(--breakpoint-desktop)) {
-  :root {
-    --text-base-size: 24px;
-  }
-}
-
 *,
 *::after,
 *::before {
@@ -87,6 +29,41 @@
 
 html {
   color-scheme: dark;
+  --color-dark: oklch(30% 0.02 264);
+  --color-light: oklch(90% 0.01 264);
+  --color-accent: oklch(65% 0.1 264);
+
+  --font-body: 'Open Sans', sans-serif;
+  --font-head: 'Oswald', Impact, sans-serif;
+
+  /* set base values */
+  --text-base-size: 16px;
+  --text-scale-ratio: 1.618;
+
+  /* type scale */
+  --text-xs: calc(1em / pow(var(--text-scale-ratio), 2));
+  --text-sm: calc(1em / var(--text-scale-ratio));
+  --text-md: calc(1em * var(--text-scale-ratio));
+  --text-lg: calc(1em * pow(var(--text-scale-ratio), 2));
+  --text-xl: calc(1em * pow(var(--text-scale-ratio), 3));
+
+  /* line height */
+  --heading-line-height: 1;
+  --body-line-height: 1.4;
+}
+
+/* Tablet and up */
+@media screen and (min-width: 40em) {
+  html {
+    --text-base-size: 20px;
+  }
+}
+
+/* Desktop and up */
+@media screen and (min-width: 64em) {
+  html {
+    --text-base-size: 26px;
+  }
 }
 
 html,
@@ -96,23 +73,14 @@ body {
   overscroll-behavior-y: none;
 }
 
-body,
-h2,
-h3,
-h4,
-h5,
-h6,
-text {
-  animation: hue-cycle 1s linear both;
-  animation-timeline: scroll();
-}
-
 body {
-  background-color: oklch(20% 0.02 var(--hue));
+  background-color: var(--color-dark);
   font-family: var(--font-body);
   font-size: var(--text-base-size);
-  color: oklch(90% 0.02 var(--hue));
+  line-height: var(--body-line-height);
+  color: var(--color-light);
   -webkit-font-smoothing: antialiased;
+  position: relative;
 }
 
 h2,
@@ -122,27 +90,23 @@ h5,
 h6 {
   font-family: var(--font-head);
   line-height: var(--heading-line-height);
-  color: oklch(65% 0.05 var(--hue));
+  color: var(--color-accent);
   text-transform: uppercase;
 }
 
 h2 {
-  font-size: var(--text-xxl);
-}
-
-h3 {
   font-size: var(--text-xl);
 }
 
-h4 {
+h3 {
   font-size: var(--text-lg);
 }
 
-h5 {
+h4 {
   font-size: var(--text-md);
 }
 
-h6 {
+p {
   font-size: var(--text-sm);
 }
 
@@ -150,17 +114,9 @@ small {
   font-size: var(--text-xs);
 }
 
-p {
-  font-size: var(--text-sm);
-  line-height: var(--body-line-height);
-}
-
-a {
-  color: oklch(90% 0.05 var(--hue));
-}
-
+a,
 a:visited {
-  color: oklch(90% 0.04 var(--hue));
+  color: var(--color-accent);
 }
 
 strong {

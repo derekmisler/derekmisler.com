@@ -3,7 +3,7 @@ import '../styles/global.css';
 
 import { SEO } from 'astro-seo';
 
-import { fullName, description, socialTitle } from '../constants';
+import { fullName, description, headline } from '../constants';
 ---
 
 <html lang="en">
@@ -18,14 +18,14 @@ import { fullName, description, socialTitle } from '../constants';
       openGraph={{
         basic: {
           type: 'website',
-          title: `${fullName} | ${socialTitle}`,
+          title: `${fullName} | ${headline}`,
           image: `${Astro.url.href}square.jpg`,
         },
         optional: { description },
       }}
       twitter={{
         card: 'summary_large_image',
-        title: `${fullName} | ${socialTitle}`,
+        title: `${fullName} | ${headline}`,
         description,
         image: `${Astro.url.href}horizontal.jpg`,
       }}

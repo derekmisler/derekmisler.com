@@ -1,10 +1,13 @@
 ---
-import { fullName } from '@/constants';
+import { firstName, lastName } from '@/constants';
 ---
 
 <header>
   <svg preserveAspectRatio="xMinYMin" viewBox="0 0 2550 380" role="heading" aria-level="1">
-    <text x="49%" y="50%">{fullName}</text>
+    <text x="49%" y="50%">{firstName}</text>
+  </svg>
+  <svg preserveAspectRatio="xMinYMin" viewBox="0 0 2550 380" role="heading" aria-level="1">
+    <text x="49%" y="50%">{lastName}</text>
   </svg>
 </header>
 
@@ -45,7 +48,7 @@ import { fullName } from '@/constants';
     animation: hue-cycle 1s linear both;
     animation-timeline: scroll();
     font-family: var(--font-head);
-    font-size: 500px;
+    font-size: 1000px;
     font-weight: 700;
     font-kerning: normal;
     letter-spacing: -35px;

@@ -7,11 +7,13 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "test": "astro check && prettier . --check --cache && eslint . && stylelint **/*.css",
+    "test": "astro check && prettier . --check --cache && eslint . && stylelint **/*.{css,astro}",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier . --write --cache && eslint . --fix"
+    "style:fix": "stylelint **/*.{css,astro} --fix",
+    "lint:fix": "eslint . --fix",
+    "format:fix": "prettier . --write --cache && yarn run lint:fix"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
@@ -26,9 +28,11 @@
     "eslint": "^9.2.0",
     "eslint-plugin-astro": "^1.1.2",
     "eslint-plugin-jsx-a11y": "^6.8.0",
+    "postcss-html": "^1.6.0",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
     "stylelint": "^16.5.0",
+    "stylelint-config-html": "^1.1.0",
     "stylelint-gamut": "^1.3.4"
   }
 }

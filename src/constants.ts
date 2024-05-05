@@ -52,7 +52,7 @@ export const careers: Experience[] = [
   {
     location: 'Docker',
     title: 'Senior Software Engineer',
-    accomplishments: [],
+    accomplishments: ['Technical lead on the development of analytics dashboards for enterprise customers.'],
     startDate: '2024',
     endDate: 'Present',
     link: 'https://www.docker.com',
@@ -62,7 +62,7 @@ export const careers: Experience[] = [
     title: 'Senior Software Engineer',
     accomplishments: [
       'Senior engineer on the front-end platform team with a focus on our large-scale front-end architecture migration from a Flask/React multi-page app and an in-house server-rendering service to Next.js.',
-      'Led the front-end development of the migration, and partnered with the BE platform and infra teams, resulting in an immediate 55% decrease in LCP, the primary metric used for the project’s KRs.',
+      'Led the front-end development of the migration, and partnered with the BE platform and infra teams, resulting in an immediate 55% decrease in LCP, the primary metric used for the project\u2019s KRs.',
       'Developed a pattern that enabled our team to migrate features incrementally without blocking others.',
       'This included feature flag support for percentage-based rollouts, error alerting with Pager Duty/Sentry/Slack, and DataDog dashboards for monitoring.',
       'The migration also included setting up scheduled QA sessions with all product teams, to facilitate knowledge sharing and developing all comms, including regular status updates for both upper management the engineering teams.',

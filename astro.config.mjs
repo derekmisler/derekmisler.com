@@ -1,4 +1,3 @@
-import eslintPluginAstro from 'eslint-plugin-astro';
 import sitemap from '@astrojs/sitemap';
 import vercelStatic from '@astrojs/vercel/static';
 import { defineConfig } from 'astro/config';
@@ -9,5 +8,4 @@ export default defineConfig({
   adapter: vercelStatic(),
   site: 'https://derekmisler.com',
   integrations: [sitemap()],
-  ...eslintPluginAstro.configs.recommended,
 });

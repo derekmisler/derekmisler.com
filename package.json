@@ -7,11 +7,11 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "test": "astro check && prettier . --check --cache && stylelint **/*.css",
+    "test": "astro check && prettier . --check --cache && eslint . && stylelint **/*.css",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier . --write --cache"
+    "format": "prettier . --write --cache && eslint . --fix"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",

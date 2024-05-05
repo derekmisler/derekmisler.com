@@ -1,8 +1,4 @@
+// @ts-check
 import eslintPluginAstro from 'eslint-plugin-astro';
-export default [
-  ...eslintPluginAstro.configs['recommended'],
-  ...eslintPluginAstro.configs['jsx-a11y-strict'],
-  {
-    files: ['**/*.ts', '**/*.tsx', '**/*.astro'],
-  },
-];
+
+export default [...eslintPluginAstro.configs['flat/recommended'], ...eslintPluginAstro.configs['flat/jsx-a11y-strict']];

@@ -20,14 +20,6 @@ import { fullName } from '../constants';
       --hue: 1.25turn;
     }
   }
-  @keyframes fade-out {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-  }
 
   html {
     --lightness: 55%;
@@ -38,7 +30,7 @@ import { fullName } from '../constants';
     width: 100vw;
     position: sticky;
     top: 0;
-    animation: fade-out auto linear both;
+    animation: hue-cycle auto linear both;
     animation-timeline: scroll();
     animation-range: 50vh 100vh;
   }

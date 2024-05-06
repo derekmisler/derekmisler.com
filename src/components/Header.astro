@@ -3,9 +3,9 @@ import { firstName, lastName } from '@/constants';
 ---
 
 <header>
-  <svg preserveAspectRatio="xMinYMin" viewBox="0 0 2550 380" role="heading" aria-level="1">
+  <svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 2550 380" role="heading" aria-level="1">
     <text x="49%" y="100%">{firstName}</text>
-    <text x="49%" y="250%">{lastName}</text>
+    <text x="49%" y="300%">{lastName}</text>
   </svg>
 </header>
 
@@ -22,7 +22,7 @@ import { firstName, lastName } from '@/constants';
     }
   }
 
-  html {
+  :root {
     --lightness: 55%;
     --chroma: 0.1;
   }
@@ -31,9 +31,6 @@ import { firstName, lastName } from '@/constants';
     width: 100vw;
     position: sticky;
     top: 0;
-    animation: hue-cycle auto linear both;
-    animation-timeline: scroll();
-    animation-range: 50vh 100vh;
   }
 
   svg {
@@ -51,18 +48,10 @@ import { firstName, lastName } from '@/constants';
     font-kerning: normal;
     letter-spacing: -35px;
     text-transform: uppercase;
-    fill: oklch(65% 0.1 var(--hue));
+    fill: var(--color-light);
     text-shadow:
-      1px 1px 0.1px oklch(var(--lightness) var(--chroma) var(--hue)),
-      2px 2px 0.2px oklch(var(--lightness) var(--chroma) var(--hue)),
-      3px 3px 0.3px oklch(var(--lightness) var(--chroma) var(--hue)),
-      4px 4px 0.4px oklch(var(--lightness) var(--chroma) var(--hue)),
-      5px 5px 0.5px oklch(var(--lightness) var(--chroma) var(--hue)),
-      6px 6px 0.6px oklch(var(--lightness) var(--chroma) var(--hue)),
-      7px 7px 0.7px oklch(var(--lightness) var(--chroma) var(--hue)),
-      8px 8px 0.8px oklch(var(--lightness) var(--chroma) var(--hue)),
-      9px 9px 0.9px oklch(var(--lightness) var(--chroma) var(--hue)),
-      10px 10px 1px oklch(var(--lightnes,) var(--chroma) var(--hue));
+      10px 10px 1px var(--color-red),
+      -10px -10px 1px var(--color-blue);
     text-anchor: middle;
     dominant-baseline: central;
     alignment-baseline: central;

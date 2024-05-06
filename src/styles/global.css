@@ -30,6 +30,8 @@ html {
   --color-dark: oklch(30% 0.02 264);
   --color-light: oklch(90% 0.01 264);
   --color-accent: oklch(65% 0.1 264);
+  --color-red: oklch(60.61% 0.121 15.34);
+  --color-blue: oklch(59.44% 0.077 254.03);
 
   --font-body: 'IBM', sans-serif;
   --font-head: 'Oswald', Impact, sans-serif;

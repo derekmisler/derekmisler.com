@@ -1,17 +1,49 @@
 ---
-import Section from '@/components/Section.astro';
-import Header from '@/components/Header.astro';
-import BaseLayout from '@/layouts/BaseLayout.astro';
+import '@/styles/global.css';
 
-import { headline } from '@/constants';
+import { SEO } from 'astro-seo';
+
+import Header from '@/components/Header.astro';
+import Section from '@/components/Section.astro';
+
+import { description, fullName, headline } from '../constants';
 ---
 
-<BaseLayout>
-  <Header />
-  <main>
-    <Section>
-    </Section>
-  </main>
-</BaseLayout>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <SEO
+      title={fullName}
+      titleTemplate="%s | Front-end engineer and an occasional designer"
+      description={description}
+      openGraph={{
+        basic: {
+          type: 'website',
+          title: `${fullName} | ${headline}`,
+          image: `${Astro.url.href}square.jpg`,
+        },
+        optional: { description },
+      }}
+      twitter={{
+        card: 'summary_large_image',
+        title: `${fullName} | ${headline}`,
+        description,
+        image: `${Astro.url.href}horizontal.jpg`,
+      }}
+      extend={{
+        link: [{ rel: 'icon', href: `${Astro.url.href}favicon.ico` }],
+        meta: [{ name: 'google-site-verification', content: 'oM1NjzxvtvPp4JL2t2qo13zUhGnrpGF0Fbgyb6S8vDk' }],
+      }}
+    />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <Section />
+    </main>
+  </body>
+</html>
 
 <style></style>

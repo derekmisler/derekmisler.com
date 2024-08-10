@@ -1,12 +1,9 @@
 ---
-import { firstName, lastName } from '@/constants';
+import { firstName } from '@/constants';
 ---
 
 <header>
-  <svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 2550 380" role="heading" aria-level="1">
-    <text x="49%" y="100%">{firstName}</text>
-    <text x="49%" y="300%">{lastName}</text>
-  </svg>
+  <h1>{firstName}</h1>
 </header>
 
 <style>
@@ -18,42 +15,27 @@ import { firstName, lastName } from '@/constants';
 
   @keyframes hue-cycle {
     to {
-      --hue: 1.25turn;
+      --hue: 4turn;
     }
-  }
-
-  :root {
-    --lightness: 55%;
-    --chroma: 0.1;
   }
 
   header {
     width: 100vw;
-    position: sticky;
-    top: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
   }
 
-  svg {
-    width: 100%;
-    overflow: visible;
-    margin-bottom: var(--text-xl);
-  }
-
-  text {
-    animation: hue-cycle 1s linear both;
-    animation-timeline: scroll();
+  h1 {
     font-family: var(--font-head);
-    font-size: 800px;
+    font-size: 30vw;
+    line-height: 1;
     font-weight: 700;
     font-kerning: normal;
-    letter-spacing: -35px;
-    text-transform: uppercase;
-    fill: var(--color-light);
-    text-shadow:
-      10px 10px 1px var(--color-red),
-      -10px -10px 1px var(--color-blue);
-    text-anchor: middle;
-    dominant-baseline: central;
-    alignment-baseline: central;
+    letter-spacing: -2vw;
+    animation: hue-cycle 1s linear both;
+    animation-timeline: scroll();
+    color: oklch(85% 0.05 var(--hue));
   }
 </style>

@@ -1,6 +1,4 @@
 import localFont from 'next/font/local';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Analytics } from '@vercel/analytics/react';
 
 import { StyledComponentsRegistry } from 'components/molecules/StyledComponentsRegistry';
 export { metadata, viewport } from 'constants/resume';
@@ -22,8 +20,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={font.variable}>
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-        <SpeedInsights />
-        <Analytics />
       </body>
     </html>
   );

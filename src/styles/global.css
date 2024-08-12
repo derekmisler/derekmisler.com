@@ -1,21 +1,27 @@
 @font-face {
-  font-family: 'Oswald';
+  font-family: 'IBM Thin';
   font-style: normal;
-  font-display: block;
-  font-weight: 400;
-  src:
-    url(/fonts/oswald-latin-700-normal.woff2) format('woff2'),
-    url(/fonts/oswald-latin-700-normal.woff) format('woff');
+  font-display: swap;
+  font-weight: 100;
+  src: url(/fonts/IBMPlexSerif-Thin.ttf) format('truetype');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
   font-family: 'IBM';
   font-style: normal;
   font-display: swap;
-  font-weight: 500;
+  font-weight: 400;
   src: url(/fonts/IBMPlexSerif-Regular.ttf) format('truetype');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
-    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'IBM Italic';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400;
+  src: url(/fonts/IBMPlexSerif-Italic.ttf) format('truetype');
 }
 
 *,
@@ -33,8 +39,9 @@ html {
   --color-red: oklch(60.61% 0.121 15.34);
   --color-blue: oklch(59.44% 0.077 254.03);
 
-  --font-body: 'IBM', sans-serif;
-  --font-head: 'Oswald', Impact, sans-serif;
+  --font-body: 'IBM', serif;
+  --font-head: 'IBM Thin', serif;
+  --font-accent: 'IBM Italic', serif;
 
   /* set base values */
   --text-base-size: 20px;
@@ -125,4 +132,5 @@ strong {
 
 em {
   font-style: italic;
+  font-family: var(--font-italic);
 }

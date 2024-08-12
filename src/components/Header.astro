@@ -3,19 +3,21 @@ import { firstName } from '@/constants';
 ---
 
 <header>
-  <h1>{firstName}</h1>
+  <svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 2550 380" role="heading" aria-level="1">
+    <text x="-1%" y="100%">I'm {firstName}</text>
+  </svg>
 </header>
 
 <style>
   @property --hue {
     syntax: '<angle>';
-    initial-value: 0.75turn;
+    initial-value: 0turn;
     inherits: false;
   }
 
   @keyframes hue-cycle {
     to {
-      --hue: 4turn;
+      --hue: 5turn;
     }
   }
 
@@ -23,19 +25,28 @@ import { firstName } from '@/constants';
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: var(--text-sm);
   }
 
-  h1 {
-    font-family: var(--font-head);
-    font-size: 30vw;
-    line-height: 1;
-    font-weight: 700;
-    font-kerning: normal;
-    letter-spacing: -2vw;
+  svg {
+    width: 100%;
+    overflow: visible;
+    margin: 0;
+  }
+
+  text {
     animation: hue-cycle 1s linear both;
     animation-timeline: scroll();
-    color: oklch(85% 0.05 var(--hue));
+    font-family: var(--font-head);
+    font-size: 550px;
+    font-kerning: normal;
+    font-weight: 100;
+    line-height: var(--heading-line-height);
+    animation: hue-cycle 1s linear both;
+    animation-timeline: scroll();
+    fill: oklch(85% 0.05 var(--hue));
   }
 </style>

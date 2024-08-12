@@ -32,12 +32,10 @@
 }
 
 html {
-  color-scheme: dark;
-  --color-dark: oklch(30% 0.02 264);
-  --color-light: oklch(90% 0.01 264);
-  --color-accent: oklch(65% 0.1 264);
-  --color-red: oklch(60.61% 0.121 15.34);
-  --color-blue: oklch(59.44% 0.077 254.03);
+  color-scheme: light;
+  --color-dark: oklch(20.9% 0 0);
+  --color-light: oklch(90.17% 0.022 76.52);
+  --color-accent: oklch(70% 0.17 45);
 
   --font-body: 'IBM', serif;
   --font-head: 'IBM Thin', serif;
@@ -81,11 +79,11 @@ body {
 }
 
 body {
-  background-color: var(--color-dark);
+  background-color: var(--color-light);
   font-family: var(--font-body);
   font-size: var(--text-base-size);
   line-height: var(--body-line-height);
-  color: var(--color-light);
+  color: var(--color-dark);
   -webkit-font-smoothing: antialiased;
   position: relative;
 }
@@ -98,7 +96,6 @@ h6 {
   font-family: var(--font-head);
   line-height: var(--heading-line-height);
   color: var(--color-accent);
-  text-transform: uppercase;
 }
 
 h2 {
@@ -123,7 +120,7 @@ small {
 
 a,
 a:visited {
-  color: var(--color-accent);
+  color: var(--color-dark);
 }
 
 strong {

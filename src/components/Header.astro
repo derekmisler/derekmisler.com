@@ -2,7 +2,7 @@
 import { firstName } from '@/constants';
 ---
 
-<header>
+<header class="fade-out">
   <svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 2550 380" role="heading" aria-level="1">
     <text x="-1%" y="100%">I'm {firstName}</text>
   </svg>
@@ -17,18 +17,12 @@ import { firstName } from '@/constants';
 
   @keyframes hue-cycle {
     to {
-      --hue: 5turn;
+      --hue: 2turn;
     }
   }
 
   header {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
     justify-content: flex-end;
-    align-items: flex-start;
-    flex-direction: column;
-    padding: var(--text-sm);
   }
 
   svg {
@@ -38,16 +32,12 @@ import { firstName } from '@/constants';
   }
 
   text {
-    animation: hue-cycle 1s linear both;
-    animation-timeline: scroll();
     font-family: var(--font-head);
-    font-size: 666px;
+    font-size: max(590px, 30vw);
     font-kerning: normal;
     font-weight: 100;
-    letter-spacing: -35px;
+    letter-spacing: -2vw;
     line-height: var(--heading-line-height);
-    animation: hue-cycle 1s linear both;
-    animation-timeline: scroll();
-    fill: oklch(60% .07 var(--hue));
+    fill: var(--color-dark);
   }
 </style>

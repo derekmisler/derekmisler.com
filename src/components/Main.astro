@@ -1,14 +1,38 @@
 ---
-
+import { careers } from '@/constants';
 ---
 
-<main>
-  <h2>Main content</h2>
+<main class="container">
+  <nav>
+    {careers.map((career) => <a href={`#${career.location}`}>{career.location}</a>)}
+  </nav>
+  {
+    (
+      <div>
+        {careers.map((career) => (
+          <section class="fade-out">
+            <h2>{career.location}</h2>
+            <h3>{career.title}</h3>
+            {career.description && <p>{career.description}</p>}
+            {career.accomplishments && (
+              <ul>
+                {career.accomplishments.map((accomplishment) => (
+                  <li>{accomplishment}</li>
+                ))}
+              </ul>
+            )}
+          </section>
+        ))}
+      </div>
+    )
+  }
 </main>
 
 <style>
-  main {
-    min-height: 100vh;
-    padding: var(--text-sm);
+  nav,
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-sm);
   }
 </style>

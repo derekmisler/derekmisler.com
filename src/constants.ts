@@ -12,7 +12,7 @@ export const description =
 
 const socialId = 'derekmisler';
 export const contact: Partial<HTMLAnchorElement>[] = [
-  { href: `mailto:${socialId}@gmail.com?subject=Hello!` },
+  { href: `mailto:hello@${socialId}.com?subject=Hello!` },
   { href: `https://www.linkedin.com/in/${socialId}/` },
   { href: `https://github.com/${socialId}` },
   { href: '/derek-misler-resume.pdf', download: 'true' },

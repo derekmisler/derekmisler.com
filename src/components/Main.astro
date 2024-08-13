@@ -2,7 +2,7 @@
 import { careers } from '@/constants';
 ---
 
-<main class="container">
+<main>
   <nav>
     {careers.map((career) => <a href={`#${career.location}`}>{career.location}</a>)}
   </nav>
@@ -29,10 +29,25 @@ import { careers } from '@/constants';
 </main>
 
 <style>
+  main {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto;
+    grid-column-gap: var(--size-sm);
+    grid-row-gap: var(--size-sm);
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
   nav,
   section {
     display: flex;
     flex-direction: column;
     gap: var(--size-sm);
+  }
+  nav {
+    position: sticky;
+    top: 0;
   }
 </style>

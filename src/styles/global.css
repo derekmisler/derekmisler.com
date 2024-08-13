@@ -95,7 +95,7 @@ h6 {
   line-height: var(--heading-line-height);
   color: var(--color-dark);
   font-weight: 100;
-  text-wrap: pretty;
+  text-wrap: balance;
 }
 
 h2 {
@@ -113,8 +113,13 @@ h4 {
 p,
 li {
   font-size: 1rem;
+  margin: 0;
   margin-bottom: var(--size-sm);
-  text-wrap: balance;
+  text-wrap: pretty;
+  max-width: 65ch;
+}
+ul {
+  padding: 0;
 }
 
 small {
@@ -135,19 +140,11 @@ em {
   font-family: var(--font-italic);
 }
 
-.container {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: auto;
-  grid-column-gap: var(--size-sm);
-  grid-row-gap: var(--size-sm);
-}
-
 .fade-out {
   animation-name: fade-out;
-  animation-fill-mode: both;
-  animation-duration: 1ms;
   animation-timing-function: linear;
-  animation-timeline: scroll();
-  /* animation-timeline: view(block 50% 100%); */
+  animation-fill-mode: none;
+  animation-timeline: view();
+  animation-iteration-count: 1;
+  animation-range: exit 50% exit 100%;
 }

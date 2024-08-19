@@ -13,7 +13,8 @@
     "astro": "astro",
     "style:fix": "stylelint **/*.{css,astro} --fix",
     "lint:fix": "eslint . --fix",
-    "format:fix": "prettier . --write --cache && yarn run lint:fix"
+    "format:fix": "prettier . --write --cache && yarn run lint:fix",
+    "fix": "yarn style:fix && yarn format:fix && yarn lint:fix"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.2",

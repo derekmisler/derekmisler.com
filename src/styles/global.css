@@ -146,5 +146,5 @@ em {
   animation-fill-mode: none;
   animation-timeline: view();
   animation-iteration-count: 1;
-  animation-range: exit 50% exit 100%;
+  animation-range: exit 50% exit 90%;
 }

@@ -1,43 +1,31 @@
 ---
-import { firstName } from '@/constants';
+import { fullName, title } from '@/constants';
 ---
 
-<header class="fade-out">
-  <svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 2550 380" role="heading" aria-level="1">
-    <text x="-1%" y="100%">I'm {firstName}</text>
-  </svg>
+<header>
+  <h1 class="gradient-text">{fullName}</h1>
+  <h2>{title}</h2>
 </header>
 
 <style>
-  @property --hue {
-    syntax: '<angle>';
-    initial-value: 0turn;
-    inherits: false;
-  }
-
-  @keyframes hue-cycle {
-    to {
-      --hue: 2turn;
-    }
-  }
-
   header {
-    justify-content: flex-end;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    place-content: center;
   }
 
-  svg {
-    width: 100%;
-    overflow: visible;
-    margin: 0;
-  }
-
-  text {
+  h1 {
     font-family: var(--font-head);
-    font-size: max(590px, 30vw);
+    font-size: max(4rem, 10vw);
     font-kerning: normal;
     font-weight: 100;
-    letter-spacing: -2vw;
     line-height: var(--heading-line-height);
-    fill: var(--color-dark);
+  }
+
+  h2 {
+    font-size: 2.986rem;
   }
 </style>

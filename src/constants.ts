@@ -7,7 +7,7 @@ export const subHeadline =
 export const firstName = 'Derek';
 export const lastName = 'Misler';
 export const fullName = `${firstName} ${lastName}`;
-export const title = `Senior Front-End Engineer & Design Specialist`;
+export const title = `Front-End Engineer & Design Specialist`;
 export const description =
   "Explore Derek Misler's portfolio, showcasing over 15 years of experience as a front-end engineer. Specializing in creating accessible, high-quality web applications and designs, Derek blends technical expertise with a strong design sensibility in UI/UX and typography.";
 

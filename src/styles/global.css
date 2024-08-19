@@ -33,10 +33,14 @@
 
 html {
   color-scheme: light;
-  --color-dark: oklch(14.06% 0.003 69.39);
-  --color-light: oklch(91.16% 0.018 70.23);
-  --color-accent-dark: oklch(30.97% 0.027 228.78);
-  --color-accent-light: oklch(44.04% 0.032 72.23);
+  --color-lightest: #f1dca7;
+  --color-light: #d9ae94;
+  --color-dark: #9c6644;
+  --color-darkest: #7f5539;
+
+  --color-accent: #d08c60;
+  --color-bg: var(--color-lightest);
+  --color-text: var(--color-darkest);
 
   --font-body: 'IBM', serif;
   --font-head: 'IBM Bold', serif;
@@ -66,7 +70,7 @@ body {
 }
 
 body {
-  background-color: var(--color-light);
+  background-color: var(--color-lightest);
   font-family: var(--font-body);
   font-size: var(--font-base-size);
   line-height: var(--body-line-height);
@@ -91,7 +95,7 @@ h5,
 h6 {
   font-family: var(--font-body);
   line-height: var(--heading-line-height);
-  color: var(--color-dark);
+  color: var(--color-text);
   font-weight: 100;
   text-wrap: balance;
 }
@@ -144,10 +148,10 @@ em {
 }
 
 .gradient-text {
-  color: var(--color-accent-dark);
+  color: var(--color-text);
   @supports (background-clip: text) {
     color: transparent;
-    background-image: linear-gradient(60deg, var(--color-accent-dark), var(--color-accent-light));
+    background-image: linear-gradient(60deg, var(--color-darkest), var(--color-dark));
     background-clip: text;
     color: transparent;
   }

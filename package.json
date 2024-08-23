@@ -5,15 +5,14 @@
   "packageManager": "yarn@4.2.1",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
+    "astro": "astro",
     "start": "astro dev",
-    "test": "astro check && prettier . --check --cache && eslint . && stylelint **/*.{css,astro}",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
+    "test": "astro check && prettier . --check --cache && eslint . && stylelint **/*.{css,astro}",
     "style:fix": "stylelint **/*.{css,astro} --fix",
     "lint:fix": "eslint . --fix",
-    "format:fix": "prettier . --write --cache && yarn run lint:fix",
+    "format:fix": "prettier . --write --cache",
     "fix": "yarn style:fix && yarn format:fix && yarn lint:fix"
   },
   "dependencies": {

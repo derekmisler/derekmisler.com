@@ -1,0 +1,79 @@
+---
+import IconButton from '@/components/IconButton.astro';
+---
+
+<IconButton id="theme-toggle" aria-label="Toggle theme" position="bottom">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="100%"
+    height="100%"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d="M12 2v2"></path>
+    <path
+      d="M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715"
+    ></path>
+    <path d="M16 12a4 4 0 0 0-4-4"></path>
+    <path d="m19 5-1.256 1.256"></path>
+    <path d="M20 12h2"></path>
+  </svg>
+</IconButton>
+
+<script is:inline>
+  (function () {
+    const button = document.getElementById('theme-toggle');
+    const setTheme = (theme) => {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      button?.setAttribute('data-theme', theme);
+    };
+    const themeLocalStorage = localStorage.getItem('theme') || '';
+    if (['light', 'dark'].includes(themeLocalStorage)) {
+      setTheme(themeLocalStorage);
+    } else {
+      const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setTheme(isDarkMode ? 'dark' : 'light');
+    }
+  })();
+</script>
+
+<script>
+  const getTheme = () => {
+    const themeLocalStorage = localStorage.getItem('theme') ?? '';
+    if (['light', 'dark'].includes(themeLocalStorage)) {
+      return themeLocalStorage;
+    } else {
+      const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      return isDarkMode ? 'dark' : 'light';
+    }
+  };
+
+  const button = document.getElementById('theme-toggle');
+
+  const setTheme = (theme: string) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    button?.setAttribute('data-theme', theme);
+  };
+
+  button?.addEventListener('click', () => {
+    const currentTheme = getTheme();
+    const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+    setTheme(nextTheme);
+  });
+
+  const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  darkModeMediaQuery.addEventListener('change', (event) => {
+    const nextTheme = event.matches ? 'dark' : 'light';
+    setTheme(nextTheme);
+  });
+</script>
+
+<style>
+  svg {
+    stroke: var(--color-accent);
+  }
+</style>

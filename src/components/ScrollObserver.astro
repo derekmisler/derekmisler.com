@@ -1,0 +1,22 @@
+---
+
+---
+
+<div data-scroll-observer></div>
+
+<script is:inline>
+  {
+    const root = document.documentElement;
+    root.setAttribute('data-is-scrolling-up', 'false');
+    root.setAttribute('data-is-top', 'true');
+  }
+</script>
+<script src="@/utils/scrollObserver.client.ts"></script>
+
+<style>
+  [data-scroll-observer] {
+    width: 100%;
+    height: 0px;
+    background-color: transparent;
+  }
+</style>

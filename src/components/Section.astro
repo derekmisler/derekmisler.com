@@ -1,0 +1,54 @@
+---
+const { id, label } = Astro.props;
+---
+
+<section id={id} class="subgrid border-accent-bottom">
+  <h3 class="label sticky-header">{label}</h3>
+  <hr class="vertical" />
+  <div class="content content-padding">
+    <slot />
+  </div>
+</section>
+
+<style>
+  section {
+    align-items: baseline;
+    padding: 0;
+    width: 100%;
+    min-height: 50vh;
+    @supports (height: 50dvh) {
+      min-height: 50dvh;
+    }
+  }
+  .subgrid {
+    @media (min-width: 1024px) {
+      grid-column: 1 / 4;
+      display: grid;
+      grid-template-columns: subgrid;
+      grid-auto-rows: subgrid;
+      justify-items: start;
+    }
+    @media (min-width: 1280px) {
+      grid-column: 1 / 5;
+    }
+  }
+  .label {
+    justify-self: stretch;
+    font-size: var(--font-size-lg);
+    font-weight: 450;
+    @media (min-width: 1024px) {
+      justify-self: start;
+    }
+  }
+  .content {
+    padding-top: 0;
+    align-items: baseline;
+    display: grid;
+    @media (min-width: 1024px) {
+      padding-top: var(--space-md);
+      grid-column: 3 / 5;
+      grid-template-columns: subgrid;
+      justify-items: start;
+    }
+  }
+</style>

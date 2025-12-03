@@ -1,0 +1,65 @@
+---
+import '@/styles/global.css';
+import '@/styles/ibm-plex-sans-all.css';
+
+import { AstroSeo } from '@astrolib/seo';
+
+import Header from '@/components/Header.astro';
+import Main from '@/components/Main.astro';
+import Nav from '@/components/Nav.astro';
+import { description, firstName, fullName, lastName, socialId, title } from '@/constants';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <AstroSeo
+      title={`${fullName} | ${title}`}
+      description={description}
+      canonical={Astro.url.href}
+      openGraph={{
+        type: 'website',
+        url: Astro.url.href,
+        title: `${fullName} | ${title}`,
+        description,
+        profile: {
+          firstName: firstName,
+          lastName: lastName,
+          username: socialId,
+        },
+        images: [
+          {
+            url: `${Astro.url.href}square.jpg`,
+            width: 1200,
+            height: 1080,
+            alt: 'Square image of Derek Misler',
+            type: 'image/jpeg',
+          },
+          {
+            url: `${Astro.url.href}horizontal.jpg`,
+            width: 800,
+            height: 440,
+            alt: 'Horizontal image of Derek Misler',
+            type: 'image/jpeg',
+          },
+        ],
+      }}
+      additionalLinkTags={[{ rel: 'icon', href: `${Astro.url.href}favicon.ico` }]}
+      additionalMetaTags={[
+        {
+          name: 'google-site-verification',
+          content: 'oM1NjzxvtvPp4JL2t2qo13zUhGnrpGF0Fbgyb6S8vDk',
+        },
+      ]}
+    />
+  </head>
+  <body>
+    <Nav />
+    <Header />
+    <Main />
+  </body>
+</html>
+
+<style></style>

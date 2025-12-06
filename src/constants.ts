@@ -38,9 +38,9 @@ export const contact = [
  * High-level "about" bullets to feature near the top of the page.
  */
 export const highlights = [
-  'Senior front\u2011end engineer at Docker working on AI agents and Docker\u2011s developer tools, bringing AI\u2011powered workflows into Docker Desktop.',
+  'Senior front\u2011end engineer at Docker working on AI agents and Docker\u2019s developer tools, bringing AI\u2011powered workflows into Docker Desktop.',
   'Lead engineer on analytics dashboards and Insights experiences for enterprise customers, helping teams understand usage, adoption, and ROI.',
-  'Led Patreon\u2019s migration to Next.js and a modern front\u2011end platform, cutting LCP by 55% while keeping UX quality, accessibility, and rollout safety front and center.',
+  'Led Patreon\u2011s migration to Next.js and a modern front\u2011end platform, cutting LCP by 55% while keeping UX quality, accessibility, and rollout safety front and center.',
   'Served as the first front\u2011end engineer and later Staff\u2011level lead at Transfix, defining web and mobile architecture, shared libraries, and front\u2011end standards.',
   'Can blend high\u2011quality design training, typography, and layout craft with 15+ years of engineering experience to ship inclusive, polished product surfaces quickly and reliably.',
 ];

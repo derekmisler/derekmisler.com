@@ -239,11 +239,7 @@ pre {
   @supports (background-clip: text) {
     display: inline-block;
     color: transparent;
-    background-image: linear-gradient(
-      45deg,
-      var(--color-text),
-      color-mix(in srgb, var(--color-text) 50%, var(--color-accent))
-    );
+    background-image: linear-gradient(135deg, var(--color-text), var(--color-accent));
     background-clip: text;
   }
 }
@@ -273,15 +269,6 @@ pre {
 /* Stack spacing - adds margin between consecutive children */
 .stack-spacing > *:not(:last-child) {
   margin-bottom: var(--space-md);
-}
-
-/* Flexbox with responsive gap */
-.flex-gap-responsive {
-  display: flex;
-  gap: var(--space-sm);
-  @media (min-width: 1024px) {
-    gap: var(--space-md);
-  }
 }
 
 /* Fixed full-screen overlay */

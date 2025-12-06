@@ -12,7 +12,7 @@ import { contact, fullName, navItems } from '@/constants';
       > at{' '}
       <a href="https://www.docker.com" target="_blank" rel="noopener noreferrer">Docker</a>.
     </h2>
-    <nav class="flex-gap-responsive">
+    <nav>
       {
         contact.map((item) => (
           <a href={item.href} download={item.download} target="_blank" rel="noopener noreferrer">
@@ -47,6 +47,18 @@ import { contact, fullName, navItems } from '@/constants';
     text-wrap: balance;
     max-width: min(36ch, 100%);
     font-weight: 450;
-    margin-bottom: calc(var(--line-height-heading) * 3vw);
+    margin-bottom: var(--space-md);
+  }
+  header nav {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: var(--space-lg);
+    padding: var(--space-md) 0;
+    margin-bottom: var(--space-sm);
+    @media (min-width: 768px) {
+      padding: 0;
+      grid-template-columns: repeat(4, fit-content(100%));
+      align-items: start;
+    }
   }
 </style>

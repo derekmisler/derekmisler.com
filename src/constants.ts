@@ -137,7 +137,7 @@ export const currentCareers = [
   },
   {
     location: 'Patreon',
-    title: 'Senior Software Engineer',
+    title: 'Senior Front-End Platform Engineer',
     accomplishments: [
       'Led migration from Flask/React multi\u2011page app to Next.js, achieving a 55% reduction in LCP through incremental rollout with feature flags.',
       'Built observability stack integrating DataDog, Sentry, PagerDuty, and Slack; migrated testing from Enzyme to React Testing Library and Cypress.',
@@ -148,7 +148,7 @@ export const currentCareers = [
   },
   {
     location: 'Cadre',
-    title: 'Lead Software Engineer',
+    title: 'Lead Engineer',
     accomplishments: [
       'Unified decoupled SPA and third-party marketing site into cohesive Django/React app; migrated front\u2011end to monorepo.',
       'Built custom server-rendering with Webpack, React, and Node.js for marketing site.',
@@ -159,7 +159,7 @@ export const currentCareers = [
   },
   {
     location: 'Transfix',
-    title: 'Staff Software Engineer',
+    title: 'Staff Front-End/Mobile Engineer',
     accomplishments: [
       'First front\u2011end engineer; established web and mobile architecture, rebuilding Android/iOS apps in React Native.',
       'Evolved web stack from Rails → Aurelia → React/Redux; developed internal library for web, mobile, and shared NPM modules.',

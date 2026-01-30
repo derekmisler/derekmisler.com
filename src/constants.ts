@@ -47,46 +47,73 @@ export const highlights = [
 
 export const skills = [
   [
-    'Technical',
+    'Architecture & Platform',
     [
-      'Front\u2011end Architecture',
+      'Front-End Architecture',
       'Design Systems',
       'Monorepo Architecture',
+      'Platform DX',
       'API Design',
       'Performance Optimization',
-      'AI Agent Development',
-      'LLM Integration',
-      'AI\u2011Powered Developer Tools',
-      'Developer Experience',
-      'Progressive Web Apps',
+      'Scalable UI Patterns',
     ],
   ],
   [
-    'Design & UX',
+    'AI & Agent Systems',
+    [
+      'AI Agent Development',
+      'LLM Integration',
+      'Agent Orchestration',
+      'Prompt Engineering',
+      'Agent Security & Guardrails',
+      'AI-Powered Developer Tools',
+    ],
+  ],
+  [
+    'Product & UX',
     [
       'UI/UX Design',
       'Responsive Design',
       'Typography & Layout',
       'Accessibility (WCAG)',
-      'SEO',
-      'Color Theory',
-      'Visual Hierarchy',
       'Interaction Design',
       'Design Tokens',
-      'Motion & Animation',
+      'Visual Hierarchy',
+    ],
+  ],
+  [
+    'Quality & Delivery',
+    [
+      'Developer Experience',
+      'Testing Strategy',
+      'CI/CD Workflows',
+      'Observability-Driven Iteration',
+      'Production Readiness',
     ],
   ],
 ] satisfies [string, string[]][];
 
 export const tools = [
-  ['Core Stack', ['TypeScript', 'JavaScript', 'React', 'Next.js', 'Node.js', 'Web Components', 'Figma']],
+  ['Core Stack', ['TypeScript', 'JavaScript', 'React', 'Next.js', 'Electron', 'Node.js', 'Web Components', 'Figma']],
   [
-    'Extended Stack',
-    ['Docker', 'Go', 'Python', 'Remix', 'Astro', 'React Native', 'Redux', 'Jotai', 'Adobe Creative Cloud'],
+    'Platform & Infra',
+    ['Docker', 'Nx', 'Monorepos', 'CI/CD', 'GitHub Actions', 'CloudFront', 'S3', 'Telemetry Pipelines'],
   ],
-  ['AI & LLMs', ['OpenAI API', 'Claude API', 'LangChain', 'MCP', 'CAgent']],
   [
-    'Dev Tooling',
+    'AI & Agents',
+    [
+      'OpenAI API',
+      'Claude API',
+      'LLM Orchestration',
+      'AI Agents',
+      'CAgent',
+      'MCP',
+      'Prompt Engineering',
+      'Agent Security',
+    ],
+  ],
+  [
+    'Dev Tooling & Quality',
     [
       'Vite',
       'Webpack',
@@ -95,15 +122,17 @@ export const tools = [
       'React Testing Library',
       'Playwright',
       'Cypress',
+      'Storybook',
+      'Chromatic',
+      'Biome',
       'ESLint',
       'Prettier',
-      'Storybook',
-      'Biome',
-      'Chromatic',
-      'GitHub Actions',
-      'DataDog',
-      'Sentry',
     ],
+  ],
+  ['Observability & Ops', ['Sigma', 'DataDog', 'Sentry', 'Structured Logging', 'Metrics & Dashboards']],
+  [
+    'Languages & Ecosystem',
+    ['Go', 'Python', 'Remix', 'Astro', 'React Native', 'Redux', 'Jotai', 'Adobe Creative Cloud'],
   ],
 ] satisfies [string, string[]][];
 
@@ -138,7 +167,7 @@ export const currentCareers = [
       'Integrated Docker Hub catalog into Docker Desktop, enabling users to search and launch images directly in the app.',
       'Redesigned the Policy Assignment form UI with structured metadata, grouped layout, and dynamic field search.',
       'Led frontend architecture for the Insights Dashboard, used by enterprise customers and credited in multiple sales wins.',
-      'Championed accessibility, testing, and frontend quality; partnered cross-functionally to ship high-quality features at scale.'
+      'Championed accessibility, testing, and frontend quality; partnered cross-functionally to ship high-quality features at scale.',
     ],
     link: 'https://www.docker.com',
   },

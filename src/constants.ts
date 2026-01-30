@@ -129,9 +129,9 @@ export const currentCareers = [
     title: 'Senior Software Engineer',
     accomplishments: [
       'Led engineering across Docker\u2019s AI platform and enterprise desktop experience, delivering production-ready systems used by millions of developers and adopted by internal teams.',
-      'Rebuilt `dagent`, Docker\u2019s internal Electron-based agent UI platform (CI/CD, monorepo, design system, hot-reloading, test infra).',
-      'Shipped secure telemetry pipelines for `dagent` and `cagent`, with event schemas, dashboards, and CI-integrated delivery.',
-      'Hardened `cagent-action` for open source: implemented secret leak detection, contributor authorization, and prompt injection safeguards.',
+      'Rebuilt dagent, Docker\u2019s internal Electron-based agent UI platform (CI/CD, monorepo, design system, hot-reloading, test infra).',
+      'Shipped secure telemetry pipelines for dagent and cagent, with event schemas, dashboards, and CI-integrated delivery.',
+      'Hardened cagent-action for open source: implemented secret leak detection, contributor authorization, and prompt injection safeguards.',
       'Built and demoed GitHub Action + reusable agent runners (e.g., changelog generation, flaky test detection), now used across the engineering org.',
       'Owned Docker\u2019s Agent Catalog: added versioning, metadata validation, use case tagging, and S3/CDN deployment.',
       'Built Docker Desktop\u2019s Bulk Deployment feature for enterprise IT teams; completed cross-platform implementation under deadline.',

@@ -9,16 +9,16 @@ export const navItems = {
 } satisfies Record<string, { slug: string; label: string }>;
 
 export const subHeadline =
-  'I\u2019m a senior front\u2011end engineer and design\u2011focused UI/UX specialist with 15+ years of experience crafting accessible, engaging web experiences. At Docker, I work on AI agents and developer tooling, blending React, TypeScript, and design systems with a strong eye for typography and inclusive design. I lead teams through migrations, AI\u2011powered workflows, and analytics surfaces that feel as good as they perform.';
+  'I\u2019m a senior front-end engineer who builds high-leverage product platforms: design-system-driven UIs, analytics surfaces, and AI-powered developer tooling. At Docker, I work on agent experiences and Desktop workflows, with a focus on performance, accessibility, and production-grade delivery.';
 
 export const firstName = 'Derek';
 export const lastName = 'Misler';
 export const fullName = `${firstName} ${lastName}`;
 
 // SEO
-export const title = 'Senior Front-End Engineer, AI Agents, UI/UX & Accessibility, React & TypeScript';
+export const title = 'Senior Front-End Engineer | AI Developer Tools | UI/UX & Accessibility';
 export const description =
-  'Senior front-end engineer at Docker based in Arlington, VA, specializing in AI agents, React, TypeScript, design systems, and accessibility. I craft AI-powered, engaging developer tools, analytics dashboards, and UI/UX for complex web applications.';
+  'Senior front-end engineer at Docker based in Arlington, VA. I build AI\u2011powered developer tooling, enterprise desktop workflows, and analytics experiences using React, TypeScript, design systems, and accessibility\u2011first practices.';
 
 // Social
 export const socialId = 'derekmisler';
@@ -38,11 +38,11 @@ export const contact = [
  * High-level "about" bullets to feature near the top of the page.
  */
 export const highlights = [
-  'Senior front\u2011end engineer at Docker working on AI agents and Docker\u2019s developer tools, bringing AI\u2011powered workflows into Docker Desktop.',
-  'Lead engineer on analytics dashboards and Insights experiences for enterprise customers, helping teams understand usage, adoption, and ROI.',
-  'Led Patreon\u2019s migration to Next.js and a modern front\u2011end platform, cutting LCP by 55% while keeping UX quality, accessibility, and rollout safety front and center.',
-  'Served as the first front\u2011end engineer and later Staff\u2011level lead at Transfix, defining web and mobile architecture, shared libraries, and front\u2011end standards.',
-  'Can blend high\u2011quality design training, typography, and layout craft with 15+ years of engineering experience to ship inclusive, polished product surfaces quickly and reliably.',
+  'Senior engineer at Docker building AI agent experiences and developer tooling that ship inside Docker Desktop.',
+  'Led enterprise analytics and Insights surfaces that help customers understand adoption, usage, and ROI.',
+  'Drove Patreon\u2019s migration to Next.js and a modern front-end platform, reducing LCP by 55% while preserving rollout safety and accessibility.',
+  'First front-end engineer and later Staff-level lead at Transfix, defining web + mobile architecture, shared libraries, and engineering standards.',
+  'Blend strong design craft (typography, layout, interaction) with 15+ years of engineering to ship inclusive, polished product surfaces reliably.',
 ];
 
 export const skills = [
@@ -104,10 +104,9 @@ export const tools = [
     [
       'OpenAI API',
       'Claude API',
+      'Tool Calling',
+      'Agent Workflows',
       'LLM Orchestration',
-      'AI Agents',
-      'CAgent',
-      'MCP',
       'Prompt Engineering',
       'Agent Security',
     ],
@@ -157,17 +156,16 @@ export const currentCareers = [
     location: 'Docker',
     title: 'Senior Software Engineer',
     accomplishments: [
-      'Led engineering across Docker\u2019s AI platform and enterprise desktop experience, delivering production-ready systems used by millions of developers and adopted by internal teams.',
-      'Rebuilt dagent, Docker\u2019s internal Electron-based agent UI platform (CI/CD, monorepo, design system, hot-reloading, test infra).',
-      'Shipped secure telemetry pipelines for dagent and cagent, with event schemas, dashboards, and CI-integrated delivery.',
-      'Hardened cagent-action for open source: implemented secret leak detection, contributor authorization, and prompt injection safeguards.',
-      'Built and demoed GitHub Action + reusable agent runners (e.g., changelog generation, flaky test detection), now used across the engineering org.',
-      'Owned Docker\u2019s Agent Catalog: added versioning, metadata validation, use case tagging, and S3/CDN deployment.',
-      'Built Docker Desktop\u2019s Bulk Deployment feature for enterprise IT teams; completed cross-platform implementation under deadline.',
-      'Integrated Docker Hub catalog into Docker Desktop, enabling users to search and launch images directly in the app.',
-      'Redesigned the Policy Assignment form UI with structured metadata, grouped layout, and dynamic field search.',
-      'Led frontend architecture for the Insights Dashboard, used by enterprise customers and credited in multiple sales wins.',
-      'Championed accessibility, testing, and frontend quality; partnered cross-functionally to ship high-quality features at scale.',
+      'Led engineering across Docker\u2019s AI platform and Docker Desktop enterprise admin experiences; shipped production-grade systems adopted by internal teams and enterprise customers.',
+      'Rebuilt a shared Electron-based UI platform (monorepo, CI/CD, design system integration, hot reload, test infrastructure) to accelerate iteration on agent tooling.',
+      'Delivered secure telemetry pipelines (event schema design, CI validation, dashboards) to improve observability and product decision-making.',
+      'Strengthened open-source GitHub automation with secret leak prevention, contributor authorization, and prompt-injection mitigations.',
+      'Built reusable GitHub Action\u2011based runners (e.g., changelog generation, flaky test detection) adopted across the engineering organization.',
+      'Owned a catalog/publishing surface: implemented versioning, metadata validation, tagging, and scalable static delivery via S3/CDN.',
+      'Took over ownership, unblocked, and shipped Bulk Deployment for Docker Desktop, enabling enterprise IT teams to configure and distribute Docker at scale across platforms.',
+      'Integrated Docker Hub catalog search/launch into Docker Desktop to reduce workflow friction and improve discoverability.',
+      'Led front-end architecture for an enterprise Insights dashboard, referenced in customer adoption and sales enablement outcomes.',
+      'Raised the quality bar via accessibility, testing, and front-end reviews; partnered with Design, Product, Security, and Data to deliver cross-surface features.',
     ],
     link: 'https://www.docker.com',
   },
@@ -175,10 +173,14 @@ export const currentCareers = [
     location: 'Patreon',
     title: 'Senior Front-End Platform Engineer',
     accomplishments: [
-      'Led migration from Flask/React multi\u2011page app to Next.js, achieving a 55% reduction in LCP through incremental rollout with feature flags.',
-      'Built observability stack integrating DataDog, Sentry, PagerDuty, and Slack; migrated testing from Enzyme to React Testing Library and Cypress.',
-      'Drove TypeScript adoption, linting standards, and front\u2011end best practices; contributed to component library and Redux\u2011to\u2011Jotai migration.',
-      'Mentored engineers and created \u201cFront\u2011End 101\u201d onboarding track for new hires.',
+      'Senior engineer on the Front\u2011End Platform team driving a large\u2011scale migration from a Flask/React multi\u2011page app and in-house SSR to Next.js.',
+      'Led the front-end workstream and partnered with backend platform + infrastructure teams, delivering an immediate 55% reduction in LCP (primary KR metric).',
+      'Designed an incremental migration pattern to move features safely without blocking product delivery, enabling staged rollout and parallel work.',
+      'Built rollout and reliability guardrails: percentage-based feature flags, alerting/triage workflows, and dashboards to monitor regressions.',
+      'Drove quality and maintainability upgrades: TypeScript adoption, linting standards, and front\u2011end documentation practices.',
+      'Modernized testing from minimal coverage/Enzyme to React Testing Library + Cypress, including running smoke/e2e in dev and on PRs (not only at deploy time).',
+      'Mentored junior engineers and interns; created and led \u201cFront\u2011End 101\u201d onboarding for new engineers and served as a high\u2011volume interviewer.',
+      'Improved state and form architecture by migrating from Redux to Jotai and building accessible form/validation primitives integrated with the component library (React Hook Form).',
     ],
     link: 'https://www.patreon.com',
   },

@@ -9,7 +9,7 @@ export const navItems = {
 } satisfies Record<string, { slug: string; label: string }>;
 
 export const subHeadline =
-  'I\u2019m a senior front-end engineer who builds high-leverage product platforms: design-system-driven UIs, analytics surfaces, and AI-powered developer tooling. At Docker, I work on agent experiences and Desktop workflows, with a focus on performance, accessibility, and production-grade delivery.';
+  'I\u2019m a senior front-end engineer who builds high\u2011leverage product systems: design\u2011system\u2011driven UIs, analytics experiences, and AI\u2011powered developer tooling. At Docker, I work on agent experiences and Desktop workflows, with a focus on performance, accessibility, and production\u2011grade delivery.';
 
 export const firstName = 'Derek';
 export const lastName = 'Misler';
@@ -39,9 +39,8 @@ export const contact = [
  */
 export const highlights = [
   'Senior engineer at Docker building AI agent experiences and developer tooling that ship inside Docker Desktop.',
-  'Led enterprise analytics and Insights surfaces that help customers understand adoption, usage, and ROI.',
-  'Drove Patreon\u2019s migration to Next.js and a modern front-end platform, reducing LCP by 55% while preserving rollout safety and accessibility.',
-  'First front-end engineer and later Staff-level lead at Transfix, defining web + mobile architecture, shared libraries, and engineering standards.',
+  'Led Patreon\u2019s migration to Next.js and a modern front\u2011end platform, reducing LCP by 55% while preserving rollout safety and accessibility.',
+  'First front\u2011end engineer and later Staff\u2011level lead at Transfix, defining web + mobile architecture, shared libraries, and engineering standards.',
   'Blend strong design craft (typography, layout, interaction) with 15+ years of engineering to ship inclusive, polished product surfaces reliably.',
 ];
 
@@ -94,7 +93,7 @@ export const skills = [
 ] satisfies [string, string[]][];
 
 export const tools = [
-  ['Core Stack', ['TypeScript', 'JavaScript', 'React', 'Next.js', 'Electron', 'Node.js', 'Web Components', 'Figma']],
+  ['Core Stack', ['TypeScript', 'JavaScript', 'React', 'Next.js', 'Electron', 'Node.js', 'Web Components']],
   [
     'Platform & Infra',
     ['Docker', 'Nx', 'Monorepos', 'CI/CD', 'GitHub Actions', 'CloudFront', 'S3', 'Telemetry Pipelines'],
@@ -129,10 +128,8 @@ export const tools = [
     ],
   ],
   ['Observability & Ops', ['Sigma', 'DataDog', 'Sentry', 'Structured Logging', 'Metrics & Dashboards']],
-  [
-    'Languages & Ecosystem',
-    ['Go', 'Python', 'Remix', 'Astro', 'React Native', 'Redux', 'Jotai', 'Adobe Creative Cloud'],
-  ],
+  ['Languages & Ecosystem', ['Go', 'Python', 'Remix', 'Astro', 'React Native', 'Redux Toolkit', 'Jotai']],
+  ['Design', ['Figma', 'Tailwind CSS', 'Adobe Creative Cloud', 'Base Web', 'Shadcn/UI']],
 ] satisfies [string, string[]][];
 
 interface Experience {
@@ -160,11 +157,9 @@ export const currentCareers = [
       'Rebuilt a shared Electron-based UI platform (monorepo, CI/CD, design system integration, hot reload, test infrastructure) to accelerate iteration on agent tooling.',
       'Delivered secure telemetry pipelines (event schema design, CI validation, dashboards) to improve observability and product decision-making.',
       'Strengthened open-source GitHub automation with secret leak prevention, contributor authorization, and prompt-injection mitigations.',
-      'Built reusable GitHub Action\u2011based runners (e.g., changelog generation, flaky test detection) adopted across the engineering organization.',
-      'Owned a catalog/publishing surface: implemented versioning, metadata validation, tagging, and scalable static delivery via S3/CDN.',
       'Took over ownership, unblocked, and shipped Bulk Deployment for Docker Desktop, enabling enterprise IT teams to configure and distribute Docker at scale across platforms.',
       'Integrated Docker Hub catalog search/launch into Docker Desktop to reduce workflow friction and improve discoverability.',
-      'Led front-end architecture for an enterprise Insights dashboard, referenced in customer adoption and sales enablement outcomes.',
+      'Led front\u2011end architecture for an enterprise Insights dashboard, referenced in customer adoption and sales enablement outcomes.',
       'Raised the quality bar via accessibility, testing, and front-end reviews; partnered with Design, Product, Security, and Data to deliver cross-surface features.',
     ],
     link: 'https://www.docker.com',

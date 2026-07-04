@@ -1,0 +1,334 @@
+/*
+ * Print stylesheet for derekmisler.com
+ *
+ * Goals:
+ *   - ATS-safe: plain black text on white, no gradient/transparent fills
+ *   - Single-column resume layout with tight pt sizing
+ *   - Hide all interactive chrome: nav overlay, hamburger, theme toggle, skip link, footer decoration
+ *   - Show real email address (bypasses Cloudflare email obfuscation)
+ *   - Expand key hrefs as visible text
+ *   - Sensible page breaks: no orphan headings, no entry split across pages
+ */
+
+@media print {
+  /* --- Page setup --- */
+  @page {
+    size: letter portrait;
+    margin: 0.75in 0.75in 0.75in 0.75in;
+  }
+
+  /* --- Force light theme: black on white, no transparency --- */
+  :root {
+    --color-text: #111111;
+    --color-background: #ffffff;
+    --color-background-accent: #dddddd;
+    --color-background-transparent: #ffffff;
+    --color-accent: #555555;
+
+    /* Tighter fluid sizes replaced by fixed pt values for print */
+    --font-size-xs: 8pt;
+    --font-size-sm: 10pt;
+    --font-size-md: 11pt;
+    --font-size-lg: 12pt;
+    --font-size-xl: 14pt;
+    --font-size-xxl: 16pt;
+
+    --space-xs: 4pt;
+    --space-sm: 8pt;
+    --space-md: 12pt;
+    --space-lg: 18pt;
+
+    --border-width: 2pt;
+  }
+
+  html {
+    color-scheme: light;
+  }
+
+  html,
+  body {
+    width: 100%;
+    height: auto;
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+
+  body {
+    font-size: 10pt;
+    line-height: 1.4;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* --- Base typography tightening (declared before component-specific rules) --- */
+
+  h3 {
+    font-size: 12pt !important;
+    line-height: 1.3;
+  }
+
+  h4 {
+    font-size: 10pt !important;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-top: 8pt;
+    margin-bottom: 2pt;
+  }
+
+  p,
+  li {
+    font-size: 9pt !important;
+    line-height: 1.45;
+    max-width: 100% !important;
+    margin-bottom: 3pt;
+    text-wrap: pretty;
+  }
+
+  li:not(:last-child) {
+    margin-bottom: 3pt;
+  }
+
+  ul {
+    padding-left: 10pt;
+  }
+
+  li {
+    list-style: disc;
+  }
+
+  /* --- Hide all interactive / decorative chrome --- */
+
+  /* Skip link */
+  .skip-link {
+    display: none !important;
+  }
+
+  /* Fullscreen nav overlay */
+  .nav,
+  nav.nav {
+    display: none !important;
+  }
+
+  /* Hamburger (NavToggle) and theme toggle icon buttons */
+  .icon-button {
+    display: none !important;
+  }
+
+  /* Sticky scrollbar coloring (irrelevant in print) */
+  body::-webkit-scrollbar,
+  body::-webkit-scrollbar-track,
+  body::-webkit-scrollbar-thumb {
+    display: none;
+  }
+
+  /* Scroll observer sentinel */
+  [data-scroll-observer] {
+    display: none;
+  }
+
+  /* Gradient decoration on hr.vertical (the column divider) */
+  hr.vertical {
+    display: none !important;
+  }
+
+  /* Decorative gradients: replace gradient-text with plain text */
+  .gradient-text {
+    color: #111111 !important;
+    background: none !important;
+    background-image: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Transparent backgrounds become solid white */
+  .sticky-header {
+    position: static !important;
+    background-color: #ffffff !important;
+    padding: 0 !important;
+  }
+
+  /* Overlay utility (used by nav) */
+  .fixed-full {
+    position: static !important;
+  }
+
+  /* --- Reset link decorations for print --- */
+  a,
+  a:visited {
+    color: #111111 !important;
+    text-decoration: none !important;
+    background: none !important;
+  }
+
+  /* Remove the hover pseudo-element background sweep */
+  a::after,
+  button::after {
+    display: none !important;
+  }
+
+  /* --- Layout: force single-column --- */
+  main.grid {
+    display: block !important;
+  }
+
+  section.subgrid {
+    display: block !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    border-bottom: var(--border-width) solid #555555;
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-md);
+  }
+
+  /* Section headings (h3 labels like "Experience", "About me") */
+  section h3.label {
+    font-size: 12pt;
+    font-weight: 700;
+    margin-bottom: 6pt;
+  }
+
+  /* Section content area */
+  .content.content-padding {
+    display: block !important;
+    padding: 0 !important;
+  }
+
+  /* --- Header --- */
+  header {
+    display: block !important;
+    min-height: 0 !important;
+    padding: 0 0 var(--space-md) 0 !important;
+    border-bottom: var(--border-width) solid #555555;
+    margin-bottom: var(--space-md);
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  header h1 {
+    font-size: 18pt !important;
+    font-weight: 700;
+    margin-bottom: 4pt;
+  }
+
+  header h2 {
+    font-size: 10pt !important;
+    font-weight: 400;
+    line-height: 1.5;
+    max-width: 100% !important;
+    margin-bottom: var(--space-sm);
+  }
+
+  /* Header nav (Email, LinkedIn, GitHub, Resume links) */
+  header nav {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 8pt 20pt;
+    margin-top: var(--space-sm);
+  }
+
+  /* --- Email: show real address for print (overrides Cloudflare obfuscation) --- */
+
+  /*
+   * The real email is rendered as a plain-text fallback inside
+   * .print-email-plain which is display:none on screen and display:inline here.
+   * The mailto link (which Cloudflare may encode) is hidden in print.
+   */
+  .print-email-hidden {
+    display: none !important;
+  }
+
+  .print-email-plain {
+    display: inline !important;
+    color: #111111 !important;
+  }
+
+  /* --- Expand key hrefs as visible text --- */
+  /*
+   * Show the URL after the link text for GitHub and LinkedIn in the contact nav.
+   * The resume download link is suppressed (not useful in a printed PDF).
+   */
+  header nav a[href*='linkedin']::after {
+    content: ' (linkedin.com/in/derekmisler)';
+    font-size: 8pt;
+    color: #555555;
+  }
+
+  header nav a[href*='github']::after {
+    content: ' (github.com/derekmisler)';
+    font-size: 8pt;
+    color: #555555;
+  }
+
+  /* Hide the resume download link in the printed output */
+  header nav a[download] {
+    display: none !important;
+  }
+
+  /* --- Experience section: keep each entry together --- */
+  .career-entry {
+    display: block !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1pt solid #cccccc;
+  }
+
+  .career-left {
+    margin-bottom: 4pt;
+  }
+
+  .career-left h4 {
+    margin-top: 0;
+  }
+
+  .job-title {
+    flex-direction: row !important;
+    gap: 6pt !important;
+    align-items: baseline !important;
+    margin-top: 2pt !important;
+  }
+
+  .job-dates {
+    font-size: 8.5pt !important;
+    opacity: 1 !important;
+    color: #555555;
+  }
+
+  /* --- Page break rules --- */
+
+  /* Section labels should not be orphaned at the bottom of a page */
+  h3,
+  h4 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  section {
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+  }
+
+  /* Experience section may be long; allow it to break but not within an entry */
+  #experience {
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+  }
+
+  /* --- Accent bars (hr): simplify to thin rules --- */
+  hr {
+    background-color: #555555 !important;
+    height: 1pt !important;
+    border: none;
+  }
+
+  /* Remove scrollbar-width compensating margin */
+  body[data-hidden] {
+    margin-right: 0 !important;
+    overflow: visible !important;
+  }
+}

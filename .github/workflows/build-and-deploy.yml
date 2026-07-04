@@ -1,0 +1,76 @@
+name: Build and Deploy
+
+# Builds the Astro site, generates the resume PDF via Playwright, and deploys
+# the complete dist/ (including the fresh PDF) to Cloudflare Pages.
+#
+# Why this workflow owns the deployment rather than Cloudflare's Git integration:
+# Cloudflare Pages' build image does not support Playwright/Chromium (no network
+# access during builds, missing system libraries, size limits). Running the full
+# pipeline here in GitHub Actions gives us a standard Ubuntu environment where
+# Playwright works out-of-the-box. The tradeoff is a few extra minutes of CI
+# time in exchange for a PDF that is always in sync with the site content.
+#
+# Required repository secrets:
+#   CLOUDFLARE_API_TOKEN  - a Cloudflare API token with Pages:Edit permission
+#   CLOUDFLARE_ACCOUNT_ID - your Cloudflare account ID
+#   CLOUDFLARE_PROJECT_NAME - the Pages project name (e.g. "derekmisler-com")
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-deploy:
+    name: Build, generate PDF, and deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Enable corepack and install pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@$(node -e "require('./package.json').packageManager.split('@')[1] && console.log(require('./package.json').packageManager.split('@')[1])") --activate
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright Chromium browser and system deps
+        run: npx playwright install chromium --with-deps
+
+      - name: Build Astro site
+        run: pnpm build:site
+
+      - name: Generate resume PDF
+        run: pnpm generate-pdf
+
+      - name: Verify PDF was created
+        run: |
+          ls -lh dist/derek-misler-resume.pdf
+          # Fail if the file is suspiciously small (under 50 KB means generation went wrong)
+          MIN_BYTES=51200
+          ACTUAL=$(stat -c%s dist/derek-misler-resume.pdf)
+          if [ "$ACTUAL" -lt "$MIN_BYTES" ]; then
+            echo "ERROR: PDF is only ${ACTUAL} bytes, expected at least ${MIN_BYTES}."
+            exit 1
+          fi
+          echo "PDF size OK: ${ACTUAL} bytes"
+
+      - name: Deploy to Cloudflare Pages
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }} --commit-dirty=true

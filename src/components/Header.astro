@@ -1,5 +1,15 @@
 ---
 import { contact, fullName, navItems } from '@/constants';
+
+/*
+ * Real email address shown in print output.
+ * The web version uses a mailto: link that Cloudflare may encode via email
+ * obfuscation. Print consumers (ATS parsers, PDF readers) need extractable
+ * plain text. This constant is rendered inside .print-email-plain which is
+ * display:none on screen and display:inline in @media print.
+ * It is never seen by ordinary web visitors.
+ */
+const printEmail = 'derekmisler@gmail.com';
 ---
 
 <header id={navItems.home.slug} class="border-accent-top border-accent-bottom">
@@ -14,11 +24,29 @@ import { contact, fullName, navItems } from '@/constants';
     </h2>
     <nav>
       {
-        contact.map((item) => (
-          <a href={item.href} download={item.download} target="_blank" rel="noopener noreferrer">
-            {item.label}
-          </a>
-        ))
+        contact.map((item) => {
+          const isEmail = item.href.startsWith('mailto:');
+          return (
+            <>
+              {/* Screen and print: normal link. For email, print.css hides this
+                  and shows .print-email-plain instead, bypassing any encoding. */}
+              <a
+                href={item.href}
+                class={isEmail ? 'print-email-hidden' : ''}
+                download={item.download}
+                target="_blank"
+                rel="noopener noreferrer">
+                {item.label}
+              </a>
+              {/* Print only: extractable plain-text email for ATS parsers */}
+              {isEmail && (
+                <span class="print-email-plain" aria-hidden="true">
+                  {printEmail}
+                </span>
+              )}
+            </>
+          );
+        })
       }
     </nav>
   </div>
@@ -68,5 +96,10 @@ import { contact, fullName, navItems } from '@/constants';
       justify-content: flex-start;
       gap: var(--space-lg);
     }
+  }
+
+  /* Screen: hide the print-only plain-text email span */
+  .print-email-plain {
+    display: none;
   }
 </style>

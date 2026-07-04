@@ -7,7 +7,9 @@
   "scripts": {
     "astro": "astro",
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/generate-pdf.mjs",
+    "build:site": "astro build",
+    "generate-pdf": "node scripts/generate-pdf.mjs",
     "preview": "astro preview",
     "test": "astro check && prettier --check . && biome lint .",
     "fix": "prettier --write . && biome lint --write ."
@@ -22,6 +24,8 @@
   "devDependencies": {
     "@biomejs/biome": "2.3.8",
     "@types/lodash-es": "4.17.12",
+    "pdf-lib": "^1.17.1",
+    "playwright": "^1.61.1",
     "prettier": "^3.7.3",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "5.9.3"

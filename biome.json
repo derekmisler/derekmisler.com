@@ -64,6 +64,16 @@
           }
         }
       }
+    },
+    {
+      "includes": ["src/styles/print.css"],
+      "linter": {
+        "rules": {
+          "complexity": {
+            "noImportantStyles": "off"
+          }
+        }
+      }
     }
   ]
 }

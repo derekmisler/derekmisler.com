@@ -7,13 +7,35 @@ import { AstroSeo } from '@astrolib/seo';
 import Header from '@/components/Header.astro';
 import Main from '@/components/Main.astro';
 import Nav from '@/components/Nav.astro';
-import { description, firstName, fullName, lastName, socialId, title } from '@/constants';
+import { description, firstName, fullName, jobTitle, lastName, socialId, title } from '@/constants';
+
+const siteUrl = 'https://derekmisler.com';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: fullName,
+  jobTitle,
+  url: siteUrl,
+  sameAs: [`https://www.linkedin.com/in/${socialId}`, `https://github.com/${socialId}`],
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Docker',
+    url: 'https://www.docker.com',
+  },
+};
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {
+      /* Preload critical woff2 fonts. The swap window is near-zero because the
+        font arrives before first paint. All other weights use font-display:
+        optional and are never preloaded, so they cause no FOUT. */
+    }
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/sans/woff2/IBMPlexSans-Text.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/sans/woff2/IBMPlexSans-Bold.woff2" crossorigin />
     <AstroSeo
       title={`${fullName} | ${title}`}
       description={description}
@@ -30,14 +52,14 @@ import { description, firstName, fullName, lastName, socialId, title } from '@/c
         },
         images: [
           {
-            url: `${Astro.url.href}square.jpg`,
+            url: `${siteUrl}/square.jpg`,
             width: 1200,
             height: 1080,
             alt: 'Square image of Derek Misler',
             type: 'image/jpeg',
           },
           {
-            url: `${Astro.url.href}horizontal.jpg`,
+            url: `${siteUrl}/horizontal.jpg`,
             width: 800,
             height: 440,
             alt: 'Horizontal image of Derek Misler',
@@ -51,15 +73,40 @@ import { description, firstName, fullName, lastName, socialId, title } from '@/c
           name: 'google-site-verification',
           content: 'oM1NjzxvtvPp4JL2t2qo13zUhGnrpGF0Fbgyb6S8vDk',
         },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:site', content: `@${socialId}` },
+        { name: 'twitter:creator', content: `@${socialId}` },
+        { name: 'twitter:title', content: `${fullName} | ${title}` },
+        { name: 'twitter:description', content: description },
+        { name: 'twitter:image', content: `${siteUrl}/horizontal.jpg` },
+        { name: 'twitter:image:alt', content: 'Horizontal image of Derek Misler' },
       ]}
     />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <Nav />
     <Header />
     <Main />
   </body>
 </html>
 
-<style></style>
+<style>
+  .skip-link {
+    position: absolute;
+    top: -9999px;
+    left: 0;
+    z-index: 9999;
+    padding: var(--space-sm) var(--space-md);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-weight: 700;
+    text-decoration: none;
+    border: 2px solid currentColor;
+  }
+  .skip-link:focus {
+    top: 0;
+  }
+</style>

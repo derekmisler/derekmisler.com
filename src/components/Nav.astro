@@ -9,9 +9,9 @@ const navItemsArray = Object.values(navItems);
 <nav class="nav fixed-full overlay-hidden">
   {
     navItemsArray.map(({ slug, label }) => (
-      <button data-target={slug}>
+      <a href={`#${slug}`} data-target={slug}>
         <strong>{label}</strong>
-      </button>
+      </a>
     ))
   }
 </nav>
@@ -19,15 +19,20 @@ const navItemsArray = Object.values(navItems);
 <NavToggle />
 
 <script>
-  // Click to scroll
-  const navButtons = document.querySelectorAll<HTMLButtonElement>('nav button');
-  navButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const target = button.getAttribute('data-target');
+  // Click to scroll with smooth behavior (progressive enhancement over native anchor jump)
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('nav a[data-target]');
+  navLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      // Let modifier-key clicks (new tab, new window) and non-left-clicks pass through
+      if (e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) return;
+      e.preventDefault();
+      const target = link.getAttribute('data-target');
       if (!target) return;
       const targetElement = document.getElementById(target);
       document.body.removeAttribute('data-hidden');
       targetElement?.scrollIntoView({ behavior: 'smooth' });
+      // Update URL fragment without triggering a jump
+      history.pushState(null, '', `#${target}`);
     });
   });
 </script>
@@ -38,7 +43,7 @@ const navItemsArray = Object.values(navItems);
     background-color: var(--color-background);
     padding: var(--space-md);
   }
-  .nav button {
+  .nav a {
     --border-width: 10px;
     padding: 0;
     margin-bottom: var(--space-sm);
@@ -48,5 +53,7 @@ const navItemsArray = Object.values(navItems);
     line-height: var(--line-height-tight);
     width: fit-content;
     display: block;
+    text-decoration: none;
+    color: inherit;
   }
 </style>

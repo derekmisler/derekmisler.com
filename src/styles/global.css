@@ -7,8 +7,8 @@
 
 :root {
   /* Font families */
-  --font-body: 'IBM Plex Sans', sans-serif;
-  --font-head: 'IBM Plex Sans', sans-serif;
+  --font-body: 'IBM Plex Sans', 'IBM Plex Sans Fallback', sans-serif;
+  --font-head: 'IBM Plex Sans', 'IBM Plex Sans Fallback', sans-serif;
 
   /* Line heights */
   --line-height-tight: 1;
@@ -241,6 +241,14 @@ pre {
     color: transparent;
     background-image: linear-gradient(135deg, var(--color-text), var(--color-accent));
     background-clip: text;
+    /* Descender fix: at line-height 1.1 the inline-block box clips descenders
+       (g, j, p, q, y) because the box bottom sits above the glyph's descender
+       extent. padding-bottom extends the gradient background to cover the
+       descender; the matching negative margin-bottom keeps layout spacing
+       identical to before. 0.2em clears IBM Plex Sans descender (~0.22 UPM)
+       at all fluid font sizes. */
+    padding-bottom: 0.2em;
+    margin-bottom: -0.2em;
   }
 }
 

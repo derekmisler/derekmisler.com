@@ -1,9 +1,30 @@
 ---
 import Section from '@/components/Section.astro';
 import { contact, currentCareers, education, highlights, navItems, skills, subHeadline, tools } from '@/constants';
+
+// Convert "Mon YYYY" date strings to ISO YYYY-MM for <time datetime> attributes.
+const MONTHS: Record<string, string> = {
+  Jan: '01',
+  Feb: '02',
+  Mar: '03',
+  Apr: '04',
+  May: '05',
+  Jun: '06',
+  Jul: '07',
+  Aug: '08',
+  Sep: '09',
+  Oct: '10',
+  Nov: '11',
+  Dec: '12',
+};
+function toDatetime(date: string): string | undefined {
+  const [mon, year] = date.split(' ');
+  if (!mon || !year || !MONTHS[mon]) return undefined;
+  return `${year}-${MONTHS[mon]}`;
+}
 ---
 
-<main class="grid">
+<main id="main-content" class="grid">
   <Section id={navItems.about.slug} label={navItems.about.label}>
     <h4>Background</h4>
     <p>{subHeadline}</p>
@@ -18,19 +39,38 @@ import { contact, currentCareers, education, highlights, navItems, skills, subHe
   <Section id={navItems.experience.slug} label={navItems.experience.label}>
     {
       currentCareers.map((career) => (
-        <>
-          <h4>
-            <a href={career.link} target="_blank" rel="noopener noreferrer">
-              {career.location}
-            </a>
-            <p>{career.title}</p>
-          </h4>
+        <div class="career-entry">
+          <div class="career-left">
+            <h4>
+              <a href={career.link} target="_blank" rel="noopener noreferrer">
+                {career.location}
+              </a>
+            </h4>
+            <p class="job-title">
+              <span class="job-role">{career.title}</span>
+              <span class="job-dates">
+                {toDatetime(career.startDate ?? '') ? (
+                  <time datetime={toDatetime(career.startDate ?? '')}>{career.startDate}</time>
+                ) : (
+                  <span>{career.startDate}</span>
+                )}
+                {' - '}
+                {career.endDate === 'Present' ? (
+                  <span>Present</span>
+                ) : toDatetime(career.endDate ?? '') ? (
+                  <time datetime={toDatetime(career.endDate ?? '')}>{career.endDate}</time>
+                ) : (
+                  <span>{career.endDate}</span>
+                )}
+              </span>
+            </p>
+          </div>
           <ul>
             {career.accomplishments.map((accomplishment) => (
               <li>{accomplishment}</li>
             ))}
           </ul>
-        </>
+        </div>
       ))
     }
   </Section>
@@ -99,5 +139,58 @@ import { contact, currentCareers, education, highlights, navItems, skills, subHe
   main :global(p:not(:last-child)),
   main :global(ul:not(:last-child)) {
     margin-bottom: var(--space-md);
+  }
+  /*
+   * Career entry layout in the Experience section.
+   *
+   * display:contents makes .career-entry disappear as a box so its two
+   * children (.career-left and ul) become direct children of the subgrid,
+   * filling one row each: company name + title/dates on the left, bullets
+   * on the right. Multiple entries stack as consecutive subgrid rows.
+   *
+   * On mobile (single-column) display:contents is still fine -- block flow
+   * means .career-left then ul stack naturally.
+   */
+  main :global(.career-entry) {
+    display: contents;
+  }
+  main :global(.career-left) {
+    /* Suppress the global p margin-bottom on job-title since we control
+       spacing explicitly via job-title margin-top and ul margin-top. */
+  }
+  main :global(.career-left .job-title) {
+    margin-bottom: 0;
+  }
+  /* On mobile the ul follows career-left in flow; give it a clear gap
+     before the first bullet. On desktop it sits in the right subgrid
+     column so this margin is reset to avoid pushing bullets down. */
+  main :global(.career-entry > ul) {
+    margin-top: var(--space-md);
+    @media (min-width: 1024px) {
+      margin-top: 0;
+    }
+  }
+  /* Separate consecutive entries with top spacing on the left cell. */
+  main :global(.career-left + ul + .career-entry > .career-left),
+  main :global(.career-entry ~ .career-entry > .career-left) {
+    margin-top: var(--space-lg);
+  }
+  /* On mobile the ul sibling also needs top margin cleared and entries
+     separated; use the career-left margin to push the whole entry down. */
+  main :global(.job-title) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    margin-top: var(--space-xs);
+  }
+  main :global(.job-role) {
+    display: block;
+  }
+  main :global(.job-dates) {
+    display: block;
+    font-size: 0.85em;
+    opacity: 0.7;
+    margin-top: 0.25em;
   }
 </style>

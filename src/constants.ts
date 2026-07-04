@@ -9,16 +9,19 @@ export const navItems = {
 } satisfies Record<string, { slug: string; label: string }>;
 
 export const subHeadline =
-  'I\u2019m a senior front-end engineer who builds high\u2011leverage product systems: design\u2011system\u2011driven UIs, analytics experiences, and AI\u2011powered developer tooling. At Docker, I work on agent experiences and Desktop workflows, with a focus on performance, accessibility, and production\u2011grade delivery.';
+  'Platform engineer and front\u2011end architect, formally trained in graphic design, with 15+ years shipping production\u2011grade systems. I define how UIs get built: from design\u2011system infrastructure and AI agent tooling to the testing contracts and quality bars that make them reliable at scale. Currently doing that at Docker.';
 
 export const firstName = 'Derek';
 export const lastName = 'Misler';
 export const fullName = `${firstName} ${lastName}`;
 
+// JSON-LD job title -- kept in sync with the current role in currentCareers
+export const jobTitle = 'Platform Engineer and Front-End Architect';
+
 // SEO
-export const title = 'Senior Front-End Engineer | AI Developer Tools | UI/UX & Accessibility';
+export const title = 'Staff-Level Front-End Engineer | AI Developer Tools | UI/UX & Accessibility';
 export const description =
-  'Senior front-end engineer at Docker based in Arlington, VA. I build AI\u2011powered developer tooling, enterprise desktop workflows, and analytics experiences using React, TypeScript, design systems, and accessibility\u2011first practices.';
+  'Platform engineer and front\u2011end architect at Docker based in Arlington, VA. I build AI\u2011powered developer tooling, enterprise desktop workflows, and design\u2011system infrastructure using React, TypeScript, and accessibility\u2011first practices.';
 
 // Social
 export const socialId = 'derekmisler';
@@ -135,6 +138,8 @@ export const tools = [
 interface Experience {
   location: string;
   title: string;
+  startDate?: string;
+  endDate?: string;
   description?: string;
   accomplishments: string[];
   link?: string;
@@ -152,25 +157,30 @@ export const currentCareers = [
   {
     location: 'Docker',
     title: 'Senior Software Engineer',
+    startDate: 'Feb 2024',
+    endDate: 'Present',
     accomplishments: [
-      'Led engineering across Docker\u2019s AI platform and Docker Desktop enterprise admin experiences; shipped production-grade systems adopted by internal teams and enterprise customers.',
-      'Rebuilt a shared Electron-based UI platform (monorepo, CI/CD, design system integration, hot reload, test infrastructure) to accelerate iteration on agent tooling.',
+      'Led engineering across Docker\u2019s AI agent platform and Docker Desktop admin experiences (including Gordon 2.0, Docker\u2019s AI assistant shipping to millions of Desktop users), establishing the team\u2019s performance optimization standards across the product surface.',
+      'Rebuilt the shared Electron-based UI platform for Docker\u2019s agent tooling (monorepo, CI/CD, design system integration, hot reload, test infrastructure); the shadcn + Tailwind architectural decision made here resolved a company-wide component framework debate and was adopted as the standard across Docker\u2019s entire frontend codebase.',
       'Delivered secure telemetry pipelines (event schema design, CI validation, dashboards) to improve observability and product decision-making.',
-      'Strengthened open-source GitHub automation with secret leak prevention, contributor authorization, and prompt-injection mitigations.',
+      'Embedded with Docker\u2019s AI Governance team as the sole frontend lead on one of the company\u2019s top priorities, supporting a major enterprise contract. Ramped on an unfamiliar codebase in days, took ownership of a stalled workstream, and moved the team from behind schedule to ahead of it.',
+      'Built and rolled out docker-agent-action (Docker\u2019s AI-assisted PR review platform) across 70+ repositories and every engineering team; hardened its security posture, open-sourced it under Apache 2.0, and built self-serve onboarding so any team can adopt without manual setup.',
       'Took over ownership, unblocked, and shipped Bulk Deployment for Docker Desktop, enabling enterprise IT teams to configure and distribute Docker at scale across platforms.',
       'Integrated Docker Hub catalog search/launch into Docker Desktop to reduce workflow friction and improve discoverability.',
       'Led front\u2011end architecture for an enterprise Insights dashboard, referenced in customer adoption and sales enablement outcomes.',
-      'Raised the quality bar via accessibility, testing, and front-end reviews; partnered with Design, Product, Security, and Data to deliver cross-surface features.',
+      'Without any mandate, authored a comprehensive ownership and risk map of the entire docker/frontends monorepo, surfacing orphaned platform infrastructure, single-engineer bottlenecks on security-critical auth and IAM surfaces, and an estimated 15-25 engineer-hours/week of structural debt. The analysis is now driving leadership\u2019s evaluation of a dedicated frontend platform team.',
     ],
     link: 'https://www.docker.com',
   },
   {
     location: 'Patreon',
     title: 'Senior Front-End Platform Engineer',
+    startDate: 'Jan 2022',
+    endDate: 'Dec 2023',
     accomplishments: [
-      'Senior engineer on the Front\u2011End Platform team driving a large\u2011scale migration from a Flask/React multi\u2011page app and in-house SSR to Next.js.',
-      'Led the front-end workstream and partnered with backend platform + infrastructure teams, delivering an immediate 55% reduction in LCP (primary KR metric).',
       'Designed an incremental migration pattern to move features safely without blocking product delivery, enabling staged rollout and parallel work.',
+      'Led the front-end workstream and partnered with backend platform + infrastructure teams, delivering an immediate 55% reduction in LCP (primary KR metric).',
+      'Senior engineer on the Front\u2011End Platform team driving a large\u2011scale migration from a Flask/React multi\u2011page app and in-house SSR to Next.js.',
       'Built rollout and reliability guardrails: percentage-based feature flags, alerting/triage workflows, and dashboards to monitor regressions.',
       'Drove quality and maintainability upgrades: TypeScript adoption, linting standards, and front\u2011end documentation practices.',
       'Modernized testing from minimal coverage/Enzyme to React Testing Library + Cypress, including running smoke/e2e in dev and on PRs (not only at deploy time).',
@@ -182,6 +192,8 @@ export const currentCareers = [
   {
     location: 'Cadre',
     title: 'Lead Engineer',
+    startDate: 'Mar 2020',
+    endDate: 'Jan 2022',
     accomplishments: [
       'Unified decoupled SPA and third-party marketing site into cohesive Django/React app; migrated front\u2011end to monorepo.',
       'Built custom server-rendering with Webpack, React, and Node.js for marketing site.',
@@ -193,6 +205,8 @@ export const currentCareers = [
   {
     location: 'Transfix',
     title: 'Staff Front-End/Mobile Engineer',
+    startDate: 'Jan 2016',
+    endDate: 'Mar 2020',
     accomplishments: [
       'First front\u2011end engineer; established web and mobile architecture, rebuilding Android/iOS apps in React Native.',
       'Evolved web stack from Rails → Aurelia → React/Redux; developed internal library for web, mobile, and shared NPM modules.',
@@ -207,33 +221,13 @@ export const pastCareers = [
   {
     location: 'Asheville Convention & Visitors Bureau',
     title: 'Web Manager, Developer, Photographer',
+    startDate: 'Dec 2010',
+    endDate: 'Dec 2015',
     accomplishments: [
       'Primary developer for web presence; built first mobile site and responsive blog theme in .NET environment.',
       'Redesigned marketing site twice, evolving from ColdFusion to Node/MongoDB with custom JS templating.',
       'Designed and built two award\u2011winning interactive web experiences using Node and AngularJS.',
     ],
     link: 'http://www.exploreasheville.com',
-  },
-  {
-    location: 'Houser Shoes, Inc.',
-    title: 'Developer, Designer, Photographer',
-    accomplishments: [
-      'Redesigned e\u2011commerce site; built custom CMS on Magento (PHP/MySQL) integrated with inventory systems.',
-      'Lead product photographer and email marketing designer with performance analytics.',
-    ],
-    link: 'http://www.housershoes.com',
-  },
-  {
-    location: 'Precision Printing',
-    title: 'Designer, Printer',
-    accomplishments: ['Managed large print runs requiring attention to detail and process discipline.'],
-  },
-  {
-    location: 'The Appalachian Newspaper',
-    title: 'Designer, Developer, Photographer',
-    accomplishments: [
-      'Co\u2011founded online presence while serving as lead graphic designer in a fast\u2011moving team.',
-    ],
-    link: 'http://theappalachianonline.com',
   },
 ] satisfies Experience[];

@@ -158,7 +158,7 @@ export const currentCareers = [
     location: 'Docker',
     title: 'Senior Software Engineer',
     startDate: 'Feb 2024',
-    endDate: 'Present',
+    endDate: undefined,
     accomplishments: [
       'Led engineering across Docker\u2019s AI agent platform and Docker Desktop admin experiences (including Gordon 2.0, Docker\u2019s AI assistant shipping to millions of Desktop users), establishing the team\u2019s performance optimization standards across the product surface.',
       'Rebuilt the shared Electron-based UI platform for Docker\u2019s agent tooling (monorepo, CI/CD, design system integration, hot reload, test infrastructure); the shadcn + Tailwind architectural decision made here resolved a company-wide component framework debate and was adopted as the standard across Docker\u2019s entire frontend codebase.',

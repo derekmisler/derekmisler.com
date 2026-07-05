@@ -46,23 +46,15 @@ function toDatetime(date: string): string | undefined {
                 {career.location}
               </a>
             </h4>
-            <p class="job-title">
-              <span class="job-role">{career.title}</span>
-              <span class="job-dates">
-                {toDatetime(career.startDate ?? '') ? (
-                  <time datetime={toDatetime(career.startDate ?? '')}>{career.startDate}</time>
-                ) : (
-                  <span>{career.startDate}</span>
-                )}
-                {' - '}
-                {career.endDate === 'Present' ? (
-                  <span>Present</span>
-                ) : toDatetime(career.endDate ?? '') ? (
-                  <time datetime={toDatetime(career.endDate ?? '')}>{career.endDate}</time>
-                ) : (
-                  <span>{career.endDate}</span>
-                )}
-              </span>
+            <h5 class="job-role">{career.title}</h5>
+            <p class="job-dates">
+              <time datetime={toDatetime(career.startDate ?? '')}>{career.startDate}</time>
+              {' - '}
+              {career.endDate ? (
+                <time datetime={toDatetime(career.endDate ?? '')}>{career.endDate}</time>
+              ) : (
+                <span>Present</span>
+              )}
             </p>
           </div>
           <ul>
@@ -154,13 +146,7 @@ function toDatetime(date: string): string | undefined {
   main :global(.career-entry) {
     display: contents;
   }
-  main :global(.career-left) {
-    /* Suppress the global p margin-bottom on job-title since we control
-       spacing explicitly via job-title margin-top and ul margin-top. */
-  }
-  main :global(.career-left .job-title) {
-    margin-bottom: 0;
-  }
+  
   /* On mobile the ul follows career-left in flow; give it a clear gap
      before the first bullet. On desktop it sits in the right subgrid
      column so this margin is reset to avoid pushing bullets down. */

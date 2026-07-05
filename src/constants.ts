@@ -9,7 +9,7 @@ export const navItems = {
 } satisfies Record<string, { slug: string; label: string }>;
 
 export const subHeadline =
-  'Web development started at 13 as curiosity\u2014tinkering until things worked. A BFA in graphic design followed, then freelance work building real sites for local businesses, then a career that went from first front\u2011end engineer at a startup to Staff\u2011level lead, to Senior Platform Engineer at Patreon, to where I am now at Docker. The design background never left: an eye for typography, layout, and visual hierarchy still shapes the interfaces and systems I build.';
+  'Web development started at 13 as curiosity\u2014tinkering until things worked. A BFA in graphic design followed, then freelance work building real sites for local businesses, then a career that went from first front\u2011end engineer at a startup to Staff\u2011level lead, to where I am now at Docker. The design background never left: an eye for typography, layout, and visual hierarchy still shapes the interfaces and systems I build.';
 
 export const firstName = 'Derek';
 export const lastName = 'Misler';

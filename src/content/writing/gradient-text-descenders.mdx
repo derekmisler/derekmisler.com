@@ -2,12 +2,11 @@
 title: 'Gradient text and the descender problem'
 description: "background-clip: text is a clean technique — until descenders get clipped. Here's the geometry behind why it happens and a two-line CSS fix that works at every fluid font size."
 publishDate: 2026-08-01
-draft: true
+draft: false
 cssFeatures:
   - 'background-clip: text'
   - '@supports'
-  - 'padding-bottom'
-  - 'margin-bottom'
+  - 'inline-block box model'
 browserSupport: baseline
 ---
 
@@ -16,19 +15,21 @@ import BrowserSupport from '@/components/BrowserSupport.astro';
 
 <BrowserSupport features={frontmatter.cssFeatures} level={frontmatter.browserSupport} />
 
-The `background-clip: text` trick is one of those CSS techniques that looks great until it doesn't. Apply a gradient to text and everything looks fine — until you hit a word with a descender. Then `g`, `p`, `y`, `j`, and `q` get clipped at the bottom, as if someone took scissors to the font.
+The `background-clip: text` trick is one of those CSS techniques that looks great in the demo and then breaks in production. Apply a gradient, everything looks fine. Ship it, and a week later someone screenshots a heading where the bottom of every `g` and `p` has been surgically removed.
 
-This site uses gradient text in several places. Getting descenders to render correctly took understanding a small piece of how browsers calculate inline box geometry.
+This site uses gradient text in the header and a few section labels. Getting descenders to render correctly took a few minutes of actually understanding what the browser is doing, rather than cargo-culting a Stack Overflow snippet. Here is what I found.
 
-## Why descenders get clipped
+## The problem: what gets clipped and why
 
-When you apply `background-clip: text`, the browser clips the background to the bounds of the element's box. For an inline element with `display: inline-block`, that box is determined by the line box — which is calculated from the font's cap height and ascender, _not_ its descender.
+`background-clip: text` tells the browser to use the text content as a clipping mask for the element's background. Anywhere there's a glyph, the background shows through. Anywhere there isn't, it doesn't.
 
-In other words: the bottom of the box sits at the baseline, not below it. Descenders — the parts of letters like `g` and `p` that extend below the baseline — extend _outside_ the clip region and are cut off.
+The clip boundary is the element's **box**, not the visible ink of the glyphs. And for an `inline-block` element (which `background-clip: text` requires), that box has a specific geometry: its bottom edge sits at the **baseline** of the text, not at the bottom of the descenders.
 
-IBM Plex Sans (this site's font) has a descender depth of approximately 0.22 UPM (units per em). At a `line-height` of 1.1, that descent is fully outside the box.
+Descenders are the parts of letterforms that drop below the baseline: `g`, `j`, `p`, `q`, `y`, and in some fonts `f` and `z`. They extend below the baseline by a distance defined in the font's metrics as the **descender depth**, measured in UPM (units per em). IBM Plex Sans, the font used on this site, has a descender depth of roughly 0.22 UPM.
 
-<Demo title="Without fix — descenders clipped at baseline">
+At `line-height: 1.1` (the heading line height used here), there is no extra space below the baseline to accommodate those descenders. The box bottom is exactly at the baseline. Descenders extend below it, outside the clip region, and get cut off.
+
+<Demo title="Without fix: descenders clipped at the baseline" minHeight="7rem">
   <p
     style="
     display: inline-block;
@@ -39,17 +40,39 @@ IBM Plex Sans (this site's font) has a descender depth of approximately 0.22 UPM
     background-image: linear-gradient(135deg, #37353e, #be7b72);
     background-clip: text;
     -webkit-background-clip: text;
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: system-ui, sans-serif;
+    margin: 1rem;
     padding: 0;
-    margin: 0;
   ">
-    Typography
+    Typography is tricky
   </p>
 </Demo>
 
-## The fix: extend the background, preserve the layout
+Look at the `y` in "Typography" and the `g` in "tricky". Both are cleanly severed at the baseline. On some fonts and at some sizes the clipping is subtle enough to miss in a quick review; at others it's immediately obvious.
 
-The solution is to extend the background box downward far enough to cover the descenders, then cancel the extra space with a negative margin so surrounding layout is unaffected.
+## The mechanism: how the box model creates this
+
+To understand the fix, it helps to understand exactly why the box ends where it does.
+
+When you write:
+
+```css
+.gradient-text {
+  display: inline-block;
+  color: transparent;
+  background-clip: text;
+}
+```
+
+The browser constructs a **line box** for the element. The line box height is derived from the font metrics: specifically from the **ascender** and **cap height** above the baseline. The descender depth is not included in the box height calculation unless extra space is provided through `line-height`, `padding`, or `margin`.
+
+With `line-height: 1.1` on a font where the combined ascender + descender exceeds 1.1em (as it does for IBM Plex Sans), the box is too short to contain the full glyph extent. The background region gets clipped to the box, and the descenders are below it.
+
+This is not a bug. It is the box model working as specified. The fix is to extend the box to cover the descenders, which means extending it downward.
+
+## The fix: padding-bottom + margin-bottom
+
+Two CSS properties, one line each:
 
 ```css
 .gradient-text {
@@ -58,20 +81,24 @@ The solution is to extend the background box downward far enough to cover the de
     color: transparent;
     background-image: linear-gradient(135deg, var(--color-text), var(--color-accent));
     background-clip: text;
-    /* Extend the box to cover descenders (~0.22 UPM for IBM Plex Sans).
-       0.2em clears the descender at all fluid font sizes. */
+
+    /* Extend the clip region below the baseline to cover descenders.
+       0.2em gives ~0.22em of clearance at any font size. */
     padding-bottom: 0.2em;
-    /* Pull the layout back up so adjacent elements aren't pushed down. */
+
+    /* Undo the layout displacement the padding would otherwise cause. */
     margin-bottom: -0.2em;
   }
 }
 ```
 
-`padding-bottom: 0.2em` pushes the bottom edge of the element's box down far enough that the background extends past the descender line. `margin-bottom: -0.2em` removes the same amount of layout space so nothing shifts.
+`padding-bottom: 0.2em` pushes the bottom of the element's box down by 0.2em below the baseline. The background now extends into that space, which means the descenders are inside the clip region and render correctly.
 
-The `@supports` guard ensures browsers that don't support `background-clip: text` get the opaque text color fallback instead of invisible text.
+`margin-bottom: -0.2em` cancels the same distance from the element's layout footprint. Without it, every gradient text element would push the next line down by an extra 0.2em, ruining vertical rhythm.
 
-<Demo title="With fix — descenders fully visible">
+The two properties together: the box is visually extended to cover the descenders, but the surrounding layout is completely unaffected.
+
+<Demo title="With fix: descenders fully visible" minHeight="7rem">
   <p
     style="
     display: inline-block;
@@ -82,24 +109,67 @@ The `@supports` guard ensures browsers that don't support `background-clip: text
     background-image: linear-gradient(135deg, #37353e, #be7b72);
     background-clip: text;
     -webkit-background-clip: text;
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: system-ui, sans-serif;
+    margin: 1rem;
     padding-bottom: 0.2em;
-    margin-bottom: -0.2em;
+    margin-bottom: calc(-0.2em + 1rem);
   ">
-    Typography
+    Typography is tricky
   </p>
 </Demo>
 
-## Why 0.2em?
+The `y` and `g` are fully visible now.
 
-The `em` unit is relative to the element's `font-size`, which means the padding scales with the font at every point in the fluid type scale. A fixed `px` value would work at one size but fail at others.
+## Why 0.2em and not a pixel value
 
-IBM Plex Sans's descender depth is approximately 0.22 UPM. Using `0.2em` clears the descenders at all practical sizes with a small buffer. If you're adapting this to a different font, measure the descender depth from the font's metadata (most variable font tools expose UPM values) and set `padding-bottom` to match.
+The `em` unit scales with `font-size`. This matters because `font-size` is fluid on this site: `clamp(1.35rem, 5vw, 1.5rem)` for body text, `clamp(2rem, 5vw, 4rem)` for headings. A fixed pixel value that clears the descenders at 2rem would under-clear them at 4rem and over-clear them at 1.35rem.
+
+0.2em is approximately 0.22 UPM expressed in ems, which matches IBM Plex Sans's descender depth with a small buffer. It holds across every point in the fluid scale.
+
+If you are adapting this to a different font, find the descender depth in the font's metrics. Most variable font inspection tools (Wakamai Fondue, FontDrop) surface this as "descender" in the font's `OS/2` table, expressed in UPM. Divide by the UPM value to get the em equivalent, then round up slightly for safety.
+
+For IBM Plex Sans: descender is approximately -212 UPM out of 1000 UPM total, which gives 0.212em. Rounded up to 0.22em, then to 0.2em for a round number with a small buffer.
+
+## The @supports guard
+
+The full implementation wraps everything in `@supports (background-clip: text)`:
+
+```css
+.gradient-text {
+  /* Fallback: solid text color, readable on any background */
+  color: var(--color-text);
+
+  @supports (background-clip: text) {
+    display: inline-block;
+    color: transparent;
+    background-image: linear-gradient(135deg, var(--color-text), var(--color-accent));
+    background-clip: text;
+    padding-bottom: 0.2em;
+    margin-bottom: -0.2em;
+  }
+}
+```
+
+Without the guard, a browser that does not support `background-clip: text` renders `color: transparent` on visible text. The fallback makes the text fully readable in that case: solid `var(--color-text)` on the background color. The gradient is a progressive enhancement.
+
+`background-clip: text` is [Baseline 2022](https://caniuse.com/background-clip-text), which means every major browser has supported it for at least two and a half years. The guard is still worth keeping: it costs nothing and ensures graceful degradation in any edge case.
+
+## Edge case: multiline gradient text
+
+The `padding-bottom` fix only covers the last line of a multiline gradient text element. If the text wraps to multiple lines, intermediate lines do not need the fix (the next line's ink sits above the box bottom), but the last line does.
+
+In practice, multiline gradient text is usually a heading where `text-wrap: balance` is already applied to minimize wrapping. Keep headings to one line where possible. If wrapping is unavoidable, the fix still works: `padding-bottom` extends the box on the last line, which is where the clipping would occur.
+
+## Edge case: gradient direction and the baseline
+
+The descender fix is independent of the gradient direction. Whether the gradient runs horizontally, vertically, or diagonally, the clipping happens at the box boundary, not along the gradient direction. Changing the `linear-gradient` angle does not affect whether descenders are clipped.
 
 ## Where this is used on this site
 
-The header subtitle and a few section labels on this page use `.gradient-text`. View the source or inspect the element in DevTools to see the implementation live.
+The `.gradient-text` class applies to the header subtitle ("Platform engineer and front-end architect...") and to the `strong` elements within it. You can see the fix in action there: the `g` in "front-end", the `p` in "platform", and the `y` in "currently" all have their descenders intact.
+
+The full implementation lives in [`src/styles/global.css`](https://github.com/derekmisler/derekmisler.com/blob/main/src/styles/global.css). The class is applied in [`src/components/Header.astro`](https://github.com/derekmisler/derekmisler.com/blob/main/src/components/Header.astro).
 
 ---
 
-_The technique is implemented in `src/styles/global.css` — [view source on GitHub](https://github.com/derekmisler/derekmisler.com)._
+_Next: [A pure CSS link hover effect that respects keyboard focus](/writing/) (coming soon)_

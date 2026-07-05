@@ -1,0 +1,53 @@
+---
+interface Props {
+  title: string;
+  minHeight?: string;
+}
+
+const { title, minHeight = '8rem' } = Astro.props;
+---
+
+<figure class="demo" style={`--demo-min-height: ${minHeight}`}>
+  <figcaption class="demo-caption">{title}</figcaption>
+  <div class="demo-stage">
+    <slot />
+  </div>
+</figure>
+
+<style>
+  .demo {
+    margin-block: var(--space-lg);
+    margin-inline: 0;
+    border: var(--border-width) solid var(--color-accent);
+  }
+
+  .demo-caption {
+    display: block;
+    padding: var(--space-xs) var(--space-md);
+    font-size: var(--font-size-xs);
+    font-family: var(--font-body);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.75;
+    border-bottom: calc(var(--border-width) / 2) solid var(--color-accent);
+  }
+
+  .demo-stage {
+    /*
+     * CSS isolation: keep demo contents from inheriting the post's
+     * typography. The demo should look like a standalone snippet, not
+     * a continuation of the article body.
+     *
+     * We intentionally do NOT use `all: revert` here — that breaks
+     * inline styles on child elements. Instead we reset only the key
+     * properties that affect demo appearance.
+     */
+    display: block;
+    padding: var(--space-md);
+    min-height: var(--demo-min-height);
+    font-family: system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+</style>

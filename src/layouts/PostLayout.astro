@@ -1,0 +1,319 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { AstroSeo } from '@astrolib/seo';
+import ThemeToggle from '@/components/ThemeToggle.astro';
+import '@/styles/global.css';
+import '@/styles/ibm-plex-sans-all.css';
+import { fullName, socialId } from '@/constants';
+
+interface Props {
+  post: CollectionEntry<'writing'>;
+}
+
+const { post } = Astro.props;
+const { title, description, publishDate, updatedDate, cssFeatures } = post.data;
+
+const siteUrl = 'https://derekmisler.com';
+const postUrl = `${siteUrl}/writing/${post.id}/`;
+const canonicalUrl = `${siteUrl}/writing/${post.id}/`;
+
+// TechArticle JSON-LD for posts about specific CSS/web tech features.
+// Article is the fallback type when cssFeatures is empty.
+const jsonLdType = cssFeatures.length > 0 ? 'TechArticle' : 'Article';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': jsonLdType,
+  headline: title,
+  description,
+  datePublished: publishDate.toISOString(),
+  dateModified: (updatedDate ?? publishDate).toISOString(),
+  author: {
+    '@type': 'Person',
+    name: fullName,
+    url: siteUrl,
+    jobTitle: 'Staff-Level Front-End Engineer',
+  },
+  publisher: {
+    '@type': 'Person',
+    name: fullName,
+    url: siteUrl,
+  },
+  url: postUrl,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': postUrl,
+  },
+  ...(cssFeatures.length > 0 && {
+    about: cssFeatures.map((f) => ({ '@type': 'Thing', name: f })),
+    proficiencyLevel: 'Expert',
+  }),
+  isPartOf: {
+    '@type': 'WebSite',
+    name: fullName,
+    url: siteUrl,
+  },
+};
+
+const formattedDate = publishDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+const formattedUpdated = updatedDate?.toLocaleDateString('en-US', {
+  month: 'long',
+  year: 'numeric',
+});
+const ogImageUrl = `${siteUrl}/horizontal.jpg`;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/sans/woff2/IBMPlexSans-Text.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/sans/woff2/IBMPlexSans-Bold.woff2" crossorigin />
+    <AstroSeo
+      title={`${title} — ${fullName}`}
+      description={description}
+      canonical={canonicalUrl}
+      openGraph={{
+        type: 'article',
+        url: postUrl,
+        title: `${title} — ${fullName}`,
+        description,
+        article: {
+          publishedTime: publishDate.toISOString(),
+          modifiedTime: (updatedDate ?? publishDate).toISOString(),
+          authors: [siteUrl],
+        },
+        images: [
+          {
+            url: ogImageUrl,
+            width: 800,
+            height: 440,
+            alt: `Writing by ${fullName}`,
+            type: 'image/jpeg',
+          },
+        ],
+      }}
+      additionalLinkTags={[
+        { rel: 'icon', href: `${siteUrl}/favicon.ico` },
+        { rel: 'alternate', type: 'application/rss+xml', href: '/writing.xml' },
+        { rel: 'sitemap', href: '/sitemap-index.xml' },
+      ]}
+      additionalMetaTags={[
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:site', content: `@${socialId}` },
+        { name: 'twitter:creator', content: `@${socialId}` },
+        { name: 'twitter:title', content: `${title} — ${fullName}` },
+        { name: 'twitter:description', content: description },
+        { name: 'twitter:image', content: ogImageUrl },
+        { name: 'twitter:image:alt', content: `Writing by ${fullName}` },
+      ]}
+    />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#post-content">Skip to content</a>
+
+    <ThemeToggle />
+
+    <div class="post-chrome">
+      <nav class="post-nav border-accent-bottom content-padding">
+        <a href="/">← {fullName}</a>
+        <a href="/writing">Writing</a>
+      </nav>
+
+      <article id="post-content" class="post">
+        <header class="post-header border-accent-bottom">
+          <div class="post-meta">
+            <time datetime={publishDate.toISOString()}>{formattedDate}</time>
+            {
+              updatedDate && (
+                <span>
+                  {' '}
+                  · Updated <time datetime={updatedDate.toISOString()}>{formattedUpdated}</time>
+                </span>
+              )
+            }
+          </div>
+          <h1 class="post-title">{title}</h1>
+          <p class="post-description lead">{description}</p>
+        </header>
+
+        <div class="post-body content-padding">
+          <slot />
+        </div>
+
+        <footer class="post-footer border-accent-top content-padding">
+          <p>
+            Part of <a href="/">{siteUrl.replace('https://', '')}</a> — source on
+            <a href={`https://github.com/${socialId}/${socialId}.com`} target="_blank" rel="noopener noreferrer"
+              >GitHub</a
+            >.
+          </p>
+          <p>
+            <a href="/writing">← All writing</a>
+          </p>
+        </footer>
+      </article>
+    </div>
+  </body>
+</html>
+
+<style>
+  .skip-link {
+    position: absolute;
+    top: -9999px;
+    left: 0;
+    z-index: 9999;
+    padding: var(--space-sm) var(--space-md);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-weight: 700;
+    text-decoration: none;
+    border: 2px solid currentColor;
+  }
+  .skip-link:focus {
+    top: 0;
+  }
+
+  .post-chrome {
+    max-width: 72ch;
+    margin: 0 auto;
+    padding-bottom: var(--space-lg);
+  }
+
+  .post-nav {
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
+    margin-bottom: var(--space-md);
+  }
+
+  .post-nav a {
+    text-decoration: none;
+  }
+
+  .post-header {
+    padding: var(--space-md);
+    padding-bottom: var(--space-lg);
+    margin-bottom: var(--space-lg);
+  }
+
+  .post-meta {
+    font-size: var(--font-size-xs);
+    opacity: 0.7;
+    margin-bottom: var(--space-sm);
+  }
+
+  .post-title {
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-heading);
+    text-wrap: balance;
+    margin-bottom: var(--space-sm);
+  }
+
+  .post-description {
+    opacity: 0.85;
+  }
+
+  .post-body {
+    /* Typography for long-form reading */
+    line-height: var(--line-height-body);
+  }
+
+  /* Headings inside post body */
+  .post-body :global(h2) {
+    font-size: var(--font-size-md);
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-sm);
+    padding-bottom: var(--space-xs);
+    border-bottom: var(--border-width) solid var(--color-accent);
+  }
+
+  .post-body :global(h3) {
+    font-size: var(--font-size-sm);
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-xs);
+  }
+
+  /* Paragraphs */
+  .post-body :global(p) {
+    margin-bottom: var(--space-md);
+  }
+
+  /* Lists */
+  .post-body :global(ul),
+  .post-body :global(ol) {
+    padding-left: 1.5em;
+    margin-bottom: var(--space-md);
+  }
+
+  .post-body :global(li) {
+    list-style: revert;
+    margin-bottom: var(--space-xs);
+  }
+
+  /* Horizontal rules */
+  .post-body :global(hr) {
+    margin-block: var(--space-lg);
+  }
+
+  /* Blockquotes */
+  .post-body :global(blockquote) {
+    border-inline-start: var(--border-width) solid var(--color-accent);
+    padding-inline-start: var(--space-md);
+    margin-inline: 0;
+    opacity: 0.85;
+  }
+
+  /* Code blocks (Shiki output) — dual-theme via data-theme */
+  .post-body :global(pre) {
+    padding: var(--space-md);
+    margin-block: var(--space-md);
+    overflow-x: auto;
+    border-inline-start: var(--border-width) solid var(--color-accent);
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  /*
+   * Shiki dual-theme wiring.
+   * Shiki emits --shiki-light and --shiki-dark CSS vars on each token span.
+   * We select the right set based on the data-theme attribute that
+   * ThemeToggle.astro writes to <html>.
+   */
+  :root .post-body :global(.shiki),
+  :root .post-body :global(.shiki span) {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+  }
+
+  :root[data-theme='light'] .post-body :global(.shiki),
+  :root[data-theme='light'] .post-body :global(.shiki span) {
+    color: var(--shiki-light) !important;
+    background-color: var(--shiki-light-bg) !important;
+  }
+
+  /* Inline code */
+  .post-body :global(code:not(pre code)) {
+    font-size: 0.9em;
+    background: color-mix(in srgb, var(--color-accent) 18%, transparent);
+    padding: 0.1em 0.35em;
+    border-radius: 2px;
+  }
+
+  .post-footer {
+    margin-top: var(--space-lg);
+    opacity: 0.75;
+    font-size: var(--font-size-xs);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .post-footer :global(p) {
+    margin: 0;
+  }
+</style>

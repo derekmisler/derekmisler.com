@@ -1,0 +1,215 @@
+---
+import { getCollection } from 'astro:content';
+import { AstroSeo } from '@astrolib/seo';
+import ThemeToggle from '@/components/ThemeToggle.astro';
+import '@/styles/global.css';
+import '@/styles/ibm-plex-sans-all.css';
+import { fullName, socialId } from '@/constants';
+
+const posts = (await getCollection('writing', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+);
+
+const siteUrl = 'https://derekmisler.com';
+const pageTitle = `Writing — ${fullName}`;
+const pageDescription =
+  'Notes on CSS, frontend craft, and building for the web. Each post documents a technique implemented on this site.';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/sans/woff2/IBMPlexSans-Text.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/sans/woff2/IBMPlexSans-Bold.woff2" crossorigin />
+    <AstroSeo
+      title={pageTitle}
+      description={pageDescription}
+      canonical={`${siteUrl}/writing`}
+      openGraph={{
+        type: 'website',
+        url: `${siteUrl}/writing`,
+        title: pageTitle,
+        description: pageDescription,
+        images: [
+          {
+            url: `${siteUrl}/horizontal.jpg`,
+            width: 800,
+            height: 440,
+            alt: `Writing by ${fullName}`,
+            type: 'image/jpeg',
+          },
+        ],
+      }}
+      additionalLinkTags={[
+        { rel: 'icon', href: `${siteUrl}/favicon.ico` },
+        { rel: 'alternate', type: 'application/rss+xml', href: '/writing.xml' },
+        { rel: 'sitemap', href: '/sitemap-index.xml' },
+      ]}
+      additionalMetaTags={[
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:site', content: `@${socialId}` },
+        { name: 'twitter:creator', content: `@${socialId}` },
+        { name: 'twitter:title', content: pageTitle },
+        { name: 'twitter:description', content: pageDescription },
+        { name: 'twitter:image', content: `${siteUrl}/horizontal.jpg` },
+      ]}
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#writing-list">Skip to content</a>
+
+    <ThemeToggle />
+
+    <div class="writing-chrome">
+      <nav class="writing-nav border-accent-bottom content-padding">
+        <a href="/">← {fullName}</a>
+      </nav>
+
+      <header class="writing-header border-accent-bottom content-padding">
+        <h1 class="sticky-header writing-title">Writing</h1>
+        <p class="lead">{pageDescription}</p>
+        <p class="rss-link">
+          <a href="/writing.xml">RSS feed</a>
+        </p>
+      </header>
+
+      <main id="writing-list" class="content-padding">
+        {
+          posts.length === 0 ? (
+            <p class="empty-state">No posts yet — check back soon.</p>
+          ) : (
+            <ol class="post-list">
+              {posts.map((post) => (
+                <li class="post-item">
+                  <time class="post-date" datetime={post.data.publishDate.toISOString()}>
+                    {post.data.publishDate.toLocaleDateString('en-US', {
+                      month: 'short',
+                      year: 'numeric',
+                    })}
+                  </time>
+                  <div class="post-info">
+                    <a class="post-link" href={`/writing/${post.id}`}>
+                      {post.data.title}
+                    </a>
+                    <p class="post-description">{post.data.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          )
+        }
+      </main>
+    </div>
+  </body>
+</html>
+
+<style>
+  .skip-link {
+    position: absolute;
+    top: -9999px;
+    left: 0;
+    z-index: 9999;
+    padding: var(--space-sm) var(--space-md);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-weight: 700;
+    text-decoration: none;
+    border: 2px solid currentColor;
+  }
+  .skip-link:focus {
+    top: 0;
+  }
+
+  .writing-chrome {
+    max-width: 72ch;
+    margin: 0 auto;
+    min-height: 100vh;
+    @supports (height: 100dvh) {
+      min-height: 100dvh;
+    }
+  }
+
+  .writing-nav {
+    display: flex;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+
+  .writing-nav a {
+    text-decoration: none;
+  }
+
+  .writing-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+
+  .writing-title {
+    /* Override sticky-header top padding for the page title */
+    padding-top: 0;
+  }
+
+  .rss-link {
+    font-size: var(--font-size-xs);
+    opacity: 0.7;
+  }
+
+  .empty-state {
+    opacity: 0.6;
+  }
+
+  .post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .post-item {
+    display: grid;
+    grid-template-columns: 7ch 1fr;
+    gap: var(--space-md);
+    align-items: start;
+    /* Override global li margin since we use gap */
+    margin-bottom: 0;
+  }
+
+  .post-date {
+    font-size: var(--font-size-xs);
+    opacity: 0.6;
+    padding-top: 0.35em; /* optical alignment with the link text */
+    white-space: nowrap;
+  }
+
+  .post-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .post-link {
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    text-decoration: none;
+    line-height: var(--line-height-heading);
+  }
+
+  .post-link:hover,
+  .post-link:focus {
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-decoration-thickness: var(--border-width);
+  }
+
+  .post-description {
+    font-size: var(--font-size-xs);
+    opacity: 0.75;
+    margin: 0;
+    max-width: none;
+  }
+</style>

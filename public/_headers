@@ -1,0 +1,7 @@
+# Long-lived cache for static blog posts (Cloudflare Pages processes this file)
+/writing/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# Short cache for the RSS feed — must stay reasonably fresh
+/writing.xml
+  Cache-Control: public, max-age=3600

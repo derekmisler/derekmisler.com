@@ -1,0 +1,93 @@
+---
+interface Props {
+  features: string[];
+  level: 'baseline' | 'limited' | 'experimental';
+}
+
+const { features, level } = Astro.props;
+
+const labels: Record<Props['level'], string> = {
+  baseline: 'Baseline — all major browsers',
+  limited: 'Limited availability — progressive enhancement required',
+  experimental: 'Experimental — Chromium-only or behind a flag',
+};
+
+// Semantic color values as data attributes so CSS can theme them
+// without needing inline CSS vars (which can conflict with CSP).
+---
+
+<aside class="browser-support" data-level={level}>
+  <strong>Browser support:</strong>
+  {labels[level]}
+  {
+    features.length > 0 && (
+      <ul class="feature-list">
+        {features.map((f) => (
+          <li>
+            <code>{f}</code>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+  {
+    level !== 'baseline' && (
+      <p class="support-note">
+        Wrap in an <code>@supports</code> guard for production use.
+      </p>
+    )
+  }
+</aside>
+
+<style>
+  .browser-support {
+    margin-block: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--font-size-xs);
+    border-inline-start: var(--border-width) solid currentColor;
+  }
+
+  /* Color by support level */
+  .browser-support[data-level='baseline'] {
+    color: color-mix(in srgb, var(--color-text) 70%, #2d6a4f);
+  }
+
+  .browser-support[data-level='limited'] {
+    color: color-mix(in srgb, var(--color-text) 70%, #b5451b);
+  }
+
+  .browser-support[data-level='experimental'] {
+    color: color-mix(in srgb, var(--color-text) 70%, #6d28d9);
+  }
+
+  .feature-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    padding: 0;
+    margin-top: var(--space-xs);
+    margin-bottom: 0;
+    list-style: none;
+  }
+
+  .feature-list li {
+    margin: 0;
+  }
+
+  .feature-list code {
+    font-size: 0.9em;
+    background: color-mix(in srgb, currentColor 10%, transparent);
+    padding: 0.1em 0.35em;
+    border-radius: 2px;
+  }
+
+  .support-note {
+    margin-top: var(--space-xs);
+    margin-bottom: 0;
+    opacity: 0.85;
+  }
+
+  .support-note code {
+    font-size: 0.9em;
+  }
+</style>

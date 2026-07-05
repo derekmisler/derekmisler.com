@@ -1,0 +1,105 @@
+---
+title: 'Gradient text and the descender problem'
+description: "background-clip: text is a clean technique — until descenders get clipped. Here's the geometry behind why it happens and a two-line CSS fix that works at every fluid font size."
+publishDate: 2026-08-01
+draft: true
+cssFeatures:
+  - 'background-clip: text'
+  - '@supports'
+  - 'padding-bottom'
+  - 'margin-bottom'
+browserSupport: baseline
+---
+
+import Demo from '@/components/Demo.astro';
+import BrowserSupport from '@/components/BrowserSupport.astro';
+
+<BrowserSupport features={frontmatter.cssFeatures} level={frontmatter.browserSupport} />
+
+The `background-clip: text` trick is one of those CSS techniques that looks great until it doesn't. Apply a gradient to text and everything looks fine — until you hit a word with a descender. Then `g`, `p`, `y`, `j`, and `q` get clipped at the bottom, as if someone took scissors to the font.
+
+This site uses gradient text in several places. Getting descenders to render correctly took understanding a small piece of how browsers calculate inline box geometry.
+
+## Why descenders get clipped
+
+When you apply `background-clip: text`, the browser clips the background to the bounds of the element's box. For an inline element with `display: inline-block`, that box is determined by the line box — which is calculated from the font's cap height and ascender, _not_ its descender.
+
+In other words: the bottom of the box sits at the baseline, not below it. Descenders — the parts of letters like `g` and `p` that extend below the baseline — extend _outside_ the clip region and are cut off.
+
+IBM Plex Sans (this site's font) has a descender depth of approximately 0.22 UPM (units per em). At a `line-height` of 1.1, that descent is fully outside the box.
+
+<Demo title="Without fix — descenders clipped at baseline">
+  <p
+    style="
+    display: inline-block;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: transparent;
+    background-image: linear-gradient(135deg, #37353e, #be7b72);
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-family: 'IBM Plex Sans', sans-serif;
+    padding: 0;
+    margin: 0;
+  ">
+    Typography
+  </p>
+</Demo>
+
+## The fix: extend the background, preserve the layout
+
+The solution is to extend the background box downward far enough to cover the descenders, then cancel the extra space with a negative margin so surrounding layout is unaffected.
+
+```css
+.gradient-text {
+  @supports (background-clip: text) {
+    display: inline-block;
+    color: transparent;
+    background-image: linear-gradient(135deg, var(--color-text), var(--color-accent));
+    background-clip: text;
+    /* Extend the box to cover descenders (~0.22 UPM for IBM Plex Sans).
+       0.2em clears the descender at all fluid font sizes. */
+    padding-bottom: 0.2em;
+    /* Pull the layout back up so adjacent elements aren't pushed down. */
+    margin-bottom: -0.2em;
+  }
+}
+```
+
+`padding-bottom: 0.2em` pushes the bottom edge of the element's box down far enough that the background extends past the descender line. `margin-bottom: -0.2em` removes the same amount of layout space so nothing shifts.
+
+The `@supports` guard ensures browsers that don't support `background-clip: text` get the opaque text color fallback instead of invisible text.
+
+<Demo title="With fix — descenders fully visible">
+  <p
+    style="
+    display: inline-block;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: transparent;
+    background-image: linear-gradient(135deg, #37353e, #be7b72);
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-family: 'IBM Plex Sans', sans-serif;
+    padding-bottom: 0.2em;
+    margin-bottom: -0.2em;
+  ">
+    Typography
+  </p>
+</Demo>
+
+## Why 0.2em?
+
+The `em` unit is relative to the element's `font-size`, which means the padding scales with the font at every point in the fluid type scale. A fixed `px` value would work at one size but fail at others.
+
+IBM Plex Sans's descender depth is approximately 0.22 UPM. Using `0.2em` clears the descenders at all practical sizes with a small buffer. If you're adapting this to a different font, measure the descender depth from the font's metadata (most variable font tools expose UPM values) and set `padding-bottom` to match.
+
+## Where this is used on this site
+
+The header subtitle and a few section labels on this page use `.gradient-text`. View the source or inspect the element in DevTools to see the implementation live.
+
+---
+
+_The technique is implemented in `src/styles/global.css` — [view source on GitHub](https://github.com/derekmisler/derekmisler.com)._

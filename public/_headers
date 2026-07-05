@@ -1,4 +1,10 @@
-# Long-lived cache for static blog posts (Cloudflare Pages processes this file)
+# Writing archive index — no caching: must reflect new posts immediately
+/writing
+  Cache-Control: public, max-age=0, must-revalidate
+/writing/
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Long-lived cache for static individual post pages
 /writing/*
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 

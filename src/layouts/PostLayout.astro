@@ -16,6 +16,8 @@ const { title, description, publishDate, updatedDate, cssFeatures } = post.data;
 const siteUrl = 'https://derekmisler.com';
 const postUrl = `${siteUrl}/writing/${post.id}/`;
 const canonicalUrl = `${siteUrl}/writing/${post.id}/`;
+// ogImageUrl declared before jsonLd so it can be referenced in the image field
+const ogImageUrl = `${siteUrl}/horizontal.jpg`;
 
 // TechArticle JSON-LD for posts about specific CSS/web tech features.
 // Article is the fallback type when cssFeatures is empty.
@@ -43,6 +45,12 @@ const jsonLd = {
     '@type': 'WebPage',
     '@id': postUrl,
   },
+  image: {
+    '@type': 'ImageObject',
+    url: ogImageUrl,
+    width: 800,
+    height: 440,
+  },
   ...(cssFeatures.length > 0 && {
     about: cssFeatures.map((f) => ({ '@type': 'Thing', name: f })),
     proficiencyLevel: 'Expert',
@@ -63,7 +71,6 @@ const formattedUpdated = updatedDate?.toLocaleDateString('en-US', {
   month: 'long',
   year: 'numeric',
 });
-const ogImageUrl = `${siteUrl}/horizontal.jpg`;
 ---
 
 <html lang="en">

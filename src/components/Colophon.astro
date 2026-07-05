@@ -5,7 +5,7 @@
  * No scroll effects — this is the landing place. Let it be still.
  * All links render as crawlable text; no content hidden behind JS.
  */
-import { contact, socialId } from '@/constants';
+import { contact, firstName, lastName, socialId } from '@/constants';
 
 const currentYear = new Date().getFullYear();
 ---
@@ -17,23 +17,25 @@ const currentYear = new Date().getFullYear();
   </header>
 
   <div class="colophon-body">
-    <address class="contact-list" role="list" aria-label="Contact links">
-      {
-        contact.map((item) => (
-          <div class="contact-item" role="listitem">
-            <span class="contact-label section-label">{item.label}</span>
-            <a
-              href={item.href}
-              download={item.download}
-              target={item.download ? undefined : '_blank'}
-              rel={item.download ? undefined : 'noopener noreferrer'}
-              class="contact-link"
-              aria-label={item.altLabel}>
-              {item.altLabel}
-            </a>
-          </div>
-        ))
-      }
+    <address aria-label={`Contact ${firstName} ${lastName}`}>
+      <ul class="contact-list">
+        {
+          contact.map((item) => (
+            <li class="contact-item">
+              <span class="contact-label section-label">{item.label}</span>
+              <a
+                href={item.href}
+                download={item.download}
+                target={item.download ? undefined : '_blank'}
+                rel={item.download ? undefined : 'noopener noreferrer'}
+                class="contact-link"
+                aria-label={item.altLabel}>
+                {item.altLabel}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </address>
 
     <hr class="colophon-divider" aria-hidden="true" />
@@ -80,7 +82,6 @@ const currentYear = new Date().getFullYear();
   .contact-list {
     list-style: none;
     padding: 0;
-    font-style: normal;
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);

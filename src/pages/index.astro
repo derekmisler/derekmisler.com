@@ -152,8 +152,8 @@ const indexEntries = [
       Page landmark structure:
         <header>  — hero / above the fold
         <nav>     — site index / table of contents
-        <main>    — all resume content sections
-        (footer is inside Colophon via <section> + landmark role)
+        <main>    — work, experience, writing sections
+        <footer>  — contact + colophon
 
       Heading hierarchy:
         h1  — Derek Misler (Hero, one per page)
@@ -180,6 +180,8 @@ const indexEntries = [
       <Writing />
     </main>
 
-    <Colophon />
+    <footer>
+      <Colophon />
+    </footer>
   </body>
 </html>

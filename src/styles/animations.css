@@ -2,7 +2,9 @@
    SCROLL-DRIVEN ANIMATIONS
    All animation blocks are gated behind:
      @media (prefers-reduced-motion: no-preference)
-     @supports (animation-timeline: view())
+   plus either:
+     @supports (animation-timeline: view())   — for viewport-entry effects
+     @supports (animation-timeline: scroll()) — for the hero scroll-based effect
    The outer media query ensures users who opt out of motion never see any
    animation regardless of browser support. The @supports check guarantees
    non-supporting browsers get the clean, unanimated experience.

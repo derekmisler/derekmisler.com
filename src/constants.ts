@@ -160,7 +160,7 @@ export const currentCareers = [
     startDate: 'Feb 2024',
     endDate: 'Present',
     accomplishments: [
-      'Led engineering across Docker\u2019s AI agent platform and Docker Desktop admin experiences (including Gordon 2.0, Docker\u2019s AI assistant shipping to millions of Desktop users), establishing the team\u2019s performance optimization standards across the product surface.',
+      'Led front\u2011end engineering for Docker\u2019s AI agent platform and Docker Desktop admin experiences (including Gordon 2.0, Docker\u2019s AI assistant shipping to millions of Desktop users), establishing the team\u2019s front\u2011end performance and architecture standards across the product surface.',
       'Rebuilt the shared Electron-based UI platform for Docker\u2019s agent tooling (monorepo, CI/CD, design system integration, hot reload, test infrastructure); the shadcn + Tailwind architectural decision made here resolved a company-wide component framework debate and was adopted as the standard across Docker\u2019s entire frontend codebase.',
       'Delivered secure telemetry pipelines (event schema design, CI validation, dashboards) to improve observability and product decision-making.',
       'Embedded with Docker\u2019s AI Governance team as the sole frontend lead on one of the company\u2019s top priorities, supporting a major enterprise contract. Ramped on an unfamiliar codebase in days, took ownership of a stalled workstream, and moved the team from behind schedule to ahead of it.',

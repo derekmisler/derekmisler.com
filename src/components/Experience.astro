@@ -1,0 +1,222 @@
+---
+/**
+ * Section 4: EXPERIENCE
+ * Work history in literary/chronological format.
+ * Date range + company name (as chapter title) + full-width rule + prose.
+ */
+import { currentCareers, pastCareers, education } from '@/constants';
+
+// Convert "Mon YYYY" to ISO YYYY-MM for <time datetime>
+const MONTHS: Record<string, string> = {
+  Jan: '01',
+  Feb: '02',
+  Mar: '03',
+  Apr: '04',
+  May: '05',
+  Jun: '06',
+  Jul: '07',
+  Aug: '08',
+  Sep: '09',
+  Oct: '10',
+  Nov: '11',
+  Dec: '12',
+};
+function toDatetime(date: string): string | undefined {
+  const [mon, year] = date.split(' ');
+  if (!mon || !year || !MONTHS[mon]) return undefined;
+  return `${year}-${MONTHS[mon]}`;
+}
+
+const allCareers = [...currentCareers, ...pastCareers];
+---
+
+<section class="experience section-animated page-container" id="experience" aria-labelledby="experience-heading">
+  <header class="section-header">
+    <h2 id="experience-heading" class="section-label">Experience</h2>
+    <hr class="section-underrule" aria-hidden="true" />
+  </header>
+
+  <div class="experience-list">
+    {
+      allCareers.map((career) => (
+        <article class="experience-entry">
+          <div class="entry-dates tabular-nums text-muted">
+            {career.startDate && career.endDate && (
+              <>
+                {toDatetime(career.startDate) ? (
+                  <time datetime={toDatetime(career.startDate)}>{career.startDate}</time>
+                ) : (
+                  <span>{career.startDate}</span>
+                )}
+                <span aria-hidden="true"> &#8212; </span>
+                {career.endDate === 'Present' ? (
+                  <span>Present</span>
+                ) : toDatetime(career.endDate) ? (
+                  <time datetime={toDatetime(career.endDate)}>{career.endDate}</time>
+                ) : (
+                  <span>{career.endDate}</span>
+                )}
+              </>
+            )}
+          </div>
+
+          <div class="entry-company-row">
+            <h3 class="company-name">
+              {career.link ? (
+                <a href={career.link} target="_blank" rel="noopener noreferrer">
+                  {career.location}
+                </a>
+              ) : (
+                career.location
+              )}
+            </h3>
+          </div>
+
+          <hr class="experience-rule" aria-hidden="true" />
+
+          <div class="entry-body">
+            <p class="entry-role">{career.title}</p>
+            <ul class="entry-accomplishments">
+              {career.accomplishments.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))
+    }
+
+    {/* Education entry */}
+    <article class="experience-entry">
+      <div class="entry-dates tabular-nums text-muted">
+        <span>2005 &#8212; 2009</span>
+      </div>
+
+      <div class="entry-company-row">
+        <h3 class="company-name">{education.location}</h3>
+      </div>
+
+      <hr class="experience-rule" aria-hidden="true" />
+
+      <div class="entry-body">
+        <p class="entry-role">{education.title}</p>
+        <ul class="entry-accomplishments">
+          {education.accomplishments.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<style>
+  .experience {
+    padding-block: var(--space-xl);
+  }
+
+  .section-header {
+    margin-bottom: var(--space-lg);
+  }
+
+  .section-underrule {
+    margin-top: var(--space-2xs);
+    width: 2rem;
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    max-width: 720px;
+  }
+
+  .experience-entry {
+    margin-top: 0;
+  }
+
+  .entry-dates {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-2xs);
+    display: block;
+  }
+
+  .entry-company-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .company-name {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 300;
+    font-variation-settings:
+      'wght' 300,
+      'opsz' 36;
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text);
+    text-transform: uppercase;
+    /* Fallback: fixed weight without animation */
+  }
+
+  .company-name a {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .company-name a:hover,
+  .company-name a:focus-visible {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+
+  .experience-rule {
+    width: 100%;
+    border-top: 1px solid var(--color-rule);
+    margin-block: var(--space-xs);
+    /* Fallback: always fully visible */
+    transform-origin: left center;
+  }
+
+  .entry-body {
+    margin-top: var(--space-xs);
+  }
+
+  .entry-role {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-xs);
+  }
+
+  .entry-accomplishments {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .entry-accomplishments li {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-body);
+    color: var(--color-text);
+    padding-left: 1.25em;
+    position: relative;
+  }
+
+  .entry-accomplishments li::before {
+    content: '\2014'; /* em dash */
+    position: absolute;
+    left: 0;
+    color: var(--color-muted);
+  }
+</style>

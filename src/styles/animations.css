@@ -1,0 +1,148 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   SCROLL-DRIVEN ANIMATIONS
+   All animation blocks are gated behind:
+     @media (prefers-reduced-motion: no-preference)
+     @supports (animation-timeline: view())
+   The outer media query ensures users who opt out of motion never see any
+   animation regardless of browser support. The @supports check guarantees
+   non-supporting browsers get the clean, unanimated experience.
+
+   Fallback state for every element is fully polished — opacity: 1, no
+   transforms, no layout shift. These animations are pure enhancement.
+───────────────────────────────────────────────────────────────────────────── */
+
+@layer animations {
+  /* ── Effect 1: Hero name weight shift on page scroll ───────────────────── */
+  /* The name animates from wght 200 → 400 as the page scrolls past the hero.
+     Uses scroll(root) — keyed to the total document scroll, not viewport.
+     Completes by the time 30% of the page has been scrolled. */
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: scroll()) {
+      @keyframes hero-weight {
+        from {
+          font-variation-settings:
+            'wght' 200,
+            'opsz' 144;
+        }
+        to {
+          font-variation-settings:
+            'wght' 400,
+            'opsz' 144;
+        }
+      }
+
+      .hero-name {
+        animation: hero-weight linear both;
+        animation-timeline: scroll(root);
+        animation-range: 0% 30%;
+      }
+    }
+  }
+
+  /* ── Effect 2: Section entry — opacity lift on view ────────────────────── */
+  /* Each <section> fades from 0.55 → 1 as it enters the viewport. Sections
+     are never invisible (0.55 is fully readable); this is a focus effect. */
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      @keyframes section-focus {
+        0% {
+          opacity: 0.55;
+        }
+        30% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .section-animated {
+        animation: section-focus linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 40%;
+      }
+    }
+  }
+
+  /* ── Effect 3: Project blind rule extension ─────────────────────────────── */
+  /* The thin rule between a project's number and year (01 ——— 2024) extends
+     from left to right as the entry enters the viewport. Zero readability
+     impact — purely decorative. */
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      @keyframes rule-extend {
+        from {
+          clip-path: inset(0 100% 0 0);
+        }
+        to {
+          clip-path: inset(0 0% 0 0);
+        }
+      }
+
+      .project-rule {
+        animation: rule-extend linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 50%;
+      }
+    }
+  }
+
+  /* ── Effect 4: Company name weight shift on entry ───────────────────────── */
+  /* In the Experience section each company name shifts wght 200 → 500 as it
+     enters the viewport — the ink-on-paper solidification metaphor. */
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      @keyframes company-solidify {
+        from {
+          font-variation-settings: 'wght' 200;
+        }
+        to {
+          font-variation-settings: 'wght' 500;
+        }
+      }
+
+      .company-name {
+        animation: company-solidify linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 40%;
+      }
+    }
+  }
+
+  /* ── Effect 5: Index item reveal — opacity + minimal translateY ─────────── */
+  /* Each TOC row lifts 4px and rises from 0.3 → 1 opacity as the index
+     section enters the viewport. */
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      @keyframes index-item-enter {
+        from {
+          opacity: 0.3;
+          transform: translateY(4px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .index-item {
+        animation: index-item-enter linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 50%;
+      }
+    }
+  }
+
+  /* ── Effect 6: Experience rule extension ───────────────────────────────── */
+  /* The full-width rule under each company name grows left → right on entry,
+     same technique as the project blind rules. */
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .experience-rule {
+        animation: rule-extend linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 40%;
+      }
+    }
+  }
+}

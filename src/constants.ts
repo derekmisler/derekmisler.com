@@ -9,19 +9,19 @@ export const navItems = {
 } satisfies Record<string, { slug: string; label: string }>;
 
 export const subHeadline =
-  'Platform engineer and front\u2011end architect, formally trained in graphic design, with 15+ years shipping production\u2011grade systems. I define how UIs get built: from design\u2011system infrastructure and AI agent tooling to the testing contracts and quality bars that make them reliable at scale. Currently doing that at Docker.';
+  'Platform engineer and front\u2011end architect, formally trained in graphic design, with 20+ years shipping production\u2011grade systems. I define how UIs get built: from design\u2011system infrastructure and AI agent tooling to the testing contracts and quality bars that make them reliable at scale. Currently doing that at Docker.';
 
 export const firstName = 'Derek';
 export const lastName = 'Misler';
 export const fullName = `${firstName} ${lastName}`;
 
 // JSON-LD job title -- kept in sync with the current role in currentCareers
-export const jobTitle = 'Platform Engineer and Front-End Architect';
+export const jobTitle = 'Staff-Level Front-End Engineer';
 
 // SEO
-export const title = 'Staff-Level Front-End Engineer | AI Developer Tools | UI/UX & Accessibility';
+export const title = 'Staff-Level Front-End Engineer | React, TypeScript, AI Tooling | Docker';
 export const description =
-  'Platform engineer and front\u2011end architect at Docker based in Arlington, VA. I build AI\u2011powered developer tooling, enterprise desktop workflows, and design\u2011system infrastructure using React, TypeScript, and accessibility\u2011first practices.';
+  'Staff\u2011level front\u2011end engineer at Docker based in Arlington, VA. 20+ years building production\u2011grade web systems. Currently leading AI agent experiences and design\u2011system infrastructure using React, TypeScript, and accessibility\u2011first practices.';
 
 // Social
 export const socialId = 'derekmisler';
@@ -231,3 +231,42 @@ export const pastCareers = [
     link: 'http://www.exploreasheville.com',
   },
 ] satisfies Experience[];
+
+// Work entries for the Work section (Section 3)
+export interface WorkEntry {
+  title: string;
+  year: string;
+  description: string;
+  url?: string;
+}
+
+export const workEntries: WorkEntry[] = [
+  {
+    title: 'Docker AI Agent Platform (Gordon 2.0)',
+    year: '2025',
+    description:
+      'Led front\u2011end engineering for Docker\u2019s AI assistant shipping inside Docker Desktop to millions of users. Established performance optimization standards and the shadcn + Tailwind architectural decision now adopted across Docker\u2019s entire frontend codebase. Built with React, TypeScript, Electron, and Tailwind CSS.',
+    url: 'https://www.docker.com',
+  },
+  {
+    title: 'docker-agent-action',
+    year: '2024',
+    description:
+      'Built and open\u2011sourced Docker\u2019s AI\u2011assisted PR review platform, rolling it out across 70+ repositories and every engineering team. Hardened its security posture, built self\u2011serve onboarding, and published it under Apache 2.0. Built with GitHub Actions, TypeScript, and the Anthropic API.',
+    url: 'https://github.com/docker/docker-agent-action',
+  },
+  {
+    title: 'Patreon Next.js Migration',
+    year: '2023',
+    description:
+      'Led front\u2011end workstream of a large\u2011scale migration from a Flask/React multi\u2011page app to Next.js, delivering a 55% reduction in LCP as the primary KR metric. Designed an incremental migration pattern enabling staged rollout and parallel product work without blocking delivery. Built with Next.js, TypeScript, and React.',
+    url: 'https://www.patreon.com',
+  },
+  {
+    title: 'Bulk Deployment for Docker Desktop',
+    year: '2024',
+    description:
+      'Took over ownership, unblocked, and shipped Bulk Deployment — enabling enterprise IT teams to configure and distribute Docker at scale across platforms. Coordinated across multiple teams and shipped a stalled feature on an accelerated timeline. Built with React, TypeScript, and Electron.',
+    url: 'https://www.docker.com',
+  },
+];

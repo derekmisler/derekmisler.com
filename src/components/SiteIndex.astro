@@ -1,0 +1,103 @@
+---
+/**
+ * Section 2: THE INDEX
+ * Table of contents that acts as in-page navigation.
+ * Numbers in tabular oldstyle figures; section names as anchor links.
+ */
+
+export interface IndexEntry {
+  number: string;
+  label: string;
+  href: string;
+}
+
+interface Props {
+  entries: IndexEntry[];
+}
+
+const { entries } = Astro.props;
+---
+
+<section class="site-index section-animated page-container" id="index" aria-label="Site index">
+  <hr class="index-rule-top" aria-hidden="true" />
+  <ol class="index-list" role="list">
+    {
+      entries.map((entry) => (
+        <li class="index-item">
+          <a href={entry.href} class="index-link">
+            <span class="index-number tabular-nums" aria-hidden="true">
+              {entry.number}
+            </span>
+            <span class="index-label">{entry.label}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+  <hr class="index-rule-bottom" aria-hidden="true" />
+</section>
+
+<style>
+  .site-index {
+    padding-block: var(--space-xl);
+  }
+
+  .index-rule-top,
+  .index-rule-bottom {
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .index-list {
+    list-style: none;
+    padding: 0;
+    margin-block: var(--space-xs);
+  }
+
+  .index-item {
+    margin-top: 0;
+  }
+
+  .index-item + .index-item {
+    margin-top: 0;
+  }
+
+  .index-link {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-sm);
+    padding-block: var(--space-xs);
+    text-decoration: none;
+    color: var(--color-text);
+    transition: color var(--transition-fast);
+    border-bottom: 1px solid transparent;
+  }
+
+  .index-link:hover,
+  .index-link:focus-visible {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .index-link:hover .index-label,
+  .index-link:focus-visible .index-label {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+
+  .index-number {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+    min-width: 2ch;
+    flex-shrink: 0;
+  }
+
+  .index-label {
+    font-family: var(--font-body);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    line-height: var(--leading-snug);
+    color: var(--color-text);
+  }
+</style>

@@ -1,0 +1,131 @@
+---
+/**
+ * Section 6: COLOPHON / CONTACT
+ * Contact information + a colophon.
+ * No scroll effects — this is the landing place. Let it be still.
+ * All links render as crawlable text; no content hidden behind JS.
+ */
+import { contact, socialId } from '@/constants';
+
+const currentYear = new Date().getFullYear();
+---
+
+<section class="colophon page-container" id="contact" aria-labelledby="contact-heading">
+  <header class="section-header">
+    <h2 id="contact-heading" class="section-label">Contact</h2>
+    <hr class="section-underrule" aria-hidden="true" />
+  </header>
+
+  <div class="colophon-body">
+    <address class="contact-list" role="list" aria-label="Contact links">
+      {
+        contact.map((item) => (
+          <div class="contact-item" role="listitem">
+            <span class="contact-label section-label">{item.label}</span>
+            <a
+              href={item.href}
+              download={item.download}
+              target={item.download ? undefined : '_blank'}
+              rel={item.download ? undefined : 'noopener noreferrer'}
+              class="contact-link"
+              aria-label={item.altLabel}>
+              {item.altLabel}
+            </a>
+          </div>
+        ))
+      }
+    </address>
+
+    <hr class="colophon-divider" aria-hidden="true" />
+
+    <footer class="colophon-note" aria-label="Site colophon">
+      <p>
+        Designed and built by Derek Misler. Set in
+        <a href="https://fraunces.undercase.xyz" target="_blank" rel="noopener noreferrer">Fraunces</a>
+        and
+        <a href="https://fonts.google.com/specimen/Newsreader" target="_blank" rel="noopener noreferrer">Newsreader</a>,
+        both open&#8209;source variable fonts. Built with
+        <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>. Source on
+        <a href={`https://github.com/${socialId}/${socialId}.com`} target="_blank" rel="noopener noreferrer">GitHub</a>.
+      </p>
+      <p class="copyright">
+        <small>&#169; <span id="copyright-year">{currentYear}</span> Derek Misler</small>
+      </p>
+    </footer>
+  </div>
+</section>
+
+<style>
+  .colophon {
+    padding-block: var(--space-xl) var(--space-2xl);
+  }
+
+  .section-header {
+    margin-bottom: var(--space-lg);
+  }
+
+  .section-underrule {
+    margin-top: var(--space-2xs);
+    width: 2rem;
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .colophon-body {
+    max-width: 720px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+  }
+
+  .contact-link {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    color: var(--color-text);
+  }
+
+  .colophon-divider {
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .colophon-note {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .colophon-note p {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+    line-height: var(--leading-loose);
+  }
+
+  .colophon-note a {
+    color: var(--color-muted);
+    text-underline-offset: 2px;
+  }
+
+  .colophon-note a:hover,
+  .colophon-note a:focus-visible {
+    color: var(--color-text);
+  }
+
+  .copyright {
+    margin-top: var(--space-xs);
+  }
+</style>

@@ -1,53 +1,99 @@
 ---
 import '@/styles/global.css';
-import '@/styles/ibm-plex-sans-all.css';
+import '@/styles/animations.css';
 
 import { AstroSeo } from '@astrolib/seo';
 
-import Header from '@/components/Header.astro';
-import Main from '@/components/Main.astro';
-import Nav from '@/components/Nav.astro';
-import { description, firstName, fullName, jobTitle, lastName, socialId, title } from '@/constants';
+import Colophon from '@/components/Colophon.astro';
+import Experience from '@/components/Experience.astro';
+import Hero from '@/components/Hero.astro';
+import SiteIndex from '@/components/SiteIndex.astro';
+import Work from '@/components/Work.astro';
+import Writing from '@/components/Writing.astro';
+import {
+  description,
+  firstName,
+  fullName,
+  jobTitle,
+  lastName,
+  skills,
+  socialId,
+  title,
+  tools,
+  workEntries,
+} from '@/constants';
 
 const siteUrl = 'https://derekmisler.com';
+
+// Flatten skill and tool categories for JSON-LD knowsAbout
+const allSkills = [...skills.flatMap(([, items]) => items), ...tools.flatMap(([, items]) => items)];
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: fullName,
   jobTitle,
+  description,
   url: siteUrl,
-  sameAs: [`https://www.linkedin.com/in/${socialId}`, `https://github.com/${socialId}`],
+  email: `hello@${socialId}.com`,
+  sameAs: [
+    `https://www.linkedin.com/in/${socialId}`,
+    `https://github.com/${socialId}`,
+    `https://twitter.com/${socialId}`,
+  ],
+  knowsAbout: allSkills,
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'Appalachian State University',
+  },
   worksFor: {
     '@type': 'Organization',
     name: 'Docker',
     url: 'https://www.docker.com',
   },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Arlington',
+    addressRegion: 'VA',
+    addressCountry: 'US',
+  },
 };
+
+const indexEntries = [
+  { number: '01', label: 'Work', href: '#work' },
+  { number: '02', label: 'Experience', href: '#experience' },
+  { number: '03', label: 'Writing', href: '#writing' },
+  { number: '04', label: 'Contact', href: '#contact' },
+];
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    {
-      /* Preload critical woff2 fonts. The swap window is near-zero because the
-        font arrives before first paint. All other weights use font-display:
-        optional and are never preloaded, so they cause no FOUT. */
-    }
-    <link rel="preload" as="font" type="font/woff2" href="/fonts/sans/woff2/IBMPlexSans-Text.woff2" crossorigin />
-    <link rel="preload" as="font" type="font/woff2" href="/fonts/sans/woff2/IBMPlexSans-Bold.woff2" crossorigin />
+    <meta name="theme-color" content="#faf8f5" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1a1820" media="(prefers-color-scheme: dark)" />
+
+    <!--
+      Preload the display font (Fraunces) — it's the largest element on first
+      paint (the hero name). Newsreader body text uses font-display: swap so it
+      never blocks render. Preloading only the display font keeps the hint set
+      small while eliminating the largest potential FOUT.
+    -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces/Fraunces-VF.woff2" crossorigin />
+
     <AstroSeo
-      title={`${fullName} | ${title}`}
+      title={`${fullName} — ${title}`}
       description={description}
-      canonical={Astro.url.href}
+      canonical={siteUrl}
       openGraph={{
-        type: 'website',
-        url: Astro.url.href,
-        title: `${fullName} | ${title}`,
+        type: 'profile',
+        url: siteUrl,
+        title: `${fullName} — ${title}`,
         description,
         profile: {
-          firstName: firstName,
-          lastName: lastName,
+          firstName,
+          lastName,
           username: socialId,
         },
         images: [
@@ -55,58 +101,85 @@ const jsonLd = {
             url: `${siteUrl}/square.jpg`,
             width: 1200,
             height: 1080,
-            alt: 'Square image of Derek Misler',
+            alt: `${fullName} — Staff-level front-end engineer`,
             type: 'image/jpeg',
           },
           {
             url: `${siteUrl}/horizontal.jpg`,
             width: 800,
             height: 440,
-            alt: 'Horizontal image of Derek Misler',
+            alt: `${fullName} — Staff-level front-end engineer`,
             type: 'image/jpeg',
           },
         ],
       }}
-      additionalLinkTags={[{ rel: 'icon', href: `${Astro.url.href}favicon.ico` }]}
+      additionalLinkTags={[
+        { rel: 'icon', href: `${siteUrl}/favicon.ico` },
+        { rel: 'sitemap', href: '/sitemap-index.xml' },
+      ]}
       additionalMetaTags={[
         {
           name: 'google-site-verification',
           content: 'oM1NjzxvtvPp4JL2t2qo13zUhGnrpGF0Fbgyb6S8vDk',
         },
+        { name: 'author', content: fullName },
+        { name: 'robots', content: 'index, follow' },
+        /*
+         * Twitter / X card
+         */
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:site', content: `@${socialId}` },
         { name: 'twitter:creator', content: `@${socialId}` },
-        { name: 'twitter:title', content: `${fullName} | ${title}` },
+        { name: 'twitter:title', content: `${fullName} — ${title}` },
         { name: 'twitter:description', content: description },
         { name: 'twitter:image', content: `${siteUrl}/horizontal.jpg` },
-        { name: 'twitter:image:alt', content: 'Horizontal image of Derek Misler' },
+        {
+          name: 'twitter:image:alt',
+          content: `${fullName} — Staff-level front-end engineer`,
+        },
       ]}
     />
-    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- JSON-LD Person schema — all crawlable, no JS required to render -->
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
+
   <body>
+    <!-- Skip nav — first focusable element for keyboard users -->
     <a class="skip-link" href="#main-content">Skip to main content</a>
-    <Nav />
-    <Header />
-    <Main />
+
+    <!--
+      Page landmark structure:
+        <header>  — hero / above the fold
+        <nav>     — site index / table of contents
+        <main>    — all resume content sections
+        (footer is inside Colophon via <section> + landmark role)
+
+      Heading hierarchy:
+        h1  — Derek Misler (Hero, one per page)
+        h2  — section labels (Work, Experience, Writing, Contact) — all-small-caps
+        h3  — company names / project names
+        No heading levels skipped.
+    -->
+
+    <header role="banner">
+      <Hero />
+    </header>
+
+    <!--
+      The site index doubles as the <nav> landmark.
+      aria-label distinguishes it from any future secondary navs.
+    -->
+    <nav aria-label="Page sections">
+      <SiteIndex entries={indexEntries} />
+    </nav>
+
+    <main id="main-content">
+      <Work entries={workEntries} />
+      <Experience />
+      <Writing />
+    </main>
+
+    <Colophon />
   </body>
 </html>
-
-<style>
-  .skip-link {
-    position: absolute;
-    top: -9999px;
-    left: 0;
-    z-index: 9999;
-    padding: var(--space-sm) var(--space-md);
-    background-color: var(--color-background);
-    color: var(--color-text);
-    font-weight: 700;
-    text-decoration: none;
-    border: 2px solid currentColor;
-  }
-  .skip-link:focus {
-    top: 0;
-  }
-</style>

@@ -1,0 +1,138 @@
+---
+/**
+ * Section 3: WORK
+ * Selected work presented as a literary list — no cards, no thumbnails.
+ * Each entry: number blind-rule year / project name / description.
+ */
+
+export interface WorkEntry {
+  title: string;
+  year: string;
+  description: string;
+  url?: string;
+}
+
+interface Props {
+  entries: WorkEntry[];
+}
+
+const { entries } = Astro.props;
+---
+
+<section class="work section-animated page-container" id="work" aria-labelledby="work-heading">
+  <header class="section-header">
+    <h2 id="work-heading" class="section-label">Work</h2>
+    <hr class="section-underrule" aria-hidden="true" />
+  </header>
+
+  <ol class="work-list" role="list">
+    {
+      entries.map((entry, i) => {
+        const num = String(i + 1).padStart(2, '0');
+        return (
+          <li class="project-entry">
+            <div class="project-meta" aria-hidden="true">
+              <span class="project-number tabular-nums">{num}</span>
+              <span class="project-rule" role="presentation" />
+              <span class="project-year tabular-nums text-muted">{entry.year}</span>
+            </div>
+            <h3 class="project-name">
+              {entry.url ? (
+                <a href={entry.url} target="_blank" rel="noopener noreferrer">
+                  {entry.title}
+                </a>
+              ) : (
+                entry.title
+              )}
+            </h3>
+            <p class="project-description">{entry.description}</p>
+          </li>
+        );
+      })
+    }
+  </ol>
+</section>
+
+<style>
+  .work {
+    padding-block: var(--space-xl);
+  }
+
+  .section-header {
+    margin-bottom: var(--space-lg);
+  }
+
+  .section-underrule {
+    margin-top: var(--space-2xs);
+    width: 2rem;
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .work-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .project-entry {
+    max-width: 720px;
+    margin-top: 0;
+  }
+
+  .project-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-2xs);
+  }
+
+  .project-number {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    color: var(--color-muted);
+    flex-shrink: 0;
+  }
+
+  .project-rule {
+    display: block;
+    flex: 1;
+    height: 1px;
+    background-color: var(--color-rule);
+    transform-origin: left center;
+    /* Fallback: always visible at full width */
+  }
+
+  .project-year {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    flex-shrink: 0;
+  }
+
+  .project-name {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    font-variation-settings:
+      'wght' 400,
+      'opsz' 24;
+    line-height: var(--leading-snug);
+    color: var(--color-text);
+    margin-bottom: var(--space-xs);
+  }
+
+  .project-name a {
+    font-family: inherit;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  .project-description {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-body);
+    color: var(--color-text);
+  }
+</style>

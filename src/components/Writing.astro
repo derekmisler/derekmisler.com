@@ -1,0 +1,128 @@
+---
+/**
+ * Section 5: WRITING
+ * Placeholder section — architecturally complete, intentionally sparse.
+ * Expandable via Astro content collections when the blog is built out.
+ * All entries render as crawlable text — no content hidden behind JS.
+ */
+
+export interface WritingEntry {
+  date: string;
+  datetime: string;
+  title: string;
+  url?: string;
+}
+
+interface Props {
+  entries?: WritingEntry[];
+}
+
+const { entries = [] } = Astro.props;
+const hasEntries = entries.length > 0;
+---
+
+<section class="writing section-animated page-container" id="writing" aria-labelledby="writing-heading">
+  <header class="section-header">
+    <h2 id="writing-heading" class="section-label">Writing</h2>
+    <hr class="section-underrule" aria-hidden="true" />
+  </header>
+
+  <div class="writing-body">
+    <p class="writing-intro">Notes and longer pieces on front&#8209;end engineering, CSS, and building for the web.</p>
+
+    {
+      hasEntries && (
+        <ul class="writing-list" role="list">
+          {entries.map((entry) => (
+            <li class="writing-item index-item">
+              <span class="writing-date tabular-nums text-muted">
+                <time datetime={entry.datetime}>{entry.date}</time>
+              </span>
+              {entry.url ? (
+                <a href={entry.url} class="writing-title">
+                  {entry.title}
+                </a>
+              ) : (
+                <span class="writing-title">{entry.title}</span>
+              )}
+            </li>
+          ))}
+        </ul>
+      )
+    }
+
+    {
+      hasEntries && (
+        <p class="writing-footer">
+          <a href="/writing">All writing &#8594;</a>
+        </p>
+      )
+    }
+
+    {!hasEntries && <p class="writing-soon">More writing soon.</p>}
+  </div>
+</section>
+
+<style>
+  .writing {
+    padding-block: var(--space-xl);
+  }
+
+  .section-header {
+    margin-bottom: var(--space-lg);
+  }
+
+  .section-underrule {
+    margin-top: var(--space-2xs);
+    width: 2rem;
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .writing-body {
+    max-width: 720px;
+  }
+
+  .writing-intro {
+    margin-bottom: var(--space-md);
+    color: var(--color-muted);
+    font-size: var(--text-base);
+  }
+
+  .writing-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .writing-item {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-sm);
+    padding-block: var(--space-2xs);
+    margin-top: 0;
+  }
+
+  .writing-date {
+    font-size: var(--text-sm);
+    min-width: 6.5ch;
+    flex-shrink: 0;
+  }
+
+  .writing-title {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    color: var(--color-text);
+  }
+
+  .writing-footer {
+    margin-top: var(--space-md);
+  }
+
+  .writing-soon {
+    color: var(--color-muted);
+    font-size: var(--text-base);
+    font-style: italic;
+  }
+</style>

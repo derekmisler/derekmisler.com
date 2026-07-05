@@ -1,0 +1,107 @@
+---
+/**
+ * Section 1: THE MARK
+ * The name set at display scale, flush left. A one-line tagline.
+ * A thin rule and a scroll indicator.
+ */
+import { fullName } from '@/constants';
+
+const [firstName, lastName] = fullName.split(' ');
+---
+
+<section class="hero section-animated" aria-label="Introduction">
+  <div class="hero-inner page-container">
+    <h1 class="hero-name" aria-label={fullName}>
+      <span class="name-line">{firstName}</span>
+      <span class="name-line">{lastName}</span>
+    </h1>
+
+    <div class="hero-footer">
+      <hr class="hero-rule" aria-hidden="true" />
+      <p class="hero-tagline">
+        Platform engineer and front&#8209;end architect. Formally trained in graphic design. Building things for the web
+        for over 20 years.
+      </p>
+      <p class="scroll-indicator tabular-nums" aria-hidden="true">
+        <span class="scroll-indicator-text">scroll</span>
+        <span class="scroll-indicator-arrow">&#8595;</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100svh;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-block: clamp(3rem, 6vw, 5rem);
+    width: 100%;
+  }
+
+  .hero-name {
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--text-hero);
+    font-weight: 300;
+    font-variation-settings:
+      'wght' 300,
+      'opsz' 144;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text);
+    text-transform: uppercase;
+    /* Fallback for no animation — fixed mid-weight */
+    font-feature-settings:
+      'kern' 1,
+      'liga' 0;
+    text-wrap: balance;
+  }
+
+  .name-line {
+    display: block;
+  }
+
+  .hero-footer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    max-width: 720px;
+  }
+
+  .hero-rule {
+    width: 100%;
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .hero-tagline {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: 400;
+    line-height: var(--leading-body);
+    color: var(--color-text);
+    max-width: var(--measure);
+  }
+
+  .scroll-indicator {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    color: var(--color-muted);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    max-width: none;
+  }
+
+  .scroll-indicator-text {
+    font-variant-caps: all-small-caps;
+  }
+</style>

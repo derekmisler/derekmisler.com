@@ -9,7 +9,7 @@ export const navItems = {
 } satisfies Record<string, { slug: string; label: string }>;
 
 export const subHeadline =
-  'Platform engineer and front\u2011end architect, formally trained in graphic design, with 15+ years shipping production\u2011grade systems. I define how UIs get built: from design\u2011system infrastructure and AI agent tooling to the testing contracts and quality bars that make them reliable at scale. Currently doing that at Docker.';
+  'Web development started at 13 as curiosity, tinkering until things worked. A BFA in graphic design followed, then freelance work building real sites for local businesses, then a career that went from first front\u2011end engineer at a startup to Staff\u2011level lead, to where I am now at Docker. The design background never left: an eye for typography, layout, and visual hierarchy still shapes the interfaces and systems I build.';
 
 export const firstName = 'Derek';
 export const lastName = 'Misler';

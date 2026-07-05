@@ -46,16 +46,16 @@ function toDatetime(date: string): string | undefined {
                 {career.location}
               </a>
             </h4>
-            <h5 class="job-role">{career.title}</h5>
-            <p class="job-dates">
+            <h5>{career.title}</h5>
+            <h6>
               <time datetime={toDatetime(career.startDate ?? '')}>{career.startDate}</time>
               {' - '}
               {career.endDate ? (
                 <time datetime={toDatetime(career.endDate ?? '')}>{career.endDate}</time>
               ) : (
-                <span>Present</span>
+                <>Present</>
               )}
-            </p>
+            </h6>
           </div>
           <ul>
             {career.accomplishments.map((accomplishment) => (
@@ -146,7 +146,7 @@ function toDatetime(date: string): string | undefined {
   main :global(.career-entry) {
     display: contents;
   }
-  
+
   /* On mobile the ul follows career-left in flow; give it a clear gap
      before the first bullet. On desktop it sits in the right subgrid
      column so this margin is reset to avoid pushing bullets down. */
@@ -161,22 +161,8 @@ function toDatetime(date: string): string | undefined {
   main :global(.career-entry ~ .career-entry > .career-left) {
     margin-top: var(--space-lg);
   }
-  /* On mobile the ul sibling also needs top margin cleared and entries
-     separated; use the career-left margin to push the whole entry down. */
-  main :global(.job-title) {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-    margin-top: var(--space-xs);
-  }
-  main :global(.job-role) {
-    display: block;
-  }
-  main :global(.job-dates) {
-    display: block;
-    font-size: 0.85em;
-    opacity: 0.7;
-    margin-top: 0.25em;
+
+  main :global(.career-left > *) {
+    line-height: var(--line-height-body);
   }
 </style>

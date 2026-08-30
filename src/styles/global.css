@@ -28,6 +28,19 @@ button {
   cursor: auto;
 }
 
+/*
+ * IBM Plex Mono fallback: metric-matched to Courier New for CLS prevention.
+ * size-adjust compensates for Courier New being wider than IBM Plex Mono.
+ */
+@font-face {
+  font-family: 'IBM Plex Mono Fallback';
+  src: local('Courier New'), local('Courier');
+  size-adjust: 83%;
+  ascent-override: 85%;
+  descent-override: 23%;
+  line-gap-override: 0%;
+}
+
 *,
 *::after,
 *::before {
@@ -37,20 +50,20 @@ button {
 
 :root {
   /* Font families */
-  --font-body: 'IBM Plex Sans', 'IBM Plex Sans Fallback', sans-serif;
-  --font-head: 'IBM Plex Sans', 'IBM Plex Sans Fallback', sans-serif;
+  --font-body: 'IBM Plex Mono', 'IBM Plex Mono Fallback', monospace;
+  --font-head: 'IBM Plex Mono', 'IBM Plex Mono Fallback', monospace;
   --font-pixel: 'Press Start 2P', monospace;
 
   /* Line heights */
   --line-height-tight: 1;
   --line-height-heading: 1.1;
-  --line-height-body: 2.6rem;
+  --line-height-body: 2rem; /* tightened from 2.6rem; mono has built-in rhythm */
 
   /*
    * Fluid Type Scale
    */
   --font-size-xs: clamp(0.75rem, 5vw, 1rem);
-  --font-size-sm: clamp(1.35rem, 5vw, 1.5rem);
+  --font-size-sm: clamp(1.2rem, 5vw, 1.35rem); /* reduced ~0.15rem; mono reads optically larger */
   --font-size-md: clamp(1.5rem, 5vw, 2rem);
   --font-size-lg: clamp(1.75rem, 5vw, 2.25rem);
   --font-size-xl: clamp(2rem, 5vw, 4rem);
@@ -103,7 +116,7 @@ body {
 body {
   font-family: var(--font-body);
   font-size: var(--font-size-sm);
-  font-weight: 450;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   line-height: var(--line-height-body);
   color: var(--color-text);
@@ -179,7 +192,7 @@ li {
 }
 .lead {
   font-size: var(--font-size-md);
-  font-weight: 450;
+  font-weight: 500;
   line-height: var(--line-height-body);
   text-wrap: balance;
 }
@@ -433,3 +446,4 @@ h2 {
 .nes-progress {
   font-family: var(--font-body);
 }
+

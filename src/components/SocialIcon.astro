@@ -6,15 +6,24 @@ interface Props {
   href: string;
   label: string;
   size?: 'small' | 'medium' | 'large';
+  /** When true, renders the icon without a wrapping <a>. Use inside an
+   *  existing link so the same destination isn't reachable twice by keyboard. */
+  decorative?: boolean;
 }
 
-const { name, href, label, size = 'small' } = Astro.props;
+const { name, href, label, size = 'small', decorative = false } = Astro.props;
 const sizeClass = size !== 'small' ? `is-${size}` : '';
 ---
 
-<a href={href} target="_blank" rel="noopener noreferrer" aria-label={label} class="social-icon-link">
-  <i class:list={['nes-icon', name, sizeClass].filter(Boolean)} aria-hidden="true"></i>
-</a>
+{
+  decorative ? (
+    <i class:list={['nes-icon', name, sizeClass].filter(Boolean)} aria-hidden="true" />
+  ) : (
+    <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label} class="social-icon-link">
+      <i class:list={['nes-icon', name, sizeClass].filter(Boolean)} aria-hidden="true" />
+    </a>
+  )
+}
 
 <style>
   .social-icon-link {
@@ -23,7 +32,8 @@ const sizeClass = size !== 'small' ? `is-${size}` : '';
     text-decoration: none;
   }
   /* NES icons use transform: scale(N) internally; add margin compensation */
-  .social-icon-link i {
+  .social-icon-link i,
+  i.nes-icon {
     margin: 8px;
   }
 </style>

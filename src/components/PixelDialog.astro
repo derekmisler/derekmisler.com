@@ -8,7 +8,7 @@ interface Props {
 const { id, open = false, title } = Astro.props;
 ---
 
-<dialog class="nes-dialog is-dark is-rounded" id={id} open={open}>
+<dialog class="nes-dialog is-rounded" id={id} open={open}>
   <form method="dialog">
     {title && <p class="title">{title}</p>}
     <slot />

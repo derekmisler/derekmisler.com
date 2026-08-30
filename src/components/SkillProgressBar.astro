@@ -8,12 +8,13 @@ interface Props {
 
 const { label, value, max = 100, variant } = Astro.props;
 const variantClass = variant ? `is-${variant}` : '';
+const slugId = `progress-${label.toLowerCase().replace(/\s+/g, '-')}`;
 ---
 
 <div class="skill-progress">
-  <label for={`progress-${label}`}>{label}</label>
+  <label for={slugId}>{label}</label>
   <progress
-    id={`progress-${label}`}
+    id={slugId}
     class:list={['nes-progress', 'is-rounded', variantClass].filter(Boolean)}
     value={value}
     max={max}></progress>

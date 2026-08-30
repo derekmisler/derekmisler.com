@@ -24,7 +24,11 @@ const { href, label, altLabel, download, icon, variant = 'nav' } = Astro.props;
   ) : (
     <div class="contact-detail">
       <h4 class="contact-label">
-        {icon && <SocialIcon name={icon} href={href} label={label} />}
+        {icon && (
+          <span class="contact-icon" aria-hidden="true">
+            <SocialIcon name={icon} href={href} label={label} decorative />
+          </span>
+        )}
         {label}
       </h4>
       <p>
@@ -41,5 +45,9 @@ const { href, label, altLabel, download, icon, variant = 'nav' } = Astro.props;
     display: flex;
     align-items: center;
     gap: var(--space-xs);
+  }
+  /* Icon is presentational here; pointer-events still fine since it's aria-hidden */
+  .contact-icon {
+    display: inline-flex;
   }
 </style>

@@ -39,6 +39,7 @@ button {
   /* Font families */
   --font-body: 'IBM Plex Sans', 'IBM Plex Sans Fallback', sans-serif;
   --font-head: 'IBM Plex Sans', 'IBM Plex Sans Fallback', sans-serif;
+  --font-pixel: 'Press Start 2P', monospace;
 
   /* Line heights */
   --line-height-tight: 1;
@@ -337,16 +338,7 @@ body[data-hidden] .overlay-hidden {
   opacity: 1;
 }
 
-/*
- * =========================================================
- * NES.css typography: Press Start 2P on h1, h3, nav overlay
- * IBM Plex Sans everywhere else (easily swappable via --font-body)
- * =========================================================
- */
-:root {
-  --font-pixel: 'Press Start 2P', monospace;
-}
-
+/* NES.css typography: Press Start 2P on h1, h3, and nav overlay */
 h1,
 h3 {
   font-family: var(--font-pixel);
@@ -372,14 +364,12 @@ h3 {
   color: var(--color-text);
 }
 
-/* Dark theme: re-apply is-dark behavior automatically */
-html[data-theme='dark'] .nes-container {
-  background-color: var(--color-background);
-  color: var(--color-text);
-  border-color: var(--color-accent);
-}
-
-html[data-theme='light'] .nes-container {
+/*
+ * NES dialogs don't inherit from .nes-container, so the bridge above
+ * doesn't cover them. Override NES's hardcoded .is-dark colors with
+ * site tokens so dialogs follow data-theme like everything else.
+ */
+.nes-dialog {
   background-color: var(--color-background);
   color: var(--color-text);
   border-color: var(--color-accent);
@@ -400,12 +390,16 @@ html[data-theme='light'] .nes-container {
   background-color: var(--color-background-accent);
 }
 
-/* Kill the NES button pseudo-element hover (site uses its own ::after trick) */
+/*
+ * The site's ::after creates a sliding highlight on all buttons/links.
+ * .nes-btn's own ::after is the pixelated border outline; suppress the
+ * site's version here so the two don't fight.
+ */
 .nes-btn::after {
   display: none;
 }
 
-/* Badges: IBM Plex Sans at body-xs — skill names can be long */
+/* Badges: IBM Plex Sans at body-xs; skill names can be long */
 .nes-badge span {
   font-family: var(--font-body);
   font-size: var(--font-size-xs);
@@ -428,13 +422,4 @@ html[data-theme='light'] .nes-container {
 /* Progress bars: IBM Plex Sans labels, not pixel font */
 .nes-progress {
   font-family: var(--font-body);
-}
-
-/*
- * The site's ::after pseudo-element creates a sliding highlight for links/buttons.
- * .nes-btn uses its own ::after for the 3D pixel shadow — disable the site's
- * version on .nes-btn to prevent the two from fighting.
- */
-.nes-btn::after {
-  display: none;
 }

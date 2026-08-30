@@ -1,0 +1,34 @@
+---
+import AccomplishmentList from '@/components/AccomplishmentList.astro';
+import TimeRange from '@/components/TimeRange.astro';
+
+interface Props {
+  location: string;
+  link?: string;
+  title: string;
+  startDate?: string;
+  endDate?: string;
+  accomplishments: string[];
+}
+
+const { location, link, title, startDate, endDate, accomplishments } = Astro.props;
+---
+
+<div class="career-entry">
+  <div class="career-left">
+    <h3>
+      {
+        link ? (
+          <a href={link} target="_blank" rel="noopener noreferrer">
+            {location}
+          </a>
+        ) : (
+          location
+        )
+      }
+    </h3>
+    <h4>{title}</h4>
+    {startDate && <TimeRange startDate={startDate} endDate={endDate} />}
+  </div>
+  <AccomplishmentList items={accomplishments} />
+</div>

@@ -1,0 +1,33 @@
+---
+interface Props {
+  label: string;
+  value: number;
+  max?: number;
+  variant?: 'primary' | 'success' | 'warning' | 'error';
+}
+
+const { label, value, max = 100, variant } = Astro.props;
+const variantClass = variant ? `is-${variant}` : '';
+const slugId = `progress-${label.toLowerCase().replace(/\s+/g, '-')}`;
+---
+
+<div class="skill-progress">
+  <label for={slugId}>{label}</label>
+  <progress
+    id={slugId}
+    class:list={['nes-progress', 'is-rounded', variantClass].filter(Boolean)}
+    value={value}
+    max={max}></progress>
+</div>
+
+<style>
+  .skill-progress {
+    display: grid;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-sm);
+  }
+  label {
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+  }
+</style>

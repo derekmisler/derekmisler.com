@@ -1,3 +1,33 @@
+/* Import NES.css before any site rules so our overrides win */
+@import 'nes.css/css/nes.min.css';
+
+/*
+ * CRITICAL: NES.css forces "Press Start 2P" on html/body/pre/code/kbd/samp.
+ * Restore IBM Plex Sans immediately so body copy is legible.
+ */
+html,
+body,
+pre,
+code,
+kbd,
+samp {
+  font-family: var(--font-body);
+}
+
+/* Restore body color/background overridden by NES.css Reboot */
+html,
+body {
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+/* Restore NES.css pixel cursors to standard (site has its own cursor style) */
+html,
+a,
+button {
+  cursor: auto;
+}
+
 *,
 *::after,
 *::before {
@@ -9,6 +39,7 @@
   /* Font families */
   --font-body: 'IBM Plex Sans', 'IBM Plex Sans Fallback', sans-serif;
   --font-head: 'IBM Plex Sans', 'IBM Plex Sans Fallback', sans-serif;
+  --font-pixel: 'Press Start 2P', monospace;
 
   /* Line heights */
   --line-height-tight: 1;
@@ -112,23 +143,30 @@ h6 {
 }
 
 h2 {
-  font-size: var(--font-size-xl);
-}
-
-h3 {
   font-size: var(--font-size-lg);
 }
 
-h4 {
+h3 {
   font-size: var(--font-size-md);
+}
+
+h4 {
+  font-size: var(--font-size-sm);
 }
 
 h5,
 h6 {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
 }
 h6 {
   opacity: 0.7;
+}
+
+/* Date range paragraph under career entries */
+.career-dates {
+  font-size: var(--font-size-xs);
+  opacity: 0.7;
+  max-width: none;
 }
 
 p,
@@ -305,4 +343,93 @@ pre {
 body[data-hidden] .overlay-hidden {
   pointer-events: auto;
   opacity: 1;
+}
+
+/* NES.css typography: Press Start 2P on h1 and h2 section labels */
+h1,
+h2 {
+  font-family: var(--font-pixel);
+  font-weight: 400;
+}
+
+/*
+ * =========================================================
+ * NES.css theming bridge
+ * NES ships .is-dark only; we bridge to data-theme via CSS.
+ * =========================================================
+ */
+
+/* Containers: use site tokens instead of NES hardcoded whites/greys */
+.nes-container {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  border-color: var(--color-accent);
+}
+
+.nes-container.with-title > .title {
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+/*
+ * NES dialogs don't inherit from .nes-container, so the bridge above
+ * doesn't cover them. Override NES's hardcoded .is-dark colors with
+ * site tokens so dialogs follow data-theme like everything else.
+ */
+.nes-dialog {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  border-color: var(--color-accent);
+}
+
+/* Buttons: match site palette */
+.nes-btn {
+  font-family: var(--font-pixel);
+  font-size: var(--font-size-xs);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  border-color: var(--color-accent);
+}
+
+.nes-btn:hover,
+.nes-btn:focus {
+  color: var(--color-text);
+  background-color: var(--color-background-accent);
+}
+
+/*
+ * The site's ::after creates a sliding highlight on all buttons/links.
+ * .nes-btn's own ::after is the pixelated border outline; suppress the
+ * site's version here so the two don't fight.
+ */
+.nes-btn::after {
+  display: none;
+}
+
+/* Lists: preserve site spacing while NES adds pixel-art bullets */
+.nes-list.is-disc li,
+.nes-list.is-circle li {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-body);
+}
+
+/*
+ * NES list bullets are drawn with box-shadow on a ::before pseudo-element.
+ * box-shadow inherits currentColor, but NES hardcodes color:#212529 on the
+ * ::before; invisible on a dark background. Override to the site text token.
+ */
+.nes-list.is-disc li::before,
+.nes-list.is-circle li::before {
+  color: var(--color-text);
+}
+
+/* Social icons: scale compensation */
+.nes-icon {
+  cursor: pointer;
+}
+
+/* Progress bars: IBM Plex Sans labels, not pixel font */
+.nes-progress {
+  font-family: var(--font-body);
 }

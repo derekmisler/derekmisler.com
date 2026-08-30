@@ -1,0 +1,29 @@
+---
+type IconName = 'github' | 'linkedin' | 'gmail' | 'twitter' | 'youtube' | 'instagram';
+
+interface Props {
+  name: IconName;
+  href: string;
+  label: string;
+  size?: 'small' | 'medium' | 'large';
+}
+
+const { name, href, label, size = 'small' } = Astro.props;
+const sizeClass = size !== 'small' ? `is-${size}` : '';
+---
+
+<a href={href} target="_blank" rel="noopener noreferrer" aria-label={label} class="social-icon-link">
+  <i class:list={['nes-icon', name, sizeClass].filter(Boolean)} aria-hidden="true"></i>
+</a>
+
+<style>
+  .social-icon-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  /* NES icons use transform: scale(N) internally; add margin compensation */
+  .social-icon-link i {
+    margin: 8px;
+  }
+</style>

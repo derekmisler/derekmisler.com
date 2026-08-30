@@ -1,0 +1,45 @@
+---
+import SocialIcon from '@/components/SocialIcon.astro';
+
+type SocialIconName = 'github' | 'linkedin' | 'gmail' | 'twitter' | 'youtube' | 'instagram';
+
+interface Props {
+  href: string;
+  label: string;
+  altLabel?: string;
+  download?: string;
+  icon?: SocialIconName;
+  /** nav: .nes-btn button style (header nav); detail: h4 + link (contact section) */
+  variant?: 'nav' | 'detail';
+}
+
+const { href, label, altLabel, download, icon, variant = 'nav' } = Astro.props;
+---
+
+{
+  variant === 'nav' ? (
+    <a class="nes-btn" href={href} download={download} target="_blank" rel="noopener noreferrer">
+      {label}
+    </a>
+  ) : (
+    <div class="contact-detail">
+      <h4 class="contact-label">
+        {icon && <SocialIcon name={icon} href={href} label={label} />}
+        {label}
+      </h4>
+      <p>
+        <a href={href} download={download} target="_blank" rel="noopener noreferrer">
+          {altLabel ?? label}
+        </a>
+      </p>
+    </div>
+  )
+}
+
+<style>
+  .contact-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+</style>

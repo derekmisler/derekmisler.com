@@ -1,0 +1,12 @@
+---
+interface Props {
+  label: string;
+  variant?: 'dark' | 'primary' | 'success' | 'warning' | 'error';
+}
+
+const { label, variant = 'dark' } = Astro.props;
+---
+
+<span class="nes-badge">
+  <span class:list={[`is-${variant}`]}>{label}</span>
+</span>

@@ -26,16 +26,33 @@ export const description =
 // Social
 export const socialId = 'derekmisler';
 export const contact = [
-  { href: `mailto:hello@${socialId}.com?subject=Hello!`, label: 'Email', altLabel: 'Send me an email' },
-  { href: `https://www.linkedin.com/in/${socialId}/`, label: 'LinkedIn', altLabel: 'Let\u2019s connect' },
-  { href: `https://github.com/${socialId}`, label: 'GitHub', altLabel: 'Judge my code' },
+  {
+    href: `mailto:hello@${socialId}.com?subject=Hello!`,
+    label: 'Email',
+    altLabel: 'Send me an email',
+    icon: 'gmail' as const,
+  },
+  {
+    href: `https://www.linkedin.com/in/${socialId}/`,
+    label: 'LinkedIn',
+    altLabel: 'Let\u2019s connect',
+    icon: 'linkedin' as const,
+  },
+  { href: `https://github.com/${socialId}`, label: 'GitHub', altLabel: 'Judge my code', icon: 'github' as const },
   {
     href: '/derek-misler-resume.pdf',
     download: 'Derek-Misler-Resume.pdf',
     label: 'Resume',
     altLabel: 'Download my resume',
+    icon: undefined,
   },
-] satisfies { href: string; label: string; altLabel: string; download?: string }[];
+] satisfies {
+  href: string;
+  label: string;
+  altLabel: string;
+  download?: string;
+  icon?: 'gmail' | 'linkedin' | 'github' | undefined;
+}[];
 
 /**
  * High-level "about" bullets to feature near the top of the page.

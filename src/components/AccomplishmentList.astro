@@ -1,0 +1,12 @@
+---
+interface Props {
+  items: string[];
+  style?: 'disc' | 'circle';
+}
+
+const { items, style = 'disc' } = Astro.props;
+---
+
+<ul class:list={['nes-list', `is-${style}`]}>
+  {items.map((item) => <li>{item}</li>)}
+</ul>

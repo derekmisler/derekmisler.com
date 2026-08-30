@@ -1,0 +1,11 @@
+/*
+ * Overpass Variable, all subsets, normal + italic.
+ * Browser only fetches the subset files whose unicode-range matches
+ * the rendered text, so non-latin ranges cost nothing for this site.
+ *
+ * Weight axis: 100-900 (continuous). font-weight: 450 works exactly.
+ * No metric-matched @font-face fallback needed: system-ui metrics are
+ * close enough to Overpass to avoid significant CLS on first load.
+ */
+@import '@fontsource-variable/overpass/wght.css';
+@import '@fontsource-variable/overpass/wght-italic.css';

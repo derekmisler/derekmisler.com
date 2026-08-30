@@ -2,8 +2,8 @@
 const { id, label } = Astro.props;
 ---
 
-<section id={id} class="nes-container section-wrapper border-accent-bottom">
-  <h3 class="label sticky-header">{label}</h3>
+<section id={id} class="nes-container section-wrapper border-accent-bottom" aria-labelledby={`${id}-heading`}>
+  <h2 id={`${id}-heading`} class="section-label sticky-header">{label}</h2>
   <hr class="vertical" />
   <div class="content content-padding">
     <slot />
@@ -15,8 +15,8 @@ const { id, label } = Astro.props;
    * .nes-container adds a pixel border and position:relative.
    * We zero out its default padding so the subgrid geometry is
    * unaffected; .sticky-header and .content-padding handle spacing.
-   * The outer section itself is a subgrid participant via .subgrid
-   * classes applied in Main.astro's grid context.
+   * The outer section itself is a subgrid participant via the grid
+   * context in Main.astro.
    */
   .section-wrapper {
     padding: 0 !important;
@@ -38,7 +38,7 @@ const { id, label } = Astro.props;
     }
   }
 
-  .label {
+  .section-label {
     justify-self: stretch;
     font-size: var(--font-size-lg);
     font-weight: 400;

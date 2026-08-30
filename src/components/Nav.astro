@@ -6,7 +6,7 @@ import { navItems } from '@/constants';
 const navItemsArray = Object.values(navItems);
 ---
 
-<nav class="nav fixed-full overlay-hidden">
+<nav class="nav fixed-full overlay-hidden" aria-label="Site navigation">
   {
     navItemsArray.map(({ slug, label }) => (
       <a href={`#${slug}`} data-target={slug}>

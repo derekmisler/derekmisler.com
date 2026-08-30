@@ -143,23 +143,30 @@ h6 {
 }
 
 h2 {
-  font-size: var(--font-size-xl);
-}
-
-h3 {
   font-size: var(--font-size-lg);
 }
 
-h4 {
+h3 {
   font-size: var(--font-size-md);
+}
+
+h4 {
+  font-size: var(--font-size-sm);
 }
 
 h5,
 h6 {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
 }
 h6 {
   opacity: 0.7;
+}
+
+/* Date range paragraph under career entries */
+.career-dates {
+  font-size: var(--font-size-xs);
+  opacity: 0.7;
+  max-width: none;
 }
 
 p,
@@ -338,9 +345,9 @@ body[data-hidden] .overlay-hidden {
   opacity: 1;
 }
 
-/* NES.css typography: Press Start 2P on h1, h3, and nav overlay */
+/* NES.css typography: Press Start 2P on h1 and h2 section labels */
 h1,
-h3 {
+h2 {
   font-family: var(--font-pixel);
   font-weight: 400;
 }

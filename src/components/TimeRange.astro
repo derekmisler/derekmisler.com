@@ -28,8 +28,8 @@ function toDatetime(date: string): string | undefined {
 }
 ---
 
-<h6>
+<p class="career-dates">
   <time datetime={toDatetime(startDate)}>{startDate}</time>
   {' \u2013 '}
   {endDate ? <time datetime={toDatetime(endDate)}>{endDate}</time> : <>Present</>}
-</h6>
+</p>

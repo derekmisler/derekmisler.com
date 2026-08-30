@@ -16,7 +16,7 @@ const { location, link, title, startDate, endDate, accomplishments } = Astro.pro
 
 <div class="career-entry">
   <div class="career-left">
-    <h4>
+    <h3>
       {
         link ? (
           <a href={link} target="_blank" rel="noopener noreferrer">
@@ -26,8 +26,8 @@ const { location, link, title, startDate, endDate, accomplishments } = Astro.pro
           location
         )
       }
-    </h4>
-    <h5>{title}</h5>
+    </h3>
+    <h4>{title}</h4>
     {startDate && <TimeRange startDate={startDate} endDate={endDate} />}
   </div>
   <AccomplishmentList items={accomplishments} />

@@ -11,7 +11,7 @@ const { category, skills, variant = 'dark' } = Astro.props;
 ---
 
 <div class="skill-category">
-  <h4>{category}</h4>
+  <h3>{category}</h3>
   <div class="badges">
     {skills.map((skill) => <PixelBadge label={skill} variant={variant} />)}
   </div>

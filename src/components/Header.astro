@@ -3,17 +3,17 @@ import ContactLink from '@/components/ContactLink.astro';
 import { contact, fullName, navItems } from '@/constants';
 ---
 
-<header id={navItems.home.slug} class="border-accent-top border-accent-bottom">
-  <h1 class="sticky-header">{fullName}</h1>
+<header id={navItems.home.slug} class="border-accent-top border-accent-bottom" aria-labelledby="site-title">
+  <h1 id="site-title" class="sticky-header">{fullName}</h1>
   <div class="content-padding">
-    <h2>
+    <p class="lead">
       <strong class="gradient-text">Platform engineer and front&#x2011;end architect</strong> with 15+ years shipping production&#x2011;grade
       systems. I define how UIs get built: from design&#x2011;system infrastructure and{' '}
       <strong class="gradient-text">AI agent tooling</strong> to the testing contracts and quality bars that make them reliable
       at scale. Currently doing that at{' '}
       <a href="https://www.docker.com" target="_blank" rel="noopener noreferrer">Docker</a>.
-    </h2>
-    <nav>
+    </p>
+    <nav aria-label="Contact links">
       {
         contact.map((item) => (
           <ContactLink href={item.href} label={item.label} download={item.download} variant="nav" />
@@ -53,11 +53,13 @@ import { contact, fullName, navItems } from '@/constants';
       justify-self: start;
     }
   }
-  header h2 {
+  /* Hero tagline: large body paragraph, not a heading */
+  header .lead {
+    font-size: var(--font-size-xl);
+    font-weight: 450;
     line-height: var(--line-height-heading);
     text-wrap: balance;
     max-width: min(36ch, 100%);
-    font-weight: 450;
   }
   header nav {
     display: flex;

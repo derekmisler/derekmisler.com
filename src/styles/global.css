@@ -406,19 +406,22 @@ h2 {
   display: none;
 }
 
-/* Badges: IBM Plex Sans at body-xs; skill names can be long */
-.nes-badge span {
-  font-family: var(--font-body);
-  font-size: var(--font-size-xs);
-  line-height: 1.4;
-}
-
 /* Lists: preserve site spacing while NES adds pixel-art bullets */
 .nes-list.is-disc li,
 .nes-list.is-circle li {
   font-family: var(--font-body);
   font-size: var(--font-size-sm);
   line-height: var(--line-height-body);
+}
+
+/*
+ * NES list bullets are drawn with box-shadow on a ::before pseudo-element.
+ * box-shadow inherits currentColor, but NES hardcodes color:#212529 on the
+ * ::before; invisible on a dark background. Override to the site text token.
+ */
+.nes-list.is-disc li::before,
+.nes-list.is-circle li::before {
+  color: var(--color-text);
 }
 
 /* Social icons: scale compensation */

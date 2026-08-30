@@ -1,5 +1,5 @@
 ---
-type IconName = 'github' | 'linkedin' | 'gmail' | 'twitter' | 'youtube' | 'instagram';
+type IconName = 'github' | 'linkedin' | 'gmail' | 'twitter' | 'youtube' | 'instagram' | 'trophy';
 
 interface Props {
   name: IconName;
@@ -17,7 +17,7 @@ const sizeClass = size !== 'small' ? `is-${size}` : '';
 
 {
   decorative ? (
-    <i class:list={['nes-icon', name, sizeClass].filter(Boolean)} aria-hidden="true" />
+    <i class:list={['nes-icon', name, sizeClass, 'icon-inline'].filter(Boolean)} aria-hidden="true" />
   ) : (
     <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label} class="social-icon-link">
       <i class:list={['nes-icon', name, sizeClass].filter(Boolean)} aria-hidden="true" />
@@ -26,14 +26,39 @@ const sizeClass = size !== 'small' ? `is-${size}` : '';
 }
 
 <style>
+  /*
+   * NES icons are 16x16 with transform:scale(2) and transform-origin:top left.
+   * That shifts the visual centre upward relative to surrounding text. We
+   * compensate by wrapping in an inline-flex container sized to the post-scale
+   * footprint (32x32 for the default scale-2 icon) so adjacent text aligns
+   * to the middle of the actual rendered glyph.
+   */
   .social-icon-link {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
     text-decoration: none;
+    flex-shrink: 0;
+    vertical-align: middle;
   }
-  /* NES icons use transform: scale(N) internally; add margin compensation */
-  .social-icon-link i,
-  i.nes-icon {
-    margin: 8px;
+
+  /*
+   * Decorative variant (no anchor): used inside ContactLink detail headings.
+   * Size the <i> into a 32x32 block so the heading stays vertically centred.
+   * transform-origin:top left means the scaled glyph sits at (0,0) of the
+   * 16x16 box; a translate of 50% of the difference between scaled and
+   * unscaled dimensions recentres it visually.
+   */
+  .icon-inline {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin: 0 !important;
+    vertical-align: middle;
+    transform: scale(2) translate(25%, 25%);
+    transform-origin: top left;
+    flex-shrink: 0;
   }
 </style>

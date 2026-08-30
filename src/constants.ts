@@ -44,14 +44,14 @@ export const contact = [
     download: 'Derek-Misler-Resume.pdf',
     label: 'Resume',
     altLabel: 'Download my resume',
-    icon: undefined,
+    icon: 'trophy' as const,
   },
 ] satisfies {
   href: string;
   label: string;
   altLabel: string;
   download?: string;
-  icon?: 'gmail' | 'linkedin' | 'github' | undefined;
+  icon?: 'gmail' | 'linkedin' | 'github' | 'trophy' | undefined;
 }[];
 
 /**

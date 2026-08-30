@@ -24,11 +24,19 @@ import { contact, fullName, navItems } from '@/constants';
 </header>
 
 <style>
+  /*
+   * --btn-clearance: width of the fixed nav/theme toggle buttons plus gap.
+   * Used to pad the h1 and header top so fixed controls never overlap content.
+   * Button width = 40px + 2 * --space-xs. Gap from right edge = --space-sm.
+   * Add --space-xs buffer. Totals roughly 64px to 80px across viewport sizes.
+   */
   header {
+    --btn-clearance: calc(40px + var(--space-xs) * 2 + var(--space-sm) + var(--space-xs));
     display: flex;
     flex-direction: column;
     gap: var(--space-lg);
     justify-content: space-between;
+    padding-top: calc(var(--btn-clearance) + var(--space-sm));
     padding-bottom: var(--space-lg);
     min-height: 100vh;
     @supports (height: 100dvh) {
@@ -38,6 +46,7 @@ import { contact, fullName, navItems } from '@/constants';
       padding: 0;
     }
   }
+
   .content-padding {
     display: flex;
     flex-direction: column;
@@ -46,13 +55,22 @@ import { contact, fullName, navItems } from '@/constants';
       gap: var(--space-md);
     }
   }
+
   header h1 {
     font-size: var(--font-size-lg);
     font-weight: 400; /* Press Start 2P has no weight variation */
+    /*
+     * Pad the right side of the sticky h1 so it never slides under the
+     * fixed nav-toggle button. The sticky h1 scrolls back into view on
+     * the way up, so it must clear the button at every scroll position.
+     */
+    padding-right: var(--btn-clearance) !important;
     @media (min-width: 1024px) {
       justify-self: start;
+      padding-right: var(--space-md) !important;
     }
   }
+
   /* Hero tagline: large body paragraph, not a heading */
   header .lead {
     font-size: var(--font-size-xl);
@@ -61,14 +79,16 @@ import { contact, fullName, navItems } from '@/constants';
     text-wrap: balance;
     max-width: min(36ch, 100%);
   }
+
+  /*
+   * Contact nav buttons: flex-start + uniform gap on all viewports so the
+   * 2x2 mobile wrap aligns to a consistent left edge rather than being
+   * stretched by justify-content:space-between.
+   */
   header nav {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-xs);
-    justify-content: space-between;
-    @media (min-width: 1024px) {
-      justify-content: flex-start;
-      gap: var(--space-sm);
-    }
+    gap: var(--space-sm);
+    justify-content: flex-start;
   }
 </style>

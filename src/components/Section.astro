@@ -42,8 +42,12 @@ const { id, label } = Astro.props;
     justify-self: stretch;
     font-size: var(--font-size-lg);
     font-weight: 400;
+    /* Match the h1 right-pad so section labels never slide under the fixed
+       nav-toggle when sticky at the top of the viewport on mobile. */
+    padding-right: calc(40px + var(--space-xs) * 2 + var(--space-sm) + var(--space-xs)) !important;
     @media (min-width: 1024px) {
       justify-self: start;
+      padding-right: var(--space-md) !important;
     }
   }
 

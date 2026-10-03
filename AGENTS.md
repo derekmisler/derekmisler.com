@@ -9,7 +9,7 @@ This is Derek Misler's personal portfolio website - a static site built with Ast
 ### Core Development
 
 ```bash
-pnpm start          # Start development server with hot reload
+pnpm dev            # Start development server with hot reload
 pnpm build          # Build static site for production
 pnpm preview        # Preview production build locally
 ```
@@ -17,22 +17,19 @@ pnpm preview        # Preview production build locally
 ### Code Quality
 
 ```bash
-pnpm test           # Run full test suite: Astro check + Prettier + ESLint + Stylelint
-pnpm lint:fix       # Fix ESLint issues automatically
-pnpm format:fix     # Format code with Prettier
-pnpm style:fix      # Fix Stylelint CSS/Astro issues
-pnpm fix            # Run all fixes: style, format, and lint
+pnpm test           # Astro check + Prettier check + Biome lint
+pnpm fix            # Prettier write + Biome lint --write
 ```
 
 ## Architecture
 
 ### Technology Stack
 
-- **Framework**: Astro.js v5 with static site generation
+- **Framework**: Astro with static output (version pinned in `package.json`)
 - **Styling**: CSS with custom properties (CSS variables)
 - **TypeScript**: Strict mode with path aliases (`@/` for `src/`)
 - **Package Manager**: PNPM
-- **Fonts**: IBM Plex Serif (self-hosted in `/public/fonts/`)
+- **Fonts**: IBM Plex Sans (self-hosted in `/public/fonts/sans/`, declared in `src/styles/ibm-plex-sans-all.css`)
 
 ### Project Structure
 
@@ -41,26 +38,31 @@ src/
 ├── components/        # Astro components (.astro files)
 │   ├── Header.astro   # Hero header with gradient text
 │   ├── Main.astro     # Main content area
+│   ├── Nav.astro, NavToggle.astro, Section.astro, IconButton.astro
+│   ├── ScrollObserver.astro
 │   └── ThemeToggle.astro
 ├── pages/
 │   ├── index.astro    # Homepage with SEO configuration
 │   └── robots.txt.ts  # Dynamic robots.txt generation
 ├── styles/
-│   └── global.css     # Global styles with CSS custom properties
-└── constants.tsx       # Site content and configuration
+│   ├── global.css     # Global styles with CSS custom properties
+│   └── ibm-plex-sans-all.css  # @font-face declarations
+├── utils/
+│   └── scrollObserver.client.ts
+└── constants.ts       # Site content and configuration
 ```
 
 ### Key Features
 
-- **SEO Optimized**: Uses `astro-seo` with Open Graph and Twitter cards
-- **Accessibility**: ESLint with jsx-a11y strict rules
+- **SEO Optimized**: Uses `@astrolib/seo` (`AstroSeo`) with Open Graph and Twitter cards
+- **Accessibility**: Biome linter with its recommended a11y rules
 - **Performance**: Static generation with sitemap integration
-- **Typography**: Custom font loading with IBM Plex Serif
+- **Typography**: Custom font loading with IBM Plex Sans
 - **Responsive Design**: Mobile-first approach with viewport-based sizing
 
 ### Content Management
 
-All site content is centralized in `src/constants.tsx`:
+Most site content is centralized in `src/constants.ts` (the hero copy lives in `Header.astro`):
 
 - Personal information and bio
 - Skills and experience data
@@ -72,16 +74,15 @@ All site content is centralized in `src/constants.tsx`:
 - CSS custom properties for theming
 - Component-scoped styles in `.astro` files
 - Gradient text effects for headings
-- Responsive typography using `max()` and viewport units
+- Responsive typography using `clamp()` with viewport units
 
 ## Development Notes
 
 ### Code Quality Standards
 
 - **TypeScript**: Strict mode with explicit types
-- **ESLint**: Astro plugin with accessibility rules
+- **Biome**: Linting (JS/TS, CSS, HTML) with recommended and a11y rules; its formatter is off
 - **Prettier**: Code formatting with Astro plugin
-- **Stylelint**: CSS linting for Astro and CSS files
 
 ### SEO Configuration
 

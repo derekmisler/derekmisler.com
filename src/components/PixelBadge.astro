@@ -1,0 +1,60 @@
+---
+interface Props {
+  label: string;
+  variant?: 'dark' | 'primary' | 'success' | 'warning' | 'error';
+}
+
+const { label, variant = 'dark' } = Astro.props;
+---
+
+<span class:list={['pixel-chip', `is-${variant}`]}>{label}</span>
+
+<style>
+  /*
+   * Custom pixel-border chip using the same box-shadow technique NES.css
+   * uses for badges, but without the fixed width or absolute positioning
+   * that causes overflow on long labels.
+   *
+   * The box-shadow extends the background 0.5em outward on all four sides,
+   * creating the pixel-border illusion. The element itself is auto-width
+   * and wraps naturally in a flex container.
+   */
+  .pixel-chip {
+    display: inline-block;
+    padding: 0.35em 0.6em;
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    line-height: 1.4;
+    white-space: nowrap;
+    background-color: var(--chip-bg, var(--color-background-accent));
+    color: var(--chip-color, var(--color-text));
+    box-shadow:
+      0 0.35em var(--chip-bg, var(--color-background-accent)),
+      0 -0.35em var(--chip-bg, var(--color-background-accent)),
+      0.35em 0 var(--chip-bg, var(--color-background-accent)),
+      -0.35em 0 var(--chip-bg, var(--color-background-accent));
+    margin: 0.35em;
+  }
+
+  /* Variant colour mappings */
+  .is-dark {
+    --chip-bg: var(--color-background-accent);
+    --chip-color: var(--color-text);
+  }
+  .is-primary {
+    --chip-bg: #209cee;
+    --chip-color: #fff;
+  }
+  .is-success {
+    --chip-bg: #92cc41;
+    --chip-color: #212529;
+  }
+  .is-warning {
+    --chip-bg: #f7d51d;
+    --chip-color: #212529;
+  }
+  .is-error {
+    --chip-bg: #e76e55;
+    --chip-color: #fff;
+  }
+</style>

@@ -1,0 +1,36 @@
+---
+interface Props {
+  id: string;
+  open?: boolean;
+  title?: string;
+}
+
+const { id, open = false, title } = Astro.props;
+---
+
+<dialog class="nes-dialog is-rounded" id={id} open={open}>
+  <form method="dialog">
+    {title && <p class="title">{title}</p>}
+    <slot />
+    <menu class="dialog-menu">
+      <button class="nes-btn">Close</button>
+    </menu>
+  </form>
+</dialog>
+
+<style>
+  dialog {
+    max-width: min(480px, 90vw);
+  }
+  .dialog-menu {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0;
+    margin-top: var(--space-sm);
+  }
+  .title {
+    font-family: var(--font-pixel);
+    font-size: var(--font-size-xs);
+    margin-bottom: var(--space-sm);
+  }
+</style>

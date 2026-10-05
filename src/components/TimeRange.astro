@@ -1,0 +1,35 @@
+---
+interface Props {
+  startDate: string;
+  endDate?: string;
+}
+
+const { startDate, endDate } = Astro.props;
+
+const MONTHS: Record<string, string> = {
+  Jan: '01',
+  Feb: '02',
+  Mar: '03',
+  Apr: '04',
+  May: '05',
+  Jun: '06',
+  Jul: '07',
+  Aug: '08',
+  Sep: '09',
+  Oct: '10',
+  Nov: '11',
+  Dec: '12',
+};
+
+function toDatetime(date: string): string | undefined {
+  const [mon, year] = date.split(' ');
+  if (!mon || !year || !MONTHS[mon]) return undefined;
+  return `${year}-${MONTHS[mon]}`;
+}
+---
+
+<p class="career-dates">
+  <time datetime={toDatetime(startDate)}>{startDate}</time>
+  {' \u2013 '}
+  {endDate ? <time datetime={toDatetime(endDate)}>{endDate}</time> : <>Present</>}
+</p>

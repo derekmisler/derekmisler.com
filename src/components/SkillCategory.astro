@@ -1,0 +1,32 @@
+---
+import PixelBadge from '@/components/PixelBadge.astro';
+
+interface Props {
+  category: string;
+  skills: string[];
+  variant?: 'dark' | 'primary' | 'success' | 'warning' | 'error';
+}
+
+const { category, skills, variant = 'dark' } = Astro.props;
+---
+
+<div class="skill-category">
+  <h3>{category}</h3>
+  <div class="badges">
+    {skills.map((skill) => <PixelBadge label={skill} variant={variant} />)}
+  </div>
+</div>
+
+<style>
+  .skill-category {
+    display: grid;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+  }
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    align-items: flex-start;
+  }
+</style>

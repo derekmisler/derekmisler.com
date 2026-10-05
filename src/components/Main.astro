@@ -1,105 +1,56 @@
 ---
+import AccomplishmentList from '@/components/AccomplishmentList.astro';
+import CareerEntry from '@/components/CareerEntry.astro';
+import ContactLink from '@/components/ContactLink.astro';
 import Section from '@/components/Section.astro';
+import SkillCategory from '@/components/SkillCategory.astro';
 import { contact, currentCareers, education, highlights, navItems, skills, subHeadline, tools } from '@/constants';
-
-// Convert "Mon YYYY" date strings to ISO YYYY-MM for <time datetime> attributes.
-const MONTHS: Record<string, string> = {
-  Jan: '01',
-  Feb: '02',
-  Mar: '03',
-  Apr: '04',
-  May: '05',
-  Jun: '06',
-  Jul: '07',
-  Aug: '08',
-  Sep: '09',
-  Oct: '10',
-  Nov: '11',
-  Dec: '12',
-};
-function toDatetime(date: string): string | undefined {
-  const [mon, year] = date.split(' ');
-  if (!mon || !year || !MONTHS[mon]) return undefined;
-  return `${year}-${MONTHS[mon]}`;
-}
 ---
 
 <main id="main-content" class="grid">
   <Section id={navItems.about.slug} label={navItems.about.label}>
-    <h4>Background</h4>
+    <h3>Background</h3>
     <p>{subHeadline}</p>
-    <h4>Highlights</h4>
-    <ul>
-      {highlights.map((highlight) => <li>{highlight}</li>)}
-    </ul>
-    <h4>Education</h4>
+    <h3>Highlights</h3>
+    <AccomplishmentList items={highlights} />
+    <h3>Education</h3>
     <p>{education.title}</p>
   </Section>
 
   <Section id={navItems.experience.slug} label={navItems.experience.label}>
     {
       currentCareers.map((career) => (
-        <div class="career-entry">
-          <div class="career-left">
-            <h4>
-              <a href={career.link} target="_blank" rel="noopener noreferrer">
-                {career.location}
-              </a>
-            </h4>
-            <h5>{career.title}</h5>
-            <h6>
-              <time datetime={toDatetime(career.startDate ?? '')}>{career.startDate}</time>
-              {' - '}
-              {career.endDate ? (
-                <time datetime={toDatetime(career.endDate ?? '')}>{career.endDate}</time>
-              ) : (
-                <>Present</>
-              )}
-            </h6>
-          </div>
-          <ul>
-            {career.accomplishments.map((accomplishment) => (
-              <li>{accomplishment}</li>
-            ))}
-          </ul>
-        </div>
+        <CareerEntry
+          location={career.location}
+          link={career.link}
+          title={career.title}
+          startDate={career.startDate}
+          endDate={career.endDate}
+          accomplishments={career.accomplishments}
+        />
       ))
     }
   </Section>
 
   <Section id={navItems.coreSkills.slug} label={navItems.coreSkills.label}>
-    {
-      skills.map(([category, skills]) => (
-        <>
-          <h4>{category}</h4>
-          <p>{skills.join(', ')}</p>
-        </>
-      ))
-    }
+    {skills.map(([category, skillList]) => <SkillCategory category={category} skills={skillList} />)}
   </Section>
 
   <Section id={navItems.workingWith.slug} label={navItems.workingWith.label}>
-    {
-      tools.map(([category, tools]) => (
-        <>
-          <h4>{category}</h4>
-          <p>{tools.join(', ')}</p>
-        </>
-      ))
-    }
+    {tools.map(([category, toolList]) => <SkillCategory category={category} skills={toolList} variant="primary" />)}
   </Section>
 
   <Section id={navItems.contact.slug} label={navItems.contact.label}>
     {
       contact.map((item) => (
-        <>
-          <h4>{item.label}</h4>
-          <p>
-            <a href={item.href} download={item.download} target="_blank" rel="noopener noreferrer">
-              {item.altLabel}
-            </a>
-          </p>
-        </>
+        <ContactLink
+          href={item.href}
+          label={item.label}
+          altLabel={item.altLabel}
+          download={item.download}
+          icon={item.icon}
+          variant="detail"
+        />
       ))
     }
   </Section>

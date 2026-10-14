@@ -71,6 +71,7 @@ Most site content is centralized in `src/constants.ts` (the hero copy lives in `
 
 ### Styling Approach
 
+- UI work: read `DESIGN.md` first. Tokens only, no arbitrary values.
 - CSS custom properties for theming
 - Component-scoped styles in `.astro` files
 - Gradient text effects for headings

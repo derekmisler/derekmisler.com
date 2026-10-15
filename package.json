@@ -9,7 +9,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "test": "astro check && prettier --check . && biome lint .",
+    "test": "astro check && prettier --check . && biome lint . && node scripts/check-tokens.mjs",
     "fix": "prettier --write . && biome lint --write ."
   },
   "dependencies": {

@@ -19,6 +19,7 @@ pnpm preview        # Preview production build locally
 ```bash
 pnpm test           # Astro check + Prettier check + Biome lint + token check
 pnpm test:visual    # Build, then compare Playwright screenshots against tests/screenshots/
+                    # First run on a new machine: pnpm exec playwright install chromium
 pnpm fix            # Prettier write + Biome lint --write
 ```
 

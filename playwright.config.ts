@@ -1,9 +1,13 @@
-const { defineConfig } = require('@playwright/test');
+import { defineConfig } from '@playwright/test';
 
-module.exports = defineConfig({
+export default defineConfig({
   testDir: 'tests',
   snapshotPathTemplate: '{testDir}/screenshots/{arg}-{platform}{ext}',
   expect: { toHaveScreenshot: { threshold: 0, maxDiffPixels: 0, animations: 'disabled' } },
   use: { baseURL: 'http://localhost:4321' },
-  webServer: { command: 'pnpm preview --port 4321', url: 'http://localhost:4321', reuseExistingServer: false },
+  webServer: {
+    command: 'pnpm preview --port 4321',
+    url: 'http://localhost:4321',
+    reuseExistingServer: !process.env.CI,
+  },
 });

@@ -10,7 +10,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "test": "astro check && prettier --check . && biome lint . && node scripts/check-tokens.mjs",
-    "test:visual": "astro build && sh scripts/visual.sh",
+    "test:visual": "astro build && playwright test",
     "fix": "prettier --write . && biome lint --write ."
   },
   "dependencies": {
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.2",
+    "@playwright/test": "1.56.1",
     "@types/lodash-es": "4.17.12",
     "prettier": "^3.9.4",
     "prettier-plugin-astro": "^0.14.1",

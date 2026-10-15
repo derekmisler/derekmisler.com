@@ -114,13 +114,13 @@ function toDatetime(date: string): string | undefined {
   .grid {
     --columns: auto;
     @media (min-width: 1024px) {
-      --columns: min-content var(--border-width) auto;
+      --columns: min-content var(--rule) auto;
     }
     @media (min-width: 1280px) {
-      --columns: auto var(--border-width) min-content auto;
+      --columns: auto var(--rule) min-content auto;
     }
     @media (min-width: 1440px) {
-      --columns: auto var(--border-width) auto auto;
+      --columns: auto var(--rule) auto auto;
     }
 
     display: grid;

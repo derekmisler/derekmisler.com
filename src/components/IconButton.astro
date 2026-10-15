@@ -17,8 +17,8 @@ const bottom = position === 'bottom' ? 'var(--space-sm)' : undefined;
     right: var(--space-sm);
     height: calc(40px + var(--space-xs) * 2);
     width: calc(40px + var(--space-xs) * 2);
-    z-index: var(--z-index-overlay);
-    background-color: var(--color-background-transparent);
+    z-index: var(--z-overlay);
+    background-color: var(--background-transparent);
     @media (min-width: 1024px) {
       bottom: var(--bottom);
       top: var(--top);
@@ -27,7 +27,7 @@ const bottom = position === 'bottom' ? 'var(--space-sm)' : undefined;
   }
   :global(body[data-hidden] .icon-button) {
     @media (pointer: fine) {
-      margin-right: var(--border-width);
+      margin-right: var(--rule);
     }
   }
 </style>

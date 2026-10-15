@@ -6,10 +6,13 @@ import { navItems } from '@/constants';
 const navItemsArray = Object.values(navItems);
 ---
 
-<nav class="nav fixed-full overlay-hidden">
+<nav class="nav fixed-full overlay-hidden overflow-hidden bg-background p-md">
   {
     navItemsArray.map(({ slug, label }) => (
-      <a href={`#${slug}`} data-target={slug}>
+      <a
+        href={`#${slug}`}
+        data-target={slug}
+        class="mb-sm block w-fit text-left text-xxl leading-tight text-inherit no-underline">
         <strong>{label}</strong>
       </a>
     ))
@@ -36,24 +39,3 @@ const navItemsArray = Object.values(navItems);
     });
   });
 </script>
-
-<style>
-  .nav {
-    overflow: hidden;
-    background-color: var(--background);
-    padding: var(--space-md);
-  }
-  .nav a {
-    --rule: 10px;
-    padding: 0;
-    margin-bottom: var(--space-sm);
-    width: 100%;
-    text-align: left;
-    font-size: var(--font-size-xxl);
-    line-height: var(--line-height-tight);
-    width: fit-content;
-    display: block;
-    text-decoration: none;
-    color: inherit;
-  }
-</style>

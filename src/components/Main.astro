@@ -24,23 +24,23 @@ function toDatetime(date: string): string | undefined {
 }
 ---
 
-<main id="main-content" class="grid">
+<main id="main-content" class="grid w-full items-baseline gap-x-md">
   <Section id={navItems.about.slug} label={navItems.about.label}>
     <h4>Background</h4>
-    <p>{subHeadline}</p>
+    <p class="not-last:mb-md">{subHeadline}</p>
     <h4>Highlights</h4>
-    <ul>
+    <ul class="not-last:mb-md">
       {highlights.map((highlight) => <li>{highlight}</li>)}
     </ul>
     <h4>Education</h4>
-    <p>{education.title}</p>
+    <p class="not-last:mb-md">{education.title}</p>
   </Section>
 
   <Section id={navItems.experience.slug} label={navItems.experience.label}>
     {
-      currentCareers.map((career) => (
-        <div class="career-entry">
-          <div class="career-left">
+      currentCareers.map((career, index) => (
+        <div class="contents">
+          <div class:list={['*:leading-body', { 'mt-lg': index > 0 }]}>
             <h4>
               <a href={career.link} target="_blank" rel="noopener noreferrer">
                 {career.location}
@@ -57,7 +57,7 @@ function toDatetime(date: string): string | undefined {
               )}
             </h6>
           </div>
-          <ul>
+          <ul class="not-last:mb-md max-desktop:mt-md">
             {career.accomplishments.map((accomplishment) => (
               <li>{accomplishment}</li>
             ))}
@@ -72,7 +72,7 @@ function toDatetime(date: string): string | undefined {
       skills.map(([category, skills]) => (
         <>
           <h4>{category}</h4>
-          <p>{skills.join(', ')}</p>
+          <p class="not-last:mb-md">{skills.join(', ')}</p>
         </>
       ))
     }
@@ -83,7 +83,7 @@ function toDatetime(date: string): string | undefined {
       tools.map(([category, tools]) => (
         <>
           <h4>{category}</h4>
-          <p>{tools.join(', ')}</p>
+          <p class="not-last:mb-md">{tools.join(', ')}</p>
         </>
       ))
     }
@@ -94,7 +94,7 @@ function toDatetime(date: string): string | undefined {
       contact.map((item) => (
         <>
           <h4>{item.label}</h4>
-          <p>
+          <p class="not-last:mb-md">
             <a href={item.href} download={item.download} target="_blank" rel="noopener noreferrer">
               {item.altLabel}
             </a>
@@ -106,63 +106,18 @@ function toDatetime(date: string): string | undefined {
 </main>
 
 <style>
+  @reference '../styles/global.css';
+
   main {
-    width: 100%;
-    align-items: baseline;
-    padding: 0;
-  }
-  .grid {
-    --columns: auto;
-    @media (min-width: 1024px) {
-      --columns: min-content var(--rule) auto;
+    grid-template-columns: auto;
+    @variant desktop {
+      grid-template-columns: min-content var(--rule) auto;
     }
-    @media (min-width: 1280px) {
-      --columns: auto var(--rule) min-content auto;
+    @media (width >= 1280px) {
+      grid-template-columns: auto var(--rule) min-content auto;
     }
-    @media (min-width: 1440px) {
-      --columns: auto var(--rule) auto auto;
+    @media (width >= 1440px) {
+      grid-template-columns: auto var(--rule) auto auto;
     }
-
-    display: grid;
-    grid-template-columns: var(--columns);
-    column-gap: var(--space-md);
-    row-gap: 0;
-  }
-  main :global(p:not(:last-child)),
-  main :global(ul:not(:last-child)) {
-    margin-bottom: var(--space-md);
-  }
-  /*
-   * Career entry layout in the Experience section.
-   *
-   * display:contents makes .career-entry disappear as a box so its two
-   * children (.career-left and ul) become direct children of the subgrid,
-   * filling one row each: company name + title/dates on the left, bullets
-   * on the right. Multiple entries stack as consecutive subgrid rows.
-   *
-   * On mobile (single-column) display:contents is still fine -- block flow
-   * means .career-left then ul stack naturally.
-   */
-  main :global(.career-entry) {
-    display: contents;
-  }
-
-  /* On mobile the ul follows career-left in flow; give it a clear gap
-     before the first bullet. On desktop it sits in the right subgrid
-     column so this margin is reset to avoid pushing bullets down. */
-  main :global(.career-entry > ul) {
-    margin-top: var(--space-md);
-    @media (min-width: 1024px) {
-      margin-top: 0;
-    }
-  }
-  /* Separate consecutive entries with top spacing on the left cell. */
-  main :global(.career-left + ul + .career-entry > .career-left),
-  main :global(.career-entry ~ .career-entry > .career-left) {
-    margin-top: var(--space-lg);
-  }
-
-  main :global(.career-left > *) {
-    line-height: var(--line-height-body);
   }
 </style>

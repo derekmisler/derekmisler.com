@@ -4,21 +4,6 @@
 @source not '../../tests';
 
 @layer base {
-  :root {
-    --font-size-lg: --theme(--text-lg);
-    --font-size-xxl: --theme(--text-xxl);
-    --line-height-tight: --theme(--leading-tight);
-    --line-height-heading: --theme(--leading-heading);
-    --line-height-body: --theme(--leading-body);
-    --space-xs: --theme(--spacing-xs);
-    --space-sm: --theme(--spacing-sm);
-    --space-md: --theme(--spacing-md);
-    --space-lg: --theme(--spacing-lg);
-    --background-transparent: --theme(--color-background-transparent);
-    --transition-duration: 100ms;
-    --transition-timing-function: --theme(--ease-out);
-  }
-
   html,
   body {
     width: 100%;
@@ -206,32 +191,18 @@
   }
 }
 
-@layer components {
-  .sticky-header {
-    position: sticky;
-    top: 0;
-    z-index: var(--z-sticky);
-    padding: --theme(--spacing-md);
-    background-color: var(--background-transparent);
-  }
+@utility sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  padding: --theme(--spacing-md);
+  background-color: --theme(--color-background-transparent);
+}
 
-  .content-padding {
-    padding: --theme(--spacing-md);
-  }
-
-  .border-accent-top {
-    border-top: var(--rule) solid --theme(--color-accent);
-  }
-
-  .border-accent-bottom {
-    border-bottom: var(--rule) solid --theme(--color-accent);
-  }
-
-  .fixed-full {
-    position: fixed;
-    inset: 0;
-    z-index: var(--z-overlay);
-  }
+@utility fixed-full {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
 }
 
 @utility gradient-text {

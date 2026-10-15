@@ -3,8 +3,8 @@ import IconButton from '@/components/IconButton.astro';
 ---
 
 <IconButton id="nav-toggle" ariaLabel="Toggle navigation" position="top">
-  <span class="container">
-    <span class="inner"></span>
+  <span class="container flex h-xs place-items-center">
+    <span class="inner block"></span>
   </span>
 </IconButton>
 
@@ -18,38 +18,33 @@ import IconButton from '@/components/IconButton.astro';
 </script>
 
 <style>
+  @reference '../styles/global.css';
+
   .container {
     width: 40px;
-    height: var(--space-xs);
-    display: flex;
-    place-items: center;
-  }
-  .inner {
-    display: block;
   }
   .inner,
   .inner::before,
   .inner::after {
-    width: 40px;
-    height: calc(var(--space-xs) / 2);
-    background-color: var(--accent);
     position: absolute;
+    width: 40px;
+    height: calc(--theme(--spacing-xs) / 2);
+    background-color: --theme(--color-accent);
     transition:
-      bottom var(--transition-duration) var(--transition-timing-function),
-      top var(--transition-duration) var(--transition-timing-function);
+      bottom 100ms --theme(--ease-out),
+      top 100ms --theme(--ease-out);
   }
   .inner::before,
   .inner::after {
-    content: '';
     display: block;
+    content: '';
   }
   .inner::before {
-    top: calc(var(--space-xs) * -2);
+    top: calc(--theme(--spacing-xs) * -2);
   }
   .inner::after {
-    bottom: calc(var(--space-xs) * -2);
+    bottom: calc(--theme(--spacing-xs) * -2);
   }
-
   :global(body[data-hidden] .inner::before) {
     top: 0;
   }

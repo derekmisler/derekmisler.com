@@ -86,7 +86,9 @@ const jsonLd = {
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
-    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <a class="skip-link absolute bg-background px-md py-sm font-bold text-text no-underline" href="#main-content"
+      >Skip to main content</a
+    >
     <Nav />
     <Header />
     <Main />
@@ -95,15 +97,9 @@ const jsonLd = {
 
 <style>
   .skip-link {
-    position: absolute;
     top: -9999px;
     left: 0;
     z-index: 9999;
-    padding: var(--space-sm) var(--space-md);
-    background-color: var(--color-background);
-    color: var(--color-text);
-    font-weight: 700;
-    text-decoration: none;
     border: 2px solid currentColor;
   }
   .skip-link:focus {

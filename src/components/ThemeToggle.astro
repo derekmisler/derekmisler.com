@@ -4,6 +4,7 @@ import IconButton from '@/components/IconButton.astro';
 
 <IconButton id="theme-toggle" ariaLabel="Toggle theme" position="bottom">
   <svg
+    class="stroke-accent"
     xmlns="http://www.w3.org/2000/svg"
     width="100%"
     height="100%"
@@ -71,9 +72,3 @@ import IconButton from '@/components/IconButton.astro';
     setTheme(nextTheme);
   });
 </script>
-
-<style>
-  svg {
-    stroke: var(--color-accent);
-  }
-</style>

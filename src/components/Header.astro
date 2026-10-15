@@ -2,17 +2,21 @@
 import { contact, fullName, navItems } from '@/constants';
 ---
 
-<header id={navItems.home.slug} class="border-accent-top border-accent-bottom">
-  <h1 class="sticky-header">{fullName}</h1>
-  <div class="content-padding">
-    <h2>
+<header
+  id={navItems.home.slug}
+  class="rule-top rule-bottom flex min-h-dvh flex-col justify-between gap-lg pb-lg desktop:p-0">
+  <h1 class="sticky top-0 z-sticky bg-background-transparent p-md font-regular text-lg desktop:justify-self-start">
+    {fullName}
+  </h1>
+  <div class="flex flex-col gap-lg p-md desktop:gap-md">
+    <h2 class="font-regular">
       <strong class="gradient-text">Platform engineer and front&#x2011;end architect</strong> with 15+ years shipping production&#x2011;grade
       systems. I define how UIs get built: from design&#x2011;system infrastructure and{' '}
       <strong class="gradient-text">AI agent tooling</strong> to the testing contracts and quality bars that make them reliable
       at scale. Currently doing that at{' '}
       <a href="https://www.docker.com" target="_blank" rel="noopener noreferrer">Docker</a>.
     </h2>
-    <nav>
+    <nav class="flex justify-between gap-sm desktop:justify-start desktop:gap-lg">
       {
         contact.map((item) => (
           <a href={item.href} download={item.download} target="_blank" rel="noopener noreferrer">
@@ -25,48 +29,9 @@ import { contact, fullName, navItems } from '@/constants';
 </header>
 
 <style>
-  header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-    justify-content: space-between;
-    padding-bottom: var(--space-lg);
-    min-height: 100vh;
-    @supports (height: 100dvh) {
-      min-height: 100dvh;
-    }
-    @media (min-width: 1024px) {
-      padding: 0;
-    }
-  }
-  .content-padding {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-    @media (min-width: 1024px) {
-      gap: var(--space-md);
-    }
-  }
-  header h1 {
-    font-size: var(--font-size-lg);
-    font-weight: 450;
-    @media (min-width: 1024px) {
-      justify-self: start;
-    }
-  }
-  header h2 {
-    line-height: var(--line-height-heading);
-    text-wrap: balance;
+  @reference '../styles/global.css';
+
+  h2 {
     max-width: min(36ch, 100%);
-    font-weight: 450;
-  }
-  header nav {
-    display: flex;
-    gap: var(--space-sm);
-    justify-content: space-between;
-    @media (min-width: 1024px) {
-      justify-content: flex-start;
-      gap: var(--space-lg);
-    }
   }
 </style>

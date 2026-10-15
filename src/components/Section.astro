@@ -1,54 +1,33 @@
 ---
+interface Props {
+  id: string;
+  label: string;
+}
+
 const { id, label } = Astro.props;
 ---
 
-<section id={id} class="subgrid border-accent-bottom">
-  <h3 class="label sticky-header">{label}</h3>
+<section
+  id={id}
+  class="rule-bottom w-full items-start desktop:col-start-1 desktop:col-end-4 wide:col-end-5 desktop:grid desktop:grid-cols-subgrid desktop:justify-items-start">
+  <h3
+    class="sticky top-0 z-sticky justify-self-stretch bg-background-transparent p-md font-regular text-lg desktop:justify-self-start">
+    {label}
+  </h3>
   <hr class="vertical" />
-  <div class="content content-padding">
+  <div
+    class="grid items-start px-md pb-md desktop:col-start-3 desktop:col-end-5 desktop:grid-cols-subgrid desktop:justify-items-start desktop:pt-md">
     <slot />
   </div>
 </section>
 
 <style>
+  @reference '../styles/global.css';
+
   section {
-    align-items: start;
-    padding: 0;
-    width: 100%;
     min-height: 50vh;
     @supports (height: 50dvh) {
       min-height: 50dvh;
-    }
-  }
-  .subgrid {
-    @media (min-width: 1024px) {
-      grid-column: 1 / 4;
-      display: grid;
-      grid-template-columns: subgrid;
-      grid-auto-rows: subgrid;
-      justify-items: start;
-    }
-    @media (min-width: 1280px) {
-      grid-column: 1 / 5;
-    }
-  }
-  .label {
-    justify-self: stretch;
-    font-size: var(--font-size-lg);
-    font-weight: 450;
-    @media (min-width: 1024px) {
-      justify-self: start;
-    }
-  }
-  .content {
-    padding-top: 0;
-    align-items: start;
-    display: grid;
-    @media (min-width: 1024px) {
-      padding-top: var(--space-md);
-      grid-column: 3 / 5;
-      grid-template-columns: subgrid;
-      justify-items: start;
     }
   }
 </style>

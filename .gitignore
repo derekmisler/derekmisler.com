@@ -60,3 +60,6 @@ pnpm-debug.log*
 # claude
 !AGENTS.md
 !CLAUDE.md
+# playwright
+test-results/
+playwright-report/

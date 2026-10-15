@@ -10,6 +10,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "test": "astro check && prettier --check . && biome lint . && node scripts/check-tokens.mjs",
+    "test:visual": "astro build && sh scripts/visual.sh",
     "fix": "prettier --write . && biome lint --write ."
   },
   "dependencies": {

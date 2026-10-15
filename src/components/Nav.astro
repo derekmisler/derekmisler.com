@@ -6,7 +6,7 @@ import { navItems } from '@/constants';
 const navItemsArray = Object.values(navItems);
 ---
 
-<nav class="nav fixed-full overlay-hidden overflow-hidden bg-background p-md">
+<nav class="nav overlay-hidden fixed inset-0 z-overlay overflow-hidden bg-background p-md">
   {
     navItemsArray.map(({ slug, label }) => (
       <a

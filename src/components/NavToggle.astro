@@ -3,7 +3,7 @@ import IconButton from '@/components/IconButton.astro';
 ---
 
 <IconButton id="nav-toggle" ariaLabel="Toggle navigation" position="top">
-  <span class="container flex h-xs place-items-center">
+  <span class="flex h-xs w-icon place-items-center">
     <span class="inner block"></span>
   </span>
 </IconButton>
@@ -20,14 +20,11 @@ import IconButton from '@/components/IconButton.astro';
 <style>
   @reference '../styles/global.css';
 
-  .container {
-    width: 40px;
-  }
   .inner,
   .inner::before,
   .inner::after {
     position: absolute;
-    width: 40px;
+    width: --theme(--spacing-icon);
     height: calc(--theme(--spacing-xs) / 2);
     background-color: --theme(--color-accent);
     transition:

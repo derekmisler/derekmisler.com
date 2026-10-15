@@ -4,10 +4,12 @@ import { contact, fullName, navItems } from '@/constants';
 
 <header
   id={navItems.home.slug}
-  class="rule-top rule-bottom flex min-h-dvh flex-col justify-between gap-lg max-desktop:pb-lg">
-  <h1 class="sticky-header text-lg desktop:justify-self-start">{fullName}</h1>
+  class="rule-top rule-bottom flex min-h-dvh flex-col justify-between gap-lg pb-lg desktop:p-0">
+  <h1 class="sticky top-0 z-sticky bg-background-transparent p-md font-regular text-lg desktop:justify-self-start">
+    {fullName}
+  </h1>
   <div class="flex flex-col gap-lg p-md desktop:gap-md">
-    <h2>
+    <h2 class="font-regular">
       <strong class="gradient-text">Platform engineer and front&#x2011;end architect</strong> with 15+ years shipping production&#x2011;grade
       systems. I define how UIs get built: from design&#x2011;system infrastructure and{' '}
       <strong class="gradient-text">AI agent tooling</strong> to the testing contracts and quality bars that make them reliable
@@ -29,10 +31,6 @@ import { contact, fullName, navItems } from '@/constants';
 <style>
   @reference '../styles/global.css';
 
-  h1,
-  h2 {
-    font-weight: --theme(--font-weight-body);
-  }
   h2 {
     max-width: min(36ch, 100%);
   }

@@ -9,8 +9,11 @@ const { id, label } = Astro.props;
 
 <section
   id={id}
-  class="rule-bottom w-full items-start desktop:col-start-1 desktop:col-end-4 desktop:grid desktop:grid-cols-subgrid desktop:justify-items-start">
-  <h3 class="sticky-header justify-self-stretch text-lg desktop:justify-self-start">{label}</h3>
+  class="rule-bottom w-full items-start desktop:col-start-1 desktop:col-end-4 wide:col-end-5 desktop:grid desktop:grid-cols-subgrid desktop:justify-items-start">
+  <h3
+    class="sticky top-0 z-sticky justify-self-stretch bg-background-transparent p-md font-regular text-lg desktop:justify-self-start">
+    {label}
+  </h3>
   <hr class="vertical" />
   <div
     class="grid items-start px-md pb-md desktop:col-start-3 desktop:col-end-5 desktop:grid-cols-subgrid desktop:justify-items-start desktop:pt-md">
@@ -26,11 +29,5 @@ const { id, label } = Astro.props;
     @supports (height: 50dvh) {
       min-height: 50dvh;
     }
-    @media (width >= 1280px) {
-      grid-column-end: 5;
-    }
-  }
-  h3 {
-    font-weight: --theme(--font-weight-body);
   }
 </style>

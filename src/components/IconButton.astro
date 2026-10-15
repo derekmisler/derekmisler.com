@@ -10,24 +10,10 @@ const { id, position, ariaLabel } = Astro.props;
 
 <button
   class:list={[
-    'icon-button fixed right-sm z-overlay bg-background-transparent p-xs desktop:right-md',
+    'fixed right-sm z-overlay box-content size-icon bg-background-transparent p-xs desktop:right-md in-data-hidden:pointer-fine:mr-rule',
     { 'top-sm': position === 'top', 'bottom-sm': position === 'bottom' },
   ]}
   id={id}
   aria-label={ariaLabel}>
   <slot />
 </button>
-
-<style>
-  @reference '../styles/global.css';
-
-  .icon-button {
-    width: calc(40px + --theme(--spacing-xs) * 2);
-    height: calc(40px + --theme(--spacing-xs) * 2);
-  }
-  :global(body[data-hidden] .icon-button) {
-    @media (pointer: fine) {
-      margin-right: var(--rule);
-    }
-  }
-</style>

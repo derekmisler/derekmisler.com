@@ -57,7 +57,7 @@ function toDatetime(date: string): string | undefined {
               )}
             </h6>
           </div>
-          <ul class="not-last:mb-md max-desktop:mt-md">
+          <ul class="not-last:mb-md mt-md desktop:mt-0">
             {career.accomplishments.map((accomplishment) => (
               <li>{accomplishment}</li>
             ))}
@@ -113,10 +113,10 @@ function toDatetime(date: string): string | undefined {
     @variant desktop {
       grid-template-columns: min-content var(--rule) auto;
     }
-    @media (width >= 1280px) {
+    @variant wide {
       grid-template-columns: auto var(--rule) min-content auto;
     }
-    @media (width >= 1440px) {
+    @variant xwide {
       grid-template-columns: auto var(--rule) auto auto;
     }
   }

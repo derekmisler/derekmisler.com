@@ -33,9 +33,7 @@ Dark is the default. Light applies under `html[data-theme='light']`. Values live
 
 ## Typography
 
-One family: IBM Plex Sans, self-hosted, as `font-body` and `font-head`. Weights: 450 (`--font-weight-body`, inherited from `body`) and `font-bold` (700). No italics except `em`.
-
-`font-body` resolves to the font family, not the weight, because the family and weight tokens share a name. There is no class for 450; restore it on a heading with `font-weight: --theme(--font-weight-body)` in a scoped style.
+One family: IBM Plex Sans, self-hosted, as `font-body` and `font-head`. Weights: `font-regular` (450, the `body` default) and `font-bold` (700). No italics except `em`.
 
 | Class      | Use                        |
 | ---------- | -------------------------- |
@@ -53,7 +51,9 @@ One family: IBM Plex Sans, self-hosted, as `font-body` and `font-head`. Weights:
 
 ## Spacing
 
-Only `xs`, `sm`, `md`, `lg`. Examples: `p-md`, `gap-sm`, `mb-md`. Section padding is `md`. Never use numeric spacing like `p-4`.
+Scale: `xs`, `sm`, `md`, `lg`, plus `0` for resets. Examples: `p-md`, `gap-sm`, `mb-md`, `desktop:p-0`. Section padding is `md`. Never use numeric spacing like `p-4`.
+
+Fixed sizes: `rule` (10px, the rule thickness, as in `w-rule` or `mr-rule`) and `icon` (40px, icon button content, as in `size-icon`).
 
 ## Shape and depth
 
@@ -75,14 +75,14 @@ Only `xs`, `sm`, `md`, `lg`. Examples: `p-md`, `gap-sm`, `mb-md`. Section paddin
 
 ## Layout
 
-- Mobile first. One breakpoint: `desktop` (1024px), used as `desktop:`. Use `max-desktop:` only for a mobile-only value that would otherwise need a zero reset, since there is no zero spacing token.
-- Sticky headers use the `sticky-header` utility (sticky at the top, `p-md`, `bg-background-transparent`, `z-sticky`). Full-screen overlays use `fixed-full` (fixed, inset 0, `z-overlay`) with `overlay-hidden`, which fades in while `body[data-hidden]` is set.
+- Mobile first. Breakpoints: `desktop` (1024px) for layout changes, plus `wide` (1280px) and `xwide` (1440px) only for the main grid's column widths. Use min-width variants (`desktop:`), not `max-*`.
+- Sticky headers: `sticky top-0 z-sticky bg-background-transparent p-md`. Full-screen overlays: `fixed inset-0 z-overlay` with `overlay-hidden`, which fades in while `body[data-hidden]` is set.
 - A vertical rule appears only at `desktop:` between columns.
 
 ## Styles
 
 - `src/styles/theme.css`: tokens. The only place raw colors live.
-- `src/styles/global.css`: the Tailwind entry. Base element rules in `@layer base`, plus the `sticky-header`, `fixed-full`, `gradient-text`, and `overlay-hidden` utilities.
+- `src/styles/global.css`: the Tailwind entry. Base element rules in `@layer base`, plus the `gradient-text` and `overlay-hidden` utilities.
 - Components style with utilities in markup. A scoped `<style>` is only for values with no token yet; it starts with `@reference '../styles/global.css';` and reads tokens through `--theme()`.
 - `pnpm test` runs `scripts/check-tokens.mjs`, which fails on arbitrary values in classes and raw colors outside `theme.css`. `pnpm test:visual` compares screenshots against `tests/screenshots/`.
 
@@ -90,8 +90,8 @@ Only `xs`, `sm`, `md`, `lg`. Examples: `p-md`, `gap-sm`, `mb-md`. Section paddin
 
 These predate the tokens and stay in scoped styles until a token is approved:
 
-- 40px icon and toggle size (`IconButton`, `NavToggle`), and the 100ms toggle bar transition.
-- 1280px and 1440px grid column changes (`Main`, `Section`).
+- The 100ms toggle bar transition (`NavToggle`).
+- Grid column templates (`Main`), which mix `min-content`, `auto`, and `var(--rule)`.
 - `50dvh` section minimum height (`Section`).
 - `min(36ch, 100%)` hero copy width (`Header`).
 - Skip link offset, `z-index: 9999`, and 2px border (`pages/index.astro`).

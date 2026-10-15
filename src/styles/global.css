@@ -13,7 +13,7 @@
   body {
     font-family: --theme(--font-body);
     font-size: --theme(--text-sm);
-    font-weight: --theme(--font-weight-body);
+    font-weight: --theme(--font-weight-regular);
     -webkit-font-smoothing: antialiased;
     line-height: --theme(--leading-body);
     color: --theme(--color-text);
@@ -84,7 +84,7 @@
 
   .lead {
     font-size: --theme(--text-md);
-    font-weight: --theme(--font-weight-body);
+    font-weight: --theme(--font-weight-regular);
     line-height: --theme(--leading-body);
     text-wrap: balance;
   }
@@ -189,20 +189,6 @@
     font-size: 1rem;
     color: --theme(--color-text);
   }
-}
-
-@utility sticky-header {
-  position: sticky;
-  top: 0;
-  z-index: var(--z-sticky);
-  padding: --theme(--spacing-md);
-  background-color: --theme(--color-background-transparent);
-}
-
-@utility fixed-full {
-  position: fixed;
-  inset: 0;
-  z-index: var(--z-overlay);
 }
 
 @utility gradient-text {

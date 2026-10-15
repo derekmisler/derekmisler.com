@@ -33,7 +33,9 @@ Dark is the default. Light applies under `html[data-theme='light']`. Values live
 
 ## Typography
 
-One family: IBM Plex Sans, self-hosted, as `font-body` and `font-head`. Weights: `font-body` (450) and `font-bold` (700). No italics except `em`.
+One family: IBM Plex Sans, self-hosted, as `font-body` and `font-head`. Weights: 450 (`--font-weight-body`, inherited from `body`) and `font-bold` (700). No italics except `em`.
+
+`font-body` resolves to the font family, not the weight, because the family and weight tokens share a name. There is no class for 450; restore it on a heading with `font-weight: --theme(--font-weight-body)` in a scoped style.
 
 | Class      | Use                        |
 | ---------- | -------------------------- |
@@ -47,7 +49,7 @@ One family: IBM Plex Sans, self-hosted, as `font-body` and `font-head`. Weights:
 - Body line height is `leading-body`. Headings use `leading-heading`. `leading-tight` only for single-line display text.
 - Headings: `font-head font-bold leading-heading text-balance`.
 - Prose width is capped at 65ch by the existing `p` and `li` base rule. Do not override it.
-- Hero heading may use the gradient text treatment from `global.css` (`.gradient-text`). Do not apply it elsewhere.
+- Hero heading may use the `gradient-text` utility from `global.css`. Do not apply it elsewhere.
 
 ## Spacing
 
@@ -73,9 +75,26 @@ Only `xs`, `sm`, `md`, `lg`. Examples: `p-md`, `gap-sm`, `mb-md`. Section paddin
 
 ## Layout
 
-- Mobile first. One breakpoint: `desktop` (1024px), used as `desktop:`.
-- Sticky header uses `bg-background-transparent` and `z-sticky`. Overlays use `z-overlay`.
+- Mobile first. One breakpoint: `desktop` (1024px), used as `desktop:`. Use `max-desktop:` only for a mobile-only value that would otherwise need a zero reset, since there is no zero spacing token.
+- Sticky headers use the `sticky-header` utility (sticky at the top, `p-md`, `bg-background-transparent`, `z-sticky`). Full-screen overlays use `fixed-full` (fixed, inset 0, `z-overlay`) with `overlay-hidden`, which fades in while `body[data-hidden]` is set.
 - A vertical rule appears only at `desktop:` between columns.
+
+## Styles
+
+- `src/styles/theme.css`: tokens. The only place raw colors live.
+- `src/styles/global.css`: the Tailwind entry. Base element rules in `@layer base`, plus the `sticky-header`, `fixed-full`, `gradient-text`, and `overlay-hidden` utilities.
+- Components style with utilities in markup. A scoped `<style>` is only for values with no token yet; it starts with `@reference '../styles/global.css';` and reads tokens through `--theme()`.
+- `pnpm test` runs `scripts/check-tokens.mjs`, which fails on arbitrary values in classes and raw colors outside `theme.css`. `pnpm test:visual` compares screenshots against `tests/screenshots/`.
+
+### Values without tokens
+
+These predate the tokens and stay in scoped styles until a token is approved:
+
+- 40px icon and toggle size (`IconButton`, `NavToggle`), and the 100ms toggle bar transition.
+- 1280px and 1440px grid column changes (`Main`, `Section`).
+- `50dvh` section minimum height (`Section`).
+- `min(36ch, 100%)` hero copy width (`Header`).
+- Skip link offset, `z-index: 9999`, and 2px border (`pages/index.astro`).
 
 ## Components
 

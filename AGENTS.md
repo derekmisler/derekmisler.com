@@ -17,7 +17,8 @@ pnpm preview        # Preview production build locally
 ### Code Quality
 
 ```bash
-pnpm test           # Astro check + Prettier check + Biome lint
+pnpm test           # Astro check + Prettier check + Biome lint + token check
+pnpm test:visual    # Build, then compare Playwright screenshots against tests/screenshots/
 pnpm fix            # Prettier write + Biome lint --write
 ```
 
@@ -26,7 +27,7 @@ pnpm fix            # Prettier write + Biome lint --write
 ### Technology Stack
 
 - **Framework**: Astro with static output (version pinned in `package.json`)
-- **Styling**: CSS with custom properties (CSS variables)
+- **Styling**: Tailwind v4 with tokens from `src/styles/theme.css` (all Tailwind defaults disabled)
 - **TypeScript**: Strict mode with path aliases (`@/` for `src/`)
 - **Package Manager**: PNPM
 - **Fonts**: IBM Plex Sans (self-hosted in `/public/fonts/sans/`, declared in `src/styles/ibm-plex-sans-all.css`)
@@ -45,7 +46,8 @@ src/
 │   ├── index.astro    # Homepage with SEO configuration
 │   └── robots.txt.ts  # Dynamic robots.txt generation
 ├── styles/
-│   ├── global.css     # Global styles with CSS custom properties
+│   ├── theme.css      # Tailwind tokens and theme color variables
+│   ├── global.css     # Tailwind entry: base rules and custom utilities
 │   └── ibm-plex-sans-all.css  # @font-face declarations
 ├── utils/
 │   └── scrollObserver.client.ts
@@ -72,9 +74,9 @@ Most site content is centralized in `src/constants.ts` (the hero copy lives in `
 ### Styling Approach
 
 - UI work: read `DESIGN.md` first. Tokens only, no arbitrary values.
-- CSS custom properties for theming
-- Component-scoped styles in `.astro` files
-- Gradient text effects for headings
+- Token utilities in markup; scoped `<style>` only for values with no token yet
+- Dark and light themes swap CSS variables under `html[data-theme='light']`
+- Gradient text on the hero via the `gradient-text` utility
 - Responsive typography using `clamp()` with viewport units
 
 ## Development Notes

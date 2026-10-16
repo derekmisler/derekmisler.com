@@ -2,7 +2,7 @@
   "recommendations": [
     "astro-build.astro-vscode",
     "yoavbls.pretty-ts-errors",
-    "biomejs.biome",
+    "oxc.oxc-vscode",
     "stylelint.vscode-stylelint"
   ]
 }

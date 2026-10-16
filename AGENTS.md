@@ -17,10 +17,13 @@ pnpm preview        # Preview production build locally
 ### Code Quality
 
 ```bash
-pnpm test           # Astro check + Prettier check + Biome lint + token check
+pnpm test           # Astro check + oxlint + oxfmt check + token check
+pnpm lint           # oxlint
+pnpm format         # oxfmt (write)
+pnpm format:check   # oxfmt --check
 pnpm test:visual    # Build, then compare Playwright screenshots against tests/screenshots/
                     # First run on a new machine: pnpm exec playwright install chromium
-pnpm fix            # Prettier write + Biome lint --write
+pnpm fix            # oxfmt write + oxlint --fix
 ```
 
 ## Architecture
@@ -58,7 +61,7 @@ src/
 ### Key Features
 
 - **SEO Optimized**: Uses `@astrolib/seo` (`AstroSeo`) with Open Graph and Twitter cards
-- **Accessibility**: Biome linter with its recommended a11y rules
+- **Accessibility**: No automated a11y lint; oxlint's `jsx-a11y` rules only see JSX, not `.astro` markup
 - **Performance**: Static generation with sitemap integration
 - **Typography**: Custom font loading with IBM Plex Sans
 - **Responsive Design**: Mobile-first approach with viewport-based sizing
@@ -85,8 +88,8 @@ Most site content is centralized in `src/constants.ts` (the hero copy lives in `
 ### Code Quality Standards
 
 - **TypeScript**: Strict mode with explicit types
-- **Biome**: Linting (JS/TS, CSS, HTML) with recommended and a11y rules; its formatter is off
-- **Prettier**: Code formatting with Astro plugin
+- **oxlint**: Linting for `.ts`, `.mjs` and the frontmatter and `<script>` blocks of `.astro` files; it does not lint `.astro` markup or CSS
+- **oxfmt**: Formatting for `.ts`, `.mjs`, `.css`, `.md`, `.json` and `.yml`; `.astro` files are ignored because oxfmt's experimental Astro support adds visible whitespace (`Docker</a>.` becomes `Docker .`), so format them by hand
 
 ### SEO Configuration
 

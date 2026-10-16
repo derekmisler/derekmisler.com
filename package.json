@@ -9,9 +9,12 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "test": "astro check && prettier --check . && biome lint . && node scripts/check-tokens.mjs",
+    "lint": "oxlint",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "test": "astro check && pnpm lint && pnpm format:check && node scripts/check-tokens.mjs",
     "test:visual": "astro build && playwright test",
-    "fix": "prettier --write . && biome lint --write ."
+    "fix": "oxfmt && oxlint --fix"
   },
   "dependencies": {
     "@astrojs/check": "0.9.9",
@@ -23,11 +26,10 @@
     "tailwindcss": "4.3.3"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.5.2",
     "@playwright/test": "1.56.1",
     "@types/lodash-es": "4.17.12",
-    "prettier": "^3.9.4",
-    "prettier-plugin-astro": "^0.14.1",
+    "oxfmt": "0.73.0",
+    "oxlint": "1.88.0",
     "typescript": "6.0.3"
   }
 }

@@ -103,3 +103,7 @@ Most site content is centralized in `src/constants.ts` (the hero copy lives in `
 - Built for static hosting (Cloudflare)
 - Outputs to `dist/` directory
 - Includes favicon and social media images in `/public/`
+
+### Pull Requests
+
+One PR per session. This is a personal repo, so a clean history doesn't matter: put all of a session's work on one branch and one PR, and push follow-up commits (merge commits are fine) to it instead of opening new PRs. A stack is fine only when a later change truly depends on an earlier one that should merge first. If a session already has an open PR here, add to it.

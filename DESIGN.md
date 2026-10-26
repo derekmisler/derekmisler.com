@@ -11,7 +11,7 @@ Typographic, minimal, high contrast, flat. Thick accent rules, fluid type, gener
 - Use only the tokens in `src/styles/theme.css`. Every Tailwind default is disabled, so a class that is not listed below does not exist.
 - No arbitrary values: no `w-[437px]`, no `text-[#123456]`, no `p-[13px]`.
 - No raw hex, rgb, or hsl anywhere outside `theme.css`.
-- No new dependencies, no client JS frameworks, no React. Static Astro only.
+- No new dependencies, no client JS frameworks, no React. Static Astro only. Storybook is a local-only dev dependency.
 - No inline `style` attributes except to pass a CSS variable.
 - Both themes must work. Never hardcode a color for one theme.
 - Do not add comments.
@@ -82,7 +82,8 @@ Fixed sizes: `rule` (10px, the rule thickness, as in `w-rule` or `mr-rule`) and 
 ## Styles
 
 - `src/styles/theme.css`: tokens. The only place raw colors live.
-- `src/styles/global.css`: the Tailwind entry. Base element rules in `@layer base`, plus the `gradient-text` and `overlay-hidden` utilities.
+- `src/styles/global.css`: base element rules in `@layer base`, plus the `gradient-text` and `overlay-hidden` utilities.
+- `src/styles/site.css`: the site's Tailwind entry. Imports `global.css` and keeps `src/stories` out of the scan.
 - Components style with utilities in markup. A scoped `<style>` is only for values with no token yet; it starts with `@reference '../styles/global.css';` and reads tokens through `--theme()`.
 - `pnpm test` runs `scripts/check-tokens.mjs`, which fails on arbitrary values in classes and raw colors outside `theme.css`. `pnpm test:visual` compares screenshots against `tests/screenshots/`.
 
@@ -109,6 +110,7 @@ New component checklist:
 3. Variants are an explicit union type, documented here.
 4. Tokens only.
 5. Add it to the list above in the same change.
+6. Add `src/stories/components/<Name>.stories.ts` with a story per variant, and check both themes in Storybook.
 
 ## Accessibility
 
@@ -130,6 +132,10 @@ New component checklist:
 - Add a second font.
 - Center long text.
 - Introduce a UI framework or component library.
+
+## Storybook
+
+`pnpm storybook` is the reference for this system. Foundations pages list every token in `theme.css` with its rendered value in the current theme and viewport, and check the approved pairings against WCAG AA. Story markup follows the same rules as site markup, and `pnpm test` checks it.
 
 ## When the system does not cover it
 

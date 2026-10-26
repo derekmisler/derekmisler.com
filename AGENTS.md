@@ -12,6 +12,7 @@ This is Derek Misler's personal portfolio website - a static site built with Ast
 pnpm dev            # Start development server with hot reload
 pnpm build          # Build static site for production
 pnpm preview        # Preview production build locally
+pnpm storybook      # Design system on http://localhost:6006 (local only, never built or deployed)
 ```
 
 ### Code Quality
@@ -49,9 +50,15 @@ src/
 ├── pages/
 │   ├── index.astro    # Homepage with SEO configuration
 │   └── robots.txt.ts  # Dynamic robots.txt generation
+├── stories/
+│   ├── foundations/   # Token pages: color, typography, spacing, rules/shape/motion/layout
+│   ├── components/    # One stories file per component
+│   ├── tokens.ts      # Reads tokens straight from theme.css
+│   └── measure.ts     # Client script that prints rendered values and contrast
 ├── styles/
 │   ├── theme.css      # Tailwind tokens and theme color variables
-│   ├── global.css     # Tailwind entry: base rules and custom utilities
+│   ├── global.css     # Base rules and custom utilities, shared by the site and Storybook
+│   ├── site.css       # Site entry: global.css minus src/stories
 │   └── ibm-plex-sans-all.css  # @font-face declarations
 ├── utils/
 │   └── scrollObserver.client.ts
@@ -74,6 +81,15 @@ Most site content is centralized in `src/constants.ts` (the hero copy lives in `
 - Skills and experience data
 - Social media links and contact information
 - Career history and education details
+
+### Storybook
+
+- `@storybook-astro/framework` renders the real `.astro` components server-side through Astro's Container API.
+- Local only: there is no `build-storybook` script, and nothing in `.storybook/` or `src/stories/` ships.
+- Foundation pages read `theme.css` at render time, so a new token shows up without touching a story.
+- `.storybook/astroStyles.ts` swaps the framework's raw `<style>` injection for Astro's compiled, scoped style modules, so `@reference`, `--theme()` and `@variant` work.
+- `src/styles/site.css` excludes `src/stories` from Tailwind's scan, so story-only classes never reach production CSS.
+- Use the toolbar's Theme switch to check both themes. `parameters.overlayOpen` opens the nav overlay for a story.
 
 ### Styling Approach
 

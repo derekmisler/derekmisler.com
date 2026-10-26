@@ -1,0 +1,92 @@
+---
+import { darkValues, tokens } from '../tokens';
+
+const breakpoints = tokens('breakpoint');
+const radii = tokens('radius');
+const easings = tokens('ease');
+const layers = darkValues.filter(({ name }) => name.startsWith('z-'));
+const rule = darkValues.find(({ name }) => name === 'rule');
+---
+
+<div class="flex flex-col gap-lg p-md">
+  <header class="flex flex-col gap-sm">
+    <h2>Rules, shape, motion, and layout</h2>
+    <p>Separation comes from rules, not shadows. Everything is square. Motion is a single wipe.</p>
+  </header>
+
+  <section class="flex flex-col gap-md">
+    <h3>Rules</h3>
+    <p>Thickness is <code>--rule</code>, <code>{rule?.value}</code>, in <code>accent</code>.</p>
+    <div class="rule-top p-sm"><small class="leading-heading"><code>rule-top</code></small></div>
+    <div class="rule-bottom p-sm"><small class="leading-heading"><code>rule-bottom</code></small></div>
+    <div class="flex flex-col gap-xs">
+      <hr />
+      <small class="leading-heading"><code>&lt;hr&gt;</code></small>
+    </div>
+    <p>
+      <code>&lt;hr class="vertical"&gt;</code> sits between columns, and only appears at <code>desktop:</code>.
+    </p>
+  </section>
+
+  <section class="flex flex-col gap-md">
+    <h3>Radius</h3>
+    {
+      radii.map(({ name, value }) => (
+        <div class="flex items-center gap-sm">
+          <div class="size-icon rounded-none bg-accent" />
+          <small class="leading-heading">
+            <code>rounded-{name}</code> · <code>{value}</code> · the only radius
+          </small>
+        </div>
+      ))
+    }
+  </section>
+
+  <section class="flex flex-col gap-md">
+    <h3>Motion</h3>
+    {
+      easings.map(({ name, value }) => (
+        <small class="leading-heading">
+          <code>ease-{name}</code> · <code>{value}</code> · 230ms for the hover wipe and fades
+        </small>
+      ))
+    }
+    <p>
+      Hover or focus: <a href="#motion">link wipe</a> and <button type="button">button wipe</button>. Reduced motion
+      must have a fallback.
+    </p>
+  </section>
+
+  <section class="flex flex-col gap-md">
+    <h3>Breakpoints</h3>
+    <p>Mobile first, min-width only. <code>desktop</code> changes layout; the wider two only tune the main grid.</p>
+    {
+      breakpoints.map(({ name, value }) => (
+        <small class="leading-heading">
+          <code>{name}:</code> · <code>{value}</code>
+        </small>
+      ))
+    }
+    <div class="flex gap-xs">
+      <small class="bg-background-accent px-xs">mobile</small>
+      <small class="hidden bg-background-accent px-xs desktop:block">desktop</small>
+      <small class="hidden bg-background-accent px-xs wide:block">wide</small>
+      <small class="hidden bg-background-accent px-xs xwide:block">xwide</small>
+    </div>
+  </section>
+
+  <section class="flex flex-col gap-md">
+    <h3>Layers</h3>
+    {
+      layers.map(({ name, value }) => (
+        <small class="leading-heading">
+          <code>{name}</code> · <code>{value}</code>
+        </small>
+      ))
+    }
+    <p>
+      Sticky headers: <code>sticky top-0 z-sticky bg-background-transparent p-md</code>. Overlays:{' '}
+      <code>fixed inset-0 z-overlay overlay-hidden</code>.
+    </p>
+  </section>
+</div>

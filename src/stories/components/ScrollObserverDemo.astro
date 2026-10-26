@@ -1,0 +1,29 @@
+---
+import ScrollObserver from '@/components/ScrollObserver.astro';
+---
+
+<ScrollObserver />
+<div class="flex flex-col gap-lg p-md">
+  <div class="sticky top-0 z-sticky bg-background-transparent py-sm">
+    <p>
+      <code>data-is-top</code> <strong data-readout="data-is-top"></strong> · <code>data-is-scrolling-up</code>
+      <strong data-readout="data-is-scrolling-up"></strong>
+    </p>
+  </div>
+  <p>
+    <code>ScrollObserver</code> renders an empty marker at the top of the page and sets <code>data-is-top</code> and{' '}
+    <code>data-is-scrolling-up</code> on <code>&lt;html&gt;</code>. Scroll this canvas to watch them change.
+  </p>
+  {Array.from({ length: 12 }, (_, index) => <div class="rule-bottom h-lg"><small>{index + 1}</small></div>)}
+</div>
+
+<script>
+  const root = document.documentElement;
+  const update = () => {
+    document.querySelectorAll<HTMLElement>('[data-readout]').forEach((output) => {
+      output.textContent = root.getAttribute(output.dataset.readout ?? '') ?? '';
+    });
+  };
+  update();
+  new MutationObserver(update).observe(root, { attributeFilter: ['data-is-top', 'data-is-scrolling-up'] });
+</script>

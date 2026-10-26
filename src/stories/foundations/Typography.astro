@@ -1,0 +1,139 @@
+---
+import { tokens } from '../tokens';
+
+const roles: Record<string, string> = {
+  xs: 'small, captions',
+  sm: 'Body, li, h5, h6',
+  md: '.lead, h4',
+  lg: 'h3',
+  xl: 'h2, hero',
+  xxl: 'Display only, one per page',
+  tight: 'Single-line display text',
+  heading: 'Headings',
+  body: 'Body copy, the body default',
+  regular: 'The body default',
+  bold: 'Headings, strong',
+};
+
+const families = tokens('font').filter(({ name }) => !name.startsWith('weight-'));
+const sizes = tokens('text');
+const weights = tokens('font-weight');
+const leadings = tokens('leading');
+const paragraph =
+  'Typographic, minimal, high contrast, flat. Thick accent rules, fluid type, generous line height, no decoration. The page should feel like a well-set poster, not an app.';
+---
+
+<div class="flex flex-col gap-lg p-md">
+  <header class="flex flex-col gap-sm">
+    <h2>Typography</h2>
+    <p>
+      One family, IBM Plex Sans, in two weights. Sizes are fluid <code>clamp()</code> values, so the rendered size
+      changes with the viewport. Resize the canvas to watch them move.
+    </p>
+  </header>
+
+  <section class="flex flex-col gap-md">
+    <h3>Families</h3>
+    {
+      families.map(({ name, value }) => (
+        <div class="sample-family flex flex-col gap-xs" style={`--sample: ${value}`}>
+          <p class="text-md">Aa Bb Cc Gg Qq 0123456789 &amp;?!</p>
+          <small class="leading-heading">
+            <code>font-{name}</code> · <code>{value}</code>
+          </small>
+        </div>
+      ))
+    }
+  </section>
+
+  <section class="flex flex-col gap-md">
+    <h3>Size scale</h3>
+    {
+      sizes.map(({ name, value }) => (
+        <div class="flex flex-col gap-xs" data-specimen>
+          <p class="sample-size leading-heading" style={`--sample: ${value}`} data-sample>
+            Platform engineer and front&#x2011;end architect
+          </p>
+          <small class="leading-heading">
+            <code>text-{name}</code> · {roles[name]} · <code>{value}</code> · rendered <code data-measure="font-size" />
+          </small>
+        </div>
+      ))
+    }
+  </section>
+
+  <section class="flex flex-col gap-md">
+    <h3>Weights</h3>
+    {
+      weights.map(({ name, value }) => (
+        <div class="flex flex-col gap-xs">
+          <p class="sample-weight text-md" style={`--sample: ${value}`}>
+            The quick brown fox jumps over the lazy dog
+          </p>
+          <small class="leading-heading">
+            <code>font-{name}</code> · {roles[name]} · <code>{value}</code>
+          </small>
+        </div>
+      ))
+    }
+  </section>
+
+  <section class="flex flex-col gap-md">
+    <h3>Line height</h3>
+    {
+      leadings.map(({ name, value }) => (
+        <div class="flex flex-col gap-xs" data-specimen>
+          <p class="sample-leading" style={`--sample: ${value}`} data-sample>
+            {paragraph}
+          </p>
+          <small class="leading-heading">
+            <code>leading-{name}</code> · {roles[name]} · <code>{value}</code> · rendered{' '}
+            <code data-measure="line-height" />
+          </small>
+        </div>
+      ))
+    }
+  </section>
+
+  <section class="flex flex-col gap-md">
+    <h3>Elements</h3>
+    <p>Base rules from <code>global.css</code>. Headings are bold, balanced, and set at <code>leading-heading</code>.</p>
+    <div class="flex flex-col gap-sm">
+      <h1>h1 · Derek Misler</h1>
+      <h2>h2 · <strong class="gradient-text">gradient-text</strong> for the hero only</h2>
+      <h3>h3 · Section label</h3>
+      <h4>h4 · Subsection</h4>
+      <h5>h5 · Job title</h5>
+      <h6>h6 · Feb 2024 - Present</h6>
+      <p class="lead">.lead · {paragraph}</p>
+      <p>p · {paragraph}</p>
+      <ul>
+        <li>li · Lists drop their markers and space items with <code>md</code>.</li>
+        <li>li · Prose width caps at 65ch.</li>
+      </ul>
+      <p>
+        <a href="#elements">a · link with the wipe</a>, <strong>strong</strong>, <em>em</em>, and{' '}
+        <small>small</small>.
+      </p>
+    </div>
+  </section>
+</div>
+
+<script>
+  import '../measure';
+</script>
+
+<style>
+  .sample-family {
+    font-family: var(--sample);
+  }
+  .sample-size {
+    font-size: var(--sample);
+  }
+  .sample-weight {
+    font-weight: var(--sample);
+  }
+  .sample-leading {
+    line-height: var(--sample);
+  }
+</style>

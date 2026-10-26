@@ -1,0 +1,97 @@
+---
+import { darkValues, lightValues, tokens, variable } from '../tokens';
+
+const roles: Record<string, string> = {
+  text: 'Body and heading text',
+  background: 'Page background',
+  'background-accent': 'Link underline, hover wipe, panels',
+  'background-transparent': 'Sticky header surface',
+  accent: 'Rules, scrollbar, gradient end stop, highlights',
+  transparent: 'Clear fills',
+};
+
+const colors = tokens('color').map(({ name, value }) => {
+  const source = value.match(/^var\(--([\w-]+)\)$/)?.[1];
+  return {
+    name,
+    value,
+    role: roles[name] ?? '',
+    dark: source ? variable(source, darkValues) : undefined,
+    light: source ? variable(source, lightValues) : undefined,
+  };
+});
+---
+
+<div class="flex flex-col gap-lg p-md">
+  <header class="flex flex-col gap-sm">
+    <h2>Color</h2>
+    <p>
+      Every color is a CSS variable that swaps under <code>html[data-theme='light']</code>. Use the class suffix with
+      any color utility: <code>text-</code>, <code>bg-</code>, <code>border-</code>, <code>stroke-</code>. Switch themes
+      from the toolbar.
+    </p>
+  </header>
+
+  <section class="flex flex-col gap-md">
+    <h3>Tokens</h3>
+    <div class="grid gap-md desktop:grid-cols-2 wide:grid-cols-3">
+      {
+        colors.map((color) => (
+          <div class="flex flex-col gap-xs" data-specimen>
+            <div class="swatch h-lg w-full" style={`--sample: ${color.value}`} data-sample />
+            <h4>{color.name}</h4>
+            <small class="leading-heading">{color.role}</small>
+            <small class="leading-heading">
+              <code>bg-{color.name}</code> · <code>{color.value}</code>
+            </small>
+            {color.dark && color.light && (
+              <small class="leading-heading">
+                dark <code>{color.dark}</code> · light <code>{color.light}</code>
+              </small>
+            )}
+            <small class="leading-heading">
+              rendered <code data-measure="color" />
+            </small>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="flex flex-col gap-md">
+    <h3>Approved pairings</h3>
+    <p>WCAG AA: 4.5:1 for body text, 3:1 for rules and other non-text marks. Do not add new pairings.</p>
+    <div class="grid gap-md desktop:grid-cols-3">
+      <div class="flex flex-col gap-xs" data-specimen>
+        <div class="bg-background p-sm text-text" data-sample data-ground>Text on background</div>
+        <small class="leading-heading"><code>text-text bg-background</code></small>
+        <small class="leading-heading">contrast <code data-measure="contrast" data-minimum="4.5"></code></small>
+      </div>
+      <div class="flex flex-col gap-xs" data-specimen>
+        <div class="bg-background-accent p-sm text-text" data-sample data-ground>Text on background-accent</div>
+        <small class="leading-heading"><code>text-text bg-background-accent</code></small>
+        <small class="leading-heading">contrast <code data-measure="contrast" data-minimum="4.5"></code></small>
+      </div>
+      <div class="flex flex-col gap-xs" data-specimen>
+        <div class="bg-background p-sm" data-ground>
+          <div class="h-sm w-full bg-accent" data-sample></div>
+        </div>
+        <small class="leading-heading"><code>bg-accent</code> rule on <code>bg-background</code></small>
+        <small class="leading-heading">
+          contrast <code data-measure="contrast" data-property="background-color" data-minimum="3"></code>
+        </small>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  import '../measure';
+</script>
+
+<style>
+  .swatch {
+    background-color: var(--sample);
+    outline: 1px solid currentColor;
+  }
+</style>

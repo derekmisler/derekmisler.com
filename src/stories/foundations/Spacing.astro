@@ -1,0 +1,64 @@
+---
+import { tokens } from '../tokens';
+
+const roles: Record<string, string> = {
+  '0': 'Resets',
+  xs: 'Tight gaps, icon button padding',
+  sm: 'Gaps between related items, fixed offsets',
+  md: 'Section padding, paragraph spacing',
+  lg: 'Gaps between groups',
+  rule: 'Rule thickness, as in w-rule or mr-rule',
+  icon: 'Icon button content, as in size-icon',
+};
+
+const spacing = tokens('spacing');
+---
+
+<div class="flex flex-col gap-lg p-md">
+  <header class="flex flex-col gap-sm">
+    <h2>Spacing</h2>
+    <p>
+      Use the scale with any spacing utility: <code>p-md</code>, <code>gap-sm</code>, <code>mb-lg</code>,{' '}
+      <code>size-icon</code>. Never numeric spacing like <code>p-4</code>. The scale is fluid, so resize the canvas to
+      see the rendered values change.
+    </p>
+  </header>
+
+  <section class="flex flex-col gap-md">
+    {
+      spacing.map(({ name, value }) => (
+        <div class="flex flex-col gap-xs" data-specimen>
+          <div class="sample h-sm bg-accent" style={`--sample: ${value}`} data-sample />
+          <small class="leading-heading">
+            <code>{name}</code> · {roles[name]} · <code>{value}</code> · rendered <code data-measure="width" />
+          </small>
+        </div>
+      ))
+    }
+  </section>
+
+  <section class="flex flex-col gap-md">
+    <h3>In use</h3>
+    <div class="flex flex-wrap items-start gap-md">
+      {
+        (['p-xs', 'p-sm', 'p-md', 'p-lg'] as const).map((padding) => (
+          <div class:list={['bg-background-accent', padding]}>
+            <div class="bg-background px-xs">
+              <small class="leading-heading">{padding}</small>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</div>
+
+<script>
+  import '../measure';
+</script>
+
+<style>
+  .sample {
+    width: var(--sample);
+  }
+</style>

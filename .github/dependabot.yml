@@ -1,0 +1,28 @@
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+    # Delay adopting new releases to let the community surface issues.
+    # Does NOT apply to security updates, those are always immediate.
+    cooldown:
+      default-days: 3
+      semver-patch-days: 3 # Most malicious packages are caught within 72 h
+      semver-minor-days: 7
+      semver-major-days: 30
+    groups:
+      # These packages must stay on matching versions, majors included.
+      storybook:
+        patterns:
+          - 'storybook'
+          - '@storybook/*'
+      tailwind:
+        patterns:
+          - 'tailwindcss'
+          - '@tailwindcss/*'
+      minor-and-patch:
+        update-types:
+          - 'minor'
+          - 'patch'

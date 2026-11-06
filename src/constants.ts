@@ -1,12 +1,49 @@
 // Navigation
 export const navItems = {
   home: { slug: 'home', label: 'Home' },
-  about: { slug: 'about', label: 'About me' },
-  experience: { slug: 'experience', label: 'Experience' },
-  coreSkills: { slug: 'coreSkills', label: 'Core Skills' },
-  workingWith: { slug: 'workingWith', label: 'Working With' },
-  contact: { slug: 'contact', label: 'Other Details' },
+  gordon: { slug: 'gordon', label: 'Gordon' },
+  review: { slug: 'review', label: 'Code review' },
+  governance: { slug: 'governance', label: 'AI Governance' },
+  earlier: { slug: 'earlier', label: 'Earlier' },
+  design: { slug: 'design', label: 'Design' },
+  contact: { slug: 'contact', label: 'Elsewhere' },
 } satisfies Record<string, { slug: string; label: string }>;
+
+export const statements = [
+  {
+    ...navItems.gordon,
+    period: 'Docker, Feb 2024 to now',
+    headline: 'An AI assistant for millions of Docker Desktop users.',
+    detail:
+      'Led engineering across Docker\u2019s AI agent platform, including Gordon 2.0, and rebuilt the shared UI platform its agent tooling runs on.',
+  },
+  {
+    ...navItems.review,
+    period: 'Docker',
+    headline: 'AI code review on 100+ repositories.',
+    detail:
+      'Built docker\u2011agent\u2011action, rolled it out to every engineering team, hardened its security, and open\u2011sourced it under Apache 2.0.',
+  },
+  {
+    ...navItems.governance,
+    period: 'Docker',
+    headline: 'From behind schedule to ahead of it.',
+    detail:
+      'Sole frontend lead on Docker\u2019s AI Governance team, one of the company\u2019s top priorities, supporting a major enterprise contract.',
+  },
+  {
+    ...navItems.earlier,
+    period: 'Patreon and Transfix, 2016 to 2023',
+    headline: '55% faster LCP at Patreon.',
+    detail: 'Before that, first front\u2011end engineer and later Staff\u2011level lead at Transfix.',
+  },
+  {
+    ...navItems.design,
+    period: 'BFA, Graphic Design',
+    headline: 'A designer first.',
+    detail: 'Typography, layout, and visual hierarchy still shape the interfaces and systems I build.',
+  },
+] satisfies { slug: string; label: string; period: string; headline: string; detail: string }[];
 
 export const subHeadline =
   'Web development started at 13 as curiosity, tinkering until things worked. A BFA in graphic design followed, then freelance work building real sites for local businesses, then a career that went from first front\u2011end engineer at a startup to Staff\u2011level lead, to where I am now at Docker. The design background never left: an eye for typography, layout, and visual hierarchy still shapes the interfaces and systems I build.';
@@ -19,9 +56,9 @@ export const fullName = `${firstName} ${lastName}`;
 export const jobTitle = 'Platform Engineer and Front-End Architect';
 
 // SEO
-export const title = 'Staff-Level Front-End Engineer | AI Developer Tools | UI/UX & Accessibility';
+export const title = 'Staff-Level Front-End Engineer | AI Agent Tooling | Design Systems & Accessibility';
 export const description =
-  'Platform engineer and front\u2011end architect at Docker based in Arlington, VA. I build AI\u2011powered developer tooling, enterprise desktop workflows, and design\u2011system infrastructure using React, TypeScript, and accessibility\u2011first practices.';
+  'Staff\u2011level front\u2011end engineer at Docker based in Arlington, VA. I build AI agent tooling and AI\u2011powered developer tools, from design\u2011system infrastructure to enterprise desktop workflows, using React, TypeScript, and accessibility\u2011first practices.';
 
 // Social
 export const socialId = 'derekmisler';
@@ -164,7 +201,7 @@ export const currentCareers = [
       'Rebuilt the shared Electron-based UI platform for Docker\u2019s agent tooling (monorepo, CI/CD, design system integration, hot reload, test infrastructure); the shadcn + Tailwind architectural decision made here resolved a company-wide component framework debate and was adopted as the standard across Docker\u2019s entire frontend codebase.',
       'Delivered secure telemetry pipelines (event schema design, CI validation, dashboards) to improve observability and product decision-making.',
       'Embedded with Docker\u2019s AI Governance team as the sole frontend lead on one of the company\u2019s top priorities, supporting a major enterprise contract. Ramped on an unfamiliar codebase in days, took ownership of a stalled workstream, and moved the team from behind schedule to ahead of it.',
-      'Built and rolled out docker-agent-action (Docker\u2019s AI-assisted PR review platform) across 70+ repositories and every engineering team; hardened its security posture, open-sourced it under Apache 2.0, and built self-serve onboarding so any team can adopt without manual setup.',
+      'Built and rolled out docker-agent-action (Docker\u2019s AI-assisted PR review platform) across 100+ repositories and every engineering team; hardened its security posture, open-sourced it under Apache 2.0, and built self-serve onboarding so any team can adopt without manual setup.',
       'Took over ownership, unblocked, and shipped Bulk Deployment for Docker Desktop, enabling enterprise IT teams to configure and distribute Docker at scale across platforms.',
       'Integrated Docker Hub catalog search/launch into Docker Desktop to reduce workflow friction and improve discoverability.',
       'Led front\u2011end architecture for an enterprise Insights dashboard, referenced in customer adoption and sales enablement outcomes.',

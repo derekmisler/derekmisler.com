@@ -12,6 +12,10 @@ updates:
       semver-patch-days: 3 # Most malicious packages are caught within 72 h
       semver-minor-days: 7
       semver-major-days: 30
+    ignore:
+      # astro check needs TypeScript's JS API, which TypeScript 7 does not ship.
+      - dependency-name: 'typescript'
+        update-types: ['version-update:semver-major']
     groups:
       # These packages must stay on matching versions, majors included.
       storybook:

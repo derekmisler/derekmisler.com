@@ -20,7 +20,7 @@ export const statements = [
   {
     ...navItems.review,
     period: 'Docker',
-    headline: 'AI code review on 70+ repositories.',
+    headline: 'AI code review on 100+ repositories.',
     detail:
       'Built docker\u2011agent\u2011action, rolled it out to every engineering team, hardened its security, and open\u2011sourced it under Apache 2.0.',
   },
@@ -201,7 +201,7 @@ export const currentCareers = [
       'Rebuilt the shared Electron-based UI platform for Docker\u2019s agent tooling (monorepo, CI/CD, design system integration, hot reload, test infrastructure); the shadcn + Tailwind architectural decision made here resolved a company-wide component framework debate and was adopted as the standard across Docker\u2019s entire frontend codebase.',
       'Delivered secure telemetry pipelines (event schema design, CI validation, dashboards) to improve observability and product decision-making.',
       'Embedded with Docker\u2019s AI Governance team as the sole frontend lead on one of the company\u2019s top priorities, supporting a major enterprise contract. Ramped on an unfamiliar codebase in days, took ownership of a stalled workstream, and moved the team from behind schedule to ahead of it.',
-      'Built and rolled out docker-agent-action (Docker\u2019s AI-assisted PR review platform) across 70+ repositories and every engineering team; hardened its security posture, open-sourced it under Apache 2.0, and built self-serve onboarding so any team can adopt without manual setup.',
+      'Built and rolled out docker-agent-action (Docker\u2019s AI-assisted PR review platform) across 100+ repositories and every engineering team; hardened its security posture, open-sourced it under Apache 2.0, and built self-serve onboarding so any team can adopt without manual setup.',
       'Took over ownership, unblocked, and shipped Bulk Deployment for Docker Desktop, enabling enterprise IT teams to configure and distribute Docker at scale across platforms.',
       'Integrated Docker Hub catalog search/launch into Docker Desktop to reduce workflow friction and improve discoverability.',
       'Led front\u2011end architecture for an enterprise Insights dashboard, referenced in customer adoption and sales enablement outcomes.',

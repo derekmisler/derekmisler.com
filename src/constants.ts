@@ -3,7 +3,7 @@ export const navItems = {
   home: { slug: 'home', label: 'Home' },
   gordon: { slug: 'gordon', label: 'Gordon' },
   review: { slug: 'review', label: 'Code review' },
-  governance: { slug: 'governance', label: 'Governance' },
+  governance: { slug: 'governance', label: 'AI Governance' },
   earlier: { slug: 'earlier', label: 'Earlier' },
   design: { slug: 'design', label: 'Design' },
   contact: { slug: 'contact', label: 'Elsewhere' },

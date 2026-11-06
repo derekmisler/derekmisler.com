@@ -1,32 +1,41 @@
 // Navigation
 export const navItems = {
   home: { slug: 'home', label: 'Home' },
-  docker: { slug: 'docker', label: 'Docker' },
-  patreon: { slug: 'patreon', label: 'Patreon' },
-  transfix: { slug: 'transfix', label: 'Transfix' },
+  gordon: { slug: 'gordon', label: 'Gordon' },
+  review: { slug: 'review', label: 'Code review' },
+  governance: { slug: 'governance', label: 'Governance' },
+  earlier: { slug: 'earlier', label: 'Earlier' },
   design: { slug: 'design', label: 'Design' },
   contact: { slug: 'contact', label: 'Elsewhere' },
 } satisfies Record<string, { slug: string; label: string }>;
 
 export const statements = [
   {
-    ...navItems.docker,
-    period: 'Feb 2024 to now',
-    headline: 'AI tooling that ships to millions of Docker Desktop users.',
+    ...navItems.gordon,
+    period: 'Docker, Feb 2024 to now',
+    headline: 'An AI assistant for millions of Docker Desktop users.',
     detail:
-      'Gordon 2.0, Docker\u2019s AI assistant, and docker\u2011agent\u2011action, an AI\u2011assisted PR review platform running across 70+ repositories.',
+      'Led engineering across Docker\u2019s AI agent platform, including Gordon 2.0, and rebuilt the shared UI platform its agent tooling runs on.',
   },
   {
-    ...navItems.patreon,
-    period: 'Jan 2022 to Dec 2023',
-    headline: '55% faster LCP.',
-    detail: 'Led the front\u2011end workstream of Patreon\u2019s migration from a Flask/React app to Next.js.',
+    ...navItems.review,
+    period: 'Docker',
+    headline: 'AI code review on 70+ repositories.',
+    detail:
+      'Built docker\u2011agent\u2011action, rolled it out to every engineering team, hardened its security, and open\u2011sourced it under Apache 2.0.',
   },
   {
-    ...navItems.transfix,
-    period: 'Jan 2016 to Mar 2020',
-    headline: 'First front\u2011end engineer. Then Staff\u2011level lead.',
-    detail: 'Defined the web and mobile architecture, shared libraries, and engineering standards.',
+    ...navItems.governance,
+    period: 'Docker',
+    headline: 'From behind schedule to ahead of it.',
+    detail:
+      'Sole frontend lead on Docker\u2019s AI Governance team, one of the company\u2019s top priorities, supporting a major enterprise contract.',
+  },
+  {
+    ...navItems.earlier,
+    period: 'Patreon and Transfix, 2016 to 2023',
+    headline: '55% faster LCP at Patreon.',
+    detail: 'Before that, first front\u2011end engineer and later Staff\u2011level lead at Transfix.',
   },
   {
     ...navItems.design,

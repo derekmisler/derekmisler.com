@@ -56,9 +56,9 @@ export const fullName = `${firstName} ${lastName}`;
 export const jobTitle = 'Platform Engineer and Front-End Architect';
 
 // SEO
-export const title = 'Staff-Level Front-End Engineer | AI Developer Tools | UI/UX & Accessibility';
+export const title = 'Staff-Level Front-End Engineer | AI Agent Tooling | Design Systems & Accessibility';
 export const description =
-  'Platform engineer and front\u2011end architect at Docker based in Arlington, VA. I build AI\u2011powered developer tooling, enterprise desktop workflows, and design\u2011system infrastructure using React, TypeScript, and accessibility\u2011first practices.';
+  'Staff\u2011level front\u2011end engineer at Docker based in Arlington, VA. I build AI agent tooling and AI\u2011powered developer tools, from design\u2011system infrastructure to enterprise desktop workflows, using React, TypeScript, and accessibility\u2011first practices.';
 
 // Social
 export const socialId = 'derekmisler';

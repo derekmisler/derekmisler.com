@@ -1,12 +1,40 @@
 // Navigation
 export const navItems = {
   home: { slug: 'home', label: 'Home' },
-  about: { slug: 'about', label: 'About me' },
-  experience: { slug: 'experience', label: 'Experience' },
-  coreSkills: { slug: 'coreSkills', label: 'Core Skills' },
-  workingWith: { slug: 'workingWith', label: 'Working With' },
-  contact: { slug: 'contact', label: 'Other Details' },
+  docker: { slug: 'docker', label: 'Docker' },
+  patreon: { slug: 'patreon', label: 'Patreon' },
+  transfix: { slug: 'transfix', label: 'Transfix' },
+  design: { slug: 'design', label: 'Design' },
+  contact: { slug: 'contact', label: 'Elsewhere' },
 } satisfies Record<string, { slug: string; label: string }>;
+
+export const statements = [
+  {
+    ...navItems.docker,
+    period: 'Feb 2024 to now',
+    headline: 'AI tooling that ships to millions of Docker Desktop users.',
+    detail:
+      'Gordon 2.0, Docker\u2019s AI assistant, and docker\u2011agent\u2011action, an AI\u2011assisted PR review platform running across 70+ repositories.',
+  },
+  {
+    ...navItems.patreon,
+    period: 'Jan 2022 to Dec 2023',
+    headline: '55% faster LCP.',
+    detail: 'Led the front\u2011end workstream of Patreon\u2019s migration from a Flask/React app to Next.js.',
+  },
+  {
+    ...navItems.transfix,
+    period: 'Jan 2016 to Mar 2020',
+    headline: 'First front\u2011end engineer. Then Staff\u2011level lead.',
+    detail: 'Defined the web and mobile architecture, shared libraries, and engineering standards.',
+  },
+  {
+    ...navItems.design,
+    period: 'BFA, Graphic Design',
+    headline: 'A designer first.',
+    detail: 'Typography, layout, and visual hierarchy still shape the interfaces and systems I build.',
+  },
+] satisfies { slug: string; label: string; period: string; headline: string; detail: string }[];
 
 export const subHeadline =
   'Web development started at 13 as curiosity, tinkering until things worked. A BFA in graphic design followed, then freelance work building real sites for local businesses, then a career that went from first front\u2011end engineer at a startup to Staff\u2011level lead, to where I am now at Docker. The design background never left: an eye for typography, layout, and visual hierarchy still shapes the interfaces and systems I build.';

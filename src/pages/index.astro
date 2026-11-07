@@ -7,7 +7,7 @@ import { AstroSeo } from '@astrolib/seo';
 import Header from '@/components/Header.astro';
 import Main from '@/components/Main.astro';
 import Nav from '@/components/Nav.astro';
-import { description, firstName, fullName, jobTitle, lastName, socialId, title } from '@/constants';
+import { description, education, firstName, fullName, jobTitle, lastName, skills, socialId, title } from '@/constants';
 
 const siteUrl = 'https://derekmisler.com';
 const jsonLd = {
@@ -15,7 +15,10 @@ const jsonLd = {
   '@type': 'Person',
   name: fullName,
   jobTitle,
+  description,
   url: siteUrl,
+  knowsAbout: skills.flatMap(([, items]) => items),
+  alumniOf: { '@type': 'CollegeOrUniversity', name: education.location },
   sameAs: [`https://www.linkedin.com/in/${socialId}`, `https://github.com/${socialId}`],
   worksFor: {
     '@type': 'Organization',
@@ -83,6 +86,8 @@ const jsonLd = {
       ]}
     />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />
+    <link rel="alternate" type="text/plain" title="llms-full.txt" href="/llms-full.txt" />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>

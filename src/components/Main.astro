@@ -1,93 +1,20 @@
 ---
 import Section from '@/components/Section.astro';
-import { contact, currentCareers, education, highlights, navItems, skills, subHeadline, tools } from '@/constants';
-
-// Convert "Mon YYYY" date strings to ISO YYYY-MM for <time datetime> attributes.
-const MONTHS: Record<string, string> = {
-  Jan: '01',
-  Feb: '02',
-  Mar: '03',
-  Apr: '04',
-  May: '05',
-  Jun: '06',
-  Jul: '07',
-  Aug: '08',
-  Sep: '09',
-  Oct: '10',
-  Nov: '11',
-  Dec: '12',
-};
-function toDatetime(date: string): string | undefined {
-  const [mon, year] = date.split(' ');
-  if (!mon || !year || !MONTHS[mon]) return undefined;
-  return `${year}-${MONTHS[mon]}`;
-}
+import { contact, navItems, statements } from '@/constants';
 ---
 
 <main id="main-content" class="grid w-full items-baseline gap-x-md">
-  <Section id={navItems.about.slug} label={navItems.about.label}>
-    <h4>Background</h4>
-    <p class="not-last:mb-md">{subHeadline}</p>
-    <h4>Highlights</h4>
-    <ul class="not-last:mb-md">
-      {highlights.map((highlight) => <li>{highlight}</li>)}
-    </ul>
-    <h4>Education</h4>
-    <p class="not-last:mb-md">{education.title}</p>
-  </Section>
-
-  <Section id={navItems.experience.slug} label={navItems.experience.label}>
-    {
-      currentCareers.map((career, index) => (
-        <div class="contents">
-          <div class:list={['*:leading-body', { 'mt-lg': index > 0 }]}>
-            <h4>
-              <a href={career.link} target="_blank" rel="noopener noreferrer">
-                {career.location}
-              </a>
-            </h4>
-            <h5>{career.title}</h5>
-            <h6>
-              <time datetime={toDatetime(career.startDate ?? '')}>{career.startDate}</time>
-              {' - '}
-              {career.endDate ? (
-                <time datetime={toDatetime(career.endDate ?? '')}>{career.endDate}</time>
-              ) : (
-                <>Present</>
-              )}
-            </h6>
-          </div>
-          <ul class="not-last:mb-md mt-md desktop:mt-0">
-            {career.accomplishments.map((accomplishment) => (
-              <li>{accomplishment}</li>
-            ))}
-          </ul>
+  {
+    statements.map(({ slug, label, period, headline, detail }) => (
+      <Section id={slug} label={label}>
+        <div class="flex flex-col gap-md desktop:col-span-full">
+          <small>{period}</small>
+          <h4 class="text-xl">{headline}</h4>
+          <p>{detail}</p>
         </div>
-      ))
-    }
-  </Section>
-
-  <Section id={navItems.coreSkills.slug} label={navItems.coreSkills.label}>
-    {
-      skills.map(([category, skills]) => (
-        <>
-          <h4>{category}</h4>
-          <p class="not-last:mb-md">{skills.join(', ')}</p>
-        </>
-      ))
-    }
-  </Section>
-
-  <Section id={navItems.workingWith.slug} label={navItems.workingWith.label}>
-    {
-      tools.map(([category, tools]) => (
-        <>
-          <h4>{category}</h4>
-          <p class="not-last:mb-md">{tools.join(', ')}</p>
-        </>
-      ))
-    }
-  </Section>
+      </Section>
+    ))
+  }
 
   <Section id={navItems.contact.slug} label={navItems.contact.label}>
     {
@@ -102,6 +29,8 @@ function toDatetime(date: string): string | undefined {
         </>
       ))
     }
+    <h4>For AI agents</h4>
+    <p><a href="/llms.txt">llms.txt</a> and <a href="/llms-full.txt">llms-full.txt</a></p>
   </Section>
 </main>
 

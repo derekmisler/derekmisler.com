@@ -49,6 +49,8 @@ src/
 │   └── ThemeToggle.astro
 ├── pages/
 │   ├── index.astro    # Homepage with SEO configuration
+│   ├── llms.txt.ts    # /llms.txt for AI agents
+│   ├── llms-full.txt.ts  # /llms-full.txt, the full profile for AI agents
 │   └── robots.txt.ts  # Dynamic robots.txt generation
 ├── stories/
 │   ├── foundations/   # Token pages: color, typography, spacing, rules/shape/motion/layout
@@ -61,6 +63,7 @@ src/
 │   ├── site.css       # Site entry: global.css minus src/stories
 │   └── ibm-plex-sans-all.css  # @font-face declarations
 ├── utils/
+│   ├── llms.ts        # Builds the llms.txt and llms-full.txt text
 │   └── scrollObserver.client.ts
 └── constants.ts       # Site content and configuration
 ```
@@ -81,6 +84,8 @@ Most site content is centralized in `src/constants.ts` (the hero copy lives in `
 - Skills and experience data
 - Social media links and contact information
 - Career history and education details
+
+The homepage statements and the `llms.txt` and `llms-full.txt` output are built from `src/constants.ts`.
 
 ### Storybook
 

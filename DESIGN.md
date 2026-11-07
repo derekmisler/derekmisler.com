@@ -41,7 +41,7 @@ One family: IBM Plex Sans, self-hosted, as `font-body` and `font-head`. Weights:
 | `text-sm`  | Body, `li`, `h5`, `h6`     |
 | `text-md`  | `.lead`, `h4`              |
 | `text-lg`  | `h3`                       |
-| `text-xl`  | `h2`, hero                 |
+| `text-xl`  | `h2`, hero, statement `h4` |
 | `text-xxl` | Display only, one per page |
 
 - Body line height is `leading-body`. Headings use `leading-heading`. `leading-tight` only for single-line display text.

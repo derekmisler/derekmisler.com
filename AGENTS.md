@@ -13,7 +13,10 @@ pnpm dev            # Start development server with hot reload
 pnpm build          # Build static site for production
 pnpm preview        # Preview production build locally
 pnpm storybook      # Design system on http://localhost:6006 (local only, never built or deployed)
+pnpm resume         # Regenerate public/derek-misler-resume.pdf from src/constants.ts (needs Google Chrome installed)
 ```
+
+The resume PDF is generated locally and committed, never in `pnpm build`. Rerun `pnpm resume` after changing `src/constants.ts`.
 
 ### Code Quality
 
@@ -64,6 +67,7 @@ src/
 │   └── ibm-plex-sans-all.css  # @font-face declarations
 ├── utils/
 │   ├── llms.ts        # Builds the llms.txt and llms-full.txt text
+│   ├── resume.ts      # Builds the resume markdown for scripts/resume.ts
 │   └── scrollObserver.client.ts
 └── constants.ts       # Site content and configuration
 ```

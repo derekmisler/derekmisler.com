@@ -8,7 +8,6 @@ import {
   pastCareers,
   skills,
   socialId,
-  tools,
 } from '../constants.ts';
 
 const plain = (text: string) => text.replaceAll('‑', '-');
@@ -22,11 +21,9 @@ const profiles = contact
 const links = [[`https://${socialId}.com`, `${socialId}.com`], [`mailto:${email}`, email], ...profiles];
 
 const roles = [...currentCareers, ...pastCareers].flatMap((role) => [
-  `### ${role.title}, [${role.location}](${role.link})`,
+  `### ${role.title}, [${role.location}](${role.link}) <span class="dates">${role.startDate} to ${role.endDate ?? 'Present'}</span>`,
   '',
-  `<p class="dates">${role.startDate} to ${role.endDate ?? 'Present'}</p>`,
-  '',
-  ...role.accomplishments.map((item) => `- ${plain(item)}`),
+  ...(role.resume ?? []).map((index) => `- ${plain(role.accomplishments[index] ?? '')}`),
   '',
 ]);
 
@@ -40,23 +37,13 @@ export const resumeMd = [
   '',
   `<p class="links">${links.map(([href, label]) => `<a href="${href}">${label}</a>`).join(' ')}</p>`,
   '',
-  plain(description),
+  `${plain(description)} ${education.title}, ${education.location}.`,
   '',
-  '## Experience',
-  '',
-  ...roles,
   '## Skills',
   '',
   ...groups(skills),
   '',
-  '## Tools',
+  '## Experience',
   '',
-  ...groups(tools),
-  '',
-  '## Education',
-  '',
-  `### ${education.title}, ${education.location}`,
-  '',
-  plain(education.accomplishments.join(' ')),
-  '',
+  ...roles,
 ].join('\n');

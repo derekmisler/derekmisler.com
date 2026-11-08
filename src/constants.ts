@@ -180,6 +180,7 @@ interface Experience {
   endDate?: string;
   description?: string;
   accomplishments: string[];
+  resume?: number[];
   link?: string;
 }
 
@@ -208,6 +209,7 @@ export const currentCareers = [
       'Led front\u2011end architecture for an enterprise Insights dashboard, referenced in customer adoption and sales enablement outcomes.',
       'Without any mandate, authored a comprehensive ownership and risk map of the entire docker/frontends monorepo, surfacing orphaned platform infrastructure, single-engineer bottlenecks on security-critical auth and IAM surfaces, and an estimated 15-25 engineer-hours/week of structural debt. The analysis is now driving leadership\u2019s evaluation of a dedicated frontend platform team.',
     ],
+    resume: [0, 4, 3, 1],
     link: 'https://www.docker.com',
   },
   {
@@ -225,6 +227,7 @@ export const currentCareers = [
       'Mentored junior engineers and interns; created and led \u201cFront\u2011End 101\u201d onboarding for new engineers and served as a high\u2011volume interviewer.',
       'Improved state and form architecture by migrating from Redux to Jotai and building accessible form/validation primitives integrated with the component library (React Hook Form).',
     ],
+    resume: [1, 0, 6],
     link: 'https://www.patreon.com',
   },
   {
@@ -238,6 +241,7 @@ export const currentCareers = [
       'Led internal design system built on Base Web component library (open-source contributor).',
       'Mentored full\u2011stack engineers using Agile and Shape Up methodologies.',
     ],
+    resume: [2, 0],
     link: 'https://cadre.com',
   },
   {
@@ -251,6 +255,7 @@ export const currentCareers = [
       'Implemented CI/CD with CircleCI, defined linting/testing standards, and led creation of internal component library.',
       'Rebuilt public site from WordPress to Jade templates, later migrating to 11ty.js.',
     ],
+    resume: [0, 2],
     link: 'https://transfix.io',
   },
 ] satisfies Experience[];
@@ -266,6 +271,7 @@ export const pastCareers = [
       'Redesigned marketing site twice, evolving from ColdFusion to Node/MongoDB with custom JS templating.',
       'Designed and built two award\u2011winning interactive web experiences using Node and AngularJS.',
     ],
+    resume: [],
     link: 'http://www.exploreasheville.com',
   },
 ] satisfies Experience[];

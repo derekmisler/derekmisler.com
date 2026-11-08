@@ -101,5 +101,6 @@ h3 a {
 }
 
 .dates {
-  margin: 0.1rem 0 0.3rem;
+  float: right;
+  font-weight: 450;
 }

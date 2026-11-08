@@ -16,7 +16,7 @@ pnpm storybook      # Design system on http://localhost:6006 (local only, never 
 pnpm resume         # Regenerate public/derek-misler-resume.pdf from src/constants.ts (needs Google Chrome installed)
 ```
 
-The resume PDF is generated locally and committed, never in `pnpm build`. Rerun `pnpm resume` after changing `src/constants.ts`.
+The resume PDF is generated locally and committed, never in `pnpm build`. Rerun `pnpm resume` after changing `src/constants.ts`. Each role's `resume` array picks which accomplishments the one-page PDF shows.
 
 ### Code Quality
 

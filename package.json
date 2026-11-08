@@ -15,7 +15,8 @@
     "format:check": "oxfmt --check",
     "test": "astro check && pnpm lint && pnpm format:check && node scripts/check-tokens.mjs",
     "test:visual": "astro build && playwright test",
-    "fix": "oxfmt && oxlint --fix"
+    "fix": "oxfmt && oxlint --fix",
+    "resume": "node scripts/resume.ts"
   },
   "dependencies": {
     "@astrojs/check": "0.9.12",
@@ -31,6 +32,7 @@
     "@storybook-astro/framework": "1.14.0",
     "@storybook/builder-vite": "10.6.5",
     "@types/lodash-es": "4.17.12",
+    "md-to-pdf": "5.2.5",
     "oxfmt": "0.74.0",
     "oxlint": "1.89.0",
     "storybook": "10.6.5",

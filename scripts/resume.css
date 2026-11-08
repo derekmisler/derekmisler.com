@@ -65,36 +65,31 @@ ul {
 }
 
 ul {
-  padding-left: 1.1rem;
-}
-
-h2 + ul {
-  columns: 2;
-  column-gap: 1.5rem;
   padding-left: 0;
   list-style: none;
 }
 
-h2 + ul li {
+li {
   position: relative;
-  margin: 0 0 0.3rem;
+  margin: 0.15rem 0;
   padding-left: 1.1rem;
+  break-inside: avoid;
 }
 
-h2 + ul li::before {
+li::before {
   content: '•';
   position: absolute;
   left: 0.3rem;
   color: var(--accent);
 }
 
-li {
-  margin: 0.15rem 0;
-  break-inside: avoid;
+h2 + ul {
+  columns: 2;
+  column-gap: 1.5rem;
 }
 
-li::marker {
-  color: var(--accent);
+h2 + ul li {
+  margin: 0 0 0.3rem;
 }
 
 a {

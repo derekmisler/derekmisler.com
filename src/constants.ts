@@ -227,7 +227,7 @@ export const currentCareers = [
       'Mentored junior engineers and interns; created and led \u201cFront\u2011End 101\u201d onboarding for new engineers and served as a high\u2011volume interviewer.',
       'Improved state and form architecture by migrating from Redux to Jotai and building accessible form/validation primitives integrated with the component library (React Hook Form).',
     ],
-    resume: [1, 0, 6],
+    resume: [1, 0, 3],
     link: 'https://www.patreon.com',
   },
   {

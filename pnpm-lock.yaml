@@ -43,7 +43,7 @@ importers:
         specifier: 4.17.12
         version: 4.17.12
       md-to-pdf:
-        specifier: ^5.2.5
+        specifier: 5.2.5
         version: 5.2.5
       oxfmt:
         specifier: 0.74.0

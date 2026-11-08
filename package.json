@@ -32,7 +32,7 @@
     "@storybook-astro/framework": "1.14.0",
     "@storybook/builder-vite": "10.6.5",
     "@types/lodash-es": "4.17.12",
-    "md-to-pdf": "^5.2.5",
+    "md-to-pdf": "5.2.5",
     "oxfmt": "0.74.0",
     "oxlint": "1.89.0",
     "storybook": "10.6.5",

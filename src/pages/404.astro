@@ -12,6 +12,20 @@ import { fullName } from '@/constants';
     <meta name="robots" content="noindex" />
     <title>Page not found | {fullName}</title>
     <link rel="icon" href="/favicon.ico" />
+    <script is:inline>
+      (function () {
+        let theme = '';
+        try {
+          theme = localStorage.getItem('theme') || '';
+        } catch {
+          theme = '';
+        }
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
   </head>
   <body>
     <main class="flex min-h-dvh flex-col justify-center gap-md p-md">

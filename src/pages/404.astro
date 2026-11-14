@@ -1,0 +1,25 @@
+---
+import '@/styles/site.css';
+import '@/styles/ibm-plex-sans-all.css';
+
+import { fullName } from '@/constants';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Page not found | {fullName}</title>
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <main class="flex min-h-dvh flex-col justify-center gap-md p-md">
+      <h1 class="font-regular text-xl">
+        <strong class="gradient-text">404</strong>
+      </h1>
+      <p class="text-md">That page doesn't exist.</p>
+      <a href="https://derekmisler.com/">Go to derekmisler.com</a>
+    </main>
+  </body>
+</html>

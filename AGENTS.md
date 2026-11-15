@@ -25,8 +25,6 @@ pnpm test           # Astro check + oxlint + oxfmt check + token check
 pnpm lint           # oxlint
 pnpm format         # oxfmt (write)
 pnpm format:check   # oxfmt --check
-pnpm test:visual    # Build, then compare Playwright screenshots against tests/screenshots/
-                    # First run on a new machine: pnpm exec playwright install chromium
 pnpm fix            # oxfmt write + oxlint --fix
 ```
 

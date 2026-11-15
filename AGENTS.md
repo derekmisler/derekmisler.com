@@ -88,7 +88,7 @@ Most site content is centralized in `src/constants.ts` (the hero copy lives in `
 - Social media links and contact information
 - Career history and education details
 
-The homepage statements and the `llms.txt` output is built from `src/constants.ts`.
+The homepage statements and the `llms.txt` output are built from `src/constants.ts`.
 
 ### Storybook
 

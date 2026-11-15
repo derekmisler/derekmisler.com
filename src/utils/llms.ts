@@ -47,23 +47,6 @@ const roles = [...currentCareers, ...pastCareers].flatMap((role) => [
 export const llmsTxt = [
   ...header,
   '',
-  ...highlights.map((item) => `- ${plain(item)}`),
-  '',
-  '## Profile',
-  '',
-  `- [Full profile](${siteUrl}/llms-full.txt): Background, every role with accomplishments, skills and tools`,
-  ...linkTo('Resume'),
-  '',
-  '## Optional',
-  '',
-  ...linkTo('LinkedIn'),
-  ...linkTo('GitHub'),
-  '',
-].join('\n');
-
-export const llmsFullTxt = [
-  ...header,
-  '',
   '## Background',
   '',
   plain(subHeadline),

@@ -19,18 +19,14 @@ import { contact, navItems, statements } from '@/constants';
   <Section id={navItems.contact.slug} label={navItems.contact.label}>
     {
       contact.map((item) => (
-        <>
-          <h4>{item.label}</h4>
-          <p class="not-last:mb-md">
-            <a href={item.href} download={item.download} target="_blank" rel="noopener noreferrer">
-              {item.altLabel}
-            </a>
-          </p>
-        </>
+        <h4 class="not-last:mb-md">
+          <a href={item.href} download={item.download} target="_blank" rel="noopener noreferrer">
+            {item.label}
+          </a>
+        </h4>
       ))
     }
-    <h4>For AI agents</h4>
-    <p><a href="/llms.txt">llms.txt</a></p>
+    <h4><a href="/llms.txt">For AI agents</a></h4>
   </Section>
 </main>
 

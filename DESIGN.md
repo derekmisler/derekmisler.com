@@ -85,7 +85,7 @@ Fixed sizes: `rule` (10px, the rule thickness, as in `w-rule` or `mr-rule`) and 
 - `src/styles/global.css`: base element rules in `@layer base`, plus the `gradient-text` and `overlay-hidden` utilities.
 - `src/styles/site.css`: the site's Tailwind entry. Imports `global.css` and keeps `src/stories` out of the scan.
 - Components style with utilities in markup. A scoped `<style>` is only for values with no token yet; it starts with `@reference '../styles/global.css';` and reads tokens through `--theme()`.
-- `pnpm test` runs `scripts/check-tokens.mjs`, which fails on arbitrary values in classes and raw colors outside `theme.css`. `pnpm test:visual` compares screenshots against `tests/screenshots/`.
+- `pnpm test` runs `scripts/check-tokens.mjs`, which fails on arbitrary values in classes and raw colors outside `theme.css`.
 
 ### Values without tokens
 

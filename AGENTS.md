@@ -25,8 +25,6 @@ pnpm test           # Astro check + oxlint + oxfmt check + token check
 pnpm lint           # oxlint
 pnpm format         # oxfmt (write)
 pnpm format:check   # oxfmt --check
-pnpm test:visual    # Build, then compare Playwright screenshots against tests/screenshots/
-                    # First run on a new machine: pnpm exec playwright install chromium
 pnpm fix            # oxfmt write + oxlint --fix
 ```
 
@@ -52,8 +50,7 @@ src/
 │   └── ThemeToggle.astro
 ├── pages/
 │   ├── index.astro    # Homepage with SEO configuration
-│   ├── llms.txt.ts    # /llms.txt for AI agents
-│   ├── llms-full.txt.ts  # /llms-full.txt, the full profile for AI agents
+│   ├── llms.txt.ts    # /llms.txt, the full profile for AI agents
 │   └── robots.txt.ts  # Dynamic robots.txt generation
 ├── stories/
 │   ├── foundations/   # Token pages: color, typography, spacing, rules/shape/motion/layout
@@ -66,7 +63,7 @@ src/
 │   ├── site.css       # Site entry: global.css minus src/stories
 │   └── ibm-plex-sans-all.css  # @font-face declarations
 ├── utils/
-│   ├── llms.ts        # Builds the llms.txt and llms-full.txt text
+│   ├── llms.ts        # Builds the llms.txt text
 │   ├── resume.ts      # Builds the resume markdown for scripts/resume.ts
 │   └── scrollObserver.client.ts
 └── constants.ts       # Site content and configuration
@@ -89,7 +86,7 @@ Most site content is centralized in `src/constants.ts` (the hero copy lives in `
 - Social media links and contact information
 - Career history and education details
 
-The homepage statements and the `llms.txt` and `llms-full.txt` output are built from `src/constants.ts`.
+The homepage statements and the `llms.txt` output are built from `src/constants.ts`.
 
 ### Storybook
 

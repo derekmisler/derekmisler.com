@@ -21,3 +21,10 @@ document.addEventListener('click', (event) => {
   reveal(index);
   panels[index].focus({ preventScroll: true });
 });
+
+addEventListener('scrollend', () => {
+  if (!markers[0]?.offsetParent) return;
+  const nearest = Math.round(scrollY / innerHeight) * innerHeight;
+  const distance = Math.abs(nearest - scrollY);
+  if (distance > 1 && distance < innerHeight * 0.1) scrollTo({ top: nearest, behavior: 'smooth' });
+});

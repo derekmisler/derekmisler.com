@@ -485,10 +485,6 @@
       }
 
       @media (pointer: fine) {
-        html {
-          scroll-snap-type: y mandatory;
-        }
-
         .wrap {
           position: relative;
           block-size: calc(var(--count) * 100svh);
@@ -500,7 +496,6 @@
           inset-inline: 0;
           inset-block-start: calc(var(--index) * 100svh);
           block-size: 100svh;
-          scroll-snap-align: start;
           view-timeline: var(--timeline) block;
           pointer-events: none;
         }

@@ -66,7 +66,8 @@ export const rail = (labels: string[], random = Math.random) => {
   }
   const advance = (char: string) => font.glyphForCodePoint(char.codePointAt(0) ?? 0).advanceWidth / font.unitsPerEm;
   const items = labels.map((label, index) => {
-    const [wght, mono, casl, slnt] = faces[order[index % order.length]];
+    const [, mono, casl, slnt] = faces[order[index % order.length]];
+    const wght = index % 2 ? 300 : 1000;
     const space = mono ? 0.6 : advance(' ');
     const em = Array.from(label).reduce(
       (sum, char) => sum + (char === ' ' ? railSpace : mono ? 0.6 : advance(char)),

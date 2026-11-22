@@ -110,7 +110,10 @@ test('panels run from intro to contact, each linking to the next, with posters s
   assert.ok(panels.slice(0, -1).every((panel, index) => panel.links[0].href === `#${panels[index + 1].id}`));
   assert.equal(posterSize('Derek Misler'), 'min(23.3cqi, 21.0svh)');
   const { items, fit } = rail(['Home', 'Gordon'], () => 0);
-  assert.equal(new Set(items.map((item) => item.style)).size, 2);
+  assert.deepEqual(
+    items.map((item) => item.style.match(/--wght: (\d+)/)?.[1]),
+    ['1000', '300'],
+  );
   assert.equal(fit, (items[0].em + items[1].em + railGap).toFixed(3));
 });
 

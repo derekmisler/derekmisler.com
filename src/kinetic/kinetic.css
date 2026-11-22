@@ -6,6 +6,7 @@
       --theme(--spacing-xs) + --theme(--spacing-2xs) + 100dvw / var(--fit) * --theme(--leading-heading)
     );
     --toggle: --theme(--spacing-3xl);
+    --poster-budget: 0;
     background: var(--bg);
     color: var(--fg);
   }
@@ -13,6 +14,12 @@
   @media (pointer: fine) {
     html {
       --toggle: --theme(--spacing-xl);
+    }
+  }
+
+  @media (orientation: landscape) and (max-height: 30rem) {
+    html {
+      --poster-budget: 80;
     }
   }
 

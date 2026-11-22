@@ -71,7 +71,11 @@ const jsonLd = {
           },
         ],
       }}
-      additionalLinkTags={[{ rel: 'icon', href: `${Astro.url.href}favicon.ico` }]}
+      additionalLinkTags={[
+        { rel: 'icon', href: `${Astro.url.href}favicon.ico`, sizes: '32x32' },
+        { rel: 'icon', href: `${Astro.url.href}favicon.svg`, type: 'image/svg+xml' },
+        { rel: 'apple-touch-icon', href: `${Astro.url.href}apple-touch-icon.png` },
+      ]}
       additionalMetaTags={[
         {
           name: 'google-site-verification',

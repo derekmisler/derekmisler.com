@@ -2,10 +2,19 @@ import { readFileSync } from 'node:fs';
 
 import { create, type Font } from 'fontkitten';
 
-import { contact, fullName, navItems, statements } from '../constants.ts';
+import { contact, fullName, intro, navItems, statements } from '../constants.ts';
 
 type Link = { href: string; label: string; download?: string };
-type Content = { id: string; label: string; poster: string; headline?: string; lead: string };
+type Part = { text: string; href?: string };
+type Content = {
+  id: string;
+  label: string;
+  poster: string;
+  period?: string;
+  headline?: string;
+  lead: Part[];
+  links?: Link[];
+};
 
 const font = create(readFileSync('public/fonts/recursive-kinetic.woff2')) as Font;
 const advance = (char: string) => font.glyphForCodePoint(char.codePointAt(0) ?? 0).advanceWidth / font.unitsPerEm;
@@ -16,20 +25,22 @@ const content: Content[] = [
     id: navItems.home.slug,
     label: navItems.home.label,
     poster: fullName,
-    lead: 'Front-⁠end engineer at Docker. Type, layout and systems.',
+    lead: intro,
+    links: contact,
   },
   ...statements.map((statement) => ({
     id: statement.slug,
     label: statement.label,
     poster: statement.poster,
+    period: statement.period,
     headline: statement.headline,
-    lead: statement.detail,
+    lead: [{ text: statement.detail }],
   })),
   {
     id: navItems.contact.slug,
     label: navItems.contact.label,
     poster: navItems.contact.label,
-    lead: 'Say hello, or judge my code.',
+    lead: [{ text: 'Say hello, or judge my code.' }],
   },
 ];
 
@@ -46,8 +57,11 @@ export const panels = content.map((panel, index, all) => ({
   ...panel,
   index,
   timeline: `--p${index}`,
-  size: posterSize(panel.poster, panel.headline ? 42 : 64),
-  links: (all[index + 1] ? [{ href: `#${all[index + 1].id}`, label: 'Next' }] : contact) as Link[],
+  size: posterSize(panel.poster, panel.headline ? 40 : 64),
+  links: [
+    ...(panel.links ?? []),
+    ...(all[index + 1] ? [{ href: `#${all[index + 1].id}`, label: 'Next' }] : contact),
+  ] as Link[],
 }));
 
 const faces = [

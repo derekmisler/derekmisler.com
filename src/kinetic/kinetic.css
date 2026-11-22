@@ -236,6 +236,18 @@
     line-height: --theme(--leading-heading);
   }
 
+  .heading {
+    display: flex;
+    flex-direction: column;
+    gap: --theme(--spacing-2xs);
+  }
+
+  .period {
+    font-family: --theme(--font-kinetic);
+    color: var(--fg-muted);
+    --mono: 1;
+  }
+
   .lead {
     max-inline-size: 48ch;
     font-size: --theme(--text-lead);

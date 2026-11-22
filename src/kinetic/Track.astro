@@ -27,11 +27,16 @@ import { panels } from './panels';
               </h2>
             )}
             {panel.headline && (
-              <p class="headline">
-                <Words text={panel.headline} />
-              </p>
+              <div class="heading">
+                <p class="period">{panel.period}</p>
+                <p class="headline">
+                  <Words text={panel.headline} />
+                </p>
+              </div>
             )}
-            <p class="lead">{panel.lead}</p>
+            <p class="lead">
+              {panel.lead.map((part) => (part.href ? <a href={part.href}>{part.text}</a> : part.text))}
+            </p>
             <ul class="links">
               {panel.links.map((link) => (
                 <li>

@@ -51,6 +51,17 @@ export const statements = [
   },
 ] satisfies { slug: string; label: string; poster: string; period: string; headline: string; detail: string }[];
 
+export const intro = [
+  { text: 'Front-\u2060end engineer', strong: true },
+  { text: ' building ' },
+  { text: 'AI agent tooling', strong: true },
+  { text: ' at ' },
+  { text: 'Docker', href: 'https://www.docker.com' },
+  {
+    text: '. 15+ years shipping production-\u2060grade systems, from design-\u2060system infrastructure to the testing contracts and quality bars that make them reliable at scale.',
+  },
+] satisfies { text: string; strong?: boolean; href?: string }[];
+
 export const subHeadline =
   'Web development started at 13 as curiosity, tinkering until things worked. A BFA in graphic design followed, then freelance work building real sites for local businesses, then a career that went from first front-\u2060end engineer at a startup to Staff-\u2060level lead, to where I am now at Docker. The design background never left: an eye for typography, layout, and visual hierarchy still shapes the interfaces and systems I build.';
 

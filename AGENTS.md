@@ -2,7 +2,7 @@ This file provides guidance to AI agents when working with code in this reposito
 
 ## Repository Overview
 
-This is Derek Misler's personal portfolio website - a static site built with Astro.js featuring a clean, minimalist design focused on typography and accessibility.
+This is Derek Misler's personal portfolio website: a static, single-page Astro site set in kinetic Recursive type, with four time-of-day themes.
 
 ## Development Commands
 
@@ -12,8 +12,9 @@ This is Derek Misler's personal portfolio website - a static site built with Ast
 pnpm dev            # Start development server with hot reload
 pnpm build          # Build static site for production
 pnpm preview        # Preview production build locally
-pnpm storybook      # Design system on http://localhost:6006 (local only, never built or deployed)
 pnpm resume         # Regenerate public/derek-misler-resume-{dawn,midday,dusk,night}.pdf from src/constants.ts (needs Google Chrome installed)
+pnpm scale          # Regenerate src/styles/kinetic-scale.css from scripts/kinetic-scale.ts
+pnpm subset-font <Recursive_VF.ttf>  # Rebuild the two Recursive woff2 files in public/fonts/
 ```
 
 The resume PDF is generated locally and committed, never in `pnpm build`. Rerun `pnpm resume` after changing `src/constants.ts`. Each role's `resume` array picks which accomplishments the one-page PDF shows. Each PDF assumes white paper and takes its text, rule and accent colors from that theme in `kinetic-theme.css`; the Resume link swaps to the active theme's PDF.
@@ -21,88 +22,93 @@ The resume PDF is generated locally and committed, never in `pnpm build`. Rerun 
 ### Code Quality
 
 ```bash
-pnpm test           # Astro check + oxlint + oxfmt check + token check
+pnpm test           # Astro check + oxlint + oxfmt check + token check + scripts/*.test.ts
 pnpm lint           # oxlint
 pnpm format         # oxfmt (write)
 pnpm format:check   # oxfmt --check
 pnpm fix            # oxfmt write + oxlint --fix
 ```
 
+`node scripts/kinetic-palette.ts` prints every theme color and contrast ratio.
+
 ## Architecture
 
 ### Technology Stack
 
 - **Framework**: Astro with static output (version pinned in `package.json`)
-- **Styling**: Tailwind v4 with tokens from `src/styles/theme.css` (all Tailwind defaults disabled)
+- **Styling**: Tailwind v4 with tokens from `src/styles/kinetic-theme.css` and the generated `kinetic-scale.css` (all Tailwind defaults disabled), plus hand-written CSS in `src/kinetic/kinetic.css`
 - **TypeScript**: Strict mode with path aliases (`@/` for `src/`)
 - **Package Manager**: PNPM
 - **Fonts**: Recursive, subset by `pnpm subset-font` into `/public/fonts/` and declared in `src/styles/kinetic-theme.css`
+- **Client JS**: plain TypeScript modules, no framework, 5 KB gzipped budget
 
 ### Project Structure
 
 ```
 src/
-├── components/        # Astro components (.astro files)
-│   ├── Header.astro   # Hero header with gradient text
-│   ├── Main.astro     # Main content area
-│   ├── Nav.astro, NavToggle.astro, Section.astro, IconButton.astro
-│   ├── ScrollObserver.astro
-│   └── ThemeToggle.astro
+├── kinetic/
+│   ├── kinetic.css      # Layout, type tiers, links, rail, toggle and motion, in @layer kinetic
+│   ├── Track.astro      # The panels: poster, period and headline, lead, links
+│   ├── Rail.astro       # Fixed progress rail of section labels
+│   ├── ThemeToggle.astro
+│   ├── Split.astro      # Poster text split per letter, unsplit copy for screen readers
+│   ├── Words.astro      # Headline text split per word
+│   ├── panels.ts        # Panel content, poster sizes and rail layout, measured from the font
+│   ├── split.ts         # Word splitting and the per-letter stagger
+│   ├── swaps.ts         # Style swap keyframes, built per deploy
+│   ├── boot.ts          # Inline head script: theme, fonts-loaded flag
+│   ├── hours.ts         # Local hour to theme
+│   ├── switcher.ts      # Theme toggle, View Transition, resume link swap
+│   ├── pointer.ts       # Casual axis near the pointer on posters
+│   ├── focus.ts         # In-page links: scroll to the panel, then focus it
+│   └── shuffle.ts       # Reassigns swap patterns per visit
 ├── pages/
-│   ├── index.astro    # Homepage with SEO configuration
-│   ├── llms.txt.ts    # /llms.txt, the full profile for AI agents
-│   └── robots.txt.ts  # Dynamic robots.txt generation
-├── stories/
-│   ├── foundations/   # Token pages: color, typography, spacing, rules/shape/motion/layout
-│   ├── components/    # One stories file per component
-│   ├── tokens.ts      # Reads tokens straight from theme.css
-│   └── measure.ts     # Client script that prints rendered values and contrast
+│   ├── index.astro      # Homepage with SEO and JSON-LD
+│   ├── 404.astro
+│   ├── llms.txt.ts      # /llms.txt, the full profile for AI agents
+│   └── robots.txt.ts    # Dynamic robots.txt generation
 ├── styles/
-│   ├── theme.css      # Tailwind tokens and theme color variables
-│   ├── global.css     # Base rules and custom utilities, shared by the site and Storybook
-│   └── site.css       # Site entry: global.css minus src/stories
+│   ├── kinetic-theme.css  # Tailwind tokens, fonts, registered axes, four OKLCH themes
+│   └── kinetic-scale.css  # Generated fluid type, leading and spacing (pnpm scale)
 ├── utils/
-│   ├── llms.ts        # Builds the llms.txt text
-│   ├── resume.ts      # Builds the resume markdown for scripts/resume.ts
-│   └── scrollObserver.client.ts
-└── constants.ts       # Site content and configuration
+│   ├── llms.ts          # Builds the llms.txt text
+│   └── resume.ts        # Builds the resume markdown for scripts/resume.ts
+└── constants.ts         # Site content and configuration
+scripts/
+├── check-tokens.mjs     # Token and kinetic CSS rules, run by pnpm test
+├── kinetic-palette.ts   # Theme color parsing and contrast
+├── kinetic-scale.ts     # Fluid scale generator
+├── kinetic.test.ts      # Palette, scale, token rules, splitter, panels, theme boot
+├── subset-font.ts       # Recursive subsetting
+└── resume.ts, resume.css
 ```
 
 ### Key Features
 
-- **SEO Optimized**: Uses `@astrolib/seo` (`AstroSeo`) with Open Graph and Twitter cards
-- **Accessibility**: No automated a11y lint; oxlint's `jsx-a11y` rules only see JSX, not `.astro` markup
-- **Performance**: Static generation with sitemap integration
-- **Typography**: Self-hosted Recursive variable font
-- **Responsive Design**: Mobile-first approach with viewport-based sizing
+- **SEO Optimized**: Uses `@astrolib/seo` (`AstroSeo`) with Open Graph and Twitter cards, plus Person JSON-LD
+- **Accessibility**: Split text keeps an unsplit copy for screen readers, every text pair is AA in every theme, and all motion respects reduced motion. No automated a11y lint; oxlint's `jsx-a11y` rules only see JSX, not `.astro` markup
+- **Performance**: Static generation with sitemap integration, one preloaded text font, about 1.35 KB of gzipped JS
+- **Progressive enhancement**: The server-rendered HTML is the full page without JS, with the OS-picked theme
 
 ### Content Management
 
-Most site content is centralized in `src/constants.ts` (the hero copy lives in `Header.astro`):
+Site content is centralized in `src/constants.ts`:
 
-- Personal information and bio
+- Personal information and the intro copy (`intro`)
+- Statements, one panel each, with a short `poster` line
 - Skills and experience data
 - Social media links and contact information
 - Career history and education details
 
-The homepage statements and the `llms.txt` output are built from `src/constants.ts`.
-
-### Storybook
-
-- `@storybook-astro/framework` renders the real `.astro` components server-side through Astro's Container API.
-- Local only: there is no `build-storybook` script, and nothing in `.storybook/` or `src/stories/` ships.
-- Foundation pages read `theme.css` at render time, so a new token shows up without touching a story.
-- `.storybook/astroStyles.ts` swaps the framework's raw `<style>` injection for Astro's compiled, scoped style modules, so `@reference`, `--theme()` and `@variant` work.
-- `src/styles/site.css` excludes `src/stories` from Tailwind's scan, so story-only classes never reach production CSS.
-- Use the toolbar's Theme switch to check both themes. `parameters.overlayOpen` opens the nav overlay for a story.
+The homepage panels, `llms.txt` and the resume are built from `src/constants.ts`. Non-breaking hyphens are `-` plus U+2060 (Recursive has no U+2011); `llms.ts` and `resume.ts` strip the joiner.
 
 ### Styling Approach
 
-- UI work: read `DESIGN.md` first. Tokens only, no arbitrary values.
-- Token utilities in markup; scoped `<style>` only for values with no token yet
-- Dark and light themes swap CSS variables under `html[data-theme='light']`
-- Gradient text on the hero via the `gradient-text` utility
-- Responsive typography using `clamp()` with viewport units
+- UI work: read `DESIGN.md` first. Tokens only, no arbitrary values; `pnpm test` enforces the token and kinetic rules.
+- Token utilities in markup; component styles in `src/kinetic/kinetic.css`, reading tokens with `--theme()`.
+- Four themes (dawn, midday, dusk, night) swap CSS variables under `html[data-theme]`; with no attribute, `prefers-color-scheme` picks midday or night.
+- Font axes only through the registered `--wght`, `--mono`, `--casl` and `--slnt` properties.
+- Fluid type and spacing from one generated scale, `clamp()` with rem bounds and `cqi`.
 
 ## Development Notes
 
@@ -123,7 +129,7 @@ The homepage statements and the `llms.txt` output are built from `src/constants.
 
 - Built for static hosting (Cloudflare)
 - Outputs to `dist/` directory
-- Includes favicon and social media images in `/public/`
+- Includes favicon, social media images, resume PDFs, `_headers` and `_redirects` in `/public/`
 
 ### Pull Requests
 

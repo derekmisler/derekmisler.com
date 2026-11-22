@@ -42,6 +42,10 @@
     outline-offset: calc(--theme(--spacing-2xs) / 2);
   }
 
+  .panel:focus-visible {
+    outline-offset: calc(--theme(--spacing-2xs) * -1.5);
+  }
+
   .rail {
     position: fixed;
     inset-block-start: 0;
@@ -187,6 +191,7 @@
 
   .rail-link {
     display: block;
+    color: var(--ink);
     text-decoration: none;
   }
 
@@ -367,10 +372,10 @@
 
       @keyframes drift {
         from {
-          --drift: 0;
+          --progress: 0;
         }
         to {
-          --drift: var(--drift-span);
+          --progress: 1;
         }
       }
 
@@ -471,19 +476,15 @@
         24.9%,
         75.1%,
         100% {
-          color: var(--fg);
+          --lit: 0;
         }
         25%,
         75% {
-          color: var(--accent);
+          --lit: 1;
         }
       }
 
       @media (pointer: fine) {
-        html {
-          scroll-snap-type: y proximity;
-        }
-
         .wrap {
           position: relative;
           block-size: calc(var(--count) * 100svh);
@@ -495,7 +496,6 @@
           inset-inline: 0;
           inset-block-start: calc(var(--index) * 100svh);
           block-size: 100svh;
-          scroll-snap-align: start;
           view-timeline: var(--timeline) block;
           pointer-events: none;
         }

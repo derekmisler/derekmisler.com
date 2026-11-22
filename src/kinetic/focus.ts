@@ -18,9 +18,13 @@ document.addEventListener('click', (event) => {
   const index = indexOf(hash);
   if (index < 0) return;
   event.preventDefault();
-  history.pushState(null, '', hash);
   reveal(index);
-  panels[index].focus({ preventScroll: true });
+  panels[index].focus({ preventScroll: true, focusVisible: event.detail === 0 });
 });
 
-addEventListener('popstate', () => reveal(Math.max(0, indexOf(location.hash))));
+addEventListener('scrollend', () => {
+  if (!markers[0]?.offsetParent) return;
+  const nearest = Math.round(scrollY / innerHeight) * innerHeight;
+  const distance = Math.abs(nearest - scrollY);
+  if (distance > 1 && distance < innerHeight * 0.1) scrollTo({ top: nearest, behavior: 'smooth' });
+});

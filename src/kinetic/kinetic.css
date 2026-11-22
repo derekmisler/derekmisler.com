@@ -5,8 +5,15 @@
     --rail-block: calc(
       --theme(--spacing-xs) + --theme(--spacing-2xs) + 100dvw / var(--fit) * --theme(--leading-heading)
     );
+    --toggle: --theme(--spacing-3xl);
     background: var(--bg);
     color: var(--fg);
+  }
+
+  @media (pointer: fine) {
+    html {
+      --toggle: --theme(--spacing-xl);
+    }
   }
 
   body {
@@ -63,19 +70,12 @@
     z-index: 1;
     display: grid;
     place-items: center;
-    inline-size: --theme(--spacing-3xl);
-    block-size: --theme(--spacing-3xl);
+    inline-size: var(--toggle);
+    block-size: var(--toggle);
     color: var(--fg);
     background: var(--bg);
     border: calc(--theme(--spacing-2xs) / 2) solid var(--accent);
     cursor: pointer;
-  }
-
-  @media (pointer: fine) {
-    .theme-toggle {
-      inline-size: --theme(--spacing-xl);
-      block-size: --theme(--spacing-xl);
-    }
   }
 
   html:not([data-choice]) .theme-toggle {
@@ -205,7 +205,7 @@
     justify-content: center;
     gap: --theme(--spacing-lg);
     min-block-size: 100svh;
-    padding-block: calc(var(--rail-block) + --theme(--spacing-lg)) --theme(--spacing-xl);
+    padding-block: calc(var(--rail-block) + --theme(--spacing-lg)) calc(var(--toggle) + --theme(--spacing-sm) * 2);
     padding-inline: --theme(--spacing-xl);
     border-block-end: --theme(--spacing-2xs) solid var(--accent);
   }

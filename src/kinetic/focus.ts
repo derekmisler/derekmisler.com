@@ -19,7 +19,7 @@ document.addEventListener('click', (event) => {
   if (index < 0) return;
   event.preventDefault();
   reveal(index);
-  panels[index].focus({ preventScroll: true });
+  panels[index].focus({ preventScroll: true, focusVisible: event.detail === 0 });
 });
 
 addEventListener('scrollend', () => {

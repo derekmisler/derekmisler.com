@@ -70,4 +70,6 @@ export const llmsTxt = [
   '',
   ...links,
   '',
-].join('\n');
+]
+  .join('\n')
+  .replaceAll('\u2060', '');

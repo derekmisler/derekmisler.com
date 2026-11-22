@@ -1,4 +1,7 @@
 const root = document.documentElement;
+const button = document.querySelector<HTMLButtonElement>('.theme-toggle');
+const announcer = document.querySelector('.theme-status');
+const order = ['auto', 'dawn', 'midday', 'dusk', 'night'];
 const storage = (() => {
   try {
     return localStorage;
@@ -6,26 +9,26 @@ const storage = (() => {
     return null;
   }
 })();
-const buttons = [...document.querySelectorAll<HTMLButtonElement>('[data-choice]')];
 
-const press = (choice: string) => {
-  for (const button of buttons) button.setAttribute('aria-pressed', String(button.dataset.choice === choice));
-};
+const label = () =>
+  `Theme: ${root.dataset.choice === 'auto' ? `auto (${root.dataset.theme})` : root.dataset.choice}. Change theme`;
 
 const apply = (choice: string) => {
+  root.dataset.choice = choice;
   root.dataset.theme = choice === 'auto' ? root.dataset.auto : choice;
   if (choice === 'auto') storage?.removeItem('theme');
   else storage?.setItem('theme', choice);
-  press(choice);
+  button?.setAttribute('aria-label', label());
+  if (announcer) announcer.textContent = label();
 };
 
-press(storage?.getItem('theme') ?? 'auto');
-
-for (const button of buttons) {
-  button.addEventListener('click', () => {
-    const choice = button.dataset.choice ?? 'auto';
-    if (document.startViewTransition && matchMedia('(prefers-reduced-motion: no-preference)').matches)
-      document.startViewTransition(() => apply(choice));
-    else apply(choice);
-  });
-}
+button?.setAttribute('aria-label', label());
+button?.addEventListener('click', () => {
+  const choice = order[(order.indexOf(root.dataset.choice ?? 'auto') + 1) % order.length];
+  const rect = button.getBoundingClientRect();
+  root.style.setProperty('--reveal-x', `${rect.x + rect.width / 2}px`);
+  root.style.setProperty('--reveal-y', `${rect.y + rect.height / 2}px`);
+  if (document.startViewTransition && matchMedia('(prefers-reduced-motion: no-preference)').matches)
+    document.startViewTransition(() => apply(choice));
+  else apply(choice);
+});

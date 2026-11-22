@@ -2,6 +2,7 @@
 import '@/kinetic/kinetic.css';
 
 import Split from '@/kinetic/Split.astro';
+import ThemeToggle from '@/kinetic/ThemeToggle.astro';
 import { sunTheme } from '@/kinetic/sun';
 import { zones } from '@/kinetic/zones';
 import { contact, fullName, statements } from '@/constants';
@@ -11,8 +12,7 @@ const panels = [
   { id: 'intro', poster: fullName, lead: 'Front‑end engineer at Docker. Type, layout and systems.', link: { href: '#gordon', label: 'Start' } },
   { id: gordon.slug, poster: gordon.label, headline: gordon.headline, lead: gordon.detail, link: contact[0] },
 ];
-const boot = `(function(r,t){r.dataset.auto=(${sunTheme.toString()})('${zones}',Intl.DateTimeFormat().resolvedOptions().timeZone,new Date().getTimezoneOffset(),new Date());try{t=localStorage.getItem('theme')}catch(e){}r.dataset.theme=/^(dawn|midday|dusk|night)$/.test(t)?t:r.dataset.auto})(document.documentElement)`;
-const choices = ['auto', 'dawn', 'midday', 'dusk', 'night'];
+const boot = `(function(r,t){r.dataset.auto=(${sunTheme.toString()})('${zones}',Intl.DateTimeFormat().resolvedOptions().timeZone,new Date().getTimezoneOffset(),new Date());try{t=localStorage.getItem('theme')}catch(e){}t=/^(dawn|midday|dusk|night)$/.test(t)?t:'auto';r.dataset.choice=t;r.dataset.theme=t=='auto'?r.dataset.auto:t})(document.documentElement)`;
 ---
 
 <html lang="en">
@@ -26,15 +26,7 @@ const choices = ['auto', 'dawn', 'midday', 'dusk', 'night'];
     <script is:inline set:html={boot} />
   </head>
   <body>
-    <div class="switcher" role="group" aria-label="Theme">
-      {
-        choices.map((choice) => (
-          <button type="button" data-choice={choice} aria-pressed="false">
-            {choice}
-          </button>
-        ))
-      }
-    </div>
+    <ThemeToggle />
     <main class="wrap" style={`--count: ${panels.length}`}>
       {
         panels.map((panel, index) => (

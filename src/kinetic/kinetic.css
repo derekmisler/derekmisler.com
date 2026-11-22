@@ -19,6 +19,12 @@
   initial-value: 0;
 }
 
+@property --slnt {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
 @property --casl {
   syntax: '<number>';
   inherits: true;
@@ -70,7 +76,8 @@
     font-variation-settings:
       'wght' var(--wght),
       'MONO' var(--mono),
-      'CASL' var(--casl);
+      'CASL' var(--casl),
+      'slnt' var(--slnt);
   }
 
   body {
@@ -92,30 +99,128 @@
     white-space: nowrap;
   }
 
-  .switcher {
+  .theme-toggle {
     position: fixed;
     inset-block-start: 1rem;
     inset-inline-end: 1rem;
     z-index: 1;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.25rem;
-  }
-
-  .switcher button {
+    display: grid;
+    place-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    padding: 0;
     border: 0.125rem solid var(--fg);
     border-radius: 0;
-    padding: 0.25rem 0.5rem;
     background: var(--bg);
     color: var(--fg);
-    font: inherit;
-    font-size: 0.875rem;
     cursor: pointer;
   }
 
-  .switcher button[aria-pressed='true'] {
-    background: var(--fg);
-    color: var(--bg);
+  html:not([data-choice]) .theme-toggle {
+    display: none;
+  }
+
+  .theme-toggle svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    overflow: visible;
+  }
+
+  .theme-toggle :is(.rays, .horizon, .arrow) {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: square;
+  }
+
+  .theme-toggle .body {
+    fill: var(--accent);
+  }
+
+  .theme-toggle .stars {
+    fill: currentColor;
+  }
+
+  .theme-toggle .orbit {
+    stroke: var(--accent);
+    stroke-width: 1.5;
+    stroke-dasharray: 2 4;
+    opacity: 0;
+  }
+
+  .theme-toggle :is(.sun, .rays, .bite, .sky, .horizon, .arrow, .stars, .orbit) {
+    transform-box: view-box;
+    transform-origin: 16px 16px;
+  }
+
+  .theme-toggle .sky {
+    transform: translateY(0);
+  }
+
+  .theme-toggle .bite {
+    transform: translate(12px, -12px);
+  }
+
+  .theme-toggle :is(.horizon, .arrow) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  .theme-toggle .stars {
+    transform: scale(0) rotate(-90deg);
+  }
+
+  :root:is([data-theme='dawn'], [data-theme='dusk']) .theme-toggle {
+    .sun {
+      transform: translateY(6px);
+    }
+
+    .rays {
+      transform: scale(0.85) rotate(45deg);
+    }
+
+    .sky {
+      transform: translateY(-10px);
+    }
+
+    .horizon {
+      opacity: 1;
+      transform: none;
+    }
+
+    .arrow {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  :root[data-theme='dusk'] .theme-toggle {
+    .rays {
+      transform: scale(0.85) rotate(-45deg);
+    }
+
+    .arrow {
+      transform: rotate(180deg);
+      transform-origin: 16px 27px;
+    }
+  }
+
+  :root[data-theme='night'] .theme-toggle {
+    .rays {
+      transform: scale(0) rotate(90deg);
+    }
+
+    .bite {
+      transform: none;
+    }
+
+    .stars {
+      transform: none;
+    }
+  }
+
+  :root[data-choice='auto'] .theme-toggle .orbit {
+    opacity: 1;
   }
 
   :focus-visible {
@@ -139,7 +244,7 @@
   }
 
   .poster {
-    --peak: 900;
+    --peak: 1000;
     --wght: var(--peak);
     margin: 0;
     font-size: clamp(3.5rem, 22cqi, 15rem);
@@ -157,7 +262,7 @@
   }
 
   .headline {
-    --peak: 700;
+    --peak: 800;
     --wght: var(--peak);
     margin: 0;
     max-width: 22ch;
@@ -185,13 +290,71 @@
       animation: none;
     }
 
-    ::view-transition-new(root) {
-      animation: wipe 0.6s ease-in-out;
+    :root {
+      --spring: linear(
+        0,
+        0.009,
+        0.035 2.1%,
+        0.141,
+        0.281 6.7%,
+        0.723 12.9%,
+        0.938 16.7%,
+        1.017,
+        1.077,
+        1.121,
+        1.149 24.3%,
+        1.159,
+        1.163,
+        1.161,
+        1.154 29.9%,
+        1.129 32.8%,
+        1.051 39.6%,
+        1.017 43.1%,
+        0.991,
+        0.977 51%,
+        0.974 53.8%,
+        0.975 57.1%,
+        0.997 69.8%,
+        1.003 76.9%,
+        1
+      );
     }
 
-    @keyframes wipe {
+    ::view-transition-new(root) {
+      animation: reveal 0.7s ease-in-out;
+    }
+
+    @keyframes reveal {
       from {
-        clip-path: inset(0 100% 0 0);
+        clip-path: circle(0 at var(--reveal-x) var(--reveal-y));
+      }
+      to {
+        clip-path: circle(150vmax at var(--reveal-x) var(--reveal-y));
+      }
+    }
+
+    .theme-toggle {
+      transition: scale 0.4s var(--spring);
+    }
+
+    .theme-toggle:active {
+      scale: 0.88;
+    }
+
+    .theme-toggle :is(.sun, .rays, .bite, .sky, .horizon, .arrow, .stars) {
+      transition:
+        transform 0.9s var(--spring),
+        opacity 0.3s ease-out;
+    }
+
+    .theme-toggle .orbit {
+      transition: opacity 0.3s ease-out;
+      animation: orbit 12s linear infinite;
+    }
+
+    @keyframes orbit {
+      to {
+        rotate: 1turn;
       }
     }
 
@@ -199,75 +362,104 @@
       transition: --casl 0.3s ease-out;
     }
 
-    @supports (animation-timeline: scroll()) {
+    @supports (animation-timeline: view()) {
       html {
-        scroll-snap-type: y proximity;
-        scroll-behavior: smooth;
-        scroll-timeline: --page block;
         timeline-scope: --p0, --p1;
       }
 
-      .wrap {
-        position: relative;
-        height: calc(var(--count) * 100dvh);
-      }
-
-      .marker {
-        display: block;
-        position: absolute;
-        inset-inline: 0;
-        inset-block-start: calc(var(--index) * 100dvh);
-        height: 100dvh;
-        scroll-snap-align: start;
-        view-timeline: var(--timeline) block;
-        pointer-events: none;
-      }
-
-      .viewport {
-        position: sticky;
-        inset-block-start: 0;
-        height: 100dvh;
-        overflow: clip;
-      }
-
-      .track {
-        display: flex;
-        width: calc(var(--count) * 100dvw);
-        height: 100%;
-        --timeline: --page;
-        animation: slide linear both;
-        animation-timeline: var(--timeline);
-      }
-
-      .panel {
-        flex: none;
-        width: 100dvw;
-        height: 100%;
-        min-height: 0;
-        border-inline-end: 0.5rem solid var(--accent);
-      }
-
-      .poster,
+      .poster .letter,
       .headline {
         animation: axes linear both;
         animation-timeline: var(--timeline);
       }
 
-      @keyframes slide {
-        to {
-          translate: calc((1 - var(--count)) * 100dvw);
-        }
+      .poster .letter {
+        animation-range: cover var(--shift) cover calc(100% + var(--shift));
       }
 
       @keyframes axes {
         0%,
+        20% {
+          --wght: 300;
+          --mono: 1;
+          --slnt: -15;
+        }
+        45%,
+        55% {
+          --wght: var(--peak);
+          --mono: 0;
+          --slnt: 0;
+        }
+        80%,
         100% {
           --wght: 300;
           --mono: 1;
+          --slnt: -15;
         }
-        50% {
-          --wght: var(--peak);
-          --mono: 0;
+      }
+
+      @media (pointer: fine) {
+        html {
+          scroll-snap-type: y proximity;
+          scroll-behavior: smooth;
+          scroll-timeline: --page block;
+        }
+
+        .wrap {
+          position: relative;
+          height: calc(var(--count) * 100dvh);
+        }
+
+        .marker {
+          display: block;
+          position: absolute;
+          inset-inline: 0;
+          inset-block-start: calc(var(--index) * 100dvh);
+          height: 100dvh;
+          scroll-snap-align: start;
+          view-timeline: var(--timeline) block;
+          pointer-events: none;
+        }
+
+        .viewport {
+          position: sticky;
+          inset-block-start: 0;
+          height: 100dvh;
+          overflow: clip;
+        }
+
+        .track {
+          display: flex;
+          width: calc(var(--count) * 100dvw);
+          height: 100%;
+          animation: slide linear both;
+          animation-timeline: --page;
+        }
+
+        .panel {
+          flex: none;
+          width: 100dvw;
+          height: 100%;
+          min-height: 0;
+          border-inline-end: 0.5rem solid var(--accent);
+        }
+
+        @keyframes slide {
+          to {
+            translate: calc((1 - var(--count)) * 100dvw);
+          }
+        }
+      }
+
+      @media not (pointer: fine) {
+        html {
+          scroll-snap-type: y proximity;
+        }
+
+        .panel {
+          scroll-snap-align: start;
+          view-timeline: var(--timeline) block;
+          border-block-end: 0.5rem solid var(--accent);
         }
       }
     }

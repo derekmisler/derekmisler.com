@@ -28,7 +28,7 @@ const text = ranges
 
 const font = await subsetFont(readFileSync(source), text, {
   targetFormat: 'woff2',
-  variationAxes: { CRSV: 0, slnt: 0 },
+  variationAxes: { CRSV: 0 },
   keepFeatures: ['rvrn', 'ccmp', 'locl', 'mark', 'mkmk', 'kern', 'liga', 'calt'],
   noHinting: true,
 });

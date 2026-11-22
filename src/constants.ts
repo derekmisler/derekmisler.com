@@ -22,7 +22,7 @@ export const statements = [
     period: 'Docker',
     headline: 'AI code review on 100+ repositories.',
     detail:
-      'Built docker\u2011agent\u2011action, rolled it out to every engineering team, hardened its security, and open\u2011sourced it under Apache 2.0.',
+      'Built docker-\u2060agent-\u2060action, rolled it out to every engineering team, hardened its security, and open-\u2060sourced it under Apache 2.0.',
   },
   {
     ...navItems.governance,
@@ -36,7 +36,7 @@ export const statements = [
     period: 'Patreon 2022 to 2023, Cadre 2020 to 2022, Transfix 2016 to 2020',
     headline: '55% lower LCP at Patreon.',
     detail:
-      'Led the front\u2011end workstream of a full migration from Flask to Next.js, with better developer experience, TypeScript and documentation, and modern testing. Before that, senior engineer to tech lead at Cadre, and first front\u2011end engineer to Staff\u2011level lead at Transfix.',
+      'Led the front-\u2060end workstream of a full migration from Flask to Next.js, with better developer experience, TypeScript and documentation, and modern testing. Before that, senior engineer to tech lead at Cadre, and first front-\u2060end engineer to Staff-\u2060level lead at Transfix.',
   },
   {
     ...navItems.design,
@@ -47,7 +47,7 @@ export const statements = [
 ] satisfies { slug: string; label: string; period: string; headline: string; detail: string }[];
 
 export const subHeadline =
-  'Web development started at 13 as curiosity, tinkering until things worked. A BFA in graphic design followed, then freelance work building real sites for local businesses, then a career that went from first front\u2011end engineer at a startup to Staff\u2011level lead, to where I am now at Docker. The design background never left: an eye for typography, layout, and visual hierarchy still shapes the interfaces and systems I build.';
+  'Web development started at 13 as curiosity, tinkering until things worked. A BFA in graphic design followed, then freelance work building real sites for local businesses, then a career that went from first front-\u2060end engineer at a startup to Staff-\u2060level lead, to where I am now at Docker. The design background never left: an eye for typography, layout, and visual hierarchy still shapes the interfaces and systems I build.';
 
 export const firstName = 'Derek';
 export const lastName = 'Misler';
@@ -80,8 +80,8 @@ export const contact = [
  */
 export const highlights = [
   'Senior engineer at Docker building AI agent experiences and developer tooling that ship inside Docker Desktop.',
-  'Led Patreon\u2019s migration to Next.js and a modern front\u2011end platform, reducing LCP by 55% while preserving rollout safety and accessibility.',
-  'First front\u2011end engineer and later Staff\u2011level lead at Transfix, defining web + mobile architecture, shared libraries, and engineering standards.',
+  'Led Patreon\u2019s migration to Next.js and a modern front-\u2060end platform, reducing LCP by 55% while preserving rollout safety and accessibility.',
+  'First front-\u2060end engineer and later Staff-\u2060level lead at Transfix, defining web + mobile architecture, shared libraries, and engineering standards.',
   'Blend strong design craft (typography, layout, interaction) with 15+ years of engineering to ship inclusive, polished product surfaces reliably.',
 ];
 
@@ -188,7 +188,7 @@ export const education = {
   location: 'Appalachian State University',
   title: 'BFA, Graphic Design',
   accomplishments: [
-    'Studied graphic design with a focus on web, typography, and layout. Built early front\u2011end skills through web design courses and interactive media projects, including Flash/ActionScript game development.',
+    'Studied graphic design with a focus on web, typography, and layout. Built early front-\u2060end skills through web design courses and interactive media projects, including Flash/ActionScript game development.',
   ],
 } satisfies Experience;
 
@@ -206,7 +206,7 @@ export const currentCareers = [
       'Built and rolled out docker-agent-action (Docker\u2019s AI-assisted PR review platform) across 100+ repositories and every engineering team; hardened its security posture, open-sourced it under Apache 2.0, and built self-serve onboarding so any team can adopt without manual setup.',
       'Took over ownership, unblocked, and shipped Bulk Deployment for Docker Desktop, enabling enterprise IT teams to configure and distribute Docker at scale across platforms.',
       'Integrated Docker Hub catalog search/launch into Docker Desktop to reduce workflow friction and improve discoverability.',
-      'Led front\u2011end architecture for an enterprise Insights dashboard, referenced in customer adoption and sales enablement outcomes.',
+      'Led front-\u2060end architecture for an enterprise Insights dashboard, referenced in customer adoption and sales enablement outcomes.',
       'Without any mandate, authored a comprehensive ownership and risk map of the entire docker/frontends monorepo, surfacing orphaned platform infrastructure, single-engineer bottlenecks on security-critical auth and IAM surfaces, and an estimated 15-25 engineer-hours/week of structural debt. The analysis is now driving leadership\u2019s evaluation of a dedicated frontend platform team.',
     ],
     resume: [0, 4, 3, 1],
@@ -220,11 +220,11 @@ export const currentCareers = [
     accomplishments: [
       'Designed an incremental migration pattern to move features safely without blocking product delivery, enabling staged rollout and parallel work.',
       'Led the front-end workstream and partnered with backend platform + infrastructure teams, delivering an immediate 55% reduction in LCP (primary KR metric).',
-      'Senior engineer on the Front\u2011End Platform team driving a large\u2011scale migration from a Flask/React multi\u2011page app and in-house SSR to Next.js.',
+      'Senior engineer on the Front-\u2060End Platform team driving a large-\u2060scale migration from a Flask/React multi-\u2060page app and in-house SSR to Next.js.',
       'Built rollout and reliability guardrails: percentage-based feature flags, alerting/triage workflows, and dashboards to monitor regressions.',
-      'Drove quality and maintainability upgrades: TypeScript adoption, linting standards, and front\u2011end documentation practices.',
+      'Drove quality and maintainability upgrades: TypeScript adoption, linting standards, and front-\u2060end documentation practices.',
       'Modernized testing from minimal coverage/Enzyme to React Testing Library + Cypress, including running smoke/e2e in dev and on PRs (not only at deploy time).',
-      'Mentored junior engineers and interns; created and led \u201cFront\u2011End 101\u201d onboarding for new engineers and served as a high\u2011volume interviewer.',
+      'Mentored junior engineers and interns; created and led \u201cFront-\u2060End 101\u201d onboarding for new engineers and served as a high-\u2060volume interviewer.',
       'Improved state and form architecture by migrating from Redux to Jotai and building accessible form/validation primitives integrated with the component library (React Hook Form).',
     ],
     resume: [1, 0, 3],
@@ -236,10 +236,10 @@ export const currentCareers = [
     startDate: 'Mar 2020',
     endDate: 'Jan 2022',
     accomplishments: [
-      'Unified decoupled SPA and third-party marketing site into cohesive Django/React app; migrated front\u2011end to monorepo.',
+      'Unified decoupled SPA and third-party marketing site into cohesive Django/React app; migrated front-\u2060end to monorepo.',
       'Built custom server-rendering with Webpack, React, and Node.js for marketing site.',
       'Led internal design system built on Base Web component library (open-source contributor).',
-      'Mentored full\u2011stack engineers using Agile and Shape Up methodologies.',
+      'Mentored full-\u2060stack engineers using Agile and Shape Up methodologies.',
     ],
     resume: [2, 0],
     link: 'https://cadre.com',
@@ -250,7 +250,7 @@ export const currentCareers = [
     startDate: 'Jan 2016',
     endDate: 'Mar 2020',
     accomplishments: [
-      'First front\u2011end engineer; established web and mobile architecture, rebuilding Android/iOS apps in React Native.',
+      'First front-\u2060end engineer; established web and mobile architecture, rebuilding Android/iOS apps in React Native.',
       'Evolved web stack from Rails → Aurelia → React/Redux; developed internal library for web, mobile, and shared NPM modules.',
       'Implemented CI/CD with CircleCI, defined linting/testing standards, and led creation of internal component library.',
       'Rebuilt public site from WordPress to Jade templates, later migrating to 11ty.js.',
@@ -269,7 +269,7 @@ export const pastCareers = [
     accomplishments: [
       'Primary developer for web presence; built first mobile site and responsive blog theme in .NET environment.',
       'Redesigned marketing site twice, evolving from ColdFusion to Node/MongoDB with custom JS templating.',
-      'Designed and built two award\u2011winning interactive web experiences using Node and AngularJS.',
+      'Designed and built two award-\u2060winning interactive web experiences using Node and AngularJS.',
     ],
     resume: [],
     link: 'http://www.exploreasheville.com',

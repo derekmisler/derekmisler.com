@@ -22,4 +22,11 @@ if (matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: 
     },
     { passive: true },
   );
+
+  document.addEventListener('pointerout', (event) => {
+    if (event.relatedTarget) return;
+    x = -1e4;
+    y = -1e4;
+    frame ||= requestAnimationFrame(update);
+  });
 }

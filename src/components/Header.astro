@@ -1,5 +1,5 @@
 ---
-import { contact, fullName, navItems } from '@/constants';
+import { contact, fullName, intro, navItems } from '@/constants';
 ---
 
 <header
@@ -10,11 +10,19 @@ import { contact, fullName, navItems } from '@/constants';
   </h1>
   <div class="flex flex-col gap-lg p-md desktop:gap-md">
     <h2 class="font-regular">
-      <strong class="gradient-text">Front&#x2011;end engineer</strong> building{' '}
-      <strong class="gradient-text">AI agent tooling</strong> at{' '}
-      <a href="https://www.docker.com" target="_blank" rel="noopener noreferrer">Docker</a>. 15+ years shipping
-      production&#x2011;grade systems, from design&#x2011;system infrastructure to the testing contracts and quality bars
-      that make them reliable at scale.
+      {
+        intro.map((part) =>
+          part.strong ? (
+            <strong class="gradient-text">{part.text}</strong>
+          ) : part.href ? (
+            <a href={part.href} target="_blank" rel="noopener noreferrer">
+              {part.text}
+            </a>
+          ) : (
+            part.text
+          ),
+        )
+      }
     </h2>
     <nav class="flex justify-between gap-sm desktop:justify-start desktop:gap-lg">
       {

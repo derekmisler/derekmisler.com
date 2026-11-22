@@ -29,7 +29,7 @@
     text-decoration-line: underline;
     text-decoration-color: var(--accent);
     text-decoration-thickness: 0.25em;
-    text-underline-offset: 0.25em;
+    text-underline-offset: 0.3em;
   }
 
   a:is(:hover, :focus-visible) {
@@ -204,6 +204,7 @@
   }
 
   .panel {
+    --poster-bleed: --theme(--spacing-xl);
     container-type: inline-size;
     display: flex;
     flex-direction: column;
@@ -235,10 +236,28 @@
     line-height: --theme(--leading-heading);
   }
 
+  .heading {
+    display: flex;
+    flex-direction: column;
+    gap: --theme(--spacing-2xs);
+  }
+
+  .period {
+    font-family: --theme(--font-kinetic);
+    color: var(--fg-muted);
+    --mono: 1;
+  }
+
   .lead {
     max-inline-size: 48ch;
     font-size: --theme(--text-lead);
     line-height: --theme(--leading-lead);
+  }
+
+  .lead strong {
+    font-family: --theme(--font-kinetic);
+    font-weight: normal;
+    --wght: 800;
   }
 
   .links {
@@ -430,7 +449,7 @@
         }
       }
 
-      @media not (pointer: fine) {
+      @media not ((pointer: fine) and (min-height: 48rem)) {
         :is(.poster .letter, .headline .live) {
           animation-timeline: --page, --page;
           animation-range:
@@ -484,7 +503,7 @@
         }
       }
 
-      @media (pointer: fine) {
+      @media (pointer: fine) and (min-height: 48rem) {
         .wrap {
           position: relative;
           block-size: calc(var(--count) * 100svh);

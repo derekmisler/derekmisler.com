@@ -104,11 +104,18 @@ test('split text matches the source and neighbors never share a swap', () => {
   assert.ok(swaps.every((swap, index) => index === 0 || swap !== swaps[index - 1]));
 });
 
-test('panels run from intro to contact, each linking to the next, with posters sized to fit', () => {
+test('panels run from intro to contact, with links only on the ends and posters sized to fit', () => {
   assert.equal(panels[0].id, 'home');
+  assert.deepEqual(
+    panels[0].links.map((link) => link.label),
+    ['Email', 'LinkedIn', 'GitHub', 'Resume'],
+  );
+  assert.equal(panels.at(-1)?.links.at(-1)?.href, '/llms.txt');
   assert.equal(panels.at(-1)?.id, 'contact');
-  assert.ok(panels.slice(0, -1).every((panel, index) => panel.links[0].href === `#${panels[index + 1].id}`));
-  assert.equal(posterSize('Derek Misler'), 'min(23.3cqi, 21.0svh)');
+  assert.ok(panels.slice(1, -1).every((panel) => panel.links.length === 0));
+  assert.equal(posterSize('Derek Misler', 60), 'min((100cqi + var(--poster-bleed)) / 3.800, 30.0svh)');
+  assert.equal(panels[0].size, posterSize('Derek Misler', 60));
+  assert.equal(panels[1].size, posterSize('Gordon 2.0', 40));
   const { items, fit } = rail(['Home', 'Gordon'], () => 0);
   assert.deepEqual(
     items.map((item) => item.style.match(/--wght: (\d+)/)?.[1]),

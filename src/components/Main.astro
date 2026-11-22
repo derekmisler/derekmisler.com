@@ -1,6 +1,6 @@
 ---
 import Section from '@/components/Section.astro';
-import { contact, navItems, statements } from '@/constants';
+import { agentLink, contact, navItems, statements } from '@/constants';
 ---
 
 <main id="main-content" class="grid w-full items-baseline gap-x-md">
@@ -26,7 +26,7 @@ import { contact, navItems, statements } from '@/constants';
         </h4>
       ))
     }
-    <h4><a href="/llms.txt">For AI agents</a></h4>
+    <h4><a href={agentLink.href}>{agentLink.label}</a></h4>
   </Section>
 </main>
 

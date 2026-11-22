@@ -14,7 +14,7 @@ import {
 
 const siteUrl = 'https://derekmisler.com';
 
-const plain = (text: string) => text.replaceAll('‑', '-');
+const plain = (text: string) => text.replaceAll('\u2060', '');
 
 const absolute = (href: string) => (href.startsWith('/') ? `${siteUrl}${href}` : href);
 

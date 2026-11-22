@@ -108,7 +108,9 @@ test('panels run from intro to contact, each linking to the next, with posters s
   assert.equal(panels[0].id, 'home');
   assert.equal(panels.at(-1)?.id, 'contact');
   assert.ok(panels.slice(0, -1).every((panel, index) => panel.links[0].href === `#${panels[index + 1].id}`));
-  assert.equal(posterSize('Derek Misler'), 'min(23.3cqi, 21.0svh)');
+  assert.equal(posterSize('Derek Misler', 64), 'min((100cqi + var(--poster-bleed)) / 3.800, 32.0svh)');
+  assert.equal(panels[0].size, posterSize('Derek Misler', 64));
+  assert.equal(panels[1].size, posterSize('Gordon 2.0', 42));
   const { items, fit } = rail(['Home', 'Gordon'], () => 0);
   assert.deepEqual(
     items.map((item) => item.style.match(/--wght: (\d+)/)?.[1]),

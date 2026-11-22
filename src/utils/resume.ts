@@ -10,7 +10,7 @@ import {
   socialId,
 } from '../constants.ts';
 
-const plain = (text: string) => text.replaceAll('‑', '-');
+const plain = (text: string) => text.replaceAll('\u2060', '');
 
 const email = contact.find(({ href }) => href.startsWith('mailto:'))?.href.replace(/^mailto:|\?.*$/g, '');
 

@@ -6,6 +6,8 @@
       --theme(--spacing-xs) + --theme(--spacing-2xs) + 100dvw / var(--fit) * --theme(--leading-heading)
     );
     --toggle: --theme(--spacing-3xl);
+    --poster-unit: 1svh;
+    --poster-fit: calc((100svh - var(--rail-block) - --theme(--spacing-lg) * 2) / --theme(--leading-poster));
     background: var(--bg);
     color: var(--fg);
   }
@@ -13,6 +15,12 @@
   @media (pointer: fine) {
     html {
       --toggle: --theme(--spacing-xl);
+    }
+  }
+
+  @media (orientation: landscape) and (max-height: 30rem) {
+    html {
+      --poster-unit: 1svw;
     }
   }
 
@@ -452,13 +460,6 @@
             translate: 0 --theme(--spacing-lg);
           }
         }
-      }
-
-      :is(.poster .letter, .headline .live) {
-        animation-timeline: --page, --page;
-        animation-range:
-          calc((var(--index) - 1 + var(--lag) / 50) * 100svh) calc((var(--index) + 1 + var(--lag) / 50) * 100svh),
-          calc((var(--index) - 1) * 100svh) calc((var(--index) + 1) * 100svh);
       }
 
       .panel {

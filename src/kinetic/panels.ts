@@ -5,7 +5,7 @@ import { create, type Font } from 'fontkitten';
 import { agentLink, contact, fullName, intro, navItems, statements } from '../constants.ts';
 
 type Link = { href: string; label: string; download?: string };
-type Part = { text: string; href?: string };
+type Part = { text: string; strong?: boolean; href?: string };
 type Content = {
   id: string;
   label: string;

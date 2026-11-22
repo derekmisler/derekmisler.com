@@ -35,7 +35,9 @@ import { panels } from './panels';
               </div>
             )}
             <p class="lead">
-              {panel.lead.map((part) => (part.href ? <a href={part.href}>{part.text}</a> : part.text))}
+              {panel.lead.map((part) =>
+                part.strong ? <strong>{part.text}</strong> : part.href ? <a href={part.href}>{part.text}</a> : part.text,
+              )}
             </p>
             {panel.links.length > 0 && (
               <ul class="links">

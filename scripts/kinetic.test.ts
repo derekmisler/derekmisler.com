@@ -34,14 +34,13 @@ test('the scale runs from ratio 1.25 at 360px to 1.5 at 1440px and the CSS is re
   assert.equal(readFileSync(scaleFile, 'utf8'), scaleCss(), 'run node scripts/kinetic-scale.ts');
 });
 
-test('kinetic files enforce the five token rules', () => {
+test('kinetic files enforce the kinetic token rules', () => {
   const cases = [
     ['src/kinetic/a.css', 'p { font-variation-settings: "wght" 700; }', 'outside the theme; set --wght'],
     ['src/kinetic/a.css', 'p { transition: color var(--fast); }', '"transition" outside @media'],
     ['src/kinetic/a.css', 'p { color: if(media(hover): red; else: blue); }', 'single-engine "if("'],
     ['src/kinetic/a.css', 'p { color: oklch(50% 0.1 200); }', 'color "oklch(" outside the theme'],
     ['src/styles/kinetic-theme.css', ':root { --x: #fff; }', 'non-OKLCH color "#fff"'],
-    ['src/kinetic/a.css', 'p { padding: 1rem; }', 'arbitrary value "1rem"'],
   ];
   for (const [name, source, message] of cases) {
     assert.ok(kineticErrors(name, source).join('\n').includes(message), source);

@@ -91,18 +91,15 @@
   --c-accent: 0.17;
 }
 
-:root[data-theme='dusk'],
-:root[data-theme='night'] {
+:root[data-theme='dusk'] {
   color-scheme: dark;
 
-  --l-bg: 20%;
-  --l-surface: 26%;
-  --l-fg: 95%;
-  --l-fg-muted: 80%;
-  --l-accent: 80%;
-}
+  --l-bg: 30%;
+  --l-surface: 36%;
+  --l-fg: 96%;
+  --l-fg-muted: 86%;
+  --l-accent: 86%;
 
-:root[data-theme='dusk'] {
   --h-bg: 320;
   --c-bg: 0.06;
   --h-fg: 75;
@@ -112,6 +109,14 @@
 }
 
 :root[data-theme='night'] {
+  color-scheme: dark;
+
+  --l-bg: 20%;
+  --l-surface: 26%;
+  --l-fg: 95%;
+  --l-fg-muted: 80%;
+  --l-accent: 80%;
+
   --h-bg: 270;
   --c-bg: 0.03;
   --h-fg: 250;

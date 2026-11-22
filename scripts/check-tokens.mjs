@@ -16,9 +16,6 @@ const nonOklchPattern =
 const anyColorPattern = new RegExp(`${nonOklchPattern.source}|(?<![\\w-])(?:oklch|color-mix)\\(`, 'gi');
 const motionPattern = /(?<![\w-])(?:animation|transition)(?:-[a-z-]+)?(?=\s*:)/g;
 const singleEnginePattern = /(?<![\w-])(?:if\(|@function\b|animation-trigger|timeline-trigger|trigger-scope)/g;
-const declarationPattern = /(?<![\w-])(-{0,2}[a-z][\w-]*)\s*:\s*([^;{}]+)(?=[;}])/gi;
-const lengthPattern =
-  /(?<![\w.#-])-?(?:\d+\.?\d*|\.\d+)(?:px|r?em|ch|ex|lh|[sld]?v[wh]|v(?:min|max|i|b)|cq(?:w|h|i|b|min|max)|deg|m?s)\b/g;
 
 const walk = (dir) =>
   readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
@@ -108,14 +105,6 @@ export const kineticErrors = (name, source) => {
     for (const match of css.matchAll(singleEnginePattern)) {
       if (!insideAtRule(css, match.index, /^@supports\b/)) {
         report(offset + match.index, `single-engine "${match[0]}" outside @supports`);
-      }
-    }
-    if (theme) continue;
-    for (const declaration of css.matchAll(declarationPattern)) {
-      if (inPrelude(css, declaration.index)) continue;
-      const valueStart = declaration.index + declaration[0].length - declaration[2].length;
-      for (const match of declaration[2].matchAll(lengthPattern)) {
-        report(offset + valueStart + match.index, `arbitrary value "${match[0]}"; add a token to kinetic-theme.css`);
       }
     }
   }

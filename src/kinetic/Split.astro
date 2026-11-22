@@ -1,12 +1,17 @@
 ---
 import { splitWords } from './split';
+import { swapCount } from './swaps';
 
 const { text } = Astro.props as { text: string };
 const words = splitWords(text);
 const total = words.flat().length;
 let index = 0;
 const step = total > 1 ? 10 / (total - 1) : 0;
-const style = () => `--shift: ${(index * step - 5).toFixed(2)}%; --swap: swap-${index++ % 3}`;
+let swap = -1;
+const style = () => {
+  swap = (swap + 1 + Math.floor(Math.random() * (swapCount - 1))) % swapCount;
+  return `--shift: ${(index++ * step - 5).toFixed(2)}%; --swap: swap-${swap}`;
+};
 ---
 
 <span class="sr-only">{text}</span><span class="split" aria-hidden="true"

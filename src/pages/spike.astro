@@ -4,6 +4,7 @@ import '@/kinetic/kinetic.css';
 import Split from '@/kinetic/Split.astro';
 import ThemeToggle from '@/kinetic/ThemeToggle.astro';
 import { sunTheme } from '@/kinetic/sun';
+import { swapKeyframes } from '@/kinetic/swaps';
 import { zones } from '@/kinetic/zones';
 import { contact, fullName, navItems, statements } from '@/constants';
 
@@ -25,6 +26,7 @@ const panels = (
   size: Math.min(22, 76 / (Math.max(...panel.poster.split(' ').map((word) => word.length)) * 0.75)).toFixed(1),
   links: all[index + 1] ? [{ href: `#${all[index + 1].id}`, label: 'Next' }] : contact,
 }));
+const swaps = `@media (prefers-reduced-motion: no-preference){${swapKeyframes()}}`;
 const timelines = panels.map((_, index) => `--p${index}`).join(', ');
 const boot = `(function(r,t){function f(){requestAnimationFrame(function(){requestAnimationFrame(function(){r.dataset.fonts=''})})}document.fonts.load('1em Recursive').then(f,f);setTimeout(f,3e3);r.dataset.auto=(${sunTheme.toString()})('${zones}',Intl.DateTimeFormat().resolvedOptions().timeZone,new Date().getTimezoneOffset(),new Date());try{t=localStorage.getItem('theme')}catch(e){}t=/^(dawn|midday|dusk|night)$/.test(t)?t:'auto';r.dataset.choice=t;r.dataset.theme=t=='auto'?r.dataset.auto:t})(document.documentElement)`;
 ---
@@ -38,6 +40,7 @@ const boot = `(function(r,t){function f(){requestAnimationFrame(function(){reque
     <meta name="robots" content="noindex" />
     <link rel="preload" as="font" type="font/woff2" href="/fonts/recursive-text.woff2" crossorigin />
     <script is:inline set:html={boot} />
+    <style is:inline set:html={swaps}></style>
   </head>
   <body>
     <ThemeToggle />

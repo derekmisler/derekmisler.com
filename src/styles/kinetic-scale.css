@@ -1,0 +1,30 @@
+@theme inline {
+  --text-small: clamp(0.75rem, 0.8167rem - 0.0741cqi, 0.8rem);
+  --text-small--line-height: var(--leading-body);
+  --text-body: clamp(1rem, 0.9583rem + 0.1852cqi, 1.125rem);
+  --text-body--line-height: var(--leading-body);
+  --text-lead: clamp(1.25rem, 1.1042rem + 0.6481cqi, 1.6875rem);
+  --text-lead--line-height: var(--leading-lead);
+  --text-h3: clamp(1.5625rem, 1.2396rem + 1.4352cqi, 2.5313rem);
+  --text-h3--line-height: var(--leading-heading);
+  --text-h2: clamp(1.9531rem, 1.3385rem + 2.7315cqi, 3.7969rem);
+  --text-h2--line-height: var(--leading-heading);
+  --text-h1: clamp(2.4414rem, 1.3568rem + 4.8206cqi, 5.6953rem);
+  --text-h1--line-height: var(--leading-heading);
+  --text-poster: clamp(3.0518rem, 1.2214rem + 8.1351cqi, 8.543rem);
+  --text-poster--line-height: var(--leading-poster);
+
+  --leading-body: 1.6;
+  --leading-lead: 1.4;
+  --leading-heading: 1.1;
+  --leading-poster: 0.9;
+
+  --spacing-2xs: clamp(0.5rem, 0.6867rem - 0.2074cqi, 0.64rem);
+  --spacing-xs: clamp(0.75rem, 0.8167rem - 0.0741cqi, 0.8rem);
+  --spacing-sm: clamp(1rem, 0.9583rem + 0.1852cqi, 1.125rem);
+  --spacing-md: clamp(1.25rem, 1.1042rem + 0.6481cqi, 1.6875rem);
+  --spacing-lg: clamp(1.5625rem, 1.2396rem + 1.4352cqi, 2.5313rem);
+  --spacing-xl: clamp(1.9531rem, 1.3385rem + 2.7315cqi, 3.7969rem);
+  --spacing-2xl: clamp(2.4414rem, 1.3568rem + 4.8206cqi, 5.6953rem);
+  --spacing-3xl: clamp(3.0518rem, 1.2214rem + 8.1351cqi, 8.543rem);
+}

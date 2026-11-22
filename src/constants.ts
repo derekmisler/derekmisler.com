@@ -84,7 +84,7 @@ export const contact = [
   { href: `https://www.linkedin.com/in/${socialId}/`, label: 'LinkedIn', altLabel: 'Let\u2019s connect' },
   { href: `https://github.com/${socialId}`, label: 'GitHub', altLabel: 'See my code' },
   {
-    href: '/derek-misler-resume.pdf',
+    href: '/derek-misler-resume-midday.pdf',
     download: 'Derek-Misler-Resume.pdf',
     label: 'Resume',
     altLabel: 'Download my resume',

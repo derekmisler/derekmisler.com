@@ -13,10 +13,10 @@ pnpm dev            # Start development server with hot reload
 pnpm build          # Build static site for production
 pnpm preview        # Preview production build locally
 pnpm storybook      # Design system on http://localhost:6006 (local only, never built or deployed)
-pnpm resume         # Regenerate public/derek-misler-resume.pdf from src/constants.ts (needs Google Chrome installed)
+pnpm resume         # Regenerate public/derek-misler-resume-{dawn,midday,dusk,night}.pdf from src/constants.ts (needs Google Chrome installed)
 ```
 
-The resume PDF is generated locally and committed, never in `pnpm build`. Rerun `pnpm resume` after changing `src/constants.ts`. Each role's `resume` array picks which accomplishments the one-page PDF shows.
+The resume PDF is generated locally and committed, never in `pnpm build`. Rerun `pnpm resume` after changing `src/constants.ts`. Each role's `resume` array picks which accomplishments the one-page PDF shows. Each PDF takes its colors from that theme in `kinetic-theme.css`; the Resume link swaps to the active theme's PDF.
 
 ### Code Quality
 
@@ -36,7 +36,7 @@ pnpm fix            # oxfmt write + oxlint --fix
 - **Styling**: Tailwind v4 with tokens from `src/styles/theme.css` (all Tailwind defaults disabled)
 - **TypeScript**: Strict mode with path aliases (`@/` for `src/`)
 - **Package Manager**: PNPM
-- **Fonts**: IBM Plex Sans (self-hosted in `/public/fonts/sans/`, declared in `src/styles/ibm-plex-sans-all.css`)
+- **Fonts**: Recursive, subset by `pnpm subset-font` into `/public/fonts/` and declared in `src/styles/kinetic-theme.css`
 
 ### Project Structure
 
@@ -60,8 +60,7 @@ src/
 ├── styles/
 │   ├── theme.css      # Tailwind tokens and theme color variables
 │   ├── global.css     # Base rules and custom utilities, shared by the site and Storybook
-│   ├── site.css       # Site entry: global.css minus src/stories
-│   └── ibm-plex-sans-all.css  # @font-face declarations
+│   └── site.css       # Site entry: global.css minus src/stories
 ├── utils/
 │   ├── llms.ts        # Builds the llms.txt text
 │   ├── resume.ts      # Builds the resume markdown for scripts/resume.ts
@@ -74,7 +73,7 @@ src/
 - **SEO Optimized**: Uses `@astrolib/seo` (`AstroSeo`) with Open Graph and Twitter cards
 - **Accessibility**: No automated a11y lint; oxlint's `jsx-a11y` rules only see JSX, not `.astro` markup
 - **Performance**: Static generation with sitemap integration
-- **Typography**: Custom font loading with IBM Plex Sans
+- **Typography**: Self-hosted Recursive variable font
 - **Responsive Design**: Mobile-first approach with viewport-based sizing
 
 ### Content Management

@@ -1,6 +1,7 @@
 const root = document.documentElement;
 const button = document.querySelector<HTMLButtonElement>('.theme-toggle');
 const announcer = document.querySelector('.theme-status');
+const resumes = document.querySelectorAll<HTMLAnchorElement>('a[download]');
 const order = ['auto', 'dawn', 'midday', 'dusk', 'night'];
 const storage = (() => {
   try {
@@ -13,6 +14,10 @@ const storage = (() => {
 const label = () =>
   `Theme: ${root.dataset.choice === 'auto' ? `auto (${root.dataset.theme})` : root.dataset.choice}. Change theme`;
 
+const sync = () => {
+  for (const link of resumes) link.href = `/derek-misler-resume-${root.dataset.theme}.pdf`;
+};
+
 const apply = (choice: string) => {
   root.dataset.choice = choice;
   root.dataset.theme = choice === 'auto' ? root.dataset.auto : choice;
@@ -20,8 +25,10 @@ const apply = (choice: string) => {
   else storage?.setItem('theme', choice);
   button?.setAttribute('aria-label', label());
   if (announcer) announcer.textContent = label();
+  sync();
 };
 
+sync();
 button?.setAttribute('aria-label', label());
 button?.addEventListener('click', () => {
   const choice = order[(order.indexOf(root.dataset.choice ?? 'auto') + 1) % order.length];

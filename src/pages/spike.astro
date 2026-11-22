@@ -1,0 +1,79 @@
+---
+import '@/kinetic/kinetic.css';
+
+import Split from '@/kinetic/Split.astro';
+import { sunTheme } from '@/kinetic/sun';
+import { zones } from '@/kinetic/zones';
+import { contact, fullName, statements } from '@/constants';
+
+const gordon = statements[0];
+const panels = [
+  { id: 'intro', poster: fullName, lead: 'Front‑end engineer at Docker. Type, layout and systems.', link: { href: '#gordon', label: 'Start' } },
+  { id: gordon.slug, poster: gordon.label, headline: gordon.headline, lead: gordon.detail, link: contact[0] },
+];
+const boot = `(function(r,t){r.dataset.auto=(${sunTheme.toString()})('${zones}',Intl.DateTimeFormat().resolvedOptions().timeZone,new Date().getTimezoneOffset(),new Date());try{t=localStorage.getItem('theme')}catch(e){}r.dataset.theme=/^(dawn|midday|dusk|night)$/.test(t)?t:r.dataset.auto})(document.documentElement)`;
+const choices = ['auto', 'dawn', 'midday', 'dusk', 'night'];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kinetic spike</title>
+    <meta name="description" content="Kinetic typography spike" />
+    <meta name="robots" content="noindex" />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/recursive.woff2" crossorigin />
+    <script is:inline set:html={boot} />
+  </head>
+  <body>
+    <div class="switcher" role="group" aria-label="Theme">
+      {
+        choices.map((choice) => (
+          <button type="button" data-choice={choice} aria-pressed="false">
+            {choice}
+          </button>
+        ))
+      }
+    </div>
+    <main class="wrap" style={`--count: ${panels.length}`}>
+      {
+        panels.map((panel, index) => (
+          <div class="marker" id={panel.id} style={`--index: ${index}; --timeline: --p${index}`} />
+        ))
+      }
+      <div class="viewport">
+        <div class="track">
+          {
+            panels.map((panel, index) => (
+              <section class="panel" aria-labelledby={`${panel.id}-title`} style={`--timeline: --p${index}`}>
+                {index === 0 ? (
+                  <h1 class="poster" id={`${panel.id}-title`}>
+                    <Split text={panel.poster} />
+                  </h1>
+                ) : (
+                  <h2 class="poster" id={`${panel.id}-title`}>
+                    <Split text={panel.poster} />
+                  </h2>
+                )}
+                {panel.headline && <p class="headline">{panel.headline}</p>}
+                <p class="lead">{panel.lead}</p>
+                <p>
+                  <a href={panel.link.href}>{panel.link.label}</a>
+                </p>
+              </section>
+            ))
+          }
+        </div>
+      </div>
+    </main>
+    <script>
+      import '@/kinetic/switcher';
+    </script>
+    <script>
+      import '@/kinetic/pointer';
+    </script>
+    <script>
+      import '@/kinetic/focus';
+    </script>
+  </body>
+</html>

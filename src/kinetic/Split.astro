@@ -1,0 +1,21 @@
+---
+import { splitWords } from './split';
+
+const { text } = Astro.props as { text: string };
+const words = splitWords(text);
+---
+
+<span class="sr-only">{text}</span><span class="split" aria-hidden="true"
+  >{
+    words.map((word, index) => (
+      <>
+        <span class="word">
+          {word.map((letter) => (
+            <span class="letter">{letter}</span>
+          ))}
+        </span>
+        {index < words.length - 1 && ' '}
+      </>
+    ))
+  }</span
+>

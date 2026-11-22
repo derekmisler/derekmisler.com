@@ -1,0 +1,275 @@
+@layer theme, base, kinetic;
+
+@font-face {
+  font-family: Recursive;
+  src: url('/fonts/recursive.woff2') format('woff2');
+  font-weight: 300 1000;
+  font-display: swap;
+}
+
+@property --wght {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 400;
+}
+
+@property --mono {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
+@property --casl {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
+@layer theme {
+  :root {
+    --bg: oklch(97% 0.02 220);
+    --fg: oklch(22% 0.04 250);
+    --accent: oklch(52% 0.2 250);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+      --bg: oklch(16% 0.03 270);
+      --fg: oklch(93% 0.02 250);
+      --accent: oklch(78% 0.13 200);
+    }
+  }
+
+  :root[data-theme='dawn'] {
+    --bg: oklch(93% 0.04 40);
+    --fg: oklch(25% 0.06 320);
+    --accent: oklch(55% 0.19 20);
+  }
+
+  :root[data-theme='midday'] {
+    --bg: oklch(97% 0.02 220);
+    --fg: oklch(22% 0.04 250);
+    --accent: oklch(52% 0.2 250);
+  }
+
+  :root[data-theme='dusk'] {
+    --bg: oklch(32% 0.08 320);
+    --fg: oklch(95% 0.03 70);
+    --accent: oklch(80% 0.14 60);
+  }
+
+  :root[data-theme='night'] {
+    --bg: oklch(16% 0.03 270);
+    --fg: oklch(93% 0.02 250);
+    --accent: oklch(78% 0.13 200);
+  }
+}
+
+@layer base {
+  :where(body, body *) {
+    font-variation-settings:
+      'wght' var(--wght),
+      'MONO' var(--mono),
+      'CASL' var(--casl);
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: Recursive, ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    overflow-x: clip;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .switcher {
+    position: fixed;
+    inset-block-start: 1rem;
+    inset-inline-end: 1rem;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .switcher button {
+    border: 0.125rem solid var(--fg);
+    border-radius: 0;
+    padding: 0.25rem 0.5rem;
+    background: var(--bg);
+    color: var(--fg);
+    font: inherit;
+    font-size: 0.875rem;
+    cursor: pointer;
+  }
+
+  .switcher button[aria-pressed='true'] {
+    background: var(--fg);
+    color: var(--bg);
+  }
+
+  :focus-visible {
+    outline: 0.25rem solid var(--accent);
+    outline-offset: 0.25rem;
+  }
+
+  .marker {
+    display: none;
+  }
+
+  .panel {
+    container-type: inline-size;
+    box-sizing: border-box;
+    min-height: 100dvh;
+    padding: 5rem 1.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .poster {
+    --peak: 900;
+    --wght: var(--peak);
+    margin: 0;
+    font-size: clamp(3.5rem, 22cqi, 15rem);
+    line-height: 0.9;
+    font-weight: normal;
+  }
+
+  .word {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .letter {
+    display: inline-block;
+  }
+
+  .headline {
+    --peak: 700;
+    --wght: var(--peak);
+    margin: 0;
+    max-width: 22ch;
+    font-size: clamp(1.5rem, 1rem + 3cqi, 3rem);
+    line-height: 1.1;
+  }
+
+  .lead {
+    margin: 0;
+    max-width: 48ch;
+    font-size: clamp(1.125rem, 1rem + 0.8cqi, 1.5rem);
+    line-height: 1.4;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline 0.25rem var(--accent);
+    text-underline-offset: 0.25em;
+  }
+}
+
+@layer kinetic {
+  @media (prefers-reduced-motion: no-preference) {
+    ::view-transition-old(root) {
+      animation: none;
+    }
+
+    ::view-transition-new(root) {
+      animation: wipe 0.6s ease-in-out;
+    }
+
+    @keyframes wipe {
+      from {
+        clip-path: inset(0 100% 0 0);
+      }
+    }
+
+    .letter {
+      transition: --casl 0.3s ease-out;
+    }
+
+    @supports (animation-timeline: scroll()) {
+      html {
+        scroll-snap-type: y proximity;
+        scroll-behavior: smooth;
+        scroll-timeline: --page block;
+        timeline-scope: --p0, --p1;
+      }
+
+      .wrap {
+        position: relative;
+        height: calc(var(--count) * 100dvh);
+      }
+
+      .marker {
+        display: block;
+        position: absolute;
+        inset-inline: 0;
+        inset-block-start: calc(var(--index) * 100dvh);
+        height: 100dvh;
+        scroll-snap-align: start;
+        view-timeline: var(--timeline) block;
+        pointer-events: none;
+      }
+
+      .viewport {
+        position: sticky;
+        inset-block-start: 0;
+        height: 100dvh;
+        overflow: clip;
+      }
+
+      .track {
+        display: flex;
+        width: calc(var(--count) * 100dvw);
+        height: 100%;
+        --timeline: --page;
+        animation: slide linear both;
+        animation-timeline: var(--timeline);
+      }
+
+      .panel {
+        flex: none;
+        width: 100dvw;
+        height: 100%;
+        min-height: 0;
+        border-inline-end: 0.5rem solid var(--accent);
+      }
+
+      .poster,
+      .headline {
+        animation: axes linear both;
+        animation-timeline: var(--timeline);
+      }
+
+      @keyframes slide {
+        to {
+          translate: calc((1 - var(--count)) * 100dvw);
+        }
+      }
+
+      @keyframes axes {
+        0%,
+        100% {
+          --wght: 300;
+          --mono: 1;
+        }
+        50% {
+          --wght: var(--peak);
+          --mono: 0;
+        }
+      }
+    }
+  }
+}

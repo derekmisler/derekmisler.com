@@ -13,7 +13,9 @@
     "lint": "oxlint",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
-    "test": "astro check && pnpm lint && pnpm format:check && node scripts/check-tokens.mjs",
+    "test": "astro check && pnpm lint && pnpm format:check && node scripts/check-tokens.mjs && node --test src/kinetic/*.test.ts",
+    "subset-font": "node scripts/subset-font.ts",
+    "tz-table": "node scripts/tz-table.ts && oxfmt src/kinetic/zones.ts",
     "fix": "oxfmt && oxlint --fix",
     "resume": "node scripts/resume.ts"
   },
@@ -34,6 +36,7 @@
     "oxfmt": "0.77.0",
     "oxlint": "1.92.0",
     "storybook": "10.6.5",
+    "subset-font": "^2.9.0",
     "typescript": "6.0.3"
   }
 }

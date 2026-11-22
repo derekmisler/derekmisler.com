@@ -37,15 +37,17 @@ import { panels } from './panels';
             <p class="lead">
               {panel.lead.map((part) => (part.href ? <a href={part.href}>{part.text}</a> : part.text))}
             </p>
-            <ul class="links">
-              {panel.links.map((link) => (
-                <li>
-                  <a href={link.href} download={link.download}>
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            {panel.links.length > 0 && (
+              <ul class="links">
+                {panel.links.map((link) => (
+                  <li>
+                    <a href={link.href} download={link.download}>
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
           </section>
         ))
       }

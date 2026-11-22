@@ -82,7 +82,7 @@ export const socialId = 'derekmisler';
 export const contact = [
   { href: `mailto:hello@${socialId}.com?subject=Hello!`, label: 'Email', altLabel: 'Send me an email' },
   { href: `https://www.linkedin.com/in/${socialId}/`, label: 'LinkedIn', altLabel: 'Let\u2019s connect' },
-  { href: `https://github.com/${socialId}`, label: 'GitHub', altLabel: 'Judge my code' },
+  { href: `https://github.com/${socialId}`, label: 'GitHub', altLabel: 'See my code' },
   {
     href: '/derek-misler-resume.pdf',
     download: 'Derek-Misler-Resume.pdf',

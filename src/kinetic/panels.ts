@@ -40,7 +40,8 @@ const content: Content[] = [
     id: navItems.contact.slug,
     label: navItems.contact.label,
     poster: navItems.contact.label,
-    lead: [{ text: 'Say hello, or judge my code.' }],
+    lead: [{ text: 'Say hello.' }],
+    links: [...contact, agentLink],
   },
 ];
 
@@ -53,15 +54,12 @@ export const posterSize = (poster: string, height: number) => {
   return `min((100cqi + var(--poster-bleed)) / ${em.toFixed(3)}, ${(height / words.length).toFixed(1)}svh)`;
 };
 
-export const panels = content.map((panel, index, all) => ({
+export const panels = content.map((panel, index) => ({
   ...panel,
   index,
   timeline: `--p${index}`,
   size: posterSize(panel.poster, panel.headline ? 40 : 64),
-  links: [
-    ...(panel.links ?? []),
-    ...(all[index + 1] ? [{ href: `#${all[index + 1].id}`, label: 'Next' }] : [...contact, agentLink]),
-  ] as Link[],
+  links: panel.links ?? [],
 }));
 
 const faces = [

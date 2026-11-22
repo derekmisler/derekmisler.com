@@ -1,20 +1,20 @@
 @font-face {
-  font-family: 'IBM Plex Sans';
-  font-weight: 450;
-  src: url('/fonts/sans/woff2/IBMPlexSans-Text.woff2') format('woff2');
+  font-family: 'Recursive Text';
+  src: url('/fonts/recursive-text.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'IBM Plex Sans';
-  font-weight: 700;
-  src: url('/fonts/sans/woff2/IBMPlexSans-Bold.woff2') format('woff2');
+  font-family: Recursive;
+  font-weight: 300 1000;
+  src: url('/fonts/recursive-kinetic.woff2') format('woff2');
+}
+
+@page {
+  size: letter;
+  margin: 0.55in;
 }
 
 :root {
-  --text: #37353e;
-  --background: #ffffff;
-  --background-accent: #d6ddf1;
-  --accent: #f7a5a5;
   --rule: 4px;
 }
 
@@ -24,25 +24,44 @@ html {
 
 body {
   margin: 0;
-  background: var(--background);
-  color: var(--text);
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-weight: 450;
-  line-height: 1.4;
+  color: var(--fg);
+  font-family: 'Recursive Text', sans-serif;
+  line-height: 1.45;
   text-wrap: pretty;
 }
 
 h1,
 h2,
+h3,
+strong,
+.role,
+.dates {
+  font-family: Recursive, sans-serif;
+  font-weight: normal;
+  font-variation-settings:
+    'wght' 800,
+    'MONO' 0,
+    'CASL' 0,
+    'slnt' 0;
+}
+
+h1,
+h2,
 h3 {
-  font-weight: 700;
   line-height: 1.1;
   margin: 0;
   break-after: avoid;
+  text-wrap: balance;
 }
 
 h1 {
-  font-size: 2.6rem;
+  font-size: 3rem;
+  line-height: 0.95;
+  font-variation-settings:
+    'wght' 1000,
+    'MONO' 0,
+    'CASL' 0,
+    'slnt' 0;
   border-top: calc(var(--rule) * 2) solid var(--accent);
   padding-top: 0.5rem;
 }
@@ -77,10 +96,13 @@ li {
 }
 
 li::before {
-  content: '•';
+  content: '';
   position: absolute;
-  left: 0.3rem;
-  color: var(--accent);
+  left: 0.2rem;
+  top: 0.55em;
+  width: 0.4em;
+  height: 0.4em;
+  background: var(--accent);
 }
 
 h2 + ul {
@@ -95,9 +117,9 @@ h2 + ul li {
 a {
   color: inherit;
   text-decoration: underline;
-  text-decoration-color: var(--background-accent);
-  text-decoration-thickness: 0.2em;
-  text-underline-offset: 0.15em;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 0.15em;
+  text-underline-offset: 0.3em;
 }
 
 h3 a {
@@ -106,8 +128,8 @@ h3 a {
 
 .role {
   font-size: 1.3rem;
-  font-weight: 700;
-  margin: 0.2rem 0 0.4rem;
+  color: var(--fg-muted);
+  margin: 0.3rem 0 0.4rem;
 }
 
 .links {
@@ -118,5 +140,11 @@ h3 a {
 
 .dates {
   float: right;
-  font-weight: 450;
+  color: var(--fg-muted);
+  font-size: 0.85em;
+  font-variation-settings:
+    'wght' 400,
+    'MONO' 1,
+    'CASL' 0,
+    'slnt' 0;
 }

@@ -1,3 +1,6 @@
 # Redirect /sitemap.xml to the Astro-generated sitemap index
 # Many SEO tools and crawlers check /sitemap.xml by default
 /sitemap.xml /sitemap-index.xml 301
+
+# Old resume URL, linked from outside the site
+/derek-misler-resume.pdf /derek-misler-resume-midday.pdf 301

@@ -372,10 +372,10 @@
 
       @keyframes drift {
         from {
-          --drift: 0;
+          --progress: 0;
         }
         to {
-          --drift: var(--drift-span);
+          --progress: 1;
         }
       }
 

@@ -38,6 +38,12 @@
   initial-value: 0;
 }
 
+@property --progress {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
 @property --drift {
   syntax: '<number>';
   inherits: true;
@@ -170,6 +176,10 @@
       'CASL' var(--casl),
       'slnt' var(--slnt);
   }
+}
+
+html:root {
+  --drift: calc(var(--progress) * var(--drift-span));
 }
 
 @utility ink-lit {

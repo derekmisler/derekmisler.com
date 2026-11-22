@@ -37,9 +37,13 @@
     --casl: 1;
   }
 
-  :not(.panel):focus-visible {
+  :focus-visible {
     outline: calc(--theme(--spacing-2xs) / 2) solid var(--accent);
     outline-offset: calc(--theme(--spacing-2xs) / 2);
+  }
+
+  .panel:focus-visible {
+    outline: none;
   }
 
   .rail {

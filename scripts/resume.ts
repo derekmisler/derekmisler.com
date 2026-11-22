@@ -13,12 +13,16 @@ const light = Object.fromEntries(
   Object.entries(declarations(themeCss, [':root'])).filter(([name]) => name.startsWith('--l-')),
 );
 
+const hues: Record<string, Record<string, string>> = {
+  dusk: { '--h-fg': 'var(--h-bg)', '--h-accent': 'var(--h-bg)' },
+};
+
 const inGamut = (color: { l: number; c: number; h: number }) =>
   linearSrgb(color).every((channel) => channel >= 0 && channel <= 1);
 
 // PDFs can't swap colors for print, so every theme assumes white paper and keeps its own hues.
 const tokens = (theme: string) =>
-  `:root{${Object.entries(palette(themeCss, themeSelectors(theme), light))
+  `:root{${Object.entries(palette(themeCss, themeSelectors(theme), { ...light, ...hues[theme] }))
     .map(([name, { l, c: chroma, h }]) => {
       let c = chroma;
       while (c > 0 && !inGamut({ l, c, h })) c = Math.max(0, c - 0.002);

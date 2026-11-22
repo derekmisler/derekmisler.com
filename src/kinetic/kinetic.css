@@ -281,6 +281,10 @@
     white-space: nowrap;
   }
 
+  .poster .word {
+    display: block;
+  }
+
   .letter {
     display: inline-block;
   }

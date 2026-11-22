@@ -394,26 +394,203 @@
       }
 
       .poster .letter {
-        animation-range: cover var(--shift) cover calc(100% + var(--shift));
+        animation-name: axes, var(--swap);
+        animation-timing-function: linear, step-end;
+        animation-fill-mode: both;
+        animation-timeline: var(--timeline), var(--timeline);
+        animation-range:
+          cover var(--shift) cover calc(100% + var(--shift)),
+          cover 0% cover 100%;
       }
 
       @keyframes axes {
         0%,
         20% {
           --wght: 300;
-          --mono: 1;
-          --slnt: -15;
         }
         45%,
         55% {
           --wght: var(--peak);
-          --mono: 0;
-          --slnt: 0;
         }
         80%,
         100% {
           --wght: 300;
+        }
+      }
+
+      @keyframes swap-0 {
+        0% {
           --mono: 1;
+          --slnt: 0;
+        }
+        7% {
+          --mono: 0;
+          --slnt: -15;
+        }
+        14% {
+          --mono: 1;
+          --slnt: -15;
+        }
+        21% {
+          --mono: 0;
+          --slnt: 0;
+        }
+        28% {
+          --mono: 1;
+          --slnt: 0;
+        }
+        35% {
+          --mono: 0;
+          --slnt: -15;
+        }
+        42% {
+          --mono: 0;
+          --slnt: 0;
+        }
+        58% {
+          --mono: 1;
+          --slnt: -15;
+        }
+        65% {
+          --mono: 0;
+          --slnt: 0;
+        }
+        72% {
+          --mono: 1;
+          --slnt: 0;
+        }
+        79% {
+          --mono: 0;
+          --slnt: -15;
+        }
+        86% {
+          --mono: 1;
+          --slnt: -15;
+        }
+        93% {
+          --mono: 0;
+          --slnt: 0;
+        }
+        100% {
+          --mono: 0;
+          --slnt: 0;
+        }
+      }
+
+      @keyframes swap-1 {
+        0% {
+          --mono: 0;
+          --slnt: -15;
+        }
+        7% {
+          --mono: 1;
+          --slnt: -15;
+        }
+        14% {
+          --mono: 0;
+          --slnt: 0;
+        }
+        21% {
+          --mono: 1;
+          --slnt: 0;
+        }
+        28% {
+          --mono: 0;
+          --slnt: -15;
+        }
+        35% {
+          --mono: 1;
+          --slnt: -15;
+        }
+        42% {
+          --mono: 0;
+          --slnt: 0;
+        }
+        58% {
+          --mono: 0;
+          --slnt: 0;
+        }
+        65% {
+          --mono: 1;
+          --slnt: 0;
+        }
+        72% {
+          --mono: 0;
+          --slnt: -15;
+        }
+        79% {
+          --mono: 1;
+          --slnt: -15;
+        }
+        86% {
+          --mono: 0;
+          --slnt: 0;
+        }
+        93% {
+          --mono: 1;
+          --slnt: 0;
+        }
+        100% {
+          --mono: 1;
+          --slnt: 0;
+        }
+      }
+
+      @keyframes swap-2 {
+        0% {
+          --mono: 1;
+          --slnt: -15;
+        }
+        7% {
+          --mono: 0;
+          --slnt: 0;
+        }
+        14% {
+          --mono: 1;
+          --slnt: 0;
+        }
+        21% {
+          --mono: 0;
+          --slnt: -15;
+        }
+        28% {
+          --mono: 1;
+          --slnt: -15;
+        }
+        35% {
+          --mono: 0;
+          --slnt: 0;
+        }
+        42% {
+          --mono: 0;
+          --slnt: 0;
+        }
+        58% {
+          --mono: 1;
+          --slnt: 0;
+        }
+        65% {
+          --mono: 0;
+          --slnt: -15;
+        }
+        72% {
+          --mono: 1;
+          --slnt: -15;
+        }
+        79% {
+          --mono: 0;
+          --slnt: 0;
+        }
+        86% {
+          --mono: 1;
+          --slnt: 0;
+        }
+        93% {
+          --mono: 0;
+          --slnt: -15;
+        }
+        100% {
+          --mono: 0;
           --slnt: -15;
         }
       }

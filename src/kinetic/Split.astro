@@ -6,7 +6,7 @@ const words = splitWords(text);
 const total = words.flat().length;
 let index = 0;
 const step = total > 1 ? 10 / (total - 1) : 0;
-const shift = () => `--shift: ${(index++ * step - 5).toFixed(2)}%`;
+const style = () => `--shift: ${(index * step - 5).toFixed(2)}%; --swap: swap-${index++ % 3}`;
 ---
 
 <span class="sr-only">{text}</span><span class="split" aria-hidden="true"
@@ -15,7 +15,7 @@ const shift = () => `--shift: ${(index++ * step - 5).toFixed(2)}%`;
       <>
         <span class="word">
           {word.map((letter) => (
-            <span class="letter" style={shift()}>
+            <span class="letter" style={style()}>
               {letter}
             </span>
           ))}

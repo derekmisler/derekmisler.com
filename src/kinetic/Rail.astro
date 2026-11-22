@@ -1,23 +1,19 @@
 ---
-import ThemeToggle from './ThemeToggle.astro';
 import { panels, railLayout } from './panels';
 
 const { items } = railLayout;
 ---
 
-<header class="rail">
-  <nav class="rail-nav" aria-label="Sections">
-    <ol class="rail-list">
-      {
-        panels.map((panel, index) => (
-          <li class="rail-item" style={`--timeline: ${panel.timeline}; ${items[index].style}`}>
-            <a class="rail-link" href={`#${panel.id}`}>
-              {panel.label}
-            </a>
-          </li>
-        ))
-      }
-    </ol>
-  </nav>
-  <ThemeToggle />
-</header>
+<nav class="rail" aria-label="Sections">
+  <ol class="rail-list">
+    {
+      panels.map((panel, index) => (
+        <li class="rail-item" style={`--timeline: ${panel.timeline}; ${items[index].style}`}>
+          <a class="rail-link" href={`#${panel.id}`}>
+            {panel.label}
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+</nav>

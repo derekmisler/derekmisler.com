@@ -3,11 +3,7 @@
 @layer kinetic {
   html {
     --rail-block: calc(
-      --theme(--spacing-xs) + --theme(--spacing-2xs) +
-        max(
-          --theme(--spacing-xl),
-          (100dvw - --theme(--spacing-xl) - --theme(--spacing-sm)) / var(--fit) * --theme(--leading-heading)
-        )
+      --theme(--spacing-xs) + --theme(--spacing-2xs) + 100dvw / var(--fit) * --theme(--leading-heading)
     );
     background: var(--bg);
     color: var(--fg);
@@ -44,18 +40,10 @@
     inset-block-start: 0;
     inset-inline: 0;
     z-index: 1;
-    display: flex;
-    align-items: end;
-    column-gap: --theme(--spacing-sm);
+    container-type: inline-size;
     padding-block-start: --theme(--spacing-xs);
     background: var(--bg);
     border-block-end: --theme(--spacing-2xs) solid var(--surface);
-  }
-
-  .rail-nav {
-    flex: 1;
-    min-inline-size: 0;
-    container-type: inline-size;
   }
 
   .rail-list {
@@ -69,13 +57,25 @@
   }
 
   .theme-toggle {
+    position: fixed;
+    inset-block-end: --theme(--spacing-sm);
+    inset-inline-end: --theme(--spacing-sm);
+    z-index: 1;
     display: grid;
     place-items: center;
-    flex: none;
-    inline-size: --theme(--spacing-xl);
-    block-size: --theme(--spacing-xl);
+    inline-size: --theme(--spacing-3xl);
+    block-size: --theme(--spacing-3xl);
     color: var(--fg);
+    background: var(--bg);
+    border: calc(--theme(--spacing-2xs) / 2) solid var(--fg);
     cursor: pointer;
+  }
+
+  @media (pointer: fine) {
+    .theme-toggle {
+      inline-size: --theme(--spacing-xl);
+      block-size: --theme(--spacing-xl);
+    }
   }
 
   html:not([data-choice]) .theme-toggle {
@@ -86,10 +86,6 @@
     inline-size: 80%;
     block-size: 80%;
     overflow: visible;
-  }
-
-  .theme-toggle:focus-visible {
-    outline-offset: calc(--theme(--spacing-2xs) / -2);
   }
 
   .theme-toggle :is(.rays, .horizon, .arrow) {

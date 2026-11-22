@@ -2,6 +2,7 @@
 import '@/kinetic/kinetic.css';
 
 import Rail from '@/kinetic/Rail.astro';
+import ThemeToggle from '@/kinetic/ThemeToggle.astro';
 import Track from '@/kinetic/Track.astro';
 import { boot } from '@/kinetic/boot';
 import { panels, railGap, railLayout } from '@/kinetic/panels';
@@ -25,6 +26,7 @@ const timelines = panels.map((panel) => panel.timeline).join(', ');
   <body>
     <Rail />
     <Track />
+    <ThemeToggle />
     <script>
       import '@/kinetic/switcher';
       import '@/kinetic/pointer';

@@ -32,6 +32,12 @@
   initial-value: 0;
 }
 
+@property --drift {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
 @property --slnt {
   syntax: '<number>';
   inherits: true;
@@ -73,10 +79,12 @@
   --c-fg: 0.05;
   --h-accent: 255;
   --c-accent: 0.16;
+  --drift: 0;
+  --drift-span: 50;
 
   --bg: oklch(var(--l-bg) var(--c-bg) var(--h-bg));
   --fg: oklch(var(--l-fg) var(--c-fg) var(--h-fg));
-  --accent: oklch(var(--l-accent) var(--c-accent) var(--h-accent));
+  --accent: oklch(var(--l-accent) var(--c-accent) calc(var(--h-accent) + var(--drift)));
   --surface: oklch(from var(--bg) var(--l-surface) c h);
   --fg-muted: oklch(from var(--fg) var(--l-fg-muted) calc(c * 0.8) h);
   --on-accent: oklch(from var(--accent) var(--l-bg) 0.01 h);
@@ -89,6 +97,7 @@
   --c-fg: 0.06;
   --h-accent: 25;
   --c-accent: 0.17;
+  --drift-span: -50;
 }
 
 :root[data-theme='dusk'] {
@@ -106,6 +115,7 @@
   --c-fg: 0.03;
   --h-accent: 60;
   --c-accent: 0.13;
+  --drift-span: 40;
 }
 
 :root[data-theme='night'] {
@@ -123,6 +133,7 @@
   --c-fg: 0.02;
   --h-accent: 200;
   --c-accent: 0.12;
+  --drift-span: -40;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -141,6 +152,7 @@
     --c-fg: 0.02;
     --h-accent: 200;
     --c-accent: 0.12;
+    --drift-span: -40;
   }
 }
 

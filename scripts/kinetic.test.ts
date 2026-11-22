@@ -3,7 +3,16 @@ import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 
 import { kineticErrors } from './check-tokens.mjs';
-import { contrast, linearSrgb, pairs, palette, themeFile, themeSelectors, themes } from './kinetic-palette.ts';
+import {
+  contrast,
+  declarations,
+  linearSrgb,
+  pairs,
+  palette,
+  themeFile,
+  themeSelectors,
+  themes,
+} from './kinetic-palette.ts';
 import { base, fluid, ratio, scaleCss, scaleFile } from './kinetic-scale.ts';
 import { panels, posterSize, rail } from '../src/kinetic/panels.ts';
 import { splitWords, stagger } from '../src/kinetic/split.ts';
@@ -26,6 +35,25 @@ test('every theme is in gamut, AA for each text and background pair, and the no-
   }
   assert.deepEqual(palette(css, [':root']), palette(css, themeSelectors('midday')));
   assert.deepEqual(palette(css, [':root', ':root:not([data-theme])']), palette(css, themeSelectors('night')));
+});
+
+test('the accent stays in gamut and AA across its whole drift', () => {
+  const css = readFileSync(themeFile, 'utf8');
+  for (const theme of themes) {
+    const span = Number(declarations(css, themeSelectors(theme))['--drift-span']);
+    assert.ok(Math.abs(span) >= 30, `${theme} barely drifts`);
+    for (let step = 0; step <= 10; step++) {
+      const drift = (span * step) / 10;
+      const colors = palette(`${css}\n:root { --drift: ${drift}; }`, themeSelectors(theme));
+      assert.ok(
+        linearSrgb(colors.accent).every((value) => value >= -0.001 && value <= 1.001),
+        `${theme} at ${drift}`,
+      );
+      for (const [text, background] of pairs.filter((pair) => pair.some((name) => name === 'accent'))) {
+        assert.ok(contrast(colors[text], colors[background]) >= 4.5, `${theme} ${text} on ${background} at ${drift}`);
+      }
+    }
+  }
 });
 
 test('the scale runs from ratio 1.25 at 360px to 1.5 at 1440px and the CSS is regenerated', () => {

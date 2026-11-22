@@ -115,7 +115,7 @@ test('panels run from intro to contact, with links only on the ends and posters 
   assert.ok(panels.slice(1, -1).every((panel) => panel.links.length === 0));
   assert.equal(
     posterSize('Derek Misler', 60),
-    'min((100cqi + var(--poster-bleed)) / 3.800, 30.0 * var(--poster-unit))',
+    'min((100cqi + var(--poster-bleed)) / 3.800, 30.0 * var(--poster-unit), var(--poster-fit) / 2)',
   );
   assert.equal(panels[0].size, posterSize('Derek Misler', 60));
   assert.equal(panels[1].size, posterSize('Gordon 2.0', 40));

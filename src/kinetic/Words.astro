@@ -1,0 +1,23 @@
+---
+import { stagger } from './split';
+
+const { text } = Astro.props as { text: string };
+const words = text.split(' ');
+const style = stagger(words.length);
+---
+
+<span class="sr-only">{text}</span><span class="split" aria-hidden="true"
+  >{
+    words.map((word, index) => (
+      <>
+        <span class="cell">
+          <span class="ghost">{word}</span>
+          <span class="live" style={style()}>
+            {word}
+          </span>
+        </span>
+        {index < words.length - 1 && ' '}
+      </>
+    ))
+  }</span
+>

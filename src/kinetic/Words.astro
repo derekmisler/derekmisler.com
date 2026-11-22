@@ -1,0 +1,29 @@
+---
+import { swapCount } from './swaps';
+
+const { text } = Astro.props as { text: string };
+const words = text.split(' ');
+const step = words.length > 1 ? 10 / (words.length - 1) : 0;
+let swap = -1;
+const style = (index: number) => {
+  swap = (swap + 1 + Math.floor(Math.random() * (swapCount - 1))) % swapCount;
+  const lag = (index * step - 5).toFixed(2);
+  return `--shift: ${lag}%; --lag: ${lag}; --swap: swap-${swap}`;
+};
+---
+
+<span class="sr-only">{text}</span><span class="split" aria-hidden="true"
+  >{
+    words.map((word, index) => (
+      <>
+        <span class="cell">
+          <span class="ghost">{word}</span>
+          <span class="live" style={style(index)}>
+            {word}
+          </span>
+        </span>
+        {index < words.length - 1 && ' '}
+      </>
+    ))
+  }</span
+>

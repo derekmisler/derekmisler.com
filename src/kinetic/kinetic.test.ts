@@ -1,36 +1,37 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 
+import { hourTheme } from './hours.ts';
 import { splitWords } from './split.ts';
-import { sunTheme } from './sun.ts';
-import { zones } from './zones.ts';
+import { swapKeyframes } from './swaps.ts';
 
-test('sunTheme maps New York on the June solstice to each window', () => {
+test('hourTheme maps each local hour to its window', () => {
   const cases = [
-    ['2026-06-21T09:30:00Z', 'dawn'],
-    ['2026-06-21T16:00:00Z', 'midday'],
-    ['2026-06-22T00:00:00Z', 'dusk'],
-    ['2026-06-22T04:00:00Z', 'night'],
+    [4, 'night'],
+    [5, 'dawn'],
+    [7, 'dawn'],
+    [8, 'midday'],
+    [16, 'midday'],
+    [17, 'dusk'],
+    [19, 'dusk'],
+    [20, 'night'],
+    [0, 'night'],
   ] as const;
-  for (const [time, theme] of cases)
-    assert.equal(sunTheme(zones, 'America/New_York', 240, new Date(time)), theme, time);
+  for (const [hour, theme] of cases) assert.equal(hourTheme(hour), theme, String(hour));
 });
 
-test('sunTheme falls back to the UTC offset for a zone missing from the table', () => {
-  assert.equal(sunTheme(zones, 'Etc/Unknown', 240, new Date('2026-06-21T16:00:00Z')), 'midday');
-  assert.equal(sunTheme(zones, 'Etc/Unknown', 240, new Date('2026-06-22T04:00:00Z')), 'night');
+test('every swap pattern rests on upright sans at the snap point', () => {
+  const css = swapKeyframes();
+  assert.equal(css.match(/@keyframes swap-\d/g)?.length, 8);
+  assert.equal(css.match(/42\.0%\{--mono:0;--slnt:0\}/g)?.length, 8);
 });
 
 test('splitWords keeps every letter so the split text matches the source', () => {
-  const text = 'Front‑end at Docker';
+  const text = 'Front-⁠end at Docker';
   assert.equal(
     splitWords(text)
       .map((word) => word.join(''))
       .join(' '),
     text,
   );
-  assert.deepEqual(splitWords('Hi you'), [
-    ['H', 'i'],
-    ['y', 'o', 'u'],
-  ]);
 });

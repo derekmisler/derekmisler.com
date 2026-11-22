@@ -2,10 +2,10 @@
 import '@/kinetic/kinetic.css';
 
 import Split from '@/kinetic/Split.astro';
+import Words from '@/kinetic/Words.astro';
 import ThemeToggle from '@/kinetic/ThemeToggle.astro';
-import { sunTheme } from '@/kinetic/sun';
+import { hourTheme } from '@/kinetic/hours';
 import { swapKeyframes } from '@/kinetic/swaps';
-import { zones } from '@/kinetic/zones';
 import { contact, fullName, navItems, statements } from '@/constants';
 
 type Panel = { id: string; poster: string; headline?: string; lead: string };
@@ -23,12 +23,12 @@ const panels = (
   ] satisfies Panel[] as Panel[]
 ).map((panel, index, all) => ({
   ...panel,
-  size: Math.min(22, 76 / (Math.max(...panel.poster.split(' ').map((word) => word.length)) * 0.75)).toFixed(1),
+  size: `min(${(140 / Math.max(...panel.poster.split(' ').map((word) => word.length))).toFixed(1)}cqi, ${(42 / panel.poster.split(' ').length).toFixed(1)}svh)`,
   links: all[index + 1] ? [{ href: `#${all[index + 1].id}`, label: 'Next' }] : contact,
 }));
 const swaps = `@media (prefers-reduced-motion: no-preference){${swapKeyframes()}}`;
 const timelines = panels.map((_, index) => `--p${index}`).join(', ');
-const boot = `(function(r,t){function f(){requestAnimationFrame(function(){requestAnimationFrame(function(){r.dataset.fonts=''})})}document.fonts.load('1em Recursive').then(f,f);setTimeout(f,3e3);r.dataset.auto=(${sunTheme.toString()})('${zones}',Intl.DateTimeFormat().resolvedOptions().timeZone,new Date().getTimezoneOffset(),new Date());try{t=localStorage.getItem('theme')}catch(e){}t=/^(dawn|midday|dusk|night)$/.test(t)?t:'auto';r.dataset.choice=t;r.dataset.theme=t=='auto'?r.dataset.auto:t})(document.documentElement)`;
+const boot = `(function(r,t){function f(){requestAnimationFrame(function(){requestAnimationFrame(function(){r.dataset.fonts=''})})}document.fonts.load('1em Recursive').then(f,f);setTimeout(f,3e3);r.dataset.auto=(${hourTheme.toString()})(new Date().getHours());try{t=localStorage.getItem('theme')}catch(e){}t=/^(dawn|midday|dusk|night)$/.test(t)?t:'auto';r.dataset.choice=t;r.dataset.theme=t=='auto'?r.dataset.auto:t})(document.documentElement)`;
 ---
 
 <html lang="en" style={`timeline-scope: ${timelines}`}>
@@ -59,7 +59,7 @@ const boot = `(function(r,t){function f(){requestAnimationFrame(function(){reque
                 id={panel.id}
                 tabindex="-1"
                 aria-labelledby={`${panel.id}-title`}
-                style={`--timeline: --p${index}; --index: ${index}; --poster-size: ${panel.size}cqi`}
+                style={`--timeline: --p${index}; --index: ${index}; --poster-size: ${panel.size}`}
               >
                 {index === 0 ? (
                   <h1 class="poster" id={`${panel.id}-title`}>
@@ -70,7 +70,11 @@ const boot = `(function(r,t){function f(){requestAnimationFrame(function(){reque
                     <Split text={panel.poster} />
                   </h2>
                 )}
-                {panel.headline && <p class="headline">{panel.headline}</p>}
+                {panel.headline && (
+                  <p class="headline">
+                    <Words text={panel.headline} />
+                  </p>
+                )}
                 <p class="lead">{panel.lead}</p>
                 <ul class="links">
                   {panel.links.map((link) => (

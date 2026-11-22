@@ -1,8 +1,8 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import subsetFont from 'subset-font';
 
-const [source, out = 'public/fonts/recursive.woff2'] = process.argv.slice(2);
-if (!source) throw new Error('Usage: node scripts/subset-font.ts <Recursive_VF.ttf> [out.woff2]');
+const [source, dir = 'public/fonts'] = process.argv.slice(2);
+if (!source) throw new Error('Usage: node scripts/subset-font.ts <Recursive_VF.ttf> [out-dir]');
 
 const ranges: [number, number][] = [
   [0x20, 0x7e],
@@ -26,12 +26,18 @@ const text = ranges
   .flatMap(([from, to]) => Array.from({ length: to - from + 1 }, (_, i) => String.fromCodePoint(from + i)))
   .join('');
 
-const font = await subsetFont(readFileSync(source), text, {
-  targetFormat: 'woff2',
-  variationAxes: { CRSV: 0 },
-  keepFeatures: ['rvrn', 'ccmp', 'locl', 'mark', 'mkmk', 'kern', 'liga', 'calt'],
-  noHinting: true,
-});
+const fonts = {
+  'recursive-text': { CRSV: 0, slnt: 0, MONO: 0, CASL: 0, wght: 400 },
+  'recursive-kinetic': { CRSV: 0 },
+};
 
-writeFileSync(out, font);
-console.log(`${out}: ${(font.length / 1024).toFixed(1)} KB`);
+for (const [name, variationAxes] of Object.entries(fonts)) {
+  const font = await subsetFont(readFileSync(source), text, {
+    targetFormat: 'woff2',
+    variationAxes,
+    keepFeatures: ['rvrn', 'ccmp', 'locl', 'mark', 'mkmk', 'kern', 'liga', 'calt'],
+    noHinting: true,
+  });
+  writeFileSync(`${dir}/${name}.woff2`, font);
+  console.log(`${name}.woff2: ${(font.length / 1024).toFixed(1)} KB`);
+}

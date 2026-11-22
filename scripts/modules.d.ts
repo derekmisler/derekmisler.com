@@ -4,7 +4,7 @@ declare module 'subset-font' {
     text: string,
     options: {
       targetFormat?: string;
-      variationAxes?: Record<string, number>;
+      variationAxes?: Record<string, number | { min: number; max: number }>;
       keepFeatures?: string[];
       noHinting?: boolean;
     },

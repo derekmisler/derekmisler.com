@@ -5,24 +5,38 @@ import Split from '@/kinetic/Split.astro';
 import ThemeToggle from '@/kinetic/ThemeToggle.astro';
 import { sunTheme } from '@/kinetic/sun';
 import { zones } from '@/kinetic/zones';
-import { contact, fullName, statements } from '@/constants';
+import { contact, fullName, navItems, statements } from '@/constants';
 
-const gordon = statements[0];
-const panels = [
-  { id: 'intro', poster: fullName, lead: 'Front‑end engineer at Docker. Type, layout and systems.', link: { href: '#gordon', label: 'Start' } },
-  { id: gordon.slug, poster: gordon.label, headline: gordon.headline, lead: gordon.detail, link: contact[0] },
-];
-const boot = `(function(r,t){r.dataset.auto=(${sunTheme.toString()})('${zones}',Intl.DateTimeFormat().resolvedOptions().timeZone,new Date().getTimezoneOffset(),new Date());try{t=localStorage.getItem('theme')}catch(e){}t=/^(dawn|midday|dusk|night)$/.test(t)?t:'auto';r.dataset.choice=t;r.dataset.theme=t=='auto'?r.dataset.auto:t})(document.documentElement)`;
+type Panel = { id: string; poster: string; headline?: string; lead: string };
+
+const panels = (
+  [
+  { id: 'intro', poster: fullName, lead: 'Front-\u2060end engineer at Docker. Type, layout and systems.' },
+  ...statements.map((statement) => ({
+    id: statement.slug,
+    poster: statement.label,
+    headline: statement.headline,
+    lead: statement.detail,
+  })),
+  { id: navItems.contact.slug, poster: navItems.contact.label, lead: 'Say hello, or judge my code.' },
+  ] satisfies Panel[] as Panel[]
+).map((panel, index, all) => ({
+  ...panel,
+  size: Math.min(22, 76 / (Math.max(...panel.poster.split(' ').map((word) => word.length)) * 0.75)).toFixed(1),
+  links: all[index + 1] ? [{ href: `#${all[index + 1].id}`, label: 'Next' }] : contact,
+}));
+const timelines = panels.map((_, index) => `--p${index}`).join(', ');
+const boot = `(function(r,t){function f(){requestAnimationFrame(function(){requestAnimationFrame(function(){r.dataset.fonts=''})})}document.fonts.load('1em Recursive').then(f,f);setTimeout(f,3e3);r.dataset.auto=(${sunTheme.toString()})('${zones}',Intl.DateTimeFormat().resolvedOptions().timeZone,new Date().getTimezoneOffset(),new Date());try{t=localStorage.getItem('theme')}catch(e){}t=/^(dawn|midday|dusk|night)$/.test(t)?t:'auto';r.dataset.choice=t;r.dataset.theme=t=='auto'?r.dataset.auto:t})(document.documentElement)`;
 ---
 
-<html lang="en">
+<html lang="en" style={`timeline-scope: ${timelines}`}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kinetic spike</title>
     <meta name="description" content="Kinetic typography spike" />
     <meta name="robots" content="noindex" />
-    <link rel="preload" as="font" type="font/woff2" href="/fonts/recursive.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/recursive-text.woff2" crossorigin />
     <script is:inline set:html={boot} />
   </head>
   <body>
@@ -37,7 +51,11 @@ const boot = `(function(r,t){r.dataset.auto=(${sunTheme.toString()})('${zones}',
         <div class="track">
           {
             panels.map((panel, index) => (
-              <section class="panel" aria-labelledby={`${panel.id}-title`} style={`--timeline: --p${index}`}>
+              <section
+                class="panel"
+                aria-labelledby={`${panel.id}-title`}
+                style={`--timeline: --p${index}; --poster-size: ${panel.size}cqi`}
+              >
                 {index === 0 ? (
                   <h1 class="poster" id={`${panel.id}-title`}>
                     <Split text={panel.poster} />
@@ -49,9 +67,13 @@ const boot = `(function(r,t){r.dataset.auto=(${sunTheme.toString()})('${zones}',
                 )}
                 {panel.headline && <p class="headline">{panel.headline}</p>}
                 <p class="lead">{panel.lead}</p>
-                <p>
-                  <a href={panel.link.href}>{panel.link.label}</a>
-                </p>
+                <ul class="links">
+                  {panel.links.map((link) => (
+                    <li>
+                      <a href={link.href}>{link.label}</a>
+                    </li>
+                  ))}
+                </ul>
               </section>
             ))
           }

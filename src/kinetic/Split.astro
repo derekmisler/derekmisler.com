@@ -10,7 +10,8 @@ const step = total > 1 ? 10 / (total - 1) : 0;
 let swap = -1;
 const style = () => {
   swap = (swap + 1 + Math.floor(Math.random() * (swapCount - 1))) % swapCount;
-  return `--shift: ${(index++ * step - 5).toFixed(2)}%; --swap: swap-${swap}`;
+  const lag = (index++ * step - 5).toFixed(2);
+  return `--shift: ${lag}%; --lag: ${lag}; --swap: swap-${swap}`;
 };
 ---
 

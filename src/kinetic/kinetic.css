@@ -477,13 +477,25 @@
 
       @media not (pointer: fine) {
         html {
-          scroll-snap-type: y proximity;
+          scroll-timeline: --page block;
         }
 
         .panel {
-          scroll-snap-align: start;
-          view-timeline: var(--timeline) block;
           border-block-end: 0.5rem solid var(--accent);
+        }
+
+        .poster .letter,
+        .headline {
+          animation-timeline: --page, --page;
+          animation-range:
+            calc((var(--index) - 1 + var(--lag, 0) / 50) * 100svh)
+              calc((var(--index) + 1 + var(--lag, 0) / 50) * 100svh),
+            calc((var(--index) - 1) * 100svh) calc((var(--index) + 1) * 100svh);
+        }
+
+        .headline {
+          animation-timeline: --page;
+          animation-range: calc((var(--index) - 1) * 100svh) calc((var(--index) + 1) * 100svh);
         }
       }
     }

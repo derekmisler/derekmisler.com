@@ -139,6 +139,37 @@ test('hourTheme maps each local hour to its window', () => {
   for (const [hour, theme] of cases) assert.equal(hourTheme(hour), theme, String(hour));
 });
 
+test('boot sets data-fonts only after the kinetic face loads on window load', async () => {
+  const dataset: Record<string, string> = {};
+  const loads: string[] = [];
+  const document = {
+    documentElement: { dataset },
+    fonts: {
+      load: (font: string) => {
+        loads.push(font);
+        return Promise.resolve([]);
+      },
+    },
+  };
+  let onLoad = () => {};
+  const addEventListener = (type: string, listener: () => void) => {
+    if (type === 'load') onLoad = listener;
+  };
+  const requestAnimationFrame = (callback: () => void) => callback();
+  new Function('document', 'localStorage', 'setTimeout', 'addEventListener', 'requestAnimationFrame', boot)(
+    document,
+    { getItem: () => null },
+    () => {},
+    addEventListener,
+    requestAnimationFrame,
+  );
+  await Promise.resolve();
+  assert.deepEqual([loads, dataset.fonts], [[], undefined]);
+  onLoad();
+  await Promise.resolve();
+  assert.deepEqual([loads, dataset.fonts], [['1em Recursive'], '']);
+});
+
 test('boot uses a stored theme and falls back to the hour theme for anything else', () => {
   const hour = new Date().getHours();
   const cases = [
@@ -148,13 +179,14 @@ test('boot uses a stored theme and falls back to the hour theme for anything els
   ] as const;
   for (const [stored, choice, theme] of cases) {
     const dataset: Record<string, string> = {};
-    const document = {
-      documentElement: { dataset },
-      addEventListener: () => {},
-      fonts: { load: () => new Promise(() => {}) },
-    };
+    const document = { documentElement: { dataset }, fonts: { load: () => new Promise(() => {}) } };
     const localStorage = { getItem: () => stored };
-    new Function('document', 'localStorage', 'setTimeout', boot)(document, localStorage, () => {});
+    new Function('document', 'localStorage', 'setTimeout', 'addEventListener', boot)(
+      document,
+      localStorage,
+      () => {},
+      () => {},
+    );
     assert.deepEqual([dataset.choice, dataset.theme], [choice, theme], String(stored));
   }
 });

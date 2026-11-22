@@ -91,6 +91,8 @@ export const contact = [
   },
 ] satisfies { href: string; label: string; altLabel: string; download?: string }[];
 
+export const agentLink = { href: '/llms.txt', label: 'For AI agents' };
+
 /**
  * High-level "about" bullets to feature near the top of the page.
  */

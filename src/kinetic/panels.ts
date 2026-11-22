@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 
 import { create, type Font } from 'fontkitten';
 
-import { contact, fullName, intro, navItems, statements } from '../constants.ts';
+import { agentLink, contact, fullName, intro, navItems, statements } from '../constants.ts';
 
 type Link = { href: string; label: string; download?: string };
 type Part = { text: string; href?: string };
@@ -60,7 +60,7 @@ export const panels = content.map((panel, index, all) => ({
   size: posterSize(panel.poster, panel.headline ? 40 : 64),
   links: [
     ...(panel.links ?? []),
-    ...(all[index + 1] ? [{ href: `#${all[index + 1].id}`, label: 'Next' }] : contact),
+    ...(all[index + 1] ? [{ href: `#${all[index + 1].id}`, label: 'Next' }] : [...contact, agentLink]),
   ] as Link[],
 }));
 

@@ -110,6 +110,7 @@ test('panels run from intro to contact, each linking to the next, with posters s
     panels[0].links.map((link) => link.label),
     ['Email', 'LinkedIn', 'GitHub', 'Resume', 'Next'],
   );
+  assert.equal(panels.at(-1)?.links.at(-1)?.href, '/llms.txt');
   assert.equal(panels.at(-1)?.id, 'contact');
   assert.ok(panels.slice(0, -1).every((panel, index) => panel.links.at(-1)?.href === `#${panels[index + 1].id}`));
   assert.equal(posterSize('Derek Misler', 64), 'min((100cqi + var(--poster-bleed)) / 3.800, 32.0svh)');

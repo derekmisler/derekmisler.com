@@ -55,7 +55,7 @@ const faces = [
   [600, 0, 1, 0],
 ] as const;
 
-export const railGap = 0.4;
+export const railGap = 1.2;
 
 export const rail = (labels: string[], random = Math.random) => {
   const order = faces.map((_, index) => index);

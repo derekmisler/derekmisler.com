@@ -386,6 +386,10 @@
       }
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     .letter {
       transition: --casl 0.3s ease-out;
     }
@@ -425,7 +429,6 @@
       @media (pointer: fine) {
         html {
           scroll-snap-type: y proximity;
-          scroll-behavior: smooth;
           scroll-timeline: --page block;
         }
 

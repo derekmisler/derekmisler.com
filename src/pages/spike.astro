@@ -47,7 +47,7 @@ const boot = `(function(r,t){function f(){requestAnimationFrame(function(){reque
     <main class="wrap" style={`--count: ${panels.length}`}>
       {
         panels.map((panel, index) => (
-          <div class="marker" id={panel.id} style={`--index: ${index}; --timeline: --p${index}`} />
+          <div class="marker" style={`--index: ${index}; --timeline: --p${index}`} />
         ))
       }
       <div class="viewport">
@@ -56,6 +56,8 @@ const boot = `(function(r,t){function f(){requestAnimationFrame(function(){reque
             panels.map((panel, index) => (
               <section
                 class="panel"
+                id={panel.id}
+                tabindex="-1"
                 aria-labelledby={`${panel.id}-title`}
                 style={`--timeline: --p${index}; --index: ${index}; --poster-size: ${panel.size}cqi`}
               >
@@ -85,14 +87,8 @@ const boot = `(function(r,t){function f(){requestAnimationFrame(function(){reque
     </main>
     <script>
       import '@/kinetic/switcher';
-    </script>
-    <script>
       import '@/kinetic/pointer';
-    </script>
-    <script>
       import '@/kinetic/focus';
-    </script>
-    <script>
       import '@/kinetic/shuffle';
     </script>
   </body>

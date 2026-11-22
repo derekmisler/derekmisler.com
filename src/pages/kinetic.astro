@@ -3,7 +3,8 @@ import '@/kinetic/kinetic.css';
 
 import Rail from '@/kinetic/Rail.astro';
 import Track from '@/kinetic/Track.astro';
-import { panels } from '@/kinetic/panels';
+import { boot } from '@/kinetic/boot';
+import { panels, railLayout } from '@/kinetic/panels';
 import { swapKeyframes } from '@/kinetic/swaps';
 import { fullName } from '@/constants';
 
@@ -11,17 +12,24 @@ const swaps = `@media (prefers-reduced-motion: no-preference){${swapKeyframes()}
 const timelines = panels.map((panel) => panel.timeline).join(', ');
 ---
 
-<html lang="en" style={`timeline-scope: ${timelines}`}>
+<html lang="en" style={`timeline-scope: ${timelines}; --fit: ${railLayout.fit}`}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullName}</title>
     <meta name="robots" content="noindex" />
     <link rel="preload" as="font" type="font/woff2" href="/fonts/recursive-text.woff2" crossorigin />
+    <script is:inline set:html={boot} />
     <style is:inline set:html={swaps}></style>
   </head>
   <body>
     <Rail />
     <Track />
+    <script>
+      import '@/kinetic/switcher';
+      import '@/kinetic/pointer';
+      import '@/kinetic/focus';
+      import '@/kinetic/shuffle';
+    </script>
   </body>
 </html>

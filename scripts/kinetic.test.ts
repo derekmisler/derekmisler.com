@@ -3,6 +3,8 @@ import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 
 import { kineticErrors } from './check-tokens.mjs';
+import { boot } from '../src/kinetic/boot.ts';
+import { hourTheme } from '../src/kinetic/hours.ts';
 import {
   contrast,
   declarations,
@@ -110,4 +112,35 @@ test('panels run from intro to contact, each linking to the next, with posters s
   const { items, fit } = rail(['Home', 'Gordon'], () => 0);
   assert.equal(new Set(items.map((item) => item.style)).size, 2);
   assert.equal(fit, (items[0].em + items[1].em).toFixed(3));
+});
+
+test('hourTheme maps each local hour to its window', () => {
+  const cases = [
+    [4, 'night'],
+    [5, 'dawn'],
+    [8, 'dawn'],
+    [9, 'midday'],
+    [15, 'midday'],
+    [16, 'dusk'],
+    [19, 'dusk'],
+    [20, 'night'],
+    [0, 'night'],
+  ] as const;
+  for (const [hour, theme] of cases) assert.equal(hourTheme(hour), theme, String(hour));
+});
+
+test('boot uses a stored theme and falls back to the hour theme for anything else', () => {
+  const hour = new Date().getHours();
+  const cases = [
+    ['night', 'night', 'night'],
+    ['sepia', 'auto', hourTheme(hour)],
+    [null, 'auto', hourTheme(hour)],
+  ] as const;
+  for (const [stored, choice, theme] of cases) {
+    const dataset: Record<string, string> = {};
+    const document = { documentElement: { dataset }, fonts: { load: () => new Promise(() => {}) } };
+    const localStorage = { getItem: () => stored };
+    new Function('document', 'localStorage', 'setTimeout', boot)(document, localStorage, () => {});
+    assert.deepEqual([dataset.choice, dataset.theme], [choice, theme], String(stored));
+  }
 });

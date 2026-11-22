@@ -73,3 +73,5 @@ export const rail = (labels: string[], random = Math.random) => {
   });
   return { items, fit: items.reduce((sum, item) => sum + item.em, 0).toFixed(3) };
 };
+
+export const railLayout = rail(panels.map((panel) => panel.label));

@@ -58,7 +58,7 @@ export const panels = content.map((panel, index) => ({
   ...panel,
   index,
   timeline: `--p${index}`,
-  size: posterSize(panel.poster, panel.headline ? 40 : 64),
+  size: posterSize(panel.poster, panel.headline ? 40 : 60),
   links: panel.links ?? [],
 }));
 

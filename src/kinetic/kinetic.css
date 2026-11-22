@@ -443,7 +443,7 @@
         }
       }
 
-      @media not (pointer: fine) {
+      @media not ((pointer: fine) and (min-height: 48rem)) {
         :is(.poster .letter, .headline .live) {
           animation-timeline: --page, --page;
           animation-range:
@@ -497,7 +497,7 @@
         }
       }
 
-      @media (pointer: fine) {
+      @media (pointer: fine) and (min-height: 48rem) {
         .wrap {
           position: relative;
           block-size: calc(var(--count) * 100svh);

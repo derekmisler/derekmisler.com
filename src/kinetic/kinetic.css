@@ -67,7 +67,7 @@
     block-size: --theme(--spacing-3xl);
     color: var(--fg);
     background: var(--bg);
-    border: calc(--theme(--spacing-2xs) / 2) solid var(--fg);
+    border: calc(--theme(--spacing-2xs) / 2) solid var(--accent);
     cursor: pointer;
   }
 

@@ -6,7 +6,7 @@
       --theme(--spacing-xs) + --theme(--spacing-2xs) + 100dvw / var(--fit) * --theme(--leading-heading)
     );
     --toggle: --theme(--spacing-3xl);
-    --poster-budget: 0;
+    --poster-unit: 1svh;
     background: var(--bg);
     color: var(--fg);
   }
@@ -19,7 +19,7 @@
 
   @media (orientation: landscape) and (max-height: 30rem) {
     html {
-      --poster-budget: 80;
+      --poster-unit: 1svw;
     }
   }
 

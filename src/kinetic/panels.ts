@@ -51,7 +51,7 @@ const widestEm = (word: string) =>
 export const posterSize = (poster: string, height: number) => {
   const words = poster.split(' ');
   const em = Math.max(...words.map(widestEm));
-  return `min((100cqi + var(--poster-bleed)) / ${em.toFixed(3)}, max(${height}, var(--poster-budget)) / ${words.length} * 1svh)`;
+  return `min((100cqi + var(--poster-bleed)) / ${em.toFixed(3)}, ${(height / words.length).toFixed(1)} * var(--poster-unit))`;
 };
 
 export const panels = content.map((panel, index) => ({

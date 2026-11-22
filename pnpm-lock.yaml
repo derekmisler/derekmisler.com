@@ -42,6 +42,9 @@ importers:
       '@types/lodash-es':
         specifier: 4.17.12
         version: 4.17.12
+      fontkitten:
+        specifier: 1.0.3
+        version: 1.0.3
       md-to-pdf:
         specifier: 5.2.5
         version: 5.2.5

@@ -1,0 +1,49 @@
+---
+import Split from './Split.astro';
+import Words from './Words.astro';
+import { panels } from './panels';
+---
+
+<main class="wrap" style={`--count: ${panels.length}`}>
+  {panels.map((panel) => <div class="marker" style={`--index: ${panel.index}; --timeline: ${panel.timeline}`} />)}
+  <div class="viewport">
+    <div class="track">
+      {
+        panels.map((panel) => (
+          <section
+            class="panel"
+            id={panel.id}
+            tabindex="-1"
+            aria-labelledby={`${panel.id}-title`}
+            style={`--index: ${panel.index}; --timeline: ${panel.timeline}; --poster-size: ${panel.size}`}
+          >
+            {panel.index === 0 ? (
+              <h1 class="poster" id={`${panel.id}-title`}>
+                <Split text={panel.poster} />
+              </h1>
+            ) : (
+              <h2 class="poster" id={`${panel.id}-title`}>
+                <Split text={panel.poster} />
+              </h2>
+            )}
+            {panel.headline && (
+              <p class="headline">
+                <Words text={panel.headline} />
+              </p>
+            )}
+            <p class="lead">{panel.lead}</p>
+            <ul class="links">
+              {panel.links.map((link) => (
+                <li>
+                  <a href={link.href} download={link.download}>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))
+      }
+    </div>
+  </div>
+</main>

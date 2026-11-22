@@ -1,0 +1,19 @@
+---
+import { panels, rail } from './panels';
+
+const { items, fit } = rail(panels.map((panel) => panel.label));
+---
+
+<nav class="rail" aria-label="Sections">
+  <ol class="rail-list" style={`--fit: ${fit}`}>
+    {
+      panels.map((panel, index) => (
+        <li class="rail-item" style={`--timeline: ${panel.timeline}; ${items[index].style}`}>
+          <a class="rail-link" href={`#${panel.id}`}>
+            {panel.label}
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+</nav>

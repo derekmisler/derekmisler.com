@@ -5,6 +5,7 @@ import { test } from 'node:test';
 import { kineticErrors } from './check-tokens.mjs';
 import { contrast, linearSrgb, pairs, palette, themeFile, themeSelectors, themes } from './kinetic-palette.ts';
 import { base, fluid, ratio, scaleCss, scaleFile } from './kinetic-scale.ts';
+import { panels, posterSize, rail } from '../src/kinetic/panels.ts';
 import { splitWords, stagger } from '../src/kinetic/split.ts';
 import { swapCount, swapKeyframes } from '../src/kinetic/swaps.ts';
 
@@ -71,4 +72,14 @@ test('split text matches the source and neighbors never share a swap', () => {
   assert.match(styles.at(-1) ?? '', /--lag: 5\.00;/);
   const swaps = styles.map((value) => value.match(/swap-(\d)/)?.[1]);
   assert.ok(swaps.every((swap, index) => index === 0 || swap !== swaps[index - 1]));
+});
+
+test('panels run from intro to contact, each linking to the next, with posters sized to fit', () => {
+  assert.equal(panels[0].id, 'home');
+  assert.equal(panels.at(-1)?.id, 'contact');
+  assert.ok(panels.slice(0, -1).every((panel, index) => panel.links[0].href === `#${panels[index + 1].id}`));
+  assert.equal(posterSize('Derek Misler'), 'min(23.3cqi, 21.0svh)');
+  const { items, fit } = rail(['Home', 'Gordon'], () => 0);
+  assert.equal(new Set(items.map((item) => item.style)).size, 2);
+  assert.equal(fit, (items[0].em + items[1].em).toFixed(3));
 });

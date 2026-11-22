@@ -1,0 +1,239 @@
+@import '../styles/kinetic-theme.css';
+
+@layer kinetic {
+  html {
+    background: var(--bg);
+    color: var(--fg);
+  }
+
+  body {
+    font-family: --theme(--font-text);
+    font-size: --theme(--text-body);
+    line-height: --theme(--leading-body);
+    overflow-x: clip;
+  }
+
+  a {
+    color: inherit;
+    text-decoration-line: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 0.25em;
+    text-underline-offset: 0.25em;
+  }
+
+  .rail {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline: 0;
+    z-index: 1;
+    container-type: inline-size;
+    padding-block-start: --theme(--spacing-xs);
+    background: var(--bg);
+  }
+
+  .rail-list {
+    display: flex;
+    font-family: --theme(--font-kinetic);
+    font-size: calc(100cqi / var(--fit));
+    font-kerning: none;
+    line-height: --theme(--leading-heading);
+    white-space: nowrap;
+    list-style: none;
+    border-block-end: --theme(--spacing-2xs) solid var(--surface);
+  }
+
+  .rail-item {
+    position: relative;
+  }
+
+  .rail-item:last-child {
+    flex-grow: 1;
+  }
+
+  .rail-link {
+    display: block;
+    text-decoration: none;
+  }
+
+  .marker {
+    display: none;
+  }
+
+  .panel {
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: --theme(--spacing-lg);
+    min-block-size: 100svh;
+    padding-block: calc(--theme(--spacing-xl) + --theme(--spacing-2xs) + --theme(--spacing-lg)) --theme(--spacing-xl);
+    padding-inline: --theme(--spacing-xl);
+    border-block-end: --theme(--spacing-2xs) solid var(--accent);
+  }
+
+  .poster,
+  .headline {
+    font-family: --theme(--font-kinetic);
+    font-weight: normal;
+    --wght: var(--peak);
+  }
+
+  .poster {
+    --peak: 1000;
+    font-size: max(--theme(--text-h2), var(--poster-size));
+    line-height: --theme(--leading-poster);
+  }
+
+  .headline {
+    --peak: 800;
+    max-inline-size: 22ch;
+    font-size: --theme(--text-h2);
+    line-height: --theme(--leading-heading);
+  }
+
+  .lead {
+    max-inline-size: 48ch;
+    font-size: --theme(--text-lead);
+    line-height: --theme(--leading-lead);
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: --theme(--spacing-sm) --theme(--spacing-lg);
+    list-style: none;
+  }
+
+  .word,
+  .letter {
+    display: inline-block;
+  }
+
+  .word {
+    white-space: nowrap;
+  }
+
+  .poster .word {
+    display: block;
+  }
+
+  .cell {
+    display: inline-grid;
+  }
+
+  .cell > * {
+    grid-area: 1 / 1;
+  }
+
+  .ghost {
+    visibility: hidden;
+    --wght: var(--peak);
+    --slnt: 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      html {
+        scroll-timeline: --page block;
+      }
+
+      .panel {
+        view-timeline: var(--timeline) block;
+      }
+
+      .rail-item::after {
+        content: '';
+        position: absolute;
+        inset-inline: 0;
+        inset-block-start: 100%;
+        block-size: --theme(--spacing-2xs);
+        background: var(--accent);
+        transform-origin: left;
+        animation: rail-fill linear both;
+        animation-timeline: var(--timeline);
+        animation-range: cover 0% contain 0%;
+      }
+
+      .rail-link {
+        animation: rail-active linear both;
+        animation-timeline: var(--timeline);
+        animation-range: cover 0% cover 100%;
+      }
+
+      @keyframes rail-fill {
+        from {
+          scale: 0 1;
+        }
+        to {
+          scale: 1 1;
+        }
+      }
+
+      @keyframes rail-active {
+        0%,
+        24.9%,
+        75.1%,
+        100% {
+          color: var(--fg);
+        }
+        25%,
+        75% {
+          color: var(--accent);
+        }
+      }
+
+      @media (pointer: fine) {
+        html {
+          scroll-snap-type: y proximity;
+        }
+
+        .wrap {
+          position: relative;
+          block-size: calc(var(--count) * 100svh);
+        }
+
+        .marker {
+          display: block;
+          position: absolute;
+          inset-inline: 0;
+          inset-block-start: calc(var(--index) * 100svh);
+          block-size: 100svh;
+          scroll-snap-align: start;
+          view-timeline: var(--timeline) block;
+          pointer-events: none;
+        }
+
+        .viewport {
+          position: sticky;
+          inset-block-start: 0;
+          block-size: 100svh;
+          overflow: clip;
+        }
+
+        .track {
+          display: flex;
+          inline-size: calc(var(--count) * 100dvw);
+          block-size: 100%;
+          animation: slide linear both;
+          animation-timeline: --page;
+        }
+
+        .panel {
+          flex: none;
+          inline-size: 100dvw;
+          block-size: 100%;
+          min-block-size: 0;
+          border-block-end: 0;
+          border-inline-end: --theme(--spacing-2xs) solid var(--accent);
+          view-timeline: none;
+        }
+
+        @keyframes slide {
+          to {
+            translate: calc((1 - var(--count)) * 100dvw);
+          }
+        }
+      }
+    }
+  }
+}

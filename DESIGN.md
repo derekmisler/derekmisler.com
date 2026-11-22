@@ -131,7 +131,7 @@ Each panel has up to four tiers. Split text renders the full string in `.sr-only
 
 ### Motion on the type
 
-On the `--page` timeline, each poster letter and headline word swings `--wght` from 300 to its peak and back as its panel passes, with a stagger (`--lag`, `--shift`) across the word. A second, stepped animation swaps styles: poster letters mix sans, mono, slant and mono slant; headline words mix upright and slant. Eight swap patterns (`swapKeyframes()` in `swaps.ts`) are built per deploy and inlined in the head inside the motion guard. `shuffle.ts` reassigns them on each visit; neighbors never share one. Every pattern rests on upright sans at 42%, when the panel is in place.
+On its panel's view timeline (`--p0` to `--p6`), each poster letter and headline word swings `--wght` from 300 to its peak and back as its panel passes, with a stagger (`--lag`, `--shift`) across the word. A second, stepped animation swaps styles: poster letters mix sans, mono, slant and mono slant; headline words mix upright and slant. Eight swap patterns (`swapKeyframes()` in `swaps.ts`) are built per deploy and inlined in the head inside the motion guard. `shuffle.ts` reassigns them on each visit; neighbors never share one. Every pattern rests on upright sans at 42%, when the panel is in place.
 
 Leads and link lists rise in when a panel crosses `cover 30%` to `cover 70%`, only where `timeline-trigger` is supported.
 

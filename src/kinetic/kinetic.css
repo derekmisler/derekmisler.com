@@ -454,13 +454,6 @@
         }
       }
 
-      :is(.poster .letter, .headline .live) {
-        animation-timeline: --page, --page;
-        animation-range:
-          calc((var(--index) - 1 + var(--lag) / 50) * 100svh) calc((var(--index) + 1 + var(--lag) / 50) * 100svh),
-          calc((var(--index) - 1) * 100svh) calc((var(--index) + 1) * 100svh);
-      }
-
       .panel {
         view-timeline: var(--timeline) block;
       }

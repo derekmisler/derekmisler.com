@@ -29,6 +29,7 @@
     "tailwindcss": "4.3.3"
   },
   "devDependencies": {
+    "@emnapi/runtime": "1.11.3",
     "@storybook-astro/framework": "1.15.0",
     "@storybook/builder-vite": "10.6.7",
     "@types/lodash-es": "4.17.12",

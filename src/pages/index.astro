@@ -91,6 +91,7 @@ const jsonLd = {
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
+    <a class="skip-link sr-only focus:not-sr-only" href={`#${panels[0].id}`}>Skip to main content</a>
     <Rail />
     <Track />
     <ThemeToggle />

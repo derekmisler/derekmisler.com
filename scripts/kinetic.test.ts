@@ -44,7 +44,7 @@ test('kinetic files enforce the five token rules', () => {
     ['src/kinetic/a.css', 'p { padding: 1rem; }', 'arbitrary value "1rem"'],
   ];
   for (const [name, source, message] of cases) {
-    assert.match(kineticErrors(name, source).join('\n'), new RegExp(message.replace(/[()[\]]/g, '\\$&')), source);
+    assert.ok(kineticErrors(name, source).join('\n').includes(message), source);
   }
   const clean = `@media (prefers-reduced-motion: no-preference) {
   @supports (x: if(style(--a): 1)) { p { animation: spin var(--slow); color: if(style(--a): var(--fg)); } }

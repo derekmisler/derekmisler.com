@@ -55,21 +55,30 @@ const faces = [
   [600, 0, 1, 0],
 ] as const;
 
+export const railGap = 0.6;
+export const railSpace = 0.25;
+
 export const rail = (labels: string[], random = Math.random) => {
   const order = faces.map((_, index) => index);
   for (let i = order.length - 1; i > 0; i--) {
     const j = Math.floor(random() * (i + 1));
     [order[i], order[j]] = [order[j], order[i]];
   }
+  const advance = (char: string) => font.glyphForCodePoint(char.codePointAt(0) ?? 0).advanceWidth / font.unitsPerEm;
   const items = labels.map((label, index) => {
-    const [wght, mono, casl, slnt] = faces[order[index % order.length]];
-    const em = mono
-      ? Array.from(label).length * 0.6
-      : Array.from(label).reduce(
-          (sum, char) => sum + font.glyphForCodePoint(char.codePointAt(0) ?? 0).advanceWidth,
-          0,
-        ) / font.unitsPerEm;
-    return { em, style: `--wght: ${wght}; --mono: ${mono}; --casl: ${casl}; --slnt: ${slnt}` };
+    const [, mono, casl, slnt] = faces[order[index % order.length]];
+    const wght = index % 2 ? 300 : 1000;
+    const space = mono ? 0.6 : advance(' ');
+    const em = Array.from(label).reduce(
+      (sum, char) => sum + (char === ' ' ? railSpace : mono ? 0.6 : advance(char)),
+      0,
+    );
+    return {
+      em,
+      style: `--wght: ${wght}; --mono: ${mono}; --casl: ${casl}; --slnt: ${slnt}; word-spacing: ${(railSpace - space).toFixed(3)}em`,
+    };
   });
-  return { items, fit: items.reduce((sum, item) => sum + item.em, 0).toFixed(3) };
+  return { items, fit: items.reduce((sum, item) => sum + item.em, (labels.length - 1) * railGap).toFixed(3) };
 };
+
+export const railLayout = rail(panels.map((panel) => panel.label));

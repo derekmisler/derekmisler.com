@@ -1,11 +1,11 @@
 ---
-import { panels, rail } from './panels';
+import { panels, railLayout } from './panels';
 
-const { items, fit } = rail(panels.map((panel) => panel.label));
+const { items } = railLayout;
 ---
 
 <nav class="rail" aria-label="Sections">
-  <ol class="rail-list" style={`--fit: ${fit}`}>
+  <ol class="rail-list">
     {
       panels.map((panel, index) => (
         <li class="rail-item" style={`--timeline: ${panel.timeline}; ${items[index].style}`}>

@@ -3,6 +3,8 @@ import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 
 import { kineticErrors } from './check-tokens.mjs';
+import { boot } from '../src/kinetic/boot.ts';
+import { hourTheme } from '../src/kinetic/hours.ts';
 import {
   contrast,
   declarations,
@@ -14,7 +16,7 @@ import {
   themes,
 } from './kinetic-palette.ts';
 import { base, fluid, ratio, scaleCss, scaleFile } from './kinetic-scale.ts';
-import { panels, posterSize, rail } from '../src/kinetic/panels.ts';
+import { panels, posterSize, rail, railGap } from '../src/kinetic/panels.ts';
 import { splitWords, stagger } from '../src/kinetic/split.ts';
 import { swapCount, swapKeyframes } from '../src/kinetic/swaps.ts';
 
@@ -108,6 +110,40 @@ test('panels run from intro to contact, each linking to the next, with posters s
   assert.ok(panels.slice(0, -1).every((panel, index) => panel.links[0].href === `#${panels[index + 1].id}`));
   assert.equal(posterSize('Derek Misler'), 'min(23.3cqi, 21.0svh)');
   const { items, fit } = rail(['Home', 'Gordon'], () => 0);
-  assert.equal(new Set(items.map((item) => item.style)).size, 2);
-  assert.equal(fit, (items[0].em + items[1].em).toFixed(3));
+  assert.deepEqual(
+    items.map((item) => item.style.match(/--wght: (\d+)/)?.[1]),
+    ['1000', '300'],
+  );
+  assert.equal(fit, (items[0].em + items[1].em + railGap).toFixed(3));
+});
+
+test('hourTheme maps each local hour to its window', () => {
+  const cases = [
+    [4, 'night'],
+    [5, 'dawn'],
+    [8, 'dawn'],
+    [9, 'midday'],
+    [15, 'midday'],
+    [16, 'dusk'],
+    [19, 'dusk'],
+    [20, 'night'],
+    [0, 'night'],
+  ] as const;
+  for (const [hour, theme] of cases) assert.equal(hourTheme(hour), theme, String(hour));
+});
+
+test('boot uses a stored theme and falls back to the hour theme for anything else', () => {
+  const hour = new Date().getHours();
+  const cases = [
+    ['night', 'night', 'night'],
+    ['sepia', 'auto', hourTheme(hour)],
+    [null, 'auto', hourTheme(hour)],
+  ] as const;
+  for (const [stored, choice, theme] of cases) {
+    const dataset: Record<string, string> = {};
+    const document = { documentElement: { dataset }, fonts: { load: () => new Promise(() => {}) } };
+    const localStorage = { getItem: () => stored };
+    new Function('document', 'localStorage', 'setTimeout', boot)(document, localStorage, () => {});
+    assert.deepEqual([dataset.choice, dataset.theme], [choice, theme], String(stored));
+  }
 });

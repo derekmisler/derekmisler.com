@@ -2,8 +2,18 @@
 
 @layer kinetic {
   html {
+    --rail-block: calc(
+      --theme(--spacing-xs) + --theme(--spacing-2xs) + 100dvw / var(--fit) * --theme(--leading-heading)
+    );
+    --toggle: --theme(--spacing-3xl);
     background: var(--bg);
     color: var(--fg);
+  }
+
+  @media (pointer: fine) {
+    html {
+      --toggle: --theme(--spacing-xl);
+    }
   }
 
   body {
@@ -40,6 +50,7 @@
     container-type: inline-size;
     padding-block-start: --theme(--spacing-xs);
     background: var(--bg);
+    border-block-end: --theme(--spacing-2xs) solid var(--surface);
   }
 
   .rail-list {
@@ -50,11 +61,124 @@
     line-height: --theme(--leading-heading);
     white-space: nowrap;
     list-style: none;
-    border-block-end: --theme(--spacing-2xs) solid var(--surface);
+  }
+
+  .theme-toggle {
+    position: fixed;
+    inset-block-end: --theme(--spacing-sm);
+    inset-inline-end: --theme(--spacing-sm);
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    inline-size: var(--toggle);
+    block-size: var(--toggle);
+    color: var(--fg);
+    background: var(--bg);
+    border: calc(--theme(--spacing-2xs) / 2) solid var(--accent);
+    cursor: pointer;
+  }
+
+  html:not([data-choice]) .theme-toggle {
+    display: none;
+  }
+
+  .theme-toggle svg {
+    inline-size: 80%;
+    block-size: 80%;
+    overflow: visible;
+  }
+
+  .theme-toggle :is(.rays, .horizon, .arrow) {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: square;
+  }
+
+  .theme-toggle .body {
+    fill: var(--accent);
+  }
+
+  .theme-toggle .stars {
+    fill: currentColor;
+    transform: scale(0) rotate(-90deg);
+  }
+
+  .theme-toggle .orbit {
+    stroke: var(--accent);
+    stroke-width: 1.5;
+    stroke-dasharray: 2 4;
+    opacity: 0;
+  }
+
+  .theme-toggle :is(.sun, .rays, .bite, .sky, .horizon, .arrow, .stars, .orbit) {
+    transform-box: view-box;
+    transform-origin: 16px 16px;
+  }
+
+  .theme-toggle .bite {
+    transform: translate(12px, -12px);
+  }
+
+  .theme-toggle :is(.horizon, .arrow) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  :root:is([data-theme='dawn'], [data-theme='dusk']) .theme-toggle {
+    .sun {
+      transform: translateY(6px);
+    }
+
+    .rays {
+      transform: scale(0.85) rotate(45deg);
+    }
+
+    .sky {
+      transform: translateY(-10px);
+    }
+
+    :is(.horizon, .arrow) {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  :root[data-theme='dusk'] .theme-toggle {
+    .rays {
+      transform: scale(0.85) rotate(-45deg);
+    }
+
+    .arrow {
+      transform: rotate(180deg);
+      transform-origin: 16px 27px;
+    }
+  }
+
+  :root[data-theme='night'] .theme-toggle {
+    .rays {
+      transform: scale(0) rotate(90deg);
+    }
+
+    :is(.bite, .stars) {
+      transform: none;
+    }
+  }
+
+  :root[data-choice='auto'] .theme-toggle .orbit {
+    opacity: 1;
+  }
+
+  :root[data-choice]:not([data-fonts]) :is(.poster, .headline) {
+    visibility: hidden;
   }
 
   .rail-item {
     position: relative;
+  }
+
+  .rail-item:not(:last-child) {
+    padding-inline-end: var(--rail-gap);
   }
 
   .rail-item:last-child {
@@ -81,7 +205,7 @@
     justify-content: center;
     gap: --theme(--spacing-lg);
     min-block-size: 100svh;
-    padding-block: calc(--theme(--spacing-xl) + --theme(--spacing-2xs) + --theme(--spacing-lg)) --theme(--spacing-xl);
+    padding-block: calc(var(--rail-block) + --theme(--spacing-lg)) calc(var(--toggle) + --theme(--spacing-sm) * 2);
     padding-inline: --theme(--spacing-xl);
     border-block-end: --theme(--spacing-2xs) solid var(--accent);
   }
@@ -159,6 +283,79 @@
       transition:
         --wght 0.3s ease-out,
         --casl 0.3s ease-out;
+    }
+
+    .poster .letter {
+      transition: --casl 0.3s ease-out;
+    }
+
+    ::view-transition-old(root) {
+      animation: none;
+    }
+
+    ::view-transition-new(root) {
+      animation: reveal 0.7s ease-in-out;
+    }
+
+    @keyframes reveal {
+      from {
+        clip-path: circle(0 at var(--reveal-x) var(--reveal-y));
+      }
+      to {
+        clip-path: circle(150vmax at var(--reveal-x) var(--reveal-y));
+      }
+    }
+
+    .theme-toggle {
+      --spring: linear(
+        0,
+        0.009,
+        0.035 2.1%,
+        0.141,
+        0.281 6.7%,
+        0.723 12.9%,
+        0.938 16.7%,
+        1.017,
+        1.077,
+        1.121,
+        1.149 24.3%,
+        1.159,
+        1.163,
+        1.161,
+        1.154 29.9%,
+        1.129 32.8%,
+        1.051 39.6%,
+        1.017 43.1%,
+        0.991,
+        0.977 51%,
+        0.974 53.8%,
+        0.975 57.1%,
+        0.997 69.8%,
+        1.003 76.9%,
+        1
+      );
+      transition: scale 0.4s var(--spring);
+    }
+
+    .theme-toggle:active {
+      scale: 0.88;
+    }
+
+    .theme-toggle :is(.sun, .rays, .bite, .sky, .horizon, .arrow, .stars) {
+      transition:
+        transform 0.9s var(--spring),
+        opacity 0.3s ease-out;
+    }
+
+    .theme-toggle .orbit {
+      transition: opacity 0.3s ease-out;
+      animation: orbit 12s linear infinite;
+    }
+
+    @keyframes orbit {
+      to {
+        rotate: 1turn;
+      }
     }
 
     @supports (animation-timeline: view()) {

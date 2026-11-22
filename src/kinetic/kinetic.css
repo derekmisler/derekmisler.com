@@ -199,10 +199,6 @@
     outline-offset: calc(--theme(--spacing-2xs) / -2);
   }
 
-  .marker {
-    display: none;
-  }
-
   .panel {
     --poster-bleed: --theme(--spacing-xl);
     container-type: inline-size;
@@ -449,13 +445,11 @@
         }
       }
 
-      @media not ((pointer: fine) and (min-height: 48rem)) {
-        :is(.poster .letter, .headline .live) {
-          animation-timeline: --page, --page;
-          animation-range:
-            calc((var(--index) - 1 + var(--lag) / 50) * 100svh) calc((var(--index) + 1 + var(--lag) / 50) * 100svh),
-            calc((var(--index) - 1) * 100svh) calc((var(--index) + 1) * 100svh);
-        }
+      :is(.poster .letter, .headline .live) {
+        animation-timeline: --page, --page;
+        animation-range:
+          calc((var(--index) - 1 + var(--lag) / 50) * 100svh) calc((var(--index) + 1 + var(--lag) / 50) * 100svh),
+          calc((var(--index) - 1) * 100svh) calc((var(--index) + 1) * 100svh);
       }
 
       .panel {
@@ -500,54 +494,6 @@
         25%,
         75% {
           --lit: 1;
-        }
-      }
-
-      @media (pointer: fine) and (min-height: 48rem) {
-        .wrap {
-          position: relative;
-          block-size: calc(var(--count) * 100svh);
-        }
-
-        .marker {
-          display: block;
-          position: absolute;
-          inset-inline: 0;
-          inset-block-start: calc(var(--index) * 100svh);
-          block-size: 100svh;
-          view-timeline: var(--timeline) block;
-          pointer-events: none;
-        }
-
-        .viewport {
-          position: sticky;
-          inset-block-start: 0;
-          block-size: 100svh;
-          overflow: clip;
-        }
-
-        .track {
-          display: flex;
-          inline-size: calc(var(--count) * 100dvw);
-          block-size: 100%;
-          animation: slide linear both;
-          animation-timeline: --page;
-        }
-
-        .panel {
-          flex: none;
-          inline-size: 100dvw;
-          block-size: 100%;
-          min-block-size: 0;
-          border-block-end: 0;
-          border-inline-end: --theme(--spacing-2xs) solid var(--accent);
-          view-timeline: none;
-        }
-
-        @keyframes slide {
-          to {
-            translate: calc((1 - var(--count)) * 100dvw);
-          }
         }
       }
     }

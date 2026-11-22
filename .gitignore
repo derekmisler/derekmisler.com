@@ -60,6 +60,3 @@ pnpm-debug.log*
 # claude
 !AGENTS.md
 !CLAUDE.md
-# storybook
-storybook-static/
-*storybook.log

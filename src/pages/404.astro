@@ -1,39 +1,26 @@
 ---
-import '@/styles/site.css';
-import '@/styles/ibm-plex-sans-all.css';
+import '@/kinetic/kinetic.css';
 
+import { boot } from '@/kinetic/boot';
+import { railLayout } from '@/kinetic/panels';
 import { fullName } from '@/constants';
 ---
 
-<html lang="en">
+<html lang="en" style={`--fit: ${railLayout.fit}`}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex" />
     <title>Page not found | {fullName}</title>
     <link rel="icon" href="/favicon.ico" />
-    <script is:inline>
-      (function () {
-        let theme = '';
-        try {
-          theme = localStorage.getItem('theme') || '';
-        } catch {
-          theme = '';
-        }
-        if (theme !== 'light' && theme !== 'dark') {
-          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        }
-        document.documentElement.setAttribute('data-theme', theme);
-      })();
-    </script>
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/recursive-text.woff2" crossorigin />
+    <script is:inline set:html={boot} />
   </head>
   <body>
-    <main class="flex min-h-dvh flex-col justify-center gap-md p-md">
-      <h1 class="font-regular text-xl">
-        <strong class="gradient-text">404</strong>
-      </h1>
-      <p class="text-md">That page doesn't exist.</p>
-      <a href="https://derekmisler.com/">Go to derekmisler.com</a>
+    <main class="panel">
+      <h1 class="font-kinetic text-poster">404</h1>
+      <p class="lead">That page doesn't exist.</p>
+      <p class="lead"><a href="/">Go to derekmisler.com</a></p>
     </main>
   </body>
 </html>

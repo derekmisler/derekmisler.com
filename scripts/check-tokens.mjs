@@ -3,7 +3,6 @@ import { basename, extname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = new URL('..', import.meta.url).pathname;
-const themeFile = join(root, 'src/styles/theme.css');
 const kineticThemeFiles = new Set(['src/styles/kinetic-theme.css', 'src/styles/kinetic-scale.css']);
 const extensions = new Set(['.astro', '.css', '.ts', '.js', '.mjs', '.cjs', '.html']);
 const colorPattern = /(?<![&\w]|href=["'])#(?:[0-9a-f]{8}|[0-9a-f]{6}|[0-9a-f]{3,4})\b|\b(?:rgba?|hsla?)\(/gi;
@@ -129,15 +128,14 @@ const check = () => {
       continue;
     }
 
-    if (file === themeFile) continue;
     for (const match of source.matchAll(colorPattern)) {
-      errors.push(`${name}:${lineOf(source, match.index)}: raw color "${match[0]}" outside theme.css`);
+      errors.push(`${name}:${lineOf(source, match.index)}: raw color "${match[0]}" outside the theme`);
     }
   }
 
   if (errors.length > 0) {
     console.error(errors.join('\n'));
-    console.error(`\n${errors.length} token violation(s). Use theme.css tokens; see DESIGN.md.`);
+    console.error(`\n${errors.length} token violation(s). Use kinetic-theme.css tokens.`);
     process.exit(1);
   }
 

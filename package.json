@@ -9,7 +9,6 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "storybook": "storybook dev -p 6006 --no-open",
     "lint": "oxlint",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
@@ -25,19 +24,14 @@
     "@astrolib/seo": "1.0.0-beta.8",
     "@tailwindcss/vite": "4.3.3",
     "astro": "7.4.11",
-    "lodash-es": "4.18.1",
     "tailwindcss": "4.3.3"
   },
   "devDependencies": {
     "@emnapi/runtime": "1.11.3",
-    "@storybook-astro/framework": "1.15.0",
-    "@storybook/builder-vite": "10.6.7",
-    "@types/lodash-es": "4.17.12",
     "fontkitten": "1.0.3",
     "md-to-pdf": "5.2.5",
     "oxfmt": "0.77.0",
     "oxlint": "1.92.0",
-    "storybook": "10.6.5",
     "subset-font": "2.9.0",
     "typescript": "6.0.3"
   }

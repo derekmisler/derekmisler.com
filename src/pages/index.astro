@@ -1,13 +1,18 @@
 ---
-import '@/styles/site.css';
-import '@/styles/ibm-plex-sans-all.css';
+import '@/kinetic/kinetic.css';
 
 import { AstroSeo } from '@astrolib/seo';
 
-import Header from '@/components/Header.astro';
-import Main from '@/components/Main.astro';
-import Nav from '@/components/Nav.astro';
+import Rail from '@/kinetic/Rail.astro';
+import ThemeToggle from '@/kinetic/ThemeToggle.astro';
+import Track from '@/kinetic/Track.astro';
+import { boot } from '@/kinetic/boot';
+import { panels, railGap, railLayout } from '@/kinetic/panels';
+import { swapKeyframes } from '@/kinetic/swaps';
 import { description, education, firstName, fullName, jobTitle, lastName, skills, socialId, title } from '@/constants';
+
+const swaps = `@media (prefers-reduced-motion: no-preference){${swapKeyframes()}}`;
+const timelines = panels.map((panel) => panel.timeline).join(', ');
 
 const siteUrl = 'https://derekmisler.com';
 const jsonLd = {
@@ -28,17 +33,13 @@ const jsonLd = {
 };
 ---
 
-<html lang="en">
+<html lang="en" style={`timeline-scope: ${timelines}; --fit: ${railLayout.fit}; --rail-gap: ${railGap}em`}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    {
-      /* Preload critical woff2 fonts. The swap window is near-zero because the
-        font arrives before first paint. All other weights use font-display:
-        optional and are never preloaded, so they cause no FOUT. */
-    }
-    <link rel="preload" as="font" type="font/woff2" href="/fonts/sans/woff2/IBMPlexSans-Text.woff2" crossorigin />
-    <link rel="preload" as="font" type="font/woff2" href="/fonts/sans/woff2/IBMPlexSans-Bold.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/recursive-text.woff2" crossorigin />
+    <script is:inline set:html={boot} />
+    <style is:inline set:html={swaps}></style>
     <AstroSeo
       title={`${fullName} | ${title}`}
       description={description}
@@ -90,23 +91,14 @@ const jsonLd = {
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
-    <a class="skip-link absolute bg-background px-md py-sm font-bold text-text no-underline" href="#main-content"
-      >Skip to main content</a
-    >
-    <Nav />
-    <Header />
-    <Main />
+    <Rail />
+    <Track />
+    <ThemeToggle />
+    <script>
+      import '@/kinetic/switcher';
+      import '@/kinetic/pointer';
+      import '@/kinetic/focus';
+      import '@/kinetic/shuffle';
+    </script>
   </body>
 </html>
-
-<style>
-  .skip-link {
-    top: -9999px;
-    left: 0;
-    z-index: 9999;
-    border: 2px solid currentColor;
-  }
-  .skip-link:focus {
-    top: 0;
-  }
-</style>

@@ -26,34 +26,29 @@
     inset-block-start: 0;
     inset-inline: 0;
     z-index: 1;
+    container-type: inline-size;
+    padding-block-start: --theme(--spacing-xs);
+    padding-inline: --theme(--spacing-xl);
     background: var(--bg);
   }
 
   .rail-list {
     display: flex;
-    gap: --theme(--spacing-xs);
-    block-size: --theme(--spacing-xl);
-    padding-inline: --theme(--spacing-md);
-    overflow-x: auto;
-    scrollbar-width: none;
+    font-family: --theme(--font-kinetic);
+    font-size: min(--theme(--text-lead), 100cqi / var(--fit));
+    line-height: --theme(--leading-heading);
+    white-space: nowrap;
     list-style: none;
+    border-block-end: --theme(--spacing-2xs) solid var(--surface);
   }
 
   .rail-item {
     position: relative;
-    display: flex;
-    flex: 1 0 auto;
-    border-block-end: --theme(--spacing-2xs) solid var(--surface);
   }
 
   .rail-link {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    font-size: --theme(--text-small);
-    color: var(--fg-muted);
+    display: block;
     text-decoration: none;
-    white-space: nowrap;
   }
 
   .marker {
@@ -175,11 +170,11 @@
         24.9%,
         75.1%,
         100% {
-          color: var(--fg-muted);
+          color: var(--fg);
         }
         25%,
         75% {
-          color: var(--fg);
+          color: var(--accent);
         }
       }
 

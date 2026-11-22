@@ -1,12 +1,15 @@
 ---
-import { panels } from './panels';
+import { panels, railFaces, railFit } from './panels';
+
+const faces = railFaces(panels.length);
+const fit = railFit(panels.map((panel) => panel.label));
 ---
 
 <nav class="rail" aria-label="Sections">
-  <ol class="rail-list">
+  <ol class="rail-list" style={`--fit: ${fit}`}>
     {
-      panels.map((panel) => (
-        <li class="rail-item" style={`--timeline: ${panel.timeline}`}>
+      panels.map((panel, index) => (
+        <li class="rail-item" style={`--timeline: ${panel.timeline}; ${faces[index]}`}>
           <a class="rail-link" href={`#${panel.id}`}>
             {panel.label}
           </a>

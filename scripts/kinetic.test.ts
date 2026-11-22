@@ -5,7 +5,7 @@ import { test } from 'node:test';
 import { kineticErrors } from './check-tokens.mjs';
 import { contrast, linearSrgb, pairs, palette, themeFile, themeSelectors, themes } from './kinetic-palette.ts';
 import { base, fluid, ratio, scaleCss, scaleFile } from './kinetic-scale.ts';
-import { panels, posterSize } from '../src/kinetic/panels.ts';
+import { panels, posterSize, railFaces } from '../src/kinetic/panels.ts';
 import { splitWords, stagger } from '../src/kinetic/split.ts';
 import { swapCount, swapKeyframes } from '../src/kinetic/swaps.ts';
 
@@ -79,4 +79,6 @@ test('panels run from intro to contact, each linking to the next, with posters s
   assert.equal(panels.at(-1)?.id, 'contact');
   assert.ok(panels.slice(0, -1).every((panel, index) => panel.links[0].href === `#${panels[index + 1].id}`));
   assert.equal(posterSize('Derek Misler'), 'min(23.3cqi, 21.0svh)');
+  const faces = railFaces(panels.length);
+  assert.equal(new Set(faces).size, panels.length);
 });

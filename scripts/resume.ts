@@ -19,8 +19,8 @@ const inGamut = (color: { l: number; c: number; h: number }) =>
 // PDFs can't swap colors for print, so every theme assumes white paper and keeps its own hues.
 const tokens = (theme: string) =>
   `:root{${Object.entries(palette(themeCss, themeSelectors(theme), light))
-    .map(([name, color]) => {
-      let { l, c, h } = color;
+    .map(([name, { l, c: chroma, h }]) => {
+      let c = chroma;
       while (c > 0 && !inGamut({ l, c, h })) c = Math.max(0, c - 0.002);
       return `--${name}:oklch(${(l * 100).toFixed(2)}% ${c.toFixed(4)} ${h.toFixed(2)});`;
     })

@@ -4,7 +4,10 @@
   html {
     --rail-block: calc(
       --theme(--spacing-xs) + --theme(--spacing-2xs) +
-        max(--theme(--spacing-xl), (100dvw - --theme(--spacing-xl)) / var(--fit) * --theme(--leading-heading))
+        max(
+          --theme(--spacing-xl),
+          (100dvw - --theme(--spacing-xl) - --theme(--spacing-sm)) / var(--fit) * --theme(--leading-heading)
+        )
     );
     background: var(--bg);
     color: var(--fg);
@@ -43,6 +46,7 @@
     z-index: 1;
     display: flex;
     align-items: end;
+    column-gap: --theme(--spacing-sm);
     padding-block-start: --theme(--spacing-xs);
     background: var(--bg);
     border-block-end: --theme(--spacing-2xs) solid var(--surface);
@@ -175,6 +179,10 @@
 
   .rail-item {
     position: relative;
+  }
+
+  .rail-item:not(:last-child) {
+    padding-inline-end: var(--rail-gap);
   }
 
   .rail-item:last-child {

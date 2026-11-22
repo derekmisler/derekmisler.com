@@ -4,7 +4,7 @@ import '@/kinetic/kinetic.css';
 import Rail from '@/kinetic/Rail.astro';
 import Track from '@/kinetic/Track.astro';
 import { boot } from '@/kinetic/boot';
-import { panels, railLayout } from '@/kinetic/panels';
+import { panels, railGap, railLayout } from '@/kinetic/panels';
 import { swapKeyframes } from '@/kinetic/swaps';
 import { fullName } from '@/constants';
 
@@ -12,7 +12,7 @@ const swaps = `@media (prefers-reduced-motion: no-preference){${swapKeyframes()}
 const timelines = panels.map((panel) => panel.timeline).join(', ');
 ---
 
-<html lang="en" style={`timeline-scope: ${timelines}; --fit: ${railLayout.fit}`}>
+<html lang="en" style={`timeline-scope: ${timelines}; --fit: ${railLayout.fit}; --rail-gap: ${railGap}em`}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

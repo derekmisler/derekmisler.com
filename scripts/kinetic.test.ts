@@ -16,7 +16,7 @@ import {
   themes,
 } from './kinetic-palette.ts';
 import { base, fluid, ratio, scaleCss, scaleFile } from './kinetic-scale.ts';
-import { panels, posterSize, rail } from '../src/kinetic/panels.ts';
+import { panels, posterSize, rail, railGap } from '../src/kinetic/panels.ts';
 import { splitWords, stagger } from '../src/kinetic/split.ts';
 import { swapCount, swapKeyframes } from '../src/kinetic/swaps.ts';
 
@@ -111,7 +111,7 @@ test('panels run from intro to contact, each linking to the next, with posters s
   assert.equal(posterSize('Derek Misler'), 'min(23.3cqi, 21.0svh)');
   const { items, fit } = rail(['Home', 'Gordon'], () => 0);
   assert.equal(new Set(items.map((item) => item.style)).size, 2);
-  assert.equal(fit, (items[0].em + items[1].em).toFixed(3));
+  assert.equal(fit, (items[0].em + items[1].em + railGap).toFixed(3));
 });
 
 test('hourTheme maps each local hour to its window', () => {

@@ -55,6 +55,8 @@ const faces = [
   [600, 0, 1, 0],
 ] as const;
 
+export const railGap = 0.4;
+
 export const rail = (labels: string[], random = Math.random) => {
   const order = faces.map((_, index) => index);
   for (let i = order.length - 1; i > 0; i--) {
@@ -71,7 +73,7 @@ export const rail = (labels: string[], random = Math.random) => {
         ) / font.unitsPerEm;
     return { em, style: `--wght: ${wght}; --mono: ${mono}; --casl: ${casl}; --slnt: ${slnt}` };
   });
-  return { items, fit: items.reduce((sum, item) => sum + item.em, 0).toFixed(3) };
+  return { items, fit: items.reduce((sum, item) => sum + item.em, (labels.length - 1) * railGap).toFixed(3) };
 };
 
 export const railLayout = rail(panels.map((panel) => panel.label));

@@ -37,7 +37,7 @@
     --casl: 1;
   }
 
-  :focus-visible {
+  :not(.panel):focus-visible {
     outline: calc(--theme(--spacing-2xs) / 2) solid var(--accent);
     outline-offset: calc(--theme(--spacing-2xs) / 2);
   }

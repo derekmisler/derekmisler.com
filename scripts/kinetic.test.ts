@@ -5,6 +5,8 @@ import { test } from 'node:test';
 import { kineticErrors } from './check-tokens.mjs';
 import { contrast, linearSrgb, pairs, palette, themeFile, themeSelectors, themes } from './kinetic-palette.ts';
 import { base, fluid, ratio, scaleCss, scaleFile } from './kinetic-scale.ts';
+import { splitWords, stagger } from '../src/kinetic/split.ts';
+import { swapCount, swapKeyframes } from '../src/kinetic/swaps.ts';
 
 test('every theme is in gamut, AA for each text and background pair, and the no-JS fallbacks match', () => {
   const css = readFileSync(themeFile, 'utf8');
@@ -51,4 +53,22 @@ test('kinetic files enforce the kinetic token rules', () => {
 @supports (animation-timeline: view()) { a { --x: 1; } }
 a:hover { padding: var(--spacing-sm); --wght: 700; }`;
   assert.deepEqual(kineticErrors('src/kinetic/a.css', clean), []);
+});
+
+test('every swap pattern rests on upright sans at the snap point', () => {
+  const css = swapKeyframes();
+  assert.equal(css.match(/@keyframes swap-\d/g)?.length, swapCount);
+  assert.equal(css.match(/42\.0%\{--mono:0;--slnt:0\}/g)?.length, swapCount);
+});
+
+test('split text matches the source and neighbors never share a swap', () => {
+  const text = 'Front-⁠end at Docker';
+  const words = splitWords(text);
+  assert.equal(words.map((word) => word.join('')).join(' '), text);
+  const style = stagger(words.flat().length, () => 0);
+  const styles = words.flat().map(() => style());
+  assert.match(styles[0], /--lag: -5\.00;/);
+  assert.match(styles.at(-1) ?? '', /--lag: 5\.00;/);
+  const swaps = styles.map((value) => value.match(/swap-(\d)/)?.[1]);
+  assert.ok(swaps.every((swap, index) => index === 0 || swap !== swaps[index - 1]));
 });

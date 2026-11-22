@@ -75,7 +75,7 @@ Midday is the `:root` default. Night also applies under `@media (prefers-color-s
 
 The accent hue drifts along the page. `html` runs a `--page` scroll timeline that animates the registered `--progress` from 0 to 1, and `--drift` is `--progress` times the theme's `--drift-span`, added to the accent hue. Text and background never drift.
 
-Spans differ in sign per theme because midday leaves AA below 0 and dusk leaves sRGB between -65 and -5. A test walks each span in ten steps for gamut and AA. Drift sits behind the motion guard and `@supports (animation-timeline: view())`, so without them `--progress` stays 0.
+The sign differs per theme because some hue offsets break a theme: below 0, midday's accent drops under 4.5:1, and between -65 and -5, dusk's accent leaves sRGB. A test walks each span in ten steps and checks that the accent stays in sRGB and every accent pair stays at 4.5:1 or more. Drift sits behind the motion guard and `@supports (animation-timeline: view())`, so without them `--progress` stays 0.
 
 ## Type
 

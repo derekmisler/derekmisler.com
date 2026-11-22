@@ -28,14 +28,14 @@
     z-index: 1;
     container-type: inline-size;
     padding-block-start: --theme(--spacing-xs);
-    padding-inline: --theme(--spacing-xl);
     background: var(--bg);
   }
 
   .rail-list {
     display: flex;
     font-family: --theme(--font-kinetic);
-    font-size: min(--theme(--text-lead), 100cqi / var(--fit));
+    font-size: calc(100cqi / var(--fit));
+    font-kerning: none;
     line-height: --theme(--leading-heading);
     white-space: nowrap;
     list-style: none;
@@ -44,6 +44,10 @@
 
   .rail-item {
     position: relative;
+  }
+
+  .rail-item:last-child {
+    flex-grow: 1;
   }
 
   .rail-link {

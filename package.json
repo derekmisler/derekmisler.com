@@ -33,6 +33,7 @@
     "@storybook-astro/framework": "1.15.0",
     "@storybook/builder-vite": "10.6.7",
     "@types/lodash-es": "4.17.12",
+    "fontkitten": "1.0.3",
     "md-to-pdf": "5.2.5",
     "oxfmt": "0.77.0",
     "oxlint": "1.92.0",

@@ -14,11 +14,22 @@
   }
 
   a {
+    font-family: --theme(--font-kinetic);
     color: inherit;
     text-decoration-line: underline;
     text-decoration-color: var(--accent);
     text-decoration-thickness: 0.25em;
     text-underline-offset: 0.25em;
+  }
+
+  a:is(:hover, :focus-visible) {
+    --wght: 1000;
+    --casl: 1;
+  }
+
+  :focus-visible {
+    outline: calc(--theme(--spacing-2xs) / 2) solid var(--accent);
+    outline-offset: calc(--theme(--spacing-2xs) / 2);
   }
 
   .rail {
@@ -53,6 +64,10 @@
   .rail-link {
     display: block;
     text-decoration: none;
+  }
+
+  .rail-link:focus-visible {
+    outline-offset: calc(--theme(--spacing-2xs) / -2);
   }
 
   .marker {
@@ -131,10 +146,95 @@
     --slnt: 0;
   }
 
+  .headline .live {
+    --mono: 0 !important;
+  }
+
   @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+
+    a {
+      transition:
+        --wght 0.3s ease-out,
+        --casl 0.3s ease-out;
+    }
+
     @supports (animation-timeline: view()) {
       html {
         scroll-timeline: --page block;
+        animation: drift linear both;
+        animation-timeline: --page;
+      }
+
+      @keyframes drift {
+        from {
+          --drift: 0;
+        }
+        to {
+          --drift: var(--drift-span);
+        }
+      }
+
+      :is(.poster .letter, .headline .live) {
+        animation-name: axes, var(--swap);
+        animation-duration: auto;
+        animation-timing-function: linear, step-end;
+        animation-fill-mode: both;
+        animation-timeline: var(--timeline), var(--timeline);
+        animation-range:
+          cover var(--shift) cover calc(100% + var(--shift)),
+          cover 0% cover 100%;
+      }
+
+      @keyframes axes {
+        0%,
+        20% {
+          --wght: 300;
+        }
+        45%,
+        55% {
+          --wght: var(--peak);
+        }
+        80%,
+        100% {
+          --wght: 300;
+        }
+      }
+
+      @supports (timeline-trigger: --a view()) {
+        .panel {
+          trigger-scope: all;
+          timeline-trigger: --rise var(--timeline) cover 30% cover 70%;
+        }
+
+        :is(.lead, .links) {
+          animation-name: rise;
+          animation-duration: 0.6s;
+          animation-timing-function: ease-out;
+          animation-fill-mode: both;
+          animation-trigger: --rise play-forwards play-backwards;
+        }
+
+        .links {
+          animation-delay: 0.1s;
+        }
+
+        @keyframes rise {
+          from {
+            translate: 0 --theme(--spacing-lg);
+          }
+        }
+      }
+
+      @media not (pointer: fine) {
+        :is(.poster .letter, .headline .live) {
+          animation-timeline: --page, --page;
+          animation-range:
+            calc((var(--index) - 1 + var(--lag) / 50) * 100svh) calc((var(--index) + 1 + var(--lag) / 50) * 100svh),
+            calc((var(--index) - 1) * 100svh) calc((var(--index) + 1) * 100svh);
+        }
       }
 
       .panel {

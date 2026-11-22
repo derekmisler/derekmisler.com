@@ -199,10 +199,6 @@
     outline-offset: calc(--theme(--spacing-2xs) / -2);
   }
 
-  .marker {
-    display: none;
-  }
-
   .panel {
     --poster-bleed: --theme(--spacing-xl);
     container-type: inline-size;

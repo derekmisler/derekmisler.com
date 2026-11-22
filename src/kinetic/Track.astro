@@ -4,55 +4,50 @@ import Words from './Words.astro';
 import { panels } from './panels';
 ---
 
-<main class="wrap" style={`--count: ${panels.length}`}>
-  {panels.map((panel) => <div class="marker" style={`--index: ${panel.index}; --timeline: ${panel.timeline}`} />)}
-  <div class="viewport">
-    <div class="track">
-      {
-        panels.map((panel) => (
-          <section
-            class="panel"
-            id={panel.id}
-            tabindex="-1"
-            aria-labelledby={`${panel.id}-title`}
-            style={`--index: ${panel.index}; --timeline: ${panel.timeline}; --poster-size: ${panel.size}`}
-          >
-            {panel.index === 0 ? (
-              <h1 class="poster" id={`${panel.id}-title`}>
-                <Split text={panel.poster} />
-              </h1>
-            ) : (
-              <h2 class="poster" id={`${panel.id}-title`}>
-                <Split text={panel.poster} />
-              </h2>
-            )}
-            {panel.headline && (
-              <div class="heading">
-                <p class="period">{panel.period}</p>
-                <p class="headline">
-                  <Words text={panel.headline} />
-                </p>
-              </div>
-            )}
-            <p class="lead">
-              {panel.lead.map((part) =>
-                part.strong ? <strong>{part.text}</strong> : part.href ? <a href={part.href}>{part.text}</a> : part.text,
-              )}
+<main>
+  {
+    panels.map((panel) => (
+      <section
+        class="panel"
+        id={panel.id}
+        tabindex="-1"
+        aria-labelledby={`${panel.id}-title`}
+        style={`--index: ${panel.index}; --timeline: ${panel.timeline}; --poster-size: ${panel.size}`}
+      >
+        {panel.index === 0 ? (
+          <h1 class="poster" id={`${panel.id}-title`}>
+            <Split text={panel.poster} />
+          </h1>
+        ) : (
+          <h2 class="poster" id={`${panel.id}-title`}>
+            <Split text={panel.poster} />
+          </h2>
+        )}
+        {panel.headline && (
+          <div class="heading">
+            <p class="period">{panel.period}</p>
+            <p class="headline">
+              <Words text={panel.headline} />
             </p>
-            {panel.links.length > 0 && (
-              <ul class="links">
-                {panel.links.map((link) => (
-                  <li>
-                    <a href={link.href} download={link.download}>
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </section>
-        ))
-      }
-    </div>
-  </div>
+          </div>
+        )}
+        <p class="lead">
+          {panel.lead.map((part) =>
+            part.strong ? <strong>{part.text}</strong> : part.href ? <a href={part.href}>{part.text}</a> : part.text,
+          )}
+        </p>
+        {panel.links.length > 0 && (
+          <ul class="links">
+            {panel.links.map((link) => (
+              <li>
+                <a href={link.href} download={link.download}>
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+    ))
+  }
 </main>

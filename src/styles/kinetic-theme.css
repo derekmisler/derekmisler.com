@@ -69,7 +69,7 @@
   --color-current: currentColor;
 
   --font-text: 'Recursive Text', ui-sans-serif, system-ui, sans-serif;
-  --font-kinetic: Recursive, ui-sans-serif, system-ui, sans-serif;
+  --font-kinetic: Recursive, 'Recursive Text', ui-sans-serif, system-ui, sans-serif;
 
   --radius-none: 0;
 }

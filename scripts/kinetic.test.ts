@@ -148,7 +148,11 @@ test('boot uses a stored theme and falls back to the hour theme for anything els
   ] as const;
   for (const [stored, choice, theme] of cases) {
     const dataset: Record<string, string> = {};
-    const document = { documentElement: { dataset }, fonts: { load: () => new Promise(() => {}) } };
+    const document = {
+      documentElement: { dataset },
+      addEventListener: () => {},
+      fonts: { load: () => new Promise(() => {}) },
+    };
     const localStorage = { getItem: () => stored };
     new Function('document', 'localStorage', 'setTimeout', boot)(document, localStorage, () => {});
     assert.deepEqual([dataset.choice, dataset.theme], [choice, theme], String(stored));

@@ -18,10 +18,6 @@ updates:
         update-types: ['version-update:semver-major']
     groups:
       # These packages must stay on matching versions, majors included.
-      storybook:
-        patterns:
-          - 'storybook'
-          - '@storybook/*'
       tailwind:
         patterns:
           - 'tailwindcss'

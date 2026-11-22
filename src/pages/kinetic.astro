@@ -1,0 +1,24 @@
+---
+import '@/kinetic/kinetic.css';
+
+import Rail from '@/kinetic/Rail.astro';
+import Track from '@/kinetic/Track.astro';
+import { panels } from '@/kinetic/panels';
+import { fullName } from '@/constants';
+
+const timelines = panels.map((panel) => panel.timeline).join(', ');
+---
+
+<html lang="en" style={`timeline-scope: ${timelines}`}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullName}</title>
+    <meta name="robots" content="noindex" />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/recursive-text.woff2" crossorigin />
+  </head>
+  <body>
+    <Rail />
+    <Track />
+  </body>
+</html>

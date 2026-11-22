@@ -9,6 +9,7 @@ export default defineConfig({
   integrations: [
     sitemap({
       lastmod: new Date(),
+      filter: (page) => !page.endsWith('/kinetic/'),
     }),
   ],
   vite: {

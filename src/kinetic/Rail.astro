@@ -1,0 +1,17 @@
+---
+import { panels } from './panels';
+---
+
+<nav class="rail" aria-label="Sections">
+  <ol class="rail-list">
+    {
+      panels.map((panel) => (
+        <li class="rail-item" style={`--timeline: ${panel.timeline}`}>
+          <a class="rail-link" href={`#${panel.id}`}>
+            {panel.label}
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+</nav>

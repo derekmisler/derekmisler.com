@@ -1,0 +1,150 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'Recursive Text';
+  src: url('/fonts/recursive-text.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Recursive;
+  src: url('/fonts/recursive-kinetic.woff2') format('woff2');
+  font-weight: 300 1000;
+  font-display: swap;
+}
+
+@property --wght {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 400;
+}
+
+@property --mono {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
+@property --casl {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
+@property --slnt {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
+@theme inline {
+  --*: initial;
+
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --font-text: 'Recursive Text', ui-sans-serif, system-ui, sans-serif;
+  --font-kinetic: Recursive, ui-sans-serif, system-ui, sans-serif;
+
+  --radius-none: 0;
+}
+
+@import './kinetic-scale.css';
+
+:root {
+  color-scheme: light;
+
+  --l-bg: 97%;
+  --l-surface: 92%;
+  --l-fg: 25%;
+  --l-fg-muted: 42%;
+  --l-accent: 48%;
+
+  --h-bg: 230;
+  --c-bg: 0.012;
+  --h-fg: 255;
+  --c-fg: 0.05;
+  --h-accent: 255;
+  --c-accent: 0.16;
+
+  --bg: oklch(var(--l-bg) var(--c-bg) var(--h-bg));
+  --fg: oklch(var(--l-fg) var(--c-fg) var(--h-fg));
+  --accent: oklch(var(--l-accent) var(--c-accent) var(--h-accent));
+  --surface: oklch(from var(--bg) var(--l-surface) c h);
+  --fg-muted: oklch(from var(--fg) var(--l-fg-muted) calc(c * 0.8) h);
+  --on-accent: oklch(from var(--accent) var(--l-bg) 0.01 h);
+}
+
+:root[data-theme='dawn'] {
+  --h-bg: 60;
+  --c-bg: 0.015;
+  --h-fg: 330;
+  --c-fg: 0.06;
+  --h-accent: 25;
+  --c-accent: 0.17;
+}
+
+:root[data-theme='dusk'],
+:root[data-theme='night'] {
+  color-scheme: dark;
+
+  --l-bg: 20%;
+  --l-surface: 26%;
+  --l-fg: 95%;
+  --l-fg-muted: 80%;
+  --l-accent: 80%;
+}
+
+:root[data-theme='dusk'] {
+  --h-bg: 320;
+  --c-bg: 0.06;
+  --h-fg: 75;
+  --c-fg: 0.03;
+  --h-accent: 60;
+  --c-accent: 0.13;
+}
+
+:root[data-theme='night'] {
+  --h-bg: 270;
+  --c-bg: 0.03;
+  --h-fg: 250;
+  --c-fg: 0.02;
+  --h-accent: 200;
+  --c-accent: 0.12;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+
+    --l-bg: 20%;
+    --l-surface: 26%;
+    --l-fg: 95%;
+    --l-fg-muted: 80%;
+    --l-accent: 80%;
+
+    --h-bg: 270;
+    --c-bg: 0.03;
+    --h-fg: 250;
+    --c-fg: 0.02;
+    --h-accent: 200;
+    --c-accent: 0.12;
+  }
+}
+
+@layer base {
+  :where(body, body *) {
+    font-variation-settings:
+      'wght' var(--wght),
+      'MONO' var(--mono),
+      'CASL' var(--casl),
+      'slnt' var(--slnt);
+  }
+}

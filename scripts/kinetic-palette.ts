@@ -104,8 +104,8 @@ export const contrast = (text: Oklch, background: Oklch) => {
   return (light + 0.05) / (dark + 0.05);
 };
 
-export const palette = (css: string, selectors: string[]) => {
-  const scope = declarations(css, selectors);
+export const palette = (css: string, selectors: string[], overrides: Record<string, string> = {}) => {
+  const scope = { ...declarations(css, selectors), ...overrides };
   const color = (name: string) => parseOklch(resolve(`var(--${name})`, scope));
   return Object.fromEntries(
     ['bg', 'surface', 'fg', 'fg-muted', 'accent', 'on-accent'].map((name) => [name, color(name)]),

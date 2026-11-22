@@ -16,7 +16,7 @@ pnpm storybook      # Design system on http://localhost:6006 (local only, never 
 pnpm resume         # Regenerate public/derek-misler-resume-{dawn,midday,dusk,night}.pdf from src/constants.ts (needs Google Chrome installed)
 ```
 
-The resume PDF is generated locally and committed, never in `pnpm build`. Rerun `pnpm resume` after changing `src/constants.ts`. Each role's `resume` array picks which accomplishments the one-page PDF shows. Each PDF takes its colors from that theme in `kinetic-theme.css`; the Resume link swaps to the active theme's PDF.
+The resume PDF is generated locally and committed, never in `pnpm build`. Rerun `pnpm resume` after changing `src/constants.ts`. Each role's `resume` array picks which accomplishments the one-page PDF shows. Each PDF assumes white paper and takes its text, rule and accent colors from that theme in `kinetic-theme.css`; the Resume link swaps to the active theme's PDF.
 
 ### Code Quality
 

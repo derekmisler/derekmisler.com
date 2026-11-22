@@ -1,142 +1,192 @@
 # DESIGN.md
 
-Operational contract for all UI work on derekmisler.com. Read this before touching any `.astro`, CSS, or layout file. If a need is not covered here, stop and ask instead of inventing.
+The contract for UI work on derekmisler.com. Read it before touching any `.astro` file, CSS or client script. If a need isn't covered here, stop and ask instead of inventing a value.
 
 ## Character
 
-Typographic, minimal, high contrast, flat. Thick accent rules, fluid type, generous line height, no decoration. The page should feel like a well-set poster, not an app.
+Kinetic type on a quiet page. One vertical stack of full-height panels, one statement each, set in Recursive. Scroll swings the weight of the big type and flips letters between sans, mono and slanted styles, then lets every letter settle on upright sans. The accent hue drifts as you read; text and background never move. Square corners, thick accent rules, no shadows, no imagery.
+
+The motion shows design and code as one skill set. It's decoration on top of a page that already works: with reduced motion, no JS or an older browser, the same composition renders static and complete.
 
 ## Hard rules
 
-- Use only the tokens in `src/styles/theme.css`. Every Tailwind default is disabled, so a class that is not listed below does not exist.
-- No arbitrary values: no `w-[437px]`, no `text-[#123456]`, no `p-[13px]`.
-- No raw hex, rgb, or hsl anywhere outside `theme.css`.
-- No new dependencies, no client JS frameworks, no React. Static Astro only. Storybook is a local-only dev dependency.
-- No inline `style` attributes except to pass a CSS variable.
-- Both themes must work. Never hardcode a color for one theme.
-- Do not add comments.
+- **Tokens only.** Every Tailwind default is off (`--*: initial` in `src/styles/kinetic-theme.css`), so a utility exists only if its token is listed below. In CSS, read tokens with `--theme(--spacing-sm)`, never a literal.
+- **No arbitrary values in classes.** `scripts/check-tokens.mjs` fails on any class token with `[` or `(`.
+- **Colors live in the theme.** Outside `src/kinetic/` and `kinetic-*` files, raw hex, `rgb()` and `hsl()` fail the check.
+- **Never hand-edit `kinetic-scale.css`.** Change `scripts/kinetic-scale.ts` and run `pnpm scale`; a test fails when the file is stale.
+- **All kinetic CSS sits in `@layer kinetic`** (`src/kinetic/kinetic.css`).
+- **Inline `style` only for values computed at build** (custom properties, the rail's `word-spacing`).
+- **Heights use `svh`, never `dvh`,** so the mobile toolbar moves nothing.
+- **Square and flat:** `rounded-none` only, no `box-shadow`, no gradients.
+- **Keyframes never read a `var()` that changes at runtime.** Chrome resolves it once, so a theme switch would leave stale values. Animate a registered number instead (`--progress`, `--lit`) and do the math outside the keyframes.
+- **Keep `vite.build.cssMinify: 'esbuild'`.** lightningcss folds `animation-timeline` into the `animation` shorthand, which Chrome drops.
 
-## Color tokens
+### The four kinetic checks
 
-| Class suffix             | Role                                            |
-| ------------------------ | ----------------------------------------------- |
-| `text`                   | Body and heading text                           |
-| `background`             | Page background                                 |
-| `background-accent`      | Link underline, hover wipe, panels              |
-| `background-transparent` | Sticky header surface                           |
-| `accent`                 | Rules, scrollbar, gradient end stop, highlights |
-| `transparent`            | Clear fills                                     |
+`pnpm test` runs `check-tokens.mjs`, which applies these to `src/kinetic/*` and any `kinetic-*` file:
 
-Usage: `text-text`, `bg-background`, `bg-background-accent`, `border-accent`.
+1. **Axes:** no `font-variation-settings` outside the theme. Set `--wght`, `--mono`, `--casl` or `--slnt` instead.
+2. **Motion guard:** every `animation*` and `transition*` property sits inside `@media (prefers-reduced-motion: no-preference)`.
+3. **`@supports`:** single-engine features sit inside `@supports`. The list is fixed: `if()`, `@function`, `animation-trigger`, `timeline-trigger`, `trigger-scope`.
+4. **OKLCH in the theme:** `kinetic-theme.css` and `kinetic-scale.css` use only `oklch()`. Other kinetic files use no color functions at all, only theme variables.
 
-Dark is the default. Light applies under `html[data-theme='light']`. Values live in `theme.css` and swap through CSS variables, so never branch on theme in markup.
+Scroll-driven animations are Baseline, but they still go inside `@supports (animation-timeline: view())` so older browsers keep the static page. Timeline triggers go inside `@supports (timeline-trigger: --a view())`, with animation longhands: the build moves `animation-trigger` ahead of the `animation` shorthand, which resets it.
 
-## Typography
+## Color
 
-One family: IBM Plex Sans, self-hosted, as `font-body` and `font-head`. Weights: `font-regular` (450, the `body` default) and `font-bold` (700). No italics except `em`.
+### Tokens
 
-| Class      | Use                        |
-| ---------- | -------------------------- |
-| `text-xs`  | `small`, captions          |
-| `text-sm`  | Body, `li`, `h5`, `h6`     |
-| `text-md`  | `.lead`, `h4`              |
-| `text-lg`  | `h3`                       |
-| `text-xl`  | `h2`, hero, statement `h4` |
-| `text-xxl` | Display only, one per page |
+| Utility suffix           | Variable      | Role                                                        |
+| ------------------------ | ------------- | ----------------------------------------------------------- |
+| `bg`                     | `--bg`        | Page and panel background                                   |
+| `surface`                | `--surface`   | Rail rule, quiet fills                                      |
+| `fg`                     | `--fg`        | Text                                                        |
+| `fg-muted`               | `--fg-muted`  | Periods and secondary text                                  |
+| `accent`                 | `--accent`    | Link underlines, panel rules, rail fill, focus ring, toggle |
+| `on-accent`              | `--on-accent` | Text on an accent fill                                      |
+| `transparent`, `current` |               | Resets                                                      |
 
-- Body line height is `leading-body`. Headings use `leading-heading`. `leading-tight` only for single-line display text.
-- Headings: `font-head font-bold leading-heading text-balance`.
-- Prose width is capped at 65ch by the existing `p` and `li` base rule. Do not override it.
-- Hero heading may use the `gradient-text` utility from `global.css`. Do not apply it elsewhere.
+`ink-lit` is the one custom utility: it sets `--ink` to a mix of `--fg` and `--accent` by the registered `--lit` (0 to 1). The active rail label uses it.
 
-## Spacing
+### Four OKLCH themes
 
-Scale: `xs`, `sm`, `md`, `lg`, plus `0` for resets. Examples: `p-md`, `gap-sm`, `mb-md`, `desktop:p-0`. Section padding is `md`. Never use numeric spacing like `p-4`.
+Each theme sets a hue and chroma for background, text and accent on a fixed set of lightness steps. Derived tokens use relative color syntax: `--surface` is `--bg` at the surface lightness, `--fg-muted` is `--fg` at the muted lightness with 0.8 of its chroma, and `--on-accent` is the accent hue at the background lightness with 0.01 chroma.
 
-Fixed sizes: `rule` (10px, the rule thickness, as in `w-rule` or `mr-rule`) and `icon` (40px, icon button content, as in `size-icon`).
+| Theme  | `color-scheme` | bg hue / chroma | fg hue / chroma | accent hue / chroma | `--drift-span` |
+| ------ | -------------- | --------------- | --------------- | ------------------- | -------------- |
+| dawn   | light          | 60 / 0.015      | 330 / 0.06      | 25 / 0.17           | -50            |
+| midday | light          | 230 / 0.012     | 255 / 0.05      | 255 / 0.16          | 50             |
+| dusk   | dark           | 320 / 0.06      | 75 / 0.03       | 60 / 0.13           | 40             |
+| night  | dark           | 270 / 0.03      | 250 / 0.02      | 200 / 0.12          | -40            |
 
-## Shape and depth
+Midday is the `:root` default. Night also applies under `@media (prefers-color-scheme: dark)` when no `data-theme` is set.
 
-- Radius: `rounded-none` only. Everything is square.
-- No shadows, no blur, no gradients except the heading gradient.
-- Separation comes from rules: `rule-top`, `rule-bottom`, or an `hr`. Rule thickness is fixed at `--rule` (10px).
+### AA lightness steps
 
-## Links and buttons
+| Steps        | bg  | surface | fg  | fg-muted | accent |
+| ------------ | --- | ------- | --- | -------- | ------ |
+| dawn, midday | 97% | 92%     | 25% | 42%      | 48%    |
+| dusk         | 30% | 36%     | 96% | 86%      | 80%    |
+| night        | 20% | 26%     | 95% | 80%      | 80%    |
 
-- Links and buttons share one pattern: underlined in `background-accent`, with a `scaleX` wipe fill on hover, focus, and active, using the 230ms ease-out transition.
-- Reuse `IconButton.astro` for icon buttons. Do not restyle links per section.
-- Never remove the focus treatment. Focus must be visible.
+`scripts/kinetic.test.ts` checks every theme stays in sRGB and every pair reaches 4.5:1: `fg`, `fg-muted` and `accent` on `bg` and on `surface`, plus `on-accent` on `accent`. It also checks the no-JS fallbacks equal midday and night. `node scripts/kinetic-palette.ts` prints every color and ratio. Change a hue or chroma, run the tests; change a lightness step only if they still pass.
 
-## Motion
+### Accent drift
 
-- Hover and focus wipe only, 230ms, `ease-out`.
-- Theme and overlay opacity fades at 230ms.
-- Respect `prefers-reduced-motion`: no new animation without a reduced-motion fallback.
+The accent hue drifts along the page. `html` runs a `--page` scroll timeline that animates the registered `--progress` from 0 to 1, and `--drift` is `--progress` times the theme's `--drift-span`, added to the accent hue. Text and background never drift.
+
+Spans differ in sign per theme because midday leaves AA below 0 and dusk leaves sRGB between -65 and -5. A test walks each span in ten steps for gamut and AA. Drift sits behind the motion guard and `@supports (animation-timeline: view())`, so without them `--progress` stays 0.
+
+## Type
+
+### Recursive faces
+
+Two subset woff2 files, Latin only, built by `pnpm subset-font <Recursive_VF.ttf>` (`scripts/subset-font.ts`, harfbuzz through `subset-font`) into `public/fonts/`:
+
+| Face           | Token          | File                      | Axes                                                         | Size               |
+| -------------- | -------------- | ------------------------- | ------------------------------------------------------------ | ------------------ |
+| Recursive Text | `font-text`    | `recursive-text.woff2`    | All pinned: wght 400, MONO 0, CASL 0, slnt 0, CRSV 0         | 19.5 KB, preloaded |
+| Recursive      | `font-kinetic` | `recursive-kinetic.woff2` | CRSV pinned at 0; wght 300 to 1000, MONO, CASL and slnt live | 232 KB             |
+
+Body text uses Recursive Text. Posters, headlines, links, periods, rail labels and `strong` in leads use the kinetic face.
+
+### Axes
+
+Four registered `@property` numbers drive the kinetic face. A base rule maps them onto `font-variation-settings` for every element in `body`, so components only set the properties.
+
+| Property | Axis | Range       | Default |
+| -------- | ---- | ----------- | ------- |
+| `--wght` | wght | 300 to 1000 | 400     |
+| `--mono` | MONO | 0 to 1      | 0       |
+| `--casl` | CASL | 0 to 1      | 0       |
+| `--slnt` | slnt | -15 to 0    | 0       |
+
+Posters, headlines and `strong` in leads set `font-weight: normal` next to `--wght`, so the browser never synthesizes bold on top.
+
+### Fluid scale
+
+`scripts/kinetic-scale.ts` writes `src/styles/kinetic-scale.css` (`pnpm scale`). One method covers type and spacing: base 1rem at 360px to 1.125rem at 1440px, ratio 1.25 at 360px to 1.5 at 1440px, as `clamp()` with rem bounds and a `cqi` slope. Panels and the rail are size containers, so `cqi` tracks their width.
+
+| Step | Type          | Spacing | Leading     |
+| ---- | ------------- | ------- | ----------- |
+| -2   |               | `2xs`   |             |
+| -1   | `text-small`  | `xs`    | body 1.6    |
+| 0    | `text-body`   | `sm`    | body 1.6    |
+| 1    | `text-lead`   | `md`    | lead 1.4    |
+| 2    | `text-h3`     | `lg`    | heading 1.1 |
+| 3    | `text-h2`     | `xl`    | heading 1.1 |
+| 4    | `text-h1`     | `2xl`   | heading 1.1 |
+| 5    | `text-poster` | `3xl`   | poster 0.9  |
+
+Leading tokens: `leading-body`, `leading-lead`, `leading-heading`, `leading-poster`.
+
+### Split tiers
+
+Each panel has up to four tiers. Split text renders the full string in `.sr-only` and the split copy with `aria-hidden`, so screen readers read plain text.
+
+- **Poster** (`.poster`, `Split.astro`): split per letter, one word per line, so style swaps never rewrap. Peak weight 1000. Size is `min((100cqi + --poster-bleed) / widest em, N svh / words)`, never below `text-h2`. `posterSize()` in `panels.ts` sums each letter's widest advance (sans from the font file, or 0.6em mono). N is 40 on panels with a headline and 60 without. Posters may run into the inline-end padding (`--poster-bleed`). The intro poster is the page's `h1`; the rest are `h2`.
+- **Headline** (`.headline`, `Words.astro`): split per word, `text-h2`, at most 22ch, peak weight 800. Each word sits in an `inline-grid` cell over a hidden copy at peak weight that reserves its width, so lines never rewrap. Headlines swap slant only; mono is forced off because reserving mono width leaves gaps at rest. A muted mono `.period` sits above it.
+- **Lead** (`.lead`): whole text, `text-lead`, `leading-lead`, at most 48ch. `strong` parts use the kinetic face at weight 800.
+- **Prose:** whole, Recursive Text at `text-body` and `leading-body`. Link lists (`.links`) wrap in a flex row and use the kinetic face, like every link.
+
+### Motion on the type
+
+On the `--page` timeline, each poster letter and headline word swings `--wght` from 300 to its peak and back as its panel passes, with a stagger (`--lag`, `--shift`) across the word. A second, stepped animation swaps styles: poster letters mix sans, mono, slant and mono slant; headline words mix upright and slant. Eight swap patterns (`swapKeyframes()` in `swaps.ts`) are built per deploy and inlined in the head inside the motion guard. `shuffle.ts` reassigns them on each visit; neighbors never share one. Every pattern rests on upright sans at 42%, when the panel is in place.
+
+Leads and link lists rise in when a panel crosses `cover 30%` to `cover 70%`, only where `timeline-trigger` is supported.
+
+With a fine hovering pointer, poster letters within 320px of the cursor gain Casual (`pointer.ts`), resetting when the pointer leaves the window.
+
+Posters and headlines stay `visibility: hidden` until the kinetic face loads. The head script sets `data-fonts` two frames after `document.fonts.load('1em Recursive')`, or after 3s, so the face swap is never a layout shift.
 
 ## Layout
 
-- Mobile first. Breakpoints: `desktop` (1024px) for layout changes, plus `wide` (1280px) and `xwide` (1440px) only for the main grid's column widths. Use min-width variants (`desktop:`), not `max-*`.
-- Sticky headers: `sticky top-0 z-sticky bg-background-transparent p-md`. Full-screen overlays: `fixed inset-0 z-overlay` with `overlay-hidden`, which fades in while `body[data-hidden]` is set.
-- A vertical rule appears only at `desktop:` between columns.
+- **Vertical stack on every device.** `main` holds one `.panel` per statement: intro first (name, intro copy, contact links), then each statement in `src/constants.ts`, then Elsewhere (contact links plus For AI agents).
+- **Panels** are size containers, at least `100svh`, a centered flex column with `lg` gaps and `xl` inline padding. A `2xs` accent rule divides them. Block padding clears the rail on top and the theme toggle at the bottom.
+- **No scroll snap.** It skipped past the swaps or snapped from too far away.
 
-## Styles
+### The rail
 
-- `src/styles/theme.css`: tokens. The only place raw colors live.
-- `src/styles/global.css`: base element rules in `@layer base`, plus the `gradient-text` and `overlay-hidden` utilities.
-- `src/styles/site.css`: the site's Tailwind entry. Imports `global.css` and keeps `src/stories` out of the scan.
-- Components style with utilities in markup. A scoped `<style>` is only for values with no token yet; it starts with `@reference '../styles/global.css';` and reads tokens through `--theme()`.
-- `pnpm test` runs `scripts/check-tokens.mjs`, which fails on arbitrary values in classes and raw colors outside `theme.css`.
+A fixed progress rail across the top, full width with no side padding: one unbroken line of section labels over a `2xs` `surface` rule.
 
-### Values without tokens
+- Each label gets a Recursive face: weight alternates 1000 and 300, and mono, casual and slant shuffle per build (`rail()` in `panels.ts`).
+- The line fits the viewport exactly. `--fit` is its width in em, read from `recursive-kinetic.woff2` with `fontkitten` (mono is 0.6em per character), with a 0.6em gap between labels and 0.25em word spaces. Font size is `100cqi / --fit`, kerning is off, and the last label grows to absorb rounding.
+- Each label's part of the rule fills with accent from its panel's view timeline (`cover 0%` to `contain 0%`), and the active label mixes toward accent through `--lit`. `timeline-scope` on `html` lets the rail read the panel timelines.
+- Clicking a label runs `focus.ts`: scroll to the panel, then focus it. The URL hash doesn't change. The skip link uses the same handler.
 
-These predate the tokens and stay in scoped styles until a token is approved:
+## Links and focus
 
-- The 100ms toggle bar transition (`NavToggle`).
-- Grid column templates (`Main`), which mix `min-content`, `auto`, and `var(--rule)`.
-- `50dvh` section minimum height (`Section`).
-- `min(36ch, 100%)` hero copy width (`Header`).
-- Skip link offset, `z-index: 9999`, and 2px border (`pages/index.astro`).
+- Links use the kinetic face with an accent underline 0.25em thick at a 0.3em offset (Recursive's `g` reaches 0.25em, so a closer line breaks at descenders).
+- Hover and focus set `--wght: 1000` and `--casl: 1`, with a 0.3s transition behind the motion guard.
+- `:focus-visible` draws an accent outline, half of `2xs` wide, at the same offset. Panels draw it inset (`2xs * -1.5`) so it doesn't double the panel rule; rail links use a negative offset so the viewport edge never clips it.
+- After a mouse click on an in-page link, the panel takes focus without a ring; keyboard activation shows it.
 
-## Components
+## Theme toggle
 
-Use what exists. Do not create a near-duplicate.
+A fixed bordered square in the bottom-right corner, in thumb reach: `--spacing-3xl` on touch, `--spacing-xl` with a fine pointer.
 
-`Header`, `Main`, `Nav`, `NavToggle`, `Section`, `IconButton`, `ScrollObserver`, `ThemeToggle`.
+- One click cycles auto, dawn, midday, dusk, night. Auto picks from local hours: dawn 5 to 9, midday 9 to 16, dusk 16 to 20, night otherwise.
+- The inline head script (`boot.ts`) sets `data-auto`, `data-choice` and `data-theme` on `html` before paint, from `localStorage` key `theme` or the hour. Choosing auto clears the key.
+- The SVG icon morphs between sun, horizon and moon on a `linear()` spring; auto adds an orbiting dashed ring. The new theme reveals as a circle from the button through a View Transition, or swaps instantly without one.
+- The button's `aria-label` names the current choice and a polite live region announces changes.
+- Every `a[download]` (the Resume link) points at the active theme's PDF.
 
-New component checklist:
+## Reduced motion
 
-1. Plain `.astro` file in `src/components/`.
-2. Props typed in strict TypeScript.
-3. Variants are an explicit union type, documented here.
-4. Tokens only.
-5. Add it to the list above in the same change.
-6. Add `src/stories/components/<Name>.stories.ts` with a story per variant, and check both themes in Storybook.
+Every animation and transition sits behind the motion guard, and `pointer.ts` and the View Transition check the same query. With `prefers-reduced-motion: reduce` the page is the same vertical stack, fully static: posters at weight 1000, headlines at 800, every letter upright sans, no drift, no rise-in, no Casual, no smooth scroll, instant theme swaps. The rail shows plain labels over an empty rule.
 
-## Accessibility
+## No JS
 
-- Text and `background` contrast must meet WCAG AA in both themes. Do not introduce new text/background pairings outside the table above.
-- Semantic landmarks, one `h1` per page, heading levels in order.
-- Every interactive element is keyboard reachable with a visible focus state.
-- Images need `alt`. Decorative images use `alt=""`.
+The server-rendered HTML is the full composition. Without the head script, `html` has no `data-theme`, so the OS picks: light gets midday, dark gets night. Without `data-choice` the toggle is hidden and posters show at once. CSS animations still run, with the swap patterns assigned at build. Rail links fall back to plain anchor jumps, and the Resume link points at the midday PDF.
 
-## Do
+## Budgets
 
-- Reuse existing components and utilities.
-- Keep copy in `src/constants.ts`.
-- Check both themes at phone and desktop widths before finishing.
+| Budget                    | Limit | Shipped                                            |
+| ------------------------- | ----- | -------------------------------------------------- |
+| JS, gzipped, total        | 5 KB  | 1.35 KB (head script 0.34 KB, page module 1.02 KB) |
+| `recursive-text.woff2`    |       | 19.5 KB, preloaded                                 |
+| `recursive-kinetic.woff2` |       | 232 KB, accepted over the original 150 KB target   |
+| Lighthouse mobile LCP     | 2.0s  |                                                    |
+| Lighthouse mobile CLS     | 0     |                                                    |
 
-## Do not
-
-- Add a color, size, or spacing value that is not a token.
-- Add cards, shadows, rounded corners, or icon libraries.
-- Add a second font.
-- Center long text.
-- Introduce a UI framework or component library.
-
-## Storybook
-
-`pnpm storybook` is the reference for this system. Foundations pages list every token in `theme.css` with its rendered value in the current theme and viewport, and check the approved pairings against WCAG AA. Story markup follows the same rules as site markup, and `pnpm test` checks it.
-
-## When the system does not cover it
-
-Stop. Describe the gap, propose one token or component addition with rationale, and wait for approval. Update this file in the same change that adds it.
+No client frameworks and no animation libraries. Motion is CSS; the client modules only set attributes and custom properties.

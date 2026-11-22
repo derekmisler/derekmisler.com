@@ -140,7 +140,7 @@
 
   :root:is([data-theme='dawn'], [data-theme='dusk']) .theme-toggle {
     .sun {
-      transform: translateY(6px);
+      transform: translateY(2px);
     }
 
     .rays {
@@ -148,12 +148,12 @@
     }
 
     .sky {
-      transform: translateY(-10px);
+      transform: translateY(-14px);
     }
 
     :is(.horizon, .arrow) {
       opacity: 1;
-      transform: none;
+      transform: translateY(-4px);
     }
   }
 
@@ -163,7 +163,7 @@
     }
 
     .arrow {
-      transform: rotate(180deg);
+      transform: translateY(-4px) rotate(180deg);
       transform-origin: 16px 27px;
     }
   }

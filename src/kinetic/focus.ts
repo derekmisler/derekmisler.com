@@ -18,9 +18,6 @@ document.addEventListener('click', (event) => {
   const index = indexOf(hash);
   if (index < 0) return;
   event.preventDefault();
-  history.pushState(null, '', hash);
   reveal(index);
   panels[index].focus({ preventScroll: true });
 });
-
-addEventListener('popstate', () => reveal(Math.max(0, indexOf(location.hash))));

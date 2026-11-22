@@ -182,7 +182,7 @@
     opacity: 1;
   }
 
-  :root[data-choice]:not([data-fonts]) :is(.poster, .headline) {
+  :root[data-choice]:not([data-fonts]) :is(.poster, .headline, .rail) {
     visibility: hidden;
   }
 

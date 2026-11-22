@@ -32,6 +32,12 @@
   initial-value: 0;
 }
 
+@property --lit {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
 @property --drift {
   syntax: '<number>';
   inherits: true;
@@ -164,4 +170,8 @@
       'CASL' var(--casl),
       'slnt' var(--slnt);
   }
+}
+
+@utility ink-lit {
+  --ink: color-mix(in oklch, var(--fg), var(--accent) calc(var(--lit) * 100%));
 }

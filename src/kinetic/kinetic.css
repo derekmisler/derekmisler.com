@@ -187,6 +187,7 @@
 
   .rail-link {
     display: block;
+    color: var(--ink);
     text-decoration: none;
   }
 
@@ -471,17 +472,17 @@
         24.9%,
         75.1%,
         100% {
-          color: var(--fg);
+          --lit: 0;
         }
         25%,
         75% {
-          color: var(--accent);
+          --lit: 1;
         }
       }
 
       @media (pointer: fine) {
         html {
-          scroll-snap-type: y proximity;
+          scroll-snap-type: y mandatory;
         }
 
         .wrap {

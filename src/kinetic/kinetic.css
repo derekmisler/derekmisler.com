@@ -28,6 +28,7 @@
     font-family: --theme(--font-text);
     font-size: --theme(--text-body);
     line-height: --theme(--leading-body);
+    text-wrap: pretty;
     overflow-x: clip;
   }
 
@@ -245,6 +246,7 @@
   .headline {
     --peak: 800;
     max-inline-size: 22ch;
+    text-wrap: balance;
     font-size: --theme(--text-h2);
     line-height: --theme(--leading-heading);
   }
@@ -263,7 +265,7 @@
 
   .lead {
     max-inline-size: 40ch;
-    font-size: --theme(--text-h3);
+    font-size: --theme(--text-intro);
     line-height: --theme(--leading-lead);
   }
 
@@ -274,10 +276,10 @@
   }
 
   .links {
-    font-size: --theme(--text-lead);
+    font-size: --theme(--text-link);
     display: flex;
     flex-wrap: wrap;
-    gap: --theme(--spacing-sm) --theme(--spacing-lg);
+    gap: --theme(--spacing-sm) --theme(--spacing-md);
     list-style: none;
   }
 

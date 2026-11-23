@@ -107,16 +107,22 @@ Posters, headlines and `strong` in leads set `font-weight: normal` next to `--wg
 
 `scripts/kinetic-scale.ts` writes `src/styles/kinetic-scale.css` (`pnpm scale`). One method covers type and spacing: base 1rem at 360px to 1.125rem at 1440px, ratio 1.25 at 360px to 1.5 at 1440px, as `clamp()` with rem bounds and a `cqi` slope. Panels and the rail are size containers, so `cqi` tracks their width.
 
-| Step | Type          | Spacing | Leading     |
-| ---- | ------------- | ------- | ----------- |
-| -2   |               | `2xs`   |             |
-| -1   | `text-small`  | `xs`    | body 1.6    |
-| 0    | `text-body`   | `sm`    | body 1.6    |
-| 1    | `text-lead`   | `md`    | lead 1.4    |
-| 2    | `text-h3`     | `lg`    | heading 1.1 |
-| 3    | `text-h2`     | `xl`    | heading 1.1 |
-| 4    | `text-h1`     | `2xl`   | heading 1.1 |
-| 5    | `text-poster` | `3xl`   | poster 0.9  |
+| Step     | Type          | Spacing | Leading     |
+| -------- | ------------- | ------- | ----------- |
+| -2       |               | `2xs`   |             |
+| -1       | `text-small`  | `xs`    | body 1.6    |
+| 0        | `text-body`   | `sm`    | body 1.6    |
+| 0 to 1   | `text-link`   |         | body 1.6    |
+| 1        | `text-lead`   | `md`    | lead 1.4    |
+| 1.5 to 2 | `text-intro`  |         | lead 1.4    |
+| 2        | `text-h3`     | `lg`    | heading 1.1 |
+| 3        | `text-h2`     | `xl`    | heading 1.1 |
+| 4        | `text-h1`     | `2xl`   | heading 1.1 |
+| 5        | `text-poster` | `3xl`   | poster 0.9  |
+
+Split steps start at the first step's 360px size and end at the last step's 1440px size, so they stay compact on phones and grow on wide screens: `text-link` runs from step 0 to 1, `text-intro` from 1.5 to 2.
+
+All text inherits `text-wrap: pretty` from `body`, so no paragraph ends on a lone word. Headlines use `text-wrap: balance` instead, because `pretty` skips their per-word cells.
 
 Leading tokens: `leading-body`, `leading-lead`, `leading-heading`, `leading-poster`.
 
@@ -125,9 +131,9 @@ Leading tokens: `leading-body`, `leading-lead`, `leading-heading`, `leading-post
 Each panel has up to four tiers. Split text renders the full string in `.sr-only` and the split copy with `aria-hidden`, so screen readers read plain text.
 
 - **Poster** (`.poster`, `Split.astro`): split per letter, one word per line, so style swaps never rewrap. Peak weight 1000. Size is `min((100cqi + --poster-bleed) / widest em, N --poster-unit / words, --poster-fit / words)`, never below `text-h2`. `posterSize()` in `panels.ts` sums each letter's widest advance (sans from the font file, or 0.6em mono). N is 40 on panels with a headline and 60 without. On short landscape screens (below 30rem tall) N counts `svw` instead of `svh` (`--poster-unit`), so phones size posters from their long side in both orientations. A third limit, `--poster-fit`, keeps every poster's lines within the screen height below the rail. Posters may run into the inline-end padding (`--poster-bleed`). The intro poster is the page's `h1`; the rest are `h2`.
-- **Headline** (`.headline`, `Words.astro`): split per word, `text-h2`, at most 22ch, peak weight 800. Each word sits in an `inline-grid` cell over a hidden copy at peak weight that reserves its width, so lines never rewrap. Headlines swap slant only; mono is forced off because reserving mono width leaves gaps at rest. A muted mono `.period` sits above it.
-- **Lead** (`.lead`): whole text, `text-h3`, `leading-lead`, at most 40ch. `strong` parts use the kinetic face at weight 800.
-- **Prose:** whole, Recursive Text at `text-body` and `leading-body`. Link lists (`.links`) wrap in a flex row at `text-lead` and use the kinetic face, like every link.
+- **Headline** (`.headline`, `Words.astro`): split per word, `text-h2`, balanced, at most 22ch, peak weight 800. Each word sits in an `inline-grid` cell over a hidden copy at peak weight that reserves its width, so lines never rewrap. Headlines swap slant only; mono is forced off because reserving mono width leaves gaps at rest. A muted mono `.period` sits above it.
+- **Lead** (`.lead`): whole text, `text-intro`, `leading-lead`, at most 40ch. `strong` parts use the kinetic face at weight 800.
+- **Prose:** whole, Recursive Text at `text-body` and `leading-body`. Link lists (`.links`) wrap in a flex row at `text-link` with `md` column gaps, which keeps all four on one line from 360px up, and use the kinetic face, like every link.
 
 ### Motion on the type
 

@@ -7,10 +7,12 @@ export const base = { min: 1, max: 1.125 };
 
 export const leading = { body: 1.6, lead: 1.4, heading: 1.1, poster: 0.9 };
 
-const type: { name: string; step: number; tier: keyof typeof leading }[] = [
+const type: { name: string; step: number; maxStep?: number; tier: keyof typeof leading }[] = [
   { name: 'small', step: -1, tier: 'body' },
   { name: 'body', step: 0, tier: 'body' },
+  { name: 'link', step: 0, maxStep: 1, tier: 'body' },
   { name: 'lead', step: 1, tier: 'lead' },
+  { name: 'intro', step: 1.5, maxStep: 2, tier: 'lead' },
   { name: 'h3', step: 2, tier: 'heading' },
   { name: 'h2', step: 3, tier: 'heading' },
   { name: 'h1', step: 4, tier: 'heading' },
@@ -30,9 +32,9 @@ const spacing = [
 
 const round = (value: number) => Number(value.toFixed(4));
 
-export const fluid = (step: number) => {
+export const fluid = (step: number, maxStep = step) => {
   const min = base.min * ratio.min ** step;
-  const max = base.max * ratio.max ** step;
+  const max = base.max * ratio.max ** maxStep;
   const slope = (max - min) / (viewport.max - viewport.min);
   const intercept = min - slope * viewport.min;
   const [low, high] = [min, max].sort((a, b) => a - b);
@@ -44,8 +46,8 @@ export const fluid = (step: number) => {
 export const scaleCss = () =>
   [
     '@theme inline {',
-    ...type.flatMap(({ name, step, tier }) => [
-      `  --text-${name}: ${fluid(step).css};`,
+    ...type.flatMap(({ name, step, maxStep, tier }) => [
+      `  --text-${name}: ${fluid(step, maxStep).css};`,
       `  --text-${name}--line-height: var(--leading-${tier});`,
     ]),
     '',

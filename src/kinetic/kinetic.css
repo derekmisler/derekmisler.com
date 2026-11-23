@@ -273,8 +273,9 @@
   }
 
   .lead {
-    max-inline-size: 40ch;
+    max-inline-size: 50ch;
     font-size: --theme(--text-intro);
+    text-wrap: balance;
     line-height: --theme(--leading-lead);
   }
 

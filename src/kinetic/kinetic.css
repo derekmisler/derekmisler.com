@@ -220,7 +220,6 @@
   }
 
   .panel {
-    --poster-bleed: --theme(--spacing-xl);
     container-type: inline-size;
     display: flex;
     flex-direction: column;

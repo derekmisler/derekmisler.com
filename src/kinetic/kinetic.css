@@ -6,7 +6,7 @@
       --theme(--spacing-xs) + --theme(--spacing-2xs) + 100dvw / var(--fit) * --theme(--leading-heading)
     );
     --toggle: --theme(--spacing-3xl);
-    --poster-unit: 1svh;
+    --poster-width: 75cqi;
     --poster-fit: calc((100svh - var(--rail-block) - --theme(--spacing-lg) * 2) / --theme(--leading-poster));
     --dot-size: calc(--theme(--spacing-2xs) / 6);
     --dot-pitch: --theme(--spacing-sm);
@@ -27,9 +27,9 @@
     }
   }
 
-  @media (orientation: landscape) and (max-height: 30rem) {
+  @media (orientation: portrait) and (pointer: coarse) {
     html {
-      --poster-unit: 1svw;
+      --poster-width: 100cqi;
     }
   }
 
@@ -227,7 +227,6 @@
   }
 
   .panel {
-    --poster-bleed: --theme(--spacing-xl);
     container-type: inline-size;
     display: flex;
     flex-direction: column;
@@ -273,8 +272,9 @@
   }
 
   .lead {
-    max-inline-size: 40ch;
+    max-inline-size: 50ch;
     font-size: --theme(--text-intro);
+    text-wrap: balance;
     line-height: --theme(--leading-lead);
   }
 

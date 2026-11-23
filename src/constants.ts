@@ -16,7 +16,7 @@ export const statements = [
     period: 'Docker, Feb 2024 to now',
     headline: 'An AI assistant for millions of Docker Desktop users.',
     detail:
-      'Led engineering across Docker\u2019s AI agent platform, including Gordon 2.0, and rebuilt the shared UI platform its agent tooling runs on.',
+      'Led engineering across Docker\u2019s AI agent platform, including Gordon 2.0, and rebuilt the shared UI platform its agent tooling runs on. The shadcn + Tailwind architecture chosen there became the standard across Docker\u2019s frontend codebase, and Bulk Deployment lets enterprise IT teams roll out Docker Desktop at scale.',
   },
   {
     ...navItems.review,
@@ -24,7 +24,7 @@ export const statements = [
     period: 'Docker',
     headline: 'AI code review on 100+ repositories.',
     detail:
-      'Built docker-\u2060agent-\u2060action, rolled it out to every engineering team, hardened its security, and open-\u2060sourced it under Apache 2.0.',
+      'Built docker-\u2060agent-\u2060action, rolled it out to every engineering team, hardened its security, and open-\u2060sourced it under Apache 2.0. Self-\u2060serve onboarding lets any team adopt it without manual setup.',
   },
   {
     ...navItems.governance,
@@ -32,7 +32,7 @@ export const statements = [
     period: 'Docker',
     headline: 'From behind schedule to ahead of it.',
     detail:
-      'Embedded with Docker\u2019s AI Governance team as the sole frontend lead on one of the company\u2019s top priorities, supporting a major enterprise contract.',
+      'Embedded with Docker\u2019s AI Governance team as the sole frontend lead on one of the company\u2019s top priorities, supporting a major enterprise contract. Ramped on an unfamiliar codebase in days, took ownership of a stalled workstream, and got it moving.',
   },
   {
     ...navItems.earlier,
@@ -40,14 +40,15 @@ export const statements = [
     period: 'Patreon 2022 to 2023, Cadre 2020 to 2022, Transfix 2016 to 2020',
     headline: '55% lower LCP at Patreon.',
     detail:
-      'Led the front-\u2060end workstream of a full migration from Flask to Next.js, with better developer experience, TypeScript and documentation, and modern testing. Before that, senior engineer to tech lead at Cadre, and first front-\u2060end engineer to Staff-\u2060level lead at Transfix.',
+      'Led the front-\u2060end workstream of a full migration from Flask to Next.js, with better developer experience, TypeScript and documentation, and modern testing. Built its rollout guardrails (percentage-\u2060based feature flags, alerting, dashboards) and created \u201cFront-\u2060End 101\u201d onboarding for new engineers. Before that, senior engineer to tech lead at Cadre, and first front-\u2060end engineer to Staff-\u2060level lead at Transfix.',
   },
   {
     ...navItems.design,
     poster: 'Graphic design',
     period: 'BFA, Graphic Design',
     headline: 'The design background never left.',
-    detail: 'Typography, layout, and visual hierarchy still shape the interfaces and systems I build.',
+    detail:
+      'It started at 13, tinkering with web pages until they worked, then a BFA in graphic design and freelance sites for local businesses. Typography, layout, and visual hierarchy still shape the interfaces and systems I build.',
   },
 ] satisfies { slug: string; label: string; poster: string; period: string; headline: string; detail: string }[];
 

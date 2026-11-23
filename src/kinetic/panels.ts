@@ -48,17 +48,17 @@ const content: Content[] = [
 const widestEm = (word: string) =>
   Array.from(word).reduce((sum, char) => (char === '\u2060' ? sum : sum + Math.max(advance(char), monoAdvance)), 0);
 
-export const posterSize = (poster: string, height: number) => {
+export const posterSize = (poster: string) => {
   const words = poster.split(' ');
   const em = Math.max(...words.map(widestEm));
-  return `min((100cqi + var(--poster-bleed)) / ${em.toFixed(3)}, ${(height / words.length).toFixed(1)} * var(--poster-unit), var(--poster-fit) / ${words.length})`;
+  return `min(var(--poster-width) / ${em.toFixed(3)}, var(--poster-fit) / ${words.length})`;
 };
 
 export const panels = content.map((panel, index) => ({
   ...panel,
   index,
   timeline: `--p${index}`,
-  size: posterSize(panel.poster, panel.headline ? 40 : 60),
+  size: posterSize(panel.poster),
   links: panel.links ?? [],
 }));
 

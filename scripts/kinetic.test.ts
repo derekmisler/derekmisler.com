@@ -67,6 +67,11 @@ test('the scale runs from ratio 1.25 at 360px to 1.5 at 1440px and the CSS is re
   assert.equal(readFileSync(scaleFile, 'utf8'), scaleCss(), 'run node scripts/kinetic-scale.ts');
 });
 
+test('a split step starts at its first step and ends at its last', () => {
+  const { min, max } = fluid(1, 2);
+  assert.deepEqual([min, max], [fluid(1).min, fluid(2).max]);
+});
+
 test('kinetic files enforce the kinetic token rules', () => {
   const cases = [
     ['src/kinetic/a.css', 'p { font-variation-settings: "wght" 700; }', 'outside the theme; set --wght'],

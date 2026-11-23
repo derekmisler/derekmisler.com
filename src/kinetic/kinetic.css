@@ -263,7 +263,7 @@
 
   .lead {
     max-inline-size: 40ch;
-    font-size: --theme(--text-h3);
+    font-size: --theme(--text-intro);
     line-height: --theme(--leading-lead);
   }
 

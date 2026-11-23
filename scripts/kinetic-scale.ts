@@ -10,6 +10,7 @@ export const leading = { body: 1.6, lead: 1.4, heading: 1.1, poster: 0.9 };
 const type: { name: string; step: number; maxStep?: number; tier: keyof typeof leading }[] = [
   { name: 'small', step: -1, tier: 'body' },
   { name: 'body', step: 0, tier: 'body' },
+  { name: 'link', step: 0, maxStep: 1, tier: 'body' },
   { name: 'lead', step: 1, tier: 'lead' },
   { name: 'intro', step: 1.5, maxStep: 2, tier: 'lead' },
   { name: 'h3', step: 2, tier: 'heading' },

@@ -3,6 +3,8 @@
   --text-small--line-height: var(--leading-body);
   --text-body: clamp(1rem, 0.9583rem + 0.1852cqi, 1.125rem);
   --text-body--line-height: var(--leading-body);
+  --text-link: clamp(1rem, 0.7708rem + 1.0185cqi, 1.6875rem);
+  --text-link--line-height: var(--leading-body);
   --text-lead: clamp(1.25rem, 1.1042rem + 0.6481cqi, 1.6875rem);
   --text-lead--line-height: var(--leading-lead);
   --text-intro: clamp(1.3975rem, 1.0196rem + 1.6796cqi, 2.5313rem);

@@ -274,10 +274,10 @@
   }
 
   .links {
-    font-size: --theme(--text-lead);
+    font-size: --theme(--text-link);
     display: flex;
     flex-wrap: wrap;
-    gap: --theme(--spacing-sm) --theme(--spacing-lg);
+    gap: --theme(--spacing-sm) --theme(--spacing-md);
     list-style: none;
   }
 

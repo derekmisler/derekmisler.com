@@ -126,8 +126,8 @@ Each panel has up to four tiers. Split text renders the full string in `.sr-only
 
 - **Poster** (`.poster`, `Split.astro`): split per letter, one word per line, so style swaps never rewrap. Peak weight 1000. Size is `min((100cqi + --poster-bleed) / widest em, N --poster-unit / words, --poster-fit / words)`, never below `text-h2`. `posterSize()` in `panels.ts` sums each letter's widest advance (sans from the font file, or 0.6em mono). N is 40 on panels with a headline and 60 without. On short landscape screens (below 30rem tall) N counts `svw` instead of `svh` (`--poster-unit`), so phones size posters from their long side in both orientations. A third limit, `--poster-fit`, keeps every poster's lines within the screen height below the rail. Posters may run into the inline-end padding (`--poster-bleed`). The intro poster is the page's `h1`; the rest are `h2`.
 - **Headline** (`.headline`, `Words.astro`): split per word, `text-h2`, at most 22ch, peak weight 800. Each word sits in an `inline-grid` cell over a hidden copy at peak weight that reserves its width, so lines never rewrap. Headlines swap slant only; mono is forced off because reserving mono width leaves gaps at rest. A muted mono `.period` sits above it.
-- **Lead** (`.lead`): whole text, `text-lead`, `leading-lead`, at most 48ch. `strong` parts use the kinetic face at weight 800.
-- **Prose:** whole, Recursive Text at `text-body` and `leading-body`. Link lists (`.links`) wrap in a flex row and use the kinetic face, like every link.
+- **Lead** (`.lead`): whole text, `text-h3`, `leading-lead`, at most 40ch. `strong` parts use the kinetic face at weight 800.
+- **Prose:** whole, Recursive Text at `text-body` and `leading-body`. Link lists (`.links`) wrap in a flex row at `text-lead` and use the kinetic face, like every link.
 
 ### Motion on the type
 

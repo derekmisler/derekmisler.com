@@ -6,6 +6,7 @@
       --theme(--spacing-xs) + --theme(--spacing-2xs) + 100dvw / var(--fit) * --theme(--leading-heading)
     );
     --toggle: --theme(--spacing-3xl);
+    --poster-width: 75cqi;
     --poster-fit: calc((100svh - var(--rail-block) - --theme(--spacing-lg) * 2) / --theme(--leading-poster));
     --dot-size: calc(--theme(--spacing-2xs) / 6);
     --dot-pitch: --theme(--spacing-sm);
@@ -23,6 +24,12 @@
   @media (pointer: fine) {
     html {
       --toggle: --theme(--spacing-xl);
+    }
+  }
+
+  @media (orientation: portrait) and (pointer: coarse) {
+    html {
+      --poster-width: 100cqi;
     }
   }
 

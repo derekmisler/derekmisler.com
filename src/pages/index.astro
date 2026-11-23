@@ -15,6 +15,7 @@ const swaps = `@media (prefers-reduced-motion: no-preference){${swapKeyframes()}
 const timelines = panels.map((panel) => panel.timeline).join(', ');
 
 const siteUrl = 'https://derekmisler.com';
+const imageAlt = 'Pop-art comic portrait of Derek Misler with yellow hair and a red shirt on blue Ben-Day dots';
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -58,20 +59,24 @@ const jsonLd = {
           {
             url: `${siteUrl}/square.jpg`,
             width: 1200,
-            height: 1080,
-            alt: 'Square image of Derek Misler',
+            height: 1200,
+            alt: imageAlt,
             type: 'image/jpeg',
           },
           {
             url: `${siteUrl}/horizontal.jpg`,
-            width: 800,
-            height: 440,
-            alt: 'Horizontal image of Derek Misler',
+            width: 1200,
+            height: 630,
+            alt: `${imageAlt}, next to his name`,
             type: 'image/jpeg',
           },
         ],
       }}
-      additionalLinkTags={[{ rel: 'icon', href: `${Astro.url.href}favicon.ico` }]}
+      additionalLinkTags={[
+        { rel: 'icon', href: '/favicon.ico', sizes: '16x16 32x32 48x48' },
+        { rel: 'icon', href: '/icon-192.png', type: 'image/png', sizes: '192x192' },
+        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+      ]}
       additionalMetaTags={[
         {
           name: 'google-site-verification',
@@ -83,7 +88,7 @@ const jsonLd = {
         { name: 'twitter:title', content: `${fullName} | ${title}` },
         { name: 'twitter:description', content: description },
         { name: 'twitter:image', content: `${siteUrl}/horizontal.jpg` },
-        { name: 'twitter:image:alt', content: 'Horizontal image of Derek Misler' },
+        { name: 'twitter:image:alt', content: `${imageAlt}, next to his name` },
       ]}
     />
     <link rel="sitemap" href="/sitemap-index.xml" />

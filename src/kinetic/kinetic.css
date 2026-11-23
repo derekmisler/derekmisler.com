@@ -329,7 +329,7 @@
     }
 
     :where(p, h1, h2, h3, li) {
-      cursor: text;
+      cursor: var(--cursor-text);
     }
 
     :is(a[href], button) {

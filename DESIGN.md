@@ -176,11 +176,11 @@ A fixed progress rail across the top, full width with no side padding: one unbro
 
 ## Cursor
 
-With a fine pointer, the page uses a comic arrow: a black outline over a white halo, filled with the theme accent and five white Ben-Day dots. Over links and buttons (the theme toggle included), six impact lines appear around the tip, alternating long and short. Touch devices keep the native cursor.
+With a fine pointer, the page uses a comic arrow: a black outline over a white halo, filled with the theme accent and five white Ben-Day dots. Over links and buttons (the theme toggle included), six impact lines appear around the tip, alternating long and short. Over text it becomes a slanted comic I-beam in the same style, leaning like Recursive's slant. Touch devices keep the native cursor.
 
-- `pnpm cursor` (`scripts/kinetic-cursor.ts`) writes `src/styles/kinetic-cursor.css`: `--cursor` and `--cursor-hot` per theme, plus the no-JS midday and night fallbacks. A cursor image can't read CSS variables, so each SVG data URI has its theme's accent baked in as `oklch()`, read from `kinetic-theme.css`. Rerun it after changing an accent; a test fails when the file is stale.
-- Each image is 32px with the hotspot on the arrow tip at 12 12, so the click point never moves between states. The fallbacks are `auto` and `pointer`.
-- Rules sit in `@media (pointer: fine)` in `kinetic.css`: `html` takes `--cursor`, `p`, headings and `li` take the native `text` I-beam, and `a[href]` and `button` take `--cursor-hot`.
+- `pnpm cursor` (`scripts/kinetic-cursor.ts`) writes `src/styles/kinetic-cursor.css`: `--cursor`, `--cursor-hot` and `--cursor-text` per theme, plus the no-JS midday and night fallbacks. A cursor image can't read CSS variables, so each SVG data URI has its theme's accent baked in as `oklch()`, read from `kinetic-theme.css`. Rerun it after changing an accent; a test fails when the file is stale.
+- Each image is 32px and clears all four edges, so the halo never clips. The arrow's hotspot is its tip at 12 12 in both states; the I-beam's is its center at 16 16. The fallbacks are `auto`, `pointer` and `text`.
+- Rules sit in `@media (pointer: fine)` in `kinetic.css`: `html` takes `--cursor`, `p`, headings and `li` take `--cursor-text`, and `a[href]` and `button` take `--cursor-hot`.
 - The cursor uses the accent at drift 0, so it doesn't follow the scroll drift. It's static, so reduced motion changes nothing.
 
 ## Theme toggle

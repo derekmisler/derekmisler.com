@@ -37,18 +37,38 @@ const lines = Array.from({ length: 6 }, (_, i) => {
 
 const round = (value: number) => Number(value.toFixed(4));
 
-export const cursorSvg = (accent: { l: number; c: number; h: number }, hot: boolean) => {
+const beam = 'M10 4 H22 V8.5 H18.2 V23.5 H22 V28 H10 V23.5 H13.8 V8.5 H10 Z';
+const beamDots = [
+  [16, 12.5],
+  [16, 16],
+];
+
+export type Kind = 'idle' | 'hot' | 'text';
+
+export const hotspots: Record<Kind, number> = { idle: hotspot, hot: hotspot, text: size / 2 };
+
+export const cursorSvg = (accent: { l: number; c: number; h: number }, kind: Kind) => {
   const fill = `oklch(${round(accent.l)} ${round(accent.c)} ${round(accent.h)})`;
   const stroke = (width: number, color: string) =>
     `<path d='${lines}' fill='none' stroke='${color}' stroke-width='${width}' stroke-linecap='round'/>`;
+  const comic = (path: string, spots: number[][]) => [
+    `<path d='${path}' fill='none' stroke='oklch(1 0 0)' stroke-width='5' stroke-linejoin='round'/>`,
+    `<path d='${path}' fill='${fill}' stroke='oklch(0 0 0)' stroke-width='2.5' stroke-linejoin='round'/>`,
+    `<g fill='oklch(1 0 0)' opacity='0.75'>`,
+    ...spots.map(([cx, cy]) => `<circle cx='${cx}' cy='${cy}' r='0.9'/>`),
+    '</g>',
+  ];
+  const center = size / 2;
   return [
     `<svg xmlns='http://www.w3.org/2000/svg' width='${size}' height='${size}' viewBox='0 0 ${size} ${size}'>`,
-    hot ? stroke(4.5, 'oklch(1 0 0)') + stroke(2.4, 'oklch(0 0 0)') : '',
-    `<path d='${arrow}' fill='none' stroke='oklch(1 0 0)' stroke-width='5' stroke-linejoin='round'/>`,
-    `<path d='${arrow}' fill='${fill}' stroke='oklch(0 0 0)' stroke-width='2.5' stroke-linejoin='round'/>`,
-    `<g fill='oklch(1 0 0)' opacity='0.75'>`,
-    ...dots.map(([cx, cy]) => `<circle cx='${cx}' cy='${cy}' r='0.9'/>`),
-    '</g></svg>',
+    ...(kind === 'text'
+      ? [
+          `<g transform='translate(${center} ${center}) skewX(-14) translate(-${center} -${center})'>`,
+          ...comic(beam, beamDots),
+          '</g>',
+        ]
+      : [kind === 'hot' ? stroke(4.5, 'oklch(1 0 0)') + stroke(2.4, 'oklch(0 0 0)') : '', ...comic(arrow, dots)]),
+    '</svg>',
   ].join('');
 };
 
@@ -58,13 +78,16 @@ const block = (selector: string, css: string, theme: string, indent = '') => {
   const { accent } = palette(css, themeSelectors(theme));
   return [
     `${indent}${selector} {`,
-    ...[
-      ['--cursor', cursorSvg(accent, false), 'auto'],
-      ['--cursor-hot', cursorSvg(accent, true), 'pointer'],
-    ].flatMap(([name, svg, fallback]) => [
+    ...(
+      [
+        ['--cursor', 'idle', 'auto'],
+        ['--cursor-hot', 'hot', 'pointer'],
+        ['--cursor-text', 'text', 'text'],
+      ] as const
+    ).flatMap(([name, kind, fallback]) => [
       `${indent}  ${name}:`,
-      `${indent}    ${url(svg)}`,
-      `${indent}      ${hotspot} ${hotspot},`,
+      `${indent}    ${url(cursorSvg(accent, kind))}`,
+      `${indent}      ${hotspots[kind]} ${hotspots[kind]},`,
       `${indent}    ${fallback};`,
     ]),
     `${indent}}`,

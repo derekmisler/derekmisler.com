@@ -15,6 +15,7 @@ import {
   themeSelectors,
   themes,
 } from './kinetic-palette.ts';
+import { cursorCss, cursorFile, size } from './kinetic-cursor.ts';
 import { base, fluid, ratio, scaleCss, scaleFile } from './kinetic-scale.ts';
 import { panels, posterSize, rail, railGap } from '../src/kinetic/panels.ts';
 import { splitWords, stagger } from '../src/kinetic/split.ts';
@@ -196,5 +197,17 @@ test('boot uses a stored theme and falls back to the hour theme for anything els
       () => {},
     );
     assert.deepEqual([dataset.choice, dataset.theme], [choice, theme], String(stored));
+  }
+});
+
+test('the cursor CSS is regenerated, 32px at most, with a keyword fallback and each theme accent', () => {
+  const css = readFileSync(cursorFile, 'utf8');
+  assert.equal(css, cursorCss(), 'run node scripts/kinetic-cursor.ts');
+  assert.ok(size <= 32);
+  assert.equal(css.match(/--cursor:\s+url\("[^"]+"\)\s+12 12,\s+auto;/g)?.length, 5);
+  assert.equal(css.match(/--cursor-hot:\s+url\("[^"]+"\)\s+12 12,\s+pointer;/g)?.length, 5);
+  assert.equal(css.match(/--cursor-text:\s+url\("[^"]+"\)\s+16 16,\s+text;/g)?.length, 5);
+  for (const fill of ['oklch(0.5 0.2 20)', 'oklch(0.44 0.19 340)', 'oklch(0.88 0.195 115)', 'oklch(0.82 0.145 180)']) {
+    assert.ok(css.includes(`fill='${fill}'`), fill);
   }
 });

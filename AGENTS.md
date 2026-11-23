@@ -14,6 +14,7 @@ pnpm build          # Build static site for production
 pnpm preview        # Preview production build locally
 pnpm resume         # Regenerate public/derek-misler-resume-{dawn,midday,dusk,night}.pdf from src/constants.ts (needs Google Chrome installed)
 pnpm scale          # Regenerate src/styles/kinetic-scale.css from scripts/kinetic-scale.ts
+pnpm cursor         # Regenerate src/styles/kinetic-cursor.css (per-theme cursor SVGs) from the theme accents
 pnpm subset-font <Recursive_VF.ttf>  # Rebuild the two Recursive woff2 files in public/fonts/
 ```
 
@@ -69,7 +70,8 @@ src/
 │   └── robots.txt.ts    # Dynamic robots.txt generation
 ├── styles/
 │   ├── kinetic-theme.css  # Tailwind tokens, fonts, registered axes, four OKLCH themes
-│   └── kinetic-scale.css  # Generated fluid type, leading and spacing (pnpm scale)
+│   ├── kinetic-scale.css  # Generated fluid type, leading and spacing (pnpm scale)
+│   └── kinetic-cursor.css # Generated per-theme cursor SVGs (pnpm cursor)
 ├── utils/
 │   ├── llms.ts          # Builds the llms.txt text
 │   └── resume.ts        # Builds the resume markdown for scripts/resume.ts
@@ -78,7 +80,8 @@ scripts/
 ├── check-tokens.mjs     # Token and kinetic CSS rules, run by pnpm test
 ├── kinetic-palette.ts   # Theme color parsing and contrast
 ├── kinetic-scale.ts     # Fluid scale generator
-├── kinetic.test.ts      # Palette, scale, token rules, splitter, panels, theme boot
+├── kinetic-cursor.ts    # Cursor SVG generator
+├── kinetic.test.ts      # Palette, scale, cursor, token rules, splitter, panels, theme boot
 ├── subset-font.ts       # Recursive subsetting
 └── resume.ts, resume.css
 ```

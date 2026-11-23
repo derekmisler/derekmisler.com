@@ -15,6 +15,7 @@ const swaps = `@media (prefers-reduced-motion: no-preference){${swapKeyframes()}
 const timelines = panels.map((panel) => panel.timeline).join(', ');
 
 const siteUrl = 'https://derekmisler.com';
+const imageAlt = "Derek Misler's face split into four art styles: line drawing, pop art, Matrix code and cubist painting";
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -59,14 +60,14 @@ const jsonLd = {
             url: `${siteUrl}/square.jpg`,
             width: 1200,
             height: 1200,
-            alt: 'Derek Misler in four pop-art portraits',
+            alt: imageAlt,
             type: 'image/jpeg',
           },
           {
             url: `${siteUrl}/horizontal.jpg`,
             width: 1200,
             height: 630,
-            alt: 'Derek Misler in four pop-art portraits, next to his name',
+            alt: `${imageAlt}, next to his name`,
             type: 'image/jpeg',
           },
         ],
@@ -87,7 +88,7 @@ const jsonLd = {
         { name: 'twitter:title', content: `${fullName} | ${title}` },
         { name: 'twitter:description', content: description },
         { name: 'twitter:image', content: `${siteUrl}/horizontal.jpg` },
-        { name: 'twitter:image:alt', content: 'Horizontal image of Derek Misler' },
+        { name: 'twitter:image:alt', content: `${imageAlt}, next to his name` },
       ]}
     />
     <link rel="sitemap" href="/sitemap-index.xml" />

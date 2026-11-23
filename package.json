@@ -16,7 +16,8 @@
     "fix": "oxfmt && oxlint --fix",
     "resume": "node scripts/resume.ts",
     "subset-font": "node scripts/subset-font.ts",
-    "scale": "node scripts/kinetic-scale.ts"
+    "scale": "node scripts/kinetic-scale.ts",
+    "cursor": "node scripts/kinetic-cursor.ts"
   },
   "dependencies": {
     "@astrojs/check": "0.9.12",

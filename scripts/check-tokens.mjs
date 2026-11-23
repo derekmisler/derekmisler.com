@@ -3,7 +3,11 @@ import { basename, extname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = new URL('..', import.meta.url).pathname;
-const kineticThemeFiles = new Set(['src/styles/kinetic-theme.css', 'src/styles/kinetic-scale.css']);
+const kineticThemeFiles = new Set([
+  'src/styles/kinetic-theme.css',
+  'src/styles/kinetic-scale.css',
+  'src/styles/kinetic-cursor.css',
+]);
 const extensions = new Set(['.astro', '.css', '.ts', '.js', '.mjs', '.cjs', '.html']);
 const colorPattern = /(?<![&\w]|href=["'])#(?:[0-9a-f]{8}|[0-9a-f]{6}|[0-9a-f]{3,4})\b|\b(?:rgba?|hsla?)\(/gi;
 const classPattern = /\bclass(?::list)?=(?:"([^"]*)"|'([^']*)'|\{)/g;

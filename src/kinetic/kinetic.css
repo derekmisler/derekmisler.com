@@ -323,6 +323,20 @@
     --mono: 0 !important;
   }
 
+  @media (pointer: fine) {
+    html {
+      cursor: var(--cursor);
+    }
+
+    :where(p, h1, h2, h3, li) {
+      cursor: text;
+    }
+
+    :is(a[href], button) {
+      cursor: var(--cursor-hot);
+    }
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     html {
       scroll-behavior: smooth;

@@ -13,7 +13,7 @@ The motion shows design and code as one skill set. It's decoration on top of a p
 - **Tokens only.** Every Tailwind default is off (`--*: initial` in `src/styles/kinetic-theme.css`), so a utility exists only if its token is listed below. In CSS, read tokens with `--theme(--spacing-sm)`, never a literal.
 - **No arbitrary values in classes.** `scripts/check-tokens.mjs` fails on any class token with `[` or `(`.
 - **Colors live in the theme.** Outside `src/kinetic/` and `kinetic-*` files, raw hex, `rgb()` and `hsl()` fail the check.
-- **Never hand-edit `kinetic-scale.css`.** Change `scripts/kinetic-scale.ts` and run `pnpm scale`; a test fails when the file is stale.
+- **Never hand-edit `kinetic-scale.css` or `kinetic-cursor.css`.** Change `scripts/kinetic-scale.ts` or `scripts/kinetic-cursor.ts` and run `pnpm scale` or `pnpm cursor`; a test fails when either file is stale.
 - **All kinetic CSS sits in `@layer kinetic`** (`src/kinetic/kinetic.css`).
 - **Inline `style` only for values computed at build** (custom properties, the rail's `word-spacing`).
 - **Heights use `svh`, never `dvh`,** so the mobile toolbar moves nothing.
@@ -28,7 +28,7 @@ The motion shows design and code as one skill set. It's decoration on top of a p
 1. **Axes:** no `font-variation-settings` outside the theme. Set `--wght`, `--mono`, `--casl` or `--slnt` instead.
 2. **Motion guard:** every `animation*` and `transition*` property sits inside `@media (prefers-reduced-motion: no-preference)`.
 3. **`@supports`:** single-engine features sit inside `@supports`. The list is fixed: `if()`, `@function`, `animation-trigger`, `timeline-trigger`, `trigger-scope`.
-4. **OKLCH in the theme:** `kinetic-theme.css` and `kinetic-scale.css` use only `oklch()`. Other kinetic files use no color functions at all, only theme variables.
+4. **OKLCH in the theme:** `kinetic-theme.css`, `kinetic-scale.css` and `kinetic-cursor.css` use only `oklch()`. Other kinetic files use no color functions at all, only theme variables.
 
 Scroll-driven animations are Baseline, but they still go inside `@supports (animation-timeline: view())` so older browsers keep the static page. Timeline triggers go inside `@supports (timeline-trigger: --a view())`, with animation longhands: the build moves `animation-trigger` ahead of the `animation` shorthand, which resets it.
 
@@ -173,6 +173,15 @@ A fixed progress rail across the top, full width with no side padding: one unbro
 - Hover and focus set `--wght: 1000` and `--casl: 1`, with a 0.3s transition behind the motion guard.
 - `:focus-visible` draws an accent outline, half of `2xs` wide, at the same offset. Panels draw it inset (`2xs * -1.5`) so it doesn't double the panel rule; rail links use a negative offset so the viewport edge never clips it.
 - After a mouse click on an in-page link, the panel takes focus without a ring; keyboard activation shows it.
+
+## Cursor
+
+With a fine pointer, the page uses a comic arrow: a black outline over a white halo, filled with the theme accent and five white Ben-Day dots. Over links and buttons (the theme toggle included), six impact lines appear around the tip, alternating long and short. Touch devices keep the native cursor.
+
+- `pnpm cursor` (`scripts/kinetic-cursor.ts`) writes `src/styles/kinetic-cursor.css`: `--cursor` and `--cursor-hot` per theme, plus the no-JS midday and night fallbacks. A cursor image can't read CSS variables, so each SVG data URI has its theme's accent baked in as `oklch()`, read from `kinetic-theme.css`. Rerun it after changing an accent; a test fails when the file is stale.
+- Each image is 32px with the hotspot on the arrow tip at 12 12, so the click point never moves between states. The fallbacks are `auto` and `pointer`.
+- Rules sit in `@media (pointer: fine)` in `kinetic.css`: `html` takes `--cursor`, `p`, headings and `li` take the native `text` I-beam, and `a[href]` and `button` take `--cursor-hot`.
+- The cursor uses the accent at drift 0, so it doesn't follow the scroll drift. It's static, so reduced motion changes nothing.
 
 ## Theme toggle
 

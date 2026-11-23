@@ -75,6 +75,7 @@
 }
 
 @import './kinetic-scale.css';
+@import './kinetic-cursor.css';
 
 :root {
   color-scheme: light;

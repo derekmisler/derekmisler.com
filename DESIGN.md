@@ -4,7 +4,7 @@ The contract for UI work on derekmisler.com. Read it before touching any `.astro
 
 ## Character
 
-Kinetic type on a quiet page. One vertical stack of full-height panels, one statement each, set in Recursive. Scroll swings the weight of the big type and flips letters between sans, mono and slanted styles, then lets every letter settle on upright sans. The accent hue drifts as you read; text and background never move. Square corners, thick accent rules, no shadows, no imagery.
+Kinetic type on a vivid, pop-art page. One vertical stack of full-height panels, one statement each, set in Recursive. Scroll swings the weight of the big type and flips letters between sans, mono and slanted styles, then lets every letter settle on upright sans. The accent hue drifts as you read; text and background never move. Square corners, thick accent rules, no shadows, no imagery. The page background is a halftone dot screen, like a pop-art print.
 
 The motion shows design and code as one skill set. It's decoration on top of a page that already works: with reduced motion, no JS or an older browser, the same composition renders static and complete.
 
@@ -17,7 +17,7 @@ The motion shows design and code as one skill set. It's decoration on top of a p
 - **All kinetic CSS sits in `@layer kinetic`** (`src/kinetic/kinetic.css`).
 - **Inline `style` only for values computed at build** (custom properties, the rail's `word-spacing`).
 - **Heights use `svh`, never `dvh`,** so the mobile toolbar moves nothing.
-- **Square and flat:** `rounded-none` only, no `box-shadow`, no gradients.
+- **Square and flat:** `rounded-none` only, no `box-shadow`, no gradients. The one exception is the halftone background on `html` (see Color).
 - **Keyframes never read a `var()` that changes at runtime.** Chrome resolves it once, so a theme switch would leave stale values. Animate a registered number instead (`--progress`, `--lit`) and do the math outside the keyframes.
 - **Keep `vite.build.cssMinify: 'esbuild'`.** lightningcss folds `animation-timeline` into the `animation` shorthand, which Chrome drops.
 
@@ -54,18 +54,24 @@ Each theme sets a hue and chroma for background, text and accent on a fixed set 
 
 | Theme  | `color-scheme` | bg hue / chroma | fg hue / chroma | accent hue / chroma | `--drift-span` |
 | ------ | -------------- | --------------- | --------------- | ------------------- | -------------- |
-| dawn   | light          | 60 / 0.015      | 330 / 0.06      | 25 / 0.17           | -50            |
-| midday | light          | 230 / 0.012     | 255 / 0.05      | 255 / 0.16          | 50             |
-| dusk   | dark           | 320 / 0.06      | 75 / 0.03       | 60 / 0.13           | 40             |
-| night  | dark           | 270 / 0.03      | 250 / 0.02      | 200 / 0.12          | -40            |
+| dawn   | light          | 95 / 0.07       | 330 / 0.1       | 25 / 0.19           | -50            |
+| midday | light          | 220 / 0.042     | 260 / 0.09      | 350 / 0.19          | -50            |
+| dusk   | dark           | 320 / 0.12      | 90 / 0.04       | 95 / 0.16           | 40             |
+| night  | dark           | 265 / 0.09      | 220 / 0.03      | 200 / 0.13          | -40            |
 
-Midday is the `:root` default. Night also applies under `@media (prefers-color-scheme: dark)` when no `data-theme` is set.
+Midday is the `:root` default.
+
+### Halftone background
+
+`html` paints `--bg` under two offset layers of `radial-gradient` dots in `--surface`, which form a 45° grid. The pitch is `spacing-sm` and the dot radius is a quarter of `spacing-2xs`. The dots use `--surface` because every text pair is already AA on it, so text stays readable wherever it lands on a dot. The rail, skip link and theme toggle keep solid `--bg` fills.
+
+The light themes sit at 94% background lightness, not higher, because a lighter background can't hold this much chroma inside sRGB. Night also applies under `@media (prefers-color-scheme: dark)` when no `data-theme` is set.
 
 ### AA lightness steps
 
 | Steps        | bg  | surface | fg  | fg-muted | accent |
 | ------------ | --- | ------- | --- | -------- | ------ |
-| dawn, midday | 97% | 92%     | 25% | 42%      | 48%    |
+| dawn, midday | 94% | 88%     | 25% | 42%      | 48%    |
 | dusk         | 30% | 36%     | 96% | 86%      | 80%    |
 | night        | 20% | 26%     | 95% | 80%      | 80%    |
 
@@ -75,7 +81,7 @@ Midday is the `:root` default. Night also applies under `@media (prefers-color-s
 
 The accent hue drifts along the page. `html` runs a `--page` scroll timeline that animates the registered `--progress` from 0 to 1, and `--drift` is `--progress` times the theme's `--drift-span`, added to the accent hue. Text and background never drift.
 
-The sign differs per theme because some hue offsets break a theme: below 0, midday's accent drops under 4.5:1, and between -65 and -5, dusk's accent leaves sRGB. A test walks each span in ten steps and checks that the accent stays in sRGB and every accent pair stays at 4.5:1 or more. Drift sits behind the motion guard and `@supports (animation-timeline: view())`, so without them `--progress` stays 0.
+The sign differs per theme because some hue offsets break a theme: above about 40, midday's accent fails, and between -65 and -5, dusk's accent leaves sRGB. A test walks each span in ten steps and checks that the accent stays in sRGB and every accent pair stays at 4.5:1 or more. Drift sits behind the motion guard and `@supports (animation-timeline: view())`, so without them `--progress` stays 0.
 
 ## Type
 

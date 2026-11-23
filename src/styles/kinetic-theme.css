@@ -79,20 +79,20 @@
 :root {
   color-scheme: light;
 
-  --l-bg: 97%;
-  --l-surface: 92%;
+  --l-bg: 84.5%;
+  --l-surface: 80%;
   --l-fg: 25%;
-  --l-fg-muted: 42%;
-  --l-accent: 48%;
+  --l-fg-muted: 32%;
+  --l-accent: 44%;
 
-  --h-bg: 230;
-  --c-bg: 0.012;
-  --h-fg: 255;
-  --c-fg: 0.05;
-  --h-accent: 255;
-  --c-accent: 0.16;
+  --h-bg: 221;
+  --c-bg: 0.11;
+  --h-fg: 260;
+  --c-fg: 0.1;
+  --h-accent: 340;
+  --c-accent: 0.19;
   --drift: 0;
-  --drift-span: 50;
+  --drift-span: -30;
 
   --bg: oklch(var(--l-bg) var(--c-bg) var(--h-bg));
   --fg: oklch(var(--l-fg) var(--c-fg) var(--h-fg));
@@ -100,15 +100,22 @@
   --surface: oklch(from var(--bg) var(--l-surface) c h);
   --fg-muted: oklch(from var(--fg) var(--l-fg-muted) calc(c * 0.8) h);
   --on-accent: oklch(from var(--accent) var(--l-bg) 0.01 h);
+  --dot: oklch(from var(--surface) l c h / 0.5);
 }
 
 :root[data-theme='dawn'] {
-  --h-bg: 60;
-  --c-bg: 0.015;
+  --l-bg: 94%;
+  --l-surface: 88%;
+  --l-fg: 25%;
+  --l-fg-muted: 42%;
+  --l-accent: 50%;
+
+  --h-bg: 95;
+  --c-bg: 0.09;
   --h-fg: 330;
-  --c-fg: 0.06;
-  --h-accent: 25;
-  --c-accent: 0.17;
+  --c-fg: 0.11;
+  --h-accent: 20;
+  --c-accent: 0.2;
   --drift-span: -50;
 }
 
@@ -119,15 +126,15 @@
   --l-surface: 36%;
   --l-fg: 96%;
   --l-fg-muted: 86%;
-  --l-accent: 80%;
+  --l-accent: 88%;
 
   --h-bg: 320;
-  --c-bg: 0.06;
-  --h-fg: 75;
-  --c-fg: 0.03;
-  --h-accent: 60;
-  --c-accent: 0.13;
-  --drift-span: 40;
+  --c-bg: 0.14;
+  --h-fg: 90;
+  --c-fg: 0.048;
+  --h-accent: 115;
+  --c-accent: 0.195;
+  --drift-span: 30;
 }
 
 :root[data-theme='night'] {
@@ -137,15 +144,15 @@
   --l-surface: 26%;
   --l-fg: 95%;
   --l-fg-muted: 80%;
-  --l-accent: 80%;
+  --l-accent: 82%;
 
-  --h-bg: 270;
-  --c-bg: 0.03;
-  --h-fg: 250;
-  --c-fg: 0.02;
-  --h-accent: 200;
-  --c-accent: 0.12;
-  --drift-span: -40;
+  --h-bg: 265;
+  --c-bg: 0.13;
+  --h-fg: 220;
+  --c-fg: 0.034;
+  --h-accent: 180;
+  --c-accent: 0.145;
+  --drift-span: -30;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -156,15 +163,15 @@
     --l-surface: 26%;
     --l-fg: 95%;
     --l-fg-muted: 80%;
-    --l-accent: 80%;
+    --l-accent: 82%;
 
-    --h-bg: 270;
-    --c-bg: 0.03;
-    --h-fg: 250;
-    --c-fg: 0.02;
-    --h-accent: 200;
-    --c-accent: 0.12;
-    --drift-span: -40;
+    --h-bg: 265;
+    --c-bg: 0.13;
+    --h-fg: 220;
+    --c-fg: 0.034;
+    --h-accent: 180;
+    --c-accent: 0.145;
+    --drift-span: -30;
   }
 }
 

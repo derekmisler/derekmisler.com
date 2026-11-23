@@ -31,10 +31,10 @@ export const cursorSvg = (accent: { l: number; c: number; h: number }, hot: bool
     `<path d='${lines}' fill='none' stroke='${color}' stroke-width='${width}' stroke-linecap='round'/>`;
   return [
     `<svg xmlns='http://www.w3.org/2000/svg' width='${size}' height='${size}' viewBox='0 0 ${size} ${size}'>`,
-    hot ? stroke(4.5, 'white') + stroke(2.4, 'black') : '',
-    `<path d='${arrow}' fill='none' stroke='white' stroke-width='5' stroke-linejoin='round'/>`,
-    `<path d='${arrow}' fill='${fill}' stroke='black' stroke-width='2.5' stroke-linejoin='round'/>`,
-    `<g fill='white' opacity='0.75'>`,
+    hot ? stroke(4.5, 'oklch(1 0 0)') + stroke(2.4, 'oklch(0 0 0)') : '',
+    `<path d='${arrow}' fill='none' stroke='oklch(1 0 0)' stroke-width='5' stroke-linejoin='round'/>`,
+    `<path d='${arrow}' fill='${fill}' stroke='oklch(0 0 0)' stroke-width='2.5' stroke-linejoin='round'/>`,
+    `<g fill='oklch(1 0 0)' opacity='0.75'>`,
     ...dots.map(([cx, cy]) => `<circle cx='${cx}' cy='${cy}' r='0.9'/>`),
     '</g></svg>',
   ].join('');

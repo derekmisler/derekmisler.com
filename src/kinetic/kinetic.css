@@ -262,8 +262,8 @@
   }
 
   .lead {
-    max-inline-size: 48ch;
-    font-size: --theme(--text-lead);
+    max-inline-size: 40ch;
+    font-size: --theme(--text-h3);
     line-height: --theme(--leading-lead);
   }
 
@@ -274,6 +274,7 @@
   }
 
   .links {
+    font-size: --theme(--text-lead);
     display: flex;
     flex-wrap: wrap;
     gap: --theme(--spacing-sm) --theme(--spacing-lg);

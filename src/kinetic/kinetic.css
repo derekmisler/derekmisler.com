@@ -28,6 +28,7 @@
     font-family: --theme(--font-text);
     font-size: --theme(--text-body);
     line-height: --theme(--leading-body);
+    text-wrap: pretty;
     overflow-x: clip;
   }
 
@@ -245,6 +246,7 @@
   .headline {
     --peak: 800;
     max-inline-size: 22ch;
+    text-wrap: balance;
     font-size: --theme(--text-h2);
     line-height: --theme(--leading-heading);
   }

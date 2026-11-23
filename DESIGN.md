@@ -54,10 +54,10 @@ Each theme sets a hue and chroma for background, text and accent on a fixed set 
 
 | Theme  | `color-scheme` | bg hue / chroma | fg hue / chroma | accent hue / chroma | `--drift-span` |
 | ------ | -------------- | --------------- | --------------- | ------------------- | -------------- |
-| dawn   | light          | 95 / 0.09       | 330 / 0.11      | 25 / 0.19           | -50            |
-| midday | light          | 200 / 0.07      | 260 / 0.1       | 350 / 0.195         | -50            |
-| dusk   | dark           | 320 / 0.14      | 90 / 0.048      | 95 / 0.16           | 40             |
-| night  | dark           | 265 / 0.13      | 220 / 0.034     | 200 / 0.134         | -40            |
+| dawn   | light          | 95 / 0.09       | 330 / 0.11      | 20 / 0.2            | -50            |
+| midday | light          | 221 / 0.11      | 260 / 0.1       | 340 / 0.19          | -30            |
+| dusk   | dark           | 320 / 0.14      | 90 / 0.048      | 115 / 0.195         | 30             |
+| night  | dark           | 265 / 0.13      | 220 / 0.034     | 180 / 0.145         | -30            |
 
 Midday is the `:root` default.
 
@@ -65,15 +65,16 @@ Midday is the `:root` default.
 
 `html` paints `--bg` under two offset layers of `radial-gradient` dots in `--dot`, which form a 45° grid. `--dot` is `--surface` at half opacity, so a dot always sits between `--bg` and `--surface`, where every text pair is already AA. The pitch is `spacing-sm` and the dot radius is a sixth of `spacing-2xs`. The rail, skip link and theme toggle keep solid `--bg` fills.
 
-Chroma sits close to the sRGB limit for each lightness step. The light themes sit at 94% background lightness, not higher, because a lighter background can't hold this much chroma, and midday uses hue 200 because bluer hues hold about half the chroma at that lightness. Night also applies under `@media (prefers-color-scheme: dark)` when no `data-theme` is set.
+Chroma sits close to the sRGB limit for each lightness step. Dawn sits at 94% background lightness, not higher, because a lighter background can't hold this much chroma. Midday's background is the portrait's sky blue (84.5%, 0.11, hue 221), so the site and the favicon and social images share one blue. Night also applies under `@media (prefers-color-scheme: dark)` when no `data-theme` is set.
 
 ### AA lightness steps
 
-| Steps        | bg  | surface | fg  | fg-muted | accent |
-| ------------ | --- | ------- | --- | -------- | ------ |
-| dawn, midday | 94% | 88%     | 25% | 42%      | 48%    |
-| dusk         | 30% | 36%     | 96% | 86%      | 80%    |
-| night        | 20% | 26%     | 95% | 80%      | 80%    |
+| Steps  | bg    | surface | fg  | fg-muted | accent |
+| ------ | ----- | ------- | --- | -------- | ------ |
+| dawn   | 94%   | 88%     | 25% | 42%      | 50%    |
+| midday | 84.5% | 80%     | 25% | 32%      | 44%    |
+| dusk   | 30%   | 36%     | 96% | 86%      | 88%    |
+| night  | 20%   | 26%     | 95% | 80%      | 82%    |
 
 `scripts/kinetic.test.ts` checks every theme stays in sRGB and every pair reaches 4.5:1: `fg`, `fg-muted` and `accent` on `bg` and on `surface`, plus `on-accent` on `accent`. It also checks the no-JS fallbacks equal midday and night. `node scripts/kinetic-palette.ts` prints every color and ratio. Change a hue or chroma, run the tests; change a lightness step only if they still pass.
 
@@ -81,7 +82,7 @@ Chroma sits close to the sRGB limit for each lightness step. The light themes si
 
 The accent hue drifts along the page. `html` runs a `--page` scroll timeline that animates the registered `--progress` from 0 to 1, and `--drift` is `--progress` times the theme's `--drift-span`, added to the accent hue. Text and background never drift.
 
-The sign differs per theme because some hue offsets break a theme: above about 40, midday's accent fails, and between -65 and -5, dusk's accent leaves sRGB. A test walks each span in ten steps and checks that the accent stays in sRGB and every accent pair stays at 4.5:1 or more. Drift sits behind the motion guard and `@supports (animation-timeline: view())`, so without them `--progress` stays 0.
+The sign differs per theme because some hue offsets break a theme: past about -30 or +30, midday's accent drops under 4.5:1 on the darker blue, and between -65 and -5, dusk's accent leaves sRGB. A test walks each span in ten steps and checks that the accent stays in sRGB and every accent pair stays at 4.5:1 or more. Drift sits behind the motion guard and `@supports (animation-timeline: view())`, so without them `--progress` stays 0.
 
 ## Type
 

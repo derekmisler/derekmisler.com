@@ -54,18 +54,18 @@ Each theme sets a hue and chroma for background, text and accent on a fixed set 
 
 | Theme  | `color-scheme` | bg hue / chroma | fg hue / chroma | accent hue / chroma | `--drift-span` |
 | ------ | -------------- | --------------- | --------------- | ------------------- | -------------- |
-| dawn   | light          | 95 / 0.07       | 330 / 0.1       | 25 / 0.19           | -50            |
-| midday | light          | 220 / 0.042     | 260 / 0.09      | 350 / 0.19          | -50            |
-| dusk   | dark           | 320 / 0.12      | 90 / 0.04       | 95 / 0.16           | 40             |
-| night  | dark           | 265 / 0.09      | 220 / 0.03      | 200 / 0.13          | -40            |
+| dawn   | light          | 95 / 0.09       | 330 / 0.11      | 25 / 0.19           | -50            |
+| midday | light          | 200 / 0.07      | 260 / 0.1       | 350 / 0.195         | -50            |
+| dusk   | dark           | 320 / 0.14      | 90 / 0.048      | 95 / 0.16           | 40             |
+| night  | dark           | 265 / 0.13      | 220 / 0.034     | 200 / 0.134         | -40            |
 
 Midday is the `:root` default.
 
 ### Halftone background
 
-`html` paints `--bg` under two offset layers of `radial-gradient` dots in `--surface`, which form a 45° grid. The pitch is `spacing-sm` and the dot radius is a quarter of `spacing-2xs`. The dots use `--surface` because every text pair is already AA on it, so text stays readable wherever it lands on a dot. The rail, skip link and theme toggle keep solid `--bg` fills.
+`html` paints `--bg` under two offset layers of `radial-gradient` dots in `--dot`, which form a 45° grid. `--dot` is `--surface` at half opacity, so a dot always sits between `--bg` and `--surface`, where every text pair is already AA. The pitch is `spacing-sm` and the dot radius is a sixth of `spacing-2xs`. The rail, skip link and theme toggle keep solid `--bg` fills.
 
-The light themes sit at 94% background lightness, not higher, because a lighter background can't hold this much chroma inside sRGB. Night also applies under `@media (prefers-color-scheme: dark)` when no `data-theme` is set.
+Chroma sits close to the sRGB limit for each lightness step. The light themes sit at 94% background lightness, not higher, because a lighter background can't hold this much chroma, and midday uses hue 200 because bluer hues hold about half the chroma at that lightness. Night also applies under `@media (prefers-color-scheme: dark)` when no `data-theme` is set.
 
 ### AA lightness steps
 

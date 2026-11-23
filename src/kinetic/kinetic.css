@@ -8,12 +8,12 @@
     --toggle: --theme(--spacing-3xl);
     --poster-unit: 1svh;
     --poster-fit: calc((100svh - var(--rail-block) - --theme(--spacing-lg) * 2) / --theme(--leading-poster));
-    --dot: calc(--theme(--spacing-2xs) / 4);
+    --dot-size: calc(--theme(--spacing-2xs) / 6);
     --dot-pitch: --theme(--spacing-sm);
     background-color: var(--bg);
     background-image:
-      radial-gradient(circle, var(--surface) var(--dot), transparent calc(var(--dot) * 1.3)),
-      radial-gradient(circle, var(--surface) var(--dot), transparent calc(var(--dot) * 1.3));
+      radial-gradient(circle, var(--dot) var(--dot-size), transparent calc(var(--dot-size) * 1.4)),
+      radial-gradient(circle, var(--dot) var(--dot-size), transparent calc(var(--dot-size) * 1.4));
     background-size: var(--dot-pitch) var(--dot-pitch);
     background-position:
       0 0,

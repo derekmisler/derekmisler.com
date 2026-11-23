@@ -85,12 +85,12 @@
   --l-fg-muted: 42%;
   --l-accent: 48%;
 
-  --h-bg: 220;
-  --c-bg: 0.042;
+  --h-bg: 200;
+  --c-bg: 0.07;
   --h-fg: 260;
-  --c-fg: 0.09;
+  --c-fg: 0.1;
   --h-accent: 350;
-  --c-accent: 0.19;
+  --c-accent: 0.195;
   --drift: 0;
   --drift-span: -50;
 
@@ -100,13 +100,14 @@
   --surface: oklch(from var(--bg) var(--l-surface) c h);
   --fg-muted: oklch(from var(--fg) var(--l-fg-muted) calc(c * 0.8) h);
   --on-accent: oklch(from var(--accent) var(--l-bg) 0.01 h);
+  --dot: oklch(from var(--surface) l c h / 0.5);
 }
 
 :root[data-theme='dawn'] {
   --h-bg: 95;
-  --c-bg: 0.07;
+  --c-bg: 0.09;
   --h-fg: 330;
-  --c-fg: 0.1;
+  --c-fg: 0.11;
   --h-accent: 25;
   --c-accent: 0.19;
   --drift-span: -50;
@@ -122,9 +123,9 @@
   --l-accent: 80%;
 
   --h-bg: 320;
-  --c-bg: 0.12;
+  --c-bg: 0.14;
   --h-fg: 90;
-  --c-fg: 0.04;
+  --c-fg: 0.048;
   --h-accent: 95;
   --c-accent: 0.16;
   --drift-span: 40;
@@ -140,11 +141,11 @@
   --l-accent: 80%;
 
   --h-bg: 265;
-  --c-bg: 0.09;
+  --c-bg: 0.13;
   --h-fg: 220;
-  --c-fg: 0.03;
+  --c-fg: 0.034;
   --h-accent: 200;
-  --c-accent: 0.13;
+  --c-accent: 0.134;
   --drift-span: -40;
 }
 
@@ -159,11 +160,11 @@
     --l-accent: 80%;
 
     --h-bg: 265;
-    --c-bg: 0.09;
+    --c-bg: 0.13;
     --h-fg: 220;
-    --c-fg: 0.03;
+    --c-fg: 0.034;
     --h-accent: 200;
-    --c-accent: 0.13;
+    --c-accent: 0.134;
     --drift-span: -40;
   }
 }

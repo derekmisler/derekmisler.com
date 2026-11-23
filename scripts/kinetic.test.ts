@@ -120,6 +120,7 @@ test('panels run from intro to contact, with links only on the ends and posters 
   assert.equal(panels.at(-1)?.id, 'contact');
   assert.ok(panels.slice(1, -1).every((panel) => panel.links.length === 0));
   assert.equal(posterSize('Derek Misler'), 'min(var(--poster-width) / 3.800, var(--poster-fit) / 2)');
+  assert.equal(posterSize('Ahead of schedule'), 'min(var(--poster-width) / 4.800, var(--poster-fit) / 3)');
   for (const panel of panels) {
     assert.equal(panel.size, posterSize(panel.poster), panel.id);
   }

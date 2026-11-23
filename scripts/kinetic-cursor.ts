@@ -6,21 +6,33 @@ import { palette, themeFile, themeSelectors } from './kinetic-palette.ts';
 export const size = 32;
 export const hotspot = 12;
 
-const arrow = 'M12 12 L12 28.15 L16.08 24.41 L19.06 30.7 L22.03 29.34 L19.14 23.22 L24.24 23.22 Z';
+const scale = 0.87;
+const at = ([x, y]: number[]) => [hotspot + x * scale, hotspot + y * scale].map((n) => Number(n.toFixed(2)));
+const arrow = `M${[
+  [0, 0],
+  [0, 16.15],
+  [4.08, 12.41],
+  [7.06, 18.7],
+  [10.03, 17.34],
+  [7.14, 11.22],
+  [12.24, 11.22],
+]
+  .map((point) => at(point).join(' '))
+  .join(' L')} Z`;
 const dots = [
-  [14.5, 18],
-  [14.5, 21.4],
-  [16.7, 19.7],
-  [14.5, 24.8],
-  [16.7, 23.1],
-];
+  [2.5, 6],
+  [2.5, 9.4],
+  [4.7, 7.7],
+  [2.5, 12.8],
+  [4.7, 11.1],
+].map(at);
 
 const lines = Array.from({ length: 6 }, (_, i) => {
   const angle = ((125 + (225 * i) / 5) * Math.PI) / 180;
   const end = i % 2 ? 7 : 9.3;
-  const at = (r: number) =>
+  const ray = (r: number) =>
     `${(hotspot + r * Math.cos(angle)).toFixed(2)} ${(hotspot + r * Math.sin(angle)).toFixed(2)}`;
-  return `M${at(3.6)} L${at(end)}`;
+  return `M${ray(3.6)} L${ray(end)}`;
 }).join(' ');
 
 const round = (value: number) => Number(value.toFixed(4));

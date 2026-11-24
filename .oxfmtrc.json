@@ -10,5 +10,6 @@
   "singleAttributePerLine": false,
   "htmlWhitespaceSensitivity": "css",
   "sortPackageJson": false,
-  "ignorePatterns": ["node_modules", "dist", ".astro", "pnpm-lock.yaml", "**/*.astro"]
+  "ignorePatterns": ["node_modules", "dist", ".astro", "pnpm-lock.yaml"],
+  "astro": true
 }

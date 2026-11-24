@@ -119,7 +119,7 @@ The homepage panels, `llms.txt` and the resume are built from `src/constants.ts`
 
 - **TypeScript**: Strict mode with explicit types
 - **oxlint**: Linting for `.ts`, `.mjs` and the frontmatter and `<script>` blocks of `.astro` files; it does not lint `.astro` markup or CSS
-- **oxfmt**: Formatting for `.ts`, `.mjs`, `.css`, `.md`, `.json` and `.yml`; `.astro` files are ignored because oxfmt's experimental Astro support adds visible whitespace (`Docker</a>.` becomes `Docker .`), so format them by hand
+- **oxfmt**: Formatting for `.ts`, `.mjs`, `.astro`, `.css`, `.md`, `.json` and `.yml`. `.astro` support is on through `"astro": true` in `.oxfmtrc.json` and uses `@astrojs/compiler-rs`, which Astro already installs
 
 ### SEO Configuration
 

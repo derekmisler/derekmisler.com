@@ -85,7 +85,7 @@ export const jobTitle = 'Senior Software Engineer';
 // SEO
 export const title = 'Staff-Level Front-End Engineer | AI Agent Tooling | Design Systems & Accessibility';
 export const description =
-  'Front-end engineer at Docker based in Arlington, VA. I lead frontend work on AI Governance, set technical direction for Docker\u2019s frontend monorepo, and built the AI code review that runs on 100+ Docker repositories, with React, TypeScript, and accessibility-first practices.';
+  'Front-end engineer at Docker based in Arlington, VA. I lead frontend work on AI Governance, set technical direction for Docker\u2019s frontend monorepo, and created the AI code review that runs on 100+ Docker repositories, with React, TypeScript, and accessibility-first practices.';
 
 // Social
 export const socialId = 'derekmisler';

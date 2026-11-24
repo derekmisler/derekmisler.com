@@ -6,19 +6,18 @@ const words = splitWords(text);
 const style = stagger(words.flat().length);
 ---
 
-<span class="sr-only">{text}</span><span class="split" aria-hidden="true"
-  >{
-    words.map((word, wordIndex) => (
-      <>
-        <span class="word">
-          {word.map((letter) => (
-            <span class="letter" style={style()}>
-              {letter}
-            </span>
-          ))}
-        </span>
-        {wordIndex < words.length - 1 && ' '}
-      </>
-    ))
-  }</span
->
+<span class="sr-only">{text}</span>
+<span class="split" aria-hidden="true">
+  {words.map((word, wordIndex) => (
+    <>
+      <span class="word">
+        {word.map((letter) => (
+          <span class="letter" style={style()}>
+            {letter}
+          </span>
+        ))}
+      </span>
+      {wordIndex < words.length - 1 && ' '}
+    </>
+  ))}
+</span>

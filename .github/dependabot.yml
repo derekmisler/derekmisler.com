@@ -26,3 +26,12 @@ updates:
         update-types:
           - 'minor'
           - 'patch'
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+    cooldown:
+      default-days: 3
+    # Security updates only: a limit of 0 turns off routine version bumps.
+    open-pull-requests-limit: 0

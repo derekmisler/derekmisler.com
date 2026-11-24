@@ -6,14 +6,12 @@ const { items } = railLayout;
 
 <nav class="rail" aria-label="Sections">
   <ol class="rail-list">
-    {
-      panels.map((panel, index) => (
-        <li class="rail-item" style={`--timeline: ${panel.timeline}; ${items[index].style}`}>
-          <a class="rail-link ink-lit" href={`#${panel.id}`}>
-            {panel.label}
-          </a>
-        </li>
-      ))
-    }
+    {panels.map((panel, index) => (
+      <li class="rail-item" style={`--timeline: ${panel.timeline}; ${items[index].style}`}>
+        <a class="rail-link ink-lit" href={`#${panel.id}`}>
+          {panel.label}
+        </a>
+      </li>
+    ))}
   </ol>
 </nav>

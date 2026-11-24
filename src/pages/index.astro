@@ -15,7 +15,8 @@ const swaps = `@media (prefers-reduced-motion: no-preference){${swapKeyframes()}
 const timelines = panels.map((panel) => panel.timeline).join(', ');
 
 const siteUrl = 'https://derekmisler.com';
-const imageAlt = 'Pop-art comic portrait of Derek Misler with yellow hair, browline glasses and a red shirt on blue Ben-Day dots';
+const imageAlt =
+  'Pop-art comic portrait of Derek Misler with yellow hair, browline glasses and a red shirt on blue Ben-Day dots';
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -96,7 +97,9 @@ const jsonLd = {
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
-    <a class="skip-link sr-only focus:not-sr-only" href={`#${panels[0].id}`}>Skip to main content</a>
+    <a class="skip-link sr-only focus:not-sr-only" href={`#${panels[0].id}`}>
+      Skip to main content
+    </a>
     <Rail />
     <Track />
     <ThemeToggle />
